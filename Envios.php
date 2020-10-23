@@ -6,7 +6,7 @@ namespace Tiendita;
 
 class Envios
 {
-    public $IdEnvio;
-    public $IdEmpresaEnvio;
-    public $EstatusEnvio;
+    public $IdEnvio=0;
+    public $IdEmpresaEnvio=0;
+    public $EstatusEnvio="";
 }
