@@ -6,8 +6,10 @@ namespace Tiendita;
 
 class Pagos
 {
-    public $IdPagos;
-    public $Descripcion;
-    public $Compañia;
-    public $EstatusPago;
+
+    public $IdPago = 0 ;
+    public $Descripcion = "" ; // TIPO DE VARIABLE?
+    public $Compania = "" ;
+    public $EstatusPago = false ; //Bool o STR?
+
 }
