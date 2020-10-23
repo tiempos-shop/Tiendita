@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="" />
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Envios.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProductosPedido.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,7 +33,13 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="D:/Descargados/php_xdebug-2.9.6-7.4-vc15-nts-x86_64.dll" />
+    <property name="last_opened_file_path" value="$APPLICATION_CONFIG_DIR$/jdbc-drivers/MySQL ConnectorJ/5.1.47/mysql-connector-java-5.1.47.jar" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="copyright" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -42,25 +52,61 @@
       <option name="presentableId" value="Default" />
       <updated>1603296670860</updated>
       <workItem from="1603296759958" duration="7175000" />
+      <workItem from="1603406030012" duration="6120000" />
+      <workItem from="1603470320539" duration="1826000" />
     </task>
+    <task id="LOCAL-00001" summary="Entidad Producto">
+      <created>1603407857632</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603407857632</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Entidad Producto" />
+    <option name="LAST_COMMIT_MESSAGE" value="Entidad Producto" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="681" y="159" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603309415070">
+    <state x="166" y="249" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603411276704">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="681" y="159" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1603309415070" />
-    <state x="740" y="263" key="FileChooserDialogImpl" timestamp="1603391077072">
+    <state x="166" y="249" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1603411276704" />
+    <state x="585" y="9" key="CommitChangelistDialog2" timestamp="1603407856798">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="740" y="263" key="FileChooserDialogImpl/0.0.1920.1019@0.0.1920.1019" timestamp="1603391077072" />
+    <state x="585" y="9" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1603407856798" />
+    <state x="740" y="263" key="FileChooserDialogImpl" timestamp="1603411181845">
+      <screen x="0" y="0" width="1920" height="1019" />
+    </state>
+    <state x="740" y="263" key="FileChooserDialogImpl/0.0.1920.1019@0.0.1920.1019" timestamp="1603411181845" />
     <state x="990" y="395" key="Github.CreateGistDialog" timestamp="1603389346701">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="990" y="395" key="Github.CreateGistDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1603389346701" />
+    <state width="196" height="539" key="HiddenNamespacesPopup" timestamp="1603409508844">
+      <screen x="0" y="0" width="1920" height="1019" />
+    </state>
+    <state width="196" height="539" key="HiddenNamespacesPopup/0.0.1920.1019@0.0.1920.1019" timestamp="1603409508844" />
+    <state x="764" y="330" key="NewPhpClassDialog" timestamp="1603471767255">
+      <screen x="0" y="0" width="1920" height="1019" />
+    </state>
+    <state x="764" y="330" key="NewPhpClassDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1603471767255" />
     <state x="1006" y="415" key="NewPhpFileDialog" timestamp="1603389522479">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
@@ -73,9 +119,13 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="472" y="8" width="1400" height="979" key="SourceMapInspector.frame/0.0.1920.1019@0.0.1920.1019" timestamp="1603389504208" />
-    <state x="514" y="193" key="Vcs.Push.Dialog.v2" timestamp="1603389666134">
+    <state x="514" y="193" key="Vcs.Push.Dialog.v2" timestamp="1603411896545">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="514" y="193" key="Vcs.Push.Dialog.v2/0.0.1920.1019@0.0.1920.1019" timestamp="1603389666134" />
+    <state x="514" y="193" key="Vcs.Push.Dialog.v2/0.0.1920.1019@0.0.1920.1019" timestamp="1603411896545" />
+    <state x="773" y="422" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603461764274">
+      <screen x="0" y="0" width="1920" height="1019" />
+    </state>
+    <state x="773" y="422" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1019@0.0.1920.1019" timestamp="1603461764274" />
   </component>
 </project>
