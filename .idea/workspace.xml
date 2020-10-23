@@ -29,7 +29,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="D:/Descargados/php_xdebug-2.9.6-7.4-vc15-nts-x86_64.dll" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../xampp/php/phpdbg.exe" />
     <property name="settings.editor.selected.configurable" value="copyright" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -42,6 +42,7 @@
       <option name="presentableId" value="Default" />
       <updated>1603296670860</updated>
       <workItem from="1603296759958" duration="7175000" />
+      <workItem from="1603427958910" duration="765000" />
     </task>
     <servers />
   </component>
