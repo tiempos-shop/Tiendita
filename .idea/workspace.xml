@@ -19,10 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/CatalogoConfig.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pedidos.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="formato">
+      <change beforePath="$PROJECT_DIR$/Devoluciones.php" beforeDir="false" afterPath="$PROJECT_DIR$/Devoluciones.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,8 +73,23 @@
       <updated>1603296670860</updated>
       <workItem from="1603296759958" duration="7175000" />
       <workItem from="1603405894489" duration="4491000" />
-      <workItem from="1603473306883" duration="2201000" />
+      <workItem from="1603473306883" duration="2545000" />
     </task>
+    <task id="LOCAL-00001" summary="Pedidos">
+      <created>1603478572271</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603478572271</updated>
+    </task>
+    <task id="LOCAL-00002" summary="formato">
+      <created>1603478735640</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603478735640</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,6 +106,11 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Pedidos" />
+    <MESSAGE value="formato" />
+    <option name="LAST_COMMIT_MESSAGE" value="formato" />
   </component>
   <component name="WindowStateProjectService">
     <state x="739" y="166" key="#PHP" timestamp="1603407929200">
@@ -128,10 +146,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="619" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603411695354" />
-    <state x="265" y="246" key="NewPhpClassDialog" timestamp="1603478159109">
+    <state x="265" y="246" key="NewPhpClassDialog" timestamp="1603478600373">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="265" y="246" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603478159108" />
+    <state x="265" y="246" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603478600373" />
     <state x="1006" y="415" key="NewPhpFileDialog" timestamp="1603389522479">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
