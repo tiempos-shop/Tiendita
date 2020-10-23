@@ -1,10 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Envios.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProductosPedido.php" afterDir="false" />
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Entidad Producto">
+      <change afterPath="$PROJECT_DIR$/Clientes.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Connection/Conectar.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Connection/Database.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Connection/EntidadBase.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Direcciones.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pagos.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/bootstrap-grid.css" beforeDir="false" afterPath="$PROJECT_DIR$/View/css/bootstrap-grid.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/bootstrap-grid.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/View/css/bootstrap-grid.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/bootstrap-grid.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/View/css/bootstrap-grid.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/bootstrap-grid.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/View/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/bootstrap-reboot.css" beforeDir="false" afterPath="$PROJECT_DIR$/View/css/bootstrap-reboot.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/bootstrap-reboot.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/View/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/bootstrap-reboot.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/View/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/bootstrap-reboot.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/View/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/bootstrap-utilities.css" beforeDir="false" afterPath="$PROJECT_DIR$/View/css/bootstrap-utilities.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/bootstrap-utilities.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/View/css/bootstrap-utilities.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/bootstrap-utilities.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/View/css/bootstrap-utilities.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/bootstrap-utilities.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/View/css/bootstrap-utilities.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/View/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/bootstrap.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/View/css/bootstrap.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/View/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/bootstrap.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/View/css/bootstrap.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/bootstrap.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/View/js/bootstrap.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/bootstrap.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/View/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/bootstrap.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/View/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/bootstrap.bundle.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/View/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/bootstrap.esm.js" beforeDir="false" afterPath="$PROJECT_DIR$/View/js/bootstrap.esm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/bootstrap.esm.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/View/js/bootstrap.esm.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/bootstrap.esm.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/View/js/bootstrap.esm.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/bootstrap.esm.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/View/js/bootstrap.esm.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/View/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/bootstrap.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/View/js/bootstrap.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/View/js/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/bootstrap.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/View/js/bootstrap.min.js.map" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +76,12 @@
     <property name="settings.editor.selected.configurable" value="copyright" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\Data\Connection" />
+      <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\View" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -53,7 +92,7 @@
       <updated>1603296670860</updated>
       <workItem from="1603296759958" duration="7175000" />
       <workItem from="1603406030012" duration="6120000" />
-      <workItem from="1603470320539" duration="1826000" />
+      <workItem from="1603470320539" duration="11853000" />
     </task>
     <task id="LOCAL-00001" summary="Entidad Producto">
       <created>1603407857632</created>
@@ -62,7 +101,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603407857632</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Entidad Producto">
+      <created>1603472388326</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603472388326</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -87,10 +133,10 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="166" y="249" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1603411276704" />
-    <state x="585" y="9" key="CommitChangelistDialog2" timestamp="1603407856798">
+    <state x="585" y="9" key="CommitChangelistDialog2" timestamp="1603484881318">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="585" y="9" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1603407856798" />
+    <state x="585" y="9" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1603484881318" />
     <state x="740" y="263" key="FileChooserDialogImpl" timestamp="1603411181845">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
@@ -99,18 +145,34 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="990" y="395" key="Github.CreateGistDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1603389346701" />
+    <state width="917" height="242" key="GridCell.Tab.0.bottom" timestamp="1603479058655">
+      <screen x="0" y="0" width="1920" height="1019" />
+    </state>
+    <state width="917" height="242" key="GridCell.Tab.0.bottom/0.0.1920.1019@0.0.1920.1019" timestamp="1603479058655" />
+    <state width="917" height="242" key="GridCell.Tab.0.center" timestamp="1603479058654">
+      <screen x="0" y="0" width="1920" height="1019" />
+    </state>
+    <state width="917" height="242" key="GridCell.Tab.0.center/0.0.1920.1019@0.0.1920.1019" timestamp="1603479058654" />
+    <state width="917" height="242" key="GridCell.Tab.0.left" timestamp="1603479058654">
+      <screen x="0" y="0" width="1920" height="1019" />
+    </state>
+    <state width="917" height="242" key="GridCell.Tab.0.left/0.0.1920.1019@0.0.1920.1019" timestamp="1603479058654" />
+    <state width="917" height="242" key="GridCell.Tab.0.right" timestamp="1603479058654">
+      <screen x="0" y="0" width="1920" height="1019" />
+    </state>
+    <state width="917" height="242" key="GridCell.Tab.0.right/0.0.1920.1019@0.0.1920.1019" timestamp="1603479058654" />
     <state width="196" height="539" key="HiddenNamespacesPopup" timestamp="1603409508844">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state width="196" height="539" key="HiddenNamespacesPopup/0.0.1920.1019@0.0.1920.1019" timestamp="1603409508844" />
-    <state x="764" y="330" key="NewPhpClassDialog" timestamp="1603471767255">
+    <state x="764" y="330" key="NewPhpClassDialog" timestamp="1603479971659">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="764" y="330" key="NewPhpClassDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1603471767255" />
-    <state x="1006" y="415" key="NewPhpFileDialog" timestamp="1603389522479">
+    <state x="764" y="330" key="NewPhpClassDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1603479971659" />
+    <state x="1006" y="415" key="NewPhpFileDialog" timestamp="1603478064127">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="1006" y="415" key="NewPhpFileDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1603389522479" />
+    <state x="1006" y="415" key="NewPhpFileDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1603478064127" />
     <state x="568" y="110" key="SettingsEditor" timestamp="1603391568731">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
