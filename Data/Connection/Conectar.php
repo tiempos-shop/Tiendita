@@ -3,12 +3,14 @@
 
 namespace Tiendita;
 
+use mysqli;
+
 class Conectar{
     private $driver;
     private $host, $user, $pass, $database, $charset;
 
     public function __construct() {
-        $db_cfg = require_once 'config/database.php';
+        $db_cfg = require_once 'Database.php';
         $this->driver=$db_cfg["driver"];
         $this->host=$db_cfg["host"];
         $this->user=$db_cfg["user"];
