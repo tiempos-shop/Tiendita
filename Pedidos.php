@@ -8,9 +8,9 @@ class Pedidos
 {
 
     public $IdPedido = 0 ;
-    public $EstatusPedido = "" ; // bool?
+    public $EstatusPedido = "" ;
     public $IdEnvio = 0 ;
-    public $FechaPedido = "" ; // día mes año
+    public $FechaPedido = "" ;
     public $IdCliente = 0 ;
 
 }
