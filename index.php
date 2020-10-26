@@ -29,7 +29,7 @@ $styles.="body{font-family: 'Grandstander', cursive;}";
 
 
 
-$body.='<div class="jumbotro"><h1></h1><p>Nuestra Tienda Online</p></div>';
+$body.='<div class="jumbotron"><h1>Tiempos Shop</h1><p>Nuestra Tienda Online</p><p>Proximamente</p></div>';
 
 
 

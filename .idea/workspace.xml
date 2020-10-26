@@ -19,7 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="" />
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +33,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="1jC8NBuZUkHFN6h3T2nWWCwJfYm" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -143,9 +146,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Pagos.php" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="739" y="166" key="#PHP" timestamp="1603407929200">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="526" y="23" key="#PHP" timestamp="1603678694899">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
+    <state x="526" y="23" key="#PHP/0.0.1366.738@0.0.1366.738" timestamp="1603678694899" />
     <state x="739" y="166" key="#PHP/0.0.1920.1040@0.0.1920.1040" timestamp="1603407929200" />
     <state x="968" y="203" width="880" height="683" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603411279230">
       <screen x="0" y="0" width="1920" height="1040" />
