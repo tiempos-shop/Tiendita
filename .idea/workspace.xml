@@ -20,7 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CatalogoConfig.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/CatalogoConfig.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clientes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Clientes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Devoluciones.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Devoluciones.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Direcciones.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Direcciones.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Envios.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Envios.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pagos.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Pagos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pedidos.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Pedidos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Producto.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Producto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProductosPedido.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/ProductosPedido.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +70,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\Data\Models" />
       <recent name="C:\Users\RENDER2\PhpstormProjects\Tiendita" />
     </key>
   </component>
