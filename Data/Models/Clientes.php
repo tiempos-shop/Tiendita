@@ -3,7 +3,6 @@
 
 namespace Tiendita;
 
-
 class Clientes
 {
 
