@@ -3,7 +3,7 @@
 
 namespace Tiendita;
 
-class Clientes
+class Clientes extends BaseAuditoria
 {
 
     public $IdCliente = 0 ;

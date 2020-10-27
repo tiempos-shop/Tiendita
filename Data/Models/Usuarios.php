@@ -4,7 +4,7 @@
 namespace Tiendita;
 
 
-class Usuarios
+class Usuarios extends BaseAuditoria
 {
     public $IdUsuario=0;
     public $Nombres="";

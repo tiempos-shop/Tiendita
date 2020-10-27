@@ -20,14 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Data/Models/BaseAuditoria.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Models/EmpresasEnvio.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Models/EstatusPedido.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Models/TipoMovimiento.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Models/Usuarios.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Connection/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Connection/Database.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/Models/Clientes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Clientes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Models/Devoluciones.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Devoluciones.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Models/Envios.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Envios.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Models/Pagos.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Pagos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Models/Pedidos.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Pedidos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Models/Producto.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Producto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Models/Usuarios.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Usuarios.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603744386309</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Pagos.php">
+      <created>1603778191157</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1603778191157</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,10 +178,10 @@
     </state>
     <state x="681" y="159" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1603309415070" />
     <state x="968" y="203" width="880" height="683" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603411279230" />
-    <state x="467" y="9" key="CommitChangelistDialog2" timestamp="1603744384519">
+    <state x="467" y="9" key="CommitChangelistDialog2" timestamp="1603778190121">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="467" y="9" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1603744384519" />
+    <state x="467" y="9" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1603778190121" />
     <state x="740" y="263" key="FileChooserDialogImpl" timestamp="1603391077072">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
@@ -216,10 +223,10 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="472" y="8" width="1400" height="979" key="SourceMapInspector.frame/0.0.1920.1019@0.0.1920.1019" timestamp="1603389504208" />
-    <state x="514" y="193" key="Vcs.Push.Dialog.v2" timestamp="1603778175209">
+    <state x="514" y="193" key="Vcs.Push.Dialog.v2" timestamp="1603778202516">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="514" y="193" key="Vcs.Push.Dialog.v2/0.0.1920.1019@0.0.1920.1019" timestamp="1603778175209" />
+    <state x="514" y="193" key="Vcs.Push.Dialog.v2/0.0.1920.1019@0.0.1920.1019" timestamp="1603778202516" />
     <state x="849" y="428" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603777434525">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>

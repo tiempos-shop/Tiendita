@@ -4,7 +4,7 @@
 namespace Tiendita;
 
 
-class Producto
+class Producto extends BaseAuditoria
 {
     public $IdProducto = 0 ;
     public $Clave = "" ;

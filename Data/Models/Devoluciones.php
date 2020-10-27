@@ -4,7 +4,7 @@
 namespace Tiendita;
 
 
-class Devoluciones
+class Devoluciones extends BaseAuditoria
 {
 
     public $IdDevolucion = 0 ;

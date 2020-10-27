@@ -4,7 +4,7 @@
 namespace Tiendita;
 
 
-class Envios
+class Envios extends BaseAuditoria
 {
     public $IdEnvio=0;
     public $IdEmpresaEnvio=0;

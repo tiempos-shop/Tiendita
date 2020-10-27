@@ -4,7 +4,7 @@
 namespace Tiendita;
 
 
-class Pagos
+class Pagos extends BaseAuditoria
 {
 
     public $IdPago = 0 ;
