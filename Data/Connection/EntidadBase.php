@@ -11,11 +11,16 @@ class EntidadBase{
     private $conectar;
 
     public function __construct($table) {
-        $this->table=(string) $table;
 
-        require_once 'Conectar.php';
-        $this->conectar=new Conectar();
-        $this->db=$this->conectar->conexion();
+        try {
+            $this->table=(string) $table;
+            require_once 'Conectar.php';
+            $this->conectar=new Conectar();
+            $this->db=$this->conectar->conexion();
+        } catch (Exception $e){
+            echo $e->getMessage();
+        }
+
     }
 
     public function getConetar(){
@@ -27,13 +32,13 @@ class EntidadBase{
     }
 
     public function getAll(){
-        $query=$this->db->query("SELECT * FROM $this->table ORDER BY id DESC");
+        $resultSet=array();
+        $queryString="SELECT * FROM $this->table";
+        $query=$this->db->query($queryString);
 
-        //Devolvemos el resultset en forma de array de objetos
         while ($row = $query->fetch_object()) {
-           $resultSet[]=$row;
+            $resultSet[]=$row;
         }
-
         return $resultSet;
     }
 
@@ -67,11 +72,33 @@ class EntidadBase{
         return $query;
     }
 
+    public function DB2Entity(){
+        $data=$this->getAll();
+        switch ($this->table){
+            case "Usuarios":
+                foreach ($data as $row){
+                    $usuario=new Usuarios();
+                    $usuario->IdUsuario=$row->IdUsuario;
+                    $usuario->Nombres=$row->Nombres;
+                    $usuario->IdUsuario=$row->IdUsuario;
+                    $usuario->IdUsuario=$row->IdUsuario;
 
-    /*
-     * Aquí podemos montarnos un montón de métodos que nos ayuden
-     * a hacer operaciones con la base de datos de la entidad
-     */
+
+                    $EntidadUsuarios[]=$usuario;
+                }
+
+                break;
+
+            default:
+                throw new \Exception('Error en la configuración de tablas');
+        }
+
+
+
+
+
+        return $data;
+    }
 
 }
 ?>

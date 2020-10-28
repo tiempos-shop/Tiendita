@@ -12,7 +12,7 @@ class Clientes extends BaseAuditoria
     public $Nombre = "" ;
     public $Apellidos = "" ;
     public $Vip = false ;
-    // public IdDireccion = 0 ;
+    public $IdDireccion = 0 ;
 
 
 }

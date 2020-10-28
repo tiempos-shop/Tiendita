@@ -15,4 +15,6 @@ class Usuarios extends BaseAuditoria
     public $CorreoElectronico="";
     public $Telefono="";
 
+
+
 }
