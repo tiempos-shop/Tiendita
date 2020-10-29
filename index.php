@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <?php
+
+use Tiendita\ModeloUsuarios;
+
 $header="";
 $styles="";
 $body="";
@@ -34,8 +37,13 @@ $body.='<div class="jumbotron"><h1>Tiempos Shop</h1><p>Nuestra Tienda Online</p>
 include_once ("Data/Models/BaseAuditoria.php");
 include_once ("Data/Models/Usuarios.php");
 include_once ("Data/Connection/EntidadBase.php");
-$base=new \Tiendita\EntidadBase("Usuarios");
-$r=$base->DB2Entity();
+include_once ("Data/Models/ModeloUsuarios.php");
+
+$usuarios=new ModeloUsuarios();
+
+
+
+
 
 
 

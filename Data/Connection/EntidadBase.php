@@ -6,14 +6,13 @@ namespace Tiendita;
 
 
 class EntidadBase{
-    private $table;
+
     private $db;
     private $conectar;
 
-    public function __construct($table) {
+    public function __construct() {
 
         try {
-            $this->table=(string) $table;
             require_once 'Conectar.php';
             $this->conectar=new Conectar();
             $this->db=$this->conectar->conexion();
@@ -31,9 +30,9 @@ class EntidadBase{
         return $this->db;
     }
 
-    public function getAll(){
+    public function getAll($table){
         $resultSet=array();
-        $queryString="SELECT * FROM $this->table";
+        $queryString="SELECT * FROM $table";
         $query=$this->db->query($queryString);
 
         while ($row = $query->fetch_object()) {
@@ -42,18 +41,11 @@ class EntidadBase{
         return $resultSet;
     }
 
-    public function getById($id){
-        $query=$this->db->query("SELECT * FROM $this->table WHERE id=$id");
-
-        if($row = $query->fetch_object()) {
-           $resultSet=$row;
-        }
-
-        return $resultSet;
-    }
-
-    public function getBy($column,$value){
-        $query=$this->db->query("SELECT * FROM $this->table WHERE $column='$value'");
+    public function getBy($table,$column,$value){
+        $resultSet=array();
+        $queryString="SELECT * FROM $table WHERE $column=$value";
+        $query=$this->db->query($queryString);
+        echo "<p>".$queryString."</p>";
 
         while($row = $query->fetch_object()) {
            $resultSet[]=$row;
@@ -62,43 +54,14 @@ class EntidadBase{
         return $resultSet;
     }
 
-    public function deleteById($id){
-        $query=$this->db->query("DELETE FROM $this->table WHERE id=$id");
+    public function deleteById($table,$id){
+        $query=$this->db->query("DELETE FROM $table WHERE id=$id");
         return $query;
     }
 
-    public function deleteBy($column,$value){
-        $query=$this->db->query("DELETE FROM $this->table WHERE $column='$value'");
+    public function deleteBy($table,$column,$value){
+        $query=$this->db->query("DELETE FROM $table WHERE $column='$value'");
         return $query;
     }
-
-    public function DB2Entity(){
-        $data=$this->getAll();
-        switch ($this->table){
-            case "Usuarios":
-                foreach ($data as $row){
-                    $usuario=new Usuarios();
-                    $usuario->IdUsuario=$row->IdUsuario;
-                    $usuario->Nombres=$row->Nombres;
-                    $usuario->IdUsuario=$row->IdUsuario;
-                    $usuario->IdUsuario=$row->IdUsuario;
-
-
-                    $EntidadUsuarios[]=$usuario;
-                }
-
-                break;
-
-            default:
-                throw new \Exception('Error en la configuración de tablas');
-        }
-
-
-
-
-
-        return $data;
-    }
-
 }
 ?>
