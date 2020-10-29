@@ -3,8 +3,7 @@
 
 namespace Tiendita;
 
-
-use Cassandra\Date;
+use DateTime;
 
 class BaseAuditoria
 {
@@ -16,7 +15,7 @@ class BaseAuditoria
     {
         include_once ("TipoMovimiento.php");
         $this->IdTipoMovimiento=new TipoMovimiento();
-        $this->FechaCambio=""; //\DateTime::createFromFormat('j-M-Y', '0-Ene-2000');
-        //$this->IdUsuarioBase=new Usuarios();
+        $this->FechaCambio = ""; // new DateTime('d/m/Y H:i:s');
+        // $this->IdUsuarioBase=new Usuarios();
     }
 }

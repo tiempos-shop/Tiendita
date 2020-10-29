@@ -4,6 +4,9 @@
 namespace Tiendita;
 
 
+use http\Exception\BadConversionException;
+use mysql_xdevapi\Exception;
+
 class ModeloUsuarios
 {
     public $NombreTablaUsuarios="Usuarios";
@@ -11,22 +14,23 @@ class ModeloUsuarios
     public $NombreIdTipoMovimiento="IdTipoMovimientos";
     public $NombreIdUsuarios="IdUsuario";
     public $Datos;
+    private $utilidades;
 
     public function __construct()
     {
         $EntidadUsuarios=array();
         include_once("Business/Collection.php");
         $this->Datos=new Collection();
+        include_once("Business/Utilidades.php");
+        $this->utilidades=new Utilidades();
+
         include_once("Data/Connection/EntidadBase.php");
         $entidadBase=new EntidadBase();
         $data=$entidadBase->getAll($this->NombreTablaUsuarios);
-        echo "<p>Ingresa al contructor</p>";
         include_once ("Data/Models/Usuarios.php");
 
         foreach ($data as $row) {
-            echo "<p>Genera un usuario</p>";
             $usuario = new Usuarios();
-            echo "<p>Finaliza Genera un usuario</p>";
             $usuario->IdUsuario = $row->IdUsuario;
             $usuario->Nombres = $row->Nombres;
             $usuario->Apellidos = $row->Apellidos;
@@ -44,12 +48,19 @@ class ModeloUsuarios
 
             $EntidadUsuarios[] = $usuario;
         }
-        echo "<p>Sale del contructor</p>";
-        var_dump($EntidadUsuarios[0]);
+
+        //var_dump($EntidadUsuarios[0]);
+
+
+        echo $this->utilidades->Object2Table($EntidadUsuarios);
+
+
 
         $this->Datos=$EntidadUsuarios;
 
     }
+
+
 
     public function AgregarUsuario($Usuario){
         if (!is_a($Usuario, 'Usuario')) {
