@@ -20,9 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Business/Utilidades.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Models/BaseAuditoria.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/BaseAuditoria.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/Models/ModeloUsuarios.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/ModeloUsuarios.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +35,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpServers">
+    <servers>
+      <server host="127.0.0.1" id="e820fe44-1307-4645-b719-522a0b5573cf" name="XAMPP Server" />
+    </servers>
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="1jC8NBuZUkHFN6h3T2nWWCwJfYm" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -69,7 +72,7 @@
       <recent name="C:\Users\RENDER2\PhpstormProjects\Tiendita" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHP Script.index.php">
     <configuration name="index.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/index.php">
       <CommandLine>
         <PhpTestInterpreterSettings>
@@ -78,6 +81,13 @@
       </CommandLine>
       <method v="2" />
     </configuration>
+    <configuration name="XAMPP" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" server_name="XAMPP Server" start_url="http://localhost:63342/Tiendita/index.php">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="PHP Script.index.php" />
+      <item itemvalue="PHP Web Page.XAMPP" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="PHP Script.index.php" />
@@ -208,9 +218,14 @@
     </state>
     <state x="526" y="23" key="#PHP/0.0.1366.738@0.0.1366.738" timestamp="1603678694899" />
     <state x="739" y="166" key="#PHP/0.0.1920.1040@0.0.1920.1040" timestamp="1603407929200" />
-    <state x="512" y="95" width="880" height="683" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603932348271">
-      <screen x="0" y="0" width="1920" height="1019" />
+    <state x="288" y="0" key="#Servers" timestamp="1604439233130">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
+    <state x="288" y="0" key="#Servers/0.0.1366.738@0.0.1366.738" timestamp="1604439233130" />
+    <state x="364" y="69" width="687" height="599" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604439248357">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="364" y="69" width="687" height="599" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1604439248357" />
     <state x="512" y="95" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1603932348271" />
     <state x="968" y="203" width="880" height="683" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603411279230" />
     <state x="602" y="324" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1603999224619">
