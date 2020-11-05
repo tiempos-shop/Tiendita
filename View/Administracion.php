@@ -5,7 +5,6 @@ use Tiendita\ModeloUsuarios;
 
 $header="";
 $styles="";
-$javascript="";
 $body="";
 $foot="";
 
@@ -16,7 +15,7 @@ $foot="";
 $header.='
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda en Construcción!</title>';
+    <title>Modulo de Administracion</title>';
 
 // Scripts
 $header.='<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>';
@@ -34,7 +33,10 @@ $styles.="body{font-family: 'Grandstander', cursive;}";
 
 $body.='<!-- Button trigger modal -->
 <button type="button" class="btn btn-link float-right" data-toggle="modal" data-target="#exampleModal">
-  Login
+  Reingreso
+</button>
+<button type="button" class="btn btn-link float-right">
+  Cerrar Sesión
 </button>
 
 <!-- Modal -->
@@ -63,46 +65,17 @@ $body.='<!-- Button trigger modal -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" onclick="administracion()" class="btn btn-primary">Accesar</button>
+        <button type="button" class="btn btn-primary">Accesar</button>
       </div>
     </div>
   </div>
 </div>';
-
-$body.='<div class="jumbotron"><h1>Tiempos Shop</h1><p>Nuestra Tienda Online</p><p>Proximamente</p></div>';
-$javascript.="function administracion(){ window.location.href='http://localhost:63342/Tiendita/View/Administracion.php' };";
-
-
-include_once ("Data/Models/BaseAuditoria.php");
-include_once ("Data/Models/Usuarios.php");
-include_once ("Data/Connection/EntidadBase.php");
-include_once ("Data/Models/ModeloUsuarios.php");
-
-$usuarios=new ModeloUsuarios();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$body.='<div class="jumbotron"><h1>Administración de Tiempos Shop</h1><p>Configuración | Usuarios | Finanzas | Reportes | Ayuda</p></div>';
 
 
 
 
 // End
-$HtmlInjection="<html lang='es'><head><title>Tiempos.Shop</title><script>$javascript</script><style>$styles</style>$header</head><body>$body</body></html>";
+$HtmlInjection="<html lang='es'><head><style>".$styles."</style>".$header."</head><body>".$body."</body></html>";
 
 echo $HtmlInjection;

@@ -20,11 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/View/Administracion.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Connection/EntidadBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Connection/EntidadBase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Models/BaseAuditoria.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/BaseAuditoria.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Models/ModeloUsuarios.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/ModeloUsuarios.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Models/Producto.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Producto.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -293,9 +290,10 @@
     </state>
     <state x="628" y="209" key="NewPhpClassDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1603999231985" />
     <state x="265" y="246" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603480856140" />
-    <state x="1006" y="415" key="NewPhpFileDialog" timestamp="1603389522479">
-      <screen x="0" y="0" width="1920" height="1019" />
+    <state x="780" y="159" key="NewPhpFileDialog" timestamp="1604603079407">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
+    <state x="780" y="159" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1604603079407" />
     <state x="1006" y="415" key="NewPhpFileDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1603389522479" />
     <state x="568" y="110" key="SettingsEditor" timestamp="1603391568731">
       <screen x="0" y="0" width="1920" height="1019" />
