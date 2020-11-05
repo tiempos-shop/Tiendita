@@ -42,10 +42,13 @@ class EntidadBase{
     }
 
     public function getBy($table,$column,$value){
+
         $resultSet=array();
-        $queryString="SELECT * FROM $table WHERE $column=$value";
+        $intValue=intval($value);
+        $queryString="SELECT * FROM $table WHERE $column=$intValue";
+
         $query=$this->db->query($queryString);
-        echo "<p>".$queryString."</p>";
+        //echo "<p>".$queryString."</p>";
 
         while($row = $query->fetch_object()) {
            $resultSet[]=$row;

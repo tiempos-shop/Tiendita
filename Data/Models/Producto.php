@@ -11,5 +11,6 @@ class Producto extends BaseAuditoria
     public $Nombre = "" ;
     public $Descripcion = "" ;
     public $Costo = 0.0 ;
+    //TODO: Faltan agregar los datos del negocio para describir las caracteristicas del producto
 
 }

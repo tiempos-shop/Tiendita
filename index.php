@@ -31,8 +31,45 @@ $header.='<link href="https://fonts.googleapis.com/css2?family=Grandstander:wght
 $styles.="body{font-family: 'Grandstander', cursive;}";
 
 
+$body.='<!-- Button trigger modal -->
+<button type="button" class="btn btn-link float-right" data-toggle="modal" data-target="#exampleModal">
+  Login
+</button>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Correo: </span>
+            </div>
+            <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Password: </span>
+            </div>
+            <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" onclick="javascript:Administracion.php" class="btn btn-primary">Accesar</button>
+      </div>
+    </div>
+  </div>
+</div>';
 $body.='<div class="jumbotron"><h1>Tiempos Shop</h1><p>Nuestra Tienda Online</p><p>Proximamente</p></div>';
+
+
 
 include_once ("Data/Models/BaseAuditoria.php");
 include_once ("Data/Models/Usuarios.php");

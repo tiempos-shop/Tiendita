@@ -9,7 +9,9 @@ class BaseAuditoria
 {
     public $FechaCambio;
     public $IdTipoMovimiento;
+    public $TipoMovimiento;
     public $IdUsuarioBase;
+    public $UsuarioBase;
 
     public function __construct()
     {

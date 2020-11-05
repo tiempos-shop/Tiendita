@@ -8,11 +8,12 @@ class ModeloUsuarios
     public $Id="IdUsuario";
     public $campos=
         array(1=>"Nombres",2=>"Apellidos",3=>"Usuario",4=>"Password",
-            5=>"CorreoElectronico",6=>"Telefono",7=>"NumeroEmpleado",8=>"FechaCambio");
+            5=>"CorreoElectronico",6=>"Telefono",7=>"NumeroEmpleado",8=>"FechaCambio",9=>"IdTipoMovimiento",
+            10=>"IdUsuarioBase");
 
     // Tabla Externa TipoMovimiento
     public $NombreTablaTipoMovimiento="TipoMovimiento";
-    public $NombreIdTipoMovimiento="IdTipoMovimientos";
+    public $NombreIdTipoMovimiento="IdTipoMovimiento";
 
     public $Datos;
     private $utilidades;
@@ -34,26 +35,18 @@ class ModeloUsuarios
         foreach ($data as $row) {
 
             $element = new Usuarios();
-            $element->IdUsuario = $row->IdUsuario;
-            $element->Nombres = $row->Nombres;
-            $element->Apellidos = $row->Apellidos;
-            $element->Usuario = $row->Usuario;
-            $element->Password = $row->Password;
-            $element->Telefono = $row->Telefono;
-            $element->CorreoElectronico = $row->CorreoElectronico;
-            $element->NumeroEmpleado = $row->NumeroEmpleado;
-            $element->FechaCambio = ""; // \DateTime::createFromFormat("",$row->IdTipoMovimiento,\DateTimeZone::AMERICA) ;
 
-            $tipoMovimiento=$entidadBase->getBy($this->NombreTablaTipoMovimiento,$this->NombreIdTipoMovimiento,(int)$row->IdTipoMovimientos);
-            $element->IdTipoMovimiento=$tipoMovimiento;
+            foreach ($this->campos as $campo){
+                $element->$campo=$row->$campo;
+            }
 
-
-            $usuarioBase=$entidadBase->getBy($this->Tabla,$this->Id,(int)$row->IdUsuarioBase);
-            $element->IdUsuarioBase=$usuarioBase;
+            // Objetos Externos
+            $element->TipoMovimiento=$entidadBase->getBy($this->NombreTablaTipoMovimiento,$this->NombreIdTipoMovimiento,$element->IdTipoMovimiento);
+            $element->UsuarioBase=$entidadBase->getBy($this->Tabla,$this->Id,$element->IdUsuarioBase);
 
             $Entidad[] = $element;
         }
-        echo $this->utilidades->Object2Table($Entidad);
+        // echo $this->utilidades->Object2Table($Entidad);
         $this->Datos=$Entidad;
     }
 
