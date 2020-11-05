@@ -70,7 +70,7 @@ $body.='<!-- Button trigger modal -->
 </div>';
 
 $body.='<div class="jumbotron"><h1>Tiempos Shop</h1><p>Nuestra Tienda Online</p><p>Proximamente</p></div>';
-$javascript.="function administracion(){ window.location.href='http://localhost:63342/Tiendita/View/Administracion.php' };\n";
+$javascript.="function administracion(){ window.location.href='http://localhost:63342/Tiendita/View/Componentes/Administracion/administracion.php' };\n";
 $javascript.="function url(dir){ window.location.href=dir };\n";
 
 
