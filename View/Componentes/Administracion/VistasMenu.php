@@ -28,32 +28,41 @@ class VistasMenu
     }
 
     public function LogOutModal(){
+        $titulo="¿Seguro que quieres abandonar tu sesión?";
+        $body="Confirme con el boton 'desconectarme' para abandonar la sesión.";
+        $botonSalir="Salir";
+        $botonAccion="Desconectarme";
+        $urlAccion="login.html";
+        return $this->Modal($titulo,$body,$botonSalir,$botonAccion,$urlAccion);
+
+    }
+
+    public function Modal($titulo,$body,$botonSalir,$botonAccion,$urlAccion){
         $html='
           <!-- Logout Modal-->
           <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">¿Seguro que quieres abandonar tu sesión?</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">'.$titulo.'</h5>
                   <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                   </button>
                 </div>
-                <div class="modal-body">Confirme con el boton \'desconectarme\' para abandonar la sesión.</div>
+                <div class="modal-body">'.$body.'</div>
                 <div class="modal-footer">
-                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Salir</button>
-                  <a class="btn btn-primary" href="login.html">Desconectarme</a>
+                  <button class="btn btn-secondary" type="button" data-dismiss="modal">'.$botonSalir.'</button>
+                  <a class="btn btn-primary" href="'.$urlAccion.'">'.$botonAccion.'</a>
                 </div>
               </div>
             </div>
           </div>    
         ';
         return $html;
-
     }
 
     public function Scripts(){
-        $html='
+        return '
             <!-- Bootstrap core JavaScript-->
               <script src="vendor/jquery/jquery.min.js"></script>
               <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -71,7 +80,52 @@ class VistasMenu
               <script src="js/demo/chart-area-demo.js"></script>
               <script src="js/demo/chart-pie-demo.js"></script>
         ';
+    }
 
-        return $html;
+    public function SideBar($titulo,$url){
+         $html=$this->SideBarBrand($titulo,$url);
+         $html.=$this->Divider();
+         $html.=$this->NavItemDashboard();
+         $html.=$this->Divider();
+         return $html;
+    }
+
+    public function SideBarBrand($titulo,$url,$icon="fas fa-shopping-basket"){
+        return '
+            <!-- Sidebar - Brand -->
+              <a class="sidebar-brand d-flex align-items-center justify-content-center" href="'.$url.'">
+                <div class="sidebar-brand-icon rotate-n-15">
+                  <i class="'.$icon.'"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">'.$titulo.'<sup>mr</sup></div>
+              </a>
+        ';
+    }
+
+    public function Divider(){
+        return '
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            ';
+
+    }
+
+    public function NavItemDashboard(){
+        $titulo="Panel Control";
+        $url="administracion.php";
+        $icon="fas fa-fw fa-tachometer-alt";
+        return $this->NavItem($titulo,$url,$icon);
+
+    }
+
+    public function NavItem($titulo,$url,$icon){
+        return '
+            <!-- Nav Item - Dashboard -->
+              <li class="nav-item active">
+                <a class="nav-link" href="'.$url.'">
+                  <i class="'.$icon.'"></i>
+                  <span>'.$titulo.'</span></a>
+              </li>
+        ';
     }
 }
