@@ -108,7 +108,8 @@
       <workItem from="1603473306883" duration="4663000" />
       <workItem from="1603920870504" duration="29000" />
       <workItem from="1603920928067" duration="20282000" />
-      <workItem from="1604680165967" duration="8812000" />
+      <workItem from="1604680165967" duration="8836000" />
+      <workItem from="1604942652653" duration="15191000" />
     </task>
     <task id="LOCAL-00001" summary="Pedidos">
       <created>1603478572271</created>
@@ -201,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604617590608</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Pagos.php">
+      <created>1604705967965</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1604705967965</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,10 +260,10 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="690" y="255" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1604609859555" />
-    <state x="419" y="1" key="CommitChangelistDialog2" timestamp="1604617584534">
+    <state x="419" y="1" key="CommitChangelistDialog2" timestamp="1604705966853">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="419" y="1" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1604617584534" />
+    <state x="419" y="1" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1604705966853" />
     <state x="740" y="263" key="FileChooserDialogImpl" timestamp="1603391077072">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
@@ -331,6 +339,10 @@
     </state>
     <state x="849" y="428" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1019@0.0.1920.1019" timestamp="1603920970131" />
     <state x="849" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603407951040" />
+    <state x="616" y="229" key="run.anything.popup" timestamp="1604957557846">
+      <screen x="0" y="0" width="1920" height="1019" />
+    </state>
+    <state x="616" y="229" key="run.anything.popup/0.0.1920.1019@0.0.1920.1019" timestamp="1604957557846" />
     <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1603477732524">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

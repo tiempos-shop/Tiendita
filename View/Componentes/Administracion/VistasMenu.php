@@ -2,6 +2,8 @@
 
 namespace Administracion;
 
+use mysql_xdevapi\Exception;
+
 class VistasMenu
 {
 
@@ -33,6 +35,7 @@ class VistasMenu
         $botonSalir="Salir";
         $botonAccion="Desconectarme";
         $urlAccion="login.html";
+
         return $this->Modal($titulo,$body,$botonSalir,$botonAccion,$urlAccion);
 
     }
@@ -87,6 +90,20 @@ class VistasMenu
          $html.=$this->Divider();
          $html.=$this->NavItemDashboard();
          $html.=$this->Divider();
+         $html.=$this->Heading("Administración");
+
+         $elementos=["buttons.html"=>"Altas" , "cards.html"=>"Modificación", ""=>"Datos VIP",];
+         $html.=$this->NavItemCollapse("id1","Clientes","Gestion Clientes",$elementos);
+
+        $elementos=["buttons.html"=>"Altas" ,""=>"Bajas", "cards.html"=>"Cambios"];
+        $html.=$this->NavItemCollapse("id2","Usuarios","Gestion Usuarios",$elementos);
+
+        $elementos=["utilities-color.html"=>"Captura Individual" , "utilities-border.html"=>"Captura Masiva", "utilities-animation.html"=>"Circulacion de Inventario"];
+        $html.=$this->NavItemCollapse("id3","Inventarios","Inventarios",$elementos);
+
+        $elementos=["utilities-color.html"=>"Reporte Financiero" , "utilities-border.html"=>"Reporte de Pedidos", "utilities-animation.html"=>"Reporte de Devoluciones"];
+        $html.=$this->NavItemCollapse("id4","Reportes","Reportes",$elementos);
+
          return $html;
     }
 
@@ -127,5 +144,43 @@ class VistasMenu
                   <span>'.$titulo.'</span></a>
               </li>
         ';
+    }
+
+    public function Heading($titulo){
+        return '<!-- Heading -->
+      <div class="sidebar-heading">
+        '.$titulo.'
+      </div>';
+    }
+
+    public function NavItemCollapse($id,$titulo,$subtitulo,$items){
+        if(!is_array($items)){
+            throw new Exception("Se requiere un arrglo para los menus, URL y titulo");
+        }
+        $html_inicio='
+        <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#'.$id.'" aria-expanded="true" aria-controls="'.$id.'">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>'.$titulo.'</span>
+        </a>
+        <div id="'.$id.'" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">'.$subtitulo.':</h6>
+            ';
+
+        $html_menu="";
+        foreach ($items as $url=>$titulo){
+            $html_menu.='
+            <a class="collapse-item" href="'.$url.'">'.$titulo.'</a>
+            ';
+        }
+
+        $html_fin='
+          </div>
+        </div>
+      </li>
+        ';
+        return $html_inicio.$html_menu.$html_fin;
     }
 }
