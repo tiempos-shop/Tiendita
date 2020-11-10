@@ -104,6 +104,15 @@ class VistasMenu
         $elementos=["utilities-color.html"=>"Reporte Financiero" , "utilities-border.html"=>"Reporte de Pedidos", "utilities-animation.html"=>"Reporte de Devoluciones"];
         $html.=$this->NavItemCollapse("id4","Reportes","Reportes",$elementos);
 
+        $html.=$this->Divider();
+        $html.=$this->Heading("Configuración");
+
+        $html.=$this->NavItem("Aplicacion","AplConf.php","fas fa-fw fa-chart-area");
+        $html.=$this->NavItem("Tablas","tables.html","fas fa-fw fa-table");
+
+
+
+
          return $html;
     }
 
@@ -183,4 +192,8 @@ class VistasMenu
         ';
         return $html_inicio.$html_menu.$html_fin;
     }
+
+
+
+
 }
