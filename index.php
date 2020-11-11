@@ -32,8 +32,13 @@ $header.='
 
 
 // Estilos Directos
-$styles.="body{font-family: 'Grandstander', cursive;}";
-
+$styles.="body{font-family: 'Grandstander', cursive;}
+    .estiloIzquierdo {
+    @import url('https://fonts.googleapis.com/css2?family=Goldman:wght@700&display=swap');
+      background-color:#F4EEE9;
+      font-family: 'Goldman', cursive; 
+    }
+";
 
 $body.='<!-- Button trigger modal -->
 <button type="button" class="btn btn-link float-right" data-toggle="modal" data-target="#exampleModal">
@@ -75,10 +80,24 @@ $body.='<!-- Button trigger modal -->
 
 // $body.='<div class="jumbotron"><h1>Tiempos Shop</h1><p>Nuestra Tienda Online</p><p>Proximamente</p></div>';
 $panelIzquierdo='
+    <head>
+    <p>a.2020</p>
+    <p>TIEMPOS</p>
+    <br>
+    <br>
+    <br>
+    <p>PROYECTO DE CARTERAS</p>    
+    </head>
+    <br> <br> <br> <br> <br> <br> <br> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <body>
+    <p>ABOUT</p>
+    <p>TERMINOS Y CONDICIONES</p>
+    <p>ES/EN </p>
     
+    </body>
 ';
 $panelDerecha='
-    
+    <p><img src="View/Imagenes/ejemplo-1.jpg" alt="Bolsita"><img src="View/Imagenes/ejemplo-2.jpg" alt="Sentadita"></p>
 ';
 
 
@@ -86,7 +105,7 @@ $panelDerecha='
 $body.='
 <div class="container-fluid" style="height: 95vh;position: relative;">
   <div class="row" style="height: 95vh;position: relative;">
-    <div class="col-sm-3" style="">
+    <div class="col-sm-3 estiloIzquierdo">
       '.$panelIzquierdo.'
     </div>
     <div class="col-sm-9" style="">
