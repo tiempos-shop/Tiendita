@@ -36,7 +36,25 @@ $styles.="body{font-family: 'Grandstander', cursive;}
     .estiloIzquierdo {
     @import url('https://fonts.googleapis.com/css2?family=Goldman:wght@700&display=swap');
       background-color:#F4EEE9;
-      font-family: 'Goldman', cursive; 
+      font-family: 'Goldman', cursive;
+      
+      .proyectosScroll {
+      .content-box { 
+  box-sizing: content-box; 
+}
+.padding-box {
+  box-sizing: padding-box; 
+}
+.border-box { 
+  box-sizing: border-box; 
+}
+
+      margin: auto;
+      background: lime ;
+      width: 66%;
+      
+      }
+       
     }
 ";
 
@@ -81,8 +99,8 @@ $body.='<!-- Button trigger modal -->
 // $body.='<div class="jumbotron"><h1>Tiempos Shop</h1><p>Nuestra Tienda Online</p><p>Proximamente</p></div>';
 $panelIzquierdo='
     <head>
-    <p>a.2020</p>
-    <p>TIEMPOS</p>
+    <p class="user-select-none">a.2020</p>
+    <p class="user-select-none">TIEMPOS</p>
     <br>
     <br>
     <br>
@@ -92,7 +110,7 @@ $panelIzquierdo='
     <body>
     <p>ABOUT</p>
     <p>TERMINOS Y CONDICIONES</p>
-    <p>ES/EN </p>
+    <p class="text-center">ES/EN </p>
     
     </body>
 ';
