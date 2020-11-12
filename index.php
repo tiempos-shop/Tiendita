@@ -25,9 +25,6 @@ $header.='<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/boot
 // Hojas de Estilo
 $header.='<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">';
 $header.='<link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@100&display=swap" rel="stylesheet">';
-$header.='
-
-';
 
 
 
@@ -74,14 +71,8 @@ $body.='<!-- Button trigger modal -->
 </div>';
 
 // $body.='<div class="jumbotron"><h1>Tiempos Shop</h1><p>Nuestra Tienda Online</p><p>Proximamente</p></div>';
-$panelIzquierdo='
-    
-';
-$panelDerecha='
-    
-';
-
-
+$panelIzquierdo='';
+$panelDerecha='Hola mundo';
 
 $body.='
 <div class="container-fluid" style="height: 95vh;position: relative;">
