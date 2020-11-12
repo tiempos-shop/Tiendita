@@ -156,7 +156,7 @@ class VistasMenu
         return $html;
     }
 
-    public function SideBarBrand($titulo,$url,$icon="fas fa-shopping-basket"){
+    private function SideBarBrand($titulo,$url,$icon="fas fa-shopping-basket"){
         return '
             <!-- Sidebar - Brand -->
               <a class="sidebar-brand d-flex align-items-center justify-content-center" href="'.$url.'">
@@ -168,7 +168,7 @@ class VistasMenu
         ';
     }
 
-    public function Divider(){
+    private function Divider(){
         return '
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -176,14 +176,14 @@ class VistasMenu
 
     }
 
-    public function FinalDivider(){
+    private function FinalDivider(){
         return '
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
       ';
     }
 
-    public function NavItemDashboard(){
+    private function NavItemDashboard(){
         $titulo="Panel Control";
         $url="administracion.php";
         $icon="fas fa-fw fa-tachometer-alt";
@@ -191,7 +191,7 @@ class VistasMenu
 
     }
 
-    public function NavItem($titulo,$url,$icon){
+    private function NavItem($titulo,$url,$icon){
         return '
             <!-- Nav Item - Dashboard -->
               <li class="nav-item active">
@@ -202,14 +202,14 @@ class VistasMenu
         ';
     }
 
-    public function Heading($titulo){
+    private function Heading($titulo){
         return '<!-- Heading -->
       <div class="sidebar-heading">
         '.$titulo.'
       </div>';
     }
 
-    public function NavItemCollapse($id,$titulo,$subtitulo,$items){
+    private function NavItemCollapse($id,$titulo,$subtitulo,$items){
         if(!is_array($items)){
             throw new Exception("Se requiere un arrglo para los menus, URL y titulo");
         }
@@ -240,7 +240,7 @@ class VistasMenu
         return $html_inicio.$html_menu.$html_fin;
     }
 
-    public function SidebarToggler(){
+    private function SidebarToggler(){
         return '<!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -272,14 +272,14 @@ class VistasMenu
         return $html;
     }
 
-    public function TopBarToggle(){
+    private function TopBarToggle(){
         return '<!-- Topbar Toggle -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>';
     }
 
-    public function TopBarSearch($url=""){
+    private function TopBarSearch($url=""){
         if($url!=""){
             $url='formaction="'.$url.'"';
         }
@@ -303,8 +303,12 @@ class VistasMenu
           <ul class="navbar-nav ml-auto">';
 
         $html.=$this->TopbarNavbarNavItemSearchDropdown();
-        $html.=$this->TopbarNavbarNavItemAlerts();
-        $html.=$this->TopbarNavbarNavItemMessages();
+
+        $alertas=[ "3 agosto 2020"=>"Se genero una devolucion del cliente Softquimia S.A. de C.V. Pedido 123443","4 agosto 2020"=>"Se dio de alta un cliente VIP 'Luis Miguel'."];
+        $html.=$this->TopbarNavbarNavItemAlerts("Alertas","Alertas",$alertas);
+
+        $mensajes=[ "Gilberto Lozano"=>"Necesito ayuda","Enrique Peña Nieto"=>"Ya no soy presidente de México"];
+        $html.=$this->TopbarNavbarNavItemMessages("Mensaje","Centro de Mensajes",$mensajes);
         $html.=$this->Divisor();
         $html.=$this->TopbarNavbarNavItemUserInformation();
 
@@ -319,7 +323,7 @@ class VistasMenu
 
     }
 
-    function TopbarNavbarNavItemSearchDropdown(){
+    private function TopbarNavbarNavItemSearchDropdown(){
         return '<!-- Nav Item - Search Dropdown (Visible Only XS) -->
             <li class="nav-item dropdown no-arrow d-sm-none">
               <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -341,120 +345,74 @@ class VistasMenu
             </li>';
     }
 
-    function TopbarNavbarNavItemAlerts(){
-        return '<!-- Nav Item - Alerts -->
+    private function TopbarNavbarNavItemAlerts($id,$titulo,$alertas){
+        return $this->TopbarNavbarNavItemMessages($id,$titulo,$alertas,2);
+    }
+
+    private function TopbarNavbarNavItemMessages($id,$titulo,$mensajes,$tipo=1){
+        $html= '<!-- Nav Item - Messages -->
             <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bell fa-fw"></i>
-                <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">3+</span>
+              <a class="nav-link dropdown-toggle" href="#" id="'.$id.'" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-envelope fa-fw"></i>
+                <!-- Counter - Messages -->
+                <span class="badge badge-danger badge-counter">7</span>
               </a>
-              <!-- Dropdown - Alerts -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="'.$id.'">
                 <h6 class="dropdown-header">
-                  Alerts Center
-                </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                  '.$titulo.'
+                </h6>';
+        if($tipo==1){
+            foreach ($mensajes as $usuario=>$mensaje){
+                $html.=$this->MesaggeItem($mensaje,$usuario);
+            }
+        }
+        else{
+            foreach ($mensajes as $fecha=>$alerta){
+                $html.=$this->AlertItem($alerta,$fecha);
+            }
+        }
+
+        $html.='
+              </div>
+            </li>';
+
+        return $html;
+    }
+
+    private function AlertItem($alert,$date){
+        return '<a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="mr-3">
                     <div class="icon-circle bg-primary">
                       <i class="fas fa-file-alt text-white"></i>
                     </div>
                   </div>
                   <div>
-                    <div class="small text-gray-500">Diciembre 12, 2019</div>
-                    <span class="font-weight-bold">Se ha generado un nuevo reporte!</span>
+                    <div class="small text-gray-500">'.$date.'</div>
+                    <span class="font-weight-bold">'.$alert.'</span>
                   </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-success">
-                      <i class="fas fa-donate text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">Diciembre 7, 2019</div>
-                    $290.29 han sido depositados en cuenta!
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-warning">
-                      <i class="fas fa-exclamation-triangle text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">Diciembre 2, 2019</div>
-                    Spending Alert: Hemos detectado noticias nuevas.
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-              </div>
-            </li>';
+                </a>';
     }
 
-    function TopbarNavbarNavItemMessages(){
-        return '<!-- Nav Item - Messages -->
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-envelope fa-fw"></i>
-                <!-- Counter - Messages -->
-                <span class="badge badge-danger badge-counter">7</span>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
-                <h6 class="dropdown-header">
-                  Centro de Mensajes
-                </h6>
+    private function MesaggeItem($mensaje,$usuario){
+        return '
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="dropdown-list-image mr-3">
                     <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
                     <div class="status-indicator bg-success"></div>
                   </div>
                   <div class="font-weight-bold">
-                    <div class="text-truncate">Hola, me puedes ayudar.</div>
-                    <div class="small text-gray-500">Maria Perez · 58m</div>
+                    <div class="text-truncate">'.$mensaje.'</div>
+                    <div class="small text-gray-500">'.$usuario.'</div>
                   </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
-                    <div class="status-indicator"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Ya te envie las fotos</div>
-                    <div class="small text-gray-500">Pedro Gonzales · 1d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
-                    <div class="status-indicator bg-warning"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">El ultimo reprte es correcto!</div>
-                    <div class="small text-gray-500">Juan Belizario · 2d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">¿Ya salimos a comer?</div>
-                    <div class="small text-gray-500">Jorge Santos · 2w</div>
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Más mensajes</a>
-              </div>
-            </li>';
+                </a>';
     }
 
-    function Divisor(){
+    private function Divisor(){
         return '<div class="topbar-divider d-none d-sm-block"></div>';
     }
 
-    function TopbarNavbarNavItemUserInformation(){
+    private function TopbarNavbarNavItemUserInformation(){
         return '<!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
