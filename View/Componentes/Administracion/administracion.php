@@ -6,6 +6,8 @@
     echo $html;
     include_once ("VistasMenu.php");
     $vistaMenu=new \Administracion\VistasMenu();
+    include_once ("VistaPrincipal.php");
+    $vistaPrincipal=new \Administracion\VistaPrincipal();
 
     echo $vistaMenu->Head();
 
@@ -23,7 +25,8 @@
                         <!-- Main Content -->
                         <div id="content">';
                 echo $vistaMenu->TopBar();
-                echo $vistaMenu->Content();
+
+                echo $vistaPrincipal->Content();
 
           ?>
 
