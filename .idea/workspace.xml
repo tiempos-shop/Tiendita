@@ -20,8 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaPrincipal.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistasHtml.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistaPrincipal.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaPrincipal.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistasMenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistasMenu.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/administracion.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/administracion.php" afterDir="false" />
     </list>
@@ -75,7 +76,7 @@
       <recent name="C:\Users\RENDER2\PhpstormProjects\Tiendita" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Web Page.XAMPP">
+  <component name="RunManager" selected="PHP Web Page.Admin">
     <configuration name="index.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/index.php">
       <CommandLine>
         <PhpTestInterpreterSettings>
@@ -84,11 +85,15 @@
       </CommandLine>
       <method v="2" />
     </configuration>
+    <configuration name="Admin" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" server_name="XAMPP Server" start_url="http://localhost:63342/Tiendita/View/Componentes/Administracion/administracion.php">
+      <method v="2" />
+    </configuration>
     <configuration name="XAMPP" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" server_name="XAMPP Server" start_url="http://localhost:63342/Tiendita/index.php">
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="PHP Script.index.php" />
+      <item itemvalue="PHP Web Page.Admin" />
       <item itemvalue="PHP Web Page.XAMPP" />
     </list>
     <recent_temporary>
@@ -112,7 +117,7 @@
       <workItem from="1603920928067" duration="20282000" />
       <workItem from="1604680165967" duration="8836000" />
       <workItem from="1604942652653" duration="30895000" />
-      <workItem from="1605118661170" duration="23193000" />
+      <workItem from="1605118661170" duration="31364000" />
     </task>
     <task id="LOCAL-00001" summary="Pedidos">
       <created>1603478572271</created>
@@ -240,7 +245,21 @@
       <option name="project" value="LOCAL" />
       <updated>1605143821374</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Pagos.php">
+      <created>1605242563422</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1605242563422</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Pagos.php">
+      <created>1605242788535</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1605242788535</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,11 +296,11 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="288" y="0" key="#Servers/0.0.1366.738@0.0.1366.738" timestamp="1604439233130" />
-    <state x="364" y="69" width="687" height="599" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604439248357">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="645" y="95" width="1092" height="717" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605296487242">
+      <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="364" y="69" width="687" height="599" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1604439248357" />
-    <state x="512" y="95" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1603932348271" />
+    <state x="645" y="95" width="1092" height="717" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1605296487242" />
     <state x="968" y="203" width="880" height="683" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603411279230" />
     <state x="602" y="324" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1603999224619">
       <screen x="0" y="0" width="1920" height="1019" />
@@ -291,10 +310,10 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="690" y="255" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1604609859555" />
-    <state x="54" y="8" key="CommitChangelistDialog2" timestamp="1605143820266">
+    <state x="54" y="8" key="CommitChangelistDialog2" timestamp="1605242787681">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="54" y="8" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1605143820266" />
+    <state x="54" y="8" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1605242787681" />
     <state x="740" y="263" key="FileChooserDialogImpl" timestamp="1603391077072">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
@@ -303,25 +322,25 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="990" y="395" key="Github.CreateGistDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1603389346701" />
-    <state width="1876" height="280" key="GridCell.Tab.0.bottom" timestamp="1605205212949">
+    <state width="1876" height="280" key="GridCell.Tab.0.bottom" timestamp="1605296324763">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state width="1876" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1019@0.0.1920.1019" timestamp="1605205212949" />
+    <state width="1876" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1019@0.0.1920.1019" timestamp="1605296324763" />
     <state width="619" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603479611341" />
-    <state width="1876" height="280" key="GridCell.Tab.0.center" timestamp="1605205212948">
+    <state width="1876" height="280" key="GridCell.Tab.0.center" timestamp="1605296324763">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state width="1876" height="280" key="GridCell.Tab.0.center/0.0.1920.1019@0.0.1920.1019" timestamp="1605205212948" />
+    <state width="1876" height="280" key="GridCell.Tab.0.center/0.0.1920.1019@0.0.1920.1019" timestamp="1605296324763" />
     <state width="619" height="278" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603479611341" />
-    <state width="1876" height="280" key="GridCell.Tab.0.left" timestamp="1605205212948">
+    <state width="1876" height="280" key="GridCell.Tab.0.left" timestamp="1605296324763">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state width="1876" height="280" key="GridCell.Tab.0.left/0.0.1920.1019@0.0.1920.1019" timestamp="1605205212948" />
+    <state width="1876" height="280" key="GridCell.Tab.0.left/0.0.1920.1019@0.0.1920.1019" timestamp="1605296324763" />
     <state width="619" height="278" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603479611341" />
-    <state width="1876" height="280" key="GridCell.Tab.0.right" timestamp="1605205212948">
+    <state width="1876" height="280" key="GridCell.Tab.0.right" timestamp="1605296324763">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state width="1876" height="280" key="GridCell.Tab.0.right/0.0.1920.1019@0.0.1920.1019" timestamp="1605205212948" />
+    <state width="1876" height="280" key="GridCell.Tab.0.right/0.0.1920.1019@0.0.1920.1019" timestamp="1605296324763" />
     <state width="619" height="278" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603479611341" />
     <state width="1876" height="322" key="GridCell.Tab.1.bottom" timestamp="1603907020935">
       <screen x="0" y="0" width="1920" height="1019" />
@@ -343,10 +362,10 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state width="196" height="539" key="HiddenNamespacesPopup/0.0.1920.1019@0.0.1920.1019" timestamp="1603838753651" />
-    <state x="748" y="258" key="NewPhpClassDialog" timestamp="1605226049619">
+    <state x="748" y="258" key="NewPhpClassDialog" timestamp="1605290162750">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="748" y="258" key="NewPhpClassDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1605226049619" />
+    <state x="748" y="258" key="NewPhpClassDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1605290162750" />
     <state x="265" y="246" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603480856140" />
     <state x="780" y="159" key="NewPhpFileDialog" timestamp="1604603079407">
       <screen x="0" y="0" width="1366" height="738" />

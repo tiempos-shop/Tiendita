@@ -3,52 +3,40 @@
 <?php
     $html='<!DOCTYPE html>
         <html lang="es">';
-    echo $html;
+
     include_once ("VistasMenu.php");
-    $vistaMenu=new \Administracion\VistasMenu();
     include_once ("VistaPrincipal.php");
     $vistaPrincipal=new \Administracion\VistaPrincipal();
 
-    echo $vistaMenu->Head();
+    $html.=$vistaPrincipal->HeadMenu();
 
-    echo '<!-- Page Wrapper -->
+    $html.= '<!-- Page Wrapper -->
         <body id="page-top">';
-    echo '<div id="wrapper">';
-    echo $vistaMenu->SideBar("Admin TShop","administracion.php");
-        ?>
+    $html.= '<div id="wrapper">';
+    $html.= $vistaPrincipal->SideBar("Admin TShop","administracion.php");
 
-
-          <?php
-                echo '
+    $html.= '
                     <!-- Content Wrapper -->
                     <div id="content-wrapper" class="d-flex flex-column">
                         <!-- Main Content -->
                         <div id="content">';
-                echo $vistaMenu->TopBar();
+    $html.= $vistaPrincipal->TopBar();
 
-                echo $vistaPrincipal->Content();
+    $html.= $vistaPrincipal->Content();
 
-          ?>
-
-
-
-
-        <?php
-            echo $vistaMenu->Footer("Tiempos Shop");
-            echo '
+    $html.= $vistaPrincipal->Footer("Tiempos Shop");
+    $html.= '
                     </div>
                     <!-- End of Content Wrapper -->
                 </div>
                 <!-- End of Page Wrapper -->';
-        ?>
 
+    $html.= $vistaPrincipal->Wrapper();
+    $html.= '
+        </body>
+    </html>';
 
-
-  <?php
-    echo $vistaMenu->Wrapper();
-    echo '
-    </body>
-</html>';
+    echo $html;
   ?>
 
 
