@@ -6,10 +6,16 @@ namespace Administracion;
 
 class VistasHtml
 {
-    protected $Html5="";
-    protected $Head="";
-    protected $Script="";
-    protected $Body="";
+
+    protected $head="";
+    protected $title="";
+    protected $meta="";
+    protected $loadStyles="";
+    protected $loadScripts="";
+    protected $styles="";
+    protected $scripts="";
+    protected $body="";
+    protected $lang="";
 
     public function __construct()
     {
@@ -17,6 +23,10 @@ class VistasHtml
     }
 
     public function Html5($head, $body,$lang="es"){
+        $this->head=$head;
+        $this->body=$body;
+        $this->lang=$lang;
+
         return '
         <!DOCTYPE html>
         <html lang="'.$lang.'">
@@ -25,9 +35,29 @@ class VistasHtml
         </html>';
     }
 
+    public function RefreshHtml5(){
+        return '
+        <!DOCTYPE html>
+        <html lang="'.$this->lang.'">
+            '.$this->head.'
+            '.$this->body.'
+        </html>';
+    }
+
     protected function Head($title, $meta, $loadStyles, $loadScripts, $styles="", $scripts=""){
         $title='<title>'.$title.'</title>';
+        $this->title=$title;
+        $this->meta=$meta;
+        $this->loadStyles=$loadStyles;
+        $this->loadScripts=$loadScripts;
+        $this->scripts=$scripts;
+        $this->styles=$styles;
         return '<head>'.$meta.$title.$loadStyles.$loadScripts.$styles.$scripts.'</head>';
+    }
+
+    public function RefreshHead(){
+        $this->head='<head>'.$this->meta.$this->title.$this->loadStyles.$this->loadScripts.$this->styles.$this->scripts.'</head>';
+        return $this->head;
     }
 
     protected function Meta($charset="utf-8",$descripcion,$author){
@@ -50,6 +80,7 @@ class VistasHtml
                 $html.='<link href="'.$archivo.'" rel="stylesheet" type="text/css">';
             }
         }
+        $this->loadStyles=$html;
         return $html;
     }
 
@@ -63,6 +94,7 @@ class VistasHtml
                 $html.='<script src="'.$archivo.'"></script>'."\n";
             }
         }
+        $this->loadScripts=$html;
         return $html;
     }
 
