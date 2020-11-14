@@ -32,6 +32,38 @@ class VistasMenu extends VistasHtml
         return $html;
     }
 
+    public function PageWrapper($content){
+        $html= '<!-- Page Wrapper -->
+        <body id="page-top">
+            <div id="wrapper">';
+
+        $html.=$content;
+
+        $html.= '<!-- End Page Wrapper -->
+            </div>
+        </body>';
+
+        return $html;
+    }
+
+    public function ContentWrapper($content){
+        $html= '
+                    <!-- Content Wrapper -->
+                    <div id="content-wrapper" class="d-flex flex-column">
+                        <!-- Main Content -->
+                        <div id="content">';
+
+        $html.=$content;
+
+        $html.= '
+                    </div>
+                    <!-- End of Content Wrapper -->
+                </div>
+                <!-- End of Page Wrapper -->';
+
+        return $html;
+    }
+
     public function ScrollToTopButton(){
         $html='
             <a class="scroll-to-top rounded" href="#page-top">

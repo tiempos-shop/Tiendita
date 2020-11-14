@@ -16,8 +16,13 @@ class VistasHtml
 
     }
 
-    protected function Html5($head,$body){
-        return '';
+    public function Html5($head, $body,$lang="es"){
+        return '
+        <!DOCTYPE html>
+        <html lang="'.$lang.'">
+            '.$head.'
+            '.$body.'
+        </html>';
     }
 
     protected function Head($title, $meta, $loadStyles, $loadScripts, $styles="", $scripts=""){

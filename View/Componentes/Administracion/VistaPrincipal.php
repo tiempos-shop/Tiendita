@@ -2,6 +2,7 @@
 
 
 namespace Administracion;
+include_once ("VistasMenu.php");
 
 
 class VistaPrincipal extends VistasMenu
