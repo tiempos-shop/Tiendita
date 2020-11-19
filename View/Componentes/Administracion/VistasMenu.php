@@ -2,6 +2,7 @@
 
 namespace Administracion;
 
+
 use mysql_xdevapi\Exception;
 include_once ("VistasHtml.php");
 
@@ -9,9 +10,7 @@ class VistasMenu extends VistasHtml
 {
 
 
-    public function __construct()
-    {
-    }
+
 
     public function HeadMenu(){
         return $this->Head("Administración de Tiempos Shop",
@@ -19,10 +18,23 @@ class VistasMenu extends VistasHtml
             $this->LoadStyles([
                 "vendor/fontawesome-free/css/all.min.css",
                 "https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i","css/sb-admin-2.min.css"
-            ]),""
+            ]),
+            $this->styles,
+            $this->scripts
         );
 
 
+    }
+
+    public function Body(){
+        $body= $this->SideBar("Admin TShop","administracion.php");
+        $body.=$this->ContentWrapper(
+            $this->TopBar().
+            $this->Content().
+            $this->Footer("Tiempos Shop")
+        );
+        $body.= $this->Wrapper();
+        return $body;
     }
 
     public function Wrapper(){
@@ -65,13 +77,11 @@ class VistasMenu extends VistasHtml
     }
 
     public function ScrollToTopButton(){
-        $html='
+        return '
             <a class="scroll-to-top rounded" href="#page-top">
                 <i class="fas fa-angle-up"></i>
             </a>
         ';
-
-        return $html;
     }
 
     public function LogOutModal(){
@@ -439,7 +449,7 @@ class VistasMenu extends VistasHtml
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Egil Ordoñez</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" alt="">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -521,9 +531,20 @@ class VistasMenu extends VistasHtml
             </div>';
     }
 
-    public function AreaChart($id,$title){
-        return '<!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
+    public function AreaChart($id,$title,$datos,$menus=""){
+        $etiquetas="[ ";
+        $valores="[ ";
+        foreach ($datos as $etiqueta=>$valor){
+            $etiquetas.='"'.$etiqueta.'",';
+            $valores.=$valor.",";
+        }
+        $etiquetas=trim($etiquetas,",");
+        $valores=trim($valores,",");
+        $etiquetas.=" ]";
+        $valores.=" ]";
+        $this->AreaChartScript($id,"Gráficos",$etiquetas,$valores);
+        $html= '<!-- Area Chart -->
+            <div>
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -533,12 +554,18 @@ class VistasMenu extends VistasHtml
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="'.$id.'">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+                      <div class="dropdown-header">Menu:</div>';
+        if($menus!=""){
+            foreach ($menus as $url=>$menu){
+                if($url==""){
+                    $html.='<div class="dropdown-divider"></div>';
+                }
+                else
+                    $html.='<a class="dropdown-item" href="'.$url.'">'.$menu.'</a>';
+            }
+        }
+
+        $html.='    </div>
                   </div>
                 </div>
                 <!-- Card Body -->
@@ -549,15 +576,32 @@ class VistasMenu extends VistasHtml
                 </div>
               </div>
             </div>';
+        return $html;
     }
 
-    public function PieChart(){
+    private function AreaChartScript($id,$titulo,$etiquetas,$valores){
+        /** @noinspection JSUnusedAssignment */
+        $this->lastScripts.=$this->lastScripts.'
+        <script>
+            let idAreaChart="'.$id.'AreaChart";
+            let titulo="'.$titulo.'";
+            let etiquetas='.$etiquetas.';
+            let datos='.$valores.';
+            ChartArea(titulo,etiquetas,datos);
+        </script>
+        ';
+
+
+    }
+
+
+    public function PieChart($titulo,$menus){
         return '<!-- Pie Chart -->
             <div class="col-xl-4 col-lg-5">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">'.$titulo.'</h6>
                   <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>

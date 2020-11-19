@@ -8,14 +8,15 @@ class VistasHtml
 {
 
     protected $head="";
-    protected $title="";
+    public $title="";
     protected $meta="";
     protected $loadStyles="";
     protected $loadScripts="";
-    protected $styles="";
-    protected $scripts="";
+    public $styles="";
+    public $scripts="";
     protected $body="";
     protected $lang="";
+    public $lastScripts="";
 
     public function __construct()
     {
@@ -32,6 +33,7 @@ class VistasHtml
         <html lang="'.$lang.'">
             '.$head.'
             '.$body.'
+            '.$this->lastScripts.'
         </html>';
     }
 
@@ -82,6 +84,24 @@ class VistasHtml
         }
         $this->loadStyles=$html;
         return $html;
+    }
+
+    public function AddLoadStyles($archivos){
+        $last=$this->loadStyles;
+        $this->LoadStyles($archivos);
+        $this->loadStyles.=$last;
+        return $this->loadStyles;
+    }
+
+    public function AddLoadScripts($archivos){
+        $last=$this->loadScripts;
+        $this->LoadScripts($archivos);
+        $this->loadScripts.=$last;
+        return $this->loadScripts;
+    }
+
+    public function SetBody($body){
+        $this->body=$body;
     }
 
     protected function LoadScripts($archivos){

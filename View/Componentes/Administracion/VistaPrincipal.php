@@ -12,13 +12,30 @@ class VistaPrincipal extends VistasMenu
 
     }
 
+    public function Principal(){
+        $body=$this->Body();
+        $html=$this->Html5(
+            $this->HeadMenu(),
+            $this->PageWrapper($body)
+        );
+        echo $html;
+    }
+
     public function Content(){
         $mainContent=$this->ContentHeader("Informes","Resumen General");
         $row1Content=$this->Card("Ventas","$0.00","info","fas fa-money-check-alt");
         $row1Content.=$this->Card("Devoluciones","$0.00","warning","fas fa-money-check-alt");
-        $row2Content1='';
-        $row2Content2='';
-        $html='<!-- Begin Page Content -->
+        $row1Content.=$this->CardSlider("Ventas-Devoluciones",0,100,80,"% 80","info","fas fa-money-check-alt");
+        $row1Content.=$this->Card("Eficiencia","95%","danger","fas fa-info-circle");
+        $datos=[ "Ene"=>0, "Feb"=>60*13, "Mar"=>60*20, "Abr"=>60*35, "May"=>60*45, "Jun"=>60*50, "Jul"=>60*55, "Ago"=>60*54, "Sep"=>60*50,"Oct"=>60*40,"Nov"=>60*55,"Dic"=>60*70 ];
+        $row2Content1=$this->ProyectCard(
+            $this->AreaChart("my","Últimas Ventas",$datos),
+            "info");
+        $row2Content2=$this->PieChart("Pie","");
+        $scripts='
+        
+        ';
+        return '<!-- Begin Page Content -->
         <div class="container-fluid">
             '.$mainContent.'
             <div class="row">
@@ -26,21 +43,17 @@ class VistaPrincipal extends VistasMenu
             </div>  
             <!-- Content Row -->
             <div class="row">
-                <!-- Content Row -->
-                <div class="row">
-                    <!-- Content Column -->
-                    <div class="col-lg-6 mb-4">
-                        '.$row2Content1.'
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        '.$row2Content2.'
-                    </div>
+                <!-- Content Column -->
+                <div class="col-6">
+                    '.$row2Content1.'
+                </div>
+                <div class="col-6">
+                    '.$row2Content2.'
                 </div>
             </div>
         <!-- /.container-fluid -->
       </div>
       <!-- End of Main Content -->';
-        return $html;
 
     }
 }

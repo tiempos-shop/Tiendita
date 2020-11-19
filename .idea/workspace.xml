@@ -21,17 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/404.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistaPrincipal.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaPrincipal.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistasHtml.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistasHtml.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/blank.html" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/blank.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/buttons.html" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/buttons.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/cards.html" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/cards.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/charts.html" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/charts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/tables.html" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/tables.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/utilities-animation.html" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/utilities-animation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/utilities-border.html" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/utilities-border.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/utilities-color.html" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/utilities-color.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/utilities-other.html" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/utilities-other.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistasMenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistasMenu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/administracion.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/administracion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/js/demo/chart-area-demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/js/demo/chart-area-demo.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +118,10 @@
       <workItem from="1603920928067" duration="20282000" />
       <workItem from="1604680165967" duration="8836000" />
       <workItem from="1604942652653" duration="30895000" />
-      <workItem from="1605118661170" duration="39797000" />
+      <workItem from="1605118661170" duration="40537000" />
+      <workItem from="1605379058379" duration="3095000" />
+      <workItem from="1605631307940" duration="1315000" />
+      <workItem from="1605719714465" duration="19574000" />
     </task>
     <task id="LOCAL-00001" summary="Pedidos">
       <created>1603478572271</created>
@@ -280,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605326201656</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Pagos.php">
+      <created>1605329910623</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1605329910623</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,10 +335,10 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="690" y="255" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1604609859555" />
-    <state x="54" y="8" key="CommitChangelistDialog2" timestamp="1605326200780">
+    <state x="54" y="8" key="CommitChangelistDialog2" timestamp="1605329909485">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="54" y="8" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1605326200780" />
+    <state x="54" y="8" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1605329909485" />
     <state x="740" y="263" key="FileChooserDialogImpl" timestamp="1603391077072">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
@@ -410,6 +414,10 @@
     </state>
     <state x="849" y="428" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1019@0.0.1920.1019" timestamp="1603920970131" />
     <state x="849" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603407951040" />
+    <state x="668" y="85" width="583" height="849" key="find.popup" timestamp="1605724399674">
+      <screen x="0" y="0" width="1920" height="1019" />
+    </state>
+    <state x="668" y="85" width="583" height="849" key="find.popup/0.0.1920.1019@0.0.1920.1019" timestamp="1605724399674" />
     <state x="616" y="229" key="run.anything.popup" timestamp="1604957557846">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
