@@ -28,13 +28,12 @@ class VistaPrincipal extends VistasMenu
         $row1Content.=$this->CardSlider("Ventas-Devoluciones",0,100,80,"% 80","info","fas fa-money-check-alt");
         $row1Content.=$this->Card("Eficiencia","95%","danger","fas fa-info-circle");
         $datos=[ "Ene"=>0, "Feb"=>60*13, "Mar"=>60*20, "Abr"=>60*35, "May"=>60*45, "Jun"=>60*50, "Jul"=>60*55, "Ago"=>60*54, "Sep"=>60*50,"Oct"=>60*40,"Nov"=>60*55,"Dic"=>60*70 ];
+        $menu=[ "A"=>"A", "B"=>"Tabla de Datos","-"=>"", "C"=>"Por Años"];
         $row2Content1=$this->ProyectCard(
-            $this->AreaChart("my","Últimas Ventas",$datos),
+            $this->AreaChart("my","Últimas Ventas",$datos,$menu),
             "info");
         $row2Content2=$this->PieChart("Pie","");
-        $scripts='
-        
-        ';
+
         return '<!-- Begin Page Content -->
         <div class="container-fluid">
             '.$mainContent.'

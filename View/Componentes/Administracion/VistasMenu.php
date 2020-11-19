@@ -557,11 +557,13 @@ class VistasMenu extends VistasHtml
                       <div class="dropdown-header">Menu:</div>';
         if($menus!=""){
             foreach ($menus as $url=>$menu){
-                if($url==""){
+                if($url=="-"){
                     $html.='<div class="dropdown-divider"></div>';
                 }
-                else
+                else{
                     $html.='<a class="dropdown-item" href="'.$url.'">'.$menu.'</a>';
+                }
+
             }
         }
 
