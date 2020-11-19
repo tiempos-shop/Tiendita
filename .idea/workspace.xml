@@ -20,9 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/View/Componentes/Administracion/PieChartData.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistaPrincipal.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaPrincipal.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistasMenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistasMenu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/js/demo/chart-pie-demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/js/demo/chart-pie-demo.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +120,8 @@
       <workItem from="1605118661170" duration="40537000" />
       <workItem from="1605379058379" duration="3095000" />
       <workItem from="1605631307940" duration="1315000" />
-      <workItem from="1605719714465" duration="21847000" />
+      <workItem from="1605719714465" duration="22560000" />
+      <workItem from="1605806804454" duration="7960000" />
     </task>
     <task id="LOCAL-00001" summary="Pedidos">
       <created>1603478572271</created>
@@ -288,7 +291,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605762593276</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Pagos.php">
+      <created>1605764826408</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1605764826408</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,10 +349,10 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="690" y="255" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1604609859555" />
-    <state x="54" y="8" key="CommitChangelistDialog2" timestamp="1605762591826">
+    <state x="54" y="8" key="CommitChangelistDialog2" timestamp="1605764825051">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="54" y="8" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1605762591826" />
+    <state x="54" y="8" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1605764825051" />
     <state x="740" y="263" key="FileChooserDialogImpl" timestamp="1603391077072">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
@@ -391,10 +401,10 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state width="196" height="539" key="HiddenNamespacesPopup/0.0.1920.1019@0.0.1920.1019" timestamp="1603838753651" />
-    <state x="748" y="258" key="NewPhpClassDialog" timestamp="1605290162750">
+    <state x="748" y="258" key="NewPhpClassDialog" timestamp="1605811222523">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="748" y="258" key="NewPhpClassDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1605290162750" />
+    <state x="748" y="258" key="NewPhpClassDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1605811222523" />
     <state x="265" y="246" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603480856140" />
     <state x="780" y="159" key="NewPhpFileDialog" timestamp="1604603079407">
       <screen x="0" y="0" width="1366" height="738" />
@@ -413,10 +423,10 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="514" y="193" key="Vcs.Push.Dialog.v2/0.0.1920.1019@0.0.1920.1019" timestamp="1605034720227" />
-    <state x="849" y="428" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605762598524">
+    <state x="849" y="428" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605764901146">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="849" y="428" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1019@0.0.1920.1019" timestamp="1605762598524" />
+    <state x="849" y="428" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1019@0.0.1920.1019" timestamp="1605764901146" />
     <state x="849" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603407951040" />
     <state x="668" y="85" width="583" height="849" key="find.popup" timestamp="1605724399674">
       <screen x="0" y="0" width="1920" height="1019" />

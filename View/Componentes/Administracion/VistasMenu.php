@@ -96,7 +96,7 @@ class VistasMenu extends VistasHtml
     }
 
     public function Modal($titulo,$body,$botonSalir,$botonAccion,$urlAccion){
-        $html='
+        return '
           <!-- Logout Modal-->
           <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -116,7 +116,6 @@ class VistasMenu extends VistasHtml
             </div>
           </div>    
         ';
-        return $html;
     }
 
     public function Scripts(){
@@ -542,7 +541,7 @@ class VistasMenu extends VistasHtml
         $valores=trim($valores,",");
         $etiquetas.=" ]";
         $valores.=" ]";
-        $this->AreaChartScript($id,"Gráficos",$etiquetas,$valores);
+        $this->AreaChartScript($id,"Area",$etiquetas,$valores);
         $html= '<!-- Area Chart -->
             <div>
               <div class="card shadow mb-4">
@@ -596,47 +595,91 @@ class VistasMenu extends VistasHtml
 
     }
 
+    public function PieChart($id,$title,$datos,$menus=""){
+        $etiquetas="[ ";
+        $valores="[ ";
+        $colores="[ ";
+        $fondos="[ ";
+        $htmlEtiquetasFondo="";
+        foreach ($datos as $pieChartData){
+            $etiquetas.='"'.$pieChartData->Etiqueta.'",';
+            $valores.='"'.$pieChartData->Valor.'",';
+            $colores.='"'.$pieChartData->Color.'",';
+            $fondos.='"'.$pieChartData->Fondo.'",';
+            $htmlEtiquetasFondo.=$this->PieChartLabel($pieChartData->Etiqueta,$pieChartData->Color);
+        }
+        $etiquetas=trim($etiquetas,",");
+        $valores=trim($valores,",");
+        $colores=trim($colores,",");
+        $fondos=trim($fondos,",");
+        $etiquetas.=" ]";
+        $valores.=" ]";
+        $colores.=" ]";
+        $fondos.=" ]";
+        $this->PieChartScript($id,"Pie",$etiquetas,$valores,$colores,$fondos);
 
-    public function PieChart($titulo,$menus){
-        return '<!-- Pie Chart -->
+        $html= '<!-- Pie Chart -->
             <div class="col-xl-4 col-lg-5">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">'.$titulo.'</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">'.$title.'</h6>
                   <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+                      <div class="dropdown-header">Menu:</div>';
+        if($menus!=""){
+            foreach ($menus as $url=>$menu){
+                if($url=="-"){
+                    $html.='<div class="dropdown-divider"></div>';
+                }
+                else{
+                    $html.='<a class="dropdown-item" href="'.$url.'">'.$menu.'</a>';
+                }
+            }
+        }
+        $html.='      </div>
                   </div>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
                   <div class="chart-pie pt-4 pb-2">
-                    <canvas id="myPieChart"></canvas>
+                    <canvas id="'.$id.'PieChart"></canvas>
                   </div>
-                  <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Direct
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Referral
-                    </span>
-                  </div>
+                  <div class="mt-4 text-center small">';
+        $html.=$htmlEtiquetasFondo;
+        $html.='  </div>
                 </div>
               </div>
             </div>
           </div>';
+        return $html;
+    }
+
+    private function PieChartLabel($label,$color){
+        return '
+            <span class="mr-2">
+              <i class="fas fa-circle" style="color: '.$color.'"></i> '.$label.'
+            </span>
+        ';
+
+    }
+
+    private function PieChartScript($id,$titulo,$etiquetas,$valores,$colores,$fondos){
+        /** @noinspection JSUnusedAssignment */
+        $this->lastScripts.=$this->lastScripts.'
+        <script>
+            let idPieChart="'.$id.'PieChart";
+            let tituloPie="'.$titulo.'";
+            let etiquetasPie='.$etiquetas.';
+            let datosPie='.$valores.';
+            let coloresPie='.$colores.';
+            let fondosPie='.$fondos.';
+            ChartPie(tituloPie,etiquetasPie,datosPie,coloresPie,fondosPie);
+        </script>
+        ';
     }
 
     public function ProyectCard($htmlContent,$tipo){
