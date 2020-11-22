@@ -6,12 +6,7 @@ namespace Administracion;
 use mysql_xdevapi\Exception;
 include_once ("VistasHtml.php");
 
-class VistasMenu extends VistasHtml
-{
-
-
-
-
+class VistasMenu extends VistasHtml{
     public function HeadMenu(){
         return $this->Head("Administración de Tiempos Shop",
             $this->Meta("utf-8","Tienda Online","Egil Ordoñez"),

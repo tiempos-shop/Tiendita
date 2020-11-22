@@ -8,8 +8,7 @@ class Utilidades
 {
     public function Object2Table($object){
         if(is_array($object)){
-            $html="";
-            $html.= "<table class='table table-bordered'>";
+            $html= "<table class='table table-bordered'>";
             foreach($object as $val){
                 $a = get_object_vars($val);
                 $html.= "<tr>";
