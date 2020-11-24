@@ -2,6 +2,7 @@
 <?php
 
 use Tiendita\ModeloUsuarios;
+use Tiendita\Usuarios;
 
 $header="";
 $styles="";
@@ -97,6 +98,34 @@ include_once ("Data/Connection/EntidadBase.php");
 include_once ("Data/Models/ModeloUsuarios.php");
 
 $usuarios=new ModeloUsuarios();
+
+$usuario=new Usuarios(
+    "Armando",
+    "Gonzalez",
+    "1234",
+    "ale",
+    "ale",
+    "correo@correo.com",
+    "1234",
+    1,
+    1
+);
+
+
+$usuarios->insert(
+        $usuario
+);
+
+//$row=$usuarios->getById(1);
+//$row->Nombres="Cambio Nombre";
+
+//$usuarios->update(
+//    $row
+//);
+
+$usuarios->SaveAll();
+
+
 
 
 

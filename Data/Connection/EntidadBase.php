@@ -2,18 +2,31 @@
 
 
 namespace Tiendita;
+use Exception;
 
-
+require_once 'Conectar.php';
 
 class EntidadBase{
 
     private $db;
     private $conectar;
+    private $sqlSaveCache;
+
+    public function AddQuerys(string $sql){
+        $this->sqlSaveCache[]=$sql;
+    }
+
+    public function SaveAll(){
+        // Todo Descomentar las lineas
+        //$this->db->multi_query($this->sqlSaveCache);
+        var_dump($this->sqlSaveCache);
+
+    }
 
     public function __construct() {
-
+        $sqlSaveCache=array();
         try {
-            require_once 'Conectar.php';
+
             $this->conectar=new Conectar();
             $this->db=$this->conectar->conexion();
         } catch (Exception $e){
@@ -33,22 +46,40 @@ class EntidadBase{
     public function getAll($table){
         $resultSet=array();
         $queryString="SELECT * FROM $table";
-        $query=$this->db->query($queryString);
-
-        while ($row = $query->fetch_object()) {
-            $resultSet[]=$row;
+        try {
+            $query=$this->db->query($queryString);
+        } catch (Exception $e){
+            throw new Exception("Error al ejectura el query '$queryString'.".$e);
         }
+
+        try {
+            while ($row = $query->fetch_object()) {
+                $resultSet[]=$row;
+            }
+        } catch (Exception $e){
+            var_dump($row);
+            throw new Exception("Error al obtener los campos de query '$queryString'");
+        }
+
         return $resultSet;
     }
 
     public function getBy($table,$column,$value){
 
         $resultSet=array();
-        $intValue=intval($value);
-        $queryString="SELECT * FROM $table WHERE $column=$intValue";
+
+        if(is_string($value)){
+            $queryString="SELECT * FROM $table WHERE $column='$value'";
+        }
+        elseif(is_int($value)){
+            $intValue=intval($value);
+            $queryString="SELECT * FROM $table WHERE $column=$intValue";
+        }
+        else{
+            $queryString="SELECT * FROM $table WHERE $column=$value";
+        }
 
         $query=$this->db->query($queryString);
-        //echo "<p>".$queryString."</p>";
 
         while($row = $query->fetch_object()) {
            $resultSet[]=$row;
@@ -57,14 +88,22 @@ class EntidadBase{
         return $resultSet;
     }
 
+
+
     public function deleteById($table,$id){
-        $query=$this->db->query("DELETE FROM $table WHERE id=$id");
-        return $query;
+        $this->sqlSaveCache[]=$this->db->query("DELETE FROM $table WHERE id=$id");
+
     }
 
-    public function deleteBy($table,$column,$value){
-        $query=$this->db->query("DELETE FROM $table WHERE $column='$value'");
-        return $query;
+    public function updateBy($table,$id,$column,$value){
+        $this->sqlSaveCache[]=$this->db->query("UPDATE $table WHERE id=$id");
+    }
+
+
+    public function close()
+    {
+        $this->db->close();
+
     }
 }
 ?>
