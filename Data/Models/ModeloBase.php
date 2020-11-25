@@ -119,7 +119,13 @@ class ModeloBase implements iModeloBase
         $valores="";
         foreach ($this->getCampos() as $campo){
             $campos.=$campo.",";
-            $valores.=$row->$campo;
+            if($this->tipos[$campo]=="#"){
+                $valores.=$row->$campo;
+            }
+            else{
+                $valores.="'".$row->$campo."'";
+            }
+
             $valores.=",";
         }
         $campos=trim($campos,",");

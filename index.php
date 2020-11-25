@@ -115,12 +115,21 @@ $usuario=new Usuarios(
 $usuarios->insert(
         $usuario
 );
+$usuarios->insert(
+    $usuario
+);
 
-$row=$usuarios->getById(1);
-$row->Nombres="Cambio Nombre";
+$row1=$usuarios->getById(1);
+$row1->Nombres="Cambio Nombre 1";
+
+$row2=$usuarios->getById(2);
+$row2->Nombres="Cambio Nombre 2";
 
 $usuarios->update(
-    $row
+    $row1
+);
+$usuarios->update(
+    $row2
 );
 
 $usuarios->SaveAll();
