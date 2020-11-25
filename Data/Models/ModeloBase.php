@@ -15,6 +15,7 @@ class ModeloBase implements iModeloBase
     private $Tabla;
     private $Id;
     private $campos;
+    private $tipos;
     protected $NombreEntidad;
 
     public $Datos;
@@ -31,12 +32,13 @@ class ModeloBase implements iModeloBase
      */
     private $getAll;
 
-    public function __construct(string $nombreTabla,string $nombreId,array $campos,bool $auditoria=true)
+    public function __construct(string $nombreTabla,string $nombreId,array $campos,array $tipos,bool $auditoria=true)
     {
         $this->auditoria=$auditoria;
         $this->setTabla($nombreTabla);
         $this->setId($nombreId);
         $this->setCampos($campos);
+        $this->setTipos($tipos);
         $this->Datos=new Collection();
         $this->utilidades=new Utilidades();
         $this->entidadBase=new EntidadBase();
@@ -61,7 +63,8 @@ class ModeloBase implements iModeloBase
     private function CreateElement(object $row)
     {
         $element = (object)array();
-
+        $id=$this->getId();
+        $element->$id=$row->$id;
         foreach ($this->getCampos() as $campo){
             $element->$campo=$row->$campo;
         }
@@ -74,25 +77,33 @@ class ModeloBase implements iModeloBase
         return $element;
     }
 
-    public function getById($valor)
+    public function getById(int $valor)
     {
-        $row=(object)$this->entidadBase->getBy($this->getTabla(),$this->getId(),$valor);
-        return $this->CreateElement($row);
+        $row=$this->entidadBase->getBy($this->getTabla(),$this->getId(),$valor);
+
+        return $this->CreateElement($row[0]);
     }
 
     public function getBy(string $campo,$valor)
     {
         $row=$this->entidadBase->getBy($this->getTabla(),$campo,$valor);
-        return $this->CreateElement($row);
+        return $this->CreateElement($row[0]);
     }
 
-    public function update($row){
+    public function update(object $row){
 
-        $id=$row->$this->Id;
+        $n=$this->getId();
+        $id=intval($row->$n);
         $sql="UPDATE $this->Tabla SET ";
         $valores="";
         foreach ($this->getCampos() as $campo){
-            $valores.="$campo = ".$row->$campo.",";
+            if($this->tipos[$campo]=="#"){
+                $valores.="$campo = ".$row->$campo.",";
+            }
+            else {
+                $valores.="$campo = '".$row->$campo."', ";
+            }
+
         }
         $valores=trim($valores,",");
         $sql.=$sql.$valores." WHERE $this->Id = $id;";
@@ -176,5 +187,21 @@ class ModeloBase implements iModeloBase
 
         $this->Datos->addItem($elemento,$elemento->IdUsuario);
         $sqlInsert="insert into Usuarios ";
+    }
+
+    /**
+     * @return array
+     */
+    public function getTipos(): array
+    {
+        return $this->tipos;
+    }
+
+    /**
+     * @param array $tipos
+     */
+    public function setTipos(array $tipos): void
+    {
+        $this->tipos = $tipos;
     }
 }

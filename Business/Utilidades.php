@@ -37,7 +37,7 @@ class Utilidades
         return $dateobj;
     }
 
-    public function FechaHoy()
+    public function FechaHoyObjeto()
     {
 
         $hoy=getdate();
@@ -51,6 +51,19 @@ class Utilidades
         $external = "$dia/$mes/$ano $horas:$minutos:$segundos";
         $dateobj = DateTime::createFromFormat($this->formatoFecha, $external);
         return $dateobj;
+    }
+
+    public function FechaHoy():string
+    {
+        $hoy=getdate();
+        $segundos=$hoy["seconds"];
+        $minutos=$hoy["minutes"];
+        $horas=$hoy["hours"];
+        $dia=$hoy["mday"];
+        $mes=$hoy["mon"];
+        $ano=$hoy["year"];
+        $external = "$dia/$mes/$ano $horas:$minutos:$segundos";
+        return $external;
     }
 
     public function Obtenerfecha(DateTime $fecha):string

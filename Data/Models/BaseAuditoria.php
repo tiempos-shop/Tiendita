@@ -18,9 +18,8 @@ class BaseAuditoria
         $this->TipoMovimiento=new TipoMovimiento();
         //$this->UsuarioBase=new Usuarios();
         $utilidades=new Utilidades();
-        $fecha=$utilidades->FechaHoy()->format($utilidades->formatoFecha);
 
-        $this->FechaCambio = $fecha;
+        $this->FechaCambio = $utilidades->FechaHoy();
         $this->IdUsuarioBase=$idUsuario;
         $this->IdTipoMovimiento=$idTipoMovimiento;
 

@@ -33,4 +33,10 @@ class Usuarios extends BaseAuditoria
             5=>"CorreoElectronico",6=>"Telefono",7=>"NumeroEmpleado",8=>"FechaCambio",9=>"IdTipoMovimiento",
             10=>"IdUsuarioBase");
     }
+    public static function getType():array
+    {
+        return array("Nombres"=>"$","Apellidos"=>"$","Usuario"=>"$","Password"=>"$",
+            "CorreoElectronico"=>"$","Telefono"=>"$","NumeroEmpleado"=>"$","FechaCambio"=>"$","IdTipoMovimiento"=>"#",
+            "IdUsuarioBase"=>"#");
+    }
 }

@@ -116,12 +116,12 @@ $usuarios->insert(
         $usuario
 );
 
-//$row=$usuarios->getById(1);
-//$row->Nombres="Cambio Nombre";
+$row=$usuarios->getById(1);
+$row->Nombres="Cambio Nombre";
 
-//$usuarios->update(
-//    $row
-//);
+$usuarios->update(
+    $row
+);
 
 $usuarios->SaveAll();
 
