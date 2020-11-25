@@ -131,8 +131,9 @@ $usuarios->update(
 $usuarios->update(
     $row2
 );
-
-$usuarios->SaveAll();
+echo "<pre>";
+    $usuarios->SaveAll();
+echo "</pre>";
 
 
 

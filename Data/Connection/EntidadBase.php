@@ -25,7 +25,7 @@ class EntidadBase{
     }
 
     public function __construct() {
-        $sqlSaveCache=array();
+        $this->sqlSaveCache=array();
         try {
 
             $this->conectar=new Conectar();
