@@ -67,17 +67,13 @@ class Test
     }
 
     public function TestObjectToTable(){
-        $head1=[ "head1"=>"Editar", "head2"=>"Borrar"];
-        $head2=Usuarios::getCampos();
-        $head=$head1+$head2;
 
-        return $this->utilidades->Object2TableEdit(
-            $this->usuarios->getAll(),
-            $head,
-            "<strong>[]</strong> Editar",
-            "<strong>X</strong> Borrar",
-            "<strong>+</strong> Agregar"
-
+        return $this->usuarios->Object2TableEdit(
+            "tabla",
+    "<strong>[]</strong> Editar",
+    "<strong>X</strong> Borrar",
+    "<strong>+</strong> Agregar",
+        "Tabla de Usuario"
         );
 
     }

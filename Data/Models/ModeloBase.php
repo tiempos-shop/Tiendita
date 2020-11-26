@@ -207,12 +207,12 @@ class ModeloBase implements iModeloBase
 
     // UTILIDADES
 
-    public function Object2TableEdit(string $botonEditar,string $botonBorrar,string $botonInsertar,string $titulo=""){
+    public function Object2TableEdit(string $id,string $botonEditar,string $botonBorrar,string $botonInsertar,string $titulo=""){
         $object=$this->getAll();
         $html= '<table class="table table-bordered">';
         $html.="<caption>$titulo</caption>";
         $html.='<tr>';
-        $headers=[ "h1"=>"Editar","h2"=>"Borrar","h3"=>"Id" ]+$this->campos;
+        $headers=[ "h1"=>"Editar","h2"=>"Borrar","h3"=>"Id" ]+$this->campos+$this->Adicional();
         foreach ($headers as $head){
             $html.="<th>$head</th>";
         }
@@ -226,12 +226,18 @@ class ModeloBase implements iModeloBase
                 if(!is_array($v))
                     $html.= "<td>$v</td>";
                 else
-                    $html.="<td>".$this->Object2Table($k,$v)."</td>";
+                    $html.="<td>".$this->Object2Table($k,$v[0])."</td>";
             }
             $html.= "</tr>";
         }
         $html.= "</table>";
         $html.='<button class="btn btn-success">'.$botonInsertar.'</button>';
+        $html.="
+            <script>
+               $(document).ready(function() {
+                    $('".$id."').DataTable();
+                });
+            </script>";
         return $html;
     }
 

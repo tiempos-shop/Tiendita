@@ -12,15 +12,19 @@ class ModeloUsuarios extends ModeloBase
 
     }
 
-    public function Object2Table(string $k,array $v){
+    public function Object2Table(string $k,object $v){
         if($k=="TipoMovimiento") {
-            return $v["Descripcion"];
+            return $v->Descripcion;
         }
-        elseif ($k=="Usuarios"){
-            return $v["Nombres"]." ".$v["Apellidos"];
+        elseif ($k=="UsuarioBase"){
+            return $v->Nombres." ".$v->Apellidos;
         }
         else{
             return $k;
         }
+    }
+
+    public function Adicional(){
+        return [ "ad1"=>"Tipo Movimiento", "ad2"=>"Usuario "];
     }
 }
