@@ -7,8 +7,6 @@ include_once("Business/Collection.php");
 include_once("Business/Utilidades.php");
 include_once("Data/Connection/EntidadBase.php");
 
-use Exception;
-
 class ModeloBase implements iModeloBase
 {
 
@@ -19,7 +17,7 @@ class ModeloBase implements iModeloBase
     protected $NombreEntidad;
 
     public $Datos;
-    private $utilidades;
+
     private $auditoria;
     private $entidadBase;
 
@@ -40,7 +38,7 @@ class ModeloBase implements iModeloBase
         $this->setCampos($campos);
         $this->setTipos($tipos);
         $this->Datos=new Collection();
-        $this->utilidades=new Utilidades();
+        //$this->utilidades=new \Tiendita\Utilidades();
         $this->entidadBase=new EntidadBase();
         $this->getAll();
     }
@@ -174,10 +172,6 @@ class ModeloBase implements iModeloBase
         return $this->Datos;
     }
 
-    public function getUtilidades(): Utilidades
-    {
-        return $this->utilidades;
-    }
 
     public function getNombreEntidad():string
     {
@@ -210,4 +204,35 @@ class ModeloBase implements iModeloBase
     {
         $this->tipos = $tipos;
     }
+
+    // UTILIDADES
+
+    public function Object2TableEdit(string $botonEditar,string $botonBorrar,string $botonInsertar,string $titulo=""){
+        $object=$this->getAll();
+        $html= '<table class="table table-bordered">';
+        $html.="<caption>$titulo</caption>";
+        $html.='<tr>';
+        $headers=[ "h1"=>"Editar","h2"=>"Borrar","h3"=>"Id" ]+$this->campos;
+        foreach ($headers as $head){
+            $html.="<th>$head</th>";
+        }
+        $html.='<tr>';
+        foreach($object as $val){
+            $a = get_object_vars($val);
+            $html.= '<tr>';
+            $html.='<td><button class="btn btn-primary">'.$botonEditar.'</button></td>';
+            $html.='<td><button class="btn btn-danger">'.$botonBorrar.'</button></td>';
+            foreach($a as $k=>$v ){
+                if(!is_array($v))
+                    $html.= "<td>$v</td>";
+                else
+                    $html.="<td>".$this->Object2Table($k,$v)."</td>";
+            }
+            $html.= "</tr>";
+        }
+        $html.= "</table>";
+        $html.='<button class="btn btn-success">'.$botonInsertar.'</button>';
+        return $html;
+    }
+
 }

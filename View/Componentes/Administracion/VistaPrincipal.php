@@ -6,6 +6,7 @@ include_once ("VistasMenu.php");
 include_once ("PieChartData.php");
 
 
+
 class VistaPrincipal extends VistasMenu
 {
     public function __construct()

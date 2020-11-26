@@ -2,7 +2,16 @@
 <?php
 
 use Tiendita\ModeloUsuarios;
+use Tiendita\Test;
 use Tiendita\Usuarios;
+
+include_once ("Data/Models/BaseAuditoria.php");
+include_once ("Data/Models/Usuarios.php");
+include_once ("Data/Connection/EntidadBase.php");
+include_once ("Data/Models/ModeloUsuarios.php");
+include_once ("Test.php");
+
+$t=new Test();
 
 $header="";
 $styles="";
@@ -75,6 +84,8 @@ $body.='<!-- Button trigger modal -->
 $panelIzquierdo='';
 $panelDerecha='Hola mundo';
 
+
+
 $body.='
 <div class="container-fluid" style="height: 95vh;position: relative;">
   <div class="row" style="height: 95vh;position: relative;">
@@ -82,7 +93,7 @@ $body.='
       '.$panelIzquierdo.'
     </div>
     <div class="col-sm-9" style="">
-      '.$panelDerecha.'
+      '.$panelDerecha.$t->TestObjectToTable().'
     </div>
   </div>
 </div>
@@ -92,48 +103,24 @@ $javascript.="function administracion(){ window.location.href='http://localhost:
 $javascript.="function url(dir){ window.location.href=dir };\n";
 
 
-include_once ("Data/Models/BaseAuditoria.php");
-include_once ("Data/Models/Usuarios.php");
-include_once ("Data/Connection/EntidadBase.php");
-include_once ("Data/Models/ModeloUsuarios.php");
-
-$usuarios=new ModeloUsuarios();
-
-$usuario=new Usuarios(
-    "Armando",
-    "Gonzalez",
-    "1234",
-    "ale",
-    "ale",
-    "correo@correo.com",
-    "1234",
-    1,
-    1
-);
 
 
-$usuarios->insert(
-        $usuario
-);
-$usuarios->insert(
-    $usuario
-);
 
-$row1=$usuarios->getById(1);
-$row1->Nombres="Cambio Nombre 1";
 
-$row2=$usuarios->getById(2);
-$row2->Nombres="Cambio Nombre 2";
+$t->TestInsert();
+$t->TestUpdate();
+$t->TestSaveAll();
 
-$usuarios->update(
-    $row1
-);
-$usuarios->update(
-    $row2
-);
-echo "<pre>";
-    $usuarios->SaveAll();
-echo "</pre>";
+$g=$t->TestGetAll();
+
+
+
+
+
+
+
+
+
 
 
 

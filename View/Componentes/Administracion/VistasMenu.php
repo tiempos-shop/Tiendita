@@ -148,10 +148,9 @@ class VistasMenu extends VistasHtml{
         $html.=$this->Divider();
         $html.=$this->Heading("Administración");
 
-        $elementos=["buttons.html"=>"Altas" , "cards.html"=>"Modificación", ""=>"Datos VIP",];
-        $html.=$this->NavItemCollapse("id1","Clientes","Gestion Clientes",$elementos);
 
-        $elementos=["buttons.html"=>"Altas" ,""=>"Bajas", "cards.html"=>"Cambios"];
+
+        $elementos=["Usuarios.php"=>"Listar" ,"#"=>"Editar"];
         $html.=$this->NavItemCollapse("id2","Usuarios","Gestion Usuarios",$elementos);
 
         $elementos=["utilities-color.html"=>"Captura Individual" , "utilities-border.html"=>"Captura Masiva", "utilities-animation.html"=>"Circulacion de Inventario"];

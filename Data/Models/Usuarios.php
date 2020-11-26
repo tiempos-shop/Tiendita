@@ -3,7 +3,7 @@
 
 namespace Tiendita;
 
-
+include_once "BaseAuditoria.php";
 class Usuarios extends BaseAuditoria
 {
     public $IdUsuario=0;

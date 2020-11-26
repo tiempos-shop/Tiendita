@@ -44,11 +44,6 @@ interface iModeloBase
     public function getDatos(): Collection;
 
     /**
-     * @return Utilidades
-     */
-    public function getUtilidades(): Utilidades;
-
-    /**
      * @return string
      */
     public function getNombreEntidad(): string;
