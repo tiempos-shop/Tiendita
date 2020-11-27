@@ -12,7 +12,12 @@ class ModeloUsuarios extends ModeloBase
 
     }
 
-    public function Object2Table(string $k,object $v){
+    public function Adicional(){
+        return [ "ad1"=>"Tipo Movimiento", "ad2"=>"Usuario "];
+    }
+
+    public function Object2SimpleTable(string $k, object $v)
+    {
         if($k=="TipoMovimiento") {
             return $v->Descripcion;
         }
@@ -20,11 +25,7 @@ class ModeloUsuarios extends ModeloBase
             return $v->Nombres." ".$v->Apellidos;
         }
         else{
-            return $k;
+            return "No definido campo: ".$k;
         }
-    }
-
-    public function Adicional(){
-        return [ "ad1"=>"Tipo Movimiento", "ad2"=>"Usuario "];
     }
 }

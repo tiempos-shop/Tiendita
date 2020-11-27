@@ -4,7 +4,7 @@
 namespace Tiendita;
 use DateTime;
 
-class BaseAuditoria
+abstract class BaseAuditoria
 {
     public $FechaCambio;
     public $IdTipoMovimiento=0;

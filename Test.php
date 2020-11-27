@@ -3,6 +3,8 @@
 
 namespace Tiendita;
 
+use Cassandra\Rows;
+
 include_once "Data/Models/ModeloUsuarios.php";
 include_once "Business/Utilidades.php";
 
@@ -56,6 +58,11 @@ class Test
 
     }
 
+    public function TestDelete(){
+        $row1=$this->usuarios->getById(1);
+        $this->usuarios->delete($row1);
+    }
+
     public function TestSaveAll(){
         echo "<pre>";
         $this->usuarios->SaveAll();
@@ -76,5 +83,28 @@ class Test
         "Tabla de Usuario"
         );
 
+    }
+
+    public function TestGrid(){
+        return $this->utilidades->ContainerFluid(
+            [
+                $this->utilidades->Row(
+                    [
+                        $this->utilidades->Columns(
+                            "Hola Mundo 1",
+                            6
+                        ),
+                        $this->utilidades->Columns(
+                            "Hola Mundo 1 de 2",
+                            3
+                        ),
+                        $this->utilidades->Columns(
+                            "Hola Mundo 2 de 2",
+                            3
+                        )
+                    ]
+                )
+            ]
+        );
     }
 }

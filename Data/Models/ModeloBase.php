@@ -7,7 +7,7 @@ include_once("Business/Collection.php");
 include_once("Business/Utilidades.php");
 include_once("Data/Connection/EntidadBase.php");
 
-class ModeloBase implements iModeloBase
+abstract class ModeloBase implements iModeloBase
 {
 
     private $Tabla;
@@ -133,6 +133,15 @@ class ModeloBase implements iModeloBase
         $this->getAll=false;
     }
 
+    public function delete(object $row){
+
+        $n=$this->getId();
+        $id=intval($row->$n);
+        $sql="DELETE FROM $this->Tabla  WHERE $this->Id = $id;";
+        $this->entidadBase->AddQuerys($sql);
+        $this->getAll=false;
+    }
+
     public function SaveAll(){
         $this->entidadBase->SaveAll();
     }
@@ -207,10 +216,10 @@ class ModeloBase implements iModeloBase
 
     // UTILIDADES
 
-    public function Object2TableEdit(string $id,string $botonEditar,string $botonBorrar,string $botonInsertar,string $titulo=""){
+    public function Object2TableEdit(string $id,string $botonEditar,string $botonBorrar,string $botonInsertar,string $footer="",array $ocultos=[]){
         $object=$this->getAll();
         $html= '<table class="table table-bordered">';
-        $html.="<caption>$titulo</caption>";
+        $html.="<caption>$footer</caption>";
         $html.='<tr>';
         $headers=[ "h1"=>"Editar","h2"=>"Borrar","h3"=>"Id" ]+$this->campos+$this->Adicional();
         foreach ($headers as $head){
@@ -223,15 +232,18 @@ class ModeloBase implements iModeloBase
             $html.='<td><button class="btn btn-primary">'.$botonEditar.'</button></td>';
             $html.='<td><button class="btn btn-danger">'.$botonBorrar.'</button></td>';
             foreach($a as $k=>$v ){
-                if(!is_array($v))
+                if(!is_array($v)){
+                    if(in_array($v,$ocultos)) break;
                     $html.= "<td>$v</td>";
+                }
                 else
-                    $html.="<td>".$this->Object2Table($k,$v[0])."</td>";
+                    $html.="<td>".$this->Object2SimpleTable($k,$v[0])."</td>";
             }
             $html.= "</tr>";
         }
         $html.= "</table>";
         $html.='<button class="btn btn-success">'.$botonInsertar.'</button>';
+
         $html.="
             <script>
                $(document).ready(function() {
@@ -240,5 +252,8 @@ class ModeloBase implements iModeloBase
             </script>";
         return $html;
     }
+
+    public abstract function Object2SimpleTable(string $k,object $v);
+    public abstract function Adicional();
 
 }

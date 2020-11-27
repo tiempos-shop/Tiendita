@@ -4,6 +4,7 @@
 namespace Administracion;
 
 use Tiendita\Test;
+use Tiendita\Utilidades;
 
 include_once ("VistasMenu.php");
 include_once ("PieChartData.php");
@@ -21,19 +22,31 @@ class VistaUsuarios extends VistasMenu
             $this->PageWrapper($body)
         );
         echo $html;
+
     }
 
     public function Content(){
         $mainContent=$this->ContentHeader("Usuarios","Vista");
+        $u=new Utilidades();
         $t=new Test();
-        $mainContent.=$t->TestObjectToTable();
+        $t->TestDelete();
+        $mainContent.=$u->Container(
+          [
+              $u->Row(
+                  [
+                      $t->TestObjectToTable()
+                  ]
+              )
+          ]
+        );
+        $mainContent.=$this->ProyectCard(
+            $t->TestGrid(),
+            "primary",
+            "Ejemplo Grid"
+        );
 
-        return '<!-- Begin Page Content -->
-        <div class="container-fluid">
-            '.$mainContent.'
-        <!-- /.container-fluid -->
-      </div>
-      <!-- End of Main Content -->';
 
+
+        return $mainContent;
     }
 }

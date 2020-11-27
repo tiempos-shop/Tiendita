@@ -676,11 +676,11 @@ class VistasMenu extends VistasHtml{
         ';
     }
 
-    public function ProyectCard($htmlContent,$tipo){
+    public function ProyectCard(string $htmlContent,$tipo,string $titulo="Proyecto"){
         return '<!-- Project Card -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-'.$tipo.'">Projects</h6>
+                  <h6 class="m-0 font-weight-bold text-'.$tipo.'">'.$titulo.'</h6>
                 </div>
                 <div class="card-body">
                   '.$htmlContent.'
