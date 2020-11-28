@@ -250,10 +250,41 @@ abstract class ModeloBase implements iModeloBase
                     $('".$id."').DataTable();
                 });
             </script>";
+
+        $form='';
+        return $html;
+    }
+
+
+
+    public function Object2Table(string $id,array $ocultos=[]){
+        $object=$this->getAll();
+        $html= '<table class="table table-bordered">';
+        $html.='<tr>';
+        $headers=["h1"=>"Id"]+$this->campos+$this->SimpleAdd();
+        foreach ($headers as $head){
+            $html.="<th>$head</th>";
+        }
+        $html.='<tr>';
+        foreach($object as $val){
+            $a = get_object_vars($val);
+            $html.= '<tr>';
+            foreach($a as $k=>$v ){
+                if(!is_array($v)){
+                    if(in_array($v,$ocultos)) break;
+                    $html.= "<td>$v</td>";
+                }
+                else
+                    $html.="<td>".$this->Object2SimpleTable($k,$v[0])."</td>";
+            }
+            $html.= "</tr>";
+        }
+        $html.= "</table>";
         return $html;
     }
 
     public abstract function Object2SimpleTable(string $k,object $v);
     public abstract function Adicional();
+    public abstract function SimpleAdd();
 
 }

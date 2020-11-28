@@ -7,6 +7,11 @@ use mysql_xdevapi\Exception;
 include_once ("VistasHtml.php");
 
 class VistasMenu extends VistasHtml{
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     public function HeadMenu(){
         return $this->Head("Administración de Tiempos Shop",
             $this->Meta("utf-8","Tienda Online","Egil Ordoñez"),
@@ -148,10 +153,12 @@ class VistasMenu extends VistasHtml{
         $html.=$this->Divider();
         $html.=$this->Heading("Administración");
 
+        $html.=$this->NavItem("Estadisticas","administracion.php","fas fa-fw fa-chart-area");
 
 
-        $elementos=["Usuarios.php"=>"Listar" ,"#"=>"Editar"];
-        $html.=$this->NavItemCollapse("id2","Usuarios","Gestion Usuarios",$elementos);
+        $html.=$this->NavItemCollapse("idUsers","Usuarios","Gestion Usuarios",
+            ["usuarios.php"=>"Listar" ,"usuariosEdit.php"=>"Editar"]
+        );
 
         $elementos=["utilities-color.html"=>"Captura Individual" , "utilities-border.html"=>"Captura Masiva", "utilities-animation.html"=>"Circulacion de Inventario"];
         $html.=$this->NavItemCollapse("id3","Inventarios","Inventarios",$elementos);
@@ -162,7 +169,12 @@ class VistasMenu extends VistasHtml{
         $elementos=["utilities-color.html"=>"Reporte Financiero" , "utilities-border.html"=>"Reporte de Pedidos", "utilities-animation.html"=>"Reporte de Devoluciones"];
         $html.=$this->NavItemCollapse("id4","Reportes","Reportes",$elementos);
 
+        $html.=$this->Divider();
+        $html.=$this->Heading("Catalogos");
 
+        $html.=$this->NavItemCollapse("idTipoMovimientos","Tipo Movimientos","Catalogo Tipo Movimientos",
+            ["tipoMovimientos.php"=>"Listar" ,"tipoMovimientosEdit.php"=>"Editar"]
+        );
 
         $html.=$this->Divider();
         $html.=$this->Heading("Configuración");

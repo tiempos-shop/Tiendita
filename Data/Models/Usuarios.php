@@ -2,9 +2,9 @@
 
 
 namespace Tiendita;
-
+include_once "iEntity.php";
 include_once "BaseAuditoria.php";
-class Usuarios extends BaseAuditoria
+class Usuarios extends BaseAuditoria implements iEntity
 {
     public $IdUsuario=0;
     public $Nombres="";
@@ -33,6 +33,7 @@ class Usuarios extends BaseAuditoria
             5=>"CorreoElectronico",6=>"Telefono",7=>"NumeroEmpleado",8=>"FechaCambio",9=>"IdTipoMovimiento",
             10=>"IdUsuarioBase");
     }
+
     public static function getType():array
     {
         return array("Nombres"=>"$","Apellidos"=>"$","Usuario"=>"$","Password"=>"$",

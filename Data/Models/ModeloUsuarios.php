@@ -28,4 +28,9 @@ class ModeloUsuarios extends ModeloBase
             return "No definido campo: ".$k;
         }
     }
+
+    public function SimpleAdd()
+    {
+        return $this->Adicional();
+    }
 }

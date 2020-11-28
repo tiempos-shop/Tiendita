@@ -12,7 +12,7 @@ include_once ("PieChartData.php");
 
 include_once ("Test.php");
 
-class VistaUsuarios extends VistasMenu
+class VistaUsuariosEdit extends VistasMenu
 {
     public function __construct()
     {
@@ -22,6 +22,7 @@ class VistaUsuarios extends VistasMenu
             $this->PageWrapper($body)
         );
         echo $html;
+        parent::__construct();
 
     }
 
@@ -34,8 +35,11 @@ class VistaUsuarios extends VistasMenu
             [
                 $ui->Row(
                     [
-                        $u->Object2Table(
-                            "id",
+                        $u->Object2TableEdit("idUsuarios",
+                            "Editar",
+                            "Borrar",
+                            "Insertar",
+                            "",
                             [ "Nombres" ]
                         )
                     ]
