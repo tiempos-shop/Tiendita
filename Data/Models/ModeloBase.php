@@ -20,6 +20,7 @@ abstract class ModeloBase implements iModeloBase
 
     private $auditoria;
     private $entidadBase;
+    private $ui;
 
 
     // Tabla Externa TipoMovimiento
@@ -38,7 +39,7 @@ abstract class ModeloBase implements iModeloBase
         $this->setCampos($campos);
         $this->setTipos($tipos);
         $this->Datos=new Collection();
-        //$this->utilidades=new \Tiendita\Utilidades();
+        $this->ui=new Utilidades();
         $this->entidadBase=new EntidadBase();
         $this->getAll();
     }
@@ -228,8 +229,13 @@ abstract class ModeloBase implements iModeloBase
         $html.='<tr>';
         foreach($object as $val){
             $a = get_object_vars($val);
-            $html.= '<tr>';
-            $html.='<td><button class="btn btn-primary">'.$botonEditar.'</button></td>';
+            $html.= '<tr><td>';
+            $html.=$this->ui->ModalButton("idEditTable",$botonEditar,"Edicion de Campos","Cancelar",
+            $this->ui->Form([
+                $this->ui->Input("idNombre","Nombre:","$")
+            ],"guarda.php","Guardar")
+            );
+            $html.="</td>";
             $html.='<td><button class="btn btn-danger">'.$botonBorrar.'</button></td>';
             foreach($a as $k=>$v ){
                 if(!is_array($v)){
