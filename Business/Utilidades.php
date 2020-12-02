@@ -7,35 +7,6 @@ namespace Tiendita;
 use DateTime;
 use ReflectionClass;
 
-abstract class Enum
-{
-    const NONE = null;
-    final private function __construct(){ throw new NotSupportedException(); }
-    final private function __clone(){ throw new NotSupportedException(); }
-    final public static function toArray(){
-        return (new ReflectionClass(static::class))->getConstants();
-    }
-    final public static function isValid($value){
-        return in_array($value, static::toArray());
-    }
-}
-
-class partOf12 extends Enum {
-    const sizeNull="";
-    const size1of12="1";
-    const size2of12="2";
-    const size3of12="3";
-    const size4of12="4";
-    const size5of12="5";
-    const size6of12="6";
-    const size7of12="7";
-    const size8of12="8";
-    const size9of12="9";
-    const size10of12="10";
-    const size11f12="11";
-    const size12f12="12";
-}
-
 class Utilidades
 {
     public $formatoFecha = "d/m/Y H:i:s";
@@ -60,6 +31,8 @@ class Utilidades
             return $html;
         }
     }
+
+    // Bootstrap
 
     public function BaseContainer(string $class,array $contenidos){
         $html='<div class="'.$class.'">';
@@ -98,6 +71,159 @@ class Utilidades
                 </div>";
     }
 
+    // Modal
+
+    public function ModalButton(string $id,string $button,string $title,string $close,string $content,string $action="",string $javascriptAction=""){
+        $html='
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#'.$id.'">
+              '.$button.'
+            </button>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="'.$id.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">'.$title.'</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    '.$content.'
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">'.$close.'</button>';
+        if($action<>"") $html.='<button type="button" class="btn btn-primary" onclick="'.$javascriptAction.'">'.$action.'</button>';
+        $html.='  </div>
+                </div>
+              </div>
+            </div>
+        ';
+        return $html;
+    }
+
+    // Forms
+
+    public function Form(array $content,string $url,string $button){
+        $html= "
+            <form method='post' action='$url'>";
+        $html.=implode("",$content);
+        $html.='
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">'.$button.'</button>
+                    </div>
+                </div>
+            </form>';
+        return $html;
+    }
+
+
+
+    public function Input(string $id, string $label, string $type, array $options=[]){
+        switch ($type){
+            case "$": // Texto
+                return $this->TextBox($id,$label,"text","abc");
+
+            case "#": // Numerico
+                return $this->TextBox($id,$label,"number","123");
+
+            case "@": // Correo
+                return $this->TextBox($id,$label,"email","nombre@empresa.com");
+            case "&": // Textarea
+                return $this->TextArea($id,$label,3,"abc...xyz");
+            case "%": // Checkbox
+                return '
+                    <div class="form-group row">
+                        <div class="col-sm-2">'.$label.'</div>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="'.$id.'">
+                                <label class="form-check-label" for="'.$id.'">
+                                    '.$options[1].'
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                ';
+            case "*": // Combobox
+                return $this->Select($id,$label,"",$options);
+            case "|": // Multiple Combobox
+                return $this->Select($id,$label,"multiple",$options);
+            case "~": // Options
+                return $this->Options($id,$label,$options);
+            case "^": // Subir Archivo
+                return $this->TextBox($id,$label,"file","abc");
+            case "!": // Rango
+        }
+
+    }
+
+    public function Options(string $id,string $label,array $options){
+        $html='
+            <fieldset class="form-group">
+                <div class="row">
+                  <legend class="col-form-label col-sm-2 pt-0">'.$label.'</legend>
+                  <div class="col-sm-10">';
+        foreach ($options as $key=>$option){
+            $html.='
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="'.$id.'" id="'.$id.$key.'" value="'.$key.'" >
+                        <label class="form-check-label" for="'.$id.$key.'">
+                            '.$option.'
+                        </label>
+                    </div>
+            ';
+        }
+
+        $html.='
+                  </div>
+                </div>
+            </fieldset>
+        ';
+        return $html;
+    }
+
+    public function Select(string $id,string $label,string $multiple="",array $options=[]){
+        $html= '
+                     <div class="form-group row">
+                        <label for="'.$id.'" class="col-sm-2 col-form-label">'.$label.'</label>
+                        <div class="col-sm-10">    
+                            <select '.$multiple.' class="form-control" id="'.$id.'">';
+        foreach ($options as $key=>$option){
+            $html.="<option value='$key'>$option</option>";
+        }
+        $html.='    
+                            </select>
+                        </div>
+                    </div>
+                ';
+        return $html;
+    }
+
+    public function TextBox(string $id,$label,$type="text",$placeholder=""){
+        return '
+        <div class="form-group row">
+            <label for="'.$id.'" class="col-sm-2 col-form-label">'.$label.'</label>
+            <div class="col-sm-10">
+                <input type="'.$type.'" class="form-control" id="'.$id.'" placeholder="'.$placeholder.'">
+            </div>
+        </div>
+        ';
+    }
+
+    public function TextArea(string $id,$label,$rows=3,$placeholder=""){
+        return '
+        <div class="form-group row">
+            <label for="'.$id.'" class="col-sm-2 col-form-label">'.$label.'</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" id="'.$id.'" rows="'.$rows.'" placeholder="'.$placeholder.'"></textarea>\
+            </div>
+        </div>';
+    }
+
     //DateTime
 
     public function Fecha(int $dia,int $mes,int $ano,int $horas,int $minutos,int $segundos):DateTime
@@ -107,7 +233,7 @@ class Utilidades
         return $dateobj;
     }
 
-    public function FechaHoyObjeto()
+    public function FechaHoyObjeto():DateTime
     {
 
         $hoy=getdate();

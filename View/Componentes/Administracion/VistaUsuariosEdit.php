@@ -16,7 +16,7 @@ class VistaUsuariosEdit extends VistasMenu
 {
     public function __construct()
     {
-        $body=$this->Body();
+        $body=$this->BodyMenu();
         $html=$this->Html5(
             $this->HeadMenu(),
             $this->PageWrapper($body)

@@ -15,7 +15,7 @@ class VistaPrincipal extends VistasMenu
     }
 
     public function Principal(){
-        $body=$this->Body();
+        $body=$this->BodyMenu();
         $html=$this->Html5(
             $this->HeadMenu(),
             $this->PageWrapper($body)

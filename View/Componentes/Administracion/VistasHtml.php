@@ -37,13 +37,17 @@ class VistasHtml
         </html>';
     }
 
-    public function RefreshHtml5(){
-        return '
-        <!DOCTYPE html>
-        <html lang="'.$this->lang.'">
-            '.$this->head.'
-            '.$this->body.'
-        </html>';
+
+
+    public function Body(array $content,$atributes){
+        $html= "
+            <body $atributes>";
+        foreach ($content as $html){
+            $html.=$html;
+        }
+        $html.="</body>
+        ";
+        return $html;
     }
 
     protected function Head($title, $meta, $loadStyles, $loadScripts, $styles="", $scripts=""){

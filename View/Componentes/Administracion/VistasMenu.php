@@ -26,7 +26,7 @@ class VistasMenu extends VistasHtml{
 
     }
 
-    public function Body(){
+    public function BodyMenu(){
         $body= $this->SideBar("Admin TShop","administracion.php");
         $body.=$this->ContentWrapper(
             $this->TopBar().
