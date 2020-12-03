@@ -36,8 +36,25 @@ class Usuarios extends BaseAuditoria implements iEntity
 
     public static function getType():array
     {
-        return array("Nombres"=>"$","Apellidos"=>"$","Usuario"=>"$","Password"=>"$",
-            "CorreoElectronico"=>"$","Telefono"=>"$","NumeroEmpleado"=>"$","FechaCambio"=>"$","IdTipoMovimiento"=>"#",
+        return array("Nombres"=>"$","Apellidos"=>"$","Usuario"=>"$","Password"=>"?",
+            "CorreoElectronico"=>"@","Telefono"=>"$","NumeroEmpleado"=>"$","FechaCambio"=>"$","IdTipoMovimiento"=>"#",
             "IdUsuarioBase"=>"#");
+    }
+
+    public static function getProperties():array
+    {
+        return [
+            "IdUsuario"=>["Id","I"],
+            "Nombres"=>["Nombre","$"],
+            "Apellidos"=>["Apellidos","$"],
+            "Usuario"=>["Usuario","$"],
+            "Password"=>["Password","?"],
+            "CorreoElectronico"=>["Email","@"],
+            "Telefono"=>["Teléfonos","$"],
+            "NumeroEmpleado"=>["Número Empleado","$"],
+            "FechaCambio"=>["Fecha Auditoria","$"],
+            "IdTipoMovimiento"=>["Tipo Movimiento","F","TipoMovimiento"],
+            "IdUsuarioBase"=>["Usuario de Registro]","F","Usuarios"]
+        ];
     }
 }

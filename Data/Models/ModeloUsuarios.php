@@ -33,4 +33,19 @@ class ModeloUsuarios extends ModeloBase
     {
         return $this->Adicional();
     }
+
+    public function Object2SimpleFormulary(string $k, object $v)
+    {
+        if($k=="TipoMovimiento") {
+            $tm=new ModeloTipoMovimiento();
+            $catalogo=(array)$tm->getById($k);
+            return $this->ui->Input("fk".$k,"Tipo Movimiento",$v[0],"*",$catalogo);
+        }
+        elseif ($k=="UsuarioBase"){
+            return $v->Nombres." ".$v->Apellidos;
+        }
+        else{
+            return "No definido campo: ".$k;
+        }
+    }
 }

@@ -21,7 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/Utilidades.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Utilidades.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/Models/ModeloBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/ModeloBase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Models/ModeloUsuarios.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/ModeloUsuarios.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Models/TipoMovimiento.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/TipoMovimiento.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Models/Usuarios.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Usuarios.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Models/iEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/iEntity.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +157,8 @@
       <workItem from="1606589727115" duration="1351000" />
       <workItem from="1606755720684" duration="5399000" />
       <workItem from="1606847508497" duration="1730000" />
-      <workItem from="1606849972524" duration="17332000" />
+      <workItem from="1606849972524" duration="17554000" />
+      <workItem from="1606926309046" duration="14854000" />
     </task>
     <task id="LOCAL-00001" summary="Pedidos">
       <created>1603478572271</created>
@@ -399,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606875619339</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Pagos.php">
+      <created>1606877281407</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1606877281407</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -443,10 +456,10 @@
     <state x="364" y="69" width="687" height="599" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1604439248357" />
     <state x="645" y="95" width="1092" height="765" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1606353481552" />
     <state x="968" y="203" width="880" height="683" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603411279230" />
-    <state x="765" y="188" key="#com.intellij.ide.util.MemberChooser" timestamp="1606528368358">
+    <state x="765" y="188" key="#com.intellij.ide.util.MemberChooser" timestamp="1606953222930">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="765" y="188" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1019@0.0.1920.1019" timestamp="1606528368358" />
+    <state x="765" y="188" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1019@0.0.1920.1019" timestamp="1606953222930" />
     <state x="602" y="324" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1606342335794">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
@@ -467,14 +480,18 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="785" y="268" key="#com.jetbrains.php.refactoring.makeStatic.PhpMakeStaticDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1606176719802" />
+    <state x="1080" y="130" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#0" timestamp="1606940365973">
+      <screen x="0" y="0" width="1920" height="1019" />
+    </state>
+    <state x="1080" y="130" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#0/0.0.1920.1019@0.0.1920.1019" timestamp="1606940365973" />
     <state x="739" y="196" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#1" timestamp="1606242096983">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="739" y="196" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#1/0.0.1920.1019@0.0.1920.1019" timestamp="1606242096983" />
-    <state x="120" y="8" key="CommitChangelistDialog2" timestamp="1606875618155">
+    <state x="120" y="8" key="CommitChangelistDialog2" timestamp="1606877280710">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="120" y="8" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1606875618155" />
+    <state x="120" y="8" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1606877280710" />
     <state x="740" y="263" key="FileChooserDialogImpl" timestamp="1606353472052">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>

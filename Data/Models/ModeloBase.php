@@ -20,7 +20,7 @@ abstract class ModeloBase implements iModeloBase
 
     private $auditoria;
     private $entidadBase;
-    private $ui;
+    public $ui;
 
 
     // Tabla Externa TipoMovimiento
@@ -221,31 +221,45 @@ abstract class ModeloBase implements iModeloBase
         $object=$this->getAll();
         $html= '<table class="table table-bordered">';
         $html.="<caption>$footer</caption>";
+        // Encabezados
         $html.='<tr>';
         $headers=[ "h1"=>"Editar","h2"=>"Borrar","h3"=>"Id" ]+$this->campos+$this->Adicional();
         foreach ($headers as $head){
             $html.="<th>$head</th>";
         }
+        $html.='</tr>';
+
+        // Campos
         $html.='<tr>';
         foreach($object as $val){
             $a = get_object_vars($val);
-            $html.= '<tr><td>';
-            $html.=$this->ui->ModalButton("idEditTable",$botonEditar,"Edicion de Campos","Cancelar",
-            $this->ui->Form([
-                $this->ui->Input("idNombre","Nombre:","$")
-            ],"guarda.php","Guardar")
-            );
-            $html.="</td>";
-            $html.='<td><button class="btn btn-danger">'.$botonBorrar.'</button></td>';
+            $html.= '<tr>';
+            $columns="";
+            $input="";
             foreach($a as $k=>$v ){
                 if(!is_array($v)){
                     if(in_array($v,$ocultos)) break;
-                    $html.= "<td>$v</td>";
+                    $columns.= "<td>$v</td>";
+                    if(!is_null($this->tipos[$k])){
+                        $input.=$this->ui->Input($k.$v,$k,$val,$this->tipos[$k]);
+                    }
+
                 }
-                else
-                    $html.="<td>".$this->Object2SimpleTable($k,$v[0])."</td>";
+                else{
+                    $columns.="<td>".$this->Object2SimpleTable($k,$v[0])."</td>";
+                    $input.=$this->Object2SimpleFormulary($k,$v[0]);
+                }
+
             }
-            $html.= "</tr>";
+        // Botones
+            $button="<td>".$this->ui->ModalButton("idEditTable",$botonEditar,"","Edicion de Campos","Cancelar",
+                    $this->ui->Form([
+                        $input
+                    ],"guarda.php","Guardar")
+                )."</td>";
+            $button.='<td><button class="btn btn-danger">'.$botonBorrar.'</button></td>';
+        // Genera html Fila
+            $html.= $button.$columns."</tr>";
         }
         $html.= "</table>";
         $html.='<button class="btn btn-success">'.$botonInsertar.'</button>';
@@ -277,8 +291,9 @@ abstract class ModeloBase implements iModeloBase
             $html.= '<tr>';
             foreach($a as $k=>$v ){
                 if(!is_array($v)){
-                    if(in_array($v,$ocultos)) break;
-                    $html.= "<td>$v</td>";
+                    if(!in_array($v,$ocultos)){
+                        $html.= "<td>$v</td>";
+                    }
                 }
                 else
                     $html.="<td>".$this->Object2SimpleTable($k,$v[0])."</td>";
@@ -289,7 +304,17 @@ abstract class ModeloBase implements iModeloBase
         return $html;
     }
 
+    public function Object2Formulary(){
+        $innerHtml=array();
+        foreach ($this->campos as $campo){
+            $type=$this->tipos[$campo];
+            $innerHtml[]=$this->ui->Input($campo,$campo,$type);
+        }
+        return $this->ui->Form($innerHtml,"guardar.php","Guardar");
+    }
+
     public abstract function Object2SimpleTable(string $k,object $v);
+    public abstract function Object2SimpleFormulary(string $k,object $v);
     public abstract function Adicional();
     public abstract function SimpleAdd();
 

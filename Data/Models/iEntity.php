@@ -19,4 +19,6 @@ interface iEntity
      */
     public static function getType():array;
 
+    public static function getProperties(): array;
+
 }

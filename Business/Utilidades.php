@@ -73,10 +73,10 @@ class Utilidades
 
     // Modal
 
-    public function ModalButton(string $id,string $button,string $title,string $close,string $content,string $action="",string $javascriptAction=""){
+    public function ModalButton(string $id,string $button,string $buttonAction,string $title,string $close,string $content,string $action="",string $javascriptAction=""){
         $html='
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#'.$id.'">
+            <button type="button" onclick="'.$buttonAction.'" class="btn btn-primary" data-toggle="modal" data-target="#'.$id.'">
               '.$button.'
             </button>
             
@@ -122,16 +122,17 @@ class Utilidades
 
 
 
-    public function Input(string $id, string $label, string $type, array $options=[]){
+    public function Input(string $id, string $label, $value, string $type, array $options=[]){
         switch ($type){
             case "$": // Texto
-                return $this->TextBox($id,$label,"text","abc");
-
+                return $this->TextBox($id,$label,$value,"text","abc");
+            case "?": // Texto
+                return $this->TextBox($id,$label,$value,"password","password");
             case "#": // Numerico
-                return $this->TextBox($id,$label,"number","123");
+                return $this->TextBox($id,$label,$value,"number","123");
 
             case "@": // Correo
-                return $this->TextBox($id,$label,"email","nombre@empresa.com");
+                return $this->TextBox($id,$label,$value,"email","nombre@empresa.com");
             case "&": // Textarea
                 return $this->TextArea($id,$label,3,"abc...xyz");
             case "%": // Checkbox
@@ -149,19 +150,20 @@ class Utilidades
                     </div>
                 ';
             case "*": // Combobox
-                return $this->Select($id,$label,"",$options);
+                return $this->Select($id,$label,$value,"",$options);
             case "|": // Multiple Combobox
-                return $this->Select($id,$label,"multiple",$options);
+                return $this->Select($id,$label,$value,"multiple",$options);
             case "~": // Options
-                return $this->Options($id,$label,$options);
+                return $this->Options($id,$label,$value,$options);
             case "^": // Subir Archivo
-                return $this->TextBox($id,$label,"file","abc");
+                return $this->TextBox($id,$label,$value,"file","abc");
             case "!": // Rango
+                return "";
         }
 
     }
 
-    public function Options(string $id,string $label,array $options){
+    public function Options(string $id,string $label,$value,array $options){
         $html='
             <fieldset class="form-group">
                 <div class="row">
@@ -169,8 +171,17 @@ class Utilidades
                   <div class="col-sm-10">';
         foreach ($options as $key=>$option){
             $html.='
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="'.$id.'" id="'.$id.$key.'" value="'.$key.'" >
+                    <div class="form-check">';
+            if($key==$value or $option==$value){
+                $html.='            <input class="form-check-input" checked type="radio" name="'.$id.'" id="'.$id.$key.'" value="'.$key.'" >';
+            }
+            else
+            {
+                $html.='            <input class="form-check-input" type="radio" name="'.$id.'" id="'.$id.$key.'" value="'.$key.'" >';
+            }
+
+
+            $html.='
                         <label class="form-check-label" for="'.$id.$key.'">
                             '.$option.'
                         </label>
@@ -186,14 +197,20 @@ class Utilidades
         return $html;
     }
 
-    public function Select(string $id,string $label,string $multiple="",array $options=[]){
+    public function Select(string $id,string $label, $value, string $multiple="",array $options=[]){
         $html= '
                      <div class="form-group row">
                         <label for="'.$id.'" class="col-sm-2 col-form-label">'.$label.'</label>
                         <div class="col-sm-10">    
                             <select '.$multiple.' class="form-control" id="'.$id.'">';
         foreach ($options as $key=>$option){
-            $html.="<option value='$key'>$option</option>";
+            if($key==$value or $option==$value){
+                $html.="<option value='$key' selected>$option</option>";
+            }
+            else{
+                $html.="<option value='$key'>$option</option>";
+            }
+
         }
         $html.='    
                             </select>
@@ -203,23 +220,23 @@ class Utilidades
         return $html;
     }
 
-    public function TextBox(string $id,$label,$type="text",$placeholder=""){
+    public function TextBox(string $id,string $label,$value,string $type="text",string $placeholder=""){
         return '
         <div class="form-group row">
             <label for="'.$id.'" class="col-sm-2 col-form-label">'.$label.'</label>
             <div class="col-sm-10">
-                <input type="'.$type.'" class="form-control" id="'.$id.'" placeholder="'.$placeholder.'">
+                <input type="'.$type.'" value="'.$value.'" class="form-control" id="'.$id.'" placeholder="'.$placeholder.'">
             </div>
         </div>
         ';
     }
 
-    public function TextArea(string $id,$label,$rows=3,$placeholder=""){
+    public function TextArea(string $id,$label,$value,int $rows=3,string $placeholder=""){
         return '
         <div class="form-group row">
             <label for="'.$id.'" class="col-sm-2 col-form-label">'.$label.'</label>
             <div class="col-sm-10">
-                <textarea class="form-control" id="'.$id.'" rows="'.$rows.'" placeholder="'.$placeholder.'"></textarea>\
+                <textarea class="form-control" id="'.$id.'" rows="'.$rows.'" placeholder="'.$placeholder.'">'.$value.'</textarea>\
             </div>
         </div>';
     }
