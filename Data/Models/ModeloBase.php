@@ -233,6 +233,7 @@ abstract class ModeloBase implements iModeloBase
         $i=0;
         // Campos
         $html.='<tr>';
+        $inputNV="";
         foreach($object as $val){
             $a = get_object_vars($val);
             $datoId=$a[$this->getId()];
@@ -240,26 +241,19 @@ abstract class ModeloBase implements iModeloBase
             $html.= '<tr>';
             $columns="";
             $input="";
+
             foreach($a as $k=>$v ){
                 if(!is_array($v) and !is_object($v)){
-
-                    if(in_array($k,$this->camposEditar)) {
-                        $columns.= "<td>$v</td>";
-                        if(array_key_exists($k,$this->tipos) and !is_null($this->tipos[$k])){
-                            $input.=$this->ui->Input($k,$k,$v,$this->tipos[$k]);
-                        }
+                    if(!in_array($k,$this->camposEditar)) $columns.= "<td>$v</td>";
+                    if(array_key_exists($k,$this->tipos) and !is_null($this->tipos[$k])){
+                        $input.=$this->ui->Input($k,$k,$v,$this->tipos[$k]);
+                        if($i==1) $inputNV.=$this->ui->Input("insert",$k,"",$this->tipos[$k]);
                     }
-                    else
-                    {
-                        if(array_key_exists($k,$this->tipos) and !is_null($this->tipos[$k])){
-                            $input.=$this->ui->Input($k,$k,$v,$this->tipos[$k]);
-                        }
-                    }
-
                 }
                 else{
                     $columns.="<td>".$this->Object2SimpleTable($k,$v[0])."</td>";
                     $input.=$this->Object2SimpleFormulary($k,$v[0]);
+                    if($i==1) $inputNV.=$this->Object2SimpleFormulary($k,$v[0]);
                 }
 
             }
@@ -284,9 +278,17 @@ abstract class ModeloBase implements iModeloBase
         // Genera html Fila
             $html.= $button.$columns."</tr>";
         }
-        $html.= "</table>";
-        $html.='<button class="btn btn-success">'.$botonInsertar.'</button>';
+        $html.= "</table><br/>";
+        // Boton Insertar
+        //$html.='<button class="btn btn-success">'.$botonInsertar.'</button>';
+        $html.=$this->ui->ModalButton("idInsertTable",$botonInsertar,"","Agregar un Registro","Cancelar",
+            $this->ui->Form([
+                $inputNV
+            ],"","Agregar")
+        );
 
+        // Script
+        // TODO: No se activa el script.
         $html.="
             <script>
                $(document).ready(function() {
@@ -334,6 +336,7 @@ abstract class ModeloBase implements iModeloBase
                 else{
                     if($deleteConfirm){
                         $this->ui->MessageBox("Error en Campos: No se encuentran todos los campos para actualizar");
+                        return 2;
                     }
                     else{
                         $this->update($entidad);
