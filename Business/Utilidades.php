@@ -71,6 +71,14 @@ class Utilidades
                 </div>";
     }
 
+    // Mensajaes
+    public function MessageBox(string $mensaje){
+        echo "
+            <script>
+                alert('$mensaje');
+            </script>";
+    }
+
     // Modal
 
     public function ModalButton(string $id,string $button,string $buttonAction,string $title,string $close,string $content,string $action="",string $javascriptAction=""){
@@ -83,7 +91,7 @@ class Utilidades
             <!-- Modal -->
             <div class="modal fade" id="'.$id.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div class="modal-content" style="width: 1000px">
                   <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">'.$title.'</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -124,13 +132,16 @@ class Utilidades
 
     public function Input(string $id, string $label, $value, string $type, array $options=[]){
         switch ($type){
+            case "H": // Hidden
+                return $this->Hidden($id,$value);
             case "$": // Texto
                 return $this->TextBox($id,$label,$value,"text","abc");
-            case "?": // Texto
+            case "?": // Password
                 return $this->TextBox($id,$label,$value,"password","password");
             case "#": // Numerico
                 return $this->TextBox($id,$label,$value,"number","123");
-
+            case "D": // Fecha
+                return $this->TextBox($id,$label,$value,"date","123");
             case "@": // Correo
                 return $this->TextBox($id,$label,$value,"email","nombre@empresa.com");
             case "&": // Textarea
@@ -202,7 +213,7 @@ class Utilidades
                      <div class="form-group row">
                         <label for="'.$id.'" class="col-sm-2 col-form-label">'.$label.'</label>
                         <div class="col-sm-10">    
-                            <select '.$multiple.' class="form-control" id="'.$id.'">';
+                            <select '.$multiple.' class="form-control" name="'.$id.'" id="'.$id.'">';
         foreach ($options as $key=>$option){
             if($key==$value or $option==$value){
                 $html.="<option value='$key' selected>$option</option>";
@@ -220,12 +231,18 @@ class Utilidades
         return $html;
     }
 
+    public function Hidden(string $id, $value)
+    {
+        return '<input type="hidden" value="'.$value.'" name="'.$id.'" id="'.$id.'" >';
+    }
+
     public function TextBox(string $id,string $label,$value,string $type="text",string $placeholder=""){
+
         return '
         <div class="form-group row">
             <label for="'.$id.'" class="col-sm-2 col-form-label">'.$label.'</label>
             <div class="col-sm-10">
-                <input type="'.$type.'" value="'.$value.'" class="form-control" id="'.$id.'" placeholder="'.$placeholder.'">
+                <input type="'.$type.'" value="'.$value.'" class="form-control" name="'.$id.'" id="'.$id.'" placeholder="'.$placeholder.'">
             </div>
         </div>
         ';
@@ -236,7 +253,7 @@ class Utilidades
         <div class="form-group row">
             <label for="'.$id.'" class="col-sm-2 col-form-label">'.$label.'</label>
             <div class="col-sm-10">
-                <textarea class="form-control" id="'.$id.'" rows="'.$rows.'" placeholder="'.$placeholder.'">'.$value.'</textarea>\
+                <textarea class="form-control" name="'.$id.'" id="'.$id.'" rows="'.$rows.'" placeholder="'.$placeholder.'">'.$value.'</textarea>\
             </div>
         </div>';
     }
@@ -288,6 +305,7 @@ class Utilidades
     {
         return DateTime::createFromFormat($this->formatoFecha,$fecha);
     }
+
 
 
 

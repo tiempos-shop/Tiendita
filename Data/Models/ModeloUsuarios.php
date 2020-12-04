@@ -2,12 +2,13 @@
 namespace Tiendita;
 include_once ("ModeloBase.php");
 include_once "Data/Models/Usuarios.php";
+include_once "Data/Models/ModeloTipoMovimiento.php";
 
 class ModeloUsuarios extends ModeloBase
 {
     public function __construct()
     {
-        parent::__construct("Usuarios","IdUsuario",Usuarios::getCampos(),Usuarios::getType());
+        parent::__construct("Usuarios","IdUsuario",Usuarios::getCampos(),Usuarios::getCamposEditar(),Usuarios::getType());
 
 
     }
@@ -37,12 +38,19 @@ class ModeloUsuarios extends ModeloBase
     public function Object2SimpleFormulary(string $k, object $v)
     {
         if($k=="TipoMovimiento") {
-            $tm=new ModeloTipoMovimiento();
-            $catalogo=(array)$tm->getById($k);
-            return $this->ui->Input("fk".$k,"Tipo Movimiento",$v[0],"*",$catalogo);
+            return "
+            <div class='row'>
+                <div class='col-sm-2'>Modificación</div>
+                <div class='col-sm-10'>$v->Descripcion</div>
+            </div>";
         }
         elseif ($k=="UsuarioBase"){
-            return $v->Nombres." ".$v->Apellidos;
+            return "
+            <div class='row'>
+                <div class='col-sm-2'>Usuario</div>
+                <div class='col-sm-10'>$v->Nombres $v->Apellidos</div>
+            </div>";
+
         }
         else{
             return "No definido campo: ".$k;

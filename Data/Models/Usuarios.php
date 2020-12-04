@@ -15,16 +15,10 @@ class Usuarios extends BaseAuditoria implements iEntity
     public $CorreoElectronico="";
     public $Telefono="";
 
-    public function __construct(string $nombres,string $apellidos,string $numeroEmpleado,string $usuario,string $password, string $correoElectronico,string $telefono, int $idUsuario, int $idTipoMovimiento)
-    {
-        $this->Nombres=$nombres;
-        $this->Apellidos=$apellidos;
-        $this->NumeroEmpleado=$numeroEmpleado;
-        $this->Usuario=$usuario;
-        $this->Password=$password;
-        $this->CorreoElectronico=$correoElectronico;
-        $this->Telefono=$telefono;
-        parent::__construct($idUsuario, $idTipoMovimiento);
+
+
+    public function __construct(){
+
     }
 
     public static function getCampos():array
@@ -34,11 +28,17 @@ class Usuarios extends BaseAuditoria implements iEntity
             10=>"IdUsuarioBase");
     }
 
+    public static function getCamposEditar():array
+    {
+        return array(1=>"Nombres",2=>"Apellidos",3=>"Usuario",4=>"Password",
+            5=>"CorreoElectronico",6=>"Telefono",7=>"NumeroEmpleado");
+    }
+
     public static function getType():array
     {
-        return array("Nombres"=>"$","Apellidos"=>"$","Usuario"=>"$","Password"=>"?",
-            "CorreoElectronico"=>"@","Telefono"=>"$","NumeroEmpleado"=>"$","FechaCambio"=>"$","IdTipoMovimiento"=>"#",
-            "IdUsuarioBase"=>"#");
+        return array("IdUsuario"=>"H","Nombres"=>"$","Apellidos"=>"$","Usuario"=>"$","Password"=>"?",
+            "CorreoElectronico"=>"@","Telefono"=>"$","NumeroEmpleado"=>"$","FechaCambio"=>"H","IdTipoMovimiento"=>"H",
+            "IdUsuarioBase"=>"H");
     }
 
     public static function getProperties():array
@@ -52,8 +52,8 @@ class Usuarios extends BaseAuditoria implements iEntity
             "CorreoElectronico"=>["Email","@"],
             "Telefono"=>["Teléfonos","$"],
             "NumeroEmpleado"=>["Número Empleado","$"],
-            "FechaCambio"=>["Fecha Auditoria","$"],
-            "IdTipoMovimiento"=>["Tipo Movimiento","F","TipoMovimiento"],
+            "FechaCambio"=>["Fecha Auditoria","d"],
+            "IdTipoMovimiento"=>["Tipo Movimiento","F","TipoMovimientos"],
             "IdUsuarioBase"=>["Usuario de Registro]","F","Usuarios"]
         ];
     }

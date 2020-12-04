@@ -3,6 +3,7 @@
 
 namespace Tiendita;
 include_once ("ModeloBase.php");
+include_once "TipoMovimiento.php";
 
 class ModeloTipoMovimiento extends ModeloBase
 {
@@ -24,5 +25,10 @@ class ModeloTipoMovimiento extends ModeloBase
     public function SimpleAdd()
     {
         return $this->Adicional();
+    }
+
+    public function Object2SimpleFormulary(string $k, object $v)
+    {
+        return "";
     }
 }

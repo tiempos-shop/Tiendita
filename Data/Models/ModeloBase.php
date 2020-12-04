@@ -13,6 +13,7 @@ abstract class ModeloBase implements iModeloBase
     private $Tabla;
     private $Id;
     private $campos;
+    private $camposEditar;
     private $tipos;
     protected $NombreEntidad;
 
@@ -31,13 +32,14 @@ abstract class ModeloBase implements iModeloBase
      */
     private $getAll;
 
-    public function __construct(string $nombreTabla,string $nombreId,array $campos,array $tipos,bool $auditoria=true)
+    public function __construct(string $nombreTabla,string $nombreId,array $campos,array $camposEditar,array $tipos,bool $auditoria=true)
     {
         $this->auditoria=$auditoria;
         $this->setTabla($nombreTabla);
         $this->setId($nombreId);
         $this->setCampos($campos);
         $this->setTipos($tipos);
+        $this->camposEditar=$camposEditar;
         $this->Datos=new Collection();
         $this->ui=new Utilidades();
         $this->entidadBase=new EntidadBase();
@@ -96,7 +98,7 @@ abstract class ModeloBase implements iModeloBase
         $sql="UPDATE $this->Tabla SET ";
         $valores="";
         foreach ($this->getCampos() as $campo){
-            if($this->tipos[$campo]=="#"){
+            if($this->tipos[$campo]=="#" or $this->tipos[$campo]=="H"){
                 $valores.="$campo = ".$row->$campo.",";
             }
             else {
@@ -223,25 +225,35 @@ abstract class ModeloBase implements iModeloBase
         $html.="<caption>$footer</caption>";
         // Encabezados
         $html.='<tr>';
-        $headers=[ "h1"=>"Editar","h2"=>"Borrar","h3"=>"Id" ]+$this->campos+$this->Adicional();
+        $headers=[ "h1"=>"Editar","h2"=>"Borrar" ]+$this->camposEditar+$this->Adicional();
         foreach ($headers as $head){
             $html.="<th>$head</th>";
         }
         $html.='</tr>';
-
+        $i=0;
         // Campos
         $html.='<tr>';
         foreach($object as $val){
             $a = get_object_vars($val);
+            $datoId=$a[$this->getId()];
+            $i++;
             $html.= '<tr>';
             $columns="";
             $input="";
             foreach($a as $k=>$v ){
-                if(!is_array($v)){
-                    if(in_array($v,$ocultos)) break;
-                    $columns.= "<td>$v</td>";
-                    if(!is_null($this->tipos[$k])){
-                        $input.=$this->ui->Input($k.$v,$k,$val,$this->tipos[$k]);
+                if(!is_array($v) and !is_object($v)){
+
+                    if(in_array($k,$this->camposEditar)) {
+                        $columns.= "<td>$v</td>";
+                        if(array_key_exists($k,$this->tipos) and !is_null($this->tipos[$k])){
+                            $input.=$this->ui->Input($k,$k,$v,$this->tipos[$k]);
+                        }
+                    }
+                    else
+                    {
+                        if(array_key_exists($k,$this->tipos) and !is_null($this->tipos[$k])){
+                            $input.=$this->ui->Input($k,$k,$v,$this->tipos[$k]);
+                        }
                     }
 
                 }
@@ -251,13 +263,24 @@ abstract class ModeloBase implements iModeloBase
                 }
 
             }
+
         // Botones
-            $button="<td>".$this->ui->ModalButton("idEditTable",$botonEditar,"","Edicion de Campos","Cancelar",
+            $button="<td>".$this->ui->ModalButton("idEditTable".$i,$botonEditar,"","Edicion de Campos","Cancelar",
                     $this->ui->Form([
                         $input
-                    ],"guarda.php","Guardar")
+                    ],"","Guardar")
                 )."</td>";
-            $button.='<td><button class="btn btn-danger">'.$botonBorrar.'</button></td>';
+            //$button.='<td><button class="btn btn-danger">'.$botonBorrar.'</button></td>';
+            $button.='
+                <td>'
+                .$this->ui->ModalButton("idDeleteTable".$i,$botonBorrar,"","Borrar Registro","Cancelar",
+                    $this->ui->Form([
+                        "<p>Desea borrar el registro?</p><br/>",
+                        $this->ui->Hidden($this->getId(),$datoId),
+                        $this->ui->Hidden("delete",true)
+                    ],"","Borrar")
+                ).
+                '</td>';
         // Genera html Fila
             $html.= $button.$columns."</tr>";
         }
@@ -267,12 +290,67 @@ abstract class ModeloBase implements iModeloBase
         $html.="
             <script>
                $(document).ready(function() {
-                    $('".$id."').DataTable();
+                    $('$id').DataTable();
                 });
             </script>";
 
-        $form='';
         return $html;
+    }
+
+    public function SafeSave():int
+    {
+
+        if(count($_POST)<>0){
+            $deleteConfirm=false;
+            $delete=array_key_exists("delete",$_POST);
+            if(array_key_exists($this->getId(),$_POST)){
+                $id=$_POST[$this->getId()];
+            }
+            else
+            {
+                $this->ui->MessageBox("Error al leer el ID de la tabla de usuarios. Error en las operaciones de guardar a la base de datos");
+                return 1;
+            }
+            $entidad=new Collection();
+            $nombreId=$this->getId();
+            $entidad->$nombreId=$id;
+            foreach($this->campos as $key) {
+                if(array_key_exists($key,$_POST)){
+                    $entidad->$key=$_POST[$key];
+                }
+                else
+                {
+                    $deleteConfirm=true;
+                }
+            }
+            if(is_null($id) or $id==""){
+                $this->insert($entidad);
+            }
+            else
+            {
+                if($deleteConfirm and $delete){
+                    $this->delete($entidad);
+                }
+                else{
+                    if($deleteConfirm){
+                        $this->ui->MessageBox("Error en Campos: No se encuentran todos los campos para actualizar");
+                    }
+                    else{
+                        $this->update($entidad);
+                    }
+
+                }
+
+            }
+
+            $this->SaveAll();
+            $this->ui->MessageBox("Los datos se guardaron correctamente.");
+            return 0;
+        }
+        else
+        {
+            return 0;
+        }
     }
 
 

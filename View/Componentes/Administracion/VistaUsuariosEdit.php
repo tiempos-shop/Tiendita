@@ -31,23 +31,28 @@ class VistaUsuariosEdit extends VistasMenu
         $ui=new Utilidades();
         $u=new ModeloUsuarios();
 
-        $mainContent.=$ui->ContainerFluid(
-            [
-                $ui->Row(
-                    [
-                        $u->Object2TableEdit("idUsuarios",
-                            "Editar",
-                            "Borrar",
-                            "Insertar",
-                            "",
-                            [ "Nombres" ]
-                        )
-                    ]
-                )
-            ]
-        );
-
-
+        // Si se van a guardar datos
+        if($u->SafeSave()==0) {
+            $mainContent.=$ui->ContainerFluid(
+                [
+                    $ui->Row(
+                        [
+                            $u->Object2TableEdit("idUsuarios",
+                                "Editar",
+                                "Borrar",
+                                "Insertar",
+                                "",
+                                [ "Nombres","IdTipoMovimiento" ]
+                            )
+                        ]
+                    )
+                ]
+            );
+        }
+        else
+        {
+            $mainContent="Ocurrio un error en la página";
+        }
 
 
         return $mainContent;
