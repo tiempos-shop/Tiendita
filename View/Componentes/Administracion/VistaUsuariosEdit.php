@@ -38,9 +38,9 @@ class VistaUsuariosEdit extends VistasMenu
                     $ui->Row(
                         [
                             $u->Object2TableEdit("idUsuarios",
-                                "Editar",
-                                "Borrar",
-                                "Insertar",
+                                "<i class='fa fa-edit'></i> Editar",
+                                "<i class='fa fa-eraser'></i> Borrar",
+                                "<i class='fa fa-plus'></i> Insertar",
                                 "",
                                 [ "Nombres","IdTipoMovimiento" ]
                             )

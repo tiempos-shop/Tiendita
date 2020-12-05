@@ -244,10 +244,10 @@ abstract class ModeloBase implements iModeloBase
 
             foreach($a as $k=>$v ){
                 if(!is_array($v) and !is_object($v)){
-                    if(!in_array($k,$this->camposEditar)) $columns.= "<td>$v</td>";
+                    if(in_array($k,$this->camposEditar)) $columns.= "<td>$v</td>";
                     if(array_key_exists($k,$this->tipos) and !is_null($this->tipos[$k])){
                         $input.=$this->ui->Input($k,$k,$v,$this->tipos[$k]);
-                        if($i==1) $inputNV.=$this->ui->Input("insert",$k,"",$this->tipos[$k]);
+                        if($i==1) $inputNV.=$this->ui->Input($k,$k,"",$this->tipos[$k]);
                     }
                 }
                 else{
@@ -261,18 +261,19 @@ abstract class ModeloBase implements iModeloBase
         // Botones
             $button="<td>".$this->ui->ModalButton("idEditTable".$i,$botonEditar,"","Edicion de Campos","Cancelar",
                     $this->ui->Form([
-                        $input
-                    ],"","Guardar")
+                        $input,"<br/>"
+                    ],"","Guardar"),"","","primary  btn-sm"
                 )."</td>";
-            //$button.='<td><button class="btn btn-danger">'.$botonBorrar.'</button></td>';
+
             $button.='
                 <td>'
                 .$this->ui->ModalButton("idDeleteTable".$i,$botonBorrar,"","Borrar Registro","Cancelar",
                     $this->ui->Form([
-                        "<p>Desea borrar el registro?</p><br/>",
+                        "<p>Desea borrar el registro?</p>",
+                        "<br/>",
                         $this->ui->Hidden($this->getId(),$datoId),
                         $this->ui->Hidden("delete",true)
-                    ],"","Borrar")
+                    ],"","Borrar"),"","","danger btn-sm"
                 ).
                 '</td>';
         // Genera html Fila
@@ -283,8 +284,9 @@ abstract class ModeloBase implements iModeloBase
         //$html.='<button class="btn btn-success">'.$botonInsertar.'</button>';
         $html.=$this->ui->ModalButton("idInsertTable",$botonInsertar,"","Agregar un Registro","Cancelar",
             $this->ui->Form([
-                $inputNV
-            ],"","Agregar")
+                $inputNV,
+                "<br/>"
+            ],"","Agregar"),"","","info"
         );
 
         // Script
@@ -301,8 +303,11 @@ abstract class ModeloBase implements iModeloBase
 
     public function SafeSave():int
     {
-
+        // TODO:
+        var_dump($_POST);
         if(count($_POST)<>0){
+
+            $id=null;
             $deleteConfirm=false;
             $delete=array_key_exists("delete",$_POST);
             if(array_key_exists($this->getId(),$_POST)){
@@ -310,8 +315,7 @@ abstract class ModeloBase implements iModeloBase
             }
             else
             {
-                $this->ui->MessageBox("Error al leer el ID de la tabla de usuarios. Error en las operaciones de guardar a la base de datos");
-                return 1;
+                $id="";
             }
             $entidad=new Collection();
             $nombreId=$this->getId();
@@ -325,25 +329,21 @@ abstract class ModeloBase implements iModeloBase
                     $deleteConfirm=true;
                 }
             }
-            if(is_null($id) or $id==""){
-                $this->insert($entidad);
+
+            if($deleteConfirm and $delete){
+                $this->delete($entidad);
             }
-            else
-            {
-                if($deleteConfirm and $delete){
-                    $this->delete($entidad);
+            else{
+                if($deleteConfirm){
+                    $this->ui->MessageBox("Error en Campos: No se encuentran todos los campos para actualizar");
+                    return 1;
+                }
+                elseif ($id==""){
+                    $this->insert($entidad);
                 }
                 else{
-                    if($deleteConfirm){
-                        $this->ui->MessageBox("Error en Campos: No se encuentran todos los campos para actualizar");
-                        return 2;
-                    }
-                    else{
-                        $this->update($entidad);
-                    }
-
+                    $this->update($entidad);
                 }
-
             }
 
             $this->SaveAll();
@@ -383,15 +383,6 @@ abstract class ModeloBase implements iModeloBase
         }
         $html.= "</table>";
         return $html;
-    }
-
-    public function Object2Formulary(){
-        $innerHtml=array();
-        foreach ($this->campos as $campo){
-            $type=$this->tipos[$campo];
-            $innerHtml[]=$this->ui->Input($campo,$campo,$type);
-        }
-        return $this->ui->Form($innerHtml,"guardar.php","Guardar");
     }
 
     public abstract function Object2SimpleTable(string $k,object $v);

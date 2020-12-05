@@ -81,10 +81,10 @@ class Utilidades
 
     // Modal
 
-    public function ModalButton(string $id,string $button,string $buttonAction,string $title,string $close,string $content,string $action="",string $javascriptAction=""){
+    public function ModalButton(string $id,string $button,string $buttonAction,string $title,string $close,string $content,string $action="",string $javascriptAction="",string $type="primary"){
         $html='
             <!-- Button trigger modal -->
-            <button type="button" onclick="'.$buttonAction.'" class="btn btn-primary" data-toggle="modal" data-target="#'.$id.'">
+            <button type="button" onclick="'.$buttonAction.'" class="btn btn-'.$type.'" data-toggle="modal" data-target="#'.$id.'">
               '.$button.'
             </button>
             
@@ -110,6 +110,14 @@ class Utilidades
             </div>
         ';
         return $html;
+    }
+
+    // Button
+
+    public function Button($class,$content){
+        return "
+            <button class='$class'>$content</button>
+        ";
     }
 
     // Forms

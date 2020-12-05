@@ -4,6 +4,8 @@
 namespace Administracion;
 
 
+use ErrorException;
+
 class VistasHtml
 {
 
@@ -20,7 +22,9 @@ class VistasHtml
 
     public function __construct()
     {
-
+        set_error_handler(function($errno, $errstr, $errfile, $errline ){
+            throw new ErrorException($errstr, $errno, 0, $errfile, $errline);
+        });
     }
 
     public function Html5($head, $body,$lang="es"){
