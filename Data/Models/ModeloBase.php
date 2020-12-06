@@ -14,6 +14,7 @@ abstract class ModeloBase implements iModeloBase
     private $Id;
     private $campos;
     private $camposEditar;
+    public $properties;
     private $tipos;
     protected $NombreEntidad;
 
@@ -32,7 +33,7 @@ abstract class ModeloBase implements iModeloBase
      */
     private $getAll;
 
-    public function __construct(string $nombreTabla,string $nombreId,array $campos,array $camposEditar,array $tipos,bool $auditoria=true)
+    public function __construct(string $nombreTabla,string $nombreId,array $campos,array $camposEditar,array $tipos,array $properties=[],bool $auditoria=true)
     {
         $this->auditoria=$auditoria;
         $this->setTabla($nombreTabla);
@@ -44,6 +45,7 @@ abstract class ModeloBase implements iModeloBase
         $this->ui=new Utilidades();
         $this->entidadBase=new EntidadBase();
         $this->getAll();
+        $this->properties=$properties;
     }
 
 
@@ -66,7 +68,7 @@ abstract class ModeloBase implements iModeloBase
         $element = (object)array();
         $id=$this->getId();
         $element->$id=$row->$id;
-        foreach ($this->getCampos() as $campo){
+        foreach ($this->properties as $campo=>$property){
             $element->$campo=$row->$campo;
         }
 
@@ -97,8 +99,8 @@ abstract class ModeloBase implements iModeloBase
         $id=intval($row->$n);
         $sql="UPDATE $this->Tabla SET ";
         $valores="";
-        foreach ($this->getCampos() as $campo){
-            if($this->tipos[$campo]=="#" or $this->tipos[$campo]=="H"){
+        foreach ($this->properties as $campo=>$property){
+            if($property["typeDb"]=="#"){
                 $valores.="$campo = ".$row->$campo.",";
             }
             else {
@@ -118,9 +120,9 @@ abstract class ModeloBase implements iModeloBase
         $sql="INSERT INTO $this->Tabla ";
         $campos="";
         $valores="";
-        foreach ($this->getCampos() as $campo){
+        foreach ($this->properties as $campo=>$property){
             $campos.=$campo.",";
-            if($this->tipos[$campo]=="#"){
+            if($property["typeDb"]=="#"){
                 $valores.=$row->$campo;
             }
             else{

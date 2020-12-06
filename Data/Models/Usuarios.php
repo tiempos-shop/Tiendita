@@ -60,8 +60,8 @@ class Usuarios extends BaseAuditoria implements iEntity
             "Telefono"=>["label"=>"Teléfonos","type"=>"$","typeDb"=>"$"],
             "NumeroEmpleado"=>["label"=>"Número Empleado","type"=>"$","typeDb"=>"$"],
             "FechaCambio"=>["label"=>"Fecha Auditoria","type"=>"D","typeDb"=>"$"],
-            "IdTipoMovimiento"=>["label"=>"Tipo Movimiento","type"=>"F","typeDb"=>"$","Table"=>"TipoMovimientos"],
-            "IdUsuarioBase"=>["label"=>"Usuario de Registro]","type"=>"F","typeDb"=>"$","Table"=>"Usuarios"]
+            "IdTipoMovimiento"=>["label"=>"Tipo Movimiento","type"=>"F","typeDb"=>"#","Table"=>"TipoMovimientos"],
+            "IdUsuarioBase"=>["label"=>"Usuario de Registro]","type"=>"F","typeDb"=>"#","Table"=>"Usuarios"]
         ];
     }
 }

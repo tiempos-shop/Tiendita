@@ -8,7 +8,7 @@ class ModeloUsuarios extends ModeloBase
 {
     public function __construct()
     {
-        parent::__construct("Usuarios","IdUsuario",Usuarios::getCampos(),Usuarios::getCamposEditar(),Usuarios::getType());
+        parent::__construct("Usuarios","IdUsuario",Usuarios::getCampos(),Usuarios::getCamposEditar(),Usuarios::getType(),Usuarios::getProperties());
 
 
     }
