@@ -2,6 +2,16 @@
 <?php
 
 use Tiendita\ModeloUsuarios;
+use Tiendita\Test;
+use Tiendita\Usuarios;
+
+include_once ("Data/Models/BaseAuditoria.php");
+include_once ("Data/Models/Usuarios.php");
+include_once ("Data/Connection/EntidadBase.php");
+include_once ("Data/Models/ModeloUsuarios.php");
+include_once ("Test.php");
+
+$t=new Test();
 
 $header="";
 $styles="";
@@ -25,38 +35,12 @@ $header.='<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/boot
 // Hojas de Estilo
 $header.='<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">';
 $header.='<link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@100&display=swap" rel="stylesheet">';
-$header.='
-
-';
 
 
 
 // Estilos Directos
-$styles.="body{font-family: 'Grandstander', cursive;}
-    .estiloIzquierdo {
-    @import url('https://fonts.googleapis.com/css2?family=Goldman:wght@700&display=swap');
-      background-color:#F4EEE9;
-      font-family: 'Goldman', cursive;
-      
-      .proyectosScroll {
-      .content-box { 
-  box-sizing: content-box; 
-}
-.padding-box {
-  box-sizing: padding-box; 
-}
-.border-box { 
-  box-sizing: border-box; 
-}
+$styles.="body{font-family: 'Grandstander', cursive;}";
 
-      margin: auto;
-      background: lime ;
-      width: 66%;
-      
-      }
-       
-    }
-";
 
 $body.='<!-- Button trigger modal -->
 <button type="button" class="btn btn-link float-right" data-toggle="modal" data-target="#exampleModal">
@@ -97,37 +81,19 @@ $body.='<!-- Button trigger modal -->
 </div>';
 
 // $body.='<div class="jumbotron"><h1>Tiempos Shop</h1><p>Nuestra Tienda Online</p><p>Proximamente</p></div>';
-$panelIzquierdo='
-    <head>
-    <p class="user-select-none">a.2020</p>
-    <p class="user-select-none">TIEMPOS</p>
-    <br>
-    <br>
-    <br>
-    <p>PROYECTO DE CARTERAS</p>    
-    </head>
-    <br> <br> <br> <br> <br> <br> <br> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <body>
-    <p>ABOUT</p>
-    <p>TERMINOS Y CONDICIONES</p>
-    <p class="text-center">ES/EN </p>
-    
-    </body>
-';
-$panelDerecha='
-    <p><img src="View/Imagenes/ejemplo-1.jpg" alt="Bolsita"><img src="View/Imagenes/ejemplo-2.jpg" alt="Sentadita"></p>
-';
+$panelIzquierdo='';
+$panelDerecha='Hola mundo';
 
 
 
 $body.='
 <div class="container-fluid" style="height: 95vh;position: relative;">
   <div class="row" style="height: 95vh;position: relative;">
-    <div class="col-sm-3 estiloIzquierdo">
+    <div class="col-sm-3" style="">
       '.$panelIzquierdo.'
     </div>
     <div class="col-sm-9" style="">
-      '.$panelDerecha.'
+      '.$panelDerecha.$t->TestObjectToTable().'
     </div>
   </div>
 </div>
@@ -137,12 +103,27 @@ $javascript.="function administracion(){ window.location.href='http://localhost:
 $javascript.="function url(dir){ window.location.href=dir };\n";
 
 
-include_once ("Data/Models/BaseAuditoria.php");
-include_once ("Data/Models/Usuarios.php");
-include_once ("Data/Connection/EntidadBase.php");
-include_once ("Data/Models/ModeloUsuarios.php");
 
-$usuarios=new ModeloUsuarios();
+
+
+
+$t->TestInsert();
+$t->TestUpdate();
+$t->TestSaveAll();
+
+$g=$t->TestGetAll();
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

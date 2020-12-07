@@ -1,62 +1,59 @@
 <?php
 namespace Tiendita;
-use mysql_xdevapi\Exception;
-class ModeloUsuarios
+include_once ("ModeloBase.php");
+include_once "Data/Models/Usuarios.php";
+include_once "Data/Models/ModeloTipoMovimiento.php";
+
+class ModeloUsuarios extends ModeloBase
 {
-    // Tabla Usuarios
-    public $Tabla="Usuarios";
-    public $Id="IdUsuario";
-    public $campos=
-        array(1=>"Nombres",2=>"Apellidos",3=>"Usuario",4=>"Password",
-            5=>"CorreoElectronico",6=>"Telefono",7=>"NumeroEmpleado",8=>"FechaCambio",9=>"IdTipoMovimiento",
-            10=>"IdUsuarioBase");
-
-    // Tabla Externa TipoMovimiento
-    public $NombreTablaTipoMovimiento="TipoMovimiento";
-    public $NombreIdTipoMovimiento="IdTipoMovimiento";
-
-    public $Datos;
-    private $utilidades;
-
     public function __construct()
     {
-        $Entidad=array();
-        include_once("Business/Collection.php");
-        $this->Datos=new Collection();
-        include_once("Business/Utilidades.php");
-        $this->utilidades=new Utilidades();
+        parent::__construct("Usuarios","IdUsuario",Usuarios::getCampos(),Usuarios::getCamposEditar(),Usuarios::getType());
 
 
-        include_once("Data/Connection/EntidadBase.php");
-        $entidadBase=new EntidadBase();
-        $data=$entidadBase->getAll($this->Tabla);
-        include_once ("Data/Models/Usuarios.php");
-
-        foreach ($data as $row) {
-
-            $element = new Usuarios();
-
-            foreach ($this->campos as $campo){
-                $element->$campo=$row->$campo;
-            }
-
-            // Objetos Externos
-            $element->TipoMovimiento=$entidadBase->getBy($this->NombreTablaTipoMovimiento,$this->NombreIdTipoMovimiento,$element->IdTipoMovimiento);
-            $element->UsuarioBase=$entidadBase->getBy($this->Tabla,$this->Id,$element->IdUsuarioBase);
-
-            $Entidad[] = $element;
-        }
-        // echo $this->utilidades->Object2Table($Entidad);
-        $this->Datos=$Entidad;
     }
 
+    public function Adicional(){
+        return [ "ad1"=>"Tipo Movimiento", "ad2"=>"Usuario "];
+    }
 
-
-    public function Agregar($elemento){
-        if (!is_a($elemento, 'Usuario')) {
-            throw new Exception("La clase no es de tipo Usuario");
+    public function Object2SimpleTable(string $k, object $v)
+    {
+        if($k=="TipoMovimiento") {
+            return $v->Descripcion;
         }
-        $this->Datos->addItem($elemento,$elemento->IdUsuario);
-        $sqlInsert="insert into Usuarios ";
+        elseif ($k=="UsuarioBase"){
+            return $v->Nombres." ".$v->Apellidos;
+        }
+        else{
+            return "No definido campo: ".$k;
+        }
+    }
+
+    public function SimpleAdd()
+    {
+        return $this->Adicional();
+    }
+
+    public function Object2SimpleFormulary(string $k, object $v)
+    {
+        if($k=="TipoMovimiento") {
+            return "
+            <div class='row'>
+                <div class='col-sm-2'>Modificación</div>
+                <div class='col-sm-10'>$v->Descripcion</div>
+            </div>";
+        }
+        elseif ($k=="UsuarioBase"){
+            return "
+            <div class='row'>
+                <div class='col-sm-2'>Usuario</div>
+                <div class='col-sm-10'>$v->Nombres $v->Apellidos</div>
+            </div>";
+
+        }
+        else{
+            return "No definido campo: ".$k;
+        }
     }
 }
