@@ -10,6 +10,11 @@ use ReflectionClass;
 class Utilidades
 {
     public $formatoFecha = "d/m/Y H:i:s";
+    // Expresiones regulares
+    const password="^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$";
+    const nombres="/^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/";
+    const correo="/^[\w]+@{1}[\w]+\.[a-z]{2,3}$/";
+
 
     // Tablas
 
@@ -26,6 +31,7 @@ class Utilidades
                         $html.="<td>".$this->Object2Table($v)."</td>";
                 }
                 $html.= "</tr>";
+
             }
             $html.= "</table>";
             return $html;
@@ -138,20 +144,20 @@ class Utilidades
 
 
 
-    public function Input(string $id, string $label, $value, string $type, array $options=[]){
+    public function Input(string $id, string $label, $value, string $type,bool $required,array $options=[]){
         switch ($type){
-            case "H": // Hidden
+            case "F": // Hidden
                 return $this->Hidden($id,$value);
             case "$": // Texto
-                return $this->TextBox($id,$label,$value,"text","abc");
+                return $this->TextBox($id,$label,$value,"text","abc",$required);
             case "?": // Password
-                return $this->TextBox($id,$label,$value,"password","password");
+                return $this->TextBox($id,$label,$value,"password","password",$required);
             case "#": // Numerico
-                return $this->TextBox($id,$label,$value,"number","123");
+                return $this->TextBox($id,$label,$value,"number","123",$required);
             case "D": // Fecha
-                return $this->TextBox($id,$label,$value,"date","123");
+                return $this->TextBox($id,$label,$value,"date","123",$required);
             case "@": // Correo
-                return $this->TextBox($id,$label,$value,"email","nombre@empresa.com");
+                return $this->TextBox($id,$label,$value,"email","nombre@empresa.com",$required);
             case "&": // Textarea
                 return $this->TextArea($id,$label,3,"abc...xyz");
             case "%": // Checkbox
@@ -239,24 +245,38 @@ class Utilidades
         return $html;
     }
 
+    private function sql_injection($text):bool
+    {
+        return true;
+    }
+
+    private function crossSiteScripting($text):bool
+    {
+        return true;
+    }
+
     public function Hidden(string $id, $value)
     {
         return '<input type="hidden" value="'.$value.'" name="'.$id.'" id="'.$id.'" >';
     }
 
-    public function TextBox(string $id,string $label,$value,string $type="text",string $placeholder=""){
-
+    public function TextBox(string $id,string $label,$value,string $type,string $placeholder,bool $required,$pattern="",$title=""){
+        if($pattern<>"") $pattern='pattern="'.$pattern.'" ';
+        if($title<>"") $title='title="'.$title.'"';
+        $r="";
+        if($required) $r="required";
         return '
         <div class="form-group row">
             <label for="'.$id.'" class="col-sm-2 col-form-label">'.$label.'</label>
             <div class="col-sm-10">
-                <input type="'.$type.'" value="'.$value.'" class="form-control" name="'.$id.'" id="'.$id.'" placeholder="'.$placeholder.'">
+                <input type="'.$type.'" value="'.$value.'" class="form-control" name="'.$id.'" id="'.$id.'" placeholder="'.$placeholder.'" '.$pattern.' '.$title.' '.$r.' >
             </div>
         </div>
         ';
     }
 
     public function TextArea(string $id,$label,$value,int $rows=3,string $placeholder=""){
+
         return '
         <div class="form-group row">
             <label for="'.$id.'" class="col-sm-2 col-form-label">'.$label.'</label>

@@ -21,9 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/Utilidades.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Utilidades.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/Models/ModeloBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/ModeloBase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Models/ModeloUsuarios.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/ModeloUsuarios.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Models/ModeloTipoMovimiento.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/ModeloTipoMovimiento.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Models/TipoMovimiento.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/TipoMovimiento.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/Models/Usuarios.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Usuarios.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guarda.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,6 +173,7 @@
       <workItem from="1607107659890" duration="12699000" />
       <workItem from="1607195334862" duration="1607000" />
       <workItem from="1607287796407" duration="1566000" />
+      <workItem from="1607385082141" duration="15520000" />
     </task>
     <task id="LOCAL-00001" summary="Pedidos">
       <created>1603478572271</created>

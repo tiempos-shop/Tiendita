@@ -2,6 +2,8 @@
 
 
 namespace Tiendita;
+use stdClass;
+
 include_once ("iModeloBase.php");
 include_once("Business/Collection.php");
 include_once("Business/Utilidades.php");
@@ -14,9 +16,11 @@ abstract class ModeloBase implements iModeloBase
     private $Id;
     private $campos;
     private $camposEditar;
-    public $properties;
+    protected $properties;
     private $tipos;
     protected $NombreEntidad;
+    private $userId;
+
 
     public $Datos;
 
@@ -33,8 +37,16 @@ abstract class ModeloBase implements iModeloBase
      */
     private $getAll;
 
-    public function __construct(string $nombreTabla,string $nombreId,array $campos,array $camposEditar,array $tipos,array $properties=[],bool $auditoria=true)
+    public function __construct(string $nombreTabla,string $nombreId,array $campos,array $camposEditar,array $tipos,array $properties,bool $auditoria=true)
     {
+        if(isset($_SESSION["userId"])){
+            $this->userId=$_SESSION["userId"];
+        }
+        else{
+            // TODO: Debe enviar al login e impedir iniciar la aplicación
+            $this->userId=0;
+        }
+        $this->properties=$properties;
         $this->auditoria=$auditoria;
         $this->setTabla($nombreTabla);
         $this->setId($nombreId);
@@ -44,8 +56,7 @@ abstract class ModeloBase implements iModeloBase
         $this->Datos=new Collection();
         $this->ui=new Utilidades();
         $this->entidadBase=new EntidadBase();
-        $this->getAll();
-        $this->properties=$properties;
+
     }
 
 
@@ -63,13 +74,13 @@ abstract class ModeloBase implements iModeloBase
         return $this->Datos;
     }
 
-    private function CreateElement(object $row)
+    public function CreateElement(object $row)
     {
         $element = (object)array();
         $id=$this->getId();
         $element->$id=$row->$id;
         foreach ($this->properties as $campo=>$property){
-            $element->$campo=$row->$campo;
+                $element->$campo=$row->$campo;
         }
 
         if($this->auditoria===true){
@@ -121,15 +132,17 @@ abstract class ModeloBase implements iModeloBase
         $campos="";
         $valores="";
         foreach ($this->properties as $campo=>$property){
-            $campos.=$campo.",";
-            if($property["typeDb"]=="#"){
-                $valores.=$row->$campo;
-            }
-            else{
-                $valores.="'".$row->$campo."'";
-            }
+            if($property["type"]<>"I"){
+                $campos.=$campo.",";
+                if($property["typeDb"]=="#"){
+                    $valores.=$row->$campo;
+                }
+                else{
+                    $valores.="'".$row->$campo."'";
+                }
 
-            $valores.=",";
+                $valores.=",";
+            }
         }
         $campos=trim($campos,",");
         $valores=trim($valores,",");
@@ -227,7 +240,13 @@ abstract class ModeloBase implements iModeloBase
         $html.="<caption>$footer</caption>";
         // Encabezados
         $html.='<tr>';
-        $headers=[ "h1"=>"Editar","h2"=>"Borrar" ]+$this->camposEditar+$this->Adicional();
+        $camposEditar=array();
+        foreach ($this->properties as $campo=>$property){
+            $type=$property["type"];
+            if(!($type=="I" or $type=="F"))
+                $camposEditar[]=$property["label"];
+        }
+        $headers=[ "h1"=>"Editar","h2"=>"Borrar" ]+$camposEditar+$this->Adicional();
         foreach ($headers as $head){
             $html.="<th>$head</th>";
         }
@@ -242,14 +261,31 @@ abstract class ModeloBase implements iModeloBase
             $i++;
             $html.= '<tr>';
             $columns="";
-            $input="";
+            $input=$this->ui->Hidden($this->getId(),$datoId);
 
             foreach($a as $k=>$v ){
+
                 if(!is_array($v) and !is_object($v)){
-                    if(in_array($k,$this->camposEditar)) $columns.= "<td>$v</td>";
+                    if($this->auditoria){
+                        if($k=="FechaCambio") $v=$this->ui->FechaHoy();
+                        if($k=="IdTipoMovimiento") $v=1;
+                        if($k=="IdUsuarioBase") $v=$this->userId;
+                    }
+                    $type=$this->properties[$k]["type"];
+                    $req=$this->properties[$k]["required"];
+                    if(!($type=="I" or $type=="F")) $columns.= "<td>$v</td>";
+                    //if(in_array($k,$this->camposEditar)) $columns.= "<td>$v</td>";
                     if(array_key_exists($k,$this->tipos) and !is_null($this->tipos[$k])){
-                        $input.=$this->ui->Input($k,$k,$v,$this->tipos[$k]);
-                        if($i==1) $inputNV.=$this->ui->Input($k,$k,"",$this->tipos[$k]);
+                        $input.=$this->ui->Input($k,$k,$v,$type,$req);
+                        if($i==1) {
+                            if($type=="F"){
+                                $inputNV.=$this->ui->Input($k,$k,$v,$type,$req);
+                            }
+                            else{
+                                $inputNV.=$this->ui->Input($k,$k,"",$type,$req);
+                            }
+
+                        }
                     }
                 }
                 else{
@@ -331,7 +367,9 @@ abstract class ModeloBase implements iModeloBase
                     $deleteConfirm=true;
                 }
             }
-
+            if($this->auditoria){
+                $entidad->FechaCambiofecha=$this->ui->FechaHoy();
+            }
             if($deleteConfirm and $delete){
                 $this->delete($entidad);
             }
