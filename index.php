@@ -3,7 +3,7 @@
 use Administracion\VistasHtml;
 use Tiendita\Utilidades;
 
-include_once "VistasHtml.php";
+include_once "View/Componentes/Administracion/VistasHtml.php";
 include_once "Business/Utilidades.php";
 
 $html=new VistasHtml();
@@ -20,12 +20,13 @@ echo $html->Html5(
         $ui->ContainerFluid([
             $ui->Row([
                 $ui->Columns(
-                    $ui->ModalButton("login","<i class='fa fa-user'></i> Ingresar","","Ingresar Usuario y Contraseña","Cancelar",
+                    $ui->ModalButtonNormal("login","<i class='fa fa-user'></i> Ingresar","","Ingresar Usuario y Contraseña","<i class='fa fa-cross'></i>Cancelar",
                     $ui->Form([
                         $ui->Input("idUsuario","Usuario","","$",true),
-                        $ui->Input("idUsuario","Password","","?",true)
-                    ],"administracion.php","Ingresar")
-                    ,""),
+                        $ui->Input("idUsuario","Password","","?",true),
+                        "<br/>"
+                    ],"administracion.php","<i class='fa fa-check'></i> Ingresar")
+                    ,"","","primary btn-sm"),
                     12,0,0,0,"text-right"
                 )
             ]),
@@ -44,5 +45,5 @@ echo $html->Html5(
                 )
             ])
         ])
-    ],"")
+    ],"style='background-color:black' ")
 );
