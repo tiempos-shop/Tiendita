@@ -14,10 +14,10 @@ abstract class ModeloBase implements iModeloBase
 
     private $Tabla;
     private $Id;
-    private $campos;
-    private $camposEditar;
+    // private $campos;
+    // private $camposEditar;
     protected $properties;
-    private $tipos;
+    //private $tipos;
     protected $NombreEntidad;
     private $userId;
 
@@ -37,7 +37,8 @@ abstract class ModeloBase implements iModeloBase
      */
     private $getAll;
 
-    public function __construct(string $nombreTabla,string $nombreId,array $campos,array $camposEditar,array $tipos,array $properties,bool $auditoria=true)
+    //public function __construct(string $nombreTabla,string $nombreId,array $campos,array $camposEditar,array $tipos,array $properties,bool $auditoria=true)
+    public function __construct(string $nombreTabla,string $nombreId,array $properties,bool $auditoria=true)
     {
         if(isset($_SESSION["userId"])){
             $this->userId=$_SESSION["userId"];
@@ -50,9 +51,9 @@ abstract class ModeloBase implements iModeloBase
         $this->auditoria=$auditoria;
         $this->setTabla($nombreTabla);
         $this->setId($nombreId);
-        $this->setCampos($campos);
-        $this->setTipos($tipos);
-        $this->camposEditar=$camposEditar;
+        //$this->setCampos($campos);
+        //$this->setTipos($tipos);
+        //$this->camposEditar=$camposEditar;
         $this->Datos=new Collection();
         $this->ui=new Utilidades();
         $this->entidadBase=new EntidadBase();
@@ -275,7 +276,7 @@ abstract class ModeloBase implements iModeloBase
                     $req=$this->properties[$k]["required"];
                     if(!($type=="I" or $type=="F")) $columns.= "<td>$v</td>";
                     //if(in_array($k,$this->camposEditar)) $columns.= "<td>$v</td>";
-                    if(array_key_exists($k,$this->tipos) and !is_null($this->tipos[$k])){
+                    //if(array_key_exists($k,$this->tipos) and !is_null($this->tipos[$k])){
                         $input.=$this->ui->Input($k,$k,$v,$type,$req);
                         if($i==1) {
                             if($type=="F"){
@@ -286,7 +287,7 @@ abstract class ModeloBase implements iModeloBase
                             }
 
                         }
-                    }
+                    //}
                 }
                 else{
                     $columns.="<td>".$this->Object2SimpleTable($k,$v[0])."</td>";
@@ -358,13 +359,14 @@ abstract class ModeloBase implements iModeloBase
             $entidad=new Collection();
             $nombreId=$this->getId();
             $entidad->$nombreId=$id;
-            foreach($this->campos as $key) {
+            foreach($this->properties as $key=>$property) {
                 if(array_key_exists($key,$_POST)){
                     $entidad->$key=$_POST[$key];
                 }
                 else
                 {
-                    $deleteConfirm=true;
+                    if($property["type"]<>"I")
+                        $deleteConfirm=true;
                 }
             }
             if($this->auditoria){
@@ -402,7 +404,13 @@ abstract class ModeloBase implements iModeloBase
         $object=$this->getAll();
         $html= '<table class="table table-bordered">';
         $html.='<tr>';
-        $headers=["h1"=>"Id"]+$this->campos+$this->SimpleAdd();
+        $camposEditar=array();
+        foreach ($this->properties as $campo=>$property){
+            $type=$property["type"];
+            if(!($type=="I" or $type=="F"))
+                $camposEditar[]=$property["label"];
+        }
+        $headers=["h1"=>"Id"]+$camposEditar;//+$this->SimpleAdd();
         foreach ($headers as $head){
             $html.="<th>$head</th>";
         }
@@ -412,12 +420,14 @@ abstract class ModeloBase implements iModeloBase
             $html.= '<tr>';
             foreach($a as $k=>$v ){
                 if(!is_array($v)){
-                    if(!in_array($v,$ocultos)){
+                    if($this->properties[$k]["type"]<>"F"){
                         $html.= "<td>$v</td>";
                     }
                 }
-                else
-                    $html.="<td>".$this->Object2SimpleTable($k,$v[0])."</td>";
+                else{
+
+                }
+                    //$html.="<td>".$this->Object2SimpleTable($k,$v[0])."</td>";
             }
             $html.= "</tr>";
         }

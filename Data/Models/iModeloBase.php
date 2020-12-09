@@ -28,15 +28,15 @@ interface iModeloBase
      */
     public function setId($Id): void;
 
-    /**
-     * @return string[]
-     */
-    public function getCampos(): array;
-
-    /**
-     * @param string[] $campos
-     */
-    public function setCampos(array $campos): void;
+//    /**
+//     * @return string[]
+//     */
+//    public function getCampos(): array;
+//
+//    /**
+//     * @param string[] $campos
+//     */
+//    public function setCampos(array $campos): void;
 
     /**
      * @return array

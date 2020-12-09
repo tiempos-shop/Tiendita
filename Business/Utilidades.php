@@ -62,7 +62,7 @@ class Utilidades
         return $html;
     }
 
-    public function Columns(string $html,int $mediumScreen,int $tinyScreen=0,int $smallScreen=0,int $largeScreen=0){
+    public function Columns(string $html,int $mediumScreen,int $tinyScreen=0,int $smallScreen=0,int $largeScreen=0,string $class=""){
         if($tinyScreen==0) $tiny="";
         else $tiny='col-xs-'.$tinyScreen;
         if($smallScreen==0) $small="";
@@ -72,7 +72,7 @@ class Utilidades
         if($largeScreen==0) $large="";
         else $large='col-lg-'.$largeScreen;
 
-        return "<div class='$tiny $small $medium $large'>
+        return "<div class='$tiny $small $medium $large $class'>
                     $html
                 </div>";
     }
@@ -245,12 +245,14 @@ class Utilidades
         return $html;
     }
 
-    private function sql_injection($text):bool
+
+
+    public function sql_injection($text):bool
     {
         return true;
     }
 
-    private function crossSiteScripting($text):bool
+    public function crossSiteScripting($text):bool
     {
         return true;
     }

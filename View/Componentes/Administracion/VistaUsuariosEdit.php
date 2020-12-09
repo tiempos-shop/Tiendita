@@ -33,10 +33,8 @@ class VistaUsuariosEdit extends VistasMenu
 
         // Si se van a guardar datos
         if($u->SafeSave()==0) {
-            $mainContent.=$ui->ContainerFluid(
-                [
-                    $ui->Row(
-                        [
+            $mainContent.=$ui->ContainerFluid([
+                    $ui->Row([
                             $u->Object2TableEdit("idUsuarios",
                                 "<i class='fa fa-edit'></i> Editar",
                                 "<i class='fa fa-eraser'></i> Borrar",
@@ -44,10 +42,8 @@ class VistaUsuariosEdit extends VistasMenu
                                 "",
                                 [ "Nombres","IdTipoMovimiento" ]
                             )
-                        ]
-                    )
-                ]
-            );
+                    ])
+            ]);
         }
         else
         {
