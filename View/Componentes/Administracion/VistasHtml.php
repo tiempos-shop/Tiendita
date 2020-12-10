@@ -22,9 +22,7 @@ class VistasHtml
 
     public function __construct()
     {
-        set_error_handler(function($errno, $errstr, $errfile, $errline ){
-            throw new ErrorException($errstr, $errno, 0, $errfile, $errline);
-        });
+
     }
 
     public function Html5(string $head, string $body,$lang="es"){
@@ -43,14 +41,12 @@ class VistasHtml
 
 
 
-    public function Body(array $content,string $atributes){
-        $html= "
-            <body $atributes>";
-        foreach ($content as $html){
-            $html.=$html;
+    public function Body(array $contents,string $attributes){
+        $html= "<body $attributes>";
+        foreach ($contents as $content){
+            $html.=$content;
         }
-        $html.="</body>
-        ";
+        $html.="</body>";
         return $html;
     }
 

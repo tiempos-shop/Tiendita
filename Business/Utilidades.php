@@ -10,6 +10,7 @@ use ReflectionClass;
 class Utilidades
 {
     public $formatoFecha = "d/m/Y H:i:s";
+
     // Expresiones regulares
     const password="^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$";
     const nombres="/^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/";
@@ -23,14 +24,14 @@ class Utilidades
             $html= "<table class='table table-bordered'>";
             foreach($object as $val){
                 $a = get_object_vars($val);
-                $html.= "<tr>";
+                $html.= "<tbody><tr>";
                 foreach($a as $v ){
                     if(!is_array($v))
                         $html.= "<td>$v</td>";
                     else
                         $html.="<td>".$this->Object2Table($v)."</td>";
                 }
-                $html.= "</tr>";
+                $html.= "</tr></tbody>";
 
             }
             $html.= "</table>";
@@ -319,6 +320,26 @@ class Utilidades
         </div>';
     }
 
+    // GetPost
+
+    public function Post(array $fields):array
+    {
+        $out=array();
+        if(count($_POST)>0){
+            foreach ($fields as $field){
+                if(array_key_exists($field,$_POST)){
+                    $out[$field]=$_POST[$field];
+                }
+            }
+        }
+        if(count($fields)==count($out)){
+            return [ "out"=>true,"data"=>$out ];
+        }
+        else{
+            return [ "out"=>false,"data"=>$out ];
+        }
+    }
+
     //DateTime
 
     public function Fecha(int $dia,int $mes,int $ano,int $horas,int $minutos,int $segundos):DateTime
@@ -367,7 +388,10 @@ class Utilidades
         return DateTime::createFromFormat($this->formatoFecha,$fecha);
     }
 
-
+    public function Redirect(string $url)
+    {
+        echo "<script>window.location.assign('$url')</script>";
+    }
 
 
 }

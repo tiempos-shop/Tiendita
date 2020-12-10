@@ -9,9 +9,9 @@ include_once "Business/Utilidades.php";
 $html=new VistasHtml();
 $ui=new Utilidades();
 
-echo $html->Html5(
-    $html->Head("
-        Tiempos Shop",
+$h= $html->Html5(
+    $html->Head(
+        "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
         $html->LoadStyles(["View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
         $html->LoadScripts(["View/js/bootstrap.js"])
@@ -22,8 +22,8 @@ echo $html->Html5(
                 $ui->Columns(
                     $ui->ModalButtonNormal("login","<i class='fa fa-user'></i> Ingresar","","Ingresar Usuario y Contraseña","<i class='fa fa-cross'></i>Cancelar",
                     $ui->Form([
-                        $ui->Input("idUsuario","Usuario","","$",true),
-                        $ui->Input("idUsuario","Password","","?",true),
+                        $ui->Input("usuario","Usuario","","$",true),
+                        $ui->Input("password","Password","","?",true),
                         "<br/>"
                     ],"administracion.php","<i class='fa fa-check'></i> Ingresar")
                     ,"","","primary btn-sm"),
@@ -45,5 +45,7 @@ echo $html->Html5(
                 )
             ])
         ])
-    ],"style='background-color:black' ")
+    ],"style='background-color:pink;' ")
 );
+
+print_r($h);

@@ -4,15 +4,62 @@ namespace Administracion;
 
 
 use mysql_xdevapi\Exception;
+use Tiendita\EntidadBase;
+use Tiendita\Utilidades;
+
 include_once ("VistasHtml.php");
 
-class VistasMenu extends VistasHtml{
+abstract class VistasMenu extends VistasHtml{
+    private $contenido;
+    private $NombreUsuario="Sin Leer";
     public function __construct()
     {
+
         parent::__construct();
     }
 
+    private function Permisos()
+    {
+        session_start();
+        $ui=new Utilidades();
+
+        if($ui->Post(["usuario","password"])["out"]==true){
+            $data=$ui->Post(["usuario","password"])["data"];
+
+            $usuario=$data["usuario"];
+            $password=$data["password"];
+            $db=new EntidadBase();
+
+            $userEntity=(object)$db->getBy("Usuarios","Usuario",$usuario)[0];
+            var_dump($userEntity);
+            if($userEntity->Password==$password){
+                // Actualizar Componente User Information
+                $this->NombreUsuario=$userEntity->Nombres." ".$userEntity->Apellidos;
+                // Guardar en Sesion
+                $_SESSION["userId"]=$userEntity->IdUsuario;
+                $_SESSION["name"]=$this->NombreUsuario;
+                $_SESSION["user"]=$userEntity;
+            }
+            else{
+                $ui->MessageBox("Error en el usuario o contraseña");
+                $ui->Redirect("index.php");
+            }
+        };
+
+        // Validar permisos
+        if(isset($_SESSION["userId"])){
+            $this->userId=$_SESSION["userId"];
+            $this->NombreUsuario=$_SESSION["name"];
+        }
+        else{
+
+            $ui->MessageBox("No tiene permisos para ingresar a esta página: ");
+            $ui->Redirect("index.php");
+        }
+    }
+
     public function HeadMenu(){
+
         return $this->Head("Administración de Tiempos Shop",
             $this->Meta("utf-8","Tienda Online","Egil Ordoñez"),
             $this->LoadStyles([
@@ -27,10 +74,12 @@ class VistasMenu extends VistasHtml{
     }
 
     public function BodyMenu(){
+        $this->Permisos();
+        $this->contenido=$this->Content();
         $body= $this->SideBar("Admin TShop","administracion.php");
         $body.=$this->ContentWrapper(
-            $this->TopBar().
-            $this->Content().
+            $this->TopBar($this->NombreUsuario,[],[]).
+            $this->contenido.
             $this->Footer("Tiempos Shop")
         );
         $body.= $this->Wrapper();
@@ -87,9 +136,9 @@ class VistasMenu extends VistasHtml{
     public function LogOutModal(){
         $titulo="¿Seguro que quieres abandonar tu sesión?";
         $body="Confirme con el boton 'desconectarme' para abandonar la sesión.";
-        $botonSalir="Salir";
+        $botonSalir="Cancelar";
         $botonAccion="Desconectarme";
-        $urlAccion="login.html";
+        $urlAccion="index.php";
 
         return $this->Modal($titulo,$body,$botonSalir,$botonAccion,$urlAccion);
 
@@ -298,11 +347,11 @@ class VistasMenu extends VistasHtml{
         ';
     }
 
-    public function TopBar(){
+    public function TopBar(string $nombre,array $alertas,array $mensajes){
         $html='<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">';
         $html.=$this->TopBarToggle();
         $html.=$this->TopBarSearch();
-        $html.=$this->TopbarNavbar();
+        $html.=$this->TopbarNavbar($nombre,$alertas,$mensajes);
 
         $html.='</nav>
         <!-- End of Topbar -->';
@@ -335,19 +384,15 @@ class VistasMenu extends VistasHtml{
 
     }
 
-    public function TopbarNavbar(){
+    public function TopbarNavbar(string $nombre,array $alertas,array $mensajes){
         $html='<!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">';
 
         $html.=$this->TopbarNavbarNavItemSearchDropdown();
-
-        $alertas=[ "3 agosto 2020"=>"Se genero una devolucion del cliente Softquimia S.A. de C.V. Pedido 123443","4 agosto 2020"=>"Se dio de alta un cliente VIP 'Luis Miguel'."];
         $html.=$this->TopbarNavbarNavItemAlerts("Alertas","Alertas",$alertas);
-
-        $mensajes=[ "Pablo Urrutia"=>"Necesito ayuda","Jimena Hernández"=>"Yo te puedo apoyar. Te marco"];
         $html.=$this->TopbarNavbarNavItemMessages("Mensaje","Centro de Mensajes",$mensajes);
         $html.=$this->Divisor();
-        $html.=$this->TopbarNavbarNavItemUserInformation();
+        $html.=$this->TopbarNavbarNavItemUserInformation($nombre);
 
         $html.='</ul>';
 
@@ -449,27 +494,21 @@ class VistasMenu extends VistasHtml{
         return '<div class="topbar-divider d-none d-sm-block"></div>';
     }
 
-    private function TopbarNavbarNavItemUserInformation(){
+    private function TopbarNavbarNavItemUserInformation(string $nombre){
+
         return '<!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Egil Ordoñez</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">'.$nombre.'</span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" alt="">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="generales.php">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Generales
                 </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Configuración
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Lista Actividades
-                </a>
+                
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

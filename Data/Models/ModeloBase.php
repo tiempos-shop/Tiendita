@@ -40,13 +40,7 @@ abstract class ModeloBase implements iModeloBase
     //public function __construct(string $nombreTabla,string $nombreId,array $campos,array $camposEditar,array $tipos,array $properties,bool $auditoria=true)
     public function __construct(string $nombreTabla,string $nombreId,array $properties,bool $auditoria=true)
     {
-        if(isset($_SESSION["userId"])){
-            $this->userId=$_SESSION["userId"];
-        }
-        else{
-            // TODO: Debe enviar al login e impedir iniciar la aplicación
-            $this->userId=0;
-        }
+
         $this->properties=$properties;
         $this->auditoria=$auditoria;
         $this->setTabla($nombreTabla);
@@ -343,7 +337,7 @@ abstract class ModeloBase implements iModeloBase
     public function SafeSave():int
     {
         // TODO:
-        var_dump($_POST);
+
         if(count($_POST)<>0){
 
             $id=null;

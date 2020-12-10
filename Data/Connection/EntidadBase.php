@@ -58,7 +58,7 @@ class EntidadBase{
                 $resultSet[]=$row;
             }
         } catch (Exception $e){
-            var_dump($row);
+            //var_dump($row);
             throw new Exception("Error al obtener los campos de query '$queryString'");
         }
 
