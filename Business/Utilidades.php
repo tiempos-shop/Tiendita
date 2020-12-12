@@ -5,7 +5,7 @@ namespace Tiendita;
 
 
 use DateTime;
-use ReflectionClass;
+
 
 class Utilidades
 {
@@ -20,23 +20,59 @@ class Utilidades
     // Tablas
 
     public function Object2Table($object){
-        if(is_array($object)){
-            $html= "<table class='table table-bordered'>";
-            foreach($object as $val){
-                $a = get_object_vars($val);
-                $html.= "<tbody><tr>";
-                foreach($a as $v ){
-                    if(!is_array($v))
-                        $html.= "<td>$v</td>";
-                    else
-                        $html.="<td>".$this->Object2Table($v)."</td>";
-                }
-                $html.= "</tr></tbody>";
-
+        $html= "<table class='table table-bordered'>";
+        foreach($object as $val){
+            $a = get_object_vars($val);
+            $html.= "<tbody><tr>";
+            foreach($a as $v ){
+                if(!is_array($v))
+                    $html.= "<td>$v</td>";
+                else
+                    $html.="<td>".$this->Object2Table($v)."</td>";
             }
-            $html.= "</table>";
-            return $html;
+            $html.= "</tr></tbody>";
+
         }
+        $html.= "</table>";
+        return $html;
+    }
+
+    public function DataTable(string $id){
+        $language='
+            {
+                "processing": "Procesando...",
+                "lengthMenu": "Mostrar _MENU_ registros",
+                "zeroRecords": "No se encontraron resultados",
+                "emptyTable": "Ningún dato disponible en esta tabla",
+                "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "search": "Buscar:",
+                "infoThousands": ",",
+                "loadingRecords": "Cargando...",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                },
+                "aria": {
+                    "sortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sortDescending": ": Activar para ordenar la columna de manera descendente"
+                },
+                "buttons": {
+                    "copy": "Copiar",
+                    "colvis": "Visibilidad"
+                }
+            }         
+        ';
+        return "
+            <script>
+               $(document).ready(function() {
+                    $('#$id').DataTable();
+                    alert('Se registró la tabla $id');
+                });
+            </script>";
     }
 
     // Bootstrap
@@ -167,7 +203,7 @@ class Utilidades
         $html.='
                 <div class="form-group row">
                     <div class="col-sm-10">
-                        <button type="submit" class="btn btn-primary">'.$button.'</button>
+                        <button type="submit" class="btn btn-outline-dark">'.$button.'</button>
                     </div>
                 </div>
             </form>';
@@ -213,9 +249,10 @@ class Utilidades
             case "~": // Options
                 return $this->Options($id,$label,$value,$options);
             case "^": // Subir Archivo
-                return $this->TextBox($id,$label,$value,"file","abc");
+                return $this->TextBox($id,$label,$value,"file","file.ext",$required);
             case "!": // Rango
                 return "";
+            default: return "";
         }
 
     }
@@ -345,8 +382,7 @@ class Utilidades
     public function Fecha(int $dia,int $mes,int $ano,int $horas,int $minutos,int $segundos):DateTime
     {
         $external = "$dia/$mes/$ano $horas:$minutos:$segundos";
-        $dateobj = DateTime::createFromFormat($this->formatoFecha, $external);
-        return $dateobj;
+        return DateTime::createFromFormat($this->formatoFecha, $external);
     }
 
     public function FechaHoyObjeto():DateTime

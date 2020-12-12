@@ -20,32 +20,105 @@ $h= $html->Html5(
         $ui->ContainerFluid([
             $ui->Row([
                 $ui->Columns(
-                    $ui->ModalButtonNormal("login","<i class='fa fa-user'></i> Ingresar","","Ingresar Usuario y Contraseña","<i class='fa fa-cross'></i>Cancelar",
-                    $ui->Form([
-                        $ui->Input("usuario","Usuario","","$",true),
-                        $ui->Input("password","Password","","?",true),
-                        "<br/>"
-                    ],"administracion.php","<i class='fa fa-check'></i> Ingresar")
-                    ,"","","primary btn-sm"),
+                    $ui->ContainerFluid([
+                        $ui->ModalButtonNormal("login","<i class='fa fa-user'></i> Ingresar","","Ingresar Usuario y Contraseña","<i class='fa fa-cross'></i>Cancelar",
+                            $ui->Form([
+                                $ui->Input("usuario","Usuario","","$",true),
+                                $ui->Input("password","Password","","?",true),
+                                "<br/>"
+                            ],"administracion.php","<i class='fa fa-check'></i> Ingresar")
+                            ,"","","outline-dark btn-sm"),
+                        "<hr/>"
+                    ]),
                     12,0,0,0,"text-right"
                 )
             ]),
             $ui->Row([
                 $ui->Columns(
-                    "Hola Mundo 1",
-                    4,0,0,0,
-                    "text-center"
-
-
-
+                    $ui->Button("btn","SHOP"),
+                    3,0,0,0,""
                 ),
                 $ui->Columns(
-                    "Hola Mundo 2",
-                    8,0,0,0,"text-center"
+                    "PROJECTS",
+                    3,0,0,0,""
+                ),
+                $ui->Columns(
+                    "IMPRINT",
+                    3,0,0,0,""
+                ),
+                $ui->Columns(
+                    "TERMS",
+                    2,0,0,0,""
+                ),
+                $ui->Columns(
+                    "ES",
+                    1,0,0,0,""
                 )
-            ])
+
+            ]),
+            $ui->Row([
+                $ui->Columns(
+                    "ALL'",
+                    3,0,0,0,""
+                ),
+                $ui->Columns(
+                    "TOPS",
+                    3,0,0,0,""
+                ),
+                $ui->Columns(
+                    "ACCESORIES",
+                    3,0,0,0,""
+                ),
+                $ui->Columns(
+                    "TWP",
+                    2,0,0,0,""
+                ),
+                $ui->Columns(
+                    "LIMITED",
+                    1,0,0,0,""
+                )
+
+            ]),
+            $ui->Row([
+                $ui->Columns(
+                    "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>FOTO<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Descripción",
+                    3,0,0,0,"text-center"
+                ),
+                $ui->Columns(
+                    "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>FOTO<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Descripción",
+                    3,0,0,0,"text-center"
+                ),
+                $ui->Columns(
+                    "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>FOTO<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Descripción",
+                    3,0,0,0,"text-center"
+                ),
+                $ui->Columns(
+                    "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>FOTO<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Descripción",
+                    3,0,0,0,"text-center"
+                )
+            ]),
+            $ui->Row([
+                $ui->Columns(
+                    "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>FOTO<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>",
+                    3,0,0,0,"text-center"
+                ),
+                $ui->Columns(
+                    "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>FOTO<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>",
+                    3,0,0,0,"text-center"
+                ),
+                $ui->Columns(
+                    "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>FOTO<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>",
+                    3,0,0,0,"text-center"
+                ),
+                $ui->Columns(
+                    "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>FOTO<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>",
+                    3,0,0,0,"text-center"
+                )
+            ]),
+
         ])
-    ],"style='background-color:pink;' ")
+    //],"style='background-color:white;' ")
+    ],"style='background-color:#AC9950;' ")
 );
 
 print_r($h);

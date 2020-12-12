@@ -21,32 +21,7 @@ class Usuarios extends BaseAuditoria implements iEntity
 
     }
 
-    public static function getCampos():array
-    {
-        return array(1=>"Nombres",2=>"Apellidos",3=>"Usuario",4=>"Password",
-            5=>"CorreoElectronico",6=>"Telefono",7=>"NumeroEmpleado",8=>"FechaCambio",9=>"IdTipoMovimiento",
-            10=>"IdUsuarioBase");
-    }
 
-    public static function getCamposEditar():array
-    {
-        return array(1=>"Nombres",2=>"Apellidos",3=>"Usuario",4=>"Password",
-            5=>"CorreoElectronico",6=>"Telefono",7=>"NumeroEmpleado");
-    }
-
-    public static function getType():array
-    {
-        return array("IdUsuario"=>"H","Nombres"=>"$","Apellidos"=>"$","Usuario"=>"$","Password"=>"?",
-            "CorreoElectronico"=>"@","Telefono"=>"$","NumeroEmpleado"=>"$","FechaCambio"=>"H","IdTipoMovimiento"=>"H",
-            "IdUsuarioBase"=>"H");
-    }
-
-    public static function getTypeDb():array
-    {
-        return array("IdUsuario"=>"#","Nombres"=>"$","Apellidos"=>"$","Usuario"=>"$","Password"=>"$",
-            "CorreoElectronico"=>"$","Telefono"=>"$","NumeroEmpleado"=>"$","FechaCambio"=>"$","IdTipoMovimiento"=>"#",
-            "IdUsuarioBase"=>"#");
-    }
 
     public static function getProperties():array
     {

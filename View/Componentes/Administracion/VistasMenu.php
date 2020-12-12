@@ -8,6 +8,7 @@ use Tiendita\EntidadBase;
 use Tiendita\Utilidades;
 
 include_once ("VistasHtml.php");
+include_once "Business/Utilidades.php";
 
 abstract class VistasMenu extends VistasHtml{
     private $contenido;
@@ -72,6 +73,8 @@ abstract class VistasMenu extends VistasHtml{
 
 
     }
+
+    abstract public function Content();
 
     public function BodyMenu(){
         $this->Permisos();
@@ -181,10 +184,13 @@ abstract class VistasMenu extends VistasHtml{
             
               <!-- Page level plugins -->
               <script src="vendor/chart.js/Chart.min.js"></script>
+              <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+              <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
             
               <!-- Page level custom scripts -->
               <script src="js/demo/chart-area-demo.js"></script>
               <script src="js/demo/chart-pie-demo.js"></script>
+              <script src="js/demo/datatables-demo.js"></script>
         ';
     }
 
@@ -205,14 +211,18 @@ abstract class VistasMenu extends VistasHtml{
         $html.=$this->NavItem("Estadisticas","administracion.php","fas fa-fw fa-chart-area");
 
 
-        $html.=$this->NavItemCollapse("idUsers","Usuarios","Gestion Usuarios",
+        $html.=$this->NavItemCollapse("idUsers","Usuarios","Gestion",
             ["usuarios.php"=>"Listar" ,"usuariosEdit.php"=>"Editar"]
         );
 
-        $elementos=["utilities-color.html"=>"Captura Individual" , "utilities-border.html"=>"Captura Masiva", "utilities-animation.html"=>"Circulacion de Inventario"];
+        $html.=$this->NavItemCollapse("idClients","Clientes","Gestion",
+            ["clientes.php"=>"Listar" ,"clientesEdit.php"=>"Editar"]
+        );
+
+        $elementos=["#"=>"Captura Individual" , "#"=>"Captura Masiva", "#"=>"Circulacion de Inventario"];
         $html.=$this->NavItemCollapse("id3","Inventarios","Inventarios",$elementos);
 
-        $elementos=["utilities-color.html"=>"Pedidos" , "utilities-border.html"=>"Devoluciones", "utilities-animation.html"=>"Envios"];
+        $elementos=["#"=>"Pedidos" , "#"=>"Devoluciones", "#"=>"Envios"];
         $html.=$this->NavItemCollapse("id5","Ventas","Ventas",$elementos);
 
         $elementos=["utilities-color.html"=>"Reporte Financiero" , "utilities-border.html"=>"Reporte de Pedidos", "utilities-animation.html"=>"Reporte de Devoluciones"];
@@ -221,8 +231,12 @@ abstract class VistasMenu extends VistasHtml{
         $html.=$this->Divider();
         $html.=$this->Heading("Catalogos");
 
-        $html.=$this->NavItemCollapse("idTipoMovimientos","Tipo Movimientos","Catalogo Tipo Movimientos",
+        $html.=$this->NavItemCollapse("idTipoMovimientos","Tipo Movimientos","Catalogo",
             ["tipoMovimientos.php"=>"Listar" ,"tipoMovimientosEdit.php"=>"Editar"]
+        );
+
+        $html.=$this->NavItemCollapse("idDirecciones","Direcciones","Catalogo",
+            ["direcciones.php"=>"Listar" ,"direccionesEdit.php"=>"Editar"]
         );
 
         $html.=$this->Divider();
@@ -431,13 +445,14 @@ abstract class VistasMenu extends VistasHtml{
         return $this->TopbarNavbarNavItemMessages($id,$titulo,$alertas,2);
     }
 
-    private function TopbarNavbarNavItemMessages($id,$titulo,$mensajes,$tipo=1){
+    private function TopbarNavbarNavItemMessages($id,$titulo,array $mensajes,$tipo=1){
+        $cont=count($mensajes);
         $html= '<!-- Nav Item - Messages -->
             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="'.$id.'" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw"></i>
                 <!-- Counter - Messages -->
-                <span class="badge badge-danger badge-counter">7</span>
+                <span class="badge badge-danger badge-counter">'.$cont.'</span>
               </a>
               <!-- Dropdown - Messages -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="'.$id.'">

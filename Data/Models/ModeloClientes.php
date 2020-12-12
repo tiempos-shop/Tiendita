@@ -1,19 +1,17 @@
 <?php
+
+
 namespace Tiendita;
 include_once ("ModeloBase.php");
-include_once "Data/Models/Usuarios.php";
+include_once "Data/Models/Clientes.php";
 include_once "Data/Models/ModeloTipoMovimiento.php";
-include_once "View/Componentes/Administracion/VistasMenu.php";
+include_once "Data/Models/Direcciones.php";
 
-class ModeloUsuarios extends ModeloBase
+class ModeloClientes extends ModeloBase
 {
     public function __construct()
     {
-        parent::__construct("Usuarios","IdUsuario",Usuarios::getProperties());
-    }
-
-    public function Adicional(){
-        return [ "ad1"=>"Tipo Movimiento", "ad2"=>"Usuario "];
+        parent::__construct("Clientes","IdCliente",Clientes::getProperties());
     }
 
     public function Object2SimpleTable(string $k, object $v)
@@ -27,11 +25,6 @@ class ModeloUsuarios extends ModeloBase
         else{
             return "No definido campo: ".$k;
         }
-    }
-
-    public function SimpleAdd()
-    {
-        return $this->Adicional();
     }
 
     public function Object2SimpleFormulary(string $k, object $v)
@@ -54,5 +47,15 @@ class ModeloUsuarios extends ModeloBase
         else{
             return "No definido campo: ".$k;
         }
+    }
+
+    public function Adicional()
+    {
+        return [ "ad1"=>"Tipo Movimiento", "ad2"=>"Usuario "];
+    }
+
+    public function SimpleAdd()
+    {
+        return $this->Adicional();
     }
 }

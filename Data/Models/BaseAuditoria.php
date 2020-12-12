@@ -3,6 +3,7 @@
 
 namespace Tiendita;
 use DateTime;
+include_once ("TipoMovimiento.php");
 
 abstract class BaseAuditoria
 {
@@ -14,7 +15,7 @@ abstract class BaseAuditoria
 
     public function __construct(int $idUsuario,int $idTipoMovimiento)
     {
-        include_once ("TipoMovimiento.php");
+
         $this->TipoMovimiento=new TipoMovimiento();
         //$this->UsuarioBase=new Usuarios();
         $utilidades=new Utilidades();

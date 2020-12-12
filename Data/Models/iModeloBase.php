@@ -6,7 +6,7 @@ interface iModeloBase
 {
 
 
-    public function Agregar(string $tabla,object $elemento);
+    public function Add(string $table, object $item);
 
     /**
      * @return string
@@ -46,11 +46,11 @@ interface iModeloBase
     /**
      * @return string
      */
-    public function getNombreEntidad(): string;
+    public function getEntityName(): string;
 
     /**
-     * @param string $NombreEntidad
+     * @param string $entityName
      */
-    public function setNombreEntidad(string $NombreEntidad): void;
+    public function setEntityName(string $entityName): void;
 
 }

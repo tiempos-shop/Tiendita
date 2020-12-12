@@ -22,8 +22,8 @@ class TipoMovimiento implements iEntity
     public static function getProperties(): array
     {
         return [
-            "IdTipoMovimiento"=>["label"=>"Id","type"=>"I","typeDb"=>"#"],
-            "Descripcion"=>["label"=>"Descripcion","type"=>"$","typeDb"=>"$"]
+            "IdTipoMovimiento"=>["label"=>"Id","type"=>"I","typeDb"=>"#","required"=>false],
+            "Descripcion"=>["label"=>"Descripcion","type"=>"$","typeDb"=>"$","required"=>true]
         ];
     }
 }
