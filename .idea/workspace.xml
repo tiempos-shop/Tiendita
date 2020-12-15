@@ -21,12 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Models/Direcciones.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Direcciones.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/Models/ModeloBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/ModeloBase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Models/ModeloClientes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/ModeloClientes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Models/ModeloDirecciones.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/ModeloDirecciones.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Models/ModeloTipoMovimiento.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/ModeloTipoMovimiento.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Models/ModeloUsuarios.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/ModeloUsuarios.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +179,8 @@
       <workItem from="1607816985636" duration="2986000" />
       <workItem from="1607965284306" duration="3734000" />
       <workItem from="1607988372038" duration="4412000" />
-      <workItem from="1608004797891" duration="399000" />
+      <workItem from="1608004797891" duration="662000" />
+      <workItem from="1608047074529" duration="1798000" />
     </task>
     <task id="LOCAL-00001" summary="Pedidos">
       <created>1603478572271</created>
@@ -501,7 +497,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607748064365</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Pagos.php">
+      <created>1608005456282</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1608005456282</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -580,10 +583,10 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="739" y="196" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#1/0.0.1920.1019@0.0.1920.1019" timestamp="1606242096983" />
-    <state x="120" y="8" key="CommitChangelistDialog2" timestamp="1607748063041">
+    <state x="120" y="8" key="CommitChangelistDialog2" timestamp="1608005455020">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="120" y="8" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1607748063041" />
+    <state x="120" y="8" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1608005455020" />
     <state x="740" y="263" key="FileChooserDialogImpl" timestamp="1606353472052">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>

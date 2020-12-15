@@ -218,7 +218,7 @@ abstract class ModeloBase implements iModeloBase
         $camposEditar = array();
         foreach ($this->properties as $campo => $property) {
             $type = $property["type"];
-            if (!($type == "I" or $type == "F"))
+            if (!($type == "I" or $type == "F" or $type=="*"))
                 $camposEditar[] = $property["label"];
         }
         $headers = ["h1" => "Editar", "h2" => "Borrar"] + $camposEditar + $this->Adicional();
@@ -249,16 +249,20 @@ abstract class ModeloBase implements iModeloBase
                     $label=$this->properties[$k]["label"];
                     $type = $this->properties[$k]["type"];
                     $req = $this->properties[$k]["required"];
-                    if (!($type == "I" or $type == "F")) $columns .= "<td>$v</td>";
+                    if (!($type == "I" or $type == "F" or $type=="*")) $columns .= "<td>$v</td>";
                     if(($type=="F" or $type=="*") and $k<>"IdTipoMovimiento" and $k<>"IdUsuarioBase" and $k<>"FechaCambio")
                     {
                         $columns.=$this->Foreign($k,$v);
                         $input .= $this->ForeignInput($k,$v);
+                    } else{
+                        $input .= $this->ui->Input($k, $label, $v, $type, $req);
                     }
-                    $input .= $this->ui->Input($k, $label, $v, $type, $req);
+
                     if ($i == 1) {
-                        if ($type == "F" or $type=="*") {
+                        if ($type == "F") {
                             $inputNV .= $this->ui->Input($k, $label, $v, $type, $req);
+                        } elseif ($type=="*"){
+                            $inputNV .=$this->ForeignInput($k,"");
                         } else {
                             $inputNV .= $this->ui->Input($k, $label, "", $type, $req);
                         }
@@ -307,7 +311,7 @@ abstract class ModeloBase implements iModeloBase
         $html .= $this->ui->ModalButton("idInsertTable", $botonInsertar, "", "Agregar un Registro", "Cancelar",
             $this->ui->Form([
                 $inputNV,
-                "<<br/>"
+                "<br/>"
             ], "", "Agregar"), "", "", "info"
         );
 
