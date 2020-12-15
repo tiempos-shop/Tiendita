@@ -222,6 +222,7 @@ abstract class ModeloBase implements iModeloBase
                 $camposEditar[] = $property["label"];
         }
         $headers = ["h1" => "Editar", "h2" => "Borrar"] + $camposEditar + $this->Adicional();
+        $headerCount=count($headers);
         foreach ($headers as $head) {
             $html .= "<th>$head</th>";
         }
@@ -300,24 +301,39 @@ abstract class ModeloBase implements iModeloBase
             // Genera html Fila
             $html .= $button . $columns . "</tr>";
         }
-        $html .= "</tbody></table>";
-
-        // Script
-        // TODO: No se activa el script. Probablemente porque esta en medio de div y codigo HTML
-
 
         // Boton Insertar
 
+        $html .= "<tr><td>";
         $html .= $this->ui->ModalButton("idInsertTable", $botonInsertar, "", "Agregar un Registro", "Cancelar",
             $this->ui->Form([
                 $inputNV,
                 "<br/>"
             ], "", "Agregar"), "", "", "info"
         );
+        $html .="</td>";
+        $html .=$this->FillTable($headerCount);
+        $html .="</tr>";
+
+        $html .= "</tbody></table>";
+
+        // Script
+        // TODO: No se activa el script. Probablemente porque esta en medio de div y codigo HTML
 
 
 
 
+
+
+
+        return $html;
+    }
+
+    private function FillTable(int $cont){
+        $html="";
+        for ($i=1;$i<$cont;$i++){
+            $html.="<td style='border: none'></td>";
+        }
         return $html;
     }
 

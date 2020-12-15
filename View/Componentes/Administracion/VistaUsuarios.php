@@ -26,7 +26,7 @@ class VistaUsuarios extends VistasMenu
     }
 
     public function Content(){
-        $mainContent=$this->ContentHeader("Usuarios","Vista");
+        $mainContent=$this->ContentHeader("Lista Usuarios","Vista");
         $ui=new Utilidades();
         $u=new ModeloUsuarios();
         $mainContent.=$ui->ContainerFluid([

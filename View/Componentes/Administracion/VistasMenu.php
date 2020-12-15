@@ -219,6 +219,10 @@ abstract class VistasMenu extends VistasHtml{
             ["clientes.php"=>"Listar" ,"clientesEdit.php"=>"Editar"]
         );
 
+        $html.=$this->NavItemCollapse("idProducts","Productos","Gestion",
+            ["productos.php"=>"Listar" ,"productosEdit.php"=>"Editar"]
+        );
+
         $elementos=["#"=>"Captura Individual" , "#"=>"Captura Masiva", "#"=>"Circulacion de Inventario"];
         $html.=$this->NavItemCollapse("id3","Inventarios","Inventarios",$elementos);
 
@@ -237,6 +241,10 @@ abstract class VistasMenu extends VistasHtml{
 
         $html.=$this->NavItemCollapse("idDirecciones","Direcciones","Catalogo",
             ["direcciones.php"=>"Listar" ,"direccionesEdit.php"=>"Editar"]
+        );
+
+        $html.=$this->NavItemCollapse("idEmpresasEnvio","Empresas de Envio","Catalogo",
+            ["empresasEnvio.php"=>"Listar" ,"empresasEnvioEdit.php"=>"Editar"]
         );
 
         $html.=$this->Divider();
