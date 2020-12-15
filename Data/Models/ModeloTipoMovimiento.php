@@ -31,4 +31,14 @@ class ModeloTipoMovimiento extends ModeloBase
     {
         return "";
     }
+
+    public function Foreign(string $k, string $v)
+    {
+        return "";
+    }
+
+    public function ForeignInput(string $k, string $v)
+    {
+        return "";
+    }
 }

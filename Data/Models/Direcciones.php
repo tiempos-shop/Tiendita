@@ -33,7 +33,7 @@ class Direcciones implements iEntity
             "Ciudad"=>["label"=>"Ciudad","type"=>"$","typeDb"=>"$","required"=>true],
             "Calle"=>["label"=>"Calle","type"=>"$","typeDb"=>"$","required"=>true],
             "Colonia"=>["label"=>"Colonia","type"=>"$","typeDb"=>"$","required"=>true],
-            "IdCliente"=>["label"=>"Cliente","type"=>"F","typeDb"=>"#","required"=>true],
+            "IdCliente"=>["label"=>"Cliente","type"=>"*","typeDb"=>"#","required"=>true,"table"=>"Clientes"],
         ];
     }
 }

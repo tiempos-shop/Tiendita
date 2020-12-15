@@ -25,7 +25,7 @@ abstract class ModeloBase implements iModeloBase
     public $Datos;
 
     private $auditoria;
-    private $entidadBase;
+    protected $entidadBase;
     public $ui;
 
 
@@ -243,20 +243,24 @@ abstract class ModeloBase implements iModeloBase
                 if (!is_array($v) and !is_object($v)) {
                     if ($this->auditoria) {
                         if ($k == "FechaCambio") $v = $this->ui->FechaHoy();
-                        if ($k == "IdTipoMovimiento") $v = 1;
+                        if ($k == "IdTipoMovimiento") $v = 2;
                         if ($k == "IdUsuarioBase") $v = $this->userId;
                     }
+                    $label=$this->properties[$k]["label"];
                     $type = $this->properties[$k]["type"];
                     $req = $this->properties[$k]["required"];
                     if (!($type == "I" or $type == "F")) $columns .= "<td>$v</td>";
-                    //if(in_array($k,$this->camposEditar)) $columns.= "<td>$v</td>";
-                    //if(array_key_exists($k,$this->tipos) and !is_null($this->tipos[$k])){
-                    $input .= $this->ui->Input($k, $k, $v, $type, $req);
+                    if(($type=="F" or $type=="*") and $k<>"IdTipoMovimiento" and $k<>"IdUsuarioBase" and $k<>"FechaCambio")
+                    {
+                        $columns.=$this->Foreign($k,$v);
+                        $input .= $this->ForeignInput($k,$v);
+                    }
+                    $input .= $this->ui->Input($k, $label, $v, $type, $req);
                     if ($i == 1) {
-                        if ($type == "F") {
-                            $inputNV .= $this->ui->Input($k, $k, $v, $type, $req);
+                        if ($type == "F" or $type=="*") {
+                            $inputNV .= $this->ui->Input($k, $label, $v, $type, $req);
                         } else {
-                            $inputNV .= $this->ui->Input($k, $k, "", $type, $req);
+                            $inputNV .= $this->ui->Input($k, $label, "", $type, $req);
                         }
 
                     }
@@ -268,6 +272,8 @@ abstract class ModeloBase implements iModeloBase
                 }
 
             }
+
+
 
             // Botones
             $button = "<td>" . $this->ui->ModalButton("idEditTable" . $i, $botonEditar, "", "Edicion de Campos", "Cancelar",
@@ -310,6 +316,10 @@ abstract class ModeloBase implements iModeloBase
 
         return $html;
     }
+
+    public abstract function Foreign(string $k,string $v);
+    public abstract function ForeignInput(string $k,string $v);
+
 
     public function SafeSave(): int
     {
