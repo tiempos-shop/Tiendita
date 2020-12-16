@@ -20,25 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Data/Models/ModeloCatalogoConfig.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Models/ModeloEstatusPedido.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Models/ModeloMotivoDevoluciones.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Models/MotivoDevoluciones.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaCatalogoConfig.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaCatalogoConfigEdit.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaEstatusPedido.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaEstatusPedidoEdit.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaMotivoDevoluciones.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaMotivoDevolucionesEdit.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalogo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalogoEdit.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/estatusPedido.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/estatusPedidoEdit.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/motivoDevoluciones.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/motivoDevolucionesEdit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Models/CatalogoConfig.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/CatalogoConfig.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Models/EstatusPedido.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/EstatusPedido.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistasMenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistasMenu.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -198,7 +180,7 @@
       <workItem from="1607965284306" duration="3734000" />
       <workItem from="1607988372038" duration="4412000" />
       <workItem from="1608004797891" duration="662000" />
-      <workItem from="1608047074529" duration="19586000" />
+      <workItem from="1608047074529" duration="20420000" />
     </task>
     <task id="LOCAL-00001" summary="Pedidos">
       <created>1603478572271</created>
@@ -536,7 +518,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608065393978</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Pagos.php">
+      <created>1608082745556</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1608082745556</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -615,10 +604,10 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="739" y="196" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#1/0.0.1920.1019@0.0.1920.1019" timestamp="1606242096983" />
-    <state x="120" y="8" key="CommitChangelistDialog2" timestamp="1608065393047">
+    <state x="120" y="8" key="CommitChangelistDialog2" timestamp="1608082744640">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="120" y="8" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1608065393047" />
+    <state x="120" y="8" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1608082744640" />
     <state x="740" y="263" key="FileChooserDialogImpl" timestamp="1606353472052">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>

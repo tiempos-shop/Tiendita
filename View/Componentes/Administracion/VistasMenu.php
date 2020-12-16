@@ -223,14 +223,13 @@ abstract class VistasMenu extends VistasHtml{
             ["productos.php"=>"Listar" ,"productosEdit.php"=>"Editar"]
         );
 
-        $elementos=["#"=>"Captura Individual" , "#"=>"Captura Masiva", "#"=>"Circulacion de Inventario"];
-        $html.=$this->NavItemCollapse("id3","Inventarios","Inventarios",$elementos);
+        $html.=$this->NavItemCollapse("id4","Reportes","Reportes",
+            ["financiero.php"=>"Financiero" , "ventas.php"=>"Ventas", "pedidos.php"=>"Pedidos" , "devoluciones.php"=>"Devoluciones", "envios.php"=>"Envios"]
+        );
 
-        $elementos=["#"=>"Pedidos" , "#"=>"Devoluciones", "#"=>"Envios"];
-        $html.=$this->NavItemCollapse("id5","Ventas","Ventas",$elementos);
-
-        $elementos=["utilities-color.html"=>"Reporte Financiero" , "utilities-border.html"=>"Reporte de Pedidos", "utilities-animation.html"=>"Reporte de Devoluciones"];
-        $html.=$this->NavItemCollapse("id4","Reportes","Reportes",$elementos);
+        $html.=$this->NavItemCollapse("id3","Inventarios","Inventarios",
+            ["capturaIndividual.php"=>"Captura Individual" , "capturaMasiva.php"=>"Captura Masiva", "circulacionInventario.php"=>"Circulacion de Inventario"]
+        );
 
         $html.=$this->Divider();
         $html.=$this->Heading("Catalogos");
