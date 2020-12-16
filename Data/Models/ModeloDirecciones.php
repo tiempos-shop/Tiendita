@@ -27,7 +27,7 @@ class ModeloDirecciones extends ModeloBase
         if($k=="Cliente") {
             return "
             <div class='row'>
-                <div class='col-sm-2'>Modificación</div>
+                <div class='col-sm-2'>Cliente</div>
                 <div class='col-sm-10'>$v->Nombre.' '.$v->Apellidos</div>
             </div>";
         }
@@ -66,7 +66,7 @@ class ModeloDirecciones extends ModeloBase
             $options[$dato->IdCliente]=$nombre;
 
         }
-        var_dump($options);
+
         return $this->ui->Input($k, $label, $v, $type,true,$options);
     }
 

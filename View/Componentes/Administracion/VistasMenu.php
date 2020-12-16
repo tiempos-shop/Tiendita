@@ -223,6 +223,10 @@ abstract class VistasMenu extends VistasHtml{
             ["productos.php"=>"Listar" ,"productosEdit.php"=>"Editar"]
         );
 
+        $html.=$this->NavItemCollapse("idEnvio","Envios","Gestion",
+            ["envios.php"=>"Listar" ,"enviosEdit.php"=>"Editar"]
+        );
+
         $html.=$this->NavItemCollapse("id4","Reportes","Reportes",
             ["financiero.php"=>"Financiero" , "ventas.php"=>"Ventas", "pedidos.php"=>"Pedidos" , "devoluciones.php"=>"Devoluciones", "envios.php"=>"Envios"]
         );
