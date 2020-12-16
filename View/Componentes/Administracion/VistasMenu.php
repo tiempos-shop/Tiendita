@@ -247,10 +247,21 @@ abstract class VistasMenu extends VistasHtml{
             ["empresasEnvio.php"=>"Listar" ,"empresasEnvioEdit.php"=>"Editar"]
         );
 
+        $html.=$this->NavItemCollapse("idEstatusPedido","Estatus Pedido","Catalogo",
+            ["estatusPedido.php"=>"Listar" ,"estatusPedidoEdit.php"=>"Editar"]
+        );
+
+        $html.=$this->NavItemCollapse("idMotivoDevoluciones","Motivo Devoluciones","Catalogo",
+            ["motivoDevoluciones.php"=>"Listar" ,"motivoDevolucionesEdit.php"=>"Editar"]
+        );
+
         $html.=$this->Divider();
         $html.=$this->Heading("Configuración");
 
-        $html.=$this->NavItem("Aplicacion","Configuracion.php","fas fa-fw fa-chart-area");
+        $html.=$this->NavItemCollapse("idConfig","Aplicación","Catalogo",
+            ["catalogo.php"=>"Listar" ,"catalogoEdit.php"=>"Editar"]
+        );
+
         $html.=$this->NavItem("Tablas","tables.html","fas fa-fw fa-table");
 
         $html.=$this->FinalDivider();
