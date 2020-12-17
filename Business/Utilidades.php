@@ -227,7 +227,7 @@ class Utilidades
             case "@": // Correo
                 return $this->TextBox($id,$label,$value,"email","nombre@empresa.com",$required);
             case "&": // Textarea
-                return $this->TextArea($id,$label,3,"abc...xyz");
+                return $this->TextArea($id,$label,$value,3,"abc...xyz");
             case "%": // Checkbox
                 return '
                     <div class="form-group row">
@@ -352,7 +352,7 @@ class Utilidades
         <div class="form-group row">
             <label for="'.$id.'" class="col-sm-2 col-form-label">'.$label.'</label>
             <div class="col-sm-10">
-                <textarea class="form-control" name="'.$id.'" id="'.$id.'" rows="'.$rows.'" placeholder="'.$placeholder.'">'.$value.'</textarea>\
+                <textarea class="form-control" name="'.$id.'" id="'.$id.'" rows="'.$rows.'" placeholder="'.$placeholder.'">'.$value.'</textarea>
             </div>
         </div>';
     }

@@ -13,7 +13,7 @@ class ModeloEnvio extends ModeloBase
     }
 
     public function Adicional(){
-        return [ "ad1"=>"Tipo Movimiento", "ad2"=>"Usuario ","ad3"=>"EmpresaEnvio"];
+        return [ "ad1"=>"Empresa Envio", "ad2"=>"Tipo Movimiento","ad3"=>"Usuario"];
     }
 
     public function Object2SimpleTable(string $k, object $v)
