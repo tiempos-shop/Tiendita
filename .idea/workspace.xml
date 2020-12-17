@@ -20,17 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Data/Models/ModeloDevoluciones.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaDevoluciones.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaDevolucionesEdit.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/devoluciones.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/devolucionesEdit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Business/Utilidades.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Utilidades.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Models/Devoluciones.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Devoluciones.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Models/Envios.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Envios.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Models/ModeloEnvio.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/ModeloEnvio.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistasMenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistasMenu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Models/Pagos.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Pagos.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,14 +182,7 @@
       <workItem from="1607988372038" duration="4412000" />
       <workItem from="1608004797891" duration="662000" />
       <workItem from="1608047074529" duration="20702000" />
-      <workItem from="1608130799929" duration="12511000" />
-    </task>
-    <task id="LOCAL-00003" summary="Devoluciones.php">
-      <created>1603478803266</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1603478803266</updated>
+      <workItem from="1608130799929" duration="17105000" />
     </task>
     <task id="LOCAL-00004" summary="Clientes.php">
       <created>1603480298433</created>
@@ -535,7 +520,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608135682646</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Pagos.php">
+      <created>1608168675072</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1608168675072</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -578,10 +570,10 @@
     <state x="364" y="69" width="687" height="599" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1604439248357" />
     <state x="720" y="95" width="1092" height="837" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1607569268651" />
     <state x="968" y="203" width="880" height="683" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603411279230" />
-    <state x="765" y="188" key="#com.intellij.ide.util.MemberChooser" timestamp="1608162621187">
+    <state x="765" y="188" key="#com.intellij.ide.util.MemberChooser" timestamp="1608178679627">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="765" y="188" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1019@0.0.1920.1019" timestamp="1608162621187" />
+    <state x="765" y="188" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1019@0.0.1920.1019" timestamp="1608178679627" />
     <state x="602" y="324" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1608081438125">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
@@ -614,10 +606,10 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="739" y="196" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#1/0.0.1920.1019@0.0.1920.1019" timestamp="1606242096983" />
-    <state x="120" y="8" key="CommitChangelistDialog2" timestamp="1608135681599">
+    <state x="120" y="8" key="CommitChangelistDialog2" timestamp="1608168673869">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="120" y="8" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1608135681599" />
+    <state x="120" y="8" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1608168673869" />
     <state x="740" y="263" key="FileChooserDialogImpl" timestamp="1606353472052">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>

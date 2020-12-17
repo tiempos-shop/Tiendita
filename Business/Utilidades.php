@@ -357,6 +357,50 @@ class Utilidades
         </div>';
     }
 
+    public function OptionPage(string $id,array $optionButtons,array $contents){
+        $i=0;
+        $html='
+            <ul class="nav nav-pills">';
+        foreach ($optionButtons as $button){
+            $i++;
+            $idBtn=$id.$i;
+            if($i==1){
+                $html.='<li class="active"><a data-toggle="pill" href="#'.$idBtn.'">'.$button.'</a></li>';
+            }
+            else{
+                $html.='<li><a data-toggle="pill" href="#'.$idBtn.'">'.$button.'</a></li>';
+            }
+
+        }
+        $html.='
+            </ul>
+            <div class="tab-content">';
+        $i=0;
+        foreach ($contents as $content){
+            $i++;
+            $idBtn=$id.$i;
+            if($i==1){
+                $html.='
+                        <div id="'.$idBtn.'" class="tab-pane fade in active">
+                            '.$content.'
+                        </div>                        
+                        ';
+            }
+            else{
+                $html.='
+                        <div id="'.$idBtn.'" class="tab-pane fade">
+                            '.$content.'
+                        </div>                        
+                        ';
+            }
+        }
+
+        $html.='
+            </div>
+        ';
+        return $html;
+    }
+
     // GetPost
 
     public function Post(array $fields):array
