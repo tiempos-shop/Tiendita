@@ -28,7 +28,7 @@ class Devoluciones extends BaseAuditoria implements iEntity
     {
         return [
             "IdDevolucion"=>["label"=>"Id","type"=>"I","typeDb"=>"#","required"=>false],
-            "GastoEnvio"=>["label"=>"Gasto Envio","type"=>"#","typeDb"=>"#","required"=>false],
+            "GastoEnvio"=>["label"=>"Gasto Envio","type"=>"M","typeDb"=>"#","required"=>false],
             "Notas"=>["label"=>"Nota","type"=>"&","typeDb"=>"$","required"=>false],
             "IdPedido"=>["label"=>"Pedido","type"=>"*","typeDb"=>"#","required"=>true,"table"=>"Pedidos"],
             "IdMotivoDevolucion"=>["label"=>"Motivo","type"=>"*","typeDb"=>"#","required"=>true,"table"=>"MotivoDevoluciones"],

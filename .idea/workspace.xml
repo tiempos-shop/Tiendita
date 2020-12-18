@@ -20,9 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Data/Models/ModeloPagos.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Models/ModeloPedidos.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaPagos.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaPagosEdit.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaPedidos.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pagos.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pagosEdit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Business/Utilidades.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Utilidades.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Models/Devoluciones.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Devoluciones.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Models/ModeloBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/ModeloBase.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/Models/Pagos.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Pagos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Models/Pedidos.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Pedidos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Models/ProductosPedido.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/ProductosPedido.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistaClientesEdit.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaClientesEdit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistasMenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistasMenu.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,14 +195,8 @@
       <workItem from="1607988372038" duration="4412000" />
       <workItem from="1608004797891" duration="662000" />
       <workItem from="1608047074529" duration="20702000" />
-      <workItem from="1608130799929" duration="17105000" />
-    </task>
-    <task id="LOCAL-00004" summary="Clientes.php">
-      <created>1603480298433</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1603480298433</updated>
+      <workItem from="1608130799929" duration="17120000" />
+      <workItem from="1608222573045" duration="25083000" />
     </task>
     <task id="LOCAL-00005" summary="Direcciones.php">
       <created>1603480630438</created>
@@ -527,7 +534,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608168675072</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Pagos.php">
+      <created>1608178959236</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1608178959236</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -570,10 +584,10 @@
     <state x="364" y="69" width="687" height="599" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1604439248357" />
     <state x="720" y="95" width="1092" height="837" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1607569268651" />
     <state x="968" y="203" width="880" height="683" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603411279230" />
-    <state x="765" y="188" key="#com.intellij.ide.util.MemberChooser" timestamp="1608178679627">
+    <state x="765" y="188" key="#com.intellij.ide.util.MemberChooser" timestamp="1608256986185">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="765" y="188" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1019@0.0.1920.1019" timestamp="1608178679627" />
+    <state x="765" y="188" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1019@0.0.1920.1019" timestamp="1608256986185" />
     <state x="602" y="324" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1608081438125">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
@@ -586,10 +600,10 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="690" y="255" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1607550170943" />
-    <state x="625" y="248" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1608164627011">
+    <state x="608" y="200" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1608254333144">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="625" y="248" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1608164627011" />
+    <state x="608" y="200" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1608254333144" />
     <state x="593" y="26" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#" timestamp="1606153258895">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
@@ -606,10 +620,10 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="739" y="196" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#1/0.0.1920.1019@0.0.1920.1019" timestamp="1606242096983" />
-    <state x="120" y="8" key="CommitChangelistDialog2" timestamp="1608168673869">
+    <state x="120" y="8" key="CommitChangelistDialog2" timestamp="1608178957017">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="120" y="8" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1608168673869" />
+    <state x="120" y="8" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1608178957017" />
     <state x="740" y="263" key="FileChooserDialogImpl" timestamp="1606353472052">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
@@ -674,16 +688,16 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state width="196" height="539" key="HiddenNamespacesPopup/0.0.1920.1019@0.0.1920.1019" timestamp="1603838753651" />
-    <state x="1046" y="267" key="NewPhpClassDialog" timestamp="1608164348941">
+    <state x="1046" y="267" key="NewPhpClassDialog" timestamp="1608254494466">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="1046" y="267" key="NewPhpClassDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1608164348941" />
+    <state x="1046" y="267" key="NewPhpClassDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1608254494466" />
     <state x="265" y="246" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603480856140" />
-    <state x="587" y="296" key="NewPhpFileDialog" timestamp="1608164971379">
+    <state x="587" y="296" key="NewPhpFileDialog" timestamp="1608234459031">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="780" y="159" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1604603079407" />
-    <state x="587" y="296" key="NewPhpFileDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1608164971379" />
+    <state x="587" y="296" key="NewPhpFileDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1608234459031" />
     <state x="568" y="110" key="SettingsEditor" timestamp="1603391568731">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>

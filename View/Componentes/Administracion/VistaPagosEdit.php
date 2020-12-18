@@ -4,15 +4,14 @@
 namespace Administracion;
 
 
-use Tiendita\ModeloClientes;
-use Tiendita\ModeloUsuarios;
+use Tiendita\ModeloPagos;
 use Tiendita\Utilidades;
-
-include_once "View/Componentes/Administracion/VistasMenu.php";
-include_once "Data/Models/ModeloClientes.php";
+include_once "VistasMenu.php";
 include_once "Business/Utilidades.php";
+include_once "Data/Models/ModeloPagos.php";
 
-class VistaClientesEdit extends VistasMenu
+
+class VistaPagosEdit extends VistasMenu
 {
     public function __construct()
     {
@@ -20,7 +19,7 @@ class VistaClientesEdit extends VistasMenu
         $body = $this->BodyMenu();
         $html = $this->Html5(
             $this->HeadMenu(),
-            $this->PageWrapper($body).$ui->DataTable("idClientes")
+            $this->PageWrapper($body).$ui->DataTable("idTableEdit")
         );
         echo $html;
         parent::__construct();
@@ -29,23 +28,24 @@ class VistaClientesEdit extends VistasMenu
 
     public function Content()
     {
-        $mainContent = $this->ContentHeader("Editar Clientes", "Vista");
+        $mainContent = $this->ContentHeader("Editar Pagos", "Vista");
         $ui = new Utilidades();
-        $u = new ModeloClientes();
+        $u = new ModeloPagos();
 
         // Si se van a guardar datos
-        if ($u->SafeSave() == 0)                                                                                                                                                                                     {
+        if ($u->SafeSave() == 0) {
             $mainContent .= $ui->ContainerFluid([
                 $ui->Row([
-                    $u->Object2TableEdit("idClientes",
+                    $u->Object2TableEdit("idTableEdit",
                         "<i class='fa fa-edit'></i> Editar",
                         "<i class='fa fa-eraser'></i> Borrar",
                         "<i class='fa fa-plus'></i> Insertar",
                         "",
-                        []
+                        [ "delete"]
                     )
                 ])
             ]);
+
         } else {
             $mainContent = "Ocurrio un error en la página";
         }

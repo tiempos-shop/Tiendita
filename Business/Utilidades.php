@@ -38,39 +38,70 @@ class Utilidades
     }
 
     public function DataTable(string $id){
-        $language='
+        $language="
             {
-                "processing": "Procesando...",
-                "lengthMenu": "Mostrar _MENU_ registros",
-                "zeroRecords": "No se encontraron resultados",
-                "emptyTable": "Ningún dato disponible en esta tabla",
-                "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
-                "search": "Buscar:",
-                "infoThousands": ",",
-                "loadingRecords": "Cargando...",
-                "paginate": {
-                    "first": "Primero",
-                    "last": "Último",
-                    "next": "Siguiente",
-                    "previous": "Anterior"
+                'processing': 'Procesando...',
+                'lengthMenu': 'Mostrar _MENU_ registros',
+                'zeroRecords': 'No se encontraron resultados',
+                'emptyTable': 'Ningún dato disponible en esta tabla',
+                'info': 'Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros',
+                'infoEmpty': 'Mostrando registros del 0 al 0 de un total de 0 registros',
+                'infoFiltered': '(filtrado de un total de _MAX_ registros)',
+                'search': 'Buscar:',
+                'infoThousands': ',',
+                'loadingRecords': 'Cargando...',
+                'paginate': {
+                    'first': 'Primero',
+                    'last': 'Último',
+                    'next': 'Siguiente',
+                    'previous': 'Anterior'
                 },
-                "aria": {
-                    "sortAscending": ": Activar para ordenar la columna de manera ascendente",
-                    "sortDescending": ": Activar para ordenar la columna de manera descendente"
+                'aria': {
+                    'sortAscending': ': Activar para ordenar la columna de manera ascendente',
+                    'sortDescending': ': Activar para ordenar la columna de manera descendente'
                 },
-                "buttons": {
-                    "copy": "Copiar",
-                    "colvis": "Visibilidad"
+                'buttons': {
+                    'copy': 'Copiar',
+                    'colvis': 'Visibilidad'
                 }
             }         
-        ';
+        ";
         return "
             <script>
                $(document).ready(function() {
-                    $('#$id').DataTable();
-                    alert('Se registró la tabla $id');
+                    $('#$id').DataTable({
+                        
+                        autoWidth: false,
+                         
+                        language:
+                        {
+                            'processing': 'Procesando...',
+                            'lengthMenu': 'Mostrar _MENU_ registros',
+                            'zeroRecords': 'No se encontraron resultados',
+                            'emptyTable': 'Ningún dato disponible en esta tabla',
+                            'info': 'Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros',
+                            'infoEmpty': 'Mostrando registros del 0 al 0 de un total de 0 registros',
+                            'infoFiltered': '(filtrado de un total de _MAX_ registros)',
+                            'search': 'Buscar:',
+                            'infoThousands': ',',
+                            'loadingRecords': 'Cargando...',
+                            'paginate': {
+                                'first': 'Primero',
+                                'last': 'Último',
+                                'next': 'Siguiente',
+                                'previous': 'Anterior'
+                            },
+                            'aria': {
+                                'sortAscending': ': Activar para ordenar la columna de manera ascendente',
+                                'sortDescending': ': Activar para ordenar la columna de manera descendente'
+                            },
+                            'buttons': {
+                                'copy': 'Copiar',
+                                'colvis': 'Visibilidad'
+                            }
+                        }
+                    });
+                    
                 });
             </script>";
     }
@@ -220,8 +251,10 @@ class Utilidades
                 return $this->TextBox($id,$label,$value,"text","abc",$required);
             case "?": // Password
                 return $this->TextBox($id,$label,$value,"password","password",$required);
-            case "#": // Numerico
+            case "#": // Entero
                 return $this->TextBox($id,$label,$value,"number","123",$required);
+            case "M": // Moneda
+                return $this->TextBox($id,$label,$value,"number","123",$required,"","","step='.01'");
             case "D": // Fecha
                 return $this->TextBox($id,$label,$value,"date","123",$required);
             case "@": // Correo
@@ -229,14 +262,22 @@ class Utilidades
             case "&": // Textarea
                 return $this->TextArea($id,$label,$value,3,"abc...xyz");
             case "%": // Checkbox
+                $cValue="";
+                if(is_int($value)){
+                    if($value>0) $cValue="checked";
+                }
+                else {
+                    if($value) $cValue="checked";
+                }
+
                 return '
                     <div class="form-group row">
                         <div class="col-sm-2">'.$label.'</div>
                         <div class="col-sm-10">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="'.$id.'">
+                                <input class="form-check-input" type="checkbox" name="'.$id.'" id="'.$id.'" '.$cValue.'>
                                 <label class="form-check-label" for="'.$id.'">
-                                    '.$options[1].'
+                                    
                                 </label>
                             </div>
                         </div>
@@ -331,7 +372,7 @@ class Utilidades
         return '<input type="hidden" value="'.$value.'" name="'.$id.'" id="'.$id.'" >';
     }
 
-    public function TextBox(string $id,string $label,$value,string $type,string $placeholder,bool $required,$pattern="",$title=""){
+    public function TextBox(string $id,string $label,$value,string $type,string $placeholder,bool $required,$pattern="",$title="",$props=""){
         if($pattern<>"") $pattern='pattern="'.$pattern.'" ';
         if($title<>"") $title='title="'.$title.'"';
         $r="";
@@ -340,7 +381,7 @@ class Utilidades
         <div class="form-group row">
             <label for="'.$id.'" class="col-sm-2 col-form-label">'.$label.'</label>
             <div class="col-sm-10">
-                <input type="'.$type.'" value="'.$value.'" class="form-control" name="'.$id.'" id="'.$id.'" placeholder="'.$placeholder.'" '.$pattern.' '.$title.' '.$r.' >
+                <input type="'.$type.'" value="'.$value.'" class="form-control" name="'.$id.'" id="'.$id.'" placeholder="'.$placeholder.'" '.$pattern.' '.$title.' '.$r.' '.$props.'>
             </div>
         </div>
         ';

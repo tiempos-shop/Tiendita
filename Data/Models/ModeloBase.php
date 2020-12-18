@@ -210,8 +210,10 @@ abstract class ModeloBase implements iModeloBase
 
     public function Object2TableEdit(string $id, string $botonEditar, string $botonBorrar, string $botonInsertar, string $footer = "", array $ocultos = [])
     {
+
         $object = $this->getAll();
-        $html = '<table class="table table-bordered" id="'.$id.'">';
+
+        $html='<div class="row"><table class="table table-bordered" id="'.$id.'">';
         //$html .= "<caption>$footer</caption>";
         // Encabezados
         $html .= '<thead><tr>';
@@ -221,8 +223,15 @@ abstract class ModeloBase implements iModeloBase
             if (!($type == "I" or $type == "F" or $type=="*"))
                 $camposEditar[] = $property["label"];
         }
-        $headers = ["h1" => "Editar", "h2" => "Borrar"] + $camposEditar + $this->Adicional();
-        $headerCount=count($headers);
+        $operationButton=array();
+        if(!in_array("edit",$ocultos)){
+            $operationButton["h1"]="Editar";
+        }
+        if(!in_array("delete",$ocultos)){
+            $operationButton["h2"]="Borrar";
+        }
+        $headers = $operationButton + $camposEditar + $this->Adicional();
+        //$headerCount=count($headers);
         foreach ($headers as $head) {
             $html .= "<th>$head</th>";
         }
@@ -281,50 +290,58 @@ abstract class ModeloBase implements iModeloBase
 
 
             // Botones
-            $button = "<td>" . $this->ui->ModalButton("idEditTable" . $i, $botonEditar, "", "Edicion de Campos", "Cancelar",
-                    $this->ui->Form([
-                        $input, "<br/>"
-                    ], "", "Guardar"), "", "", "primary  btn-sm"
-                ) . "</td>";
+            if(!in_array("edit",$ocultos)){
+                $button = "<td>" . $this->ui->ModalButton("idEditTable" . $i, $botonEditar, "", "Edicion de Campos", "Cancelar",
+                        $this->ui->Form([
+                            $input, "<br/>"
+                        ], "", "Guardar"), "", "", "primary  btn-sm"
+                    ) . "</td>";
+            }
 
-            $button .= '
+            if(!in_array("delete",$ocultos)){
+                $button .= '
                 <td>'
-                . $this->ui->ModalButton("idDeleteTable" . $i, $botonBorrar, "", "Borrar Registro", "Cancelar",
-                    $this->ui->Form([
-                        "<p>Desea borrar el registro?</p>",
-                        "<br/>",
-                        $this->ui->Hidden($this->getId(), $datoId),
-                        $this->ui->Hidden("delete", true)
-                    ], "", "Borrar"), "", "", "danger btn-sm"
-                ) .
-                '</td>';
+                    . $this->ui->ModalButton("idDeleteTable" . $i, $botonBorrar, "", "Borrar Registro", "Cancelar",
+                        $this->ui->Form([
+                            "<p>Desea borrar el registro?</p>",
+                            "<br/>",
+                            $this->ui->Hidden($this->getId(), $datoId),
+                            $this->ui->Hidden("delete", true)
+                        ], "", "Borrar"), "", "", "danger btn-sm"
+                    ) .
+                    '</td>';
+            }
+
             // Genera html Fila
             $html .= $button . $columns . "</tr>";
         }
 
         // Boton Insertar
+        /*if(!in_array("insert",$ocultos)){
+            $html .= "<tr><td>";
+            $html .= $this->ui->ModalButton("idInsertTable", $botonInsertar, "", "Agregar un Registro", "Cancelar",
+                $this->ui->Form([
+                    $inputNV,
+                    "<br/>"
+                ], "", "Agregar"), "", "", "info"
+            );
+            $html .="</td>";
+            $html .=$this->FillTable($headerCount);
+            $html .="</tr>";
+        }*/
 
-        $html .= "<tr><td>";
-        $html .= $this->ui->ModalButton("idInsertTable", $botonInsertar, "", "Agregar un Registro", "Cancelar",
-            $this->ui->Form([
-                $inputNV,
-                "<br/>"
-            ], "", "Agregar"), "", "", "info"
-        );
-        $html .="</td>";
-        $html .=$this->FillTable($headerCount);
-        $html .="</tr>";
-
-        $html .= "</tbody></table>";
-
-        // Script
-        // TODO: No se activa el script. Probablemente porque esta en medio de div y codigo HTML
-
-
-
-
-
-
+        $html .= "</tbody></table></div>";
+        $botonInsert="<div class='row'>";
+        if(!in_array("insert",$ocultos)){
+            $botonInsert .= $this->ui->ModalButton("idInsertTable", $botonInsertar, "", "Agregar un Registro", "Cancelar",
+                $this->ui->Form([
+                    $inputNV,
+                    "<br/>"
+                ], "", "Agregar"), "", "", "info"
+            );
+        }
+        $botonInsert.="</div>";
+        $html='<div class="container-fluid">'.$botonInsert.$html."</div>";
 
         return $html;
     }
