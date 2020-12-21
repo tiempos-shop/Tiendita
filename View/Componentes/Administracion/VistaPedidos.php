@@ -6,6 +6,9 @@ namespace Administracion;
 
 use Tiendita\ModeloPedidos;
 use Tiendita\Utilidades;
+include_once "VistasMenu.php";
+include_once "Data/Models/ModeloPedidos.php";
+include_once "Business/Utilidades.php";
 
 class VistaPedidos extends VistasMenu
 {
@@ -21,9 +24,11 @@ class VistaPedidos extends VistasMenu
     }
 
     public function Content(){
-        $mainContent=$this->ContentHeader("Lista Usuarios","Vista");
         $ui=new Utilidades();
         $u=new ModeloPedidos();
+
+        $mainContent=$this->ContentHeader("Lista Pedidos","Vista");
+        $this->scripts.=$ui->DataTable("idTablaEntidad");
         $mainContent.=$ui->ContainerFluid([
             $ui->Row([
                 $u->Object2Table()

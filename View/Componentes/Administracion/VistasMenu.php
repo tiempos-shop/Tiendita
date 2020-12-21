@@ -210,7 +210,6 @@ abstract class VistasMenu extends VistasHtml{
 
         $html.=$this->NavItem("Estadisticas","administracion.php","fas fa-fw fa-chart-area");
 
-
         $html.=$this->NavItemCollapse("idUsers","Usuarios","Gestion",
             ["usuarios.php"=>"Listar" ,"usuariosEdit.php"=>"Editar"]
         );
@@ -219,28 +218,38 @@ abstract class VistasMenu extends VistasHtml{
             ["clientes.php"=>"Listar" ,"clientesEdit.php"=>"Editar"]
         );
 
+        $html.=$this->NavItemCollapse("id4","Reportes","Reportes",
+            ["financiero.php"=>"Financiero" , "ventas.php"=>"Ventas"]
+        );
+
+        $html.=$this->Divider();
+        $html.=$this->Heading("Inventarios");
+
         $html.=$this->NavItemCollapse("idProducts","Productos","Gestion",
             ["productos.php"=>"Listar" ,"productosEdit.php"=>"Editar"]
         );
 
-        $html.=$this->NavItemCollapse("idEnvio","Envios","Gestion",
-            ["envios.php"=>"Listar" ,"enviosEdit.php"=>"Editar"]
+        $html.=$this->NavItemCollapse("id3","Capturas","Gestion",
+            ["capturaIndividual.php"=>"Captura Individual" , "capturaMasiva.php"=>"Captura Masiva", "circulacionInventario.php"=>"Circulacion de Inventario"]
+        );
+
+        $html.=$this->Divider();
+        $html.=$this->Heading("Pedidos");
+
+        $html.=$this->NavItemCollapse("idPedido","Pedido","Gestion",
+            ["pedidos.php"=>"Listar" ,"pedidosEdit.php"=>"Editar"]
         );
 
         $html.=$this->NavItemCollapse("idPago","Pagos","Gestion",
             ["pagos.php"=>"Listar" ,"pagosEdit.php"=>"Editar"]
         );
 
+        $html.=$this->NavItemCollapse("idEnvio","Envios","Gestion",
+            ["envios.php"=>"Listar" ,"enviosEdit.php"=>"Editar"]
+        );
+
         $html.=$this->NavItemCollapse("idDevoluciones","Devoluciones","Gestion",
             ["devoluciones.php"=>"Listar" ,"devolucionesEdit.php"=>"Editar"]
-        );
-
-        $html.=$this->NavItemCollapse("id4","Reportes","Reportes",
-            ["financiero.php"=>"Financiero" , "ventas.php"=>"Ventas"]
-        );
-
-        $html.=$this->NavItemCollapse("id3","Inventarios","Inventarios",
-            ["capturaIndividual.php"=>"Captura Individual" , "capturaMasiva.php"=>"Captura Masiva", "circulacionInventario.php"=>"Circulacion de Inventario"]
         );
 
         $html.=$this->Divider();
@@ -272,8 +281,6 @@ abstract class VistasMenu extends VistasHtml{
         $html.=$this->NavItemCollapse("idConfig","Aplicación","Catalogo",
             ["catalogo.php"=>"Listar" ,"catalogoEdit.php"=>"Editar"]
         );
-
-        $html.=$this->NavItem("Tablas","tables.html","fas fa-fw fa-table");
 
         $html.=$this->FinalDivider();
         $html.=$this->SidebarToggler();

@@ -262,8 +262,15 @@ abstract class ModeloBase implements iModeloBase
                     if (!($type == "I" or $type == "F" or $type=="*")) $columns .= "<td>$v</td>";
                     if(($type=="F" or $type=="*") and $k<>"IdTipoMovimiento" and $k<>"IdUsuarioBase" and $k<>"FechaCambio")
                     {
-                        $columns.=$this->Foreign($k,$v);
-                        $input .= $this->ForeignInput($k,$v);
+                        if(is_null($v)){
+                            $columns.="<td></td>";
+                            $input .= $this->ForeignInput($k,$v);
+                        }
+                        else{
+                            $columns.=$this->Foreign($k,$v);
+                            $input .= $this->ForeignInput($k,$v);
+                        }
+
                     } else{
                         $input .= $this->ui->Input($k, $label, $v, $type, $req);
                     }
@@ -411,7 +418,7 @@ abstract class ModeloBase implements iModeloBase
     public function Object2Table()
     {
         $object = $this->getAll();
-        $html = '<table class="table table-bordered">';
+        $html = '<table id="idTablaEntidad" class="table table-bordered">';
         $html .= '<tr>';
         $camposEditar = array();
         foreach ($this->properties as $campo => $property) {

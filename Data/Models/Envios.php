@@ -11,6 +11,11 @@ class Envios extends BaseAuditoria implements iEntity
     public $IdEmpresa=0;
     public $EstatusEnvio="";
 
+    public function __construct()
+    {
+
+    }
+
     public static function getProperties(): array
     {
         return [

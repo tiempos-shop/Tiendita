@@ -3,6 +3,7 @@
 
 namespace Tiendita;
 include_once "ModeloBase.php";
+include_once "Data/Models/Pedidos.php";
 
 class ModeloPedidos extends ModeloBase
 {
@@ -12,7 +13,7 @@ class ModeloPedidos extends ModeloBase
     }
 
     public function Adicional(){
-        return [ "ad1"=>"Núm. Pedido", "ad2"=>"Motivo Devoluciones ","ad3"=>"Tipo Movimiento","ad4"=>"Usuario"];
+        return [ "ad1"=>"Estatus", "ad2"=>"Envio","ad3"=>"Cliente","ad4"=>"Tipo Movimiento","ad5"=>"Usuario Captura"];
     }
 
     public function Object2SimpleTable(string $k, object $v)
@@ -23,11 +24,14 @@ class ModeloPedidos extends ModeloBase
         elseif ($k=="UsuarioBase"){
             return $v->Nombres." ".$v->Apellidos;
         }
-        elseif($k=="MotivoDevoluciones") {
-            return $v->Descripcion;
+        elseif($k=="EstatusPedido") {
+            return $v->Nombre;
         }
-        elseif($k=="Pedidos") {
-            return $v->IdPedido;
+        elseif($k=="Envios") {
+            return $v->EstatusEnvio;
+        }
+        elseif($k=="Clientes") {
+            return $v->Nombre;
         }
         else{
             return "No definido campo: ".$k;
@@ -44,7 +48,7 @@ class ModeloPedidos extends ModeloBase
         if($k=="TipoMovimiento") {
             return "
             <div class='row'>
-                <div class='col-sm-2'>Modificación</div>
+                <div class='col-sm-2'>Tipo Movimiento</div>
                 <div class='col-sm-10'>$v->Descripcion</div>
             </div>";
         }
@@ -56,18 +60,25 @@ class ModeloPedidos extends ModeloBase
             </div>";
 
         }
-        elseif($k=="MotivoDevoluciones") {
+        elseif($k=="EstatusPedido") {
             return "
             <div class='row'>
                 <div class='col-sm-2'>Motivo Devoluciones</div>
-                <div class='col-sm-10'>$v->Descripcion</div>
+                <div class='col-sm-10'>$v->Nombre</div>
             </div>";
         }
-        elseif($k=="Pedidos") {
+        elseif($k=="Envios") {
             return "
             <div class='row'>
                 <div class='col-sm-2'>Pedido</div>
-                <div class='col-sm-10'>$v->IdPedido</div>
+                <div class='col-sm-10'>$v->EstatusEnvio</div>
+            </div>";
+        }
+        elseif($k=="Clientes") {
+            return "
+            <div class='row'>
+                <div class='col-sm-2'>Pedido</div>
+                <div class='col-sm-10'>$v->Nombre</div>
             </div>";
         }
         else{
@@ -77,16 +88,22 @@ class ModeloPedidos extends ModeloBase
 
     public function Foreign(string $k, string $v)
     {
-        if($k=="IdMotivoDevolucion"){
+        if($k=="IdEstatusPedido"){
             $table=$this->properties[$k]["table"];
             $datos=$this->entidadBase->getBy($table,$k,$v)[0];
-            $nombre=$datos->Descripcion;
+            $nombre=$datos->Nombre;
             return "<td>$nombre</td>";
         }
-        elseif($k=="IdPedido"){
+        elseif($k=="IdEnvio"){
             $table=$this->properties[$k]["table"];
             $datos=$this->entidadBase->getBy($table,$k,$v)[0];
-            $nombre=$datos->IdPedido;
+            $nombre=$datos->EstatusEnvio;
+            return "<td>$nombre</td>";
+        }
+        elseif($k=="IdCliente"){
+            $table=$this->properties[$k]["table"];
+            $datos=$this->entidadBase->getBy($table,$k,$v)[0];
+            $nombre=$datos->Nombre." ".$datos->Apellidos;
             return "<td>$nombre</td>";
         }
         else{
@@ -95,31 +112,45 @@ class ModeloPedidos extends ModeloBase
 
     }
 
-    public function ForeignInput(string $k, string $v)
+    public function ForeignInput(string $k,$v)
     {
-        if($k=="IdMotivoDevolucion"){
+        if($k=="IdEstatusPedido"){
             $table=$this->properties[$k]["table"];
             $label=$this->properties[$k]["label"];
             $type=$this->properties[$k]["type"];
             $datos=$this->entidadBase->getAll($table);
             $options=array();
             foreach ($datos as $dato) {
-                $nombre=$dato->Descripcion;
-                $options[$dato->IdMotivoDevolucion]=$nombre;
+                $nombre=$dato->Nombre;
+                $options[$dato->$k]=$nombre;
 
             }
             var_dump($options);
             return $this->ui->Input($k, $label, "", $type,true,$options);
         }
-        elseif($k=="IdPedido"){
+        elseif($k=="IdEnvio"){
             $table=$this->properties[$k]["table"];
             $label=$this->properties[$k]["label"];
             $type=$this->properties[$k]["type"];
             $datos=$this->entidadBase->getAll($table);
             $options=array();
             foreach ($datos as $dato) {
-                $nombre=$dato->IdPedido;
-                $options[$dato->IdPedido]=$nombre;
+                $nombre=$dato->EstatusEnvio;
+                $options[$dato->$k]=$nombre;
+
+            }
+            var_dump($options);
+            return $this->ui->Input($k, $label, "", $type,true,$options);
+        }
+        elseif($k=="IdCliente"){
+            $table=$this->properties[$k]["table"];
+            $label=$this->properties[$k]["label"];
+            $type=$this->properties[$k]["type"];
+            $datos=$this->entidadBase->getAll($table);
+            $options=array();
+            foreach ($datos as $dato) {
+                $nombre=$dato->Nombre." ".$dato->Apellidos;
+                $options[$dato->$k]=$nombre;
 
             }
             var_dump($options);
