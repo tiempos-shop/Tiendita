@@ -2,14 +2,15 @@
 
 
 namespace Tiendita;
-
-
+use Cassandra\Timestamp;
 use DateTime;
+
 
 
 class Utilidades
 {
     public $formatoFecha = "d/m/Y H:i:s";
+    public $formatoFechaCaptura="d/m/Y";
 
     // Expresiones regulares
     const password="^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$";
@@ -376,6 +377,20 @@ class Utilidades
         if($pattern<>"") $pattern='pattern="'.$pattern.'" ';
         if($title<>"") $title='title="'.$title.'"';
         $r="";
+        if ($type=="date" and $value<>"") {
+            $value=explode(" ",$value)[0];
+            $dateTime = DateTime::createFromFormat($this->formatoFechaCaptura, $value);
+            if($dateTime===false){
+                echo $value;
+                echo "<br/>";
+                echo $this->formatoFechaCaptura;
+                echo "<br/>";
+                echo $value;
+            }
+            $value=$dateTime->format('Y-m-d');
+
+
+        }
         if($required) $r="required";
         return '
         <div class="form-group row">
@@ -496,6 +511,14 @@ class Utilidades
         $mes=$hoy["mon"];
         $ano=$hoy["year"];
         $external = "$dia/$mes/$ano $horas:$minutos:$segundos";
+        return $external;
+    }
+
+    public function DisplayInputDate(array $date){
+        $dia=$date["mday"];
+        $mes=$date["mon"];
+        $ano=$date["year"];
+        $external = "$ano-$mes-$dia";
         return $external;
     }
 

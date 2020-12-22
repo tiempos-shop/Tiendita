@@ -297,6 +297,7 @@ abstract class ModeloBase implements iModeloBase
 
 
             // Botones
+            $button="";
             if(!in_array("edit",$ocultos)){
                 $button = "<td>" . $this->ui->ModalButton("idEditTable" . $i, $botonEditar, "", "Edicion de Campos", "Cancelar",
                         $this->ui->Form([
@@ -322,20 +323,6 @@ abstract class ModeloBase implements iModeloBase
             // Genera html Fila
             $html .= $button . $columns . "</tr>";
         }
-
-        // Boton Insertar
-        /*if(!in_array("insert",$ocultos)){
-            $html .= "<tr><td>";
-            $html .= $this->ui->ModalButton("idInsertTable", $botonInsertar, "", "Agregar un Registro", "Cancelar",
-                $this->ui->Form([
-                    $inputNV,
-                    "<br/>"
-                ], "", "Agregar"), "", "", "info"
-            );
-            $html .="</td>";
-            $html .=$this->FillTable($headerCount);
-            $html .="</tr>";
-        }*/
 
         $html .= "</tbody></table></div>";
         $botonInsert="<div class='row'>";

@@ -8,7 +8,7 @@ include_once "VistasMenu.php";
 include_once "Data/Models/ModeloPedidos.php";
 include_once "Business/Utilidades.php";
 
-class VistaPedidosEdit extends VistasMenu
+class VistaPedidosInsertar extends VistasMenu
 {
     public function __construct()
     {
@@ -33,13 +33,7 @@ class VistaPedidosEdit extends VistasMenu
         if ($u->SafeSave() == 0) {
             $mainContent .= $ui->ContainerFluid([
                 $ui->Row([
-                    $u->Object2TableEdit("idTableEdit",
-                        "<i class='fa fa-edit'></i> Editar",
-                        "<i class='fa fa-eraser'></i> Borrar",
-                        "<i class='fa fa-plus'></i> Insertar",
-                        "",
-                        ["delete","insert"]
-                    )
+
                 ])
             ]);
 

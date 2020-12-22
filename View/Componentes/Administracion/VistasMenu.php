@@ -237,7 +237,7 @@ abstract class VistasMenu extends VistasHtml{
         $html.=$this->Heading("Pedidos");
 
         $html.=$this->NavItemCollapse("idPedido","Pedido","Gestion",
-            ["pedidos.php"=>"Listar" ,"pedidosEdit.php"=>"Editar"]
+            ["pedidos.php"=>"Listar" ,"pedidosEdit.php"=>"Editar", "pedidosInsert.php"=>"Nuevo Pedido"]
         );
 
         $html.=$this->NavItemCollapse("idPago","Pagos","Gestion",
