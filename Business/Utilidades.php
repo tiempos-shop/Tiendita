@@ -537,5 +537,14 @@ class Utilidades
         echo "<script>window.location.assign('$url')</script>";
     }
 
+    public function GetCatalog(array $elements,string $id, string $campo):array
+    {
+        $catalog=array();
+        foreach ($elements as $element){
+            $catalog[$element->$id]=$element->$campo;
+        }
+        return $catalog;
+    }
+
 
 }

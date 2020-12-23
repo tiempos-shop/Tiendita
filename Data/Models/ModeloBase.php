@@ -25,7 +25,7 @@ abstract class ModeloBase implements iModeloBase
     public $Datos;
 
     private $auditoria;
-    protected $entidadBase;
+    public $entidadBase;
     public $ui;
 
 
