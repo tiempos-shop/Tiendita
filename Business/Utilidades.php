@@ -20,7 +20,7 @@ class Utilidades
 
     // Tablas
 
-    public function Object2Table($object){
+    public function Object2Table(object $object){
         $html= "<table class='table table-bordered'>";
         foreach($object as $val){
             $a = get_object_vars($val);
@@ -30,6 +30,23 @@ class Utilidades
                     $html.= "<td>$v</td>";
                 else
                     $html.="<td>".$this->Object2Table($v)."</td>";
+            }
+            $html.= "</tr></tbody>";
+
+        }
+        $html.= "</table>";
+        return $html;
+    }
+
+    public function Array2Table(array $elements){
+        $html= "<table class='table table-bordered'>";
+        foreach($elements as $row){
+            $html.= "<tbody><tr>";
+            foreach($row as $k=>$v ){
+                if(!is_array($v))
+                    $html.= "<td>$k:<span style='color: darkgray'>$v</span></td>";
+                else
+                    $html.="<td>".$this->Array2Table($v)."</td>";
             }
             $html.= "</tr></tbody>";
 
@@ -537,13 +554,52 @@ class Utilidades
         echo "<script>window.location.assign('$url')</script>";
     }
 
+    // Arrays
+
     public function GetCatalog(array $elements,string $id, string $campo):array
     {
-        $catalog=array();
-        foreach ($elements as $element){
+
+        return array_column($elements,$campo,$id);
+        /*foreach ($elements as $element){
             $catalog[$element->$id]=$element->$campo;
         }
-        return $catalog;
+        return $catalog;*/
+    }
+
+    // Ciclos
+
+    public function if(bool $operation,array $true){
+        if($operation===true){
+            return $true;
+        }
+        else return "";
+    }
+
+    public function ifelse(bool $operation,array $true,array $false){
+        if($operation){
+            return $true;
+        }
+        else {
+            return $false;
+        }
+    }
+
+    public function Switch($case,array $options,string $default){
+        if(!in_array($case,$options)) return $default;
+        return $options[$case];
+    }
+
+    public function foreach(array $elements,string $startHtml,string $endHtml){
+        $html="";
+        foreach ($elements as $i){
+            $html.=$startHtml.$i.$endHtml;
+        }
+        return $html;
+    }
+
+    public function Tag(string $tag,array $properties,array $html){
+        $prop=implode(" ",$properties);
+        return "<$tag $prop>$html</$tag>";
     }
 
 

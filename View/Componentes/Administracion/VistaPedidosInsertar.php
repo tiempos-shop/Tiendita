@@ -33,32 +33,29 @@ class VistaPedidosInsertar extends VistasMenu
 
 
         // Si se van a guardar datos
-        if (count($_POST) == 0) {
-
-            $mainContent .= $ui->ContainerFluid([
-                $ui->Row([
-                    $ui->Container([
-                        $ui->Form([
-                            $ui->Input("IdEstatusPedido", "Estatus Pedido", "", "*", true,
-                                $ui->GetCatalog($u->entidadBase->getAll("EstatusPedido"), "IdEstatusPedido", "Nombre")),
-                            $ui->Input("IdEnvio","Envio","","*",false,
-                                $ui->GetCatalog($u->entidadBase->getAll("Envios"),"IdEnvio","IdEnvio")),
 
 
-
-                        ],
-                            "",
-                            "<i class='fa fa-plus'></i> Agregar"
-                        )
-                    ]),
-
-                ])
-            ]);
-        } else {
-            // Guardar Datos
+        $mainContent .= $ui->ContainerFluid([
+            $ui->Row([
+                $ui->Container([
+                    $ui->Form([
+                        $ui->Input("IdEstatusPedido", "Estatus Pedido", "", "*", true,
+                            $ui->GetCatalog($u->entidadBase->getAll("EstatusPedido"), "IdEstatusPedido", "Nombre")),
+                        $ui->Input("IdEnvio","Envio","","*",false,
+                            $ui->GetCatalog($u->entidadBase->getAll("Envios"),"IdEnvio","IdEnvio"))
 
 
-        }
+
+                    ],
+                        "",
+                        "<i class='fa fa-plus'></i> Agregar"
+                    ),
+
+                ]),
+
+            ])
+        ]);
+
 
 
         return $mainContent;
