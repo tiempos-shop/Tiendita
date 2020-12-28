@@ -9,6 +9,21 @@ use DateTime;
 
 class Utilidades
 {
+    protected $head="";
+    public $title="";
+    public $Styles="";
+    public $Scripts="";
+    protected $lang="";
+    public $lastScripts="";
+    public $StyleFiles;
+    public $ScriptFiles;
+
+    public function __construct()
+    {
+        $this->StyleFiles=array();
+        $this->ScriptFiles=array();
+    }
+
     public $formatoFecha = "d/m/Y H:i:s";
     public $formatoFechaCaptura="d/m/Y";
 
@@ -16,6 +31,87 @@ class Utilidades
     const password="^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$";
     const nombres="/^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/";
     const correo="/^[\w]+@{1}[\w]+\.[a-z]{2,3}$/";
+
+    // Html
+
+    public function Html5(string $head, string $body,$lang="es"){
+        $this->head=$head;
+        $this->body=$body;
+        $this->lang=$lang;
+
+        return '
+        <!DOCTYPE html>
+        <html lang="'.$lang.'">
+            '.$head.'
+            '.$body.'
+            '.$this->lastScripts.'
+        </html>';
+    }
+
+    public function Body(array $contents,string $attributes){
+        $html= "<body $attributes>";
+        foreach ($contents as $content){
+            $html.=$content;
+        }
+        $html.="</body>";
+        return $html;
+    }
+
+    public function Head(string $title, string $meta, array $loadStyles, array $loadScripts, $styles="", $scripts=""){
+        return "<head>
+                    $meta 
+                    <title>$title</title>".
+                    $this->LoadStyles($loadStyles).
+                    $this->LoadStyles($this->StyleFiles).
+                    $this->LoadScripts($loadScripts).
+                    $this->LoadScripts($this->ScriptFiles).
+                    "<style>
+                        $this->Styles
+                        $styles
+                    </style>
+                    <script>
+                        $this->Scripts
+                        $scripts                    
+                    </script>
+                </head>";
+    }
+
+    public function Meta($descripcion,$author,$charset="utf-8"){
+        return '
+            <meta charset="'.$charset.'">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <meta name="description" content="'.$descripcion.'">
+            <meta name="author" content="'.$author.'">';
+
+    }
+
+    public function LoadStyles(array $archivos){
+        $html="";
+        foreach ($archivos as $archivo){
+            $html.='<link href="'.$archivo.'" rel="stylesheet" type="text/css">';
+        }
+        return $html;
+    }
+
+    public function AddLoadStyles(array $files){
+        $this->ScriptFiles=$this->ScriptFiles+$files;
+        return "";
+    }
+
+    public function AddLoadScripts(array $files){
+        $this->ScriptFiles=$this->ScriptFiles+$files;
+        return "";
+    }
+
+    public function LoadScripts(array $archivos){
+        $html="";
+
+        foreach ($archivos as $archivo){
+            $html.='<script src="'.$archivo.'"></script>'."\n";
+        }
+        return $html;
+    }
 
 
     // Tablas
@@ -56,34 +152,7 @@ class Utilidades
     }
 
     public function DataTable(string $id){
-        $language="
-            {
-                'processing': 'Procesando...',
-                'lengthMenu': 'Mostrar _MENU_ registros',
-                'zeroRecords': 'No se encontraron resultados',
-                'emptyTable': 'Ningún dato disponible en esta tabla',
-                'info': 'Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros',
-                'infoEmpty': 'Mostrando registros del 0 al 0 de un total de 0 registros',
-                'infoFiltered': '(filtrado de un total de _MAX_ registros)',
-                'search': 'Buscar:',
-                'infoThousands': ',',
-                'loadingRecords': 'Cargando...',
-                'paginate': {
-                    'first': 'Primero',
-                    'last': 'Último',
-                    'next': 'Siguiente',
-                    'previous': 'Anterior'
-                },
-                'aria': {
-                    'sortAscending': ': Activar para ordenar la columna de manera ascendente',
-                    'sortDescending': ': Activar para ordenar la columna de manera descendente'
-                },
-                'buttons': {
-                    'copy': 'Copiar',
-                    'colvis': 'Visibilidad'
-                }
-            }         
-        ";
+
         return "
             <script>
                $(document).ready(function() {
@@ -163,11 +232,18 @@ class Utilidades
                 </div>";
     }
 
-    // Mensajaes
+    // Mensajes
     public function MessageBox(string $mensaje){
         echo "
             <script>
                 alert('$mensaje');
+            </script>";
+    }
+
+    public function ConfirmBox(string $mensaje){
+        echo "
+            <script>
+                confirm('$mensaje');
             </script>";
     }
 
@@ -272,7 +348,7 @@ class Utilidades
             case "#": // Entero
                 return $this->TextBox($id,$label,$value,"number","123",$required);
             case "M": // Moneda
-                return $this->TextBox($id,$label,$value,"number","123",$required,"","","step='.01'");
+                return $this->TextBox($id,$label,$value,"number","$ 12.34",$required,"","","step='.01'");
             case "D": // Fecha
                 return $this->TextBox($id,$label,$value,"date","123",$required);
             case "@": // Correo
@@ -438,10 +514,10 @@ class Utilidades
             $i++;
             $idBtn=$id.$i;
             if($i==1){
-                $html.='<li class="active"><a data-toggle="pill" href="#'.$idBtn.'">'.$button.'</a></li>';
+                $html.='<li class="active"><button class="btn btn-outline-dark" data-toggle="pill" href="#'.$idBtn.'">'.$button.'</button></li>';
             }
             else{
-                $html.='<li><a data-toggle="pill" href="#'.$idBtn.'">'.$button.'</a></li>';
+                $html.='<li><button class="btn btn-outline-dark" data-toggle="pill" href="#'.$idBtn.'">'.$button.'</button></li>';
             }
 
         }
@@ -558,24 +634,19 @@ class Utilidades
 
     public function GetCatalog(array $elements,string $id, string $campo):array
     {
-
         return array_column($elements,$campo,$id);
-        /*foreach ($elements as $element){
-            $catalog[$element->$id]=$element->$campo;
-        }
-        return $catalog;*/
     }
 
     // Ciclos
 
-    public function if(bool $operation,array $true){
+    public function if(bool $operation,string $true,string $continue){
         if($operation===true){
-            return $true;
+            return $true.$continue;
         }
-        else return "";
+        else return $continue;
     }
 
-    public function ifelse(bool $operation,array $true,array $false){
+    public function ifelse(bool $operation,string $true,string $false){
         if($operation){
             return $true;
         }
