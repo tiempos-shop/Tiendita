@@ -42,12 +42,17 @@ class VistaLogin extends VistasMenu
 
         return $ui->ContainerFluid([
             $this->ContentHeader("Login","Ingreso"),
-            $ui->Form([
-                $ui->Input("usuario","Usuario","","$",true),
-                $ui->Input("password","Password","","?",true)
-            ],"administracion.php","Ingresar"
-            )
+            $ui->Row([
+                $ui->Columns("",3),
+                $ui->Columns(
+                    $ui->Form([
+                        $ui->Input("usuario","Usuario","","$",true),
+                        $ui->Input("password","Password","","?",true)
+                    ],"administracion.php","Ingresar"
+                    )
+                    ,6),
+                $ui->Columns("",3)
+            ])
         ]);
-
     }
 }

@@ -20,17 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaLogin.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bag.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/cartera1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/cartera2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/Utilidades.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Utilidades.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Models/ModeloBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/ModeloBase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistaPedidosInsertar.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaPedidosInsertar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistasMenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistasMenu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistaLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaLogin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,8 +81,8 @@
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Web Page.XAMPP">
-    <configuration name="Admin Script" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/administracion.php">
+  <component name="RunManager" selected="PHP Web Page.Admin">
+    <configuration name="Admin Script" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/login.php">
       <CommandLine>
         <PhpTestInterpreterSettings>
           <option name="interpreterName" value="PHP" />
@@ -107,32 +98,15 @@
       </CommandLine>
       <method v="2" />
     </configuration>
-    <configuration name="Usuario Script" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/usuarios.php">
-      <CommandLine>
-        <PhpTestInterpreterSettings>
-          <option name="interpreterName" value="PHP" />
-        </PhpTestInterpreterSettings>
-      </CommandLine>
-      <method v="2" />
-    </configuration>
-    <configuration name="Admin" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" server_name="XAMPP Server" start_url="http://localhost:63342/Tiendita/administracion.php">
-      <method v="2" />
-    </configuration>
-    <configuration name="Usuario" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" server_name="XAMPP Server" start_url="http://localhost:63342/Tiendita/usuarios.php">
-      <method v="2" />
-    </configuration>
-    <configuration name="UsuriosEdit" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="XAMPP Server" start_url="http://localhost:63342/Tiendita/usuariosEdit.php">
+    <configuration name="Admin" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" server_name="XAMPP Server" start_url="http://localhost:63342/Tiendita/login.php">
       <method v="2" />
     </configuration>
     <configuration name="XAMPP" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" server_name="XAMPP Server" start_url="http://localhost:63342/Tiendita/index.php">
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="PHP Script.Usuario Script" />
       <item itemvalue="PHP Script.Admin Script" />
       <item itemvalue="PHP Script.INDEX Script" />
-      <item itemvalue="PHP Web Page.Usuario" />
-      <item itemvalue="PHP Web Page.UsuriosEdit" />
       <item itemvalue="PHP Web Page.Admin" />
       <item itemvalue="PHP Web Page.XAMPP" />
     </list>
@@ -203,14 +177,7 @@
       <workItem from="1609102917883" duration="8716000" />
       <workItem from="1609260378244" duration="4637000" />
       <workItem from="1609866703912" duration="4547000" />
-      <workItem from="1609949804983" duration="16946000" />
-    </task>
-    <task id="LOCAL-00011" summary="Pagos.php">
-      <created>1603934071262</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1603934071262</updated>
+      <workItem from="1609949804983" duration="17536000" />
     </task>
     <task id="LOCAL-00012" summary="Pagos.php">
       <created>1604609615811</created>
@@ -548,7 +515,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609114960608</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Pagos.php">
+      <created>1609988687520</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1609988687520</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -585,11 +559,11 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="288" y="0" key="#Servers/0.0.1366.738@0.0.1366.738" timestamp="1604439233130" />
-    <state x="720" y="95" width="1092" height="837" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607569268651">
+    <state x="720" y="95" width="1092" height="861" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609988823743">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="364" y="69" width="687" height="599" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1604439248357" />
-    <state x="720" y="95" width="1092" height="837" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1607569268651" />
+    <state x="720" y="95" width="1092" height="861" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1609988823743" />
     <state x="968" y="203" width="880" height="683" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603411279230" />
     <state x="765" y="188" key="#com.intellij.ide.util.MemberChooser" timestamp="1608256986185">
       <screen x="0" y="0" width="1920" height="1019" />
@@ -627,10 +601,10 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="739" y="196" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#1/0.0.1920.1019@0.0.1920.1019" timestamp="1606242096983" />
-    <state x="120" y="8" key="CommitChangelistDialog2" timestamp="1609114959530">
+    <state x="120" y="8" key="CommitChangelistDialog2" timestamp="1609988686457">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="120" y="8" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1609114959530" />
+    <state x="120" y="8" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1609988686457" />
     <state x="740" y="263" key="FileChooserDialogImpl" timestamp="1606353472052">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
@@ -713,10 +687,10 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="472" y="8" width="1400" height="979" key="SourceMapInspector.frame/0.0.1920.1019@0.0.1920.1019" timestamp="1603389504208" />
-    <state x="514" y="193" key="Vcs.Push.Dialog.v2" timestamp="1609988664817">
+    <state x="514" y="193" key="Vcs.Push.Dialog.v2" timestamp="1609988701692">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="514" y="193" key="Vcs.Push.Dialog.v2/0.0.1920.1019@0.0.1920.1019" timestamp="1609988664817" />
+    <state x="514" y="193" key="Vcs.Push.Dialog.v2/0.0.1920.1019@0.0.1920.1019" timestamp="1609988701692" />
     <state x="849" y="428" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606366793599">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
