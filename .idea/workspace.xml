@@ -20,9 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaLogin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bag.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/cartera1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/cartera2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Business/Utilidades.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Utilidades.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Models/ModeloBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/ModeloBase.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistaPedidosInsertar.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaPedidosInsertar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistasMenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistasMenu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,14 +79,15 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Egil\PhpstormProjects\Tiendita" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\img" />
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita" />
       <recent name="C:\Users\RENDER2\PhpstormProjects\Tiendita" />
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\View\Imagenes" />
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\Data\Models" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Egil\PhpstormProjects\Tiendita" />
     </key>
   </component>
   <component name="RunManager" selected="PHP Web Page.XAMPP">
@@ -191,14 +200,10 @@
       <workItem from="1608819629108" duration="1740000" />
       <workItem from="1608852884551" duration="6058000" />
       <workItem from="1609012295148" duration="2932000" />
-      <workItem from="1609102917883" duration="8662000" />
-    </task>
-    <task id="LOCAL-00010" summary="Pagos.php">
-      <created>1603920994897</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1603920994897</updated>
+      <workItem from="1609102917883" duration="8716000" />
+      <workItem from="1609260378244" duration="4637000" />
+      <workItem from="1609866703912" duration="4547000" />
+      <workItem from="1609949804983" duration="16946000" />
     </task>
     <task id="LOCAL-00011" summary="Pagos.php">
       <created>1603934071262</created>
@@ -536,7 +541,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608769432531</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Pagos.php">
+      <created>1609114960608</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1609114960608</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -595,10 +607,10 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="690" y="255" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1607550170943" />
-    <state x="608" y="200" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1608323394068">
+    <state x="608" y="200" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1609954801047">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="608" y="200" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1608323394068" />
+    <state x="608" y="200" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1609954801047" />
     <state x="593" y="26" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#" timestamp="1606153258895">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
@@ -615,10 +627,10 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="739" y="196" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#1/0.0.1920.1019@0.0.1920.1019" timestamp="1606242096983" />
-    <state x="120" y="8" key="CommitChangelistDialog2" timestamp="1608769431437">
+    <state x="120" y="8" key="CommitChangelistDialog2" timestamp="1609114959530">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="120" y="8" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1608769431437" />
+    <state x="120" y="8" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1609114959530" />
     <state x="740" y="263" key="FileChooserDialogImpl" timestamp="1606353472052">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
@@ -683,16 +695,16 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state width="196" height="539" key="HiddenNamespacesPopup/0.0.1920.1019@0.0.1920.1019" timestamp="1603838753651" />
-    <state x="826" y="273" key="NewPhpClassDialog" timestamp="1608607483919">
+    <state x="826" y="273" key="NewPhpClassDialog" timestamp="1609954742696">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="826" y="273" key="NewPhpClassDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1608607483919" />
+    <state x="826" y="273" key="NewPhpClassDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1609954742696" />
     <state x="265" y="246" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603480856140" />
-    <state x="550" y="230" key="NewPhpFileDialog" timestamp="1608607663245">
+    <state x="550" y="230" key="NewPhpFileDialog" timestamp="1609969897098">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="780" y="159" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1604603079407" />
-    <state x="550" y="230" key="NewPhpFileDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1608607663245" />
+    <state x="550" y="230" key="NewPhpFileDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1609969897098" />
     <state x="568" y="110" key="SettingsEditor" timestamp="1603391568731">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
@@ -701,10 +713,10 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="472" y="8" width="1400" height="979" key="SourceMapInspector.frame/0.0.1920.1019@0.0.1920.1019" timestamp="1603389504208" />
-    <state x="514" y="193" key="Vcs.Push.Dialog.v2" timestamp="1607106109928">
+    <state x="514" y="193" key="Vcs.Push.Dialog.v2" timestamp="1609988664817">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="514" y="193" key="Vcs.Push.Dialog.v2/0.0.1920.1019@0.0.1920.1019" timestamp="1607106109928" />
+    <state x="514" y="193" key="Vcs.Push.Dialog.v2/0.0.1920.1019@0.0.1920.1019" timestamp="1609988664817" />
     <state x="849" y="428" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606366793599">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>

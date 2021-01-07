@@ -102,6 +102,7 @@ abstract class ModeloBase implements iModeloBase
     {
 
         $n = $this->getId();
+        // TODO: Remover Linea
         echo $this->getId();
         $id = intval($row->$n);
         $sql = "UPDATE $this->Table SET ";
@@ -145,6 +146,30 @@ abstract class ModeloBase implements iModeloBase
         $sql .= "($campos) VALUES ($valores);";
         $this->entidadBase->AddQuerys($sql);
         $this->getAll = false;
+    }
+
+    public static function GetInsert(object $row,string $table,array $properties)
+    {
+
+        $sql = "INSERT INTO $table ";
+        $campos = "";
+        $valores = "";
+        foreach ($properties as $campo => $property) {
+            if ($property["type"] <> "I") {
+                $campos .= $campo . ",";
+                if ($property["typeDb"] == "#") {
+                    $valores .= $row->$campo;
+                } else {
+                    $valores .= "'" . $row->$campo . "'";
+                }
+
+                $valores .= ",";
+            }
+        }
+        $campos = trim($campos, ",");
+        $valores = trim($valores, ",");
+        $sql .= "($campos) VALUES ($valores);";
+        return $sql;
     }
 
     public function delete(object $row)

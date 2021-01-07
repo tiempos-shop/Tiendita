@@ -2,8 +2,11 @@
 
 
 namespace Administracion;
+use Tiendita\Envios;
+use Tiendita\ModeloBase;
 use Tiendita\ModeloEstatusPedido;
 use Tiendita\ModeloPedidos;
+use Tiendita\Pedidos;
 use Tiendita\Utilidades;
 include_once "VistasMenu.php";
 include_once "Data/Models/ModeloPedidos.php";
@@ -34,6 +37,33 @@ class VistaPedidosInsertar extends VistasMenu
 
         // Si se van a guardar datos
         if(count($_POST)>0){
+            echo "<pre>";
+            var_dump($_POST);
+            echo "</pre>";
+            $pedido=new Pedidos();
+            $fechaHoy=$ui->FechaHoy();
+            $pedido->FechaCambio=$fechaHoy;
+            $usuario=$this->userId;
+            if($_POST["EstatusEnvio"]=""){
+
+            }
+            else{
+                $envios=new Envios();
+                $envios->IdTipoMovimiento=1;
+                $envios->IdUsuarioBase=$usuario;
+                $envios->FechaCambio=$fechaHoy;
+                $envios->IdEmpresa=$_POST["IdEmpresa"];
+                $envios->EstatusEnvio=$_POST["EstatusEnvio"];
+                $sql=ModeloBase::GetInsert($envios,"Envios",Envios::getProperties());
+                $u->entidadBase->AddQuerys($sql);
+            }
+            if($_POST["Descripcion"]=""){
+
+            }
+            else{
+
+            }
+
             $r=$ui->Post(["IdEstatusPedido","IdEnvio","FechaPedido","IdCliente"]);
             if($r["out"]){
                 $data=$r["data"];
@@ -81,7 +111,7 @@ class VistaPedidosInsertar extends VistasMenu
                                 "<br/><p><strong>Capture un nuevo pago</strong></p>",
                                 $ui->Input("Descripcion","Descripción","","$",false),
                                 $ui->Input("Compania","Identificación","","#",false),
-                                $ui->Input("EstatusPago","Pagado","","%",false),
+                                $ui->Input("EstatusPago","Estatus Pago","","%",false),
                                 $ui->Input("MontoPago","Monto del Pago","","M",false),
                             ])
                         ])

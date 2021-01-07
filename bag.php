@@ -21,7 +21,7 @@ $h= $html->Html5(
 
             $ui->Row([
                 $ui->Columns(
-                    $ui->Button("btn","SHOP"),
+                    $ui->ActionButton("btn","SHOP","window.location.href = \"index.php\";"),
                     3,0,0,0,""
                 ),
                 $ui->Columns(
@@ -67,44 +67,30 @@ $h= $html->Html5(
             ]),
             $ui->Row([
                 $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><img width='350px' src='img/cartera1.jpg'><br/><br/><br/><br/><br/>".$ui->ActionButton("btn","<i class=\"fa fa-shopping-bag\"></i> ADD TO BAG","alert(\"ADDED TO BAG\");")."<br/>Cartera 1",
-                    3,0,0,0,"text-center"
+                    "<img class='img img-fluid' src='img/cartera1.jpg'><br/>Cartera 1",
+                    6,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><img width='350px' src='img/cartera2.jpg'><br/><br/><br/><br/><br/>".$ui->ActionButton("btn","<i class=\"fa fa-shopping-bag\"></i> ADD TO BAG","alert(\"ADDED TO BAG\");")."<br/>Cartera 2",
-                    3,0,0,0,"text-center"
-                ),
-                $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>FOTO<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Descripción",
-                    3,0,0,0,"text-center"
-                ),
-                $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>FOTO<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Descripción",
-                    3,0,0,0,"text-center"
+                    "Agregar al carrito",
+                    6,0,0,0,"d-flex align-items-center justify-content-center"
                 )
             ]),
             $ui->Row([
                 $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>FOTO<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>",
-                    3,0,0,0,"text-center"
+                    "<img class='img img-fluid' src='img/cartera2.jpg'><br/>Cartera 2",
+                    6,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>FOTO<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>",
-                    3,0,0,0,"text-center"
-                ),
-                $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>FOTO<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>",
-                    3,0,0,0,"text-center"
-                ),
-                $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>FOTO<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>",
-                    3,0,0,0,"text-center"
+                    "Agregar al carrito",
+                    6,0,0,0,"d-flex align-items-center justify-content-center"
                 )
             ]),
 
+
         ])
-    //],"style='background-color:white;' ")
-    ],"style='background-color:#AC9950;' ")
+        //],"style='background-color:white;' ")
+    ],"style='background-color:#FFFFFF;' ")
 );
 
 print_r($h);
+

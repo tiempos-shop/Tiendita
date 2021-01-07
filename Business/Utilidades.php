@@ -319,6 +319,12 @@ class Utilidades
         ";
     }
 
+    public function ActionButton($class,$content,$script){
+        return "
+            <button class='$class' onclick='$script'>$content</button>
+        ";
+    }
+
     // Forms
 
     public function Form(array $content,string $url,string $button){

@@ -13,6 +13,11 @@ include_once "Business/Utilidades.php";
 abstract class VistasMenu extends VistasHtml{
     private $contenido;
     private $NombreUsuario="Sin Leer";
+    /**
+     * @var mixed
+     */
+    protected $userId;
+
     public function __construct()
     {
 
@@ -32,7 +37,7 @@ abstract class VistasMenu extends VistasHtml{
             $db=new EntidadBase();
 
             $userEntity=(object)$db->getBy("Usuarios","Usuario",$usuario)[0];
-            var_dump($userEntity);
+            // var_dump($userEntity);
             if($userEntity->Password==$password){
                 // Actualizar Componente User Information
                 $this->NombreUsuario=$userEntity->Nombres." ".$userEntity->Apellidos;
@@ -43,7 +48,7 @@ abstract class VistasMenu extends VistasHtml{
             }
             else{
                 $ui->MessageBox("Error en el usuario o contraseña");
-                $ui->Redirect("index.php");
+                $ui->Redirect("login.php");
             }
         };
 
@@ -55,7 +60,7 @@ abstract class VistasMenu extends VistasHtml{
         else{
 
             $ui->MessageBox("No tiene permisos para ingresar a esta página: ");
-            $ui->Redirect("index.php");
+            $ui->Redirect("login.php");
         }
     }
 
@@ -141,7 +146,7 @@ abstract class VistasMenu extends VistasHtml{
         $body="Confirme con el boton 'desconectarme' para abandonar la sesión.";
         $botonSalir="Cancelar";
         $botonAccion="Desconectarme";
-        $urlAccion="index.php";
+        $urlAccion="login.php";
 
         return $this->Modal($titulo,$body,$botonSalir,$botonAccion,$urlAccion);
 
@@ -293,7 +298,7 @@ abstract class VistasMenu extends VistasHtml{
         return $html;
     }
 
-    private function SideBarBrand($titulo,$url,$icon="fas fa-shopping-basket"){
+    protected function SideBarBrand($titulo, $url, $icon="fas fa-shopping-basket"){
         return '
             <!-- Sidebar - Brand -->
               <a class="sidebar-brand d-flex align-items-center justify-content-center" href="'.$url.'">
@@ -305,7 +310,7 @@ abstract class VistasMenu extends VistasHtml{
         ';
     }
 
-    private function Divider(){
+    protected function Divider(){
         return '
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -320,7 +325,7 @@ abstract class VistasMenu extends VistasHtml{
       ';
     }
 
-    private function NavItemDashboard(){
+    protected function NavItemDashboard(){
         $titulo="Panel Control";
         $url="administracion.php";
         $icon="fas fa-fw fa-tachometer-alt";
