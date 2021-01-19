@@ -4,7 +4,7 @@
 namespace Tiendita;
 use Cassandra\Timestamp;
 use DateTime;
-
+use mysql_xdevapi\Exception;
 
 
 class Utilidades
@@ -151,11 +151,10 @@ class Utilidades
         return $html;
     }
 
-    public function DataTable(string $id){
-
+    public function ScriptDataTable(string $id):string
+    {
         return "
-            <script>
-               $(document).ready(function() {
+            $(document).ready(function() {
                     $('#$id').DataTable({
                         
                         autoWidth: false,
@@ -189,8 +188,26 @@ class Utilidades
                         }
                     });
                     
-                });
-            </script>";
+            });";
+    }
+
+    public function Lines(array $lines):string
+    {
+        return implode("\n",$lines);
+    }
+
+    public function Tag(string $tag,string $innerHTML,array $properties=[]):string
+    {
+        $prop=implode(" ",$properties);
+        return "
+        <$tag $prop>
+            $innerHTML
+        </$tag>";
+    }
+
+    public function DataTable(string $id){
+
+        return $this->Tag("script",$this->ScriptDataTable($id));
     }
 
     // Bootstrap
@@ -319,6 +336,20 @@ class Utilidades
         ";
     }
 
+    public function FacebookButton(string $action=""){
+        return '
+            <div 
+                class="fb-login-button" 
+                data-width="" 
+                data-size="medium" 
+                data-button-type="continue_with" 
+                data-layout="default" 
+                data-auto-logout-link="true" 
+                data-use-continue-as="true"
+                data-onlogin="'.$action.'">
+            </div>';
+    }
+
     public function ActionButton($class,$content,$script){
         return "
             <button class='$class' onclick='$script'>$content</button>
@@ -354,9 +385,9 @@ class Utilidades
             case "#": // Entero
                 return $this->TextBox($id,$label,$value,"number","123",$required);
             case "M": // Moneda
-                return $this->TextBox($id,$label,$value,"number","$ 12.34",$required,"","","step='.01'");
+                return $this->TextBox($id,$label,$value,"number","$12.34",$required,"","","step='.01'");
             case "D": // Fecha
-                return $this->TextBox($id,$label,$value,"date","123",$required);
+                return $this->TextBox($id,$label,$value,"date","2021-12-28",$required);
             case "@": // Correo
                 return $this->TextBox($id,$label,$value,"email","nombre@empresa.com",$required);
             case "&": // Textarea
@@ -469,7 +500,10 @@ class Utilidades
 
     public function Hidden(string $id, $value)
     {
-        return '<input type="hidden" value="'.$value.'" name="'.$id.'" id="'.$id.'" >';
+        if(is_numeric($value) and is_string($value))
+            return '<input type="hidden" value="'.$value.'" name="'.$id.'" id="'.$id.'" >';
+        else
+            throw new Exception("La función Hidden solo acepta parámetros de texto y numéricos");
     }
 
     public function TextBox(string $id,string $label,$value,string $type,string $placeholder,bool $required,$pattern="",$title="",$props=""){
@@ -609,16 +643,15 @@ class Utilidades
         $dia=$hoy["mday"];
         $mes=$hoy["mon"];
         $ano=$hoy["year"];
-        $external = "$dia/$mes/$ano $horas:$minutos:$segundos";
-        return $external;
+        return "$dia/$mes/$ano $horas:$minutos:$segundos";
     }
 
-    public function DisplayInputDate(array $date){
+    public function DisplayInputDate(array $date):string
+    {
         $dia=$date["mday"];
         $mes=$date["mon"];
         $ano=$date["year"];
-        $external = "$ano-$mes-$dia";
-        return $external;
+        return "$ano-$mes-$dia";
     }
 
     public function Obtenerfecha(DateTime $fecha):string
@@ -673,11 +706,5 @@ class Utilidades
         }
         return $html;
     }
-
-    public function Tag(string $tag,array $properties,array $html){
-        $prop=implode(" ",$properties);
-        return "<$tag $prop>$html</$tag>";
-    }
-
 
 }
