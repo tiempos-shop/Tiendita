@@ -19,55 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Business/Conekta.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Address.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Card.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Charge.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Checkout.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Conekta.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/ConektaList.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/ConektaObject.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/ConektaResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Customer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/DiscountLine.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Event.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Exceptions/ApiError.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Exceptions/AuthenticationError.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Exceptions/Handler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Exceptions/MalformedRequestError.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Exceptions/NoConnectionError.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Exceptions/ParameterValidationError.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Exceptions/ProcessingError.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Exceptions/ResourceNotFoundError.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/LineItem.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Log.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Method.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Order.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Payee.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/PaymentMethod.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/PaymentSource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Payout.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/PayoutMethod.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Plan.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Requestor.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/ShippingContact.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/ShippingLine.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Subscription.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/TaxLine.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Token.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Util.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/Webhook.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/Conekta/WebhookLog.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/locales/messages/en.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/locales/messages/es.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/ssl_data/ca_bundle.crt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Pagos.php">
+      <change afterPath="$PROJECT_DIR$/pago.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/Conekta/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Conekta/Exceptions/Handler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/Conekta/Exceptions/ProcessingError.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Conekta/Exceptions/ProcessingError.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Business/Pago.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Pago.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/Utilidades.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Utilidades.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistaPedidosInsertar.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaPedidosInsertar.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,13 +199,8 @@
       <workItem from="1610388840944" duration="14725000" />
       <workItem from="1610498168757" duration="10837000" />
       <workItem from="1610855805946" duration="6412000" />
-    </task>
-    <task id="LOCAL-00013" summary="Pagos.php">
-      <created>1604617590608</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1604617590608</updated>
+      <workItem from="1611073994634" duration="1596000" />
+      <workItem from="1611267501915" duration="11505000" />
     </task>
     <task id="LOCAL-00014" summary="Pagos.php">
       <created>1604705967965</created>
@@ -585,7 +538,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609989330536</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="Pagos.php">
+      <created>1611074287583</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1611074287583</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

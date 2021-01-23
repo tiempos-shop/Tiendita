@@ -4,17 +4,11 @@ namespace Conekta;
 
 use \Conekta\Lang;
 use \Conekta\Conekta;
-use \Conekta\Exceptions;
 use \Exception;
 
 /**
  * @construct __construct(String $message, String $messageToPurchaser, String $type, String $code, String $params, Array $errorStack)
  * @method void object __get()
- * @method void object __isset()
- * @method exception build(Object $response, String $httpcode)
- * @method string getConektaMessage()
- * @method string getConektaMessage()
- * @method string errorHandler()
  */
 class Handler extends Exception {
   public function __construct($message = null, $messageToPurchaser = null, $type = null, $code = null, $params = null,array $errorStack = null)
