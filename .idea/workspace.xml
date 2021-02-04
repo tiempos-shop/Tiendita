@@ -21,7 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Models/ModeloBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/ModeloBase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistaLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaLogin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +42,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="1jC8NBuZUkHFN6h3T2nWWCwJfYm" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -56,7 +58,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/usuarios.php" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -69,6 +71,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\img" />
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita" />
       <recent name="C:\Users\RENDER2\PhpstormProjects\Tiendita" />
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\View\Imagenes" />
@@ -78,8 +81,8 @@
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Web Page.UsuriosEdit">
-    <configuration name="Admin Script" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/administracion.php">
+  <component name="RunManager" selected="PHP Web Page.Admin">
+    <configuration name="Admin Script" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/login.php">
       <CommandLine>
         <PhpTestInterpreterSettings>
           <option name="interpreterName" value="PHP" />
@@ -87,7 +90,7 @@
       </CommandLine>
       <method v="2" />
     </configuration>
-    <configuration name="Usuario Script" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/usuarios.php">
+    <configuration name="INDEX Script" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/index.php">
       <CommandLine>
         <PhpTestInterpreterSettings>
           <option name="interpreterName" value="PHP" />
@@ -95,21 +98,7 @@
       </CommandLine>
       <method v="2" />
     </configuration>
-    <configuration name="index.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/index.php">
-      <CommandLine>
-        <PhpTestInterpreterSettings>
-          <option name="interpreterName" value="PHP" />
-        </PhpTestInterpreterSettings>
-      </CommandLine>
-      <method v="2" />
-    </configuration>
-    <configuration name="Admin" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" server_name="XAMPP Server" start_url="http://localhost:63342/Tiendita/administracion.php">
-      <method v="2" />
-    </configuration>
-    <configuration name="Usuario" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" server_name="XAMPP Server" start_url="http://localhost:63342/Tiendita/usuarios.php">
-      <method v="2" />
-    </configuration>
-    <configuration name="UsuriosEdit" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="XAMPP Server" start_url="http://localhost:63342/Tiendita/usuariosEdit.php">
+    <configuration name="Admin" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" server_name="XAMPP Server" start_url="http://localhost:63342/Tiendita/login.php">
       <method v="2" />
     </configuration>
     <configuration name="XAMPP" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" server_name="XAMPP Server" start_url="http://localhost:63342/Tiendita/index.php">
@@ -117,16 +106,13 @@
     </configuration>
     <list>
       <item itemvalue="PHP Script.Admin Script" />
-      <item itemvalue="PHP Script.Usuario Script" />
-      <item itemvalue="PHP Script.index.php" />
+      <item itemvalue="PHP Script.INDEX Script" />
       <item itemvalue="PHP Web Page.Admin" />
-      <item itemvalue="PHP Web Page.Usuario" />
-      <item itemvalue="PHP Web Page.UsuriosEdit" />
       <item itemvalue="PHP Web Page.XAMPP" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="PHP Script.index.php" />
+        <item itemvalue="PHP Script.INDEX Script" />
       </list>
     </recent_temporary>
   </component>
@@ -164,83 +150,34 @@
       <workItem from="1606926309046" duration="15146000" />
       <workItem from="1607011790630" duration="29656000" />
       <workItem from="1607100288472" duration="3193000" />
-    </task>
-    <task id="LOCAL-00001" summary="Pedidos">
-      <created>1603478572271</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1603478572271</updated>
-    </task>
-    <task id="LOCAL-00002" summary="formato">
-      <created>1603478735640</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1603478735640</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Devoluciones.php">
-      <created>1603478803266</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1603478803266</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Clientes.php">
-      <created>1603480298433</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1603480298433</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Direcciones.php">
-      <created>1603480630438</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1603480630438</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Pagos.php">
-      <created>1603480828592</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1603480828592</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Pagos.php">
-      <created>1603744386309</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1603744386309</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Pagos.php">
-      <created>1603778191157</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1603778191157</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Pagos.php">
-      <created>1603821015216</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1603821015216</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Pagos.php">
-      <created>1603920994897</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1603920994897</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Pagos.php">
-      <created>1603934071262</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1603934071262</updated>
+      <workItem from="1607106070239" duration="64000" />
+      <workItem from="1607107659890" duration="12699000" />
+      <workItem from="1607195334862" duration="1607000" />
+      <workItem from="1607287796407" duration="1566000" />
+      <workItem from="1607385082141" duration="15700000" />
+      <workItem from="1607447292734" duration="17779000" />
+      <workItem from="1607530118172" duration="3939000" />
+      <workItem from="1607545681788" duration="20559000" />
+      <workItem from="1607618705490" duration="20053000" />
+      <workItem from="1607708617344" duration="20758000" />
+      <workItem from="1607816985636" duration="2986000" />
+      <workItem from="1607965284306" duration="3734000" />
+      <workItem from="1607988372038" duration="4412000" />
+      <workItem from="1608004797891" duration="662000" />
+      <workItem from="1608047074529" duration="20702000" />
+      <workItem from="1608130799929" duration="17120000" />
+      <workItem from="1608222573045" duration="25100000" />
+      <workItem from="1608306642046" duration="16364000" />
+      <workItem from="1608567717927" duration="15671000" />
+      <workItem from="1608665361321" duration="10026000" />
+      <workItem from="1608740856112" duration="9153000" />
+      <workItem from="1608819629108" duration="1740000" />
+      <workItem from="1608852884551" duration="6058000" />
+      <workItem from="1609012295148" duration="2932000" />
+      <workItem from="1609102917883" duration="8716000" />
+      <workItem from="1609260378244" duration="4637000" />
+      <workItem from="1609866703912" duration="4547000" />
+      <workItem from="1609949804983" duration="17536000" />
     </task>
     <task id="LOCAL-00012" summary="Pagos.php">
       <created>1604609615811</created>
@@ -431,7 +368,161 @@
       <option name="project" value="LOCAL" />
       <updated>1607044432345</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Pagos.php">
+      <created>1607106092161</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1607106092161</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Pagos.php">
+      <created>1607128923612</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1607128923612</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Pagos.php">
+      <created>1607409330190</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1607409330190</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Pagos.php">
+      <created>1607484519219</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1607484519219</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Pagos.php">
+      <created>1607485735381</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1607485735381</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Pagos.php">
+      <created>1607570080046</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1607570080046</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Pagos.php">
+      <created>1607748064365</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1607748064365</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Pagos.php">
+      <created>1608005456282</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1608005456282</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Pagos.php">
+      <created>1608048914212</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1608048914212</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Pagos.php">
+      <created>1608065393978</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1608065393978</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Pagos.php">
+      <created>1608082745556</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1608082745556</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Pagos.php">
+      <created>1608083717830</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1608083717845</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Pagos.php">
+      <created>1608135682646</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1608135682646</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Pagos.php">
+      <created>1608168675072</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1608168675072</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Pagos.php">
+      <created>1608178959236</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1608178959236</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Pagos.php">
+      <created>1608259425450</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1608259425450</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Pagos.php">
+      <created>1608572610006</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1608572610006</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Pagos.php">
+      <created>1608608022410</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1608608022410</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Pagos.php">
+      <created>1608688296605</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1608688296605</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Pagos.php">
+      <created>1608769432515</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1608769432531</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Pagos.php">
+      <created>1609114960608</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1609114960608</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Pagos.php">
+      <created>1609988687520</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1609988687520</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -450,7 +541,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="Pedidos" />
     <MESSAGE value="formato" />
     <MESSAGE value="Devoluciones.php" />
@@ -469,28 +559,32 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="288" y="0" key="#Servers/0.0.1366.738@0.0.1366.738" timestamp="1604439233130" />
-    <state x="720" y="95" width="1092" height="813" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607012222025">
+    <state x="720" y="95" width="1092" height="861" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609988823743">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="364" y="69" width="687" height="599" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1604439248357" />
-    <state x="720" y="95" width="1092" height="813" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1607012222025" />
+    <state x="720" y="95" width="1092" height="861" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1609988823743" />
     <state x="968" y="203" width="880" height="683" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603411279230" />
-    <state x="765" y="188" key="#com.intellij.ide.util.MemberChooser" timestamp="1607015133831">
+    <state x="765" y="188" key="#com.intellij.ide.util.MemberChooser" timestamp="1608256986185">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="765" y="188" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1019@0.0.1920.1019" timestamp="1607015133831" />
-    <state x="602" y="324" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1606342335794">
+    <state x="765" y="188" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1019@0.0.1920.1019" timestamp="1608256986185" />
+    <state x="602" y="324" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1608081438125">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="602" y="324" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1606342335794" />
-    <state x="690" y="255" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604609859555">
+    <state x="602" y="324" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1608081438125" />
+    <state x="390" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1607645406606">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="690" y="255" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1604609859555" />
-    <state x="690" y="263" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606157652018">
+    <state x="390" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1607645406606" />
+    <state x="690" y="255" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607550170943">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="690" y="263" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1606157652018" />
+    <state x="690" y="255" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1607550170943" />
+    <state x="608" y="200" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1609954801047">
+      <screen x="0" y="0" width="1920" height="1019" />
+    </state>
+    <state x="608" y="200" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1609954801047" />
     <state x="593" y="26" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#" timestamp="1606153258895">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
@@ -499,18 +593,18 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="785" y="268" key="#com.jetbrains.php.refactoring.makeStatic.PhpMakeStaticDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1606176719802" />
-    <state x="1080" y="130" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#0" timestamp="1606940365973">
+    <state x="902" y="159" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#0" timestamp="1607127320764">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="1080" y="130" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#0/0.0.1920.1019@0.0.1920.1019" timestamp="1606940365973" />
+    <state x="902" y="159" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#0/0.0.1920.1019@0.0.1920.1019" timestamp="1607127320764" />
     <state x="739" y="196" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#1" timestamp="1606242096983">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="739" y="196" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#1/0.0.1920.1019@0.0.1920.1019" timestamp="1606242096983" />
-    <state x="120" y="8" key="CommitChangelistDialog2" timestamp="1607044431064">
+    <state x="120" y="8" key="CommitChangelistDialog2" timestamp="1609988686457">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="120" y="8" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1607044431064" />
+    <state x="120" y="8" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1609988686457" />
     <state x="740" y="263" key="FileChooserDialogImpl" timestamp="1606353472052">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
@@ -519,72 +613,72 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="990" y="395" key="Github.CreateGistDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1603389346701" />
-    <state width="1876" height="322" key="GridCell.Tab.0.bottom" timestamp="1606849253775">
+    <state width="1876" height="322" key="GridCell.Tab.0.bottom" timestamp="1607570947371">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state width="1876" height="322" key="GridCell.Tab.0.bottom/0.0.1920.1019@0.0.1920.1019" timestamp="1606849253775" />
+    <state width="1876" height="322" key="GridCell.Tab.0.bottom/0.0.1920.1019@0.0.1920.1019" timestamp="1607570947371" />
     <state width="619" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603479611341" />
-    <state width="1876" height="322" key="GridCell.Tab.0.center" timestamp="1606849253775">
+    <state width="1876" height="322" key="GridCell.Tab.0.center" timestamp="1607570947356">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state width="1876" height="322" key="GridCell.Tab.0.center/0.0.1920.1019@0.0.1920.1019" timestamp="1606849253775" />
+    <state width="1876" height="322" key="GridCell.Tab.0.center/0.0.1920.1019@0.0.1920.1019" timestamp="1607570947356" />
     <state width="619" height="278" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603479611341" />
-    <state width="1876" height="322" key="GridCell.Tab.0.left" timestamp="1606849253775">
+    <state width="1876" height="322" key="GridCell.Tab.0.left" timestamp="1607570947356">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state width="1876" height="322" key="GridCell.Tab.0.left/0.0.1920.1019@0.0.1920.1019" timestamp="1606849253775" />
+    <state width="1876" height="322" key="GridCell.Tab.0.left/0.0.1920.1019@0.0.1920.1019" timestamp="1607570947356" />
     <state width="619" height="278" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603479611341" />
-    <state width="1876" height="322" key="GridCell.Tab.0.right" timestamp="1606849253775">
+    <state width="1876" height="322" key="GridCell.Tab.0.right" timestamp="1607570947371">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state width="1876" height="322" key="GridCell.Tab.0.right/0.0.1920.1019@0.0.1920.1019" timestamp="1606849253775" />
+    <state width="1876" height="322" key="GridCell.Tab.0.right/0.0.1920.1019@0.0.1920.1019" timestamp="1607570947371" />
     <state width="619" height="278" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603479611341" />
-    <state width="1876" height="322" key="GridCell.Tab.1.bottom" timestamp="1606849253776">
+    <state width="1876" height="322" key="GridCell.Tab.1.bottom" timestamp="1607570947371">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state width="1876" height="322" key="GridCell.Tab.1.bottom/0.0.1920.1019@0.0.1920.1019" timestamp="1606849253776" />
-    <state width="1876" height="322" key="GridCell.Tab.1.center" timestamp="1606849253775">
+    <state width="1876" height="322" key="GridCell.Tab.1.bottom/0.0.1920.1019@0.0.1920.1019" timestamp="1607570947371" />
+    <state width="1876" height="322" key="GridCell.Tab.1.center" timestamp="1607570947371">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state width="1876" height="322" key="GridCell.Tab.1.center/0.0.1920.1019@0.0.1920.1019" timestamp="1606849253775" />
-    <state width="1876" height="322" key="GridCell.Tab.1.left" timestamp="1606849253775">
+    <state width="1876" height="322" key="GridCell.Tab.1.center/0.0.1920.1019@0.0.1920.1019" timestamp="1607570947371" />
+    <state width="1876" height="322" key="GridCell.Tab.1.left" timestamp="1607570947371">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state width="1876" height="322" key="GridCell.Tab.1.left/0.0.1920.1019@0.0.1920.1019" timestamp="1606849253775" />
-    <state width="1876" height="322" key="GridCell.Tab.1.right" timestamp="1606849253775">
+    <state width="1876" height="322" key="GridCell.Tab.1.left/0.0.1920.1019@0.0.1920.1019" timestamp="1607570947371" />
+    <state width="1876" height="322" key="GridCell.Tab.1.right" timestamp="1607570947371">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state width="1876" height="322" key="GridCell.Tab.1.right/0.0.1920.1019@0.0.1920.1019" timestamp="1606849253775" />
-    <state width="1876" height="322" key="GridCell.Tab.2.bottom" timestamp="1606849253776">
+    <state width="1876" height="322" key="GridCell.Tab.1.right/0.0.1920.1019@0.0.1920.1019" timestamp="1607570947371" />
+    <state width="1876" height="322" key="GridCell.Tab.2.bottom" timestamp="1607570947371">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state width="1876" height="322" key="GridCell.Tab.2.bottom/0.0.1920.1019@0.0.1920.1019" timestamp="1606849253776" />
-    <state width="1876" height="322" key="GridCell.Tab.2.center" timestamp="1606849253776">
+    <state width="1876" height="322" key="GridCell.Tab.2.bottom/0.0.1920.1019@0.0.1920.1019" timestamp="1607570947371" />
+    <state width="1876" height="322" key="GridCell.Tab.2.center" timestamp="1607570947371">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state width="1876" height="322" key="GridCell.Tab.2.center/0.0.1920.1019@0.0.1920.1019" timestamp="1606849253776" />
-    <state width="1876" height="322" key="GridCell.Tab.2.left" timestamp="1606849253776">
+    <state width="1876" height="322" key="GridCell.Tab.2.center/0.0.1920.1019@0.0.1920.1019" timestamp="1607570947371" />
+    <state width="1876" height="322" key="GridCell.Tab.2.left" timestamp="1607570947371">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state width="1876" height="322" key="GridCell.Tab.2.left/0.0.1920.1019@0.0.1920.1019" timestamp="1606849253776" />
-    <state width="1876" height="322" key="GridCell.Tab.2.right" timestamp="1606849253776">
+    <state width="1876" height="322" key="GridCell.Tab.2.left/0.0.1920.1019@0.0.1920.1019" timestamp="1607570947371" />
+    <state width="1876" height="322" key="GridCell.Tab.2.right" timestamp="1607570947371">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state width="1876" height="322" key="GridCell.Tab.2.right/0.0.1920.1019@0.0.1920.1019" timestamp="1606849253776" />
+    <state width="1876" height="322" key="GridCell.Tab.2.right/0.0.1920.1019@0.0.1920.1019" timestamp="1607570947371" />
     <state width="196" height="539" key="HiddenNamespacesPopup" timestamp="1603838753651">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state width="196" height="539" key="HiddenNamespacesPopup/0.0.1920.1019@0.0.1920.1019" timestamp="1603838753651" />
-    <state x="748" y="258" key="NewPhpClassDialog" timestamp="1606528566613">
+    <state x="826" y="273" key="NewPhpClassDialog" timestamp="1609954742696">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="748" y="258" key="NewPhpClassDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1606528566613" />
+    <state x="826" y="273" key="NewPhpClassDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1609954742696" />
     <state x="265" y="246" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603480856140" />
-    <state x="587" y="296" key="NewPhpFileDialog" timestamp="1607023262864">
+    <state x="550" y="230" key="NewPhpFileDialog" timestamp="1609969897098">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="780" y="159" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1604603079407" />
-    <state x="587" y="296" key="NewPhpFileDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1607023262864" />
+    <state x="550" y="230" key="NewPhpFileDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1609969897098" />
     <state x="568" y="110" key="SettingsEditor" timestamp="1603391568731">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
@@ -593,10 +687,10 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="472" y="8" width="1400" height="979" key="SourceMapInspector.frame/0.0.1920.1019@0.0.1920.1019" timestamp="1603389504208" />
-    <state x="514" y="193" key="Vcs.Push.Dialog.v2" timestamp="1606068694721">
+    <state x="514" y="193" key="Vcs.Push.Dialog.v2" timestamp="1609988701692">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="514" y="193" key="Vcs.Push.Dialog.v2/0.0.1920.1019@0.0.1920.1019" timestamp="1606068694721" />
+    <state x="514" y="193" key="Vcs.Push.Dialog.v2/0.0.1920.1019@0.0.1920.1019" timestamp="1609988701692" />
     <state x="849" y="428" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606366793599">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
@@ -610,6 +704,10 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="668" y="85" width="583" height="849" key="find.popup/0.0.1920.1019@0.0.1920.1019" timestamp="1605724399674" />
+    <state x="882" y="154" key="refactoring.ChangeSignatureDialog" timestamp="1607645265229">
+      <screen x="0" y="0" width="1920" height="1019" />
+    </state>
+    <state x="882" y="154" key="refactoring.ChangeSignatureDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1607645265229" />
     <state x="616" y="229" key="run.anything.popup" timestamp="1604957557846">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>

@@ -3,14 +3,13 @@ namespace Tiendita;
 include_once ("ModeloBase.php");
 include_once "Data/Models/Usuarios.php";
 include_once "Data/Models/ModeloTipoMovimiento.php";
+include_once "View/Componentes/Administracion/VistasMenu.php";
 
 class ModeloUsuarios extends ModeloBase
 {
     public function __construct()
     {
-        parent::__construct("Usuarios","IdUsuario",Usuarios::getCampos(),Usuarios::getCamposEditar(),Usuarios::getType());
-
-
+        parent::__construct("Usuarios","IdUsuario",Usuarios::getProperties());
     }
 
     public function Adicional(){
@@ -55,5 +54,15 @@ class ModeloUsuarios extends ModeloBase
         else{
             return "No definido campo: ".$k;
         }
+    }
+
+    public function Foreign(string $k, string $v)
+    {
+        return "";
+    }
+
+    public function ForeignInput(string $k, string $v)
+    {
+        return "";
     }
 }

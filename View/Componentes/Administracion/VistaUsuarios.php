@@ -3,14 +3,14 @@
 
 namespace Administracion;
 
+use Tiendita\ModeloClientes;
 use Tiendita\ModeloUsuarios;
 use Tiendita\Test;
 use Tiendita\Utilidades;
 
 include_once ("VistasMenu.php");
 include_once ("PieChartData.php");
-
-include_once ("Test.php");
+include_once "Data/Models/ModeloUsuarios.php";
 
 class VistaUsuarios extends VistasMenu
 {
@@ -26,26 +26,14 @@ class VistaUsuarios extends VistasMenu
     }
 
     public function Content(){
-        $mainContent=$this->ContentHeader("Usuarios","Vista");
+        $mainContent=$this->ContentHeader("Lista Usuarios","Vista");
         $ui=new Utilidades();
         $u=new ModeloUsuarios();
-
-        $mainContent.=$ui->ContainerFluid(
-            [
-                $ui->Row(
-                    [
-                        $u->Object2Table(
-                            "id",
-                            [ "Nombres" ]
-                        )
-                    ]
-                )
-            ]
-        );
-
-
-
-
+        $mainContent.=$ui->ContainerFluid([
+                $ui->Row([
+                        $u->Object2Table()
+                ])
+        ]);
         return $mainContent;
     }
 }

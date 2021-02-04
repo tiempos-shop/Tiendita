@@ -2,7 +2,10 @@
 
 
 namespace Tiendita;
-include_once ("iModeloBase.php");
+
+use stdClass;
+
+include_once("iModeloBase.php");
 include_once("Business/Collection.php");
 include_once("Business/Utilidades.php");
 include_once("Data/Connection/EntidadBase.php");
@@ -10,156 +13,191 @@ include_once("Data/Connection/EntidadBase.php");
 abstract class ModeloBase implements iModeloBase
 {
 
-    private $Tabla;
+    private $Table;
     private $Id;
-    private $campos;
-    private $camposEditar;
-    private $tipos;
-    protected $NombreEntidad;
+
+    protected $properties;
+
+    protected $entityName;
+    private $userId;
+
 
     public $Datos;
 
     private $auditoria;
-    private $entidadBase;
+    public $entidadBase;
     public $ui;
 
 
     // Tabla Externa TipoMovimiento
-    public $NombreTablaTipoMovimiento="TipoMovimiento";
-    public $NombreIdTipoMovimiento="IdTipoMovimiento";
-    /**
-     * @var bool
-     */
+    public $NombreTablaTipoMovimiento = "TipoMovimiento";
+    public $NombreIdTipoMovimiento = "IdTipoMovimiento";
+
+    // Tabla Externa Usuario Auditoria
+    public $NombreTablaUsuario="Usuarios";
+    public $NombreIdUsuario="IdUsuario";
+
     private $getAll;
 
-    public function __construct(string $nombreTabla,string $nombreId,array $campos,array $camposEditar,array $tipos,bool $auditoria=true)
+    public function __construct(string $nombreTabla, string $nombreId, array $properties, bool $auditoria = true)
     {
-        $this->auditoria=$auditoria;
+
+        $this->properties = $properties;
+        $this->auditoria = $auditoria;
         $this->setTabla($nombreTabla);
         $this->setId($nombreId);
-        $this->setCampos($campos);
-        $this->setTipos($tipos);
-        $this->camposEditar=$camposEditar;
-        $this->Datos=new Collection();
-        $this->ui=new Utilidades();
-        $this->entidadBase=new EntidadBase();
-        $this->getAll();
+
+        $this->Datos = new Collection();
+        $this->ui = new Utilidades();
+        $this->entidadBase = new EntidadBase();
+
     }
 
 
     public function getAll()
     {
-        $data=$this->entidadBase->getAll($this->getTabla());
-        $Entidad=array();
+        $data = $this->entidadBase->getAll($this->getTabla());
+        $Entidad = array();
 
         foreach ($data as $row) {
-            $Entidad[]=$this->CreateElement($row);
+            $Entidad[] = $this->CreateElement($row);
         }
-        $this->Datos=$Entidad;
-        $this->getAll=true;
+        $this->Datos = $Entidad;
+        $this->getAll = true;
 
         return $this->Datos;
     }
 
-    private function CreateElement(object $row)
+    public function CreateElement(object $row)
     {
         $element = (object)array();
-        $id=$this->getId();
-        $element->$id=$row->$id;
-        foreach ($this->getCampos() as $campo){
-            $element->$campo=$row->$campo;
+        $id = $this->getId();
+        $element->$id = $row->$id;
+        foreach ($this->properties as $campo => $property) {
+            $element->$campo = $row->$campo;
         }
 
-        if($this->auditoria===true){
+        if ($this->auditoria === true) {
             // Objetos Externos
-            $element->TipoMovimiento=$this->entidadBase->getBy($this->NombreTablaTipoMovimiento,$this->NombreIdTipoMovimiento,$element->IdTipoMovimiento);
-            $element->UsuarioBase=$this->entidadBase->getBy($this->getTabla(),$this->getId(),$element->IdUsuarioBase);
+            $element->TipoMovimiento = $this->entidadBase->getBy($this->NombreTablaTipoMovimiento, $this->NombreIdTipoMovimiento, $element->IdTipoMovimiento);
+            $element->UsuarioBase = $this->entidadBase->getBy($this->NombreTablaUsuario, $this->NombreIdUsuario, $element->IdUsuarioBase);
         }
         return $element;
     }
 
     public function getById(int $valor)
     {
-        $row=$this->entidadBase->getBy($this->getTabla(),$this->getId(),$valor);
+        $row = $this->entidadBase->getBy($this->getTabla(), $this->getId(), $valor);
 
         return $this->CreateElement($row[0]);
     }
 
-    public function getBy(string $campo,$valor)
+    public function getBy(string $campo, $valor)
     {
-        $row=$this->entidadBase->getBy($this->getTabla(),$campo,$valor);
+        $row = $this->entidadBase->getBy($this->getTabla(), $campo, $valor);
         return $this->CreateElement($row[0]);
     }
 
-    public function update(object $row){
+    public function update(object $row)
+    {
 
-        $n=$this->getId();
-        $id=intval($row->$n);
-        $sql="UPDATE $this->Tabla SET ";
-        $valores="";
-        foreach ($this->getCampos() as $campo){
-            if($this->tipos[$campo]=="#" or $this->tipos[$campo]=="H"){
-                $valores.="$campo = ".$row->$campo.",";
-            }
-            else {
-                $valores.="$campo = '".$row->$campo."', ";
+        $n = $this->getId();
+        // TODO: Remover Linea
+        echo $this->getId();
+        $id = intval($row->$n);
+        $sql = "UPDATE $this->Table SET ";
+        $valores = "";
+        foreach ($this->properties as $campo => $property) {
+            if ($property["typeDb"] == "#") {
+                if($property["type"]<>"I")
+                    $valores .= "$campo = " . $row->$campo . ",";
+            } else {
+                $valores .= "$campo = '" . $row->$campo . "', ";
             }
 
         }
-        $valores=trim($valores,",");
-        $sql.=$sql.$valores." WHERE $this->Id = $id;";
+        $valores = trim($valores, ",");
+        $sql .= $valores . " WHERE $this->Id = $id;";
         $this->entidadBase->AddQuerys($sql);
-        $this->getAll=false;
+        $this->getAll = false;
 
     }
 
-    public function insert(object $row){
+    public function insert(object $row)
+    {
 
-        $sql="INSERT INTO $this->Tabla ";
-        $campos="";
-        $valores="";
-        foreach ($this->getCampos() as $campo){
-            $campos.=$campo.",";
-            if($this->tipos[$campo]=="#"){
-                $valores.=$row->$campo;
-            }
-            else{
-                $valores.="'".$row->$campo."'";
-            }
+        $sql = "INSERT INTO $this->Table ";
+        $campos = "";
+        $valores = "";
+        foreach ($this->properties as $campo => $property) {
+            if ($property["type"] <> "I") {
+                $campos .= $campo . ",";
+                if ($property["typeDb"] == "#") {
+                    $valores .= $row->$campo;
+                } else {
+                    $valores .= "'" . $row->$campo . "'";
+                }
 
-            $valores.=",";
+                $valores .= ",";
+            }
         }
-        $campos=trim($campos,",");
-        $valores=trim($valores,",");
-        $sql.="($campos) VALUES ($valores);";
+        $campos = trim($campos, ",");
+        $valores = trim($valores, ",");
+        $sql .= "($campos) VALUES ($valores);";
         $this->entidadBase->AddQuerys($sql);
-        $this->getAll=false;
+        $this->getAll = false;
     }
 
-    public function delete(object $row){
+    public static function GetInsert(object $row,string $table,array $properties)
+    {
 
-        $n=$this->getId();
-        $id=intval($row->$n);
-        $sql="DELETE FROM $this->Tabla  WHERE $this->Id = $id;";
-        $this->entidadBase->AddQuerys($sql);
-        $this->getAll=false;
+        $sql = "INSERT INTO $table ";
+        $campos = "";
+        $valores = "";
+        foreach ($properties as $campo => $property) {
+            if ($property["type"] <> "I") {
+                $campos .= $campo . ",";
+                if ($property["typeDb"] == "#") {
+                    $valores .= $row->$campo;
+                } else {
+                    $valores .= "'" . $row->$campo . "'";
+                }
+
+                $valores .= ",";
+            }
+        }
+        $campos = trim($campos, ",");
+        $valores = trim($valores, ",");
+        $sql .= "($campos) VALUES ($valores);";
+        return $sql;
     }
 
-    public function SaveAll(){
+    public function delete(object $row)
+    {
+
+        $n = $this->getId();
+        $id = intval($row->$n);
+        $sql = "DELETE FROM $this->Table  WHERE $this->Id = $id;";
+        $this->entidadBase->AddQuerys($sql);
+        $this->getAll = false;
+    }
+
+    public function SaveAll()
+    {
         $this->entidadBase->SaveAll();
     }
 
     public function getTabla(): string
     {
-        return $this->Tabla;
+        return $this->Table;
     }
 
     public function setTabla(string $Tabla): void
     {
-        $this->Tabla = $Tabla;
+        $this->Table = $Tabla;
     }
 
-    public function getId():string
+    public function getId(): string
     {
         return $this->Id;
     }
@@ -169,234 +207,267 @@ abstract class ModeloBase implements iModeloBase
         $this->Id = $Id;
     }
 
-    public function getCampos(): array
-    {
-        return $this->campos;
-    }
-
-    public function setCampos(array $campos): void
-    {
-        $this->campos = $campos;
-    }
-
     public function getDatos(): Collection
     {
         return $this->Datos;
     }
 
 
-    public function getNombreEntidad():string
+    public function getEntityName(): string
     {
-        return $this->NombreEntidad;
+        return $this->entityName;
     }
 
-    public function setNombreEntidad(string $NombreEntidad): void
+    public function setEntityName(string $entityName): void
     {
-        $this->NombreEntidad = $NombreEntidad;
+        $this->entityName = $entityName;
     }
 
-    public function Agregar($tabla,$elemento){
-
-        $this->Datos->addItem($elemento,$elemento->IdUsuario);
-        $sqlInsert="insert into Usuarios ";
-    }
-
-    /**
-     * @return array
-     */
-    public function getTipos(): array
+    public function Add(string $table, object $item)
     {
-        return $this->tipos;
+
+        $this->Datos->addItem($item->IdUsuario);
+        $sqlInsert = "insert into Usuarios ";
     }
 
-    /**
-     * @param array $tipos
-     */
-    public function setTipos(array $tipos): void
-    {
-        $this->tipos = $tipos;
-    }
 
     // UTILIDADES
 
-    public function Object2TableEdit(string $id,string $botonEditar,string $botonBorrar,string $botonInsertar,string $footer="",array $ocultos=[]){
-        $object=$this->getAll();
-        $html= '<table class="table table-bordered">';
-        $html.="<caption>$footer</caption>";
-        // Encabezados
-        $html.='<tr>';
-        $headers=[ "h1"=>"Editar","h2"=>"Borrar" ]+$this->camposEditar+$this->Adicional();
-        foreach ($headers as $head){
-            $html.="<th>$head</th>";
-        }
-        $html.='</tr>';
-        $i=0;
-        // Campos
-        $html.='<tr>';
-        $inputNV="";
-        foreach($object as $val){
-            $a = get_object_vars($val);
-            $datoId=$a[$this->getId()];
-            $i++;
-            $html.= '<tr>';
-            $columns="";
-            $input="";
+    public function Object2TableEdit(string $id, string $botonEditar, string $botonBorrar, string $botonInsertar, string $footer = "", array $ocultos = [])
+    {
 
-            foreach($a as $k=>$v ){
-                if(!is_array($v) and !is_object($v)){
-                    if(!in_array($k,$this->camposEditar)) $columns.= "<td>$v</td>";
-                    if(array_key_exists($k,$this->tipos) and !is_null($this->tipos[$k])){
-                        $input.=$this->ui->Input($k,$k,$v,$this->tipos[$k]);
-                        if($i==1) $inputNV.=$this->ui->Input("insert",$k,"",$this->tipos[$k]);
+        $object = $this->getAll();
+
+        $html='<div class="row"><table class="table table-bordered" id="'.$id.'">';
+        //$html .= "<caption>$footer</caption>";
+        // Encabezados
+        $html .= '<thead><tr>';
+        $camposEditar = array();
+        foreach ($this->properties as $campo => $property) {
+            $type = $property["type"];
+            if (!($type == "I" or $type == "F" or $type=="*"))
+                $camposEditar[] = $property["label"];
+        }
+        $operationButton=array();
+        if(!in_array("edit",$ocultos)){
+            $operationButton["h1"]="Editar";
+        }
+        if(!in_array("delete",$ocultos)){
+            $operationButton["h2"]="Borrar";
+        }
+        $headers = $operationButton + $camposEditar + $this->Adicional();
+        //$headerCount=count($headers);
+        foreach ($headers as $head) {
+            $html .= "<th>$head</th>";
+        }
+        $html .= '</tr></thead>';
+        $i = 0;
+        // Campos
+        $html .= '<tbody>';
+        $inputNV = "";
+        foreach ($object as $val) {
+            $a = get_object_vars($val);
+            $datoId = $a[$this->getId()];
+            $i++;
+            $html .= '<tr>';
+            $columns = "";
+            $input = $this->ui->Hidden($this->getId(), $datoId);
+
+            foreach ($a as $k => $v) {
+
+                if (!is_array($v) and !is_object($v)) {
+                    if ($this->auditoria) {
+                        if ($k == "FechaCambio") $v = $this->ui->FechaHoy();
+                        if ($k == "IdTipoMovimiento") $v = 2;
+                        if ($k == "IdUsuarioBase") $v = $this->userId;
                     }
-                }
-                else{
-                    $columns.="<td>".$this->Object2SimpleTable($k,$v[0])."</td>";
-                    $input.=$this->Object2SimpleFormulary($k,$v[0]);
-                    if($i==1) $inputNV.=$this->Object2SimpleFormulary($k,$v[0]);
+                    $label=$this->properties[$k]["label"];
+                    $type = $this->properties[$k]["type"];
+                    $req = $this->properties[$k]["required"];
+                    if (!($type == "I" or $type == "F" or $type=="*")) $columns .= "<td>$v</td>";
+                    if(($type=="F" or $type=="*") and $k<>"IdTipoMovimiento" and $k<>"IdUsuarioBase" and $k<>"FechaCambio")
+                    {
+                        if(is_null($v)){
+                            $columns.="<td></td>";
+                            $input .= $this->ForeignInput($k,$v);
+                        }
+                        else{
+                            $columns.=$this->Foreign($k,$v);
+                            $input .= $this->ForeignInput($k,$v);
+                        }
+
+                    } else{
+                        $input .= $this->ui->Input($k, $label, $v, $type, $req);
+                    }
+
+                    if ($i == 1) {
+                        if ($type == "F") {
+                            $inputNV .= $this->ui->Input($k, $label, $v, $type, $req);
+                        } elseif ($type=="*"){
+                            $inputNV .=$this->ForeignInput($k,"");
+                        } else {
+                            $inputNV .= $this->ui->Input($k, $label, "", $type, $req);
+                        }
+
+                    }
+                    //}
+                } else {
+                    $columns .= "<td>" . $this->Object2SimpleTable($k, $v[0]) . "</td>";
+                    $input .= $this->Object2SimpleFormulary($k, $v[0]);
+                    if ($i == 1) $inputNV .= $this->Object2SimpleFormulary($k, $v[0]);
                 }
 
             }
 
-        // Botones
-            $button="<td>".$this->ui->ModalButton("idEditTable".$i,$botonEditar,"","Edicion de Campos","Cancelar",
-                    $this->ui->Form([
-                        $input
-                    ],"","Guardar")
-                )."</td>";
-            //$button.='<td><button class="btn btn-danger">'.$botonBorrar.'</button></td>';
-            $button.='
-                <td>'
-                .$this->ui->ModalButton("idDeleteTable".$i,$botonBorrar,"","Borrar Registro","Cancelar",
-                    $this->ui->Form([
-                        "<p>Desea borrar el registro?</p><br/>",
-                        $this->ui->Hidden($this->getId(),$datoId),
-                        $this->ui->Hidden("delete",true)
-                    ],"","Borrar")
-                ).
-                '</td>';
-        // Genera html Fila
-            $html.= $button.$columns."</tr>";
-        }
-        $html.= "</table><br/>";
-        // Boton Insertar
-        //$html.='<button class="btn btn-success">'.$botonInsertar.'</button>';
-        $html.=$this->ui->ModalButton("idInsertTable",$botonInsertar,"","Agregar un Registro","Cancelar",
-            $this->ui->Form([
-                $inputNV
-            ],"","Agregar")
-        );
 
-        // Script
-        // TODO: No se activa el script.
-        $html.="
-            <script>
-               $(document).ready(function() {
-                    $('$id').DataTable();
-                });
-            </script>";
+
+            // Botones
+            $button="";
+            if(!in_array("edit",$ocultos)){
+                $button = "<td>" . $this->ui->ModalButton("idEditTable" . $i, $botonEditar, "", "Edicion de Campos", "Cancelar",
+                        $this->ui->Form([
+                            $input, "<br/>"
+                        ], "", "Guardar"), "", "", "primary  btn-sm"
+                    ) . "</td>";
+            }
+
+            if(!in_array("delete",$ocultos)){
+                $button .= '
+                <td>'
+                    . $this->ui->ModalButton("idDeleteTable" . $i, $botonBorrar, "", "Borrar Registro", "Cancelar",
+                        $this->ui->Form([
+                            "<p>Desea borrar el registro?</p>",
+                            "<br/>",
+                            $this->ui->Hidden($this->getId(), $datoId),
+                            $this->ui->Hidden("delete", true)
+                        ], "", "Borrar"), "", "", "danger btn-sm"
+                    ) .
+                    '</td>';
+            }
+
+            // Genera html Fila
+            $html .= $button . $columns . "</tr>";
+        }
+
+        $html .= "</tbody></table></div>";
+        $botonInsert="<div class='row'>";
+        if(!in_array("insert",$ocultos)){
+            $botonInsert .= $this->ui->ModalButton("idInsertTable", $botonInsertar, "", "Agregar un Registro", "Cancelar",
+                $this->ui->Form([
+                    $inputNV,
+                    "<br/>"
+                ], "", "Agregar"), "", "", "info"
+            );
+        }
+        $botonInsert.="</div>";
+        $html='<div class="container-fluid">'.$botonInsert.$html."</div>";
 
         return $html;
     }
 
-    public function SafeSave():int
+    private function FillTable(int $cont){
+        $html="";
+        for ($i=1;$i<$cont;$i++){
+            $html.="<td style='border: none'></td>";
+        }
+        return $html;
+    }
+
+    public abstract function Foreign(string $k,string $v);
+    public abstract function ForeignInput(string $k,string $v);
+
+
+    public function SafeSave(): int
     {
+        // TODO:
 
-        if(count($_POST)<>0){
-            $deleteConfirm=false;
-            $delete=array_key_exists("delete",$_POST);
-            if(array_key_exists($this->getId(),$_POST)){
-                $id=$_POST[$this->getId()];
-            }
-            else
-            {
-                $this->ui->MessageBox("Error al leer el ID de la tabla de usuarios. Error en las operaciones de guardar a la base de datos");
-                return 1;
-            }
-            $entidad=new Collection();
-            $nombreId=$this->getId();
-            $entidad->$nombreId=$id;
-            foreach($this->campos as $key) {
-                if(array_key_exists($key,$_POST)){
-                    $entidad->$key=$_POST[$key];
-                }
-                else
-                {
-                    $deleteConfirm=true;
-                }
-            }
-            if(is_null($id) or $id==""){
-                $this->insert($entidad);
-            }
-            else
-            {
-                if($deleteConfirm and $delete){
-                    $this->delete($entidad);
-                }
-                else{
-                    if($deleteConfirm){
-                        $this->ui->MessageBox("Error en Campos: No se encuentran todos los campos para actualizar");
-                        return 2;
-                    }
-                    else{
-                        $this->update($entidad);
-                    }
+        if (count($_POST) <> 0) {
 
+            $id = null;
+            $deleteConfirm = false;
+            $delete = array_key_exists("delete", $_POST);
+            if (array_key_exists($this->getId(), $_POST)) {
+                $id = $_POST[$this->getId()];
+            } else {
+                $id = "";
+            }
+            $entidad = new Collection();
+            $nombreId = $this->getId();
+            $entidad->$nombreId = $id;
+            foreach ($this->properties as $key => $property) {
+                if (array_key_exists($key, $_POST)) {
+                    $entidad->$key = $_POST[$key];
+                } else {
+                    if ($property["type"] <> "I")
+                        $deleteConfirm = true;
                 }
-
+            }
+            if ($this->auditoria) {
+                $entidad->FechaCambiofecha = $this->ui->FechaHoy();
+            }
+            if ($deleteConfirm and $delete) {
+                $this->delete($entidad);
+            } else {
+                if ($deleteConfirm) {
+                    $this->ui->MessageBox("Error en Campos: No se encuentran todos los campos para actualizar");
+                    return 1;
+                } elseif ($id == "") {
+                    $this->insert($entidad);
+                } else {
+                    $this->update($entidad);
+                }
             }
 
             $this->SaveAll();
             $this->ui->MessageBox("Los datos se guardaron correctamente.");
             return 0;
-        }
-        else
-        {
+        } else {
             return 0;
         }
     }
 
 
-
-    public function Object2Table(string $id,array $ocultos=[]){
-        $object=$this->getAll();
-        $html= '<table class="table table-bordered">';
-        $html.='<tr>';
-        $headers=["h1"=>"Id"]+$this->campos+$this->SimpleAdd();
-        foreach ($headers as $head){
-            $html.="<th>$head</th>";
+    public function Object2Table()
+    {
+        $object = $this->getAll();
+        $html = '<table id="idTablaEntidad" class="table table-bordered">';
+        $html .= '<tr>';
+        $camposEditar = array();
+        foreach ($this->properties as $campo => $property) {
+            $type = $property["type"];
+            if (!($type == "I" or $type == "F"))
+                $camposEditar[] = $property["label"];
         }
-        $html.='<tr>';
-        foreach($object as $val){
+        $headers = ["h1" => "Id"] + $camposEditar;//+$this->SimpleAdd();
+        foreach ($headers as $head) {
+            $html .= "<th>$head</th>";
+        }
+        $html .= '<tr>';
+        foreach ($object as $val) {
             $a = get_object_vars($val);
-            $html.= '<tr>';
-            foreach($a as $k=>$v ){
-                if(!is_array($v)){
-                    if(!in_array($v,$ocultos)){
-                        $html.= "<td>$v</td>";
+            $html .= '<tr>';
+            foreach ($a as $k => $v) {
+                if (!is_array($v)) {
+                    if ($this->properties[$k]["type"] <> "F") {
+                        $html .= "<td>$v</td>";
                     }
+                } else {
+
                 }
-                else
-                    $html.="<td>".$this->Object2SimpleTable($k,$v[0])."</td>";
+                //$html.="<td>".$this->Object2SimpleTable($k,$v[0])."</td>";
             }
-            $html.= "</tr>";
+            $html .= "</tr>";
         }
-        $html.= "</table>";
+        $html .= "</table>";
         return $html;
     }
 
-    public function Object2Formulary(){
-        $innerHtml=array();
-        foreach ($this->campos as $campo){
-            $type=$this->tipos[$campo];
-            $innerHtml[]=$this->ui->Input($campo,$campo,$type);
-        }
-        return $this->ui->Form($innerHtml,"guardar.php","Guardar");
-    }
+    public abstract function Object2SimpleTable(string $k, object $v);
 
-    public abstract function Object2SimpleTable(string $k,object $v);
-    public abstract function Object2SimpleFormulary(string $k,object $v);
+    public abstract function Object2SimpleFormulary(string $k, object $v);
+
     public abstract function Adicional();
+
     public abstract function SimpleAdd();
 
 }

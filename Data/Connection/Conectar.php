@@ -22,8 +22,14 @@ class Conectar{
     public function conexion(){
 
         if($this->driver=="mysql" || $this->driver==null){
-            $con=new mysqli($this->host, $this->user, $this->pass, $this->database);
-            $con->query("SET NAMES '".$this->charset."'");
+            try {
+                $con=new mysqli($this->host, $this->user, $this->pass, $this->database);
+                $con->query("SET NAMES '".$this->charset."'");
+            } catch (\Throwable  $e){
+                echo "<script>alert('Error al intentar conectarse al servidor');";
+                echo "error";
+            }
+
         }
 
         return $con;

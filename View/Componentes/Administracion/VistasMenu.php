@@ -4,15 +4,68 @@ namespace Administracion;
 
 
 use mysql_xdevapi\Exception;
-include_once ("VistasHtml.php");
+use Tiendita\EntidadBase;
+use Tiendita\Utilidades;
 
-class VistasMenu extends VistasHtml{
+include_once ("VistasHtml.php");
+include_once "Business/Utilidades.php";
+
+abstract class VistasMenu extends VistasHtml{
+    private $contenido;
+    private $NombreUsuario="Sin Leer";
+    /**
+     * @var mixed
+     */
+    protected $userId;
+
     public function __construct()
     {
+
         parent::__construct();
     }
 
+    private function Permisos()
+    {
+        session_start();
+        $ui=new Utilidades();
+
+        if($ui->Post(["usuario","password"])["out"]==true){
+            $data=$ui->Post(["usuario","password"])["data"];
+
+            $usuario=$data["usuario"];
+            $password=$data["password"];
+            $db=new EntidadBase();
+
+            $userEntity=(object)$db->getBy("Usuarios","Usuario",$usuario)[0];
+            // var_dump($userEntity);
+            if($userEntity->Password==$password){
+                // Actualizar Componente User Information
+                $this->NombreUsuario=$userEntity->Nombres." ".$userEntity->Apellidos;
+                // Guardar en Sesion
+                $_SESSION["userId"]=$userEntity->IdUsuario;
+                $_SESSION["name"]=$this->NombreUsuario;
+                $_SESSION["user"]=$userEntity;
+            }
+            else{
+                $ui->MessageBox("Error en el usuario o contraseña");
+                $ui->Redirect("login.php");
+            }
+        };
+
+        // Validar permisos
+        if(isset($_SESSION["userId"])){
+            $this->userId=$_SESSION["userId"];
+            $this->NombreUsuario=$_SESSION["name"];
+        }
+        else{
+
+            $ui->MessageBox("No tiene permisos para ingresar a esta página: ");
+            $ui->Redirect("login.php");
+        }
+    }
+
     public function HeadMenu(){
+
         return $this->Head("Administración de Tiempos Shop",
             $this->Meta("utf-8","Tienda Online","Egil Ordoñez"),
             $this->LoadStyles([
@@ -26,11 +79,15 @@ class VistasMenu extends VistasHtml{
 
     }
 
+    abstract public function Content();
+
     public function BodyMenu(){
+        $this->Permisos();
+        $this->contenido=$this->Content();
         $body= $this->SideBar("Admin TShop","administracion.php");
         $body.=$this->ContentWrapper(
-            $this->TopBar().
-            $this->Content().
+            $this->TopBar($this->NombreUsuario,[],[]).
+            $this->contenido.
             $this->Footer("Tiempos Shop")
         );
         $body.= $this->Wrapper();
@@ -87,9 +144,9 @@ class VistasMenu extends VistasHtml{
     public function LogOutModal(){
         $titulo="¿Seguro que quieres abandonar tu sesión?";
         $body="Confirme con el boton 'desconectarme' para abandonar la sesión.";
-        $botonSalir="Salir";
+        $botonSalir="Cancelar";
         $botonAccion="Desconectarme";
-        $urlAccion="login.html";
+        $urlAccion="login.php";
 
         return $this->Modal($titulo,$body,$botonSalir,$botonAccion,$urlAccion);
 
@@ -132,10 +189,13 @@ class VistasMenu extends VistasHtml{
             
               <!-- Page level plugins -->
               <script src="vendor/chart.js/Chart.min.js"></script>
+              <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+              <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
             
               <!-- Page level custom scripts -->
               <script src="js/demo/chart-area-demo.js"></script>
               <script src="js/demo/chart-pie-demo.js"></script>
+              <script src="js/demo/datatables-demo.js"></script>
         ';
     }
 
@@ -155,32 +215,77 @@ class VistasMenu extends VistasHtml{
 
         $html.=$this->NavItem("Estadisticas","administracion.php","fas fa-fw fa-chart-area");
 
-
-        $html.=$this->NavItemCollapse("idUsers","Usuarios","Gestion Usuarios",
+        $html.=$this->NavItemCollapse("idUsers","Usuarios","Gestion",
             ["usuarios.php"=>"Listar" ,"usuariosEdit.php"=>"Editar"]
         );
 
-        $elementos=["utilities-color.html"=>"Captura Individual" , "utilities-border.html"=>"Captura Masiva", "utilities-animation.html"=>"Circulacion de Inventario"];
-        $html.=$this->NavItemCollapse("id3","Inventarios","Inventarios",$elementos);
+        $html.=$this->NavItemCollapse("idClients","Clientes","Gestion",
+            ["clientes.php"=>"Listar" ,"clientesEdit.php"=>"Editar"]
+        );
 
-        $elementos=["utilities-color.html"=>"Pedidos" , "utilities-border.html"=>"Devoluciones", "utilities-animation.html"=>"Envios"];
-        $html.=$this->NavItemCollapse("id5","Ventas","Ventas",$elementos);
+        $html.=$this->NavItemCollapse("id4","Reportes","Reportes",
+            ["financiero.php"=>"Financiero" , "ventas.php"=>"Ventas"]
+        );
 
-        $elementos=["utilities-color.html"=>"Reporte Financiero" , "utilities-border.html"=>"Reporte de Pedidos", "utilities-animation.html"=>"Reporte de Devoluciones"];
-        $html.=$this->NavItemCollapse("id4","Reportes","Reportes",$elementos);
+        $html.=$this->Divider();
+        $html.=$this->Heading("Inventarios");
+
+        $html.=$this->NavItemCollapse("idProducts","Productos","Gestion",
+            ["productos.php"=>"Listar" ,"productosEdit.php"=>"Editar"]
+        );
+
+        $html.=$this->NavItemCollapse("id3","Capturas","Gestion",
+            ["capturaIndividual.php"=>"Captura Individual" , "capturaMasiva.php"=>"Captura Masiva", "circulacionInventario.php"=>"Circulacion de Inventario"]
+        );
+
+        $html.=$this->Divider();
+        $html.=$this->Heading("Pedidos");
+
+        $html.=$this->NavItemCollapse("idPedido","Pedido","Gestion",
+            ["pedidos.php"=>"Listar" ,"pedidosEdit.php"=>"Editar", "pedidosInsert.php"=>"Nuevo Pedido"]
+        );
+
+        $html.=$this->NavItemCollapse("idPago","Pagos","Gestion",
+            ["pagos.php"=>"Listar" ,"pagosEdit.php"=>"Editar"]
+        );
+
+        $html.=$this->NavItemCollapse("idEnvio","Envios","Gestion",
+            ["envios.php"=>"Listar" ,"enviosEdit.php"=>"Editar"]
+        );
+
+        $html.=$this->NavItemCollapse("idDevoluciones","Devoluciones","Gestion",
+            ["devoluciones.php"=>"Listar" ,"devolucionesEdit.php"=>"Editar"]
+        );
 
         $html.=$this->Divider();
         $html.=$this->Heading("Catalogos");
 
-        $html.=$this->NavItemCollapse("idTipoMovimientos","Tipo Movimientos","Catalogo Tipo Movimientos",
+        $html.=$this->NavItemCollapse("idTipoMovimientos","Tipo Movimientos","Catalogo",
             ["tipoMovimientos.php"=>"Listar" ,"tipoMovimientosEdit.php"=>"Editar"]
+        );
+
+        $html.=$this->NavItemCollapse("idDirecciones","Direcciones","Catalogo",
+            ["direcciones.php"=>"Listar" ,"direccionesEdit.php"=>"Editar"]
+        );
+
+        $html.=$this->NavItemCollapse("idEmpresasEnvio","Empresas de Envio","Catalogo",
+            ["empresasEnvio.php"=>"Listar" ,"empresasEnvioEdit.php"=>"Editar"]
+        );
+
+        $html.=$this->NavItemCollapse("idEstatusPedido","Estatus Pedido","Catalogo",
+            ["estatusPedido.php"=>"Listar" ,"estatusPedidoEdit.php"=>"Editar"]
+        );
+
+        $html.=$this->NavItemCollapse("idMotivoDevoluciones","Motivo Devoluciones","Catalogo",
+            ["motivoDevoluciones.php"=>"Listar" ,"motivoDevolucionesEdit.php"=>"Editar"]
         );
 
         $html.=$this->Divider();
         $html.=$this->Heading("Configuración");
 
-        $html.=$this->NavItem("Aplicacion","Configuracion.php","fas fa-fw fa-chart-area");
-        $html.=$this->NavItem("Tablas","tables.html","fas fa-fw fa-table");
+        $html.=$this->NavItemCollapse("idConfig","Aplicación","Catalogo",
+            ["catalogo.php"=>"Listar" ,"catalogoEdit.php"=>"Editar"]
+        );
 
         $html.=$this->FinalDivider();
         $html.=$this->SidebarToggler();
@@ -193,7 +298,7 @@ class VistasMenu extends VistasHtml{
         return $html;
     }
 
-    private function SideBarBrand($titulo,$url,$icon="fas fa-shopping-basket"){
+    protected function SideBarBrand($titulo, $url, $icon="fas fa-shopping-basket"){
         return '
             <!-- Sidebar - Brand -->
               <a class="sidebar-brand d-flex align-items-center justify-content-center" href="'.$url.'">
@@ -205,7 +310,7 @@ class VistasMenu extends VistasHtml{
         ';
     }
 
-    private function Divider(){
+    protected function Divider(){
         return '
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -220,7 +325,7 @@ class VistasMenu extends VistasHtml{
       ';
     }
 
-    private function NavItemDashboard(){
+    protected function NavItemDashboard(){
         $titulo="Panel Control";
         $url="administracion.php";
         $icon="fas fa-fw fa-tachometer-alt";
@@ -298,11 +403,11 @@ class VistasMenu extends VistasHtml{
         ';
     }
 
-    public function TopBar(){
+    public function TopBar(string $nombre,array $alertas,array $mensajes){
         $html='<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">';
         $html.=$this->TopBarToggle();
         $html.=$this->TopBarSearch();
-        $html.=$this->TopbarNavbar();
+        $html.=$this->TopbarNavbar($nombre,$alertas,$mensajes);
 
         $html.='</nav>
         <!-- End of Topbar -->';
@@ -335,19 +440,15 @@ class VistasMenu extends VistasHtml{
 
     }
 
-    public function TopbarNavbar(){
+    public function TopbarNavbar(string $nombre,array $alertas,array $mensajes){
         $html='<!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">';
 
         $html.=$this->TopbarNavbarNavItemSearchDropdown();
-
-        $alertas=[ "3 agosto 2020"=>"Se genero una devolucion del cliente Softquimia S.A. de C.V. Pedido 123443","4 agosto 2020"=>"Se dio de alta un cliente VIP 'Luis Miguel'."];
         $html.=$this->TopbarNavbarNavItemAlerts("Alertas","Alertas",$alertas);
-
-        $mensajes=[ "Pablo Urrutia"=>"Necesito ayuda","Jimena Hernández"=>"Yo te puedo apoyar. Te marco"];
         $html.=$this->TopbarNavbarNavItemMessages("Mensaje","Centro de Mensajes",$mensajes);
         $html.=$this->Divisor();
-        $html.=$this->TopbarNavbarNavItemUserInformation();
+        $html.=$this->TopbarNavbarNavItemUserInformation($nombre);
 
         $html.='</ul>';
 
@@ -386,13 +487,14 @@ class VistasMenu extends VistasHtml{
         return $this->TopbarNavbarNavItemMessages($id,$titulo,$alertas,2);
     }
 
-    private function TopbarNavbarNavItemMessages($id,$titulo,$mensajes,$tipo=1){
+    private function TopbarNavbarNavItemMessages($id,$titulo,array $mensajes,$tipo=1){
+        $cont=count($mensajes);
         $html= '<!-- Nav Item - Messages -->
             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="'.$id.'" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw"></i>
                 <!-- Counter - Messages -->
-                <span class="badge badge-danger badge-counter">7</span>
+                <span class="badge badge-danger badge-counter">'.$cont.'</span>
               </a>
               <!-- Dropdown - Messages -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="'.$id.'">
@@ -449,27 +551,21 @@ class VistasMenu extends VistasHtml{
         return '<div class="topbar-divider d-none d-sm-block"></div>';
     }
 
-    private function TopbarNavbarNavItemUserInformation(){
+    private function TopbarNavbarNavItemUserInformation(string $nombre){
+
         return '<!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Egil Ordoñez</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">'.$nombre.'</span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" alt="">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="generales.php">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Generales
                 </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Configuración
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Lista Actividades
-                </a>
+                
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

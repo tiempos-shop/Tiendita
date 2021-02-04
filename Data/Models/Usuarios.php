@@ -21,40 +21,22 @@ class Usuarios extends BaseAuditoria implements iEntity
 
     }
 
-    public static function getCampos():array
-    {
-        return array(1=>"Nombres",2=>"Apellidos",3=>"Usuario",4=>"Password",
-            5=>"CorreoElectronico",6=>"Telefono",7=>"NumeroEmpleado",8=>"FechaCambio",9=>"IdTipoMovimiento",
-            10=>"IdUsuarioBase");
-    }
 
-    public static function getCamposEditar():array
-    {
-        return array(1=>"Nombres",2=>"Apellidos",3=>"Usuario",4=>"Password",
-            5=>"CorreoElectronico",6=>"Telefono",7=>"NumeroEmpleado");
-    }
-
-    public static function getType():array
-    {
-        return array("IdUsuario"=>"H","Nombres"=>"$","Apellidos"=>"$","Usuario"=>"$","Password"=>"?",
-            "CorreoElectronico"=>"@","Telefono"=>"$","NumeroEmpleado"=>"$","FechaCambio"=>"H","IdTipoMovimiento"=>"H",
-            "IdUsuarioBase"=>"H");
-    }
 
     public static function getProperties():array
     {
         return [
-            "IdUsuario"=>["Id","I"],
-            "Nombres"=>["Nombre","$"],
-            "Apellidos"=>["Apellidos","$"],
-            "Usuario"=>["Usuario","$"],
-            "Password"=>["Password","?"],
-            "CorreoElectronico"=>["Email","@"],
-            "Telefono"=>["Teléfonos","$"],
-            "NumeroEmpleado"=>["Número Empleado","$"],
-            "FechaCambio"=>["Fecha Auditoria","d"],
-            "IdTipoMovimiento"=>["Tipo Movimiento","F","TipoMovimientos"],
-            "IdUsuarioBase"=>["Usuario de Registro]","F","Usuarios"]
+            "IdUsuario"=>["label"=>"Id","type"=>"I","typeDb"=>"#","required"=>false],
+            "Nombres"=>["label"=>"Nombre","type"=>"$","typeDb"=>"$","required"=>true],
+            "Apellidos"=>["label"=>"Apellidos","type"=>"$","typeDb"=>"$","required"=>true],
+            "Usuario"=>["label"=>"Usuario","type"=>"$","typeDb"=>"$","required"=>true],
+            "Password"=>["label"=>"Password","type"=>"?","typeDb"=>"$","required"=>true],
+            "CorreoElectronico"=>["label"=>"Email","type"=>"@","typeDb"=>"$","required"=>true],
+            "Telefono"=>["label"=>"Teléfonos","type"=>"$","typeDb"=>"$","required"=>true],
+            "NumeroEmpleado"=>["label"=>"Número Empleado","type"=>"$","typeDb"=>"$","required"=>true],
+            "FechaCambio"=>["label"=>"Fecha Auditoria","type"=>"F","typeDb"=>"$","required"=>false],
+            "IdTipoMovimiento"=>["label"=>"Tipo Movimiento","type"=>"F","typeDb"=>"#","required"=>false],
+            "IdUsuarioBase"=>["label"=>"Usuario de Registro]","type"=>"F","typeDb"=>"#","required"=>false]
         ];
     }
 }

@@ -4,6 +4,8 @@
 namespace Administracion;
 
 
+use ErrorException;
+
 class VistasHtml
 {
 
@@ -23,7 +25,7 @@ class VistasHtml
 
     }
 
-    public function Html5($head, $body,$lang="es"){
+    public function Html5(string $head, string $body,$lang="es"){
         $this->head=$head;
         $this->body=$body;
         $this->lang=$lang;
@@ -39,18 +41,16 @@ class VistasHtml
 
 
 
-    public function Body(array $content,$atributes){
-        $html= "
-            <body $atributes>";
-        foreach ($content as $html){
-            $html.=$html;
+    public function Body(array $contents,string $attributes){
+        $html= "<body $attributes>";
+        foreach ($contents as $content){
+            $html.=$content;
         }
-        $html.="</body>
-        ";
+        $html.="</body>";
         return $html;
     }
 
-    protected function Head($title, $meta, $loadStyles, $loadScripts, $styles="", $scripts=""){
+    public function Head($title, $meta, $loadStyles, $loadScripts, $styles="", $scripts=""){
         $title='<title>'.$title.'</title>';
         $this->title=$title;
         $this->meta=$meta;
@@ -61,12 +61,13 @@ class VistasHtml
         return '<head>'.$meta.$title.$loadStyles.$loadScripts.$styles.$scripts.'</head>';
     }
 
-    public function RefreshHead(){
+    public function RefreshHead():string
+    {
         $this->head='<head>'.$this->meta.$this->title.$this->loadStyles.$this->loadScripts.$this->styles.$this->scripts.'</head>';
         return $this->head;
     }
 
-    protected function Meta($charset="utf-8",$descripcion,$author){
+    public function Meta($charset="utf-8",$descripcion,$author){
         return '
             <meta charset="'.$charset.'">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -76,48 +77,42 @@ class VistasHtml
 
     }
 
-    protected function LoadStyles($archivos){
+    public function LoadStyles(array $archivos){
         $html="";
-        if(!is_array($archivos)){
-            $html.='<link href="'.$archivos.'" rel="stylesheet" type="text/css">';
+        foreach ($archivos as $archivo){
+            $html.='<link href="'.$archivo.'" rel="stylesheet" type="text/css">';
         }
-        else{
-            foreach ($archivos as $archivo){
-                $html.='<link href="'.$archivo.'" rel="stylesheet" type="text/css">';
-            }
-        }
+
         $this->loadStyles=$html;
         return $html;
     }
 
-    public function AddLoadStyles($archivos){
+    public function AddLoadStyles(array $archivos){
         $last=$this->loadStyles;
         $this->LoadStyles($archivos);
         $this->loadStyles.=$last;
         return $this->loadStyles;
     }
 
-    public function AddLoadScripts($archivos){
+    public function AddLoadScripts(array $archivos){
         $last=$this->loadScripts;
         $this->LoadScripts($archivos);
         $this->loadScripts.=$last;
         return $this->loadScripts;
     }
 
-    public function SetBody($body){
+    public function SetBody(string $body)
+    {
         $this->body=$body;
     }
 
-    protected function LoadScripts($archivos){
+    public function LoadScripts(array $archivos){
         $html="";
-        if(!is_array($archivos)){
-            $html.='<script src="'.$archivos.'"></script>'."\n";
+
+        foreach ($archivos as $archivo){
+            $html.='<script src="'.$archivo.'"></script>'."\n";
         }
-        else{
-            foreach ($archivos as $archivo){
-                $html.='<script src="'.$archivo.'"></script>'."\n";
-            }
-        }
+
         $this->loadScripts=$html;
         return $html;
     }

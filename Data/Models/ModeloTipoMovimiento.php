@@ -9,7 +9,7 @@ class ModeloTipoMovimiento extends ModeloBase
 {
     public function __construct()
     {
-        parent::__construct("TipoMovimientos", "IdTipoMovimiento", TipoMovimiento::getCampos(), TipoMovimiento::getType(), false);
+        parent::__construct("TipoMovimiento", "IdTipoMovimiento", TipoMovimiento::getProperties(),false);
     }
 
     public function Object2SimpleTable(string $k, object $v)
@@ -28,6 +28,16 @@ class ModeloTipoMovimiento extends ModeloBase
     }
 
     public function Object2SimpleFormulary(string $k, object $v)
+    {
+        return "";
+    }
+
+    public function Foreign(string $k, string $v)
+    {
+        return "";
+    }
+
+    public function ForeignInput(string $k, string $v)
     {
         return "";
     }
