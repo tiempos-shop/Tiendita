@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistaLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaLogin.php" afterDir="false" />
-    </list>
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Pagos.php" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,6 +30,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/tiempos-shop/Tiendita" />
+      </set>
+    </option>
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpServers">
@@ -50,8 +54,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
@@ -66,10 +72,14 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="copyright" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.spelling" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Egil Ordonez\PhpstormProjects\Tiendita\Business" />
+      <recent name="C:\Users\Egil\PhpstormProjects\Tiendita" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\img" />
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita" />
@@ -77,11 +87,8 @@
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\View\Imagenes" />
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\Data\Models" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Egil\PhpstormProjects\Tiendita" />
-    </key>
   </component>
-  <component name="RunManager" selected="PHP Web Page.Admin">
+  <component name="RunManager" selected="PHP Web Page.XAMPP">
     <configuration name="Admin Script" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/login.php">
       <CommandLine>
         <PhpTestInterpreterSettings>
@@ -101,7 +108,7 @@
     <configuration name="Admin" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" server_name="XAMPP Server" start_url="http://localhost:63342/Tiendita/login.php">
       <method v="2" />
     </configuration>
-    <configuration name="XAMPP" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" server_name="XAMPP Server" start_url="http://localhost:63342/Tiendita/index.php">
+    <configuration name="XAMPP" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" server_name="XAMPP Server" start_url="https://localhost:63342/Tiendita/index.php">
       <method v="2" />
     </configuration>
     <list>
@@ -177,42 +184,19 @@
       <workItem from="1609102917883" duration="8716000" />
       <workItem from="1609260378244" duration="4637000" />
       <workItem from="1609866703912" duration="4547000" />
-      <workItem from="1609949804983" duration="17536000" />
-    </task>
-    <task id="LOCAL-00012" summary="Pagos.php">
-      <created>1604609615811</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1604609615811</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Pagos.php">
-      <created>1604617590608</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1604617590608</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Pagos.php">
-      <created>1604705967965</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1604705967965</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Pagos.php">
-      <created>1604968362268</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1604968362268</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Pagos.php">
-      <created>1605034694792</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1605034694792</updated>
+      <workItem from="1609949804983" duration="17626000" />
+      <workItem from="1610036966055" duration="7965000" />
+      <workItem from="1610123692407" duration="6635000" />
+      <workItem from="1610345056387" duration="227000" />
+      <workItem from="1610346580608" duration="269000" />
+      <workItem from="1610388840944" duration="14725000" />
+      <workItem from="1610498168757" duration="10837000" />
+      <workItem from="1610855805946" duration="6412000" />
+      <workItem from="1611073994634" duration="1596000" />
+      <workItem from="1611267501915" duration="14657000" />
+      <workItem from="1611594644135" duration="14045000" />
+      <workItem from="1611857652491" duration="1621000" />
+      <workItem from="1612463595936" duration="1206000" />
     </task>
     <task id="LOCAL-00017" summary="Pagos.php">
       <created>1605140060610</created>
@@ -522,7 +506,42 @@
       <option name="project" value="LOCAL" />
       <updated>1609988687520</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Pagos.php">
+      <created>1609989330536</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1609989330536</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Pagos.php">
+      <created>1611074287583</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1611074287583</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Pagos.php">
+      <created>1611361919774</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1611361919774</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Pagos.php">
+      <created>1612463618109</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1612463618109</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Pagos.php">
+      <created>1612464602626</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1612464602626</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -548,173 +567,5 @@
     <MESSAGE value="Direcciones.php" />
     <MESSAGE value="Pagos.php" />
     <option name="LAST_COMMIT_MESSAGE" value="Pagos.php" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="526" y="23" key="#PHP" timestamp="1603678694899">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="526" y="23" key="#PHP/0.0.1366.738@0.0.1366.738" timestamp="1603678694899" />
-    <state x="739" y="166" key="#PHP/0.0.1920.1040@0.0.1920.1040" timestamp="1603407929200" />
-    <state x="288" y="0" key="#Servers" timestamp="1604439233130">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="288" y="0" key="#Servers/0.0.1366.738@0.0.1366.738" timestamp="1604439233130" />
-    <state x="720" y="95" width="1092" height="861" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609988823743">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state x="364" y="69" width="687" height="599" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1604439248357" />
-    <state x="720" y="95" width="1092" height="861" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1609988823743" />
-    <state x="968" y="203" width="880" height="683" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603411279230" />
-    <state x="765" y="188" key="#com.intellij.ide.util.MemberChooser" timestamp="1608256986185">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state x="765" y="188" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1019@0.0.1920.1019" timestamp="1608256986185" />
-    <state x="602" y="324" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1608081438125">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state x="602" y="324" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1608081438125" />
-    <state x="390" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1607645406606">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state x="390" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1607645406606" />
-    <state x="690" y="255" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607550170943">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state x="690" y="255" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1607550170943" />
-    <state x="608" y="200" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1609954801047">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state x="608" y="200" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1609954801047" />
-    <state x="593" y="26" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#" timestamp="1606153258895">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state x="593" y="26" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#/0.0.1920.1019@0.0.1920.1019" timestamp="1606153258895" />
-    <state x="785" y="268" key="#com.jetbrains.php.refactoring.makeStatic.PhpMakeStaticDialog" timestamp="1606176719802">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state x="785" y="268" key="#com.jetbrains.php.refactoring.makeStatic.PhpMakeStaticDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1606176719802" />
-    <state x="902" y="159" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#0" timestamp="1607127320764">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state x="902" y="159" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#0/0.0.1920.1019@0.0.1920.1019" timestamp="1607127320764" />
-    <state x="739" y="196" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#1" timestamp="1606242096983">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state x="739" y="196" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#1/0.0.1920.1019@0.0.1920.1019" timestamp="1606242096983" />
-    <state x="120" y="8" key="CommitChangelistDialog2" timestamp="1609988686457">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state x="120" y="8" key="CommitChangelistDialog2/0.0.1920.1019@0.0.1920.1019" timestamp="1609988686457" />
-    <state x="740" y="263" key="FileChooserDialogImpl" timestamp="1606353472052">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state x="740" y="263" key="FileChooserDialogImpl/0.0.1920.1019@0.0.1920.1019" timestamp="1606353472052" />
-    <state x="990" y="395" key="Github.CreateGistDialog" timestamp="1603389346701">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state x="990" y="395" key="Github.CreateGistDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1603389346701" />
-    <state width="1876" height="322" key="GridCell.Tab.0.bottom" timestamp="1607570947371">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state width="1876" height="322" key="GridCell.Tab.0.bottom/0.0.1920.1019@0.0.1920.1019" timestamp="1607570947371" />
-    <state width="619" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603479611341" />
-    <state width="1876" height="322" key="GridCell.Tab.0.center" timestamp="1607570947356">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state width="1876" height="322" key="GridCell.Tab.0.center/0.0.1920.1019@0.0.1920.1019" timestamp="1607570947356" />
-    <state width="619" height="278" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603479611341" />
-    <state width="1876" height="322" key="GridCell.Tab.0.left" timestamp="1607570947356">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state width="1876" height="322" key="GridCell.Tab.0.left/0.0.1920.1019@0.0.1920.1019" timestamp="1607570947356" />
-    <state width="619" height="278" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603479611341" />
-    <state width="1876" height="322" key="GridCell.Tab.0.right" timestamp="1607570947371">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state width="1876" height="322" key="GridCell.Tab.0.right/0.0.1920.1019@0.0.1920.1019" timestamp="1607570947371" />
-    <state width="619" height="278" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603479611341" />
-    <state width="1876" height="322" key="GridCell.Tab.1.bottom" timestamp="1607570947371">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state width="1876" height="322" key="GridCell.Tab.1.bottom/0.0.1920.1019@0.0.1920.1019" timestamp="1607570947371" />
-    <state width="1876" height="322" key="GridCell.Tab.1.center" timestamp="1607570947371">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state width="1876" height="322" key="GridCell.Tab.1.center/0.0.1920.1019@0.0.1920.1019" timestamp="1607570947371" />
-    <state width="1876" height="322" key="GridCell.Tab.1.left" timestamp="1607570947371">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state width="1876" height="322" key="GridCell.Tab.1.left/0.0.1920.1019@0.0.1920.1019" timestamp="1607570947371" />
-    <state width="1876" height="322" key="GridCell.Tab.1.right" timestamp="1607570947371">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state width="1876" height="322" key="GridCell.Tab.1.right/0.0.1920.1019@0.0.1920.1019" timestamp="1607570947371" />
-    <state width="1876" height="322" key="GridCell.Tab.2.bottom" timestamp="1607570947371">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state width="1876" height="322" key="GridCell.Tab.2.bottom/0.0.1920.1019@0.0.1920.1019" timestamp="1607570947371" />
-    <state width="1876" height="322" key="GridCell.Tab.2.center" timestamp="1607570947371">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state width="1876" height="322" key="GridCell.Tab.2.center/0.0.1920.1019@0.0.1920.1019" timestamp="1607570947371" />
-    <state width="1876" height="322" key="GridCell.Tab.2.left" timestamp="1607570947371">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state width="1876" height="322" key="GridCell.Tab.2.left/0.0.1920.1019@0.0.1920.1019" timestamp="1607570947371" />
-    <state width="1876" height="322" key="GridCell.Tab.2.right" timestamp="1607570947371">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state width="1876" height="322" key="GridCell.Tab.2.right/0.0.1920.1019@0.0.1920.1019" timestamp="1607570947371" />
-    <state width="196" height="539" key="HiddenNamespacesPopup" timestamp="1603838753651">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state width="196" height="539" key="HiddenNamespacesPopup/0.0.1920.1019@0.0.1920.1019" timestamp="1603838753651" />
-    <state x="826" y="273" key="NewPhpClassDialog" timestamp="1609954742696">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state x="826" y="273" key="NewPhpClassDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1609954742696" />
-    <state x="265" y="246" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603480856140" />
-    <state x="550" y="230" key="NewPhpFileDialog" timestamp="1609969897098">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state x="780" y="159" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1604603079407" />
-    <state x="550" y="230" key="NewPhpFileDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1609969897098" />
-    <state x="568" y="110" key="SettingsEditor" timestamp="1603391568731">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state x="568" y="110" key="SettingsEditor/0.0.1920.1019@0.0.1920.1019" timestamp="1603391568731" />
-    <state x="472" y="8" width="1400" height="979" key="SourceMapInspector.frame" timestamp="1603389504208">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state x="472" y="8" width="1400" height="979" key="SourceMapInspector.frame/0.0.1920.1019@0.0.1920.1019" timestamp="1603389504208" />
-    <state x="514" y="193" key="Vcs.Push.Dialog.v2" timestamp="1609988701692">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state x="514" y="193" key="Vcs.Push.Dialog.v2/0.0.1920.1019@0.0.1920.1019" timestamp="1609988701692" />
-    <state x="849" y="428" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606366793599">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state x="849" y="428" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1019@0.0.1920.1019" timestamp="1606366793599" />
-    <state x="849" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603407951040" />
-    <state x="707" y="297" key="com.jetbrains.php.test.PhpNewTestDialog" timestamp="1606528196992">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state x="707" y="297" key="com.jetbrains.php.test.PhpNewTestDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1606528196992" />
-    <state x="668" y="85" width="583" height="849" key="find.popup" timestamp="1605724399674">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state x="668" y="85" width="583" height="849" key="find.popup/0.0.1920.1019@0.0.1920.1019" timestamp="1605724399674" />
-    <state x="882" y="154" key="refactoring.ChangeSignatureDialog" timestamp="1607645265229">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state x="882" y="154" key="refactoring.ChangeSignatureDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1607645265229" />
-    <state x="616" y="229" key="run.anything.popup" timestamp="1604957557846">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state x="616" y="229" key="run.anything.popup/0.0.1920.1019@0.0.1920.1019" timestamp="1604957557846" />
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1603477732524">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603477732524" />
   </component>
 </project>
