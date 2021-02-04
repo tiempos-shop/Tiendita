@@ -101,14 +101,14 @@ class VistaPedidosInsertar extends VistasMenu
                         ]),
                         $ui->OptionPage("Pago",["<i class='fa fa-edit'></i> Existente","<i class='fa fa-plus'></i> Nuevo Pago"],[
                             $ui->Container([
-                                "<br/><p><strong>Seleccione un pago.php existente</strong></p>",
+                                "<br/><p><strong>Seleccione un respuestaPago.php existente</strong></p>",
                                 $ui->Input("IdPago","Num. Pago","","*",false,
                                     $ui->GetCatalog($u->entidadBase->getAll("Pagos"),"IdPago","Descripcion")
                                 )
                             ]),
 
                             $ui->Container([
-                                "<br/><p><strong>Capture un nuevo pago.php</strong></p>",
+                                "<br/><p><strong>Capture un nuevo respuestaPago.php</strong></p>",
                                 $ui->Input("Descripcion","Descripción","","$",false),
                                 $ui->Input("Compania","Identificación","","#",false),
                                 $ui->Input("EstatusPago","Estatus Pago","","%",false),

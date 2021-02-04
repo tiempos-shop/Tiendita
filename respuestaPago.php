@@ -18,7 +18,9 @@ if (isset($conektaTokenId)) {
 
 if($oPayment->pay()){
     echo "Pago realizado con exito";
-}else{
+}
+else
+{
     echo $oPayment->error;
 }
 

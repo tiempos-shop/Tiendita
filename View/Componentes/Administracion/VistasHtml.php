@@ -54,10 +54,10 @@ class VistasHtml
         $title='<title>'.$title.'</title>';
         $this->title=$title;
         $this->meta=$meta;
-        $this->loadStyles=$loadStyles;
-        $this->loadScripts=$loadScripts;
-        $this->scripts=$scripts;
-        $this->styles=$styles;
+        $this->loadStyles.=$loadStyles;
+        $this->loadScripts.=$loadScripts;
+        $this->scripts.=$scripts;
+        $this->styles.=$styles;
         return '<head>'.$meta.$title.$loadStyles.$loadScripts.$styles.$scripts.'</head>';
     }
 
@@ -80,25 +80,41 @@ class VistasHtml
     public function LoadStyles(array $archivos){
         $html="";
         foreach ($archivos as $archivo){
-            $html.='<link href="'.$archivo.'" rel="stylesheet" type="text/css">';
+            $html.='<link href="'.$archivo.'" rel="stylesheet" type="text/css">\n';
         }
 
         $this->loadStyles=$html;
         return $html;
     }
 
+    public function LoadStylesProperties(array $archivos){
+        $html="";
+        foreach ($archivos as $archivo=>$properties){
+            $html.='<link href="'.$archivo.'" rel="stylesheet" type="text/css" '.$properties.'>';
+        }
+
+        $this->loadStyles=$html;
+        return $html;
+    }
+
+    public function LoadScriptsProperties(array $archivos){
+        $html="";
+        foreach ($archivos as $archivo=>$properties){
+            $html.='<script src="'.$archivo.' '.$properties.'"></script>'."\n";
+        }
+
+        $this->loadScripts=$html;
+        return $html;
+    }
+
     public function AddLoadStyles(array $archivos){
-        $last=$this->loadStyles;
-        $this->LoadStyles($archivos);
-        $this->loadStyles.=$last;
-        return $this->loadStyles;
+        $this->loadStyles.=$this->LoadStyles($archivos);
+        return "";
     }
 
     public function AddLoadScripts(array $archivos){
-        $last=$this->loadScripts;
-        $this->LoadScripts($archivos);
-        $this->loadScripts.=$last;
-        return $this->loadScripts;
+        $this->loadScripts=$this->LoadScripts($archivos);
+        return "";
     }
 
     public function SetBody(string $body)
@@ -116,5 +132,7 @@ class VistasHtml
         $this->loadScripts=$html;
         return $html;
     }
+
+
 
 }
