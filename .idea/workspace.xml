@@ -19,14 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Pagos.php">
-      <change afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaConekta.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pagoConekta.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistaPedidosInsertar.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistaPedidosInsertar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistasHtml.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistasHtml.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pago.php" beforeDir="false" afterPath="$PROJECT_DIR$/respuestaPago.php" afterDir="false" />
-    </list>
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Pagos.php" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -203,13 +196,7 @@
       <workItem from="1611267501915" duration="14657000" />
       <workItem from="1611594644135" duration="14045000" />
       <workItem from="1611857652491" duration="1621000" />
-    </task>
-    <task id="LOCAL-00015" summary="Pagos.php">
-      <created>1604968362268</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1604968362268</updated>
+      <workItem from="1612463595936" duration="902000" />
     </task>
     <task id="LOCAL-00016" summary="Pagos.php">
       <created>1605034694792</created>
@@ -547,7 +534,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611361919774</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Pagos.php">
+      <created>1612463618109</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1612463618109</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
