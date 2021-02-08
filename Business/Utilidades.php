@@ -108,7 +108,7 @@ class Utilidades
         $html="";
 
         foreach ($archivos as $archivo){
-            $html.='<script src="'.$archivo.'"></script>'."\n";
+            $html.='<script src="'.$archivo.'"></script>';
         }
         return $html;
     }
