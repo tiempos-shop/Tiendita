@@ -80,7 +80,7 @@ class VistasHtml
     public function LoadStyles(array $archivos){
         $html="";
         foreach ($archivos as $archivo){
-            $html.='<link href="'.$archivo.'" rel="stylesheet" type="text/css">\n';
+            $html.='<link href="'.$archivo.'" rel="stylesheet" type="text/css">';
         }
 
         $this->loadStyles=$html;

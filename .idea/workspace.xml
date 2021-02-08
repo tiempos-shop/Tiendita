@@ -123,7 +123,7 @@
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\Data\Models" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Script.bag.php">
+  <component name="RunManager" selected="PHP Web Page.XAMPP">
     <configuration name="Admin Script" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/login.php">
       <CommandLine>
         <PhpTestInterpreterSettings>
@@ -152,9 +152,9 @@
     <list>
       <item itemvalue="PHP Script.Admin Script" />
       <item itemvalue="PHP Script.INDEX Script" />
+      <item itemvalue="PHP Script.bag.php" />
       <item itemvalue="PHP Web Page.Admin" />
       <item itemvalue="PHP Web Page.XAMPP" />
-      <item itemvalue="PHP Script.bag.php" />
     </list>
     <recent_temporary>
       <list>
