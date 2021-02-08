@@ -19,7 +19,38 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Pagos.php" />
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Pagos.php">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/c9f62faf-c47e-406a-b9a1-12cc0fe09724.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/c9f62faf-c47e-406a-b9a1-12cc0fe09724/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/RENDER2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_4_2021_12_09_PM_[Default_Changelist]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_4_2021_12_09_PM__Default_Changelist_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_4_2021_12_58_PM_[Default_Changelist]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_4_2021_12_58_PM__Default_Changelist_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/0001-BLACK.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/0002-CREMA.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/0003-DARK_BLUE.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/0004-DARK_ORANGE.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/0005-EGG_YELLOW.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/0006-FLAG_GREEN.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/0007-FLUORESCENT_PINK.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/0008-FLUORESCENT_YELLOW.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/0009-GRAY_FRONT.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/0010-GRAY_BLUE.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/0011-GUINDA.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/0012-KING_BLUE.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/0013-LIGHT_ORANGE.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/0014-LIGHT_YELLOW.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/0015-PINK_CARAMEL.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/0016-SKY_BLUE.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/0017-TURQUOSE.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bag.php" beforeDir="false" afterPath="$PROJECT_DIR$/bag.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,6 +61,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="5bb6fa63-ff15-435e-93dc-d2a1285db1da" />
   </component>
   <component name="GithubPullRequestsUISettings">
     <option name="hiddenUrls">
@@ -54,6 +88,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -72,7 +107,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.spelling" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -88,7 +123,7 @@
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\Data\Models" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Web Page.XAMPP">
+  <component name="RunManager" selected="PHP Script.bag.php">
     <configuration name="Admin Script" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/login.php">
       <CommandLine>
         <PhpTestInterpreterSettings>
@@ -105,6 +140,9 @@
       </CommandLine>
       <method v="2" />
     </configuration>
+    <configuration name="bag.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/bag.php">
+      <method v="2" />
+    </configuration>
     <configuration name="Admin" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" server_name="XAMPP Server" start_url="http://localhost:63342/Tiendita/login.php">
       <method v="2" />
     </configuration>
@@ -116,14 +154,19 @@
       <item itemvalue="PHP Script.INDEX Script" />
       <item itemvalue="PHP Web Page.Admin" />
       <item itemvalue="PHP Web Page.XAMPP" />
+      <item itemvalue="PHP Script.bag.php" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="PHP Script.bag.php" />
         <item itemvalue="PHP Script.INDEX Script" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\RENDER2\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="" />
@@ -560,6 +603,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Pedidos" />
     <MESSAGE value="formato" />
     <MESSAGE value="Devoluciones.php" />
@@ -567,5 +611,23 @@
     <MESSAGE value="Direcciones.php" />
     <MESSAGE value="Pagos.php" />
     <option name="LAST_COMMIT_MESSAGE" value="Pagos.php" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="155" y="165" key="SettingsEditor" timestamp="1612823364534">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="155" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1612823364534" />
+    <state x="246" y="253" key="Vcs.Push.Dialog.v2" timestamp="1612823922301">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="246" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1612823922301" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1612819091783">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1612819091783" />
+    <state x="462" y="206" key="svn.repositoryBrowser" timestamp="1612823507821">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="462" y="206" key="svn.repositoryBrowser/0.0.1920.1040@0.0.1920.1040" timestamp="1612823507821" />
   </component>
 </project>

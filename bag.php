@@ -67,17 +67,17 @@ $h= $html->Html5(
             ]),
             $ui->Row([
                 $ui->Columns(
-                    "<img class='img img-fluid' src='img/cartera1.jpg'><br/>Cartera 1",
+                    "<img class='img img-fluid' src='img/0001-BLACK.jpg'><br/>BLACK",
                     6,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "Agregar al carrito",
+                    "BLACK<br/> Agregar al carrito",
                     6,0,0,0,"d-flex align-items-center justify-content-center"
                 )
             ]),
             $ui->Row([
                 $ui->Columns(
-                    "<img class='img img-fluid' src='img/cartera2.jpg'><br/>Cartera 2",
+                    "<img class='img img-fluid' src='img/0002-CREMA.jpg'><br/>CREMA",
                     6,0,0,0,"text-center"
                 ),
                 $ui->Columns(
