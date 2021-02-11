@@ -20,26 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Pagos.php">
-      <change afterPath="$PROJECT_DIR$/font/NHaasGroteskDSPro-55Rg.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/font/NHaasGroteskDSPro-55Rg.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/font/NHaasGroteskDSPro-55Rg.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/font/NHaasGroteskDSPro-55Rg.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/font/NHaasGroteskDSPro-55Rg.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/font/NHaasGroteskDSPro-55Rg.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/font/NHaasGroteskDSPro-65Md.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/font/NHaasGroteskDSPro-65Md.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/font/NHaasGroteskDSPro-65Md.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/font/NHaasGroteskDSPro-65Md.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/font/NHaasGroteskDSPro-65Md.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/font/NHaasGroteskDSPro-65Md.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/font/UntitledSans-Regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/font/UntitledSans-Regular.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/font/UntitledSans-Regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/font/UntitledSans-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/font/UntitledSans-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/font/UntitledSans-Regular.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_4_2021_12_09_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_4_2021_12_09_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_4_2021_12_58_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_4_2021_12_58_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
@@ -53,9 +33,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="5bb6fa63-ff15-435e-93dc-d2a1285db1da" />
   </component>
   <component name="GithubPullRequestsUISettings">
     <option name="hiddenUrls">
@@ -607,31 +584,5 @@
     <MESSAGE value="Pagos.php" />
     <MESSAGE value="nuevas imgs" />
     <option name="LAST_COMMIT_MESSAGE" value="nuevas imgs" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="616" y="186" key="#PHP" timestamp="1612824152607">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="186" key="#PHP/0.0.1920.1040@0.0.1920.1040" timestamp="1612824152607" />
-    <state x="155" y="165" key="SettingsEditor" timestamp="1612823364534">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="155" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1612823364534" />
-    <state x="246" y="253" key="Vcs.Push.Dialog.v2" timestamp="1612824049176">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="246" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1612824049176" />
-    <state x="726" y="457" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612824252012">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="726" y="457" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1612824252012" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1612819091783">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1612819091783" />
-    <state x="462" y="206" key="svn.repositoryBrowser" timestamp="1612823507821">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="462" y="206" key="svn.repositoryBrowser/0.0.1920.1040@0.0.1920.1040" timestamp="1612823507821" />
   </component>
 </project>
