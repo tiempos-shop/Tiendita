@@ -21,7 +21,7 @@ $h= $html->Html5(
 
             $ui->Row([
                 $ui->Columns(
-                    $ui->ActionButton("btn","SHOP","window.location.href = \"index.php\";"),
+                    $ui->ActionButton("btn","SHOP","window.location.href = \"shop.php\";"),
                     3,0,0,0,""
                 ),
                 $ui->Columns(
