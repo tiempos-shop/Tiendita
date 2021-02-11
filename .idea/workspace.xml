@@ -20,35 +20,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Pagos.php">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/c9f62faf-c47e-406a-b9a1-12cc0fe09724.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/c9f62faf-c47e-406a-b9a1-12cc0fe09724/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/RENDER2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_4_2021_12_09_PM_[Default_Changelist]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_4_2021_12_09_PM__Default_Changelist_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_4_2021_12_58_PM_[Default_Changelist]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_4_2021_12_58_PM__Default_Changelist_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0001-BLACK.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0002-CREMA.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0003-DARK_BLUE.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0004-DARK_ORANGE.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0005-EGG_YELLOW.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0006-FLAG_GREEN.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0007-FLUORESCENT_PINK.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0008-FLUORESCENT_YELLOW.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0009-GRAY_FRONT.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0010-GRAY_BLUE.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0011-GUINDA.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0012-KING_BLUE.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0013-LIGHT_ORANGE.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0014-LIGHT_YELLOW.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0015-PINK_CARAMEL.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0016-SKY_BLUE.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0017-TURQUOSE.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/font/NHaasGroteskDSPro-55Rg.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/font/NHaasGroteskDSPro-55Rg.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/font/NHaasGroteskDSPro-55Rg.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/font/NHaasGroteskDSPro-55Rg.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/font/NHaasGroteskDSPro-55Rg.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/font/NHaasGroteskDSPro-55Rg.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/font/NHaasGroteskDSPro-65Md.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/font/NHaasGroteskDSPro-65Md.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/font/NHaasGroteskDSPro-65Md.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/font/NHaasGroteskDSPro-65Md.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/font/NHaasGroteskDSPro-65Md.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/font/NHaasGroteskDSPro-65Md.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/font/UntitledSans-Regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/font/UntitledSans-Regular.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/font/UntitledSans-Regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/font/UntitledSans-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/font/UntitledSans-Regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/font/UntitledSans-Regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_4_2021_12_09_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_4_2021_12_09_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_4_2021_12_58_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_4_2021_12_58_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bag.php" beforeDir="false" afterPath="$PROJECT_DIR$/bag.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +70,7 @@
       <server host="127.0.0.1" id="e820fe44-1307-4645-b719-522a0b5573cf" name="XAMPP Server" />
     </servers>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4" />
   <component name="ProjectId" id="1jC8NBuZUkHFN6h3T2nWWCwJfYm" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -99,7 +91,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/font" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -111,16 +103,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Egil Ordonez\PhpstormProjects\Tiendita\Business" />
-      <recent name="C:\Users\Egil\PhpstormProjects\Tiendita" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\img" />
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita" />
       <recent name="C:\Users\RENDER2\PhpstormProjects\Tiendita" />
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\View\Imagenes" />
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\Data\Models" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\RENDER2\PhpstormProjects\Tiendita\font" />
+      <recent name="C:\Users\Egil Ordonez\PhpstormProjects\Tiendita\Business" />
+      <recent name="C:\Users\Egil\PhpstormProjects\Tiendita" />
     </key>
   </component>
   <component name="RunManager" selected="PHP Web Page.XAMPP">
@@ -240,13 +233,8 @@
       <workItem from="1611594644135" duration="14045000" />
       <workItem from="1611857652491" duration="1621000" />
       <workItem from="1612463595936" duration="1206000" />
-    </task>
-    <task id="LOCAL-00017" summary="Pagos.php">
-      <created>1605140060610</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1605140060610</updated>
+      <workItem from="1612823946769" duration="3752000" />
+      <workItem from="1613061472971" duration="1129000" />
     </task>
     <task id="LOCAL-00018" summary="Pagos.php">
       <created>1605143821374</created>
@@ -584,7 +572,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612464602626</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="nuevas imgs">
+      <created>1612824013808</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1612824013809</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -610,17 +605,26 @@
     <MESSAGE value="Clientes.php" />
     <MESSAGE value="Direcciones.php" />
     <MESSAGE value="Pagos.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pagos.php" />
+    <MESSAGE value="nuevas imgs" />
+    <option name="LAST_COMMIT_MESSAGE" value="nuevas imgs" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="616" y="186" key="#PHP" timestamp="1612824152607">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="186" key="#PHP/0.0.1920.1040@0.0.1920.1040" timestamp="1612824152607" />
     <state x="155" y="165" key="SettingsEditor" timestamp="1612823364534">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="155" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1612823364534" />
-    <state x="246" y="253" key="Vcs.Push.Dialog.v2" timestamp="1612823922301">
+    <state x="246" y="253" key="Vcs.Push.Dialog.v2" timestamp="1612824049176">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="246" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1612823922301" />
+    <state x="246" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1612824049176" />
+    <state x="726" y="457" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612824252012">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="726" y="457" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1612824252012" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1612819091783">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
