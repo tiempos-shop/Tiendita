@@ -19,8 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="fotos home">
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment=" Isotipo png/svg">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/ts-home_001.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/ts-home_001.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/ts-home_002.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/ts-home_002.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,13 +213,6 @@
       <workItem from="1612463595936" duration="1206000" />
       <workItem from="1612823946769" duration="3752000" />
       <workItem from="1613061472971" duration="1129000" />
-    </task>
-    <task id="LOCAL-00019" summary="Pagos.php">
-      <created>1605242563422</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1605242563422</updated>
     </task>
     <task id="LOCAL-00020" summary="Pagos.php">
       <created>1605242788535</created>
@@ -555,7 +550,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613149869482</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary=" Isotipo png/svg">
+      <created>1613151358672</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1613151358672</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -583,13 +585,14 @@
     <MESSAGE value="Pagos.php" />
     <MESSAGE value="nuevas imgs" />
     <MESSAGE value="fotos home" />
-    <option name="LAST_COMMIT_MESSAGE" value="fotos home" />
+    <MESSAGE value=" Isotipo png/svg" />
+    <option name="LAST_COMMIT_MESSAGE" value=" Isotipo png/svg" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1032" y="256" key="Vcs.Push.Dialog.v2" timestamp="1613149872714">
+    <state x="1032" y="256" key="Vcs.Push.Dialog.v2" timestamp="1613151368191">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1032" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1613149872714" />
+    <state x="1032" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1613151368191" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
