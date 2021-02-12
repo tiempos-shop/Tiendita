@@ -19,10 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment=" Isotipo png/svg">
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="fotos home web">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/ts-home_001.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/ts-home_001.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/ts-home_002.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/ts-home_002.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,10 +112,10 @@
     <configuration name="bag.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/bag.php">
       <method v="2" />
     </configuration>
-    <configuration name="Admin" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" server_name="XAMPP Server" start_url="http://localhost:63342/Tiendita/login.php">
+    <configuration name="Admin" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="XAMPP Server" start_url="http://localhost:63342/Tiendita/login.php">
       <method v="2" />
     </configuration>
-    <configuration name="XAMPP" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" server_name="XAMPP Server" start_url="https://localhost:63342/Tiendita/index.php">
+    <configuration name="XAMPP" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="XAMPP Server" start_url="https://localhost:63342/Tiendita/index.php">
       <method v="2" />
     </configuration>
     <list>
@@ -213,13 +211,6 @@
       <workItem from="1612463595936" duration="1206000" />
       <workItem from="1612823946769" duration="3752000" />
       <workItem from="1613061472971" duration="1129000" />
-    </task>
-    <task id="LOCAL-00020" summary="Pagos.php">
-      <created>1605242788535</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1605242788535</updated>
     </task>
     <task id="LOCAL-00021" summary="Pagos.php">
       <created>1605296665922</created>
@@ -557,7 +548,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613151358672</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="fotos home web">
+      <created>1613152174448</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1613152174448</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -586,13 +584,18 @@
     <MESSAGE value="nuevas imgs" />
     <MESSAGE value="fotos home" />
     <MESSAGE value=" Isotipo png/svg" />
-    <option name="LAST_COMMIT_MESSAGE" value=" Isotipo png/svg" />
+    <MESSAGE value="fotos home web" />
+    <option name="LAST_COMMIT_MESSAGE" value="fotos home web" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1032" y="256" key="Vcs.Push.Dialog.v2" timestamp="1613151368191">
+    <state x="828" y="350" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1613152347859">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1032" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1613151368191" />
+    <state x="828" y="350" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613152347859" />
+    <state x="1032" y="256" key="Vcs.Push.Dialog.v2" timestamp="1613152177847">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1032" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1613152177847" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
