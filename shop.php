@@ -23,6 +23,14 @@ $h= $html->Html5(
                 span:hover::after{
                     content: \"'\";
                 }
+                @font-face {
+                font-family: NHaasGroteskDSPro-55Rg;
+                src: url(font/NHaasGroteskDSPro-55Rg.woff);
+                }
+
+                div {
+                font-family: NHaasGroteskDSPro-55Rg;
+                }
             </style>
         ",
         "<script>
@@ -99,79 +107,79 @@ $h= $html->Html5(
 
             $ui->Row([
                 $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><img width='350px' src='img/0001-BLACK.jpg'><br/><br/><br/><br/>BLACK<br/>".$ui->ActionButton("btn","<i class=\"fa fa-shopping-bag\"></i> ADD TO BAG","alert(\"ADDED TO BAG\");")."<br/>",
+                    "<br/><br/><img width='350px' src='img/0001-BLACK.jpg'><br/><br/><br/><br/>BLACK<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><img width='350px' src='img/0002-CREMA.jpg'><br/><br/><br/><br/>CREMA<br/>".$ui->ActionButton("btn","<i class=\"fa fa-shopping-bag\"></i> ADD TO BAG","alert(\"ADDED TO BAG\");")."<br/>",
+                    "<br/><br/><img width='350px' src='img/0002-CREMA.jpg'><br/><br/><br/><br/>CREMA<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><img width='350px' src='img/0003-DARK_BLUE.jpg'><br/><br/><br/><br/>DARK BLUE<br/>".$ui->ActionButton("btn","<i class=\"fa fa-shopping-bag\"></i> ADD TO BAG","alert(\"ADDED TO BAG\");")."<br/>",
+                    "<br/><br/><img width='350px' src='img/0003-DARK_BLUE.jpg'><br/><br/><br/><br/>DARK BLUE<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><img width='350px' src='img/0004-DARK_ORANGE.jpg'><br/><br/><br/><br/>DARK ORANGE<br/>".$ui->ActionButton("btn","<i class=\"fa fa-shopping-bag\"></i> ADD TO BAG","alert(\"ADDED TO BAG\");")."<br/>",
+                    "<br/><br/><img width='350px' src='img/0004-DARK_ORANGE.jpg'><br/><br/><br/><br/>DARK ORANGE<br/><br/>",
                     3,0,0,0,"text-center"
                 )
             ]),
             $ui->Row([
                 $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><img width='350px' src='img/0005-EGG_YELLOW.jpg'><br/><br/><br/><br/>EGG YELLOW<br/>".$ui->ActionButton("btn","<i class=\"fa fa-shopping-bag\"></i> ADD TO BAG","alert(\"ADDED TO BAG\");")."<br/>",
+                    "<br/><br/><img width='350px' src='img/0005-EGG_YELLOW.jpg'><br/><br/><br/><br/>EGG YELLOW<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><img width='350px' src='img/0006-FLAG_GREEN.jpg'><br/><br/><br/><br/>FLAG GREEN<br/>".$ui->ActionButton("btn","<i class=\"fa fa-shopping-bag\"></i> ADD TO BAG","alert(\"ADDED TO BAG\");")."<br/>",
+                    "<br/><br/><img width='350px' src='img/0006-FLAG_GREEN.jpg'><br/><br/><br/><br/>FLAG GREEN<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><img width='350px' src='img/0007-FLUORESCENT_PINK.jpg'><br/><br/><br/><br/>FLUORESCENT PINK<br/>".$ui->ActionButton("btn","<i class=\"fa fa-shopping-bag\"></i> ADD TO BAG","alert(\"ADDED TO BAG\");")."<br/>",
+                    "<br/><br/><img width='350px' src='img/0007-FLUORESCENT_PINK.jpg'><br/><br/><br/><br/>FLUORESCENT PINK<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><img width='350px' src='img/0008-FLUORESCENT_YELLOW.jpg'><br/><br/><br/><br/>FLUORESCENT YELLOW<br/>".$ui->ActionButton("btn","<i class=\"fa fa-shopping-bag\"></i> ADD TO BAG","alert(\"ADDED TO BAG\");")."<br/>",
+                    "<br/><br/><img width='350px' src='img/0008-FLUORESCENT_YELLOW.jpg'><br/><br/><br/><br/>FLUORESCENT YELLOW<br/><br/>",
                     3,0,0,0,"text-center"
                 )
             ]),
             $ui->Row([
                 $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><img width='350px' src='img/0009-GRAY_FRONT.jpg'><br/><br/><br/><br/>GRAY FRONT<br/>".$ui->ActionButton("btn","<i class=\"fa fa-shopping-bag\"></i> ADD TO BAG","alert(\"ADDED TO BAG\");")."<br/>",
+                    "<br/><br/><img width='350px' src='img/0009-GRAY_FRONT.jpg'><br/><br/><br/><br/>GRAY FRONT<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><img width='350px' src='img/0010-GRAY_BLUE.jpg'><br/><br/><br/><br/>GRAY BLUE<br/>".$ui->ActionButton("btn","<i class=\"fa fa-shopping-bag\"></i> ADD TO BAG","alert(\"ADDED TO BAG\");")."<br/>",
+                    "<br/><br/><img width='350px' src='img/0010-GRAY_BLUE.jpg'><br/><br/><br/><br/>GRAY BLUE<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><img width='350px' src='img/0011-GUINDA.jpg'><br/><br/><br/><br/>GUINDA<br/>".$ui->ActionButton("btn","<i class=\"fa fa-shopping-bag\"></i> ADD TO BAG","alert(\"ADDED TO BAG\");")."<br/>",
+                    "<br/><br/><img width='350px' src='img/0011-GUINDA.jpg'><br/><br/><br/><br/>GUINDA<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><img width='350px' src='img/0012-KING_BLUE.jpg'><br/><br/><br/><br/>KING BLUE<br/>".$ui->ActionButton("btn","<i class=\"fa fa-shopping-bag\"></i> ADD TO BAG","alert(\"ADDED TO BAG\");")."<br/>",
+                    "<br/><br/><img width='350px' src='img/0012-KING_BLUE.jpg'><br/><br/><br/><br/>KING BLUE<br/><br/>",
                     3,0,0,0,"text-center"
                 )
             ]),
             $ui->Row([
                 $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><img width='350px' src='img/0013-LIGHT_ORANGE.jpg'><br/><br/><br/><br/>LIGHT ORANGE<br/>".$ui->ActionButton("btn","<i class=\"fa fa-shopping-bag\"></i> ADD TO BAG","alert(\"ADDED TO BAG\");")."<br/>",
+                    "<br/><br/><img width='350px' src='img/0013-LIGHT_ORANGE.jpg'><br/><br/><br/><br/>LIGHT ORANGE<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><img width='350px' src='img/0014-LIGHT_YELLOW.jpg'><br/><br/><br/><br/>LIGHT YELLOW<br/>".$ui->ActionButton("btn","<i class=\"fa fa-shopping-bag\"></i> ADD TO BAG","alert(\"ADDED TO BAG\");")."<br/>",
+                    "<br/><br/><img width='350px' src='img/0014-LIGHT_YELLOW.jpg'><br/><br/><br/><br/>LIGHT YELLOW<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><img width='350px' src='img/0015-PINK_CARAMEL.jpg'><br/><br/><br/><br/>PINK CARAMEL<br/>".$ui->ActionButton("btn","<i class=\"fa fa-shopping-bag\"></i> ADD TO BAG","alert(\"ADDED TO BAG\");")."<br/>",
+                    "<br/><br/><img width='350px' src='img/0015-PINK_CARAMEL.jpg'><br/><br/><br/><br/>PINK CARAMEL<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><img width='350px' src='img/0016-SKY_BLUE.jpg'><br/><br/><br/><br/>SKY BLUE<br/>".$ui->ActionButton("btn","<i class=\"fa fa-shopping-bag\"></i> ADD TO BAG","alert(\"ADDED TO BAG\");")."<br/>",
+                    "<br/><br/><img width='350px' src='img/0016-SKY_BLUE.jpg'><br/><br/><br/><br/>SKY BLUE<br/><br/>",
                     3,0,0,0,"text-center"
                 )
             ]),
             $ui->Row([
                 $ui->Columns(
-                    "<br/><br/><br/><br/><br/><br/><img width='350px' src='img/0017-TURQUOSE.jpg'><br/><br/><br/><br/>TURQUOSE<br/>".$ui->ActionButton("btn","<i class=\"fa fa-shopping-bag\"></i> ADD TO BAG","alert(\"ADDED TO BAG\");")."<br/>",
+                    "<br/><br/><img width='350px' src='img/0017-TURQUOSE.jpg'><br/><br/><br/><br/>TURQUOSE<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
