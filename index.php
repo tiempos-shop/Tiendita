@@ -62,12 +62,14 @@ $h= $html->Html5(
         ]),
 
         $ui->ContainerFluid([
-                $ui->Row([
-                    $ui->foreach([ "<br/>",1,2,3,4,5,6,7,"Este es un texto",9,10,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10],"<div>","</div>")
-                ])
+            "<table cellpadding='0' cellspacing='0'>",
+            "<tr>",
+            "    <td><img class='img-fluid' src='img/ts-home_001.jpg'></img></td>",
+            "    <td><img class='img-fluid' src='img/ts-home_002.jpg'></img></td>",
+            "</tr>"
         ])
     ],"style='background-color:#FFFFF;color:#AC9950'")
-        );
+);
 
 print_r($h);
 
