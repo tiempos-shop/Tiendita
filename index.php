@@ -9,14 +9,25 @@ include_once "Business/Utilidades.php";
 $html=new VistasHtml();
 $ui=new Utilidades();
 global $idioma;
+$idiomaActual="";
+$data=[];
+
+if(count($_POST)>0)
+{
+    $idiomaActual=$_POST["language"];
+}
+else{
+    $idiomaActual="ENGLISH";
+}
 
 $idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
-$idiomaActual="ENGLISH";
+
+
+
 function Cart($number,$label):string
 {
     return str_replace("*",$number,$label);
 }
-
 
 
 $h= $html->Html5(
@@ -56,6 +67,29 @@ $h= $html->Html5(
                         animation-duration: 2s;
                         animation-delay: 1s;
                     }
+                    #logo{
+                        display:inline-block;
+                        top:50vh;
+                        left: 90vw;
+                        width: 7%
+                    }
+                    #t{
+                        position:fixed;
+                        display:inline-block;
+                        top:50vh;
+                        left: 2vw;
+                        background-color: rgba(255,255,255,.1)
+                    }
+                    #t-over{
+                        visibility:hidden;
+                        position:fixed;
+                        display:inline-block;
+                        top:50vh;
+                        left: 2vw;
+                        background-color: rgba(255,255,255,.3);
+                        cursor: pointer;
+                        
+                    }
                 </style>
             ",
             '<script>
@@ -76,7 +110,23 @@ $h= $html->Html5(
                                     
                               },1000
                         );
+                       
                       }
+                      
+                      function tOverMenu(){
+                          var t=document.getElementById("t");
+                          var tover=document.getElementById("t-over");
+                          t.style.visibility="hidden";
+                          tover.style.visibility="visible";
+                      }
+                      
+                      function tOffMenu(){
+                          var t=document.getElementById("t");
+                          var tover=document.getElementById("t-over");
+                          t.style.visibility="visible";
+                          tover.style.visibility="hidden";
+                      }
+                      
                       
                       
                     </script>'
@@ -84,7 +134,7 @@ $h= $html->Html5(
         ),
     $html->Body([
 
-        "<div class='fixed-top'>",
+        "<div class='fixed-top' style='padding-left: 2vw;padding-right: 2vw'>",
         $ui->Row([
             $ui->Columns(
                 "<span onclick='go(\"shop.php\")'>".$idioma[ $idiomaActual ]["MENU"][0]."<span>",
@@ -99,7 +149,14 @@ $h= $html->Html5(
                 3,0,0,0,""
             ),
             $ui->Columns(
-                "<span>".$idioma[ $idiomaActual ]["MENU"][3]."<span>",
+                FormLink(
+                    [
+                        $ui->Input("language","",$idioma[ $idiomaActual ]["MENU"][3],"F",true),
+                    ],
+                    "",
+                    $idioma[ $idiomaActual ]["MENU"][3]
+
+                ),
                 2,0,0,0,""
             ),
             $ui->Columns(
@@ -109,7 +166,17 @@ $h= $html->Html5(
         ]),
         "</div>",
 
-        "<img style='display:inline-block;top:50vh;left: 90vw;width: 7%' class='fixed-top' src='img/ts_iso_oro.png' style='width: 7%'></img>",
+        "<img id='logo' class='fixed-top' src='img/ts_iso_oro.png' style='width: 7%'></img>",
+        "<label id='t' onmouseover='tOverMenu();'>T0000'00</label>",
+        "<div onmouseleave='tOffMenu();' id='t-over'>
+            <span>T0100'00</span><br/>
+            <span>T0200'00</span><br/>
+            <span>T0300'00</span><br/>
+            <span>T0400'00</span><br/>
+            <span>T0500'00</span><br/>
+            <span>T0600'00</span><br/>
+            
+        </div>",
 
         $ui->ContainerFluid([
             "<table cellpadding='0' cellspacing='0'>",
@@ -123,4 +190,19 @@ $h= $html->Html5(
 );
 
 print_r($h);
+
+
+function FormLink(array $content,string $url,string $button){
+    $html= "
+            <form method='post' action='$url'>";
+    $html.=implode("",$content);
+    $html.='
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-link" style="text-decoration: none;color: #AC9950;padding: 0px;border: none"><span type="submit">'.$button.'</span></button>
+                    </div>
+                </div>
+            </form>';
+    return $html;
+}
 

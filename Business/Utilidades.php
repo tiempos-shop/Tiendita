@@ -502,10 +502,9 @@ class Utilidades
 
     public function Hidden(string $id, $value)
     {
-        if(is_numeric($value) and is_string($value))
+
             return '<input type="hidden" value="'.$value.'" name="'.$id.'" id="'.$id.'" >';
-        else
-            throw new Exception("La función Hidden solo acepta parámetros de texto y numéricos");
+
     }
 
     public function TextBox(string $id,string $label,$value,string $type,string $placeholder,bool $required,$pattern="",$title="",$props=""){
