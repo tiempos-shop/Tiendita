@@ -29,6 +29,17 @@ function Cart($number,$label):string
     return str_replace("*",$number,$label);
 }
 
+// Obtener de base de datos de productos
+$ids=[ "T0100'00","T0200'00","T0300'00","T0400'00","T0500'00","T0600'00" ];
+
+$htmlIds="";
+
+foreach ($ids as $id){
+    $ide=str_replace("'","_",$id);
+    $js="view('$ide')";
+    $htmlIds.="<span onclick=\"$js\">$id</span><br/>";
+}
+
 
 $h= $html->Html5(
     $html->Head(
@@ -127,6 +138,11 @@ $h= $html->Html5(
                           tover.style.visibility="hidden";
                       }
                       
+                      function view(str){
+                          var id=str.replace("_", "\'");
+                          go("view.php?id="+id);
+                      }
+                      
                       
                       
                     </script>'
@@ -168,15 +184,9 @@ $h= $html->Html5(
 
         "<img id='logo' class='fixed-top' src='img/ts_iso_oro.png' style='width: 7%'></img>",
         "<label id='t' onmouseover='tOverMenu();'>T0000'00</label>",
-        "<div onmouseleave='tOffMenu();' id='t-over'>
-            <span>T0100'00</span><br/>
-            <span>T0200'00</span><br/>
-            <span>T0300'00</span><br/>
-            <span>T0400'00</span><br/>
-            <span>T0500'00</span><br/>
-            <span>T0600'00</span><br/>
-            
-        </div>",
+        "<div onmouseleave='tOffMenu();' id='t-over'>",
+            $htmlIds,
+        "</div>",
 
         $ui->ContainerFluid([
             "<table cellpadding='0' cellspacing='0'>",

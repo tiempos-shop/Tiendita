@@ -19,12 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Efectos Imagenes">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_11_2021_2_21_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_11_2021_2_21_PM__Default_Changelist_.xml" beforeDir="false" />
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Menu IDIOMA&#10;Menu T">
+      <change afterPath="$PROJECT_DIR$/view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/Utilidades.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Utilidades.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -220,14 +217,7 @@
       <workItem from="1613500984340" duration="4237000" />
       <workItem from="1613585781783" duration="3896000" />
       <workItem from="1613669996196" duration="3210000" />
-      <workItem from="1613684500564" duration="4783000" />
-    </task>
-    <task id="LOCAL-00024" summary="Pagos.php">
-      <created>1605762593276</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1605762593276</updated>
+      <workItem from="1613684500564" duration="9338000" />
     </task>
     <task id="LOCAL-00025" summary="Pagos.php">
       <created>1605764826408</created>
@@ -565,7 +555,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613439361158</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="Menu IDIOMA&#10;Menu T">
+      <created>1613690096835</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1613690096835</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -597,6 +594,7 @@
     <MESSAGE value="fotos shop web" />
     <MESSAGE value=" Isotipo png/svg" />
     <MESSAGE value="Efectos Imagenes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Efectos Imagenes" />
+    <MESSAGE value="Menu IDIOMA&#10;Menu T" />
+    <option name="LAST_COMMIT_MESSAGE" value="Menu IDIOMA&#10;Menu T" />
   </component>
 </project>
