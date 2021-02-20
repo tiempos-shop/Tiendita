@@ -20,7 +20,9 @@ class Producto extends BaseAuditoria implements iEntity
         return [
             "IdProducto"=>["label"=>"Id","type"=>"I","typeDb"=>"#","required"=>false],
             "Nombre"=>["label"=>"Producto","type"=>"$","typeDb"=>"$","required"=>true],
-            "Descripcion"=>["label"=>"Caracteristicas","type"=>"$","typeDb"=>"$","required"=>true],
+            "Descripcion"=>["label"=>"Características","type"=>"$","typeDb"=>"$","required"=>true],
+            "RutaImagen"=>["label"=>"Ruta de la Imagen","type"=>"$","typeDb"=>"$","required"=>true],
+            "DescripcionLarga"=>["label"=>"Descripción","type"=>"&","typeDb"=>"$","required"=>true],
             "Clave"=>["label"=>"Clave","type"=>"$","typeDb"=>"$","required"=>true],
             "Costo"=>["label"=>"Precio","type"=>"#","typeDb"=>"#","required"=>true],
             "FechaCambio"=>["label"=>"Fecha Auditoria","type"=>"F","typeDb"=>"$","required"=>false],

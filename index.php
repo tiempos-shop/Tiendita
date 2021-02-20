@@ -1,16 +1,28 @@
 <?php
 
 use Administracion\VistasHtml;
+
 use Tiendita\Utilidades;
 
 include_once "View/Componentes/Administracion/VistasHtml.php";
 include_once "Business/Utilidades.php";
+include_once "Data/Connection/EntidadBase.php";
+include_once "Data/Models/Producto.php";
 
 $html=new VistasHtml();
 $ui=new Utilidades();
+$entity=new \Tiendita\EntidadBase();
+try {
+    $products = $entity->getAll("Productos");
+} catch (Exception $e) {
+
+}
+$entity->close();
+$item=new \Tiendita\Producto(0,1);
+
 global $idioma;
 $idiomaActual="";
-$data=[];
+
 
 if(count($_POST)>0)
 {
@@ -22,22 +34,18 @@ else{
 
 $idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
 
-
-
-function Cart($number,$label):string
-{
-    return str_replace("*",$number,$label);
-}
-
 // Obtener de base de datos de productos
-$ids=[ "T0100'00","T0200'00","T0300'00","T0400'00","T0500'00","T0600'00" ];
-
 $htmlIds="";
 
-foreach ($ids as $id){
-    $ide=str_replace("'","_",$id);
+
+foreach ($products as $product){
+
+    $item->Clave=$product->Clave;
+    $item->Costo=$product->Costo;
+
+    $ide=str_replace("'","_",$item->Clave);
     $js="view('$ide')";
-    $htmlIds.="<span onclick=\"$js\">$id</span><br/>";
+    $htmlIds.="<hr style='padding: 0px;border: none;margin: 0px'/><span onclick=\"$js\">$item->Clave</span><br/>";
 }
 
 
@@ -103,7 +111,7 @@ $h= $html->Html5(
                     }
                 </style>
             ",
-            '<script>
+        "<script>
                       window.onload=function (){
                           load();
                       }
@@ -116,8 +124,8 @@ $h= $html->Html5(
                         setTimeout(
                               function ()
                               {
-                                    var r=document.getElementById("right_home");
-                                    r.style.visibility="visible";
+                                    var r=document.getElementById(\"right_home\");
+                                    r.style.visibility=\"visible\";
                                     
                               },1000
                         );
@@ -125,27 +133,27 @@ $h= $html->Html5(
                       }
                       
                       function tOverMenu(){
-                          var t=document.getElementById("t");
-                          var tover=document.getElementById("t-over");
-                          t.style.visibility="hidden";
-                          tover.style.visibility="visible";
+                          var t=document.getElementById(\"t\");
+                          var tover=document.getElementById(\"t-over\");
+                          t.style.visibility=\"hidden\";
+                          tover.style.visibility=\"visible\";
                       }
                       
                       function tOffMenu(){
-                          var t=document.getElementById("t");
-                          var tover=document.getElementById("t-over");
-                          t.style.visibility="visible";
-                          tover.style.visibility="hidden";
+                          const t=document.getElementById(\"t\");
+                          const tover=document.getElementById(\"t-over\");
+                          t.style.visibility=\"visible\";
+                          tover.style.visibility=\"hidden\";
                       }
                       
                       function view(str){
-                          var id=str.replace("_", "\'");
-                          go("view.php?id="+id);
+                          var id=str.replace(\"_\", \"\'\");
+                          go(\"view.php?id=\"+id);
                       }
                       
                       
                       
-                    </script>'
+                    </script>,"
 
         ),
     $html->Body([
@@ -201,6 +209,7 @@ $h= $html->Html5(
 
 print_r($h);
 
+// Funciones
 
 function FormLink(array $content,string $url,string $button){
     $html= "
@@ -214,5 +223,10 @@ function FormLink(array $content,string $url,string $button){
                 </div>
             </form>';
     return $html;
+}
+
+function Cart($number,$label):string
+{
+    return str_replace("*",$number,$label);
 }
 
