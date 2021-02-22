@@ -19,9 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Menu T y Vista Previa Producto">
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Imagenes de SHOP de Base de datos">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_02_2021_04_40_p__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_02_2021_04_40_p__m___Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/shop.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,14 +219,8 @@
       <workItem from="1613585781783" duration="3896000" />
       <workItem from="1613669996196" duration="3210000" />
       <workItem from="1613684500564" duration="9477000" />
-      <workItem from="1613752044830" duration="17757000" />
-    </task>
-    <task id="LOCAL-00027" summary="Pagos.php">
-      <created>1606068689924</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1606068689924</updated>
+      <workItem from="1613752044830" duration="18047000" />
+      <workItem from="1614014786810" duration="2357000" />
     </task>
     <task id="LOCAL-00028" summary="Pagos.php">
       <created>1606252356303</created>
@@ -562,7 +558,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613782114173</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="Imagenes de SHOP de Base de datos">
+      <created>1613786213101</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1613786213101</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -596,6 +599,7 @@
     <MESSAGE value="Efectos Imagenes" />
     <MESSAGE value="Menu IDIOMA&#10;Menu T" />
     <MESSAGE value="Menu T y Vista Previa Producto" />
-    <option name="LAST_COMMIT_MESSAGE" value="Menu T y Vista Previa Producto" />
+    <MESSAGE value="Imagenes de SHOP de Base de datos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Imagenes de SHOP de Base de datos" />
   </component>
 </project>

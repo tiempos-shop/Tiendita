@@ -5,3 +5,4 @@ echo "</pre><br/><br/>";
 
 $id=$_GET["id"];
 echo $id;
+
