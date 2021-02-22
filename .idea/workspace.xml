@@ -19,28 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="fotos shop web">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment=" Isotipo png/svg">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_02_2021_04_40_p__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_02_2021_04_40_p__m___Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_11_2021_2_21_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_11_2021_2_21_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_8_2021_4_44_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_8_2021_4_44_PM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bag.php" beforeDir="false" afterPath="$PROJECT_DIR$/bag.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0001-BLACK.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0001-OBSIDIANA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0002-CREMA.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0014-PERLA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0003-DARK_BLUE.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0009-QUETZAL.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0004-DARK_ORANGE.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0007-SOL.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0005-EGG_YELLOW.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0012-GILARDI.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0006-FLAG_GREEN.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0000-JALAPEÑO.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0007-FLUORESCENT_PINK.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0002-TACUBAYA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0008-FLUORESCENT_YELLOW.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0011-ESTRELLA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0009-GRAY_FRONT.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0013-LUNA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0011-GUINDA.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0005-BETABEL.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0012-KING_BLUE.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0003-AÑIL.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0013-LIGHT_ORANGE.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0010-FLAMA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0014-LIGHT_YELLOW.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0006-AURORA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0016-SKY_BLUE.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0008-NEBLINA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0017-TURQUOSE.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0004-AGAVE.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/shop.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/Utilidades.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Utilidades.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +52,7 @@
       <server host="127.0.0.1" id="e820fe44-1307-4645-b719-522a0b5573cf" name="XAMPP Server" />
     </servers>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.1" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="1jC8NBuZUkHFN6h3T2nWWCwJfYm" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -95,7 +81,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="ssh.settings" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -231,15 +217,7 @@
       <workItem from="1612463595936" duration="1206000" />
       <workItem from="1612823946769" duration="3752000" />
       <workItem from="1613061472971" duration="1129000" />
-      <workItem from="1613524667776" duration="2387000" />
-      <workItem from="1613616566444" duration="7400000" />
-    </task>
-    <task id="LOCAL-00022" summary="Pagos.php">
-      <created>1605326201656</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1605326201656</updated>
+      <workItem from="1613435742626" duration="2870000" />
     </task>
     <task id="LOCAL-00023" summary="Pagos.php">
       <created>1605329910623</created>
@@ -577,7 +555,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613153080460</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary=" Isotipo png/svg">
+      <created>1613407689759</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1613407689761</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -605,41 +590,9 @@
     <MESSAGE value="Pagos.php" />
     <MESSAGE value="nuevas imgs" />
     <MESSAGE value="fotos home" />
-    <MESSAGE value=" Isotipo png/svg" />
     <MESSAGE value="fotos home web" />
     <MESSAGE value="fotos shop web" />
-    <option name="LAST_COMMIT_MESSAGE" value="fotos shop web" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="241" y="71" key="#CLI_Interpreters" timestamp="1613762101632">
-      <screen x="0" y="23" width="1280" height="777" />
-    </state>
-    <state x="241" y="71" key="#CLI_Interpreters/0.23.1280.773@0.23.1280.773" timestamp="1613526861828" />
-    <state x="241" y="71" key="#CLI_Interpreters/0.23.1280.777@0.23.1280.777" timestamp="1613762101632" />
-    <state x="443" y="134" width="619" height="551" key="#Docker" timestamp="1613526322784">
-      <screen x="0" y="23" width="1280" height="773" />
-    </state>
-    <state x="443" y="134" width="619" height="551" key="#Docker/0.23.1280.773@0.23.1280.773" timestamp="1613526322784" />
-    <state x="311" y="23" width="683" height="777" key="#PHP" timestamp="1613762103177">
-      <screen x="0" y="23" width="1280" height="777" />
-    </state>
-    <state x="311" y="23" width="683" height="773" key="#PHP/0.23.1280.773@0.23.1280.773" timestamp="1613526862746" />
-    <state x="311" y="23" width="683" height="777" key="#PHP/0.23.1280.777@0.23.1280.777" timestamp="1613762103177" />
-    <state x="828" y="350" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1613152347859">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="828" y="350" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613152347859" />
-    <state x="233" y="29" key="SettingsEditor" timestamp="1613584163206">
-      <screen x="0" y="23" width="1280" height="773" />
-    </state>
-    <state x="233" y="29" key="SettingsEditor/0.23.1280.773@0.23.1280.773" timestamp="1613584163206" />
-    <state x="1032" y="256" key="Vcs.Push.Dialog.v2" timestamp="1613153086089">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1032" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1613153086089" />
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613175156540">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1613175156540" />
+    <MESSAGE value=" Isotipo png/svg" />
+    <option name="LAST_COMMIT_MESSAGE" value=" Isotipo png/svg" />
   </component>
 </project>

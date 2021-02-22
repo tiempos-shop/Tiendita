@@ -212,19 +212,21 @@ class Utilidades
 
     // Bootstrap
 
-    public function BaseContainer(string $class,array $contenidos){
-        $html='<div class="'.$class.'">';
+    public function BaseContainer(string $id,string $class,array $contenidos){
+        $ids="";
+        if($id<>""){ $ids="id='$id'"; }
+        $html='<div '.$ids.' class="'.$class.'">';
         $html.=implode("",$contenidos);
         $html.='</div>';
         return $html;
     }
 
-    public function ContainerFluid(array $rows){
-        return $this->BaseContainer("container-fluid",$rows);
+    public function ContainerFluid(array $rows,string $id=""){
+        return $this->BaseContainer($id,"container-fluid",$rows);
     }
 
-    public function Container(array $rows){
-        return $this->BaseContainer("container",$rows);
+    public function Container(array $rows,string $id=""){
+        return $this->BaseContainer($id,"container",$rows);
     }
 
     public function Row(array $columns){
