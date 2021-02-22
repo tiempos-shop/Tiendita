@@ -107,79 +107,79 @@ $h= $html->Html5(
 
             $ui->Row([
                 $ui->Columns(
-                    "<br/><br/><img width='350px' src='img/0001-BLACK.jpg'><br/><br/><br/><br/>BLACK<br/><br/>",
+                    "<br/><br/><img width='350px' src='img/0001-OBSIDIANA.jpg'><br/><br/><br/><br/>BLACK<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><img width='350px' src='img/0002-CREMA.jpg'><br/><br/><br/><br/>CREMA<br/><br/>",
+                    "<br/><br/><img width='350px' src='img/0014-PERLA.jpg'><br/><br/><br/><br/>CREMA<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><img width='350px' src='img/0003-DARK_BLUE.jpg'><br/><br/><br/><br/>DARK BLUE<br/><br/>",
+                    "<br/><br/><img width='350px' src='img/0009-QUETZAL.jpg'><br/><br/><br/><br/>DARK BLUE<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><img width='350px' src='img/0004-DARK_ORANGE.jpg'><br/><br/><br/><br/>DARK ORANGE<br/><br/>",
+                    "<br/><br/><img width='350px' src='img/0007-SOL.jpg'><br/><br/><br/><br/>DARK ORANGE<br/><br/>",
                     3,0,0,0,"text-center"
                 )
             ]),
             $ui->Row([
                 $ui->Columns(
-                    "<br/><br/><img width='350px' src='img/0005-EGG_YELLOW.jpg'><br/><br/><br/><br/>EGG YELLOW<br/><br/>",
+                    "<br/><br/><img width='350px' src='img/0012-GILARDI.jpg'><br/><br/><br/><br/>EGG YELLOW<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><img width='350px' src='img/0006-FLAG_GREEN.jpg'><br/><br/><br/><br/>FLAG GREEN<br/><br/>",
+                    "<br/><br/><img width='350px' src='img/0000-JALAPEÑO.jpg'><br/><br/><br/><br/>FLAG GREEN<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><img width='350px' src='img/0007-FLUORESCENT_PINK.jpg'><br/><br/><br/><br/>FLUORESCENT PINK<br/><br/>",
+                    "<br/><br/><img width='350px' src='img/0002-TACUBAYA.jpg'><br/><br/><br/><br/>FLUORESCENT PINK<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><img width='350px' src='img/0008-FLUORESCENT_YELLOW.jpg'><br/><br/><br/><br/>FLUORESCENT YELLOW<br/><br/>",
+                    "<br/><br/><img width='350px' src='img/0011-ESTRELLA.jpg'><br/><br/><br/><br/>FLUORESCENT YELLOW<br/><br/>",
                     3,0,0,0,"text-center"
                 )
             ]),
             $ui->Row([
                 $ui->Columns(
-                    "<br/><br/><img width='350px' src='img/0009-GRAY_FRONT.jpg'><br/><br/><br/><br/>GRAY FRONT<br/><br/>",
+                    "<br/><br/><img width='350px' src='img/0013-LUNA.jpg'><br/><br/><br/><br/>GRAY FRONT<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><img width='350px' src='img/0010-GRAY_BLUE.jpg'><br/><br/><br/><br/>GRAY BLUE<br/><br/>",
+                    "<br/><br/><img width='350px' src='img/0016-MEDIA-NOCHE.jpg'><br/><br/><br/><br/>GRAY BLUE<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><img width='350px' src='img/0011-GUINDA.jpg'><br/><br/><br/><br/>GUINDA<br/><br/>",
+                    "<br/><br/><img width='350px' src='img/0005-BETABEL.jpg'><br/><br/><br/><br/>GUINDA<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><img width='350px' src='img/0012-KING_BLUE.jpg'><br/><br/><br/><br/>KING BLUE<br/><br/>",
+                    "<br/><br/><img width='350px' src='img/0003-AÑIL.jpg'><br/><br/><br/><br/>KING BLUE<br/><br/>",
                     3,0,0,0,"text-center"
                 )
             ]),
             $ui->Row([
                 $ui->Columns(
-                    "<br/><br/><img width='350px' src='img/0013-LIGHT_ORANGE.jpg'><br/><br/><br/><br/>LIGHT ORANGE<br/><br/>",
+                    "<br/><br/><img width='350px' src='img/0010-FLAMA.jpg'><br/><br/><br/><br/>LIGHT ORANGE<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><img width='350px' src='img/0014-LIGHT_YELLOW.jpg'><br/><br/><br/><br/>LIGHT YELLOW<br/><br/>",
+                    "<br/><br/><img width='350px' src='img/0006-AURORA.jpg'><br/><br/><br/><br/>LIGHT YELLOW<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><img width='350px' src='img/0015-PINK_CARAMEL.jpg'><br/><br/><br/><br/>PINK CARAMEL<br/><br/>",
+                    "<br/><br/><img width='350px' src='img/0015-VALDIOSERA.jpg'><br/><br/><br/><br/>PINK CARAMEL<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(
-                    "<br/><br/><img width='350px' src='img/0016-SKY_BLUE.jpg'><br/><br/><br/><br/>SKY BLUE<br/><br/>",
+                    "<br/><br/><img width='350px' src='img/0008-NEBLINA.jpg'><br/><br/><br/><br/>SKY BLUE<br/><br/>",
                     3,0,0,0,"text-center"
                 )
             ]),
             $ui->Row([
                 $ui->Columns(
-                    "<br/><br/><img width='350px' src='img/0017-TURQUOSE.jpg'><br/><br/><br/><br/>TURQUOSE<br/><br/>",
+                    "<br/><br/><img width='350px' src='img/0004-AGAVE.jpg'><br/><br/><br/><br/>TURQUOSE<br/><br/>",
                     3,0,0,0,"text-center"
                 ),
                 $ui->Columns(

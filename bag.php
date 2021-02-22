@@ -67,7 +67,7 @@ $h= $html->Html5(
             ]),
             $ui->Row([
                 $ui->Columns(
-                    "<img class='img img-fluid' src='img/0001-BLACK.jpg'><br/>BLACK",
+                    "<img class='img img-fluid' src='img/0001-OBSIDIANA.jpg'><br/>BLACK",
                     6,0,0,0,"text-center"
                 ),
                 $ui->Columns(
@@ -77,7 +77,7 @@ $h= $html->Html5(
             ]),
             $ui->Row([
                 $ui->Columns(
-                    "<img class='img img-fluid' src='img/0002-CREMA.jpg'><br/>CREMA",
+                    "<img class='img img-fluid' src='img/0014-PERLA.jpg'><br/>CREMA",
                     6,0,0,0,"text-center"
                 ),
                 $ui->Columns(
