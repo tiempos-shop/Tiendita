@@ -24,12 +24,13 @@ foreach ($products as $product){
     $image=$product->RutaImagen;
     $descripcion=$product->Descripcion;
     $code=$product->Clave;
-    $price=$product->Costo;
+    $price=$ui->Moneda($product->Costo);
+
     $arr = explode(",", $image, 4);
-    $first = $arr[0];
-    //$four=$arr[2];
-    $htmlColumns[]=$ui->Columns("<br/><br/><img width='350px' src='$first'><br/><br/><br/>$descripcion<br/>$price<br/>",
-        3);
+    $first = "'$arr[0]'";
+    $four="'$arr[2]'";
+    $htmlColumns[]=$ui->Columns('<br/><br/><img src="'.$arr[0].'" onmouseover="changeImage(this,'.$four.')" onmouseleave="changeImage(this,'.$first.')" width="350px"><br/><br/><br/>'.$descripcion.'<br/>'.$price.'<br/>',
+        3,0,0,0,"text-center");
     if(count($htmlColumns)>3 or $n-$i<3){
         $htmlRow.=$ui->Row($htmlColumns);
         $htmlProducts.=$htmlRow;
@@ -62,44 +63,19 @@ $h= $html->Html5(
                 div {
                 font-family: NHaasGroteskDSPro-55Rg;
                 }
+                
             </style>
         ",
-        "<script>
-                  window.fbAsyncInit = function() {
-                    FB.init({
-                      appId            : '1794600520762591',
-                      autoLogAppEvents : true,
-                      xfbml            : true,
-                      version          : 'v9.0'
-                    });
-                    
-                    FB.getLoginStatus(function(response) {
-                      if (response.status === 'connected') {
-                        var uid = response.authResponse.userID;
-                        var accessToken = response.authResponse.accessToken;
-                      } else if (response.status === 'not_authorized') {
-                        alert('Debes aceptar el ingreso a Facebook para iniciar sesión');
-                      } else {
-                        alert('Tus credenciales de ingreso a facebook no son correctas');
-                      }
-                    });
+        '<script>
+                  
+                  
+                  function changeImage(imageElement,image){
+                      imageElement.src=image;
                   }
                   
-                  function doLogin() 
-                  { 
-                     FB.login(function(response) 
-                     { 
-                        if (response.authResponse) { 
-                            $(\"idLogin\").hide();
-                        } 
-                        else 
-                        { 
-                            alert('Has rechazado la autentificación); 
-                        } 
-                     }, {scope: 'email,user_friends'}); 
-                  } 
                   
-                </script>"
+                  
+                </script>'
 
     ),
     $html->Body([

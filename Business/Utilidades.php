@@ -2,9 +2,9 @@
 
 
 namespace Tiendita;
-use Cassandra\Timestamp;
+
 use DateTime;
-use mysql_xdevapi\Exception;
+
 
 
 class Utilidades
@@ -665,6 +665,10 @@ class Utilidades
         return DateTime::createFromFormat($this->formatoFecha,$fecha);
     }
 
+    public function Moneda(float $number,string $moneda="$ "):string{
+        return $moneda.number_format( $number,2);
+    }
+
     public function Redirect(string $url)
     {
         echo "<script>window.location.assign('$url')</script>";
@@ -679,14 +683,15 @@ class Utilidades
 
     // Ciclos
 
-    public function if(bool $operation,string $true,string $continue){
+    public function if(bool $operation,string $true):string{
         if($operation===true){
-            return $true.$continue;
+            return $true;
         }
-        else return $continue;
+        else return "";
     }
 
-    public function ifelse(bool $operation,string $true,string $false){
+    public function ifelse(bool $operation,string $true,string $false):string
+    {
         if($operation){
             return $true;
         }
@@ -695,7 +700,7 @@ class Utilidades
         }
     }
 
-    public function Switch($case,array $options,string $default){
+    public function switch($case,array $options,string $default):string{
         if(!in_array($case,$options)) return $default;
         return $options[$case];
     }
