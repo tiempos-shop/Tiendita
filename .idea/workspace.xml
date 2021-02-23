@@ -19,10 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Imagenes de SHOP de Base de datos">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Imagenes de SHOP de Base de datos. Efecto Back">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/Utilidades.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Utilidades.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/shop.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -220,14 +218,8 @@
       <workItem from="1613669996196" duration="3210000" />
       <workItem from="1613684500564" duration="9477000" />
       <workItem from="1613752044830" duration="18047000" />
-      <workItem from="1614014786810" duration="13351000" />
-    </task>
-    <task id="LOCAL-00029" summary="Pagos.php">
-      <created>1606264560904</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1606264560904</updated>
+      <workItem from="1614014786810" duration="13406000" />
+      <workItem from="1614107335118" duration="4940000" />
     </task>
     <task id="LOCAL-00030" summary="Pagos.php">
       <created>1606265672149</created>
@@ -565,7 +557,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614017381751</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="Imagenes de SHOP de Base de datos. Efecto Back">
+      <created>1614040878814</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1614040878814</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -600,6 +599,7 @@
     <MESSAGE value="Menu IDIOMA&#10;Menu T" />
     <MESSAGE value="Menu T y Vista Previa Producto" />
     <MESSAGE value="Imagenes de SHOP de Base de datos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Imagenes de SHOP de Base de datos" />
+    <MESSAGE value="Imagenes de SHOP de Base de datos. Efecto Back" />
+    <option name="LAST_COMMIT_MESSAGE" value="Imagenes de SHOP de Base de datos. Efecto Back" />
   </component>
 </project>
