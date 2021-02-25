@@ -19,8 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Imagenes de SHOP de Base de datos. Efecto Back">
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Correccion de arreglo de fotografias producto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Models/Producto.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Producto.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/shop.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +94,7 @@
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Web Page.XAMPP">
+  <component name="RunManager" selected="PHP Web Page.Shop">
     <configuration name="Admin Script" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/login.php">
       <CommandLine>
         <PhpTestInterpreterSettings>
@@ -116,7 +117,10 @@
     <configuration name="Admin" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="XAMPP Server" start_url="http://localhost:63342/Tiendita/login.php">
       <method v="2" />
     </configuration>
-    <configuration name="XAMPP" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="XAMPP Server" start_url="https://localhost:63342/Tiendita/index.php">
+    <configuration name="Shop" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="XAMPP Server" start_url="http://localhost:63342/Tiendita/shop.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="XAMPP" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="XAMPP Server" start_url="http://localhost:63342/Tiendita/index.php">
       <method v="2" />
     </configuration>
     <list>
@@ -125,6 +129,7 @@
       <item itemvalue="PHP Script.bag.php" />
       <item itemvalue="PHP Web Page.Admin" />
       <item itemvalue="PHP Web Page.XAMPP" />
+      <item itemvalue="PHP Web Page.Shop" />
     </list>
     <recent_temporary>
       <list>
@@ -219,14 +224,8 @@
       <workItem from="1613684500564" duration="9477000" />
       <workItem from="1613752044830" duration="18047000" />
       <workItem from="1614014786810" duration="13406000" />
-      <workItem from="1614107335118" duration="4940000" />
-    </task>
-    <task id="LOCAL-00030" summary="Pagos.php">
-      <created>1606265672149</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1606265672149</updated>
+      <workItem from="1614107335118" duration="6189000" />
+      <workItem from="1614186485113" duration="11572000" />
     </task>
     <task id="LOCAL-00031" summary="Pagos.php">
       <created>1606284501565</created>
@@ -564,7 +563,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614040878814</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="Correccion de arreglo de fotografias producto">
+      <created>1614119418403</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1614119418405</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -600,6 +606,7 @@
     <MESSAGE value="Menu T y Vista Previa Producto" />
     <MESSAGE value="Imagenes de SHOP de Base de datos" />
     <MESSAGE value="Imagenes de SHOP de Base de datos. Efecto Back" />
-    <option name="LAST_COMMIT_MESSAGE" value="Imagenes de SHOP de Base de datos. Efecto Back" />
+    <MESSAGE value="Correccion de arreglo de fotografias producto" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correccion de arreglo de fotografias producto" />
   </component>
 </project>
