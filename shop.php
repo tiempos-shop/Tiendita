@@ -23,7 +23,7 @@ else{
 }
 $tipoCambio=20;
 
-$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
+$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
 
 
 $products=$db->getAll("Productos");
@@ -52,7 +52,9 @@ foreach ($products as $product){
     $arr = explode(",", $image, 4);
     $first = "'$arr[0]'";
     $four="'$arr[2]'";
-    $htmlColumns[]=$ui->Columns('<br/><br/><img src="'.$arr[0].'" onmouseover="changeImage(this,'.$four.')" onmouseleave="changeImage(this,'.$first.')" width="300px"><br/><br/><span style="font-family: NHaasGroteskDSPro-65Md">'.$description.'</span><br/>'.$price,
+    $code=str_replace("'","_",$code);
+    $js="view('$code')";
+    $htmlColumns[]=$ui->Columns('<br/><br/><img onclick="'.$js.'" src="'.$arr[0].'" onmouseover="changeImage(this,'.$four.')" onmouseleave="changeImage(this,'.$first.')" width="300px"><br/><br/><span style="font-family: NHaasGroteskDSPro-65Md">'.$description.'</span><br/>'.$price,
         3,0,0,0,"text-center");
     if(count($htmlColumns)==4 or $n==$i)
     {
@@ -98,14 +100,17 @@ $h= $html->Html5(
             </style>
         ",
         '<script>
-                  
-                  
+                  function go(url){
+                      window.location.href=url;
+                  }
                   function changeImage(imageElement,image){
                       imageElement.src=image;
+                      imageElement.style.cursor="pointer";
                   }
-                  
-                  
-                  
+                  function view(str){
+                      let id=str.replace("_", "\'");
+                      go("view.php?id="+id);
+                  }
                 </script>'
 
     ),
@@ -121,7 +126,7 @@ $h= $html->Html5(
         "<div class='fixed-top' style='padding-left: 2vw;padding-right: 2vw'>",
         $ui->Row([
             $ui->Columns(
-                "<span onclick='go(\"shop.php\")'>".$idioma[ $idiomaActual ]["MENU"][0]."<span>",
+                "<span onclick='go(\"index.php\")'>".$idioma[ $idiomaActual ]["MENU"][0]."<span>",
                 3,0,0,0,""
             ),
             $ui->Columns(

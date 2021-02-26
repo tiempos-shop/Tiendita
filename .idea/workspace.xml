@@ -19,9 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Correccion de arreglo de fotografias producto">
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Correccion de Menu en Shop">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Models/Producto.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Producto.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/shop.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -225,14 +224,7 @@
       <workItem from="1613752044830" duration="18047000" />
       <workItem from="1614014786810" duration="13406000" />
       <workItem from="1614107335118" duration="6189000" />
-      <workItem from="1614186485113" duration="11572000" />
-    </task>
-    <task id="LOCAL-00031" summary="Pagos.php">
-      <created>1606284501565</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1606284501565</updated>
+      <workItem from="1614186485113" duration="16625000" />
     </task>
     <task id="LOCAL-00032" summary="Pagos.php">
       <created>1606371129109</created>
@@ -570,7 +562,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614119418405</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="Correccion de Menu en Shop">
+      <created>1614275067241</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1614275067242</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -607,6 +606,7 @@
     <MESSAGE value="Imagenes de SHOP de Base de datos" />
     <MESSAGE value="Imagenes de SHOP de Base de datos. Efecto Back" />
     <MESSAGE value="Correccion de arreglo de fotografias producto" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correccion de arreglo de fotografias producto" />
+    <MESSAGE value="Correccion de Menu en Shop" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correccion de Menu en Shop" />
   </component>
 </project>
