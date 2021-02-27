@@ -69,7 +69,9 @@ class EntidadBase{
 
         $resultSet=array();
 
+
         if(is_string($value)){
+            $value=mysqli_real_escape_string($this->db,$value);
             $queryString="SELECT * FROM $table WHERE $column='$value'";
         }
         elseif(is_int($value)){
@@ -81,6 +83,7 @@ class EntidadBase{
         }
 
         $query=$this->db->query($queryString);
+
 
         while($row = $query->fetch_object()) {
            $resultSet[]=$row;
