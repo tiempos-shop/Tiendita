@@ -15,7 +15,7 @@ include_once "Data/Connection/EntidadBase.php";
 $html=new VistasHtml();
 $ui=new Utilidades();
 $db=new EntidadBase();
-$id=$_GET["id"];
+//$id=$_GET["id"];
 
 $idiomaActual="";
 
@@ -29,58 +29,33 @@ $idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(
 
 $price=0;
 $tipoCambio=20;
-$productInformation=$products=$db->getBy("Productos","Clave",$id)[0];
+//$productInformation=$products=$db->getBy("Productos","Clave",$id)[0];
 
 if($idiomaActual=="ENGLISH"){
-    $dollarPrice=$productInformation->Costo/$tipoCambio;
-    $price=$ui->Moneda($dollarPrice,"USD $");
+
+
 }
 else{
-    $price=$ui->Moneda($productInformation->Costo,"MXN $");
+
 }
 
-$productWord=explode(" ",$productInformation->Nombre);
-$n=count($productWord);
-$p=100/$n;
 
-$nameTable="<table class='table table-borderless'><tr>";
-foreach ($productWord as $word){
-    $nameTable.="<td style='font-family: NHaasGroteskDSPro-65Md;width: $p%'>$word</td>";
-}
-$nameTable.="</tr></table>";
-
-$productWord=explode(" ",$productInformation->Descripcion);
-$n=count($productWord);
-$p=100/$n;
-
-$descriptionTable="<table class='table table-borderless'><tr>";
-foreach ($productWord as $word){
-    $descriptionTable.="<td style='width: $p%'>$word</td>";
-}
-$descriptionTable.="</tr></table>";
-
-
-
-
-$images=explode(",",$productInformation->RutaImagen);
-
+//$images=explode(",",$productInformation->RutaImagen);
 $collage="";
-foreach ($images as $image){
-    $collage.="<img class='img-fluid' src='$image'><br/>";
-}
+
 //echo "<pre>";
 //var_dump($productInformation);
 //echo "</pre>";
 
 $modal="
-<table class='table table-borderless' style=''>
+<table class='table'>
     <thead>
         <tr>
             <td></td>
-            <th><span>S</span></th>
-            <th><span>M</span></th>
-            <th><span>L</span></th>
-            <th><span>XL</span></th>
+            <th>S</th>
+            <th>M</th>
+            <th>L</th>
+            <th>XL</th>
         </tr>
     </thead>
     <tr>
@@ -138,15 +113,6 @@ $h= $html->Html5(
         $html->LoadScripts(["View/js/bootstrap.js"]),
         "
             <style>
-            
-                main,#component{
-                    
-                    padding-right: 0!important;
-                    padding-left: 0!important;
-                }
-                td{
-                    text-align: center;                
-                }
                 span:hover{
                     cursor: pointer;
                 }
@@ -158,7 +124,6 @@ $h= $html->Html5(
                     src: url(font/NHaasGroteskDSPro-55Rg.woff);
                     src: url(font/NHaasGroteskDSPro-55Rg.woff2);
                     src: url(font/NHaasGroteskDSPro-55Rg.ttf);
-                    
                 }
                 
                 @font-face {
@@ -171,12 +136,10 @@ $h= $html->Html5(
 
                 body,button {
                     font-family: NHaasGroteskDSPro-55Rg;
-                    letter-spacing:0.09em; 
-                    overflow: no-display;
+                    letter-spacing:0.09em;
                 }
                 .left-top{
                     position: fixed;
-                    top: 5vh;
                     left: 50vw;
                 }
                 .space{
@@ -189,22 +152,6 @@ $h= $html->Html5(
                     top:50vh;
                     left: 90vw;
                     width: 7%
-                }
-                hr{
-                    margin-right: 0;
-                    margin-left: 0;
-                    opacity: 1;
-                }
-                div{
-                    padding-right: 0;
-                    padding-left: 0;
-                }
-                p{
-                    text-align: justify;
-                    text-align-last: justify;
-                    padding-left: 40px;
-                    padding-right: 40px; 
-                    margin: 0 0 0 0;
                 }
                 
             </style>
@@ -236,7 +183,7 @@ $h= $html->Html5(
         "<div class='fixed-top' style='padding-top:2vh;padding-bottom:2vh;padding-left: 2vw;padding-right: 2vw'>",
         $ui->Row([
             $ui->Columns(
-                "<span onclick='go(\"index.php\")'>".$idioma[ $idiomaActual ]["MENU"][0]."<span>",
+                "<span onclick='go(\"shop.php\")'>".$idioma[ $idiomaActual ]["MENU"][0]."<span>",
                 3,0,0,0,""
             ),
             $ui->Columns(
@@ -259,7 +206,7 @@ $h= $html->Html5(
                 2,0,0,0,""
             ),
             $ui->Columns(
-                "<span style='text-align: right'>".Cart(4,$idioma[ $idiomaActual ]["MENU"][4])."<span>",
+                "<span>".Cart(4,$idioma[ $idiomaActual ]["MENU"][4])."<span>",
                 1,0,0,0,""
             )
         ]),
@@ -268,37 +215,15 @@ $h= $html->Html5(
         "<br/>",
         $ui->ContainerFluid([
             $ui->Row([
-                $ui->Columns(
-                    $collage
-                    ,6,0,0,0,""),
-                $ui->Columns(
-                    $ui->ContainerFluid([
-                        "<hr/>",
-                        $ui->Row([
-                            $ui->Columns("<p style='font-family: NHaasGroteskDSPro-65Md'>$productInformation->Name</p>",12),
+                $ui->Columns("<hr/>",12)
+            ]),
+            $ui->Row([
+                $ui->Columns("<hr/>",12)
+            ]),
+            $ui->Row([
+                $ui->Columns("<hr/>",12)
+            ])
 
-                        ]),
-                        $ui->Row([
-                            $ui->Columns($descriptionTable,12),
-
-                        ]),
-                        "<hr/>",
-                        $ui->Row([
-                            $ui->Columns("<p style='text-align: justify;text'>$productInformation->DescripcionLarga</p>",12)
-
-                        ]),
-                        "<hr/><div style='height: 35vh'>",
-                        "<label style='padding-left: 40px'>$price</label>",
-                        "</div><hr style='margin: 0 0 0 0'/>",
-                        '<button type="button" class="btn btn-block" data-toggle="modal" data-target="#size">',
-                            'SELECT SIZE <i class="fa fa-arrow-down"></i>',
-                        '</button>',
-                        '<hr style="margin: 0 0 0 0"/>',
-                        '<button type="button" class="btn btn-dark btn-block">ADD TO CAR</button>'
-
-                    ],"component")
-                    ,6,0,0,0,"left-top")
-            ],"main")
         ]),
         '
         <div class="modal fade" id="size" tabindex="-1" role="dialog" aria-labelledby="sizeLabel" aria-hidden="true">

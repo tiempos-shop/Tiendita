@@ -97,8 +97,15 @@ $h= $html->Html5(
                     
                 }
 
-                body {
+                body,button {
                     font-family: NHaasGroteskDSPro-55Rg;
+                    letter-spacing:0.09em; 
+                }
+                #logo{
+                    display:inline-block;
+                    top:50vh;
+                    left: 90vw;
+                    width: 7%
                 }
                 
             </style>
@@ -112,7 +119,7 @@ $h= $html->Html5(
                       imageElement.style.cursor="pointer";
                   }
                   function view(str){
-                      let id=str.replace("_", "\'");
+                      let id=str; //str.replace("_", "\'");
                       go("view.php?id="+id);
                   }
                 </script>'
@@ -127,7 +134,7 @@ $h= $html->Html5(
                 src=\"https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v9.0&appId=1794600520762591&autoLogAppEvents=1\" 
                 nonce=\"wlJTE7aj\">
             </script>",
-        "<div class='fixed-top' style='padding-left: 2vw;padding-right: 2vw'>",
+        "<div class='fixed-top' style='padding-top:2vh;padding-bottom:2vh;padding-left: 2vw;padding-right: 2vw'>",
         $ui->Row([
             $ui->Columns(
                 "<span onclick='go(\"index.php\")'>".$idioma[ $idiomaActual ]["MENU"][0]."<span>",
@@ -158,6 +165,7 @@ $h= $html->Html5(
             )
         ]),
         "</div>",
+        "<img id='logo' class='fixed-top' src='img/ts_iso_negro.png' style='width: 7%'></img>",
         $htmlProducts
 
     ],"style='background-color:#FFFFF;' ") //#AC9950

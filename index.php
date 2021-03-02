@@ -65,6 +65,8 @@ $h= $html->Html5(
                     }
                     
                     #principal{
+                        top:0px;
+                        position: absolute;
                         padding-left: 0px;
                         padding-right: 0px;
                     }
@@ -109,6 +111,29 @@ $h= $html->Html5(
                         cursor: pointer;
                         
                     }
+                    @font-face {
+                        font-family: NHaasGroteskDSPro-55Rg;
+                        src: url(font/NHaasGroteskDSPro-55Rg.woff);
+                        src: url(font/NHaasGroteskDSPro-55Rg.woff2);
+                        src: url(font/NHaasGroteskDSPro-55Rg.ttf);
+                    }
+                
+                    @font-face {
+                        font-family: NHaasGroteskDSPro-65Md;
+                        src: url(font/NHaasGroteskDSPro-65Md.woff);
+                        src: url(font/NHaasGroteskDSPro-65Md.woff2);
+                        src: url(font/NHaasGroteskDSPro-65Md.ttf);
+                        
+                    }
+                    body,button {
+                        font-family: NHaasGroteskDSPro-55Rg;
+                        letter-spacing:0.09em; 
+                    }
+                    right{
+                        text-align: right;
+                    }
+                    
+                    
                 </style>
             ",
         "<script>
@@ -147,7 +172,7 @@ $h= $html->Html5(
                       }
                       
                       function view(str){
-                          var id=str.replace(\"_\", \"\'\");
+                          var id=str; //.replace(\"_\", \"\'\");
                           go(\"view.php?id=\"+id);
                       }
                       
@@ -158,7 +183,7 @@ $h= $html->Html5(
         ),
     $html->Body([
 
-        "<div class='fixed-top' style='padding-left: 2vw;padding-right: 2vw'>",
+        "<div class='fixed-top' style='padding-top:2vh;padding-bottom:2vh;padding-left: 2vw;padding-right: 2vw'>",
         $ui->Row([
             $ui->Columns(
                 "<span onclick='go(\"shop.php\")'>".$idioma[ $idiomaActual ]["MENU"][0]."<span>",
@@ -185,14 +210,14 @@ $h= $html->Html5(
             ),
             $ui->Columns(
                 "<span>".Cart(4,$idioma[ $idiomaActual ]["MENU"][4])."<span>",
-                1,0,0,0,""
+                1,0,0,0,"text-right"
             )
-        ]),
+        ],"right"),
         "</div>",
 
         "<img id='logo' class='fixed-top' src='img/ts_iso_oro.png' style='width: 7%'></img>",
-        "<label id='t' onmouseover='tOverMenu();'>T0000'00</label>",
-        "<div onmouseleave='tOffMenu();' id='t-over'>",
+        "<label id='t' onmouseover='tOverMenu();' style='font-family: NHaasGroteskDSPro-55Rg;z-index: 100'>T0000'00</label>",
+        "<div style='z-index: 100' onmouseleave='tOffMenu();' id='t-over'>",
             $htmlIds,
         "</div>",
 

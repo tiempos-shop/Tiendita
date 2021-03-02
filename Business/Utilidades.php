@@ -229,8 +229,8 @@ class Utilidades
         return $this->BaseContainer($id,"container",$rows);
     }
 
-    public function Row(array $columns){
-        $html='<div class="row">';
+    public function Row(array $columns,$class=""){
+        $html='<div class="row '.$class.'">';
         $html.=implode("",$columns);
         $html.='</div>';
         return $html;

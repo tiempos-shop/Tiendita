@@ -19,11 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Seleccionar producto en Shop y dirigirlo a detalle de producto">
-      <change afterPath="$PROJECT_DIR$/customerLogin.php" afterDir="false" />
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Vista detalle producto">
+      <change afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Connection/EntidadBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Connection/EntidadBase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Models/Producto.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Producto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/Utilidades.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Utilidades.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/shop.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view.php" afterDir="false" />
     </list>
@@ -229,14 +229,9 @@
       <workItem from="1614014786810" duration="13406000" />
       <workItem from="1614107335118" duration="6189000" />
       <workItem from="1614186485113" duration="17012000" />
-      <workItem from="1614356694088" duration="19179000" />
-    </task>
-    <task id="LOCAL-00033" summary="Pagos.php">
-      <created>1606454781758</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1606454781758</updated>
+      <workItem from="1614356694088" duration="19209000" />
+      <workItem from="1614466507089" duration="1889000" />
+      <workItem from="1614617849473" duration="21772000" />
     </task>
     <task id="LOCAL-00034" summary="Pagos.php">
       <created>1606533321667</created>
@@ -574,7 +569,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614304943837</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="Vista detalle producto">
+      <created>1614400053112</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1614400053113</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -613,6 +615,7 @@
     <MESSAGE value="Correccion de arreglo de fotografias producto" />
     <MESSAGE value="Correccion de Menu en Shop" />
     <MESSAGE value="Seleccionar producto en Shop y dirigirlo a detalle de producto" />
-    <option name="LAST_COMMIT_MESSAGE" value="Seleccionar producto en Shop y dirigirlo a detalle de producto" />
+    <MESSAGE value="Vista detalle producto" />
+    <option name="LAST_COMMIT_MESSAGE" value="Vista detalle producto" />
   </component>
 </project>
