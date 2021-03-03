@@ -44,9 +44,9 @@ foreach ($products as $product){
     $item->Clave=$product->Clave;
     $item->Costo=$product->Costo;
 
-    $ide=str_replace("'","_",$item->Clave);
-    $js="view('$ide')";
-    $htmlIds.="<hr style='padding: 0px;border: none;margin: 0px'/><span onclick=\"$js\">$item->Clave</span><br/>";
+    $ide=str_replace("_","'",$item->Clave);
+    $js="view('$product->Clave')";
+    $htmlIds.="<hr style='padding: 0px;border: none;margin: 0px'/><span onclick=\"$js\">$ide</span><br/>";
 }
 
 $fc=new \Tiendita\FrontComponents();

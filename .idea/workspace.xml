@@ -19,13 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Vista detalle producto">
-      <change afterPath="$PROJECT_DIR$/Business/FrontComponents.php" afterDir="false" />
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Detalles">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/shop.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,14 +230,7 @@
       <workItem from="1614466507089" duration="1889000" />
       <workItem from="1614617849473" duration="21772000" />
       <workItem from="1614651241198" duration="218000" />
-      <workItem from="1614710425687" duration="11900000" />
-    </task>
-    <task id="LOCAL-00035" summary="Pagos.php">
-      <created>1606875619339</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1606875619339</updated>
+      <workItem from="1614710425687" duration="14247000" />
     </task>
     <task id="LOCAL-00036" summary="Pagos.php">
       <created>1606877281407</created>
@@ -578,7 +568,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614651285620</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="Detalles">
+      <created>1614788912267</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1614788912269</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -618,6 +615,7 @@
     <MESSAGE value="Correccion de Menu en Shop" />
     <MESSAGE value="Seleccionar producto en Shop y dirigirlo a detalle de producto" />
     <MESSAGE value="Vista detalle producto" />
-    <option name="LAST_COMMIT_MESSAGE" value="Vista detalle producto" />
+    <MESSAGE value="Detalles" />
+    <option name="LAST_COMMIT_MESSAGE" value="Detalles" />
   </component>
 </project>

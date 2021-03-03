@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 use Administracion\VistasHtml;
 use Tiendita\EntidadBase;
 use Tiendita\Utilidades;
@@ -17,11 +14,14 @@ $html=new VistasHtml();
 $ui=new Utilidades();
 $db=new EntidadBase();
 //$id=$_GET["id"];
+$productosCarrito=array();
 
 $idiomaActual="";
 
-if(count($_POST)>0)
+if(count($_POST)>0){
     $idiomaActual=$_POST["language"];
+    $productosCarrito=$_POST["carrito"];
+}
 else
     $idiomaActual="ENGLISH";
 
@@ -49,7 +49,7 @@ $collage="";
 //echo "</pre>";
 
 $modal="
-<table class='table'>
+<table class='table' style='border-color: black;width: 800px'>
     <thead>
         <tr>
             <td></td>
@@ -59,7 +59,7 @@ $modal="
             <th>XL</th>
         </tr>
     </thead>
-    <tr>
+    <tr style='border-bottom: black'>
         <td>HEIGHT</td>
         <td>26</td>
         <td>27</td>
