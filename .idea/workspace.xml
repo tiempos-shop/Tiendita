@@ -20,9 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Vista detalle producto">
-      <change afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/FrontComponents.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/Utilidades.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Utilidades.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/shop.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view.php" afterDir="false" />
@@ -97,7 +97,7 @@
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Web Page.Shop">
+  <component name="RunManager" selected="PHP Web Page.XAMPP">
     <configuration name="Admin Script" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/login.php">
       <CommandLine>
         <PhpTestInterpreterSettings>
@@ -232,13 +232,8 @@
       <workItem from="1614356694088" duration="19209000" />
       <workItem from="1614466507089" duration="1889000" />
       <workItem from="1614617849473" duration="21772000" />
-    </task>
-    <task id="LOCAL-00034" summary="Pagos.php">
-      <created>1606533321667</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1606533321667</updated>
+      <workItem from="1614651241198" duration="218000" />
+      <workItem from="1614710425687" duration="11900000" />
     </task>
     <task id="LOCAL-00035" summary="Pagos.php">
       <created>1606875619339</created>
@@ -576,7 +571,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614400053113</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="Vista detalle producto">
+      <created>1614651285619</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1614651285620</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

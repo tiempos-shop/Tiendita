@@ -6,6 +6,7 @@ use Tiendita\Utilidades;
 include_once "View/Componentes/Administracion/VistasHtml.php";
 include_once "Business/Utilidades.php";
 include_once "Data/Connection/EntidadBase.php";
+include_once "Business/FrontComponents.php";
 
 
 $html=new VistasHtml();
@@ -64,7 +65,7 @@ foreach ($products as $product){
         $htmlColumns=[];
     }
 }
-
+$fc=new \Tiendita\FrontComponents();
 
 
 
@@ -126,46 +127,8 @@ $h= $html->Html5(
 
     ),
     $html->Body([
-        // Load Facebook button
-        "
-            <div id=\"fb-root\"></div>
-            <script async defer 
-                crossorigin=\"anonymous\" 
-                src=\"https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v9.0&appId=1794600520762591&autoLogAppEvents=1\" 
-                nonce=\"wlJTE7aj\">
-            </script>",
-        "<div class='fixed-top' style='padding-top:2vh;padding-bottom:2vh;padding-left: 2vw;padding-right: 2vw'>",
-        $ui->Row([
-            $ui->Columns(
-                "<span onclick='go(\"index.php\")'>".$idioma[ $idiomaActual ]["MENU"][0]."<span>",
-                3,0,0,0,""
-            ),
-            $ui->Columns(
-                "<span>".$idioma[ $idiomaActual ]["MENU"][1]."</span>",
-                3,0,0,0,""
-            ),
-            $ui->Columns(
-                "<span>".$idioma[ $idiomaActual ]["MENU"][2]."<span>",
-                3,0,0,0,""
-            ),
-            $ui->Columns(
-                FormLink(
-                    [
-                        $ui->Input("language","",$idioma[ $idiomaActual ]["MENU"][3],"F",true),
-                    ],
-                    "",
-                    $idioma[ $idiomaActual ]["MENU"][3]
-
-                ),
-                2,0,0,0,""
-            ),
-            $ui->Columns(
-                "<span>".Cart(4,$idioma[ $idiomaActual ]["MENU"][4])."<span>",
-                1,0,0,0,""
-            )
-        ]),
-        "</div>",
-        "<img id='logo' class='fixed-top' src='img/ts_iso_negro.png' style='width: 7%'></img>",
+        $fc->Menu($idioma,$idiomaActual),
+        $fc->LogoNegro(),
         $htmlProducts
 
     ],"style='background-color:#FFFFF;' ") //#AC9950

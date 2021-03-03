@@ -8,6 +8,7 @@ include_once "View/Componentes/Administracion/VistasHtml.php";
 include_once "Business/Utilidades.php";
 include_once "Data/Connection/EntidadBase.php";
 include_once "Data/Models/Producto.php";
+include_once "Business/FrontComponents.php";
 
 $html=new VistasHtml();
 $ui=new Utilidades();
@@ -48,6 +49,7 @@ foreach ($products as $product){
     $htmlIds.="<hr style='padding: 0px;border: none;margin: 0px'/><span onclick=\"$js\">$item->Clave</span><br/>";
 }
 
+$fc=new \Tiendita\FrontComponents();
 
 $h= $html->Html5(
     $html->Head(
@@ -107,7 +109,7 @@ $h= $html->Html5(
                         display:inline-block;
                         top:50vh;
                         left: 2vw;
-                        background-color: rgba(255,255,255,.3);
+                        /*background-color: rgba(255,255,255,.3);*/
                         cursor: pointer;
                         
                     }
@@ -132,7 +134,11 @@ $h= $html->Html5(
                     right{
                         text-align: right;
                     }
-                    
+                    hr{
+                        margin-right: 0;
+                        margin-left: 0;
+                        opacity: 1;
+                    }
                     
                 </style>
             ",
@@ -182,45 +188,9 @@ $h= $html->Html5(
 
         ),
     $html->Body([
-
-        "<div class='fixed-top' style='padding-top:2vh;padding-bottom:2vh;padding-left: 2vw;padding-right: 2vw'>",
-        $ui->Row([
-            $ui->Columns(
-                "<span onclick='go(\"shop.php\")'>".$idioma[ $idiomaActual ]["MENU"][0]."<span>",
-                3,0,0,0,""
-            ),
-            $ui->Columns(
-                "<span>".$idioma[ $idiomaActual ]["MENU"][1]."</span>",
-                3,0,0,0,""
-            ),
-            $ui->Columns(
-                "<span>".$idioma[ $idiomaActual ]["MENU"][2]."<span>",
-                3,0,0,0,""
-            ),
-            $ui->Columns(
-                FormLink(
-                    [
-                        $ui->Input("language","",$idioma[ $idiomaActual ]["MENU"][3],"F",true),
-                    ],
-                    "",
-                    $idioma[ $idiomaActual ]["MENU"][3]
-
-                ),
-                2,0,0,0,""
-            ),
-            $ui->Columns(
-                "<span>".Cart(4,$idioma[ $idiomaActual ]["MENU"][4])."<span>",
-                1,0,0,0,"text-right"
-            )
-        ],"right"),
-        "</div>",
-
-        "<img id='logo' class='fixed-top' src='img/ts_iso_oro.png' style='width: 7%'></img>",
-        "<label id='t' onmouseover='tOverMenu();' style='font-family: NHaasGroteskDSPro-55Rg;z-index: 100'>T0000'00</label>",
-        "<div style='z-index: 100' onmouseleave='tOffMenu();' id='t-over'>",
-            $htmlIds,
-        "</div>",
-
+        $fc->MenuDorado($idioma,$idiomaActual),
+        $fc->LogoDorado(),
+        $fc->TMenu($htmlIds),
         $ui->ContainerFluid([
             "<table cellpadding='0' cellspacing='0'>",
             "<tr>",
@@ -233,25 +203,3 @@ $h= $html->Html5(
 );
 
 print_r($h);
-
-// Funciones
-
-function FormLink(array $content,string $url,string $button){
-    $html= "
-            <form method='post' action='$url'>";
-    $html.=implode("",$content);
-    $html.='
-                <div class="form-group row">
-                    <div class="col-sm-10">
-                        <button type="submit" class="btn btn-link" style="text-decoration: none;color: #AC9950;padding: 0px;border: none"><span type="submit">'.$button.'</span></button>
-                    </div>
-                </div>
-            </form>';
-    return $html;
-}
-
-function Cart($number,$label):string
-{
-    return str_replace("*",$number,$label);
-}
-

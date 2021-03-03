@@ -10,6 +10,7 @@ use Tiendita\Utilidades;
 include_once "View/Componentes/Administracion/VistasHtml.php";
 include_once "Business/Utilidades.php";
 include_once "Data/Connection/EntidadBase.php";
+include_once "Business/FrontComponents.php";
 
 
 $html=new VistasHtml();
@@ -129,6 +130,7 @@ $modal="
 
 $db->close();
 $htmlProducts="";
+$fc=new \Tiendita\FrontComponents();
 
 $h= $html->Html5(
     $html->Head(
@@ -174,6 +176,11 @@ $h= $html->Html5(
                     letter-spacing:0.09em; 
                     overflow: no-display;
                 }
+                .btn:focus {
+                    outline: none;
+                    box-shadow: none;
+                }
+                
                 .left-top{
                     position: fixed;
                     top: 5vh;
@@ -205,6 +212,19 @@ $h= $html->Html5(
                     padding-left: 40px;
                     padding-right: 40px; 
                     margin: 0 0 0 0;
+                    font-size: inherit;
+                }
+                #componentBase{
+                    position: fixed;
+                    bottom: 0;
+                    font-size: 0.9em;
+                }
+                label{
+                    padding-right: 50px;
+                    padding-bottom: 2vh;
+                }
+                .small-font{
+                    font-size: 0.9em;
                 }
                 
             </style>
@@ -225,46 +245,9 @@ $h= $html->Html5(
 
     ),
     $html->Body([
-        // Load Facebook button
-        "
-            <div id=\"fb-root\"></div>
-            <script async defer 
-                crossorigin=\"anonymous\" 
-                src=\"https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v9.0&appId=1794600520762591&autoLogAppEvents=1\" 
-                nonce=\"wlJTE7aj\">
-            </script>",
-        "<div class='fixed-top' style='padding-top:2vh;padding-bottom:2vh;padding-left: 2vw;padding-right: 2vw'>",
-        $ui->Row([
-            $ui->Columns(
-                "<span onclick='go(\"index.php\")'>".$idioma[ $idiomaActual ]["MENU"][0]."<span>",
-                3,0,0,0,""
-            ),
-            $ui->Columns(
-                "<span>".$idioma[ $idiomaActual ]["MENU"][1]."</span>",
-                3,0,0,0,""
-            ),
-            $ui->Columns(
-                "<span>".$idioma[ $idiomaActual ]["MENU"][2]."<span>",
-                3,0,0,0,""
-            ),
-            $ui->Columns(
-                FormLink(
-                    [
-                        $ui->Input("language","",$idioma[ $idiomaActual ]["MENU"][3],"F",true),
-                    ],
-                    "",
-                    $idioma[ $idiomaActual ]["MENU"][3]
 
-                ),
-                2,0,0,0,""
-            ),
-            $ui->Columns(
-                "<span style='text-align: right'>".Cart(4,$idioma[ $idiomaActual ]["MENU"][4])."<span>",
-                1,0,0,0,""
-            )
-        ]),
-        "</div>",
-        "<img id='logo' class='fixed-top' src='img/ts_iso_negro.png' style='width: 7%'></img>",
+        $fc->Menu($idioma,$idiomaActual),
+        $fc->LogoNegro(),
         "<br/>",
         $ui->ContainerFluid([
             $ui->Row([
@@ -273,30 +256,34 @@ $h= $html->Html5(
                     ,6,0,0,0,""),
                 $ui->Columns(
                     $ui->ContainerFluid([
-                        "<hr/>",
-                        $ui->Row([
-                            $ui->Columns("<p style='font-family: NHaasGroteskDSPro-65Md'>$productInformation->Name</p>",12),
+                            "<hr/>",
+                            $ui->Row([
+                                $ui->Columns("<p style='font-family: NHaasGroteskDSPro-65Md'>$productInformation->Name</p>",12),
 
-                        ]),
-                        $ui->Row([
-                            $ui->Columns($descriptionTable,12),
+                            ]),
+                            $ui->Row([
+                                $ui->Columns("<p>$productInformation->Descripcion</p>",12),
 
-                        ]),
-                        "<hr/>",
-                        $ui->Row([
-                            $ui->Columns("<p style='text-align: justify;text'>$productInformation->DescripcionLarga</p>",12)
+                            ]),
+                            "<hr/>",
+                            $ui->Row([
+                                $ui->Columns("$productInformation->DescripcionLarga",12,0,0,0,"small-font")
 
-                        ]),
-                        "<hr/><div style='height: 35vh'>",
-                        "<label style='padding-left: 40px'>$price</label>",
-                        "</div><hr style='margin: 0 0 0 0'/>",
-                        '<button type="button" class="btn btn-block" data-toggle="modal" data-target="#size">',
-                            'SELECT SIZE <i class="fa fa-arrow-down"></i>',
-                        '</button>',
-                        '<hr style="margin: 0 0 0 0"/>',
-                        '<button type="button" class="btn btn-dark btn-block">ADD TO CAR</button>'
+                            ]),
+                            "<hr/><div style='height: 35vh'>",
+                            "<label style='padding-left: 40px'>$price</label>",
+                            "</div><hr style='margin: 0 0 0 0'/>",
+                            '<button type="button" class="btn btn-block">',
+                                'SELECT SIZE <i class="fa fa-arrow-down"></i>',
+                            '</button>',
+                            '<hr style="margin: 0 0 0 0"/>',
+                            '<button onclick="go(\'cart.php\')" type="button" class="btn btn-dark btn-block">ADD TO CAR</button>'
 
-                    ],"component")
+                        ],"component").
+
+                        $ui->ContainerFluid([
+                                "<label><span>PRIVACY POLICY</span></label><label><span>SHIPPING RETURNS</span></label><label><button type='button' class='btn btn-link small-font' style='text-decoration: none;color: black;padding: 0;border: none'  data-toggle='modal' data-target='#size'><span>SIZE GUIDE</span></button></label>"
+                            ],"componentBase")
                     ,6,0,0,0,"left-top")
             ],"main")
         ]),
