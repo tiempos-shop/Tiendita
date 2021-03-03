@@ -101,7 +101,7 @@ $h= $html->Html5(
                         display:inline-block;
                         top:50vh;
                         left: 2vw;
-                        background-color: rgba(255,255,255,.1)
+                        
                     }
                     #t-over{
                         visibility:hidden;
