@@ -282,7 +282,7 @@ $h= $html->Html5(
                         ],"component").
 
                         $ui->ContainerFluid([
-                                "<label><span>PRIVACY POLICY</span></label><label><span>SHIPPING RETURNS</span></label><label><button type='button' class='btn btn-link small-font' style='text-decoration: none;color: black;padding: 0;border: none'  data-toggle='modal' data-target='#size'><span>SIZE GUIDE</span></button></label>"
+                                "<label><span>PRIVACY POLICY</span></label><label><span>SHIPPING RETURNS</span></label><label><button type='button' class='btn btn-link' style='text-decoration: none;color: black;padding: 0;border: none;font-weight: normal;font-size: 14.4px'  data-toggle='modal' data-target='#size'><span>SIZE GUIDE</span></button></label>"
                             ],"componentBase")
                     ,6,0,0,0,"left-top")
             ],"main")
