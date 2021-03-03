@@ -50,7 +50,7 @@ class FrontComponents
         return "<div class='fixed-top' style='padding-top:2vh;padding-bottom:2vh;padding-left: 2vw;padding-right: 2vw'>".
             $this->ui->Row([
                 $this->ui->Columns(
-                    "<span onclick='go(\"shop.php\")'>".$idioma[ $idiomaActual ]["MENU"][0]."<span>",
+                    "<span onclick='go(\"index.php\")'>".$idioma[ $idiomaActual ]["MENU"][0]."<span>",
                     3,0,0,0,""
                 ),
                 $this->ui->Columns(
