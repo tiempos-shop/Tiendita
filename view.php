@@ -277,7 +277,7 @@ $h= $html->Html5(
                                 'SELECT SIZE <i class="fa fa-arrow-down"></i>',
                             '</button>',
                             '<hr style="margin: 0 0 0 0"/>',
-                            '<button onclick="go(\'cart.php\')" type="button" class="btn btn-dark btn-block">ADD TO CAR</button>'
+                            '<button onclick="go(\'cart.php\')" type="button" class="btn btn-dark btn-block">ADD TO CART</button>'
 
                         ],"component").
 

@@ -10,6 +10,7 @@ include_once "Data/Connection/EntidadBase.php";
 include_once "Data/Models/Producto.php";
 include_once "Business/FrontComponents.php";
 
+session_start();
 $html=new VistasHtml();
 $ui=new Utilidades();
 $entity=new \Tiendita\EntidadBase();
@@ -28,9 +29,11 @@ $idiomaActual="";
 if(count($_POST)>0)
 {
     $idiomaActual=$_POST["language"];
+    $_SESSION["language"]=$idiomaActual;
 }
 else{
     $idiomaActual="ENGLISH";
+    $_SESSION["language"]=$idiomaActual;
 }
 
 $idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];

@@ -8,7 +8,7 @@ include_once "Business/Utilidades.php";
 include_once "Data/Connection/EntidadBase.php";
 include_once "Business/FrontComponents.php";
 
-
+session_start();
 $html=new VistasHtml();
 $ui=new Utilidades();
 $db=new \Tiendita\EntidadBase();
@@ -18,9 +18,10 @@ $idiomaActual="";
 if(count($_POST)>0)
 {
     $idiomaActual=$_POST["language"];
+    $_SESSION["language"]=$idiomaActual;
 }
 else{
-    $idiomaActual="ENGLISH";
+    $idiomaActual=$_SESSION["language"];
 }
 $tipoCambio=20;
 
