@@ -136,12 +136,7 @@ $h= $html->Html5(
                         overflow:hidden; 
                     }
                     button{
-                        background-color: transparent;
-                        border: none;
-                        background-color: Transparent;
-                        background-repeat:no-repeat;
-                        cursor:pointer;
-                        overflow: hidden;  
+                        -webkit-appearance: none;  
                     }
                     right{
                         text-align: right;
