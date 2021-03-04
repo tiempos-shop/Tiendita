@@ -32,8 +32,7 @@ if(count($_POST)>0)
     $_SESSION["language"]=$idiomaActual;
 }
 else{
-    $idiomaActual="ENGLISH";
-    $_SESSION["language"]=$idiomaActual;
+    $idiomaActual=$_SESSION["language"];
 }
 
 $idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
@@ -69,21 +68,8 @@ $h= $html->Html5(
                         content: \"'\";
                     }
                     
-                    #principal{
-                        top:0px;
-                        position: absolute;
-                        padding-left: 0px;
-                        padding-right: 0px;
-                    }
-                    @keyframes blur-fx1 {   
-                        
-                        0%      { filter: blur(20px);-webkit-filter:blur(20px)}
-                        100%    { filter: blur(0px);-webkit-filter:blur(0px)}
-                    }
-                    @keyframes blur-fx2 {
-                        0%     { filter: blur(20px);-webkit-filter:blur(20px)}
-                        100%    { filter: blur(0px);-webkit-filter:blur(0px)}
-                    }
+                    
+                    
                     #left_home{
                         animation-name: blur-fx1;
                         animation-duration: 2s;
@@ -134,9 +120,15 @@ $h= $html->Html5(
                         font-family: NHaasGroteskDSPro-55Rg;
                         letter-spacing:0.09em; 
                     }
-                    right{
-                        text-align: right;
+                    button{
+                        background-color: transparent;
+                        border: none;
+                        background-repeat:no-repeat;
+                        cursor:pointer;
+                        overflow: hidden;  
                     }
+                    
+                    
                     hr{
                         margin-right: 0;
                         margin-left: 0;
@@ -152,24 +144,10 @@ $h= $html->Html5(
                 </style>
             ",
         "<script>
-                      window.onload=function (){
-                          load();
-                      }
+                      
                       
                       function go(url){
                           window.location.href=url;
-                      }
-                      
-                      function load(){
-                        setTimeout(
-                              function ()
-                              {
-                                    var r=document.getElementById(\"right_home\");
-                                    r.style.visibility=\"visible\";
-                                    
-                              },1000
-                        );
-                       
                       }
                       
                       function tOverMenu(){
@@ -193,15 +171,15 @@ $h= $html->Html5(
                       
                       
                       
-                    </script>,"
+                    </script>"
 
     ),
     $html->Body([
-        $fc->Menu($idioma,$idiomaActual),
-        $fc->LogoNegro(),
-        $fc->TMenu($htmlIds),
-        $fc->About($idiomaActual),
-        $fc->Foot($idiomaActual)
+          $fc->Menu($idioma,$idiomaActual),
+          $fc->LogoNegro(),
+          $fc->TMenu($htmlIds),
+          $fc->About($idiomaActual),
+          $fc->Foot($idiomaActual)
 
     ],"style='background-color:#AC9950;color:black'")
 );

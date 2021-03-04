@@ -123,13 +123,13 @@ class FrontComponents
     public function TMenu(string $htmlIds)
     {
         return "<label id='t' onmouseover='tOverMenu();' style='font-family: NHaasGroteskDSPro-55Rg;z-index: 100'>T0000'00</label>".
-        "<div style='z-index: 100' onmouseleave='tOffMenu();' id='t-over'>".
+        "<div style='z-index: 1000' onmouseleave='tOffMenu();' id='t-over'>".
             $htmlIds.
         "</div>";
     }
 
     public function About($idiomaActual):string{
-        return "<div class='fixed-top' style='padding-top:57vh;padding-bottom:2vh;padding-left: 2vw;padding-right: 2vw'>".
+        return "<div class='fixed-top' style='top:57vh;padding-bottom:2vh;padding-left: 2vw;padding-right: 2vw'>".
             $this->ui->Row([
                 $this->ui->Columns(
                     "<p>PIECES OF EVIDENCE</p>",

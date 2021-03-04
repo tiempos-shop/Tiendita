@@ -135,6 +135,14 @@ $h= $html->Html5(
                         letter-spacing:0.09em; 
                         overflow:hidden; 
                     }
+                    button{
+                        background-color: transparent;
+                        border: none;
+                        background-color: Transparent;
+                        background-repeat:no-repeat;
+                        cursor:pointer;
+                        overflow: hidden;  
+                    }
                     right{
                         text-align: right;
                     }
