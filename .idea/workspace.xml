@@ -19,10 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Imprints">
-      <change afterPath="$PROJECT_DIR$/archive.php" afterDir="false" />
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="archive">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/FrontComponents.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/FrontComponents.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive.php" beforeDir="false" afterPath="$PROJECT_DIR$/archive.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,14 +230,7 @@
       <workItem from="1614466507089" duration="1889000" />
       <workItem from="1614617849473" duration="21772000" />
       <workItem from="1614651241198" duration="218000" />
-      <workItem from="1614710425687" duration="20573000" />
-    </task>
-    <task id="LOCAL-00042" summary="Pagos.php">
-      <created>1607484519219</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1607484519219</updated>
+      <workItem from="1614710425687" duration="21503000" />
     </task>
     <task id="LOCAL-00043" summary="Pagos.php">
       <created>1607485735381</created>
@@ -575,7 +568,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614818788406</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="archive">
+      <created>1614820585473</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1614820585473</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -617,6 +617,7 @@
     <MESSAGE value="Vista detalle producto" />
     <MESSAGE value="Detalles" />
     <MESSAGE value="Imprints" />
-    <option name="LAST_COMMIT_MESSAGE" value="Imprints" />
+    <MESSAGE value="archive" />
+    <option name="LAST_COMMIT_MESSAGE" value="archive" />
   </component>
 </project>

@@ -133,6 +133,7 @@ $h= $html->Html5(
                     body,button {
                         font-family: NHaasGroteskDSPro-55Rg;
                         letter-spacing:0.09em; 
+                        overflow:hidden; 
                     }
                     right{
                         text-align: right;

@@ -113,6 +113,7 @@ $h= $html->Html5(
         $fc->Menu($idioma,$idiomaActual),
         $fc->LogoNegro(),
         //$fc->TMenu($htmlIds)
+        "<div class='fixed-top' style='width:96.1vw;height:95.7vh;background-color: transparent;border: 1px solid black;top:2vh;left: 2vw;bottom: 2vh;right: 2vw'></div>"
 
 
     ],"style='background-color:#FFFFF;' ") //#AC9950
