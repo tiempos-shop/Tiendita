@@ -103,13 +103,8 @@ $h= $html->Html5(
                     font-family: NHaasGroteskDSPro-55Rg;
                     letter-spacing:0.09em; 
                 }
-                button{
-                    background-color: transparent;
-                    border: none;
-                    background-color: Transparent;
-                    background-repeat:no-repeat;
-                    cursor:pointer;
-                    overflow: hidden;  
+                [type='submit']{
+                    -webkit-appearance: none!important;  
                 }
                 #logo{
                     display:inline-block;

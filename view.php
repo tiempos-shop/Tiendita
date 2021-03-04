@@ -180,13 +180,8 @@ $h= $html->Html5(
                     outline: none;
                     box-shadow: none;
                 }
-                button{
-                    background-color: transparent;
-                    border: none;
-                    background-color: Transparent;
-                    background-repeat:no-repeat;
-                    cursor:pointer;
-                    overflow: hidden;  
+                [type='submit']{
+                    -webkit-appearance: none!important;  
                 }
                 
                 .left-top{

@@ -140,6 +140,9 @@ $h= $html->Html5(
                         margin: 0 0 0 0;
                         font-size: inherit;
                     }
+                    [type='submit']{
+                        -webkit-appearance: none!important;  
+                    }
                     
                 </style>
             ",
