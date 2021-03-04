@@ -135,8 +135,8 @@ $h= $html->Html5(
                         letter-spacing:0.09em; 
                         overflow:hidden; 
                     }
-                    button{
-                        -webkit-appearance: none;  
+                    [type='submit']{
+                        -webkit-appearance: none!important;  
                     }
                     right{
                         text-align: right;
