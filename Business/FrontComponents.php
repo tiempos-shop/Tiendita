@@ -24,7 +24,7 @@ class FrontComponents
                 3,0,0,0,""
             ),
             $this->ui->Columns(
-                "<span>".$idioma[ $idiomaActual ]["MENU"][2]."<span>",
+                "<span onclick='go(\"imprint.php\")'>".$idioma[ $idiomaActual ]["MENU"][2]."<span>",
                 3,0,0,0,""
             ),
             $this->ui->Columns(
@@ -58,7 +58,7 @@ class FrontComponents
                     3,0,0,0,""
                 ),
                 $this->ui->Columns(
-                    "<span>".$idioma[ $idiomaActual ]["MENU"][2]."<span>",
+                    "<span onclick='go(\"imprint.php\")'>".$idioma[ $idiomaActual ]["MENU"][2]."<span>",
                     3,0,0,0,""
                 ),
                 $this->ui->Columns(
@@ -126,6 +126,58 @@ class FrontComponents
         "<div style='z-index: 100' onmouseleave='tOffMenu();' id='t-over'>".
             $htmlIds.
         "</div>";
+    }
+
+    public function About($idiomaActual):string{
+        return "<div class='fixed-top' style='padding-top:57vh;padding-bottom:2vh;padding-left: 2vw;padding-right: 2vw'>".
+            $this->ui->Row([
+                $this->ui->Columns(
+                    "<p>PIECES OF EVIDENCE</p>",
+                    12,0,0,0,""
+                )
+            ],"").
+            $this->ui->Row([
+                $this->ui->Columns(
+                    "<p>WITHIN FLEETING TIMES . AN AIM TO CREATE</p>",
+                    12,0,0,0,""
+                )
+            ],"").
+            $this->ui->Row([
+                $this->ui->Columns(
+                    "<p>PUNCTUAL YET LASTING MOMENTS</p>",
+                    12,0,0,0,""
+                )
+            ],"").
+            $this->ui->Row([
+                $this->ui->Columns(
+                    "<p>WWW . TIEMPOS . SHOP</p>",
+                    12,0,0,0,""
+                )
+            ],"").
+            "</div>";
+    }
+
+    public function Foot($idiomaActual):string{
+        return "<div class='fixed-bottom' style='padding-top:2vh;padding-bottom:2vh;padding-left: 2vw;padding-right: 2vw'>".
+            $this->ui->Row([
+                $this->ui->Columns(
+                    "<p>ABOUT BRANDS S.A. DE C.V. ABR181008L27</p>",
+                    12,0,0,0,""
+                )
+            ],"").
+            $this->ui->Row([
+                $this->ui->Columns(
+                    "<p>CALLE INDUSTRIAL 4 51D</p>",
+                    12,0,0,0,""
+                )
+            ],"").
+            $this->ui->Row([
+                $this->ui->Columns(
+                    "<p>COL. LA PRIMAVERA 8030 CULIACÁN SIN. MX</p>",
+                    12,0,0,0,""
+                )
+            ],"").
+            "</div>";
     }
 
 
