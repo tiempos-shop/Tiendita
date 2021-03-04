@@ -19,8 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Detalles">
-      <change afterPath="$PROJECT_DIR$/imprint.php" afterDir="false" />
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Imprints">
+      <change afterPath="$PROJECT_DIR$/archive.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Business/FrontComponents.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/FrontComponents.php" afterDir="false" />
     </list>
@@ -230,14 +230,7 @@
       <workItem from="1614466507089" duration="1889000" />
       <workItem from="1614617849473" duration="21772000" />
       <workItem from="1614651241198" duration="218000" />
-      <workItem from="1614710425687" duration="18735000" />
-    </task>
-    <task id="LOCAL-00041" summary="Pagos.php">
-      <created>1607409330190</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1607409330190</updated>
+      <workItem from="1614710425687" duration="20573000" />
     </task>
     <task id="LOCAL-00042" summary="Pagos.php">
       <created>1607484519219</created>
@@ -575,7 +568,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614794300104</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="Imprints">
+      <created>1614818788406</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1614818788406</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -616,6 +616,7 @@
     <MESSAGE value="Seleccionar producto en Shop y dirigirlo a detalle de producto" />
     <MESSAGE value="Vista detalle producto" />
     <MESSAGE value="Detalles" />
-    <option name="LAST_COMMIT_MESSAGE" value="Detalles" />
+    <MESSAGE value="Imprints" />
+    <option name="LAST_COMMIT_MESSAGE" value="Imprints" />
   </component>
 </project>

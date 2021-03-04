@@ -20,7 +20,7 @@ class FrontComponents
                 3,0,0,0,""
             ),
             $this->ui->Columns(
-                "<span>".$idioma[ $idiomaActual ]["MENU"][1]."</span>",
+                "<span onclick='go(\"archive.php\")'>".$idioma[ $idiomaActual ]["MENU"][1]."</span>",
                 3,0,0,0,""
             ),
             $this->ui->Columns(
@@ -54,7 +54,7 @@ class FrontComponents
                     3,0,0,0,""
                 ),
                 $this->ui->Columns(
-                    "<span>".$idioma[ $idiomaActual ]["MENU"][1]."</span>",
+                    "<span onclick='go(\"archive.php\")'>".$idioma[ $idiomaActual ]["MENU"][1]."</span>",
                     3,0,0,0,""
                 ),
                 $this->ui->Columns(
