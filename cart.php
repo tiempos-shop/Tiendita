@@ -9,7 +9,7 @@ include_once "Business/Utilidades.php";
 include_once "Data/Connection/EntidadBase.php";
 include_once "Business/FrontComponents.php";
 
-
+session_start();
 $html=new VistasHtml();
 $ui=new Utilidades();
 $db=new EntidadBase();
@@ -23,14 +23,15 @@ if(count($_POST)>0){
     $productosCarrito=$_POST["carrito"];
 }
 else
-    $idiomaActual="ENGLISH";
+    $idiomaActual=$_SESSION["language"];
 
 $tipoCambio=20;
 $idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
 
 $price=0;
 $tipoCambio=20;
-//$productInformation=$products=$db->getBy("Productos","Clave",$id)[0];
+$productInformation=$products=$db->getAll("Productos")[0];
+$db->close();
 
 if($idiomaActual=="ENGLISH"){
 
@@ -41,7 +42,7 @@ else{
 }
 
 
-//$images=explode(",",$productInformation->RutaImagen);
+$images=explode(",",$productInformation->RutaImagen);
 $collage="";
 
 //echo "<pre>";

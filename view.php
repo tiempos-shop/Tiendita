@@ -12,7 +12,7 @@ include_once "Business/Utilidades.php";
 include_once "Data/Connection/EntidadBase.php";
 include_once "Business/FrontComponents.php";
 
-
+session_start();
 $html=new VistasHtml();
 $ui=new Utilidades();
 $db=new EntidadBase();
@@ -23,7 +23,7 @@ $idiomaActual="";
 if(count($_POST)>0)
     $idiomaActual=$_POST["language"];
 else
-    $idiomaActual="ENGLISH";
+    $idiomaActual=$_SESSION["language"];
 
 $tipoCambio=20;
 $idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];

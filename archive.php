@@ -166,10 +166,37 @@ $h= $html->Html5(
         $fc->Menu($idioma,$idiomaActual),
         $fc->LogoNegro(),
         $fc->TMenu($htmlIds),
-        "<div class='fixed-top' style='z-index:-100;width:96.1vw;height:95.7vh;background-color: transparent;border: 1px solid black;top:2vh;left: 2vw;bottom: 2vh;right: 2vw'></div>"
+        "<div class='fixed-top' style='z-index:-100;width:96.1vw;height:95.7vh;background-color: transparent;border: 1px solid black;top:2vh;left: 2vw'></div>",
+        $ui->ContainerFluid([
+            $ui->Row([$ui->Columns("<br/><br/>",12)]),
+            $ui->Row([
+                $ui->Columns("",1),
+                $ui->Columns(
+                    '
+                        <iframe style="left: 80vw;width: 110%;height: 80vh"
+                            src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1">
+                        </iframe>
+        ',11),
+            ]),
+            $ui->Row([$ui->Columns("<br/><br/>",12)]),
+            $ui->Row([
+                $ui->Columns("",1),
+                $ui->Columns(
+                    "
+                        <table class='table table-borderless' style='width: 110%' >
+                            <tr>
+                                <td><img width='300' src='img/0000-JALAPEÑO-back.jpg'></td>
+                                <td><img width='300' src='img/0001-OBSIDIANA-back.jpg'></td>
+                                <td><img width='300' src='img/0002-TACUBAYA-back.jpg'></td>
+                                <td><img width='300' src='img/0003-AÑIL-back.jpg'></td>
+                            </tr>
+                        </table>
+                        ",11)
+            ]),
+        ]),
 
 
-    ],"style='background-color:transparent;'") //#AC9950
+    ],"style='background-color:transparent;z-index:100'") //#AC9950
 );
 
 print_r($h);
