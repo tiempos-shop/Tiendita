@@ -11,6 +11,13 @@ include_once "Data/Models/Producto.php";
 include_once "Business/FrontComponents.php";
 
 session_start();
+if(isset($_SESSION["ProductosCarrito"])){
+    $productosCarrito=$_SESSION["ProductosCarrito"];
+    $numeroProductosCarrito=count($productosCarrito);
+}
+else{
+    $numeroProductosCarrito=0;
+}
 $html=new VistasHtml();
 $ui=new Utilidades();
 $entity=new \Tiendita\EntidadBase();
@@ -178,7 +185,7 @@ $h= $html->Html5(
 
     ),
     $html->Body([
-          $fc->Menu($idioma,$idiomaActual),
+          $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito),
           $fc->LogoNegro(),
           $fc->TMenu($htmlIds),
           $fc->About($idiomaActual),

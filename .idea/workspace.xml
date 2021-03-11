@@ -19,9 +19,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="archive">
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Carrito">
+      <change afterPath="$PROJECT_DIR$/js/popper.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/FrontComponents.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/FrontComponents.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/Utilidades.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Utilidades.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive.php" beforeDir="false" afterPath="$PROJECT_DIR$/archive.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imprint.php" beforeDir="false" afterPath="$PROJECT_DIR$/imprint.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/shop.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +38,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -80,17 +95,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\img" />
-      <recent name="C:\Users\Egil\PhpstormProjects\Tiendita" />
-      <recent name="C:\Users\RENDER2\PhpstormProjects\Tiendita" />
-      <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\View\Imagenes" />
-      <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\Data\Models" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\RENDER2\PhpstormProjects\Tiendita\font" />
       <recent name="C:\Users\Egil Ordonez\PhpstormProjects\Tiendita\Business" />
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Egil Ordonez\PhpstormProjects\Tiendita\js" />
+      <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\img" />
+      <recent name="C:\Users\Egil\PhpstormProjects\Tiendita" />
+      <recent name="C:\Users\RENDER2\PhpstormProjects\Tiendita" />
+      <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\View\Imagenes" />
     </key>
   </component>
   <component name="RunManager" selected="PHP Web Page.XAMPP">
@@ -229,28 +244,8 @@
       <workItem from="1614466507089" duration="1889000" />
       <workItem from="1614617849473" duration="21772000" />
       <workItem from="1614651241198" duration="218000" />
-      <workItem from="1614710425687" duration="29410000" />
-    </task>
-    <task id="LOCAL-00046" summary="Pagos.php">
-      <created>1608005456282</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1608005456282</updated>
-    </task>
-    <task id="LOCAL-00047" summary="Pagos.php">
-      <created>1608048914212</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1608048914212</updated>
-    </task>
-    <task id="LOCAL-00048" summary="Pagos.php">
-      <created>1608065393978</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1608065393978</updated>
+      <workItem from="1614710425687" duration="41040000" />
+      <workItem from="1615261607748" duration="38692000" />
     </task>
     <task id="LOCAL-00049" summary="Pagos.php">
       <created>1608082745556</created>
@@ -574,7 +569,28 @@
       <option name="project" value="LOCAL" />
       <updated>1614878509325</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="archive">
+      <created>1614879410810</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1614879410810</updated>
+    </task>
+    <task id="LOCAL-00096" summary="Correccion MAC">
+      <created>1614879753057</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1614879753057</updated>
+    </task>
+    <task id="LOCAL-00097" summary="Carrito">
+      <created>1614904128546</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1614904128546</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -617,6 +633,8 @@
     <MESSAGE value="Detalles" />
     <MESSAGE value="Imprints" />
     <MESSAGE value="archive" />
-    <option name="LAST_COMMIT_MESSAGE" value="archive" />
+    <MESSAGE value="Correccion MAC" />
+    <MESSAGE value="Carrito" />
+    <option name="LAST_COMMIT_MESSAGE" value="Carrito" />
   </component>
 </project>

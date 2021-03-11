@@ -31,6 +31,7 @@ $idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(
 $price=0;
 $tipoCambio=20;
 $productInformation=$products=$db->getBy("Productos","Clave",$id)[0];
+$_SESSION["CheckOut"]=[ $productInformation->Clave,1,"ONE SIZE"];
 
 if($idiomaActual=="ENGLISH"){
     $dollarPrice=$productInformation->Costo/$tipoCambio;
@@ -69,9 +70,6 @@ $collage="";
 foreach ($images as $image){
     $collage.="<img class='img-fluid' src='$image'><br/>";
 }
-//echo "<pre>";
-//var_dump($productInformation);
-//echo "</pre>";
 
 $modal="
 <table class='table table-borderless' style=''>
@@ -137,7 +135,7 @@ $h= $html->Html5(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
         $html->LoadStyles(["View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
-        $html->LoadScripts(["View/js/bootstrap.js"]),
+        $html->LoadScripts(["js/popper.min.js","View/js/bootstrap.js"]),
         "
             <style>
             
@@ -276,11 +274,20 @@ $h= $html->Html5(
                             "<hr/><div style='height: 35vh'>",
                             "<label style='padding-left: 40px'>$price</label>",
                             "</div><hr style='margin: 0 0 0 0'/>",
-                            '<button type="button" class="btn btn-block">',
-                                'SELECT SIZE <i class="fa fa-arrow-down"></i>',
-                            '</button>',
+                            '<div class="btn-group" style="width:100%">
+                                <button type="button" class="btn btn-block dropdown-toggle" data-toggle="dropdown">
+                                  SELECT SIZE <span class="caret"></span>
+                                </button>
+                                <div class="dropdown-menu align-content-center" role="menu" style="width:100%">
+                                    <a class="dropdown-item" href="#">ONE SIZE</a>
+                                    
+                                </div>
+                              </div>',
                             '<hr style="margin: 0 0 0 0"/>',
-                            '<button onclick="go(\'cart.php\')" type="button" class="btn btn-dark btn-block">ADD TO CART</button>'
+                            $ui->FormButtom([
+                                $ui->Input("CheckOut","",1,"F",false)
+                            ],"cart.php",'<button type="submit" class="btn btn-dark btn-block" style="border-radius: 0">ADD TO CART</button>'),
+
 
                         ],"component").
 

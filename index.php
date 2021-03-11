@@ -14,6 +14,16 @@ session_start();
 $html=new VistasHtml();
 $ui=new Utilidades();
 $entity=new \Tiendita\EntidadBase();
+
+if(isset($_SESSION["ProductosCarrito"])){
+    $productosCarrito=$_SESSION["ProductosCarrito"];
+    $numeroProductosCarrito=count($productosCarrito);
+}
+else{
+    $numeroProductosCarrito=0;
+}
+
+
 try {
     $products = $entity->getAll("Productos");
 } catch (Exception $e) {
@@ -195,7 +205,7 @@ $h= $html->Html5(
 
         ),
     $html->Body([
-        $fc->MenuDorado($idioma,$idiomaActual),
+        $fc->MenuDorado($idioma,$idiomaActual,$numeroProductosCarrito),
         $fc->LogoDorado(),
         $fc->TMenu($htmlIds),
         $ui->ContainerFluid([

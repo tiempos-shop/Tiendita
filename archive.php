@@ -10,6 +10,13 @@ include_once "Business/FrontComponents.php";
 include_once "Data/Models/Producto.php";
 
 session_start();
+if(isset($_SESSION["ProductosCarrito"])){
+    $productosCarrito=$_SESSION["ProductosCarrito"];
+    $numeroProductosCarrito=count($productosCarrito);
+}
+else{
+    $numeroProductosCarrito=0;
+}
 $html=new VistasHtml();
 $ui=new Utilidades();
 $entity=new \Tiendita\EntidadBase();
@@ -138,32 +145,39 @@ $h= $html->Html5(
                 
             </style>
         ",
-        '<script>
-                  function go(url){
-                      window.location.href=url;
-                  }
-                  function tOverMenu(){
-                      var t=document.getElementById(\"t\");
-                      var tover=document.getElementById(\"t-over\");
-                      t.style.visibility=\"hidden\";
-                      tover.style.visibility=\"visible\";
-                  }
-                  
-                  function tOffMenu(){
-                      const t=document.getElementById(\"t\");
-                      const tover=document.getElementById(\"t-over\");
-                      t.style.visibility=\"visible\";
-                      tover.style.visibility=\"hidden\";
-                  }
-                  function view(str){
-                      let id=str; //str.replace("_", "\'");
-                      go("view.php?id="+id);
-                  }
-                </script>'
+        "<script>
+                      
+                      
+                      function go(url){
+                          window.location.href=url;
+                      }
+                      
+                      function tOverMenu(){
+                          var t=document.getElementById(\"t\");
+                          var tover=document.getElementById(\"t-over\");
+                          t.style.visibility=\"hidden\";
+                          tover.style.visibility=\"visible\";
+                      }
+                      
+                      function tOffMenu(){
+                          const t=document.getElementById(\"t\");
+                          const tover=document.getElementById(\"t-over\");
+                          t.style.visibility=\"visible\";
+                          tover.style.visibility=\"hidden\";
+                      }
+                      
+                      function view(str){
+                          var id=str; //.replace(\"_\", \"\'\");
+                          go(\"view.php?id=\"+id);
+                      }
+                      
+                      
+                      
+                    </script>"
 
     ),
     $html->Body([
-        $fc->Menu($idioma,$idiomaActual),
+        $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito),
         $fc->LogoNegro(),
         $fc->TMenu($htmlIds),
         "<div class='fixed-top' style='z-index:-100;width:96.1vw;height:95.7vh;background-color: transparent;border: 1px solid black;top:2vh;left: 2vw'></div>",

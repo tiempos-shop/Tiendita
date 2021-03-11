@@ -374,6 +374,20 @@ class Utilidades
         return $html;
     }
 
+    public function FormButtom(array $content,string $url,string $button){
+        $html= "
+            <form method='post' action='$url'>";
+        $html.=implode("",$content);
+        $html.='
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        '.$button.'
+                    </div>
+                </div>
+            </form>';
+        return $html;
+    }
+
 
 
     public function Input(string $id, string $label, $value, string $type,bool $required,array $options=[]){
@@ -711,6 +725,13 @@ class Utilidades
             $html.=$startHtml.$i.$endHtml;
         }
         return $html;
+    }
+
+    public function Out(array $var)
+    {
+        echo "<pre>";
+        var_dump($var);
+        echo "</pre>";
     }
 
 }
