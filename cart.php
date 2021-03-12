@@ -193,9 +193,9 @@ $h= $html->Html5(
 
     ),
     $html->Body([
-        $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito),
+        $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","","","","'"]),
         $fc->LogoNegro(),
-        "<br/><br/>",
+        "<br/>",
         $ui->ContainerFluid([
             $htmlProducts,
             $ui->Row([

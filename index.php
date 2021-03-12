@@ -32,7 +32,6 @@ try {
 $entity->close();
 $item=new \Tiendita\Producto(0,1);
 
-global $idioma;
 $idiomaActual="";
 
 
@@ -40,13 +39,23 @@ if(count($_POST)>0)
 {
     $idiomaActual=$_POST["language"];
     $_SESSION["language"]=$idiomaActual;
+
 }
 else{
-    $idiomaActual="ENGLISH";
-    $_SESSION["language"]=$idiomaActual;
+    //$ui->Debug($_SESSION);
+
+    if(in_array("language",$_SESSION)){
+
+        $idiomaActual=$_SESSION["language"];
+    }
+    else{
+        $idiomaActual="ENGLISH";
+        $_SESSION["language"]=$idiomaActual;
+    }
+
 }
 
-$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
+$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","INGRESO","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","LOGIN","ESPAÑOL","CART(*)" ] ] ];
 
 // Obtener de base de datos de productos
 $htmlIds="";

@@ -733,5 +733,11 @@ class Utilidades
         var_dump($var);
         echo "</pre>";
     }
+    public function Debug(array $var)
+    {
+        echo "<div  style='background-color: white;color: red;z-index: 100000;position: fixed'><pre>";
+        var_dump($var);
+        echo "</pre></div>";
+    }
 
 }

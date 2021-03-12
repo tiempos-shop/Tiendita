@@ -177,7 +177,7 @@ $h= $html->Html5(
 
     ),
     $html->Body([
-        $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito),
+        $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","'","","","",""],false,true),
         $fc->LogoNegro(),
         $fc->TMenu($htmlIds),
         "<div class='fixed-top' style='z-index:-100;width:96.1vw;height:95.7vh;background-color: transparent;border: 1px solid black;top:2vh;left: 2vw'></div>",

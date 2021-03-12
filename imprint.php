@@ -185,7 +185,7 @@ $h= $html->Html5(
 
     ),
     $html->Body([
-          $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito),
+          $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","'","","",""],true),
           $fc->LogoNegro(),
           $fc->TMenu($htmlIds),
           $fc->About($idiomaActual),

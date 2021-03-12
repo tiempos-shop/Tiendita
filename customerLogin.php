@@ -8,20 +8,31 @@ use Tiendita\Utilidades;
 include_once "View/Componentes/Administracion/VistasHtml.php";
 include_once "Business/Utilidades.php";
 include_once "Data/Connection/EntidadBase.php";
+include_once "Business/FrontComponents.php";
 
-
+$fc=new \Tiendita\FrontComponents();
 $html=new VistasHtml();
 $ui=new Utilidades();
 $db=new EntidadBase();
+
+session_start();
+if(isset($_SESSION["ProductosCarrito"])){
+    $productosCarrito=$_SESSION["ProductosCarrito"];
+    $numeroProductosCarrito=count($productosCarrito);
+}
+else{
+    $numeroProductosCarrito=0;
+}
 
 // Idioma
 $idiomaActual="";
 if(count($_POST)>0)
 {
     $idiomaActual=$_POST["language"];
+    $_SESSION["language"]=$idiomaActual;
 }
 else{
-    $idiomaActual="ENGLISH";
+    $idiomaActual=$_SESSION["language"];
 }
 $tipoCambio=20;
 $idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
@@ -89,37 +100,7 @@ $h= $html->Html5(
                 src=\"https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v9.0&appId=1794600520762591&autoLogAppEvents=1\" 
                 nonce=\"wlJTE7aj\">
             </script>",
-        "<div class='fixed-top' style='padding-left: 2vw;padding-right: 2vw'>",
-        $ui->Row([
-            $ui->Columns(
-                "<span onclick='go(\"index.php\")'>".$idioma[ $idiomaActual ]["MENU"][0]."<span>",
-                3,0,0,0,""
-            ),
-            $ui->Columns(
-                "<span>".$idioma[ $idiomaActual ]["MENU"][1]."</span>",
-                3,0,0,0,""
-            ),
-            $ui->Columns(
-                "<span>".$idioma[ $idiomaActual ]["MENU"][2]."<span>",
-                3,0,0,0,""
-            ),
-            $ui->Columns(
-                FormLink(
-                    [
-                        $ui->Input("language","",$idioma[ $idiomaActual ]["MENU"][3],"F",true),
-                    ],
-                    "",
-                    $idioma[ $idiomaActual ]["MENU"][3]
-
-                ),
-                2,0,0,0,""
-            ),
-            $ui->Columns(
-                "<span>".Cart(4,$idioma[ $idiomaActual ]["MENU"][4])."<span>",
-                1,0,0,0,""
-            )
-        ]),
-        "</div>",
+        $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","","'","",""])
 
 
     ],"style='background-color:#FFFFF;' ") //#AC9950

@@ -63,7 +63,7 @@ foreach ($products as $product){
     $four="'$arr[2]'";
     $code=str_replace("'","_",$code);
     $js="view('$code')";
-    $htmlColumns[]=$ui->Columns('<br/><br/><img onclick="'.$js.'" src="'.$arr[0].'" onmouseover="changeImage(this,'.$four.')" onmouseleave="changeImage(this,'.$first.')" width="300px"><br/><br/><span style="font-family: NHaasGroteskDSPro-65Md">'.$description.'</span><br/>'.$price,
+    $htmlColumns[]=$ui->Columns('<br/><br/><img onclick="'.$js.'" src="'.$arr[0].'" onmouseover="changeImage(this,'.$four.')" onmouseleave="changeImage(this,'.$first.')" width="300px"><br/><br/><p>'.$description.'</p><p>'.$price.'</p>',
         3,0,0,0,"text-center");
     if(count($htmlColumns)==4 or $n==$i)
     {
@@ -119,6 +119,9 @@ $h= $html->Html5(
                     left: 90vw;
                     width: 7%
                 }
+                p{
+                    margin: 0 0 0 0;
+                }
                 
             </style>
         ",
@@ -138,7 +141,7 @@ $h= $html->Html5(
 
     ),
     $html->Body([
-        $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito),
+        $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["'","","","","",""]),
         $fc->LogoNegro(),
         $htmlProducts
 
