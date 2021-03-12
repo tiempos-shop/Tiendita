@@ -40,13 +40,7 @@ $tipoCambio=20;
 $productInformation=$products=$db->getBy("Productos","Clave",$id)[0];
 $_SESSION["CheckOut"]=[ $productInformation->Clave,1,"ONE SIZE"];
 
-if($idiomaActual=="ENGLISH"){
-    $dollarPrice=$productInformation->Costo/$tipoCambio;
-    $price=$ui->Moneda($dollarPrice,"USD $");
-}
-else{
-    $price=$ui->Moneda($productInformation->Costo,"MXN $");
-}
+
 
 $productWord=explode(" ",$productInformation->Nombre);
 $n=count($productWord);
@@ -58,7 +52,24 @@ foreach ($productWord as $word){
 }
 $nameTable.="</tr></table>";
 
-$productWord=explode(" ",$productInformation->Descripcion);
+$inventario=$productInformation->Inventario;
+if($idiomaActual=="ENGLISH"){
+    $dollarPrice=$productInformation->Costo/$tipoCambio;
+    $price=$ui->Moneda($dollarPrice,"USD $");
+    $productWord=explode(" ",$productInformation->Descripcion);
+    $descripcionLarga=$productInformation->LargeDescription;
+    $tallas=$productInformation->SelectSize;
+    $opcionesTallas="<a class='dropdown-item' href='#'>$tallas (Products in stock: $inventario)</a>";
+    $botonTalla="SELECT SIZE";
+}
+else{
+    $price=$ui->Moneda($productInformation->Costo,"MXN $");
+    $productWord=explode(" ",$productInformation->Descripcion);
+    $descripcionLarga=$productInformation->DescripcionLarga;
+    $tallas=$productInformation->SeleccionarTalla;
+    $opcionesTallas="<a class='dropdown-item' href='#'>$tallas (Productos en inventario: $inventario)</a>";
+    $botonTalla="SELECCIONAR TALLA";
+}
 $n=count($productWord);
 $p=100/$n;
 
@@ -275,7 +286,7 @@ $h= $html->Html5(
                             ]),
                             "<hr/>",
                             $ui->Row([
-                                $ui->Columns("$productInformation->DescripcionLarga",12,0,0,0,"small-font")
+                                $ui->Columns($descripcionLarga,12,0,0,0,"small-font")
 
                             ]),
                             "<hr/><div style='height: 35vh'>",
@@ -283,10 +294,10 @@ $h= $html->Html5(
                             "</div><hr style='margin: 0 0 0 0'/>",
                             '<div class="btn-group" style="width:100%">
                                 <button type="button" class="btn btn-block dropdown-toggle" data-toggle="dropdown">
-                                  SELECT SIZE <span class="caret"></span>
+                                  '.$botonTalla.'
                                 </button>
                                 <div class="dropdown-menu align-content-center" role="menu" style="width:100%">
-                                    <a class="dropdown-item" href="#">ONE SIZE</a>
+                                    '.$opcionesTallas.'
                                     
                                 </div>
                               </div>',

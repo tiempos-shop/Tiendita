@@ -207,6 +207,24 @@ class FrontComponents
             ],"").
             "</div>";
     }
+    public function MenuFamilia(){
+        return
+        "</div>
+            <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
+            SHOP ALL'<br/>
+            <br/>
+            MEN<br/>
+            <div style='width: 1vw;display: inline-block'></div><span>TOP</span><br/>
+            <div style='width: 1vw;display: inline-block'></div><span>PANTS</span><br/>
+            <div style='width: 1vw;display: inline-block'></div><span>SHOES</span><br/>
+            <br/>
+            WOMEN<br/>
+            <div style='width: 1vw;display: inline-block'></div><span>TOP</span><br/>
+            <div style='width: 1vw;display: inline-block'></div><span>PANTS</span><br/>
+            <div style='width: 1vw;display: inline-block'></div><span>SHOES</span><br/>
+        </div>";
+
+    }
 
 
 }

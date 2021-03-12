@@ -64,8 +64,8 @@ foreach ($products as $product){
     $code=str_replace("'","_",$code);
     $js="view('$code')";
     $htmlColumns[]=$ui->Columns('<br/><br/><img onclick="'.$js.'" src="'.$arr[0].'" onmouseover="changeImage(this,'.$four.')" onmouseleave="changeImage(this,'.$first.')" width="300px"><br/><br/><p>'.$description.'</p><p>'.$price.'</p>',
-        3,0,0,0,"text-center");
-    if(count($htmlColumns)==4 or $n==$i)
+        4,0,0,0,"text-center");
+    if(count($htmlColumns)==3 or $n==$i)
     {
         $htmlRow.=$ui->Row($htmlColumns);
         $htmlProducts.=$htmlRow;
@@ -143,7 +143,20 @@ $h= $html->Html5(
     $html->Body([
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["'","","","","",""]),
         $fc->LogoNegro(),
-        $htmlProducts
+        "<div style='margin-left: 10%;margin-right: 10%'>",
+        $htmlProducts,
+        $fc->MenuFamilia(),
+        "
+        <div style='position: fixed;display: inline-block;top: 8.5vh;right: 2vw'>
+            <select style='border: 0px dot-dash transparent;background-color: lightgray;padding: 5px 5px 5px 20px;border-radius: 5px;font-size: small'>
+                <option value='F'>FEATURED</option>
+                <option value='FEATURES'>A TO Z</option>
+                <option value='FEATURES'>PRICE LOW TO HIGHT</option>
+                <option value='FEATURES'>PRICE HIGHT TO LOW</option>
+            <select>
+        </div>
+        ",
+
 
     ],"style='background-color:#FFFFF;' ") //#AC9950
 );
