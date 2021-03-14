@@ -22,9 +22,11 @@
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Correcciones Generales">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Business/FrontComponents.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/FrontComponents.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Models/Producto.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Producto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/Utilidades.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Utilidades.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customerLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/customerLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/shop.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,14 +243,8 @@
       <workItem from="1614651241198" duration="218000" />
       <workItem from="1614710425687" duration="41040000" />
       <workItem from="1615261607748" duration="38692000" />
-      <workItem from="1615479967903" duration="27793000" />
-    </task>
-    <task id="LOCAL-00051" summary="Pagos.php">
-      <created>1608135682646</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1608135682646</updated>
+      <workItem from="1615479967903" duration="32760000" />
+      <workItem from="1615693543854" duration="7049000" />
     </task>
     <task id="LOCAL-00052" summary="Pagos.php">
       <created>1608168675072</created>
@@ -586,7 +582,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615517958839</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="Correcciones Generales">
+      <created>1615582082052</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1615582082052</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

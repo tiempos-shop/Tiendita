@@ -63,7 +63,7 @@ foreach ($products as $product){
     $four="'$arr[2]'";
     $code=str_replace("'","_",$code);
     $js="view('$code')";
-    $htmlColumns[]=$ui->Columns('<br/><br/><img onclick="'.$js.'" src="'.$arr[0].'" onmouseover="changeImage(this,'.$four.')" onmouseleave="changeImage(this,'.$first.')" width="300px"><br/><br/><p>'.$description.'</p><p>'.$price.'</p>',
+    $htmlColumns[]=$ui->Columns('<br/><br/><img onclick="'.$js.'" src="'.$arr[0].'" onmouseover="changeImage(this,'.$four.')" onmouseleave="changeImage(this,'.$first.')" width="300px"><br/><br/><p style="font-family: NHaasGroteskDSPro-65Md;line-height: 1">'.$description.'</p><p>'.$price.'</p>',
         4,0,0,0,"text-center");
     if(count($htmlColumns)==3 or $n==$i)
     {

@@ -727,13 +727,13 @@ class Utilidades
         return $html;
     }
 
-    public function Out(array $var)
+    public function Out($var)
     {
         echo "<pre>";
         var_dump($var);
         echo "</pre>";
     }
-    public function Debug(array $var)
+    public function Debug($var)
     {
         echo "<div  style='background-color: white;color: red;z-index: 100000;position: fixed'><pre>";
         var_dump($var);

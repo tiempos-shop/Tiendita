@@ -24,6 +24,36 @@ $productosCarrito=array();
 
 $idiomaActual="";
 
+// Producto previo del checkout
+if(key_exists("CheckOut",$_POST)){
+
+    $checkout=$_SESSION["CheckOut"];
+
+    if(isset($_SESSION["ProductosCarrito"])){
+        $productosCarrito=$_SESSION["ProductosCarrito"];
+        $productosCarrito[]=$checkout;
+        $_SESSION["ProductosCarrito"]=$productosCarrito;
+
+
+    }
+    else{
+        // TODO: carrito de prueba, enviar error cuando ya este implementado el carrito.
+        $productosCarrito[]=$checkout;
+        $_SESSION["ProductosCarrito"]=$productosCarrito;
+    }
+    $numeroProductosCarrito=count($productosCarrito);
+}
+else
+{
+    if(isset($_SESSION["ProductosCarrito"])){
+        $productosCarrito=$_SESSION["ProductosCarrito"];
+        $numeroProductosCarrito=count($productosCarrito);
+    }
+    else{
+        $numeroProductosCarrito=0;
+    }
+}
+
 if(count($_POST)>0){
     if(key_exists("language",$_POST)) {
         $idiomaActual = $_POST["language"];
@@ -32,35 +62,10 @@ if(count($_POST)>0){
         $idiomaActual=$_SESSION["language"];
     }
 
-    // Producto previo del checkout
-    if(key_exists("CheckOut",$_POST)){
 
-        $checkout=$_SESSION["CheckOut"];
-
-        if(isset($_SESSION["ProductosCarrito"])){
-            $productosCarrito=$_SESSION["ProductosCarrito"];
-            $productosCarrito[]=$checkout;
-            $_SESSION["ProductosCarrito"]=$productosCarrito;
-
-
-        }
-        else{
-            // TODO: carrito de prueba, enviar error cuando ya este implementado el carrito.
-            $productosCarrito[]=$checkout;
-            $_SESSION["ProductosCarrito"]=$productosCarrito;
-        }
-        $numeroProductosCarrito=count($productosCarrito);
-    }
 }
 else{
     $idiomaActual=$_SESSION["language"];
-    if(isset($_SESSION["ProductosCarrito"])){
-        $productosCarrito=$_SESSION["ProductosCarrito"];
-        $numeroProductosCarrito=count($productosCarrito);
-    }
-    else{
-        $numeroProductosCarrito=0;
-    }
 }
 
 

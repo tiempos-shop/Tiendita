@@ -23,15 +23,15 @@ class FrontComponents
                 2,0,2,0,""
             ),
             $this->ui->Columns(
-                "<span style='padding-left: 10%' onclick='go(\"archive.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][1]."</span>",
+                "<span style='padding-left: 5%' onclick='go(\"archive.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][1]."</span>",
                 2,0,2,0,""
             ),
             $this->ui->Columns(
-                "<span style='padding-left: 30%' onclick='go(\"imprint.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][2]."<span>",
+                "<span style='padding-left: 20%' onclick='go(\"imprint.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][2]."<span>",
                 2,0,2,0,""
             ),
             $this->ui->Columns(
-                "<span style='padding-left: 50%' onclick='go(\"customerLogin.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][3]."<span>",
+                "<span style='padding-left: 35%' onclick='go(\"customerLogin.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][3]."<span>",
                 2,0,2,0,""
             ),
             $this->ui->Columns(
@@ -46,8 +46,8 @@ class FrontComponents
                 2,0,2,0,""
             ),
             $this->ui->Columns(
-                "<span onclick='go(\"cart.php\")'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5])."<span>",
-                2,0,2,0,"text-right"
+                "<span  style='right: 2%;position: absolute' onclick='go(\"cart.php\")'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5])."<span>",
+                2,0,2,0,""
             )
         ],"right").
         "</div>";
@@ -67,41 +67,94 @@ class FrontComponents
             {
                 $hr="<hr style='margin: 1em -3vw 0px -2vw;opacity: 1;'/>";
             }
-
-
         }
-        return "<div class='fixed-top' style='padding-top:2vh;padding-bottom:0;padding-left: 2vw;padding-right: 2vw;background-color: $back;'>".
-            $this->ui->Row([
-                $this->ui->Columns(
-                    "<span onclick='go(\"shop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][0]."$selected[0]<span>",
-                    2,0,0,0,""
-                ),
-                $this->ui->Columns(
-                    "<span style='padding-left: 10%' onclick='go(\"archive.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][1]."$selected[1]</span>",
-                    2,0,0,0,""
-                ),
-                $this->ui->Columns(
-                    "<span style='padding-left: 30%' onclick='go(\"imprint.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][2]."$selected[2]<span>",
-                    2,0,0,0,""
-                ),
-                $this->ui->Columns(
-                    "<span style='padding-left: 50%' onclick='go(\"customerLogin.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][3]."$selected[3]<span>",
-                    2,0,2,0,""
-                ),
-                $this->ui->Columns(
-                    $this->FormLink(
+        $lines=array();
+        $i=0;
+
+        foreach ($selected as $select){
+
+            switch($i)
+            {
+                case 0:
+                    if($select=="'"){
+                        $lines[$i]="<label>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
+                    }
+                    else{
+                        $lines[$i]="<span onclick='go(\"shop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i]."<span>";
+                    }
+                    break;
+                case 1:
+                    if($select=="'"){
+                        $lines[$i]="<label  style='padding-left: 5%'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
+                    }
+                    else{
+                        $lines[$i]="<span style='padding-left: 5%' onclick='go(\"archive.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][1]."</span>";
+                    }
+                    break;
+                case 2:
+                    if($select=="'"){
+                        $lines[$i]="<label  style='padding-left: 20%'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
+                    }
+                    else{
+                        $lines[$i]="<span style='padding-left: 20%' onclick='go(\"imprint.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][2]."$selected[2]<span>";
+                    }
+                    break;
+                case 3:
+                    if($select=="'"){
+                        $lines[$i]="<label  style='padding-left: 35%'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
+                    }
+                    else{
+                        $lines[$i]="<span style='padding-left: 35%' onclick='go(\"customerLogin.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][3]."$selected[3]<span>";
+                    }
+                    break;
+                case 4:
+                    $lines[$i]=$this->FormLink(
                         [
                             $this->ui->Input("language","",$this->idioma[ $idiomaActual ]["MENU"][4],"F",true),
                         ],
                         "",
                         $this->idioma[ $idiomaActual ]["MENU"][4].$selected[4]
 
-                    ),
+                    );
+                    break;
+                case 5:
+                    if($select=="'"){
+                        $lines[$i]="<label style='right: 2%;position: absolute'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5]).$selected[5]."</label>";
+                    }
+                    else{
+                        $lines[$i]="<span style='right: 2%;position: absolute' onclick='go(\"cart.php\")'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5])."$selected[5]<span>";
+                    }
+
+                    break;
+
+            }
+            $i++;
+        }
+
+        return "<div class='fixed-top' style='padding-top:2vh;padding-bottom:0;padding-left: 2vw;padding-right: 2vw;background-color: $back;'>".
+            $this->ui->Row([
+                $this->ui->Columns(
+                    $lines[0],
                     2,0,0,0,""
                 ),
                 $this->ui->Columns(
-                    "<span onclick='go(\"cart.php\")'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5])."$selected[5]<span>",
-                    2,0,0,0,"text-right"
+                    $lines[1],
+                    2,0,0,0,""
+                ),
+                $this->ui->Columns(
+                    $lines[2],
+                    2,0,0,0,""
+                ),
+                $this->ui->Columns(
+                    $lines[3],
+                    2,0,2,0,""
+                ),
+                $this->ui->Columns(
+                    $lines[4],2
+                ),
+                $this->ui->Columns(
+                    $lines[5],
+                    2,0,0,0,""
                 )
             ],"right").$hr.
             "</div>";
@@ -134,7 +187,7 @@ class FrontComponents
         $html.=implode("",$content);
         $html.='
                 <div class="form-group row">
-                    <div class="col-sm-12" style="padding-left: 60%">
+                    <div class="col-sm-12" style="padding-left: 45%">
                         <button type="submit" class="btn btn-link" style="text-decoration: none;color: '.$color.';padding: 0px;border: none"><span type="submit">'.$button.'</span></button>
                     </div>
                 </div>
@@ -222,6 +275,10 @@ class FrontComponents
             <div style='width: 1vw;display: inline-block'></div><span>TOP</span><br/>
             <div style='width: 1vw;display: inline-block'></div><span>PANTS</span><br/>
             <div style='width: 1vw;display: inline-block'></div><span>SHOES</span><br/>
+            <br/>
+            <span>ACCESSORIES</span><br/>
+            <br/>
+            <span>SALE</span>
         </div>";
 
     }

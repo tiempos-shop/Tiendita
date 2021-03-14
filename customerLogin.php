@@ -73,6 +73,13 @@ $h= $html->Html5(
                 body {
                     font-family: NHaasGroteskDSPro-55Rg;
                 }
+                .btn:focus {
+                    outline: none;
+                    box-shadow: none;
+                }
+                [type='submit']{
+                    -webkit-appearance: none!important;  
+                }
                 
             </style>
         ",

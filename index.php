@@ -42,9 +42,7 @@ if(count($_POST)>0)
 
 }
 else{
-    //$ui->Debug($_SESSION);
-
-    if(in_array("language",$_SESSION)){
+    if(isset($_SESSION["language"])){
 
         $idiomaActual=$_SESSION["language"];
     }
