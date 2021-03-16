@@ -388,6 +388,13 @@ class Utilidades
         return $html;
     }
 
+    public function FormButtomInline(array $content,string $url,string $button){
+        $html= "
+            <form method='post' action='$url'>";
+        $html.=implode("",$content);
+        $html.=$button;
+        return $html;
+    }
 
 
     public function Input(string $id, string $label, $value, string $type,bool $required,array $options=[]){

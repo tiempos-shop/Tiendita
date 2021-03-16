@@ -20,9 +20,21 @@ $tallas=[ "S","M","L","XL"];
 $numeroProductosCarrito=0;
 $productosCarrito=array();
 
-
+$fc=new \Tiendita\FrontComponents();
 
 $idiomaActual="";
+
+if(count($_GET)>0){
+    $clave=$_GET["clave"];
+    $n=$_GET["n"];
+    $productosCarrito=$_SESSION["ProductosCarrito"];
+    foreach ($productosCarrito as $key=>$producto){
+        if($producto[0]==$clave){
+            $productosCarrito[$key][1]=$n;
+        }
+    }
+    $_SESSION["ProductosCarrito"]=$productosCarrito;
+}
 
 // Producto previo del checkout
 if(key_exists("CheckOut",$_POST)){
@@ -31,13 +43,12 @@ if(key_exists("CheckOut",$_POST)){
 
     if(isset($_SESSION["ProductosCarrito"])){
         $productosCarrito=$_SESSION["ProductosCarrito"];
-        $productosCarrito[]=$checkout;
-        $_SESSION["ProductosCarrito"]=$productosCarrito;
-
-
+        if(!$fc->Existe($checkout[0],$productosCarrito)){
+            $productosCarrito[]=$checkout;
+            $_SESSION["ProductosCarrito"]=$productosCarrito;
+        }
     }
     else{
-        // TODO: carrito de prueba, enviar error cuando ya este implementado el carrito.
         $productosCarrito[]=$checkout;
         $_SESSION["ProductosCarrito"]=$productosCarrito;
     }
@@ -55,6 +66,11 @@ else
 }
 
 if(count($_POST)>0){
+    if(key_exists("borrar",$_POST)) {
+        $clave=$_POST["borrar"];
+        $fc->BorrarCarrito($clave);
+        $productosCarrito=$_SESSION["ProductosCarrito"];
+    }
     if(key_exists("language",$_POST)) {
         $idiomaActual = $_POST["language"];
     }
@@ -84,6 +100,7 @@ foreach ($productosCarrito as $producto){
     foreach ($productInformation as $pi){
         if($clave==$pi->Clave){
             $imagen=explode(",",$pi->RutaImagen)[0];
+            $carrito["Clave"]=$pi->Clave;
             $carrito["RutaImagen"]=$imagen;
             $carrito["Descripcion"]=$pi->Descripcion;
             $carrito["Cantidad"]=$producto[1];
@@ -99,13 +116,14 @@ $db->close();
 $htmlProducts="";
 $suma=0;
 foreach ($elements as $element){
-    if($idiomaActual=="ENGLISH") $costo=$ui->Moneda($element["Costo"],"USD $");
-    else $costo=$ui->Moneda($element["Costo"],"MXN $");
+    $n=$element["Cantidad"];
+    if($idiomaActual=="ENGLISH") $costo=$ui->Moneda($n*$element["Costo"]/$tipoCambio,"USD $");
+    else $costo=$ui->Moneda($n*$element["Costo"],"MXN $");
     $htmlProducts.="<hr/>".$ui->Row([
         $ui->Columns("",2),
         $ui->Columns("<img src='".$element["RutaImagen"]."' height='172'>",2),
         $ui->Columns($element["Descripcion"],2),
-        $ui->Columns("X <input type='text' maxlength='1' value='".$element["Cantidad"]."' style='width: 25px;padding-left: 5px;'>",1),
+        $ui->Columns($fc->Borrar($element).$fc->BotonEditar($element),1),
         $ui->Columns($carrito["Talla"],1),
         $ui->Columns("",1),
 
@@ -113,11 +131,11 @@ foreach ($elements as $element){
         $ui->Columns("",2)
     ]);
 
-    $suma+=floatval($element["Costo"]);
+    if($idiomaActual=="ENGLISH") $suma+=floatval($n*$element["Costo"]/$tipoCambio);else $suma+=floatval($n*$element["Costo"]);
 }
 $htmlProducts.="<hr>";
 
-$fc=new \Tiendita\FrontComponents();
+
 
 $h= $html->Html5(
     $html->Head(
@@ -193,6 +211,11 @@ $h= $html->Html5(
                   function view(str){
                       let id=str.replace("_", "\'");
                       go("view.php?id="+id);
+                  }
+                  function edit(input,clave){
+                      let n=input.value;
+                      let parameters="?clave="+clave+"&n="+n;
+                      go("cart.php"+parameters);
                   }
                 </script>'
 

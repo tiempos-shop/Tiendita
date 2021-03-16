@@ -77,7 +77,7 @@ class FrontComponents
             {
                 case 0:
                     if($select=="'"){
-                        $lines[$i]="<label>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
+                        $lines[$i]="<label onclick='go(\"shop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
                     }
                     else{
                         $lines[$i]="<span onclick='go(\"shop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i]."<span>";
@@ -281,6 +281,66 @@ class FrontComponents
             <span>SALE</span>
         </div>";
 
+    }
+
+    public function SizeButton($botonTalla,$opcionesTallas){
+        return '<div class="btn-group" style="width:100%">
+                    <button type="button" class="btn btn-block dropdown-toggle" data-toggle="dropdown">
+                      '.$botonTalla.'
+                    </button>
+                    <div class="dropdown-menu align-content-center" role="menu" style="width:100%">
+                        '.$opcionesTallas.'
+                        
+                    </div>
+                  </div>'.
+                '<hr style="margin: 0 0 0 0"/>';
+    }
+
+    public function CartButton(){
+        return $this->ui->FormButtom([
+                    $this->ui->Input("Cart","",1,"F",false)
+                ],"",'<button id="cart" type="submit" class="btn btn-dark btn-block" style="border-radius: 0">ADD TO CART</button>');
+    }
+
+    public function CheckoutButton(){
+        return $this->ui->FormButtom([
+            $this->ui->Input("CheckOut","",1,"F",false)
+        ],"cart.php",'<button id="checkout" type="submit" class="btn btn-dark btn-block" style="border-radius: 0">PROCEED TO CHECKOUT</button>');
+    }
+
+    public function Existe($clave, array $productosCarrito)
+    {
+        foreach ($productosCarrito as $producto){
+            if(in_array($clave,$producto)) return true;
+        }
+        return false;
+
+    }
+
+    public function Borrar(array $element)
+    {
+        return
+        $this->ui->FormButtomInline([
+            $this->ui->Input("borrar","",$element["Clave"],"F",false)
+        ],"","<button type='submit' style='border:0 solid transparent;background-color:transparent;display: inline-block'>X</button>");
+    }
+
+    public function BorrarCarrito(string $clave){
+        $productosCarrito=$_SESSION["ProductosCarrito"];
+        foreach ($productosCarrito as $key=>$producto){
+            if($producto[0]==$clave){
+                unset($productosCarrito[$key]);
+            }
+        }
+        $this->ui->Debug($productosCarrito);
+        $_SESSION["ProductosCarrito"]=$productosCarrito;
+    }
+
+    public function BotonEditar(array $element)
+    {
+        $clave=$element["Clave"];
+        $valor=$element["Cantidad"];
+        return "<input onchange='edit(this,\"$clave\");' type='text' maxlength='1' value='$valor' style='width: 25px;padding-left: 5px;'>";
     }
 
 

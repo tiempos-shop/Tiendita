@@ -27,18 +27,58 @@ $id=$_GET["id"];
 
 $idiomaActual="";
 
-if(count($_POST)>0)
-    $idiomaActual=$_POST["language"];
+$fc=new \Tiendita\FrontComponents();
+$productInformation=$products=$db->getBy("Productos","Clave",$id)[0];
+$_SESSION["CheckOut"]=[ $productInformation->Clave,1,"ONE SIZE"];
+
+if(count($_POST)>0){
+    if(isset($_POST["Cart"])){
+        $flowButton=$fc->CheckoutButton();
+        $idiomaActual=$_SESSION["language"];
+        if(isset($_SESSION["ProductosCarrito"])){
+            $productosCarrito=$_SESSION["ProductosCarrito"];
+            $productosCarrito[]=[ $productInformation->Clave,1,"ONE SIZE"];
+            $_SESSION["ProductosCarrito"]=$productosCarrito;
+        }
+        else{
+            $productosCarrito[]=[ $productInformation->Clave,1,"ONE SIZE"];
+            $_SESSION["ProductosCarrito"]=$productosCarrito;
+        }
+        $numeroProductosCarrito=count($productosCarrito);
+
+    }
+    if(isset($_POST["language"])){
+        $idiomaActual=$_POST["language"];
+        $flowButton=$fc->CartButton();
+        if(isset($_SESSION["ProductosCarrito"])) {
+            $productosCarrito = $_SESSION["ProductosCarrito"];
+            if($fc->Existe($productInformation->Clave,$productosCarrito)){
+                $flowButton=$fc->CheckoutButton();
+            }
+        }
+
+    }
+}
 else
+{
+    $flowButton=$fc->CartButton();
     $idiomaActual=$_SESSION["language"];
+    if(isset($_SESSION["ProductosCarrito"])) {
+        $productosCarrito = $_SESSION["ProductosCarrito"];
+        if($fc->Existe($productInformation->Clave,$productosCarrito)){
+            $flowButton=$fc->CheckoutButton();
+        }
+    }
+}
+
 
 $tipoCambio=20;
 $idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
 
 $price=0;
 $tipoCambio=20;
-$productInformation=$products=$db->getBy("Productos","Clave",$id)[0];
-$_SESSION["CheckOut"]=[ $productInformation->Clave,1,"ONE SIZE"];
+
+
 
 
 
@@ -146,7 +186,7 @@ $modal="
 
 $db->close();
 $htmlProducts="";
-$fc=new \Tiendita\FrontComponents();
+
 
 $h= $html->Html5(
     $html->Head(
@@ -292,19 +332,8 @@ $h= $html->Html5(
                             "<hr/><div style='height: 35vh'>",
                             "<label style='padding-left: 40px'>$price</label>",
                             "</div><hr style='margin: 0 0 0 0'/>",
-                            '<div class="btn-group" style="width:100%">
-                                <button type="button" class="btn btn-block dropdown-toggle" data-toggle="dropdown">
-                                  '.$botonTalla.'
-                                </button>
-                                <div class="dropdown-menu align-content-center" role="menu" style="width:100%">
-                                    '.$opcionesTallas.'
-                                    
-                                </div>
-                              </div>',
-                            '<hr style="margin: 0 0 0 0"/>',
-                            $ui->FormButtom([
-                                $ui->Input("CheckOut","",1,"F",false)
-                            ],"cart.php",'<button type="submit" class="btn btn-dark btn-block" style="border-radius: 0">ADD TO CART</button>'),
+                            $fc->SizeButton($botonTalla,$opcionesTallas),
+                            $flowButton,
 
 
                         ],"component").
