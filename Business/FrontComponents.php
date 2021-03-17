@@ -332,7 +332,6 @@ class FrontComponents
                 unset($productosCarrito[$key]);
             }
         }
-        $this->ui->Debug($productosCarrito);
         $_SESSION["ProductosCarrito"]=$productosCarrito;
     }
 
