@@ -329,7 +329,7 @@ $h= $html->Html5(
                                 $ui->Columns($descripcionLarga,12,0,0,0,"small-font")
 
                             ]),
-                            "<hr/><div style='height: 35vh'>",
+                            "<hr/><div style='height: 25vh'>",
                             "<label style='padding-left: 40px'>$price</label>",
                             "</div><hr style='margin: 0 0 0 0'/>",
                             $fc->SizeButton($botonTalla,$opcionesTallas),
@@ -345,9 +345,9 @@ $h= $html->Html5(
             ],"main")
         ]),
         '
-        <div class="modal fade" id="size" tabindex="-1" role="dialog" aria-labelledby="sizeLabel" aria-hidden="true">
+        <div class="modal fade" id="size" tabindex="-1" role="dialog" aria-labelledby="sizeLabel" aria-hidden="true" style="background-color: white;opacity: 0.2">
           <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content" style="border-radius: 0;border: 0 solid transparent;top:30vh;background-color: white">
               <div class="modal-header">
                 <h5 class="modal-title" id="sizeLabel"><span>CM</span><div class="space"></div><span>IN</span></h5>
                 <button type="button" class="btn" data-dismiss="modal" aria-label="Close">

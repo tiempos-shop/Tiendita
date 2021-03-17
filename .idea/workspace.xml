@@ -21,6 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Correcciones Generales">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,14 +241,7 @@
       <workItem from="1615479967903" duration="32760000" />
       <workItem from="1615693543854" duration="7103000" />
       <workItem from="1615854494658" duration="10093000" />
-      <workItem from="1615913233297" duration="13140000" />
-    </task>
-    <task id="LOCAL-00054" summary="Pagos.php">
-      <created>1608259425450</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1608259425450</updated>
+      <workItem from="1615913233297" duration="15005000" />
     </task>
     <task id="LOCAL-00055" summary="Pagos.php">
       <created>1608572610006</created>
@@ -585,7 +579,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615931648173</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="Correcciones Generales">
+      <created>1615945558994</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1615945558994</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
