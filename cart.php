@@ -240,10 +240,7 @@ $h= $html->Html5(
                 $ui->Columns("",7),
                 $ui->Columns("<p class='small'>SHIPPING & TAXES CALCULATED AT CHECKOUT</p>",5)
             ]),
-            $ui->Row([
-                $ui->Columns("",7),
-                $ui->Columns("<span class='small'>PRIVACY POLICY</span><label style='width: 40px'></label><span class='small'>SHIPPING & RETURNS</span>",5)
-            ],"fixed-bottom"),
+            $fc->Aviso(),
         ],"container")
     ],"style='background-color:#FFFFF;' ") //#AC9950
 );

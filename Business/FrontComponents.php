@@ -342,5 +342,77 @@ class FrontComponents
         return "<input onchange='edit(this,\"$clave\");' type='text' maxlength='1' value='$valor' style='width: 25px;padding-left: 5px;'>";
     }
 
+    public function Aviso(){
+        return
+            $this->ui->Row([
+                $this->ui->Columns("",7),
+                $this->ui->Columns("<span class='small'>PRIVACY POLICY</span><label style='width: 40px'></label><span class='small'>SHIPPING & RETURNS</span>",5)
+            ],"<div class=''>");
+    }
+
+    public function MenuFiltro()
+    {
+        return
+        "
+        <div class='small' style='position: fixed;display: inline-block;top: 8.5vh;right: 1.6vw;width:11vw'>
+            <label onclick='filter()' id='s'>SORT +</label>
+            <div id='sMenu' style='color:white;background-color: gray;border-radius: 5px;display: none'>
+                <div class='container-fluid' style='padding-left: 0;padding-right: 0;padding-top: 0.5vh;padding-bottom: 0.5vh;'>
+                    <div class='row item' style='margin-left: 0'>
+                        <div class='col-md-1 align-self-center' style='padding-right: 0'>
+                            <label style='width: 100%;text-align: right;'></label>
+                        </div>
+                        <div class='col-md-10'>
+                            <a href='shop.php?order=1' style='display: block'>FEATURED</a>
+                                                    
+                        </div>
+                        <div class='col-md-1'>
+                            
+                        </div>
+                    </div>
+                    <div class='row item' style='margin-left: 0'>
+                        <div class='col-md-1 align-self-center' style='padding-right: 0'>
+                            <label style='width: 100%;text-align: right'></label>
+                        </div>
+                        <div class='col-md-10'>
+                            <a href='shop.php?order=2' style='display: block'>A TO Z</a>
+                                                    
+                        </div>
+                        <div class='col-md-1'>
+                            
+                        </div>
+                    </div>
+                    <div class='row item' style='margin-left: 0'>
+                        <div class='col-md-1 align-self-center' style='padding-right: 0'>
+                            <label style='width: 100%;text-align: right'></label>
+                        </div>
+                        <div class='col-md-10'>
+                            <a href='shop.php?order=3' style='display: block'>PRICE LOW TO HIGH</a>
+                                                    
+                        </div>
+                        <div class='col-md-1'>
+                            
+                        </div>
+                        
+                    </div>
+                    <div class='row item' style='margin-left: 0'>
+                        <div class='col-md-1 align-self-center' style='padding-right: 0'>
+                            <label style='width: 100%;text-align: right'></label>
+                        </div>
+                        <div class='col-md-10'>
+                            <a href='shop.php?order=4' style='display: block'>PRICE HIGH TO LOW</a>
+                                                    
+                        </div>
+                        <div class='col-md-1'>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        ";
+    }
+
 
 }

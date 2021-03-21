@@ -207,6 +207,8 @@ $h= $html->Html5(
                         </table>
                         ",11)
             ]),
+            $fc->Aviso()
+
         ]),
 
 

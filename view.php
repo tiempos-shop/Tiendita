@@ -259,6 +259,8 @@ $h= $html->Html5(
                 hr{
                     margin-right: 0;
                     margin-left: 0;
+                    margin-top:0!important; 
+                     
                     opacity: 1;
                 }
                 div{
@@ -307,7 +309,7 @@ $h= $html->Html5(
 
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["'","","","","",""]),
         $fc->LogoNegro(),
-        "<br/>",
+
         $ui->ContainerFluid([
             $ui->Row([
                 $ui->Columns(
@@ -315,7 +317,7 @@ $h= $html->Html5(
                     ,6,0,0,0,""),
                 $ui->Columns(
                     $ui->ContainerFluid([
-                            "<hr/>",
+                            "<br/>",
                             $ui->Row([
                                 $ui->Columns("<p style='font-family: NHaasGroteskDSPro-65Md'>$productInformation->Name</p>",12),
 
@@ -324,12 +326,13 @@ $h= $html->Html5(
                                 $ui->Columns("<p>$productInformation->Descripcion</p>",12),
 
                             ]),
-                            "<hr/>",
+                            "<hr style='margin-top: 1em!important;'/>",
                             $ui->Row([
                                 $ui->Columns($descripcionLarga,12,0,0,0,"small-font")
 
                             ]),
-                            "<hr/><div style='height: 25vh'>",
+                            "<hr style='margin-top: 1em!important;'/>",
+                            "<div style='height: 25vh'>",
                             "<label style='padding-left: 40px'>$price</label>",
                             "</div><hr style='margin: 0 0 0 0'/>",
                             $fc->SizeButton($botonTalla,$opcionesTallas),
@@ -337,10 +340,9 @@ $h= $html->Html5(
 
 
                         ],"component").
-
-                        $ui->ContainerFluid([
-                                "<label><span>PRIVACY POLICY</span></label><label><span>SHIPPING RETURNS</span></label><label><button type='button' class='btn btn-link' style='text-decoration: none;color: black;padding: 0;border: none;font-weight: normal;font-size: 14.4px'  data-toggle='modal' data-target='#size'><span>SIZE GUIDE</span></button></label>"
-                            ],"componentBase")
+                        "<div class='container-fluid' style='position: fixed;bottom: 0;font-size: 0.9em;'>".
+                            "<label><span>PRIVACY POLICY</span></label><label><span>SHIPPING RETURNS</span></label><label><button type='button' class='btn btn-link' style='text-decoration: none;color: black;padding: 0;border: none;font-weight: normal;font-size: 14.4px'  data-toggle='modal' data-target='#size'><span>SIZE GUIDE</span></button></label>".
+                        "</div>"
                     ,6,0,0,0,"left-top")
             ],"main")
         ]),

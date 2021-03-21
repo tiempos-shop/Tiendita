@@ -37,7 +37,31 @@ $idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(
 
 $products=$db->getAll("Productos");
 
+
+
 $db->close();
+$filtroDescripcion=array_column($products,"Descripcion");
+$filtroPrecio=array_column($products,"Costo");
+if(isset($_GET["order"])){
+    $order=$_GET["order"];
+    switch ($order){
+        case 2:
+            $temp=array_multisort($filtroDescripcion,SORT_ASC,$products);
+            break;
+        case 3:
+            $temp=array_multisort($filtroPrecio,SORT_ASC,$products);
+            break;
+        case 4:
+            $temp=array_multisort($filtroPrecio,SORT_DESC,$products);
+            break;
+        default:
+    }
+
+}
+
+
+
+
 $htmlProducts="";
 
 $htmlColumns=[];
@@ -85,6 +109,17 @@ $h= $html->Html5(
         $html->LoadScripts(["View/js/bootstrap.js"]),
         "
             <style>
+                a{
+                    text-decoration: none;
+                    color: white;
+                }
+                a:hover{
+                    text-decoration: none;
+                    color: white;
+                }
+                .item:hover label::before{
+                    content: \"\\2713\";
+                }
                 span:hover{
                     cursor: pointer;
                 }
@@ -137,6 +172,12 @@ $h= $html->Html5(
                       let id=str; //str.replace("_", "\'");
                       go("view.php?id="+id);
                   }
+                  function filter(){
+                      let s=document.getElementById("s");
+                      let smenu=document.getElementById("sMenu");
+                      s.style.display="none";
+                      smenu.style.display="block";
+                  }
                 </script>'
 
     ),
@@ -145,39 +186,12 @@ $h= $html->Html5(
         $fc->LogoNegro(),
         "<div style='margin-left: 10%;margin-right: 10%'>",
         $htmlProducts,
+        $fc->Aviso(),
         $fc->MenuFamilia(),
-        "
-        <div style='position: fixed;display: inline-block;top: 8.5vh;right: 2vw'>
-            <select style='border: 0px dot-dash transparent;background-color: lightgray;padding: 5px 5px 5px 20px;border-radius: 5px;font-size: small'>
-                <option value='F'>FEATURED</option>
-                <option value='FEATURES'>A TO Z</option>
-                <option value='FEATURES'>PRICE LOW TO HIGHT</option>
-                <option value='FEATURES'>PRICE HIGHT TO LOW</option>
-            <select>
-        </div>
-        ",
+        $fc->MenuFiltro()
 
 
     ],"style='background-color:#FFFFF;' ") //#AC9950
 );
 
 print_r($h);
-
-function FormLink(array $content,string $url,string $button){
-    $html= "
-            <form method='post' action='$url'>";
-    $html.=implode("",$content);
-    $html.='
-                <div class="form-group row">
-                    <div class="col-sm-10">
-                        <button type="submit" class="btn btn-link" style="text-decoration: none;color:black;padding: 0px;border: none"><span type="submit">'.$button.'</span></button>
-                    </div>
-                </div>
-            </form>';
-    return $html;
-}
-
-function Cart($number,$label):string
-{
-    return str_replace("*",$number,$label);
-}
