@@ -36,6 +36,23 @@ if(count($_POST)>0)
         $idiomaActual=$_SESSION["language"];
     }
 
+    if(isset($_GET["action"])){
+        $action=$_GET["action"];
+        $ui->Debug($_POST);
+        switch ($action){
+            case "login":
+                break;
+            case "forgot":
+                break;
+            case "facebook":
+                break;
+            case "google":
+                break;
+            case "create":
+                break;
+        }
+    }
+
 }
 else{
     $idiomaActual=$_SESSION["language"];
@@ -182,13 +199,14 @@ $h= $html->Html5(
                             $fc->BlackInput("NAME","name"),
                             $ui->RowSpace("1vh"),
                             $fc->BlackInput("LAST NAME","lastname"),
+                            $ui->RowSpace("1vh"),
                             $fc->BlackInput("EMAIL ADDRESS","login"),
                             $ui->RowSpace("1vh"),
                             $fc->BlackInput("PASSWORD","password1"),
                             $ui->RowSpace("1vh"),
                             $fc->BlackInput("REPEAT PASSWORD","password2"),
                             $ui->RowSpace("1vh"),
-                            "<input class='form-check-input' type='checkbox' name='newsletter' style='border-radius: 10px;border-color: black'> SIGN UP FOR NEWSLETTER</input>",
+                            "<input class='form-check-input' type='checkbox' id='newsletter' name='newsletter' style='border-radius: 10px;border-color: black'> SIGN UP FOR NEWSLETTER</input>",
 
                         ],"","<button class='btn btn-block btn-dark' formaction='customerLogin.php?action=create' type='submit' style='border-radius: 0;background-color: black;margin-top: 1em;'>CREATE ACCOUNT</button>"),
                     ]),

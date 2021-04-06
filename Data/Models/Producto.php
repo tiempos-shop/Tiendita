@@ -13,6 +13,9 @@ class Producto extends BaseAuditoria implements iEntity
     public $Nombre = "" ;
     public $Descripcion = "" ;
     public $Costo = 0.0 ;
+    public $CostoSale = 0.0 ;
+    public $Sale = 0 ;
+
     //TODO: Faltan agregar los datos del negocio para describir las caracteristicas del producto
 
     public static function getProperties(): array
@@ -28,6 +31,8 @@ class Producto extends BaseAuditoria implements iEntity
             "SelectSize"=>["label"=>"Sizes","type"=>"&","typeDb"=>"$","required"=>true],
             "Clave"=>["label"=>"Clave","type"=>"$","typeDb"=>"$","required"=>true],
             "Costo"=>["label"=>"Precio","type"=>"#","typeDb"=>"#","required"=>true],
+            "CostoSale"=>["label"=>"Precio Oferta","type"=>"#","typeDb"=>"#","required"=>true],
+            "Sale"=>["label"=>"Sale","type"=>"#","typeDb"=>"#","required"=>true],
             "FechaCambio"=>["label"=>"Fecha Auditoria","type"=>"F","typeDb"=>"$","required"=>false],
             "IdTipoMovimiento"=>["label"=>"Tipo Movimiento","type"=>"F","typeDb"=>"#","required"=>false],
             "IdUsuarioBase"=>["label"=>"Usuario de Registro]","type"=>"F","typeDb"=>"#","required"=>false]

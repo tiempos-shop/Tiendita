@@ -278,7 +278,7 @@ class FrontComponents
             <br/>
             <span>ACCESSORIES</span><br/>
             <br/>
-            <span>SALE</span>
+            <span><strong>SALE</strong></span>
         </div>";
 
     }
@@ -347,7 +347,7 @@ class FrontComponents
             $this->ui->Row([
                 $this->ui->Columns("",7),
                 $this->ui->Columns("<span onclick='go(\"privacy.php\")' class='small'>PRIVACY POLICY</span><label style='width: 40px'></label><span  onclick='go(\"shipping.php\")' class='small'>SHIPPING & RETURNS</span>",5)
-            ],"<div class=''>");
+            ],"");
     }
 
     public function MenuFiltro()
@@ -417,10 +417,10 @@ class FrontComponents
     public function MenuPrivacyReturn(bool $privacy,bool $return){
         $html= "
             <div class='container-fluid' style='position: fixed;bottom: 0;font-size: 0.9em;padding-left: 55%'>
-                <label><span";
-        if($privacy) $html.=" onclick='go(\"shipping.php\")'";
+                <label><span style='width: 10vw;display: block'";
+        if($privacy) $html.=" onclick='go(\"privacy.php\")'";
         $html.=">PRIVACY POLICY</span></label><label><span";
-        if($return) $html.=" onclick='go(\"privacy.php\")'";
+        if($return) $html.=" onclick='go(\"shipping.php\")'";
         $html.=">SHIPPING RETURNS</span></label>
             </div>";
         return $html;

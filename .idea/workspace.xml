@@ -20,8 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Crear Login Face &amp; Google">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/FrontComponents.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/FrontComponents.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Models/Producto.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Producto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive.php" beforeDir="false" afterPath="$PROJECT_DIR$/archive.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/customerLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/customerLogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/privacy.php" beforeDir="false" afterPath="$PROJECT_DIR$/privacy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shipping.php" beforeDir="false" afterPath="$PROJECT_DIR$/shipping.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/shop.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,14 +260,7 @@
       <workItem from="1616515072359" duration="18350000" />
       <workItem from="1617033044039" duration="15930000" />
       <workItem from="1617209951951" duration="8338000" />
-      <workItem from="1617642254347" duration="7083000" />
-    </task>
-    <task id="LOCAL-00059" summary="Pagos.php">
-      <created>1609114960608</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1609114960608</updated>
+      <workItem from="1617642254347" duration="15118000" />
     </task>
     <task id="LOCAL-00060" summary="Pagos.php">
       <created>1609988687520</created>
@@ -599,7 +598,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617668841196</updated>
     </task>
-    <option name="localTasksCounter" value="108" />
+    <task id="LOCAL-00108" summary="Crear Login Face &amp; Google">
+      <created>1617669162748</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1617669162748</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

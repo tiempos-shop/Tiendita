@@ -71,12 +71,21 @@ foreach ($products as $product){
     $image=$product->RutaImagen;
     $description=$product->Descripcion;
     $code=$product->Clave;
+    $precioSale="";
+
     if($idiomaActual=="ENGLISH"){
         $dollarPrice=$product->Costo/$tipoCambio;
         $price=$ui->Moneda($dollarPrice,"USD $");
+        if($product->Sale){
+            $dollarPrice=$product->CostoSale/$tipoCambio;
+            $price="<s>$price</s> ".$ui->Moneda($dollarPrice,"USD $");
+        }
     }
     else{
         $price=$ui->Moneda($product->Costo,"MXN $");
+        if($product->Sale){
+            $price="<s>$price&#160;</s>&#160;".$ui->Moneda($product->CostoSale,"MXN $");
+        }
     }
 
 
