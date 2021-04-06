@@ -346,7 +346,7 @@ class FrontComponents
         return
             $this->ui->Row([
                 $this->ui->Columns("",7),
-                $this->ui->Columns("<span class='small'>PRIVACY POLICY</span><label style='width: 40px'></label><span class='small'>SHIPPING & RETURNS</span>",5)
+                $this->ui->Columns("<span onclick='go(\"privacy.php\")' class='small'>PRIVACY POLICY</span><label style='width: 40px'></label><span  onclick='go(\"shipping.php\")' class='small'>SHIPPING & RETURNS</span>",5)
             ],"<div class=''>");
     }
 
@@ -414,5 +414,20 @@ class FrontComponents
         ";
     }
 
+    public function MenuPrivacyReturn(bool $privacy,bool $return){
+        $html= "
+            <div class='container-fluid' style='position: fixed;bottom: 0;font-size: 0.9em;padding-left: 55%'>
+                <label><span";
+        if($privacy) $html.=" onclick='go(\"shipping.php\")'";
+        $html.=">PRIVACY POLICY</span></label><label><span";
+        if($return) $html.=" onclick='go(\"privacy.php\")'";
+        $html.=">SHIPPING RETURNS</span></label>
+            </div>";
+        return $html;
+    }
+
+    public function BlackInput(string $title,$id){
+        return "<input class='form-control' name='$id' placeholder='$title' style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em'/>";
+    }
 
 }

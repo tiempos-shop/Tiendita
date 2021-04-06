@@ -212,10 +212,11 @@ class Utilidades
 
     // Bootstrap
 
-    public function BaseContainer(string $id,string $class,array $contenidos){
+    public function BaseContainer(string $id,string $class,array $contenidos,string $style=""){
         $ids="";
+        $style='style="'.$style.'"';
         if($id<>""){ $ids="id='$id'"; }
-        $html='<div '.$ids.' class="'.$class.'">';
+        $html='<div '.$ids.' class="'.$class.'"  style="'.$style.'">';
         $html.=implode("",$contenidos);
         $html.='</div>';
         return $html;
@@ -225,8 +226,16 @@ class Utilidades
         return $this->BaseContainer($id,"container-fluid",$rows);
     }
 
+    public function ContainerFluidStyle(array $rows,string $style,string $id=""){
+        return $this->BaseContainer($id,"container-fluid",$rows,$style);
+    }
+
     public function Container(array $rows,string $id=""){
         return $this->BaseContainer($id,"container",$rows);
+    }
+
+    public function ContainerStyle(array $rows,string $style,string $id=""){
+        return $this->BaseContainer($id,"container",$rows,$style);
     }
 
     public function Row(array $columns,$class=""){
@@ -236,7 +245,14 @@ class Utilidades
         return $html;
     }
 
-    public function Columns(string $html,int $mediumScreen,int $tinyScreen=0,int $smallScreen=0,int $largeScreen=0,string $class=""){
+    public function RowStyle(array $columns,$style,$class=""){
+        $html='<div class="row '.$class.' "  style="'.$style.'">';
+        $html.=implode("",$columns);
+        $html.='</div>';
+        return $html;
+    }
+
+    public function Columns(string $html,int $mediumScreen,int $tinyScreen=0,int $smallScreen=0,int $largeScreen=0,string $class="",string $style=""){
         if($tinyScreen==0) $tiny="";
         else $tiny='col-xs-'.$tinyScreen;
         if($smallScreen==0) $small="";
@@ -246,7 +262,7 @@ class Utilidades
         if($largeScreen==0) $large="";
         else $large='col-lg-'.$largeScreen;
 
-        return "<div class='$tiny $small $medium $large $class'>
+        return "<div class='$tiny $small $medium $large $class' style='$style'>
                     $html
                 </div>";
     }
@@ -745,6 +761,11 @@ class Utilidades
         echo "<div  style='background-color: white;color: red;z-index: 100000;position: fixed'><pre>";
         var_dump($var);
         echo "</pre></div>";
+    }
+
+    public function RowSpace(string $unit)
+    {
+        return $this->Row([$this->Columns("",12,12,12,12,"","height:".$unit)]);
     }
 
 }

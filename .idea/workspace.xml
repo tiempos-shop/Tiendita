@@ -19,13 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Correcciones Generales">
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Filtro de la tienda&#10;Scroll final de privacy policy &amp; SHIPPING &amp; RETURNS">
+      <change afterPath="$PROJECT_DIR$/privacy.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shipping.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Business/FrontComponents.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/FrontComponents.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/Utilidades.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Utilidades.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/archive.php" beforeDir="false" afterPath="$PROJECT_DIR$/archive.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customerLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/customerLogin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/shop.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,14 +257,11 @@
       <workItem from="1615693543854" duration="7103000" />
       <workItem from="1615854494658" duration="10093000" />
       <workItem from="1615913233297" duration="19744000" />
-      <workItem from="1616117381164" duration="19038000" />
-    </task>
-    <task id="LOCAL-00057" summary="Pagos.php">
-      <created>1608688296605</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1608688296605</updated>
+      <workItem from="1616117381164" duration="19297000" />
+      <workItem from="1616515072359" duration="18350000" />
+      <workItem from="1617033044039" duration="15930000" />
+      <workItem from="1617209951951" duration="8338000" />
+      <workItem from="1617642254347" duration="6758000" />
     </task>
     <task id="LOCAL-00058" summary="Pagos.php">
       <created>1608769432515</created>
@@ -599,7 +599,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615947816712</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="Filtro de la tienda&#10;Scroll final de privacy policy &amp; SHIPPING &amp; RETURNS">
+      <created>1616298686010</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1616298686011</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -619,7 +626,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Devoluciones.php" />
     <MESSAGE value="Clientes.php" />
     <MESSAGE value="Direcciones.php" />
     <MESSAGE value="Pagos.php" />
@@ -644,6 +650,7 @@
     <MESSAGE value="Carrito" />
     <MESSAGE value="Correcciones Marzo 8" />
     <MESSAGE value="Correcciones Generales" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correcciones Generales" />
+    <MESSAGE value="Filtro de la tienda&#10;Scroll final de privacy policy &amp; SHIPPING &amp; RETURNS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Filtro de la tienda&#10;Scroll final de privacy policy &amp; SHIPPING &amp; RETURNS" />
   </component>
 </project>

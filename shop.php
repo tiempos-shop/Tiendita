@@ -36,10 +36,8 @@ $idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(
 
 
 $products=$db->getAll("Productos");
-
-
-
 $db->close();
+
 $filtroDescripcion=array_column($products,"Descripcion");
 $filtroPrecio=array_column($products,"Costo");
 if(isset($_GET["order"])){
@@ -144,6 +142,7 @@ $h= $html->Html5(
                 body,button {
                     font-family: NHaasGroteskDSPro-55Rg;
                     letter-spacing:0.09em; 
+                    overflow-y: overlay;
                 }
                 [type='submit']{
                     -webkit-appearance: none!important;  
