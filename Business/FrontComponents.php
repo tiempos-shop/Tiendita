@@ -375,7 +375,7 @@ class FrontComponents
         return
         "</div>
             <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
-            SHOP ALL'<br/>
+            <a style='color: black' href='shop.php?order=6'>SHOP ALL'</a><br/>
             <br/>
             MEN<br/>
             <div style='width: 1vw;display: inline-block'></div><span>TOP</span><br/>
@@ -389,7 +389,7 @@ class FrontComponents
             <br/>
             <span>ACCESSORIES</span><br/>
             <br/>
-            <span><strong>SALE</strong></span>
+            <a style='color: black' href='shop.php?order=5'><strong>SALE</strong></a>
         </div>";
 
     }
@@ -455,9 +455,10 @@ class FrontComponents
 
     public function Aviso(){
         return
+            $this->ui->RowSpace("1em").
             $this->ui->Row([
                 $this->ui->Columns("",7),
-                $this->ui->Columns("<span onclick='go(\"privacy.php\")' class='small'>PRIVACY POLICY</span><label style='width: 40px'></label><span  onclick='go(\"shipping.php\")' class='small'>SHIPPING & RETURNS</span>",5)
+                $this->ui->Columns("<span style='width: 10vw;display: inline-block' onclick='go(\"privacy.php\")' class='small'>PRIVACY POLICY</span><span  onclick='go(\"shipping.php\")' class='small'>SHIPPING & RETURNS</span>",5)
             ],"");
     }
 

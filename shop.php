@@ -52,6 +52,13 @@ if(isset($_GET["order"])){
         case 4:
             $temp=array_multisort($filtroPrecio,SORT_DESC,$products);
             break;
+        case 5:
+            $temp=[];
+            foreach ($products as $product){
+                if($product->Sale==1)
+                $temp[]=$product;
+            }
+            $products=$temp;
         default:
     }
 

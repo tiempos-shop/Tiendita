@@ -82,41 +82,43 @@ $tipoCambio=20;
 
 
 
-$productWord=explode(" ",$productInformation->Nombre);
-$n=count($productWord);
-$p=100/$n;
+
+//$n=count($productWord);
+//$p=100/$n;
 
 $nameTable="<table class='table table-borderless'><tr>";
-foreach ($productWord as $word){
-    $nameTable.="<td style='font-family: NHaasGroteskDSPro-65Md;width: $p%'>$word</td>";
-}
+//foreach ($productWord as $word){
+//    $nameTable.="<td style='font-family: NHaasGroteskDSPro-65Md;width: $p%'>$word</td>";
+//}
 $nameTable.="</tr></table>";
 
 $inventario=$productInformation->Inventario;
 if($idiomaActual=="ENGLISH"){
+    $productWord=$productInformation->Name;
     $dollarPrice=$productInformation->Costo/$tipoCambio;
     $price=$ui->Moneda($dollarPrice,"USD $");
-    $productWord=explode(" ",$productInformation->Descripcion);
+
     $descripcionLarga=$productInformation->LargeDescription;
     $tallas=$productInformation->SelectSize;
     $opcionesTallas="<a class='dropdown-item' href='#'>$tallas (Products in stock: $inventario)</a>";
     $botonTalla="SELECT SIZE";
 }
 else{
+    $productWord=$productInformation->Nombre;
     $price=$ui->Moneda($productInformation->Costo,"MXN $");
-    $productWord=explode(" ",$productInformation->Descripcion);
+
     $descripcionLarga=$productInformation->DescripcionLarga;
     $tallas=$productInformation->SeleccionarTalla;
     $opcionesTallas="<a class='dropdown-item' href='#'>$tallas (Productos en inventario: $inventario)</a>";
     $botonTalla="SELECCIONAR TALLA";
 }
-$n=count($productWord);
-$p=100/$n;
+//$n=count($productWord);
+//$p=100/$n;
 
 $descriptionTable="<table class='table table-borderless'><tr>";
-foreach ($productWord as $word){
-    $descriptionTable.="<td style='width: $p%'>$word</td>";
-}
+//foreach ($productWord as $word){
+//    $descriptionTable.="<td style='width: $p%'>$word</td>";
+//}
 $descriptionTable.="</tr></table>";
 
 
@@ -186,6 +188,7 @@ $modal="
 
 $db->close();
 $htmlProducts="";
+$ui->Debug($productWord);
 
 
 $h= $html->Html5(
@@ -319,7 +322,7 @@ $h= $html->Html5(
                     $ui->ContainerFluid([
                             "<br/>",
                             $ui->Row([
-                                $ui->Columns("<p style='font-family: NHaasGroteskDSPro-65Md'>$productInformation->Name</p>",12),
+                                $ui->Columns("<p style='font-family: NHaasGroteskDSPro-65Md'>$productWord</p>",12),
 
                             ]),
                             $ui->Row([
