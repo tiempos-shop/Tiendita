@@ -160,7 +160,7 @@ $h= $html->Html5(
                         ],"","<button class='btn btn-block btn-dark' formaction='customerLogin.php?action=login' type='submit' style='border-radius: 0;background-color: black;'>LOGIN</button>"),
                         $ui->RowSpace("1vh"),
                         $ui->FormButtom([],"","<button class='btn btn-block' formaction='customerLogin.php?action=facebook' type='submit' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>LOGIN WITH FACEBOOK</button>"),
-                        $ui->FormButtom([],"","<button class='btn btn-block' formaction='customerLogin.php?action=facebook' type='submit' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>LOGIN WITH GOOGLE</button>")
+                        $ui->FormButtom([],"","<button class='btn btn-block' formaction='customerLogin.php?action=google' type='submit' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>LOGIN WITH GOOGLE</button>")
 
                     ]),
                 4,0,0,0,"","text-align:center;"),

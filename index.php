@@ -92,24 +92,24 @@ $h= $html->Html5(
                         padding-left: 0px;
                         padding-right: 0px;
                     }
-                    @keyframes blur-fx1 {   
-                        
-                        0%      { filter: blur(20px);-webkit-filter:blur(20px)}
-                        100%    { filter: blur(0px);-webkit-filter:blur(0px)}
-                    }
-                    @keyframes blur-fx2 {
-                        0%     { filter: blur(20px);-webkit-filter:blur(20px)}
-                        100%    { filter: blur(0px);-webkit-filter:blur(0px)}
-                    }
-                    #left_home{
-                        animation-name: blur-fx1;
-                        animation-duration: 2s;
-                    }
-                    #right_home{
-                        animation-name: blur-fx2;
-                        animation-duration: 2s;
-                        animation-delay: 1s;
-                    }
+//                    @keyframes blur-fx1 {   
+//                        
+//                        0%      { filter: blur(20px);-webkit-filter:blur(20px)}
+//                        100%    { filter: blur(0px);-webkit-filter:blur(0px)}
+//                    }
+//                    @keyframes blur-fx2 {
+//                        0%     { filter: blur(20px);-webkit-filter:blur(20px)}
+//                        100%    { filter: blur(0px);-webkit-filter:blur(0px)}
+//                    }
+//                    #left_home{
+//                        animation-name: blur-fx1;
+//                        animation-duration: 2s;
+//                    }
+//                    #right_home{
+//                        animation-name: blur-fx2;
+//                        animation-duration: 2s;
+//                        animation-delay: 1s;
+//                    }
                     #logo{
                         display:inline-block;
                         top:50vh;
@@ -168,7 +168,7 @@ $h= $html->Html5(
             ",
         "<script>
                       window.onload=function (){
-                          load();
+                          //load();
                       }
                       
                       function go(url){
@@ -219,7 +219,7 @@ $h= $html->Html5(
             "<table cellpadding='0' cellspacing='0'>",
             "<tr>",
             "    <td><img id='left_home' class='img-fluid' src='img/ts-home_001.jpg'></img></td>",
-            "    <td><img style='visibility: hidden' id='right_home' class='img-fluid' src='img/ts-home_002.jpg'></img></td>",
+            "    <td><img id='right_home' class='img-fluid' src='img/ts-home_002.jpg'></img></td>",
             "</tr>"
         ],"principal")
 

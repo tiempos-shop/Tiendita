@@ -19,16 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Filtro de la tienda&#10;Scroll final de privacy policy &amp; SHIPPING &amp; RETURNS">
-      <change afterPath="$PROJECT_DIR$/privacy.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shipping.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/FrontComponents.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/FrontComponents.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/Utilidades.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Utilidades.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive.php" beforeDir="false" afterPath="$PROJECT_DIR$/archive.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Crear Login Face &amp; Google">
       <change beforePath="$PROJECT_DIR$/customerLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/customerLogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/shop.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,14 +254,7 @@
       <workItem from="1616515072359" duration="18350000" />
       <workItem from="1617033044039" duration="15930000" />
       <workItem from="1617209951951" duration="8338000" />
-      <workItem from="1617642254347" duration="6758000" />
-    </task>
-    <task id="LOCAL-00058" summary="Pagos.php">
-      <created>1608769432515</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1608769432531</updated>
+      <workItem from="1617642254347" duration="7083000" />
     </task>
     <task id="LOCAL-00059" summary="Pagos.php">
       <created>1609114960608</created>
@@ -606,7 +592,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616298686011</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="Crear Login Face &amp; Google">
+      <created>1617668841196</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1617668841196</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -626,7 +619,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Clientes.php" />
     <MESSAGE value="Direcciones.php" />
     <MESSAGE value="Pagos.php" />
     <MESSAGE value="nuevas imgs" />
@@ -651,6 +643,7 @@
     <MESSAGE value="Correcciones Marzo 8" />
     <MESSAGE value="Correcciones Generales" />
     <MESSAGE value="Filtro de la tienda&#10;Scroll final de privacy policy &amp; SHIPPING &amp; RETURNS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Filtro de la tienda&#10;Scroll final de privacy policy &amp; SHIPPING &amp; RETURNS" />
+    <MESSAGE value="Crear Login Face &amp; Google" />
+    <option name="LAST_COMMIT_MESSAGE" value="Crear Login Face &amp; Google" />
   </component>
 </project>
