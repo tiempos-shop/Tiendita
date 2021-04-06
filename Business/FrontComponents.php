@@ -131,6 +131,8 @@ class FrontComponents
             $i++;
         }
 
+
+
         return "<div class='fixed-top' style='padding-top:2vh;padding-bottom:0;padding-left: 2vw;padding-right: 2vw;background-color: $back;'>".
             $this->ui->Row([
                 $this->ui->Columns(
@@ -157,6 +159,115 @@ class FrontComponents
                     2,0,0,0,""
                 )
             ],"right").$hr.
+            "</div>";
+    }
+
+    public function MenuArchive($idioma, $idiomaActual,int $numeroProductosCarrito,array $selected,bool $transparente=false,bool $unremark=false):string{
+        if($transparente){
+            $hr="";
+            $back="transparent";
+        }
+        else{
+            $back="white";
+            if($unremark){
+                $hr="<hr style='margin-bottom: 0'/>";
+            }
+            else
+            {
+                $hr="<hr style='margin: 1em -3vw 0px -2vw;opacity: 1;'/>";
+            }
+        }
+        $lines=array();
+        $i=0;
+
+        foreach ($selected as $select){
+
+            switch($i)
+            {
+                case 0:
+                    if($select=="'"){
+                        $lines[$i]="<label onclick='go(\"shop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
+                    }
+                    else{
+                        $lines[$i]="<span onclick='go(\"shop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i]."</span>";
+                    }
+                    break;
+                case 1:
+                    if($select=="'"){
+                        $lines[$i]="<label  style='padding-left: 5%'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
+                    }
+                    else{
+                        $lines[$i]="<span style='padding-left: 5%' onclick='go(\"archive.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][1]."</span>";
+                    }
+                    break;
+                case 2:
+                    if($select=="'"){
+                        $lines[$i]="<label  style='padding-left: 20%'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
+                    }
+                    else{
+                        $lines[$i]="<span style='padding-left: 20%' onclick='go(\"imprint.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][2]."$selected[2]</span>";
+                    }
+                    break;
+                case 3:
+                    if($select=="'"){
+                        $lines[$i]="<label  style='padding-left: 35%'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
+                    }
+                    else{
+                        $lines[$i]="<span style='padding-left: 35%' onclick='go(\"customerLogin.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][3]."$selected[3]</span>";
+                    }
+                    break;
+                case 4:
+                    $lines[$i]=$this->FormLink(
+                        [
+                            $this->ui->Input("language","",$this->idioma[ $idiomaActual ]["MENU"][4],"F",true),
+                        ],
+                        "",
+                        $this->idioma[ $idiomaActual ]["MENU"][4].$selected[4]
+
+                    );
+                    break;
+                case 5:
+                    if($select=="'"){
+                        $lines[$i]="<label style='right: 2%;position: absolute'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5]).$selected[5]."</label>";
+                    }
+                    else{
+                        $lines[$i]="<span style='right: 2%;position: absolute' onclick='go(\"cart.php\")'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5])."$selected[5]</span>";
+                    }
+
+                    break;
+
+            }
+            $i++;
+        }
+
+
+
+        return "<div class='fixed-top' style='padding-top:2vh;padding-bottom:0;padding-left: 2vw;padding-right: 2vw;background-color: $back;'>".
+            $this->ui->Row([
+                $this->ui->Columns(
+                    $lines[0],
+                    2,0,0,0,""
+                ),
+                $this->ui->Columns(
+                    $lines[1],
+                    2,0,0,0,""
+                ),
+                $this->ui->Columns(
+                    $lines[2],
+                    2,0,0,0,""
+                ),
+                $this->ui->Columns(
+                    $lines[3],
+                    2,0,2,0,""
+                ),
+                $this->ui->Columns(
+                    $lines[4],2
+                ),
+                $this->ui->Columns(
+                    $lines[5],
+                    2,0,0,0,""
+                )
+            ],"right").
             "</div>";
     }
 

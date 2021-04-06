@@ -19,15 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Crear Login Face &amp; Google">
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Sale en priductos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Business/FrontComponents.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/FrontComponents.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Models/Producto.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/Producto.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/archive.php" beforeDir="false" afterPath="$PROJECT_DIR$/archive.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customerLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/customerLogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/privacy.php" beforeDir="false" afterPath="$PROJECT_DIR$/privacy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shipping.php" beforeDir="false" afterPath="$PROJECT_DIR$/shipping.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/shop.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,14 +255,7 @@
       <workItem from="1616515072359" duration="18350000" />
       <workItem from="1617033044039" duration="15930000" />
       <workItem from="1617209951951" duration="8338000" />
-      <workItem from="1617642254347" duration="15118000" />
-    </task>
-    <task id="LOCAL-00060" summary="Pagos.php">
-      <created>1609988687520</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1609988687520</updated>
+      <workItem from="1617642254347" duration="16024000" />
     </task>
     <task id="LOCAL-00061" summary="Pagos.php">
       <created>1609989330536</created>
@@ -605,7 +593,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617669162748</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="Sale en priductos">
+      <created>1617737700008</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1617737700008</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -625,7 +620,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Direcciones.php" />
     <MESSAGE value="Pagos.php" />
     <MESSAGE value="nuevas imgs" />
     <MESSAGE value="fotos home" />
@@ -650,6 +644,7 @@
     <MESSAGE value="Correcciones Generales" />
     <MESSAGE value="Filtro de la tienda&#10;Scroll final de privacy policy &amp; SHIPPING &amp; RETURNS" />
     <MESSAGE value="Crear Login Face &amp; Google" />
-    <option name="LAST_COMMIT_MESSAGE" value="Crear Login Face &amp; Google" />
+    <MESSAGE value="Sale en priductos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sale en priductos" />
   </component>
 </project>
