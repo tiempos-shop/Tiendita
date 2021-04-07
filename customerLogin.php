@@ -172,7 +172,7 @@ $h= $html->Html5(
 
                             $fc->BlackInput("EMAIL ADDRESS","login"),
                             $ui->RowSpace("1vh"),
-                            $fc->BlackInput("PASSWORD","password"),
+                            $fc->BlackInput("PASSWORD","password",true),
                             "<button type='submit' formaction='customerLogin.php?action=forgot' class='btn small-font'>FORGOT YOUR PASSWORD?</button>",
                         ],"","<button class='btn btn-block btn-dark' formaction='customerLogin.php?action=login' type='submit' style='border-radius: 0;background-color: black;'>LOGIN</button>"),
                         $ui->RowSpace("1vh"),
@@ -202,9 +202,9 @@ $h= $html->Html5(
                             $ui->RowSpace("1vh"),
                             $fc->BlackInput("EMAIL ADDRESS","login"),
                             $ui->RowSpace("1vh"),
-                            $fc->BlackInput("PASSWORD","password1"),
+                            $fc->BlackInput("PASSWORD","password1",true),
                             $ui->RowSpace("1vh"),
-                            $fc->BlackInput("REPEAT PASSWORD","password2"),
+                            $fc->BlackInput("REPEAT PASSWORD","password2",true),
                             $ui->RowSpace("1vh"),
                             "<input class='form-check-input' type='checkbox' id='newsletter' name='newsletter' style='border-radius: 10px;border-color: black'> SIGN UP FOR NEWSLETTER</input>",
 

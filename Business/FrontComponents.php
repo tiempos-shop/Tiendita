@@ -389,7 +389,7 @@ class FrontComponents
             <br/>
             <span>ACCESSORIES</span><br/>
             <br/>
-            <a style='color: black' href='shop.php?order=5'><strong>SALE</strong></a>
+            <a style='color: black' href='shop.php?order=5'><span><strong>SALE</strong></span></a>
         </div>";
 
     }
@@ -538,8 +538,12 @@ class FrontComponents
         return $html;
     }
 
-    public function BlackInput(string $title,$id){
-        return "<input class='form-control' name='$id' placeholder='$title' style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em'/>";
+    public function BlackInput(string $title,$id,bool $password=false){
+        $type="";
+        if($password){
+            $type="type='password'";
+        }
+        return "<input $type class='form-control' name='$id' placeholder='$title' style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em'/>";
     }
 
 }

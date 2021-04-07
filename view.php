@@ -73,7 +73,7 @@ else
 
 
 $tipoCambio=20;
-$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
+$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"],"LOGIN"=>[] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
 
 $price=0;
 $tipoCambio=20;
@@ -97,7 +97,9 @@ if($idiomaActual=="ENGLISH"){
     $productWord=$productInformation->Name;
     $dollarPrice=$productInformation->Costo/$tipoCambio;
     $price=$ui->Moneda($dollarPrice,"USD $");
-
+    if($productInformation->Sale){
+        $price=$ui->Moneda($productInformation->CostoSale/$tipoCambio,"USD $");
+    }
     $descripcionLarga=$productInformation->LargeDescription;
     $tallas=$productInformation->SelectSize;
     $opcionesTallas="<a class='dropdown-item' href='#'>$tallas (Products in stock: $inventario)</a>";
@@ -106,7 +108,9 @@ if($idiomaActual=="ENGLISH"){
 else{
     $productWord=$productInformation->Nombre;
     $price=$ui->Moneda($productInformation->Costo,"MXN $");
-
+    if($productInformation->Sale){
+        $price=$ui->Moneda($productInformation->CostoSale,"MXN $");
+    }
     $descripcionLarga=$productInformation->DescripcionLarga;
     $tallas=$productInformation->SeleccionarTalla;
     $opcionesTallas="<a class='dropdown-item' href='#'>$tallas (Productos en inventario: $inventario)</a>";
@@ -188,7 +192,7 @@ $modal="
 
 $db->close();
 $htmlProducts="";
-$ui->Debug($productWord);
+//$ui->Debug($productWord);
 
 
 $h= $html->Html5(
@@ -350,7 +354,7 @@ $h= $html->Html5(
             ],"main")
         ]),
         '
-        <div class="modal fade" id="size" tabindex="-1" role="dialog" aria-labelledby="sizeLabel" aria-hidden="true" style="background-color: white;opacity: 0.2">
+        <div class="modal" id="size" tabindex="-1" role="dialog" aria-labelledby="sizeLabel" aria-hidden="true" style="background-color: transparent;">
           <div class="modal-dialog" role="document">
             <div class="modal-content" style="border-radius: 0;border: 0 solid transparent;top:30vh;background-color: white">
               <div class="modal-header">
@@ -374,21 +378,3 @@ $h= $html->Html5(
 
 print_r($h);
 
-function FormLink(array $content,string $url,string $button){
-    $html= "
-            <form method='post' action='$url'>";
-    $html.=implode("",$content);
-    $html.='
-                <div class="form-group row">
-                    <div class="col-sm-10">
-                        <button type="submit" class="btn btn-link" style="text-decoration: none;color:black;padding: 0px;border: none"><span type="submit">'.$button.'</span></button>
-                    </div>
-                </div>
-            </form>';
-    return $html;
-}
-
-function Cart($number,$label):string
-{
-    return str_replace("*",$number,$label);
-}
