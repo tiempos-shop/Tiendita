@@ -98,7 +98,7 @@ if($idiomaActual=="ENGLISH"){
     $dollarPrice=$productInformation->Costo/$tipoCambio;
     $price=$ui->Moneda($dollarPrice,"USD $");
     if($productInformation->Sale){
-        $price=$ui->Moneda($productInformation->CostoSale/$tipoCambio,"USD $");
+        $price="<s>$price</s> ".$ui->Moneda($productInformation->CostoSale/$tipoCambio,"USD $");
     }
     $descripcionLarga=$productInformation->LargeDescription;
     $tallas=$productInformation->SelectSize;
@@ -109,7 +109,7 @@ else{
     $productWord=$productInformation->Nombre;
     $price=$ui->Moneda($productInformation->Costo,"MXN $");
     if($productInformation->Sale){
-        $price=$ui->Moneda($productInformation->CostoSale,"MXN $");
+        $price="<s>$price</s> ".$ui->Moneda($productInformation->CostoSale,"MXN $");
     }
     $descripcionLarga=$productInformation->DescripcionLarga;
     $tallas=$productInformation->SeleccionarTalla;
@@ -347,9 +347,10 @@ $h= $html->Html5(
 
 
                         ],"component").
-                        "<div class='container-fluid' style='position: fixed;bottom: 0;font-size: 0.9em;'>".
-                            "<label><span>PRIVACY POLICY</span></label><label><span>SHIPPING RETURNS</span></label><label><button type='button' class='btn btn-link' style='text-decoration: none;color: black;padding: 0;border: none;font-weight: normal;font-size: 14.4px'  data-toggle='modal' data-target='#size'><span>SIZE GUIDE</span></button></label>".
-                        "</div>"
+                        $fc->MenuPrivacyReturnView(true,true)
+//                        "<div class='container-fluid' style='position: fixed;bottom: 0;font-size: 0.9em;'>".
+//                            "<label><span>PRIVACY POLICY</span></label><label><span>SHIPPING RETURNS</span></label><label><button type='button' class='btn btn-link' style='text-decoration: none;color: black;padding: 0;border: none;font-weight: normal;font-size: 14.4px'  data-toggle='modal' data-target='#size'><span>SIZE GUIDE</span></button></label>".
+//                        "</div>"
                     ,6,0,0,0,"left-top")
             ],"main")
         ]),

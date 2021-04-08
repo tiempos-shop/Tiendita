@@ -106,6 +106,8 @@ foreach ($productosCarrito as $producto){
             $carrito["Cantidad"]=$producto[1];
             $carrito["Talla"]=$producto[2];
             $carrito["Costo"]=$pi->Costo;
+            $carrito["CostoSale"]=$pi->CostoSale;
+            $carrito["Sale"]=$pi->Sale;
 
             $elements[]=$carrito;
         }
@@ -117,8 +119,25 @@ $htmlProducts="";
 $suma=0;
 foreach ($elements as $element){
     $n=$element["Cantidad"];
-    if($idiomaActual=="ENGLISH") $costo=$ui->Moneda($n*$element["Costo"]/$tipoCambio,"USD $");
-    else $costo=$ui->Moneda($n*$element["Costo"],"MXN $");
+    if($idiomaActual=="ENGLISH")
+    {
+        $costo=$ui->Moneda($n*$element["Costo"]/$tipoCambio,"USD $");
+        $costoSale=$ui->Moneda($n*$element["CostoSale"]/$tipoCambio,"USD $");
+    }
+    else
+    {
+        $costo=$ui->Moneda($n*$element["Costo"],"MXN $");
+        $costoSale=$ui->Moneda($n*$element["CostoSale"],"MXN $");
+    }
+
+    $price="";
+    if($carrito["Sale"]==1){
+        $price=$ui->Columns("<s>$costo</s>".$costoSale,1);
+    }
+    else
+    {
+        $price=$ui->Columns($costo,1);
+    }
     $htmlProducts.="<hr/>".$ui->Row([
         $ui->Columns("",2),
         $ui->Columns("<img src='".$element["RutaImagen"]."' height='172'>",2),
@@ -126,8 +145,7 @@ foreach ($elements as $element){
         $ui->Columns($fc->Borrar($element).$fc->BotonEditar($element),1),
         $ui->Columns($carrito["Talla"],1),
         $ui->Columns("",1),
-
-        $ui->Columns($costo,1),
+        $price,
         $ui->Columns("",2)
     ]);
 

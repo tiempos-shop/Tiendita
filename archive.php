@@ -91,12 +91,14 @@ $h= $html->Html5(
                     src: url(font/NHaasGroteskDSPro-65Md.ttf);
                     
                 }
+                body{
+                    color:black;
+                }
 
                 body,button {
                     font-family: NHaasGroteskDSPro-55Rg;
                     letter-spacing:0.09em; 
                     overflow-y: overlay;
-                    
                 }
                 #logo{
                     display:inline-block;

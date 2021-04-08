@@ -538,6 +538,20 @@ class FrontComponents
         return $html;
     }
 
+    public function MenuPrivacyReturnView(bool $privacy,bool $return){
+        $html= "
+            <div class='container-fluid' style='position: fixed;bottom: 0;font-size: 0.9em;'>
+                <label><span style='width: 10vw;display: block'";
+        if($privacy) $html.=" onclick='go(\"privacy.php\")'";
+        $html.=">PRIVACY POLICY</span></label><label><span  style='width: 10vw;display: block'";
+        if($return) $html.=" onclick='go(\"shipping.php\")'";
+        $html.=">SHIPPING RETURNS</span></label>";
+        $html.="<button type='button' class='btn btn-link' style='text-decoration: none;color: black;padding: 0;border: none;font-weight: normal;font-size: 14.4px'  data-toggle='modal' data-target='#size'><span>SIZE GUIDE</span></button>";
+        $html.="</div>";
+
+        return $html;
+    }
+
     public function BlackInput(string $title,$id,bool $password=false){
         $type="";
         if($password){
