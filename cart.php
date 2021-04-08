@@ -132,7 +132,7 @@ foreach ($elements as $element){
 
     $price="";
     if($carrito["Sale"]==1){
-        $price=$ui->Columns("<s>$costo</s>".$costoSale,1);
+        $price=$ui->Columns("<s>$costo</s> ".$costoSale,1);
     }
     else
     {
@@ -243,6 +243,7 @@ $h= $html->Html5(
         $fc->LogoNegro(),
         "<br/>",
         $ui->ContainerFluid([
+            $ui->RowSpace("1em"),
             $htmlProducts,
             $ui->Row([
                 $ui->Columns("",7),
