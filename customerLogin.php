@@ -38,10 +38,23 @@ if(count($_POST)>0)
 
     if(isset($_GET["action"])){
         $action=$_GET["action"];
-        $ui->Debug($_POST);
         switch ($action){
             case "login":
+                $realPassword="";
+                $email=$_POST["login"];
+                $password=$_POST["password"];
+                $clienteTable=$db->getBy("Clientes","CorreoElectronico",$email);
+
+                if(count($clienteTable)>0){
+                    $realPassword=$clienteTable[0]->Password;
+
+                }
+                if($realPassword===$password){
+                    $_SESSION["LOGGED"]="NORMAL";
+                    $ui->Redirect("checkout.php");
+                }
                 break;
+
             case "forgot":
                 break;
             case "facebook":
