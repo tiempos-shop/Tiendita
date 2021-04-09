@@ -77,7 +77,7 @@ foreach ($products as $product){
     $i++;
     $image=$product->RutaImagen;
     $description=$product->Descripcion;
-    $code=$product->Clave;
+
     $precioSale="";
 
     if($idiomaActual=="ENGLISH"){
@@ -99,6 +99,7 @@ foreach ($products as $product){
     $arr = explode(",", $image, 4);
     $first = "'$arr[0]'";
     $four="'$arr[2]'";
+    $code=$product->Clave;
     $code=str_replace("'","_",$code);
     $js="view('$code')";
     $htmlColumns[]=$ui->Columns('<br/><br/><img onclick="'.$js.'" src="'.$arr[0].'" onmouseover="changeImage(this,'.$four.')" onmouseleave="changeImage(this,'.$first.')" width="300px"><br/><br/><p style="font-family: NHaasGroteskDSPro-65Md;line-height: 1">'.$description.'</p><p>'.$price.'</p>',

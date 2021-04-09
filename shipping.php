@@ -123,7 +123,7 @@ $h= $html->Html5(
 
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","","","",""]),
         "<div style='position: absolute;width:100%;height: 93%;border-bottom: 1px solid black'>",
-        "<div style='overflow-y:hidden;padding-left:3%;padding-right:3%;position: absolute;width:56%;height: 100%;border-left: 1px solid black;border-right: 1px solid black;margin-left: 21vw'>",
+        "<div style='overflow-y:auto;padding-left:3%;padding-right:3%;position: absolute;width:56%;height: 100%;border-left: 1px solid black;border-right: 1px solid black;margin-left: 21vw'>",
         "<br/><br/><br/>",
         "<p style='text-align: center'>SHIPPING & RETURNS</p>",
         "<p style='text-align: center'>SHIPPING</p>",

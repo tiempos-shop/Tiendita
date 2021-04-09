@@ -29,6 +29,7 @@ $idiomaActual="";
 
 $fc=new \Tiendita\FrontComponents();
 $productInformation=$products=$db->getBy("Productos","Clave",$id)[0];
+
 $_SESSION["CheckOut"]=[ $productInformation->Clave,1,"ONE SIZE"];
 
 if(count($_POST)>0){

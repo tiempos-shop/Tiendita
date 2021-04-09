@@ -138,10 +138,13 @@ foreach ($elements as $element){
     {
         $price=$ui->Columns($costo,1);
     }
+    $code=$element["Clave"];
+    $code=str_replace("'","_",$code);
+    $js="view('$code')";
     $htmlProducts.="<hr/>".$ui->Row([
         $ui->Columns("",2),
-        $ui->Columns("<img src='".$element["RutaImagen"]."' height='172'>",2),
-        $ui->Columns($element["Descripcion"],2),
+        $ui->Columns("<img onclick=\"$js\" src='".$element["RutaImagen"]."' height='172'><div style='height: 100%;display: inline-block;vertical-align: top'>".$element["Descripcion"]."</div>",4),
+        //$ui->Columns($element["Descripcion"],2),
         $ui->Columns($fc->Borrar($element).$fc->BotonEditar($element),1),
         $ui->Columns($carrito["Talla"],1),
         $ui->Columns("",1),
@@ -227,8 +230,7 @@ $h= $html->Html5(
                       imageElement.style.cursor="pointer";
                   }
                   function view(str){
-                      let id=str.replace("_", "\'");
-                      go("view.php?id="+id);
+                      go("view.php?id="+str);
                   }
                   function edit(input,clave){
                       let n=input.value;

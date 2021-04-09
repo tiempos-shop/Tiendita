@@ -122,8 +122,8 @@ $h= $html->Html5(
     $html->Body([
 
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","","","",""]),
-        "<div style='position: absolute;width:100%;height: 93%;border-bottom: 1px solid black'>",
-        "<div style='overflow-y:hidden;padding-left:3%;padding-right:3%;position: absolute;width:56%;height: 100%;border-left: 1px solid black;border-right: 1px solid black;margin-left: 21vw'>",
+        "<div style='position:absolute;width:100%;height: 93%;border-bottom: 1px solid black'>",
+        "<div style='padding-left:3%;padding-right:3%;overflow-y: auto;width:56%;height: 100%;border-left: 1px solid black;border-right: 1px solid black;margin-left: 21vw'>",
         "<br/><br/><br/>",
         "<p style='text-align: center'>EJEMPLO DE TEXTO PRIVACY POLICY</p>",
         "<p style='text-align: center'>POLYCY</p>",
@@ -170,9 +170,7 @@ not process orders from persons that are not the Final Customer and any other or
         $fc->TMenu(""),
         $fc->Aviso(),
         $fc->MenuPrivacyReturn(true,true)
-//        "<div class='container-fluid' style='position: fixed;bottom: 0;font-size: 0.9em;padding-left: 55%'>".
-//        "<label><span>PRIVACY POLICY</span></label><label><span onclick='go(\"shipping.php\")'>SHIPPING RETURNS</span></label>".
-//        "</div>"
+
 
 
     ],"style='background-color:#FFFFF;' ") //#AC9950
