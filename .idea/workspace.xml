@@ -19,13 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Cambios Logged">
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Correcciones Login, Checkout">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/privacy.php" beforeDir="false" afterPath="$PROJECT_DIR$/privacy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shipping.php" beforeDir="false" afterPath="$PROJECT_DIR$/shipping.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/shop.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customerLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/customerLogin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,14 +256,7 @@
       <workItem from="1617209951951" duration="8338000" />
       <workItem from="1617642254347" duration="39314000" />
       <workItem from="1617901627884" duration="8569000" />
-      <workItem from="1617988911113" duration="9646000" />
-    </task>
-    <task id="LOCAL-00067" summary="fotos home">
-      <created>1613149869482</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1613149869482</updated>
+      <workItem from="1617988911113" duration="13147000" />
     </task>
     <task id="LOCAL-00068" summary=" Isotipo png/svg">
       <created>1613151358672</created>
@@ -605,7 +594,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617906889140</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="Correcciones Login, Checkout">
+      <created>1618012212540</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1618012212540</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -625,7 +621,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fotos home" />
     <MESSAGE value="fotos home web" />
     <MESSAGE value="fotos shop web" />
     <MESSAGE value=" Isotipo png/svg" />
@@ -650,6 +645,7 @@
     <MESSAGE value="Sale en priductos" />
     <MESSAGE value="Cambios Archive" />
     <MESSAGE value="Cambios Logged" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambios Logged" />
+    <MESSAGE value="Correcciones Login, Checkout" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correcciones Login, Checkout" />
   </component>
 </project>

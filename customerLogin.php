@@ -71,8 +71,19 @@ else{
     $idiomaActual=$_SESSION["language"];
 }
 $tipoCambio=20;
-$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
-
+$idioma=
+    [
+        "ESPAÑOL"=>[
+            "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"],
+            "LOGIN" => [ "ACCESO","CORREO ELECTRÓNICO","CONTRASEÑA","OLVIDASTE TU CONTRASEÑA?","ACCESO CON FACEBOOK","ACCESO CON GOOGLE" ],
+            "CREAR" => [ "CREAR CUENTA","NOMBRE","APELLIDO(S)","CORREO ELECTRÓNICO","CONTRASEÑA","REPETIR CONTRASEÑA"," SUSCRIBIRSE AL NEWSLETTER" ]
+        ],
+        "ENGLISH"=>[
+            "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ],
+            "LOGIN" => [ "LOGIN","EMAIL ADDRES","PASSWORD","FORGOT YOUR PASSWORD?","LOGIN WITH FACEBOOK","LOGIN WITH GOOGLE" ],
+            "CREAR" => [ "CREATE AN ACCOUNT","NAME","LAST NAME","EMAIL ADDRESS","PASSWORD","REPEAT PASSWORD"," SIGN UP FOR NEWSLETTER" ]
+        ]
+    ];
 
 
 
@@ -173,7 +184,7 @@ $h= $html->Html5(
         $ui->ContainerFluid([
             $ui->Row([
 
-                $ui->Columns("<label style='font-family: NHaasGroteskDSPro-65Md'>LOGIN</label>",12,0,0,0,"",
+                $ui->Columns("<label style='font-family: NHaasGroteskDSPro-65Md'>".$idioma[$idiomaActual]["LOGIN"][0]."</label>",12,0,0,0,"",
                     "text-align:center;margin-top:100px")
             ]),
             $ui->RowSpace("2vh"),
@@ -183,14 +194,14 @@ $h= $html->Html5(
                     $ui->Lines([
                         $ui->FormButtom([
 
-                            $fc->BlackInput("EMAIL ADDRESS","login"),
+                            $fc->BlackInput($idioma[$idiomaActual]["LOGIN"][1],"login"),
                             $ui->RowSpace("1vh"),
-                            $fc->BlackInput("PASSWORD","password",true),
-                            "<button type='submit' formaction='customerLogin.php?action=forgot' class='btn small-font'>FORGOT YOUR PASSWORD?</button>",
-                        ],"","<button class='btn btn-block btn-dark' formaction='customerLogin.php?action=login' type='submit' style='border-radius: 0;background-color: black;'>LOGIN</button>"),
+                            $fc->BlackInput($idioma[$idiomaActual]["LOGIN"][2],"password",true),
+                            "<button type='submit' formaction='customerLogin.php?action=forgot' class='btn small-font'>".$idioma[$idiomaActual]["LOGIN"][3]."</button>",
+                        ],"","<button class='btn btn-block btn-dark' formaction='customerLogin.php?action=login' type='submit' style='border-radius: 0;background-color: black;'>".$idioma[$idiomaActual]["LOGIN"][0]."</button>"),
                         $ui->RowSpace("1vh"),
-                        $ui->FormButtom([],"","<button class='btn btn-block' formaction='customerLogin.php?action=facebook' type='submit' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>LOGIN WITH FACEBOOK</button>"),
-                        $ui->FormButtom([],"","<button class='btn btn-block' formaction='customerLogin.php?action=google' type='submit' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>LOGIN WITH GOOGLE</button>")
+                        $ui->FormButtom([],"","<button class='btn btn-block' formaction='customerLogin.php?action=facebook' type='submit' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][4]."</button>"),
+                        $ui->FormButtom([],"","<button class='btn btn-block' formaction='customerLogin.php?action=google' type='submit' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][5]."</button>")
 
                     ]),
                 4,0,0,0,"","text-align:center;"),
@@ -199,7 +210,7 @@ $h= $html->Html5(
             "",
             $ui->Row([
 
-                $ui->Columns("<label style='font-family: NHaasGroteskDSPro-65Md'>CREATE AN ACCOUNT</label>",12,0,0,0,"",
+                $ui->Columns("<label style='font-family: NHaasGroteskDSPro-65Md'>".$idioma[$idiomaActual]["CREAR"][0]."</label>",12,0,0,0,"",
                     "text-align:center;margin-top:100px")
             ]),
             $ui->RowSpace("2vh"),
@@ -209,19 +220,19 @@ $h= $html->Html5(
                     $ui->Lines([
                         $ui->FormButtom([
 
-                            $fc->BlackInput("NAME","name"),
+                            $fc->BlackInput($idioma[$idiomaActual]["CREAR"][1],"name"),
                             $ui->RowSpace("1vh"),
-                            $fc->BlackInput("LAST NAME","lastname"),
+                            $fc->BlackInput($idioma[$idiomaActual]["CREAR"][2],"lastname"),
                             $ui->RowSpace("1vh"),
-                            $fc->BlackInput("EMAIL ADDRESS","login"),
+                            $fc->BlackInput($idioma[$idiomaActual]["CREAR"][3],"login"),
                             $ui->RowSpace("1vh"),
-                            $fc->BlackInput("PASSWORD","password1",true),
+                            $fc->BlackInput($idioma[$idiomaActual]["CREAR"][4],"password1",true),
                             $ui->RowSpace("1vh"),
-                            $fc->BlackInput("REPEAT PASSWORD","password2",true),
+                            $fc->BlackInput($idioma[$idiomaActual]["CREAR"][5],"password2",true),
                             $ui->RowSpace("1vh"),
-                            "<input class='form-check-input' type='checkbox' id='newsletter' name='newsletter' style='border-radius: 10px;border-color: black'> SIGN UP FOR NEWSLETTER</input>",
+                            "<input class='form-check-input' type='checkbox' id='newsletter' name='newsletter' style='border-radius: 10px;border-color: black'>".$idioma[$idiomaActual]["CREAR"][6]."</input>",
 
-                        ],"","<button class='btn btn-block btn-dark' formaction='customerLogin.php?action=create' type='submit' style='border-radius: 0;background-color: black;margin-top: 1em;'>CREATE ACCOUNT</button>"),
+                        ],"","<button class='btn btn-block btn-dark' formaction='customerLogin.php?action=create' type='submit' style='border-radius: 0;background-color: black;margin-top: 1em;'>".$idioma[$idiomaActual]["CREAR"][0]."</button>"),
                     ]),
                     4,0,0,0,"","text-align:center;"),
                 $ui->Columns("",4),
