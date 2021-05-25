@@ -19,79 +19,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Correcciones Login, Checkout">
-      <change afterPath="$PROJECT_DIR$/img/0000-JALAPEÑO-front.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0000-JALAPEÑO_unfold.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0001-OBSIDIANA-front.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0002-TACUBAYA-front.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0003-AÑIL-front.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0004-AGAVE-front.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0005-BETABEL-front.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0006-AURORA-front.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0007-SOL-front.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0008-NEBLINA-front.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0009-QUETZAL-front.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0010-FLAMA-front.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0011-ESTRELLA-front.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0012-GILARDI-front.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0013-LUNA-front.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0014-PERLA-front.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0015-VALDIOSERA-front.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/0016-MEDIA-NOCHE-front.jpg" afterDir="false" />
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Idioma del Login">
+      <change afterPath="$PROJECT_DIR$/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_02_2021_04_40_p__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_02_2021_04_40_p__m___Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/vendor/bootstrap/scss/_reboot.scss" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/vendor/bootstrap/scss/_reboot.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0000-JALAPEÑO-back.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0000-JALAPEÑO-back.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0000-JALAPEÑO-unfold.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0000-JALAPEÑO-z.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0000-JALAPEÑO.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0000-JALAPEÑO.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0001-OBSIDIANA-back.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0001-OBSIDIANA-back.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0001-OBSIDIANA-unfold.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0001-OBSIDIANA-unfold.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0001-OBSIDIANA.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0001-OBSIDIANA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0002-TACUBAYA-back.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0002-TACUBAYA-back.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0002-TACUBAYA-unfold.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0002-TACUBAYA-unfold.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0002-TACUBAYA.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0002-TACUBAYA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0003-AÑIL-back.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0003-AÑIL-back.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0003-AÑIL-unfold.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0003-AÑIL-unfold.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0003-AÑIL.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0003-AÑIL.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0004-AGAVE-back.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0004-AGAVE-back.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0004-AGAVE-unfold.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0004-AGAVE-unfold.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0004-AGAVE.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0004-AGAVE.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0005-BETABEL-back.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0005-BETABEL-back.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0005-BETABEL-unfold.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0005-BETABEL-unfold.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0005-BETABEL.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0005-BETABEL.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0006-AURORA-back.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0006-AURORA-back.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0006-AURORA-unfold.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0006-AURORA-unfold.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0006-AURORA.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0006-AURORA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0007-SOL-back.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0007-SOL-back.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0007-SOL-unfold.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0007-SOL-unfold.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0007-SOL.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0007-SOL.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0008-NEBLINA-back.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0008-NEBLINA-back.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0008-NEBLINA-unfold.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0008-NEBLINA-unfold.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0008-NEBLINA.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0008-NEBLINA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0009-QUETZAL-back.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0009-QUETZAL-back.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0009-QUETZAL-unfold.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0009-QUETZAL-unfold.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0009-QUETZAL.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0009-QUETZAL.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0010-FLAMA-back.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0010-FLAMA-back.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0010-FLAMA-unfold.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0010-FLAMA-unfold.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0010-FLAMA.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0010-FLAMA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0011-ESTRELLA-back.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0011-ESTRELLA-back.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0011-ESTRELLA-unfold.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0011-ESTRELLA-unfold.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0011-ESTRELLA.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0011-ESTRELLA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0012-GILARDI-back.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0012-GILARDI-back.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0012-GILARDI-unfold.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0012-GILARDI-unfold.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0012-GILARDI.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0012-GILARDI.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0013-LUNA-back.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0013-LUNA-back.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0013-LUNA-unfold.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0013-LUNA-unfold.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0013-LUNA.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0013-LUNA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0014-PERLA-back.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0014-PERLA-back.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0014-PERLA-unfold.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0014-PERLA-unfold.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0014-PERLA.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0014-PERLA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0015-VALDIOSERA-back.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0015-VALDIOSERA-back.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0015-VALDIOSERA-unfold.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0015-VALDIOSERA-unfold.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0015-VALDIOSERA.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0015-VALDIOSERA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0016-MEDIA-NOCHE-back.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0016-MEDIA-NOCHE-back.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0016-MEDIA-NOCHE-unfold.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0016-MEDIA-NOCHE-unfold.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0016-MEDIA-NOCHE.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0016-MEDIA-NOCHE.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/FrontComponents.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/FrontComponents.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive.php" beforeDir="false" afterPath="$PROJECT_DIR$/archive.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customerLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/customerLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/0000-JALAPEÑO_unfold.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/0000-JALAPEÑO-unfold.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imprint.php" beforeDir="false" afterPath="$PROJECT_DIR$/imprint.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/shop.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +44,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -132,7 +72,7 @@
       <server host="127.0.0.1" id="e820fe44-1307-4645-b719-522a0b5573cf" name="XAMPP Server" />
     </servers>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4.12" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="1jC8NBuZUkHFN6h3T2nWWCwJfYm" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -154,6 +94,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/font" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -329,6 +270,7 @@
       <workItem from="1617901627884" duration="8569000" />
       <workItem from="1617988911113" duration="13147000" />
       <workItem from="1619043299115" duration="5357000" />
+      <workItem from="1621959076799" duration="6116000" />
     </task>
     <task id="LOCAL-00068" summary=" Isotipo png/svg">
       <created>1613151358672</created>
@@ -719,23 +661,5 @@
     <MESSAGE value="Cambios Logged" />
     <MESSAGE value="Correcciones Login, Checkout" />
     <option name="LAST_COMMIT_MESSAGE" value="Correcciones Login, Checkout" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="311" y="23" key="#PHP" timestamp="1618249917977">
-      <screen x="0" y="23" width="1280" height="777" />
-    </state>
-    <state x="311" y="23" key="#PHP/0.23.1280.777@0.23.1280.777" timestamp="1618249917977" />
-    <state x="377" y="237" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1619483543030">
-      <screen x="0" y="23" width="1280" height="777" />
-    </state>
-    <state x="377" y="237" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1280.777@0.23.1280.777" timestamp="1619483543030" />
-    <state x="128" y="88" key="MergeDialog" timestamp="1618249903582">
-      <screen x="0" y="23" width="1280" height="777" />
-    </state>
-    <state x="128" y="88" key="MergeDialog/0.23.1280.777@0.23.1280.777" timestamp="1618249903582" />
-    <state x="431" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1619477340664">
-      <screen x="0" y="23" width="1280" height="777" />
-    </state>
-    <state x="431" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.777@0.23.1280.777" timestamp="1619477340664" />
   </component>
 </project>

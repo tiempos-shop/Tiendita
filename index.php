@@ -75,96 +75,10 @@ $h= $html->Html5(
     $html->Head(
         "Tiempos Shop",
             $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
-            $html->LoadStyles(["View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
+            $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
             $html->LoadScripts(["View/js/bootstrap.js"]),
             "
-                <style>
-                    span:hover{
-                        cursor: pointer;
-                    }
-                    span:hover::after{
-                        content: \"'\";
-                    }
-                    
-                    #principal{
-                        top:0px;
-                        position: absolute;
-                        padding-left: 0px;
-                        padding-right: 0px;
-                    }
-//                    @keyframes blur-fx1 {   
-//                        
-//                        0%      { filter: blur(20px);-webkit-filter:blur(20px)}
-//                        100%    { filter: blur(0px);-webkit-filter:blur(0px)}
-//                    }
-//                    @keyframes blur-fx2 {
-//                        0%     { filter: blur(20px);-webkit-filter:blur(20px)}
-//                        100%    { filter: blur(0px);-webkit-filter:blur(0px)}
-//                    }
-//                    #left_home{
-//                        animation-name: blur-fx1;
-//                        animation-duration: 2s;
-//                    }
-//                    #right_home{
-//                        animation-name: blur-fx2;
-//                        animation-duration: 2s;
-//                        animation-delay: 1s;
-//                    }
-                    #logo{
-                        display:inline-block;
-                        top:50vh;
-                        left: 90vw;
-                        width: 7%
-                    }
-                    #t{
-                        position:fixed;
-                        display:inline-block;
-                        top:50vh;
-                        left: 2vw;
-                        
-                    }
-                    #t-over{
-                        visibility:hidden;
-                        position:fixed;
-                        display:inline-block;
-                        top:50vh;
-                        left: 2vw;
-                        /*background-color: rgba(255,255,255,.3);*/
-                        cursor: pointer;
-                        
-                    }
-                    @font-face {
-                        font-family: NHaasGroteskDSPro-55Rg;
-                        src: url(font/NHaasGroteskDSPro-55Rg.woff);
-                        src: url(font/NHaasGroteskDSPro-55Rg.woff2);
-                        src: url(font/NHaasGroteskDSPro-55Rg.ttf);
-                    }
                 
-                    @font-face {
-                        font-family: NHaasGroteskDSPro-65Md;
-                        src: url(font/NHaasGroteskDSPro-65Md.woff);
-                        src: url(font/NHaasGroteskDSPro-65Md.woff2);
-                        src: url(font/NHaasGroteskDSPro-65Md.ttf);
-                        
-                    }
-                    body,button {
-                        font-family: NHaasGroteskDSPro-55Rg;
-                        letter-spacing:0.09em; 
-                        overflow:hidden; 
-                    }
-                    [type='submit']{
-                        -webkit-appearance: none!important;  
-                    }
-                    right{
-                        text-align: right;
-                    }
-                    hr{
-                        margin-right: 0;
-                        margin-left: 0;
-                        opacity: 1;
-                    }
-                    
-                </style>
             ",
         "<script>
                       window.onload=function (){

@@ -162,39 +162,11 @@ $h= $html->Html5(
     $html->Head(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
-        $html->LoadStyles(["View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
+        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
         $html->LoadScripts(["View/js/bootstrap.js"]),
         "
             <style>
-                span:hover{
-                    cursor: pointer;
-                }
-                span:hover::after{
-                    content: \"'\";
-                }
-                @font-face {
-                    font-family: NHaasGroteskDSPro-55Rg;
-                    src: url(font/NHaasGroteskDSPro-55Rg.woff);
-                    src: url(font/NHaasGroteskDSPro-55Rg.woff2);
-                    src: url(font/NHaasGroteskDSPro-55Rg.ttf);
-                }
                 
-                @font-face {
-                    font-family: NHaasGroteskDSPro-65Md;
-                    src: url(font/NHaasGroteskDSPro-65Md.woff);
-                    src: url(font/NHaasGroteskDSPro-65Md.woff2);
-                    src: url(font/NHaasGroteskDSPro-65Md.ttf);
-                    
-                }
-
-                body,button {
-                    font-family: NHaasGroteskDSPro-55Rg;
-                    letter-spacing:0.09em;
-                    overflow-y: overlay;
-                }
-                [type='submit']{
-                    -webkit-appearance: none!important;  
-                }
                 .left-top{
                     position: fixed;
                     left: 50vw;
@@ -204,17 +176,7 @@ $h= $html->Html5(
                     display:inline-block; 
                     width:30px; 
                 }
-                #logo{
-                    display:inline-block;
-                    top:50vh;
-                    left: 90vw;
-                    width: 7%
-                }
-                hr{
-                    margin-right: 0;
-                    margin-left: 0;
-                    opacity: 1;
-                }
+                
                 #container{
                     padding: 0 0 0 0;
                 }

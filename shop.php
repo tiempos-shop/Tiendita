@@ -102,7 +102,7 @@ foreach ($products as $product){
     $code=$product->Clave;
     $code=str_replace("'","_",$code);
     $js="view('$code')";
-    $htmlColumns[]=$ui->Columns('<br/><br/><img onclick="'.$js.'" src="'.$arr[0].'" onmouseover="changeImage(this,'.$four.')" onmouseleave="changeImage(this,'.$first.')" width="300px"><br/><br/><p style="font-family: NHaasGroteskDSPro-65Md;line-height: 1">'.$description.'</p><p>'.$price.'</p>',
+    $htmlColumns[]=$ui->Columns('<br/><br/><img onclick="'.$js.'" src="'.$arr[0].'" onmouseover="changeImage(this,'.$four.')" onmouseleave="changeImage(this,'.$first.')" style="width: 100%"><br/><br/><p style="font-family: NHaasGroteskDSPro-65Md;line-height: 1">'.$description.'</p><p>'.$price.'</p>',
         4,0,0,0,"text-center");
     if(count($htmlColumns)==3 or $n==$i)
     {
@@ -120,62 +120,9 @@ $h= $html->Html5(
     $html->Head(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
-        $html->LoadStyles(["View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
+        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
         $html->LoadScripts(["View/js/bootstrap.js"]),
-        "
-            <style>
-                a{
-                    text-decoration: none;
-                    color: white;
-                }
-                a:hover{
-                    text-decoration: none;
-                    color: white;
-                }
-                .item:hover label::before{
-                    content: \"\\2713\";
-                }
-                span:hover{
-                    cursor: pointer;
-                }
-                span:hover::after{
-                    content: \"'\";
-                }
-                @font-face {
-                    font-family: NHaasGroteskDSPro-55Rg;
-                    src: url(font/NHaasGroteskDSPro-55Rg.woff);
-                    src: url(font/NHaasGroteskDSPro-55Rg.woff2);
-                    src: url(font/NHaasGroteskDSPro-55Rg.ttf);
-                }
-                
-                @font-face {
-                    font-family: NHaasGroteskDSPro-65Md;
-                    src: url(font/NHaasGroteskDSPro-65Md.woff);
-                    src: url(font/NHaasGroteskDSPro-65Md.woff2);
-                    src: url(font/NHaasGroteskDSPro-65Md.ttf);
-                    
-                }
-
-                body,button {
-                    font-family: NHaasGroteskDSPro-55Rg;
-                    letter-spacing:0.09em; 
-                    overflow-y: overlay;
-                }
-                [type='submit']{
-                    -webkit-appearance: none!important;  
-                }
-                #logo{
-                    display:inline-block;
-                    top:50vh;
-                    left: 90vw;
-                    width: 7%
-                }
-                p{
-                    margin: 0 0 0 0;
-                }
-                
-            </style>
-        ",
+        "",
         '<script>
                   function go(url){
                       window.location.href=url;
@@ -200,7 +147,7 @@ $h= $html->Html5(
     $html->Body([
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["'","","","","",""]),
         $fc->LogoNegro(),
-        "<div style='margin-left: 10%;margin-right: 10%'>",
+        "<div style='margin-left: 15%;margin-right: 15%'>",
         $htmlProducts,
         $fc->Aviso(),
         $fc->MenuFamilia(),

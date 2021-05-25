@@ -372,25 +372,41 @@ class FrontComponents
             "</div>";
     }
     public function MenuFamilia(){
-        return
-        "</div>
-            <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
-            <a style='color: black' href='shop.php?order=6'>SHOP ALL'</a><br/>
-            <br/>
-            MEN<br/>
-            <div style='width: 1vw;display: inline-block'></div><span>TOP</span><br/>
-            <div style='width: 1vw;display: inline-block'></div><span>PANTS</span><br/>
-            <div style='width: 1vw;display: inline-block'></div><span>SHOES</span><br/>
-            <br/>
-            WOMEN<br/>
-            <div style='width: 1vw;display: inline-block'></div><span>TOP</span><br/>
-            <div style='width: 1vw;display: inline-block'></div><span>PANTS</span><br/>
-            <div style='width: 1vw;display: inline-block'></div><span>SHOES</span><br/>
-            <br/>
-            <span>ACCESSORIES</span><br/>
-            <br/>
-            <a style='color: black' href='shop.php?order=5'><span><strong>SALE</strong></span></a>
-        </div>";
+        if(isset($_GET["order"])){
+            $valor=$_GET["order"];
+            if($valor==5) return
+                "</div>
+                    <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
+                    <a style='color: black' href='shop.php?order=6'><span>SHOP ALL</span></a><br/>
+                    <br/>
+                    <span>ACCESSORIES</span><br/>
+                    <br/>
+                    <a style='color: black' href='shop.php?order=5'><strong>SALE'</strong></a>
+                </div>";
+            else {
+                return
+                    "</div>
+                    <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
+                    <a style='color: black' href='shop.php?order=6'>SHOP ALL'</a><br/>
+                    <br/>
+                    <span>ACCESSORIES</span><br/>
+                    <br/>
+                    <a style='color: black' href='shop.php?order=5'><span><strong>SALE</strong></span></a>
+                </div>";
+            }
+        }
+        else {
+            return
+                "</div>
+                    <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
+                    <a style='color: black' href='shop.php?order=6'>SHOP ALL'</a><br/>
+                    <br/>
+                    <span>ACCESSORIES</span><br/>
+                    <br/>
+                    <a style='color: black' href='shop.php?order=5'><span><strong>SALE</strong></span></a>
+                </div>";
+        }
+
 
     }
 
