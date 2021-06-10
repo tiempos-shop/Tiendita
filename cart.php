@@ -106,7 +106,7 @@ foreach ($productosCarrito as $producto){
             $carrito["Cantidad"]=$producto[1];
             $carrito["Talla"]=$producto[2];
             $carrito["Costo"]=$pi->Costo;
-            $carrito["CostoSale"]=$pi->CostoSale;
+            $carrito["CostoSale"] = ($pi->CostoSale == 0) ? $pi->Costo : $pi->CostoSale;
             $carrito["Sale"]=$pi->Sale;
 
             $elements[]=$carrito;
@@ -131,7 +131,7 @@ foreach ($elements as $element){
     }
 
     $price="";
-    if($carrito["Sale"]==1){
+    if($element["Sale"]==1){
         $price=$ui->Columns("<s>$costo</s> ".$costoSale,1);
     }
     else
@@ -152,10 +152,11 @@ foreach ($elements as $element){
         $ui->Columns("",2)
     ]);
 
-    if($idiomaActual=="ENGLISH") $suma+=floatval($n*$element["Costo"]/$tipoCambio);else $suma+=floatval($n*$element["Costo"]);
+    if($idiomaActual=="ENGLISH") $suma+=floatval($n*$element["CostoSale"]/$tipoCambio);else $suma+=floatval($n*$element["CostoSale"]);
 }
 $htmlProducts.="<hr>";
 
+$idiomaInformativo = array("ENGLISH" => "SHIPPING & TAXES CALCULATED AT CHECKOUT", "ESPAÑOL" => "ENVIO E IMPUESTO CALCULADOS AL PAGAR");
 
 
 $h= $html->Html5(
@@ -221,7 +222,7 @@ $h= $html->Html5(
             </button>",
             $ui->Row([
                 $ui->Columns("",7),
-                $ui->Columns("<p class='small'>SHIPPING & TAXES CALCULATED AT CHECKOUT</p>",5)
+                $ui->Columns("<p class='small'>$idiomaInformativo[$idiomaActual]</p>",5)
             ]),
             $fc->Aviso(),
         ],"container")
