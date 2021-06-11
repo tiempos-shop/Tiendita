@@ -214,7 +214,7 @@ $h= $html->Html5(
                 $ui->Columns("",7),
                 $ui->Columns("SUBTOTAL: ".$ui->Moneda($suma,),5)
             ]),
-            "<button type='submit' class='btn btn-dark btn-block' style='text-align: left;border-radius: 0px'>
+            "<button type='submit' class='btn btn-dark btn-block' style='text-align: left;border-radius: 0'>
                 ".$ui->Row([
                     $ui->Columns('',7),
                     $ui->Columns('CHECKOUT',5,0,0,0,"")

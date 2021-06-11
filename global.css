@@ -1,25 +1,36 @@
+main,#component{
+
+    padding-right: 0!important;
+    padding-left: 0!important;
+}
+td{
+    text-align: center;
+}
 #principal{
     top:0px;
     position: absolute;
     padding-left: 0px;
     padding-right: 0px;
 }
-a{
-    text-decoration: none;
-    color: white;
+#sMenu a{
+    text-decoration: none!important;
+    color: white!important;
 }
-a:hover{
-    text-decoration: none;
-    color: white;
+#sMenu a:hover{
+    text-decoration: none!important;
+    color: white!important;
+}
+a{
+    text-decoration: none!important;
 }
 .item:hover label::before{
-    content: \"\\2713\";
+    content: "'";
 }
 span:hover{
     cursor: pointer;
 }
 span:hover::after{
-    content: \"'\";
+    content: "'";
 }
 @font-face {
     font-family: NHaasGroteskDSPro-55Rg;
@@ -37,10 +48,14 @@ span:hover::after{
 }
 
 body,button {
-    font-family: NHaasGroteskDSPro-55Rg;
-    letter-spacing:0.09em;
+    font-family: NHaasGroteskDSPro-55Rg!important;
+    letter-spacing:0.09em!important;
     overflow-y: overlay;
     font-size:.9em!important;
+}
+.btn:focus {
+    outline: none;
+    box-shadow: none;
 }
 [type='submit']{
     -webkit-appearance: none!important;
@@ -91,6 +106,20 @@ hr{
     animation-duration: 2s;
     animation-delay: 1s;
 }
+.left-top{
+    position: fixed;
+    top: 5vh;
+    left: 50vw;
+}
+.space{
+    position: relative;
+    display:inline-block;
+    width:30px;
+}
 .form-control{
     font-size: .9em!important;
+}
+.adjust{
+    margin-top: -5px!important;
+    font-size: 1.1em;
 }

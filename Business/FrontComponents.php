@@ -43,7 +43,7 @@ class FrontComponents
                     $this->idioma[ $idiomaActual ]["MENU"][4],"#AC9950"
 
                 ),
-                2,0,2,0,""
+                2,0,2,0,"adjust"
             ),
             $this->ui->Columns(
                 "<span  style='right: 2%;position: absolute' onclick='go(\"cart.php\")'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5])."</span>",
@@ -152,7 +152,7 @@ class FrontComponents
                     2,0,2,0,""
                 ),
                 $this->ui->Columns(
-                    $lines[4],2
+                    $lines[4],2,0,0,0,"adjust"
                 ),
                 $this->ui->Columns(
                     $lines[5],
