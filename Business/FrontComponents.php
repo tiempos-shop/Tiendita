@@ -113,7 +113,7 @@ class FrontComponents
                             $this->ui->Input("language","",$this->idioma[ $idiomaActual ]["MENU"][4],"F",true),
                         ],
                         "",
-                        $this->idioma[ $idiomaActual ]["MENU"][4].$selected[4]
+                        $this->idioma[ $idiomaActual ]["MENU"][4].$selected[4],"black" , "font-size: .9rem !important;"
 
                     );
                     break;
@@ -292,14 +292,15 @@ class FrontComponents
 
     // Funciones
 
-    function FormLink(array $content,string $url,string $button,string $color="black"){
+    function FormLink(array $content,string $url,string $button,string $color="black", string $estiloBoton =""){
         $html= "
             <form method='post' action='$url'>";
         $html.=implode("",$content);
+
         $html.='
                 <div class="form-group row">
                     <div class="col-sm-12" style="padding-left: 45%">
-                        <button type="submit" class="btn btn-link" style="text-decoration: none;color: '.$color.';padding: 0px;border: none"><span type="submit">'.$button.'</span></button>
+                        <button type="submit" class="btn btn-link" style="text-decoration: none;color: '.$color.';padding: 0px;border: none;'.$estiloBoton.'"><span type="submit">'.$button.'</span></button>
                     </div>
                 </div>
             </form>';
@@ -469,13 +470,15 @@ class FrontComponents
         return "<input onchange='edit(this,\"$clave\");' type='text' maxlength='1' value='$valor' style='width: 25px;padding-left: 5px;'>";
     }
 
-    public function Aviso(){
+    public function Aviso(string $position = "inherit"){
         return
             $this->ui->RowSpace("1em").
-            $this->ui->Row([
-                $this->ui->Columns("",7),
-                $this->ui->Columns("<span style='width: 10vw;display: inline-block' onclick='go(\"privacy.php\")' class='small'>PRIVACY POLICY</span><span  onclick='go(\"shipping.php\")' class='small'>SHIPPING & RETURNS</span>",5)
-            ],"");
+            $this->PoliticaPrivacidad($position);
+    }
+
+    public function PoliticaPrivacidad(string $position = "inherit")
+    {
+        return "<div style='position: ".$position.";bottom: 0;margin-bottom: 0.8rem; min-height: 150px;' onclick='go(\"privacy.php\")' class='col-md-8 col-sm-12 text-right pr-4 pl-4 d-flex align-items-end'><span class='small mr-4 col-md-6'> PRIVACY POLICY</span><span  onclick='go(\"shipping.php\")' class='small ml-4 col-md-5'>SHIPPING & RETURNS</span></div>";
     }
 
     public function MenuFiltro()
@@ -483,7 +486,7 @@ class FrontComponents
         return
         "
         <div class='small' style='position: fixed;display: inline-block;top: 8.5vh;right: 1.6vw;width:11vw'>
-            <label onclick='filter()' id='s'>SORT +</label>
+            <label onclick='filter()' id='s' style='font-size: 0.9rem;'>SORT +</label>
             <div id='sMenu' style='color:white;background-color: gray;border-radius: 5px;display: none'>
                 <div class='container-fluid' style='padding-left: 0;padding-right: 0;padding-top: 0.5vh;padding-bottom: 0.5vh;'>
                     <div class='row item' style='margin-left: 0'>
@@ -543,6 +546,7 @@ class FrontComponents
     }
 
     public function MenuPrivacyReturn(bool $privacy,bool $return){
+        return $this->PoliticaPrivacidad();
         $html= "
             <div class='container-fluid' style='bottom: 0;font-size: 0.9em;padding-left: 35%'>
                 <label><span style='width: 10vw;display: block'";
