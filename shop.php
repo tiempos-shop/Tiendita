@@ -149,12 +149,12 @@ $h= $html->Html5(
         $fc->LogoNegro(),
         "<div style='margin-left: 15%;margin-right: 15%'>",
         $htmlProducts,
-        $fc->Aviso(),
+        
         $fc->MenuFamilia(),
-        $fc->MenuFiltro()
+        $fc->MenuFiltro(),
+        $fc->Aviso( ($n< 3) ? 'absolute' : 'inherit'),
 
-
-    ],"style='background-color:#FFFFF;' ") //#AC9950
+    ],"style='background-color:#FFFFF;min-height: 100%' ") //#AC9950
 );
 
 print_r($h);

@@ -1,8 +1,6 @@
 <?php
 
 
-
-
 use Administracion\VistasHtml;
 use Tiendita\EntidadBase;
 use Tiendita\Utilidades;
@@ -28,6 +26,7 @@ $id=$_GET["id"];
 $idiomaActual="";
 
 $fc=new \Tiendita\FrontComponents();
+
 $productInformation=$products=$db->getBy("Productos","Clave",$id)[0];
 
 $_SESSION["CheckOut"]=[ $productInformation->Clave,1,"ONE SIZE"];
@@ -239,6 +238,7 @@ $h= $html->Html5(
                     font-family: NHaasGroteskDSPro-55Rg;
                     letter-spacing:0.09em; 
                     overflow: no-display;
+                    font-size:.9em!important;
                 }
                 .btn:focus {
                     outline: none;
