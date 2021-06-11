@@ -2,6 +2,7 @@
 
 use Administracion\VistasHtml;
 use Tiendita\EntidadBase;
+use Tiendita\FrontComponents;
 use Tiendita\Utilidades;
 
 include_once "View/Componentes/Administracion/VistasHtml.php";
@@ -9,7 +10,7 @@ include_once "Business/Utilidades.php";
 include_once "Data/Connection/EntidadBase.php";
 include_once "Business/FrontComponents.php";
 
-$fc=new \Tiendita\FrontComponents();
+$fc=new FrontComponents();
 $html=new VistasHtml();
 $ui=new Utilidades();
 $db=new EntidadBase();
@@ -84,9 +85,6 @@ $idioma=
         ]
     ];
 
-
-
-
 $h= $html->Html5(
     $html->Head(
         "Tiempos Shop",
@@ -121,6 +119,19 @@ $h= $html->Html5(
                       let id=str.replace("_", "\'");
                       go("view.php?id="+id);
                   }
+                  function seteyePassword (e) {
+                      const input = document.getElementById("password");
+                      const eye = e.querySelector(".fa");
+                      if(eye.classList.contains("fa-eye-slash")){
+                          eye.classList.add("fa-eye");
+                          eye.classList.remove("fa-eye-slash");
+                          input.type = "text";
+                      }else{
+                          input.type = "password";
+                          eye.classList.add("fa-eye-slash");
+                          eye.classList.remove("fa-eye");
+                      }
+                  }
                 </script>'
 
     ),
@@ -143,16 +154,16 @@ $h= $html->Html5(
                 $ui->Columns("<label style='font-family: NHaasGroteskDSPro-65Md'>".$idioma[$idiomaActual]["LOGIN"][0]."</label>",12,0,0,0,"",
                     "text-align:center;margin-top:100px")
             ]),
+
             $ui->RowSpace("2vh"),
             $ui->Row([
                 $ui->Columns("",4),
                 $ui->Columns(
                     $ui->Lines([
                         $ui->FormButtom([
-
                             $fc->BlackInput($idioma[$idiomaActual]["LOGIN"][1],"login"),
                             $ui->RowSpace("1vh"),
-                            $fc->BlackInput($idioma[$idiomaActual]["LOGIN"][2],"password",true),
+                            $fc->BlackInputEye($idioma[$idiomaActual]["LOGIN"][2],"password",true),
                             "<button type='submit' formaction='customerLogin.php?action=forgot' class='btn small-font'>".$idioma[$idiomaActual]["LOGIN"][3]."</button>",
                         ],"","<button class='btn btn-block btn-dark' formaction='customerLogin.php?action=login' type='submit' style='border-radius: 0;background-color: black;'>".$idioma[$idiomaActual]["LOGIN"][0]."</button>"),
                         $ui->RowSpace("1vh"),

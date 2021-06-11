@@ -80,7 +80,7 @@ class FrontComponents
                         $lines[$i]="<label onclick='go(\"shop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
                     }
                     else{
-                        $lines[$i]="<span onclick='go(\"shop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i]."</span>";
+                        $lines[$i]="<span class='menuIcon' onclick='go(\"shop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i]."<i>'</i></span>";
                     }
                     break;
                 case 1:
@@ -88,7 +88,7 @@ class FrontComponents
                         $lines[$i]="<label  style='padding-left: 5%'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
                     }
                     else{
-                        $lines[$i]="<span style='padding-left: 5%' onclick='go(\"archive.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][1]."</span>";
+                        $lines[$i]="<span class='menuIcon' style='padding-left: 5%' onclick='go(\"archive.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][1]."<i>'</i></span>";
                     }
                     break;
                 case 2:
@@ -96,7 +96,7 @@ class FrontComponents
                         $lines[$i]="<label  style='padding-left: 20%'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
                     }
                     else{
-                        $lines[$i]="<span style='padding-left: 20%' onclick='go(\"imprint.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][2]."$selected[2]</span>";
+                        $lines[$i]="<span class='menuIcon' style='padding-left: 20%' onclick='go(\"imprint.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][2]."$selected[2]<i>'</i></span>";
                     }
                     break;
                 case 3:
@@ -104,7 +104,7 @@ class FrontComponents
                         $lines[$i]="<label  style='padding-left: 35%'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
                     }
                     else{
-                        $lines[$i]="<span style='padding-left: 35%' onclick='go(\"customerLogin.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][3]."$selected[3]</span>";
+                        $lines[$i]="<span class='menuIcon' style='padding-left: 35%' onclick='go(\"customerLogin.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][3]."$selected[3]<i>'</i></span>";
                     }
                     break;
                 case 4:
@@ -122,7 +122,7 @@ class FrontComponents
                         $lines[$i]="<label style='right: 2%;position: absolute'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5]).$selected[5]."</label>";
                     }
                     else{
-                        $lines[$i]="<span style='right: 2%;position: absolute' onclick='go(\"cart.php\")'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5])."$selected[5]</span>";
+                        $lines[$i]="<span class='menuIcon' style='right: 2%;position: absolute' onclick='go(\"cart.php\")'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5])."$selected[5]<i>'</i></span>";
                     }
 
                     break;
@@ -189,7 +189,7 @@ class FrontComponents
                         $lines[$i]="<label onclick='go(\"shop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
                     }
                     else{
-                        $lines[$i]="<span onclick='go(\"shop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i]."</span>";
+                        $lines[$i]="<span class='menuIcon' onclick='go(\"shop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i]."<i>'</i></span>";
                     }
                     break;
                 case 1:
@@ -197,7 +197,7 @@ class FrontComponents
                         $lines[$i]="<label  style='padding-left: 5%'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
                     }
                     else{
-                        $lines[$i]="<span style='padding-left: 5%' onclick='go(\"archive.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][1]."</span>";
+                        $lines[$i]="<span class='menuIcon' style='padding-left: 5%' onclick='go(\"archive.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][1]."<i>'</i></span>";
                     }
                     break;
                 case 2:
@@ -205,7 +205,7 @@ class FrontComponents
                         $lines[$i]="<label  style='padding-left: 20%'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
                     }
                     else{
-                        $lines[$i]="<span style='padding-left: 20%' onclick='go(\"imprint.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][2]."$selected[2]</span>";
+                        $lines[$i]="<span class='menuIcon' style='padding-left: 20%' onclick='go(\"imprint.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][2]."$selected[2]<i>'</i></span>";
                     }
                     break;
                 case 3:
@@ -213,7 +213,7 @@ class FrontComponents
                         $lines[$i]="<label  style='padding-left: 35%'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
                     }
                     else{
-                        $lines[$i]="<span style='padding-left: 35%' onclick='go(\"customerLogin.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][3]."$selected[3]</span>";
+                        $lines[$i]="<span class='menuIcon' style='padding-left: 35%' onclick='go(\"customerLogin.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][3]."$selected[3]<i>'</i></span>";
                     }
                     break;
                 case 4:
@@ -231,7 +231,7 @@ class FrontComponents
                         $lines[$i]="<label style='right: 2%;position: absolute'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5]).$selected[5]."</label>";
                     }
                     else{
-                        $lines[$i]="<span style='right: 2%;position: absolute' onclick='go(\"cart.php\")'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5])."$selected[5]</span>";
+                        $lines[$i]="<span class='menuIcon' style='right: 2%;position: absolute' onclick='go(\"cart.php\")'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5])."$selected[5]<i>'</i></span>";
                     }
 
                     break;
@@ -377,9 +377,9 @@ class FrontComponents
             if($valor==5) return
                 "</div>
                     <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
-                    <a style='color: black' href='shop.php?order=6'><span>SHOP ALL</span></a><br/>
+                    <a style='color: black' href='shop.php?order=6'><span class='menuIcon'>SHOP ALL<i>'</i></span></a><br/>
                     <br/>
-                    <span>ACCESSORIES</span><br/>
+                    <span class='menuIcon'>ACCESSORIES<i>'</i></span><br/> 
                     <br/>
                     <a style='color: black' href='shop.php?order=5'><strong>SALE'</strong></a>
                 </div>";
@@ -389,9 +389,9 @@ class FrontComponents
                     <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
                     <a style='color: black' href='shop.php?order=6'>SHOP ALL'</a><br/>
                     <br/>
-                    <span>ACCESSORIES</span><br/>
+                    <span class='menuIcon'>ACCESSORIES<i>'</i></span><br/>
                     <br/>
-                    <a style='color: black' href='shop.php?order=5'><span><strong>SALE</strong></span></a>
+                    <a style='color: black' class='menuIcon' href='shop.php?order=5'><span><strong>SALE</strong></span><i>'</i></a>
                 </div>";
             }
         }
@@ -574,6 +574,20 @@ class FrontComponents
             $type="type='password'";
         }
         return "<input $type class='form-control' name='$id' placeholder='$title' style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em'/>";
+    }
+
+
+    public function BlackInputEye(string $title, $id ,bool $password = false) {
+        $type="";
+        if($password){
+            $type="type='password'";
+        }
+        return "
+                <div class='input-group'>
+                    <input $type class='form-control' name='$id' id='$id' placeholder='$title' style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em'>
+                    <a href='#' onclick='seteyePassword(this);' style='position: absolute; right: 10px;z-index: 99;top: 2px;'><i class='fa fa-eye-slash' style='color: black;' aria-hidden='true'></i></a>
+                </div>
+            ";
     }
 
 }
