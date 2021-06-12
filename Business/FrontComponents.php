@@ -222,7 +222,7 @@ class FrontComponents
                             $this->ui->Input("language","",$this->idioma[ $idiomaActual ]["MENU"][4],"F",true),
                         ],
                         "",
-                        $this->idioma[ $idiomaActual ]["MENU"][4].$selected[4]
+                        $this->idioma[ $idiomaActual ]["MENU"][4].$selected[4], "", "font-size: .9rem !important;"
 
                     );
                     break;
@@ -293,6 +293,7 @@ class FrontComponents
     // Funciones
 
     function FormLink(array $content,string $url,string $button,string $color="black", string $estiloBoton =""){
+        $color= ($color == "" ? "black" : $color);
         $html= "
             <form method='post' action='$url'>";
         $html.=implode("",$content);
@@ -447,10 +448,12 @@ class FrontComponents
 
     public function Borrar(array $element)
     {
+        $clave = strval($element["Clave"]);
         return
         $this->ui->FormButtomInline([
-            $this->ui->Input("borrar","",$element["Clave"],"F",false)
-        ],"","<button type='submit' style='border:0 solid transparent;background-color:transparent;display: inline-block'>X</button>");
+            $this->ui->Input("borrar","", $clave ,"F",false)
+        ],"",
+        "<button type='submit' style='border:0 solid transparent;background-color:transparent;display: inline-block'>X</button>", $clave);
     }
 
     public function BorrarCarrito(string $clave){
