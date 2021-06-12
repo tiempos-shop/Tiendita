@@ -80,7 +80,7 @@ class FrontComponents
                         $lines[$i]="<label onclick='go(\"shop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
                     }
                     else{
-                        $lines[$i]="<span class='menuIcon' onclick='go(\"shop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i]."<i>'</i></span>";
+                        $lines[$i]="<span  onclick='go(\"shop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i]."</span>";
                     }
                     break;
                 case 1:
@@ -88,7 +88,7 @@ class FrontComponents
                         $lines[$i]="<label  style='padding-left: 5%'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
                     }
                     else{
-                        $lines[$i]="<span class='menuIcon' style='padding-left: 5%' onclick='go(\"archive.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][1]."<i>'</i></span>";
+                        $lines[$i]="<span  style='padding-left: 5%' onclick='go(\"archive.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][1]."</span>";
                     }
                     break;
                 case 2:
@@ -96,7 +96,7 @@ class FrontComponents
                         $lines[$i]="<label  style='padding-left: 20%'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
                     }
                     else{
-                        $lines[$i]="<span class='menuIcon' style='padding-left: 20%' onclick='go(\"imprint.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][2]."$selected[2]<i>'</i></span>";
+                        $lines[$i]="<span  style='padding-left: 20%' onclick='go(\"imprint.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][2]."$selected[2]</span>";
                     }
                     break;
                 case 3:
@@ -231,7 +231,7 @@ class FrontComponents
                         $lines[$i]="<label style='right: 2%;position: absolute'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5]).$selected[5]."</label>";
                     }
                     else{
-                        $lines[$i]="<span class='menuIcon' style='right: 2%;position: absolute' onclick='go(\"cart.php\")'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5])."$selected[5]<i>'</i></span>";
+                        $lines[$i]="<span style='right: 2%;position: absolute' onclick='go(\"cart.php\")'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5])."$selected[5]</span>";
                     }
 
                     break;
