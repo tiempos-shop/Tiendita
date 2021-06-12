@@ -113,7 +113,7 @@ class FrontComponents
                             $this->ui->Input("language","",$this->idioma[ $idiomaActual ]["MENU"][4],"F",true),
                         ],
                         "",
-                        $this->idioma[ $idiomaActual ]["MENU"][4].$selected[4],"black" , "font-size: .9rem !important;"
+                        $this->idioma[ $idiomaActual ]["MENU"][4].$selected[4],"black" , "font-size: .9rem !important;vertical-align: inherit;"
 
                     );
                     break;
@@ -222,7 +222,7 @@ class FrontComponents
                             $this->ui->Input("language","",$this->idioma[ $idiomaActual ]["MENU"][4],"F",true),
                         ],
                         "",
-                        $this->idioma[ $idiomaActual ]["MENU"][4].$selected[4], "", "font-size: .9rem !important;"
+                        $this->idioma[ $idiomaActual ]["MENU"][4].$selected[4], "", "font-size: .9rem !important;vertical-align: inherit;"
 
                     );
                     break;

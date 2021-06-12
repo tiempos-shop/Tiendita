@@ -225,8 +225,8 @@ $h= $html->Html5(
                 $ui->Columns("",7),
                 $ui->Columns("<p class='small'>$idiomaInformativo[$idiomaActual]</p>",5)
             ]),
-            $fc->Aviso(),
-        ],"container")
+        ],"container"),
+        $fc->Aviso("absolute"),
     ],"style='background-color:#FFFFF;' ") //#AC9950
 );
 
