@@ -19,14 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Type of Font Correction in all app&#10;Size of fonts in View (Detalle Producto)">
-      <change afterPath="$PROJECT_DIR$/img/pago-seguro.png" afterDir="false" />
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Correccion a la familia accesorios">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_02_2021_04_40_p__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_02_2021_04_40_p__m___Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Business/FrontComponents.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/FrontComponents.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/checkout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/global.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/shop.php" afterDir="false" />
     </list>
     <list id="77ace032-8836-43a3-a0d8-daf54e77e745" name="Revert &quot;LOGIN: Signo de ojo para mostrar y ocultar contraseña. customerLogin.php FrontComponents.php&quot;" comment="Revert &quot;LOGIN: Signo de ojo para mostrar y ocultar contraseña. customerLogin.php FrontComponents.php&quot;&#10;&#10;This reverts commit 5abaa275">
@@ -289,14 +285,7 @@
       <workItem from="1623197977783" duration="1676000" />
       <workItem from="1623291477193" duration="11426000" />
       <workItem from="1623458761986" duration="3436000" />
-      <workItem from="1623688381758" duration="10789000" />
-    </task>
-    <task id="LOCAL-00069" summary="fotos home web">
-      <created>1613152174448</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1613152174448</updated>
+      <workItem from="1623688381758" duration="11695000" />
     </task>
     <task id="LOCAL-00070" summary="fotos shop web">
       <created>1613153080459</created>
@@ -634,7 +623,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621981634032</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="Correccion a la familia accesorios">
+      <created>1623705842050</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1623705842050</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -659,7 +655,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fotos shop web" />
     <MESSAGE value=" Isotipo png/svg" />
     <MESSAGE value="Efectos Imagenes" />
     <MESSAGE value="Menu IDIOMA&#10;Menu T" />
@@ -684,6 +679,7 @@
     <MESSAGE value="Cambios Logged" />
     <MESSAGE value="Correcciones Login, Checkout" />
     <MESSAGE value="Cambio de letra a .9em&#10;Correccion de fotos tienda&#10;Correccion de animacion&#10;Correcion menu&#10;Generacion de estilo global.css" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambio de letra a .9em&#10;Correccion de fotos tienda&#10;Correccion de animacion&#10;Correcion menu&#10;Generacion de estilo global.css" />
+    <MESSAGE value="Correccion a la familia accesorios" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correccion a la familia accesorios" />
   </component>
 </project>

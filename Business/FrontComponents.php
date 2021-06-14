@@ -189,7 +189,7 @@ class FrontComponents
                         $lines[$i]="<label onclick='go(\"shop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
                     }
                     else{
-                        $lines[$i]="<span class='menuIcon' onclick='go(\"shop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i]."<i>'</i></span>";
+                        $lines[$i]="<span class='menuIcon' onclick='go(\"shop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i]."</span>";
                     }
                     break;
                 case 1:
@@ -197,7 +197,7 @@ class FrontComponents
                         $lines[$i]="<label  style='padding-left: 5%'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
                     }
                     else{
-                        $lines[$i]="<span class='menuIcon' style='padding-left: 5%' onclick='go(\"archive.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][1]."<i>'</i></span>";
+                        $lines[$i]="<span class='menuIcon' style='padding-left: 5%' onclick='go(\"archive.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][1]."</span>";
                     }
                     break;
                 case 2:
@@ -205,7 +205,7 @@ class FrontComponents
                         $lines[$i]="<label  style='padding-left: 20%'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
                     }
                     else{
-                        $lines[$i]="<span class='menuIcon' style='padding-left: 20%' onclick='go(\"imprint.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][2]."$selected[2]<i>'</i></span>";
+                        $lines[$i]="<span class='menuIcon' style='padding-left: 20%' onclick='go(\"imprint.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][2]."$selected[2]</span>";
                     }
                     break;
                 case 3:
@@ -213,7 +213,7 @@ class FrontComponents
                         $lines[$i]="<label  style='padding-left: 35%'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
                     }
                     else{
-                        $lines[$i]="<span class='menuIcon' style='padding-left: 35%' onclick='go(\"customerLogin.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][3]."$selected[3]<i>'</i></span>";
+                        $lines[$i]="<span class='menuIcon' style='padding-left: 35%' onclick='go(\"customerLogin.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][3]."$selected[3]</span>";
                     }
                     break;
                 case 4:
@@ -375,26 +375,40 @@ class FrontComponents
     public function MenuFamilia(){
         if(isset($_GET["order"])){
             $valor=$_GET["order"];
-            if($valor==5) return
-                "</div>
+            switch ($valor){
+                case 5:
+                    return
+                        "</div>
                     <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
                     <a style='color: black' href='shop.php?order=6'><span>SHOP ALL</span></a><br/>
                     <br/>
-                    <span >ACCESSORIES</span><br/> 
+                    <a style='color: black' href='shop.php?order=7'><span>ACCESSORIES</span></a><br/> 
                     <br/>
                     <a style='color: black' href='shop.php?order=5'><strong>SALE'</strong></a>
                 </div>";
-            else {
-                return
-                    "</div>
+                case 6:
+                    return
+                        "</div>
                     <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
                     <a style='color: black' href='shop.php?order=6'>SHOP ALL'</a><br/>
                     <br/>
-                    <span >ACCESSORIES</span><br/>
+                    <a style='color: black' href='shop.php?order=7'><span>ACCESSORIES</span></a><br/>
                     <br/>
                     <a style='color: black' href='shop.php?order=5'><span><strong>SALE</strong></span></a>
                 </div>";
+                case 7:
+                    return
+                        "</div>
+                    <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
+                    <a style='color: black' href='shop.php?order=6'>SHOP ALL</a><br/>
+                    <br/>
+                    <a style='color: black' href='shop.php?order=7'><span>ACCESSORIES'</span></a><br/>
+                    <br/>
+                    <a style='color: black' href='shop.php?order=5'><span><strong>SALE</strong></span></a>
+                </div>";
+
             }
+
         }
         else {
             return
@@ -402,7 +416,7 @@ class FrontComponents
                     <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
                     <a style='color: black' href='shop.php?order=6'>SHOP ALL'</a><br/>
                     <br/>
-                    <span>ACCESSORIES</span><br/>
+                    <a style='color: black' href='shop.php?order=7'><span>ACCESSORIES</span></a><br/>
                     <br/>
                     <a style='color: black' href='shop.php?order=5'><span><strong>SALE</strong></span></a>
                 </div>";

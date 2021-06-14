@@ -59,6 +59,8 @@ if(isset($_GET["order"])){
                 $temp[]=$product;
             }
             $products=$temp;
+        case 7:
+
         default:
     }
 
