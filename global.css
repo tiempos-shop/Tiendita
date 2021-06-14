@@ -123,3 +123,7 @@ hr{
     margin-top: -5px!important;
     font-size: 1.1em;
 }
+#pago-seguro{
+    position:relative;
+    width:50%!important
+}

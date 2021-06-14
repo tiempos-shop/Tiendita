@@ -68,67 +68,9 @@ $h= $html->Html5(
     $html->Head(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
-        $html->LoadStyles(["View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
+        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
         $html->LoadScripts(["View/js/bootstrap.js"]),
-        "
-            <style>
-                span:hover{
-                    cursor: pointer;
-                }
-                span:hover::after{
-                    content: \"'\";
-                }
-                @font-face {
-                    font-family: NHaasGroteskDSPro-55Rg;
-                    src: url(font/NHaasGroteskDSPro-55Rg.woff);
-                    src: url(font/NHaasGroteskDSPro-55Rg.woff2);
-                    src: url(font/NHaasGroteskDSPro-55Rg.ttf);
-                }
-                
-                @font-face {
-                    font-family: NHaasGroteskDSPro-65Md;
-                    src: url(font/NHaasGroteskDSPro-65Md.woff);
-                    src: url(font/NHaasGroteskDSPro-65Md.woff2);
-                    src: url(font/NHaasGroteskDSPro-65Md.ttf);
-                    
-                }
-
-                body,button {
-                    font-family: NHaasGroteskDSPro-55Rg;
-                    letter-spacing:0.09em; 
-                    overflow-y: overlay;
-                }
-                .btn:focus {
-                    outline: none;
-                    box-shadow: none;
-                }
-                [type='submit']{
-                    -webkit-appearance: none!important;  
-                }
-                #logo{
-                    display:inline-block;
-                    top:50vh;
-                    left: 90vw;
-                    width: 7%;
-                }
-                #t{
-                    position:fixed;
-                    display:inline-block;
-                    top:50vh;
-                    left: 2vw;
-                    
-                }
-                
-                .small-font{
-                    font-size: 0.9em;
-                }
-                .form-control:focus {
-                    box-shadow:  0 1px 1px black, 0 0 3px black;
-                }
-                
-                
-            </style>
-        ",
+        "",
         '<script>
                   function go(url){
                       window.location.href=url;
@@ -290,16 +232,16 @@ $h= $html->Html5(
                     "<input class='form-check-input' type='checkbox' id='newsletter' name='newsletter' style='border-radius: 10px;border-color: black'> PAY WITH CREDIT OR DEBIT CARD</input>",
                     4),
                 $ui->Columns(
-                    "",
-                    4),
-                $ui->Columns("",2),
+                    "<img id='pago-seguro' src='img/pago-seguro.png' class='img-fluid'/>",
+                    6,0,0,0,0,"")
+
             ]),
             $ui->RowSpace("1vh"),
             $ui->Row([
                 $ui->Columns("",2),
                 $ui->Columns(
                     "<input class='form-check-input' type='checkbox' id='newsletter' name='newsletter' style='border-radius: 10px;border-color: black'> PAY WITH PAYPAL</input>",
-                    4),
+                    4,0,0,0,0,"margin-top:-50px"),
                 $ui->Columns(
                     "",
                     4),

@@ -19,13 +19,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Cambio de letra a .9em&#10;Correccion de fotos tienda&#10;Correccion de animacion&#10;Correcion menu&#10;Generacion de estilo global.css">
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Type of Font Correction in all app&#10;Size of fonts in View (Detalle Producto)">
+      <change afterPath="$PROJECT_DIR$/img/pago-seguro.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_02_2021_04_40_p__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_02_2021_04_40_p__m___Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Business/FrontComponents.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/FrontComponents.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/checkout.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/global.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/shop.php" afterDir="false" />
+    </list>
+    <list id="77ace032-8836-43a3-a0d8-daf54e77e745" name="Revert &quot;LOGIN: Signo de ojo para mostrar y ocultar contraseña. customerLogin.php FrontComponents.php&quot;" comment="Revert &quot;LOGIN: Signo de ojo para mostrar y ocultar contraseña. customerLogin.php FrontComponents.php&quot;&#10;&#10;This reverts commit 5abaa275">
+      <change beforePath="$PROJECT_DIR$/customerLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/customerLogin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,17 +112,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Egil Ordonez\PhpstormProjects\Tiendita\js" />
-      <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\img" />
-      <recent name="C:\Users\Egil\PhpstormProjects\Tiendita" />
-      <recent name="C:\Users\RENDER2\PhpstormProjects\Tiendita" />
-      <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\View\Imagenes" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\RENDER2\PhpstormProjects\Tiendita\font" />
       <recent name="C:\Users\Egil Ordonez\PhpstormProjects\Tiendita\Business" />
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Egil Ordonez\PhpstormProjects\Tiendita\img" />
+      <recent name="C:\Users\Egil Ordonez\PhpstormProjects\Tiendita\js" />
+      <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\img" />
+      <recent name="C:\Users\Egil\PhpstormProjects\Tiendita" />
+      <recent name="C:\Users\RENDER2\PhpstormProjects\Tiendita" />
     </key>
   </component>
   <component name="RunManager" selected="PHP Web Page.XAMPP">
@@ -159,6 +164,8 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="PHP Script.bag.php" />
+        <item itemvalue="PHP Script.INDEX Script" />
         <item itemvalue="PHP Script.bag.php" />
         <item itemvalue="PHP Script.INDEX Script" />
       </list>
@@ -281,6 +288,8 @@
       <workItem from="1623190129267" duration="4046000" />
       <workItem from="1623197977783" duration="1676000" />
       <workItem from="1623291477193" duration="11426000" />
+      <workItem from="1623458761986" duration="3436000" />
+      <workItem from="1623688381758" duration="10789000" />
     </task>
     <task id="LOCAL-00069" summary="fotos home web">
       <created>1613152174448</created>
@@ -634,6 +643,11 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State />
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
