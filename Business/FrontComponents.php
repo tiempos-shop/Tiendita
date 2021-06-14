@@ -104,7 +104,7 @@ class FrontComponents
                         $lines[$i]="<label  style='padding-left: 35%'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
                     }
                     else{
-                        $lines[$i]="<span class='menuIcon' style='padding-left: 35%' onclick='go(\"customerLogin.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][3]."$selected[3]<i>'</i></span>";
+                        $lines[$i]="<span style='padding-left: 35%' onclick='go(\"customerLogin.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][3]."$selected[3]</span>";
                     }
                     break;
                 case 4:
@@ -122,7 +122,7 @@ class FrontComponents
                         $lines[$i]="<label style='right: 2%;position: absolute'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5]).$selected[5]."</label>";
                     }
                     else{
-                        $lines[$i]="<span class='menuIcon' style='right: 2%;position: absolute' onclick='go(\"cart.php\")'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5])."$selected[5]<i>'</i></span>";
+                        $lines[$i]="<span style='right: 2%;position: absolute' onclick='go(\"cart.php\")'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5])."$selected[5]</span>";
                     }
 
                     break;
@@ -378,9 +378,9 @@ class FrontComponents
             if($valor==5) return
                 "</div>
                     <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
-                    <a style='color: black' href='shop.php?order=6'><span class='menuIcon'>SHOP ALL<i>'</i></span></a><br/>
+                    <a style='color: black' href='shop.php?order=6'><span>SHOP ALL</span></a><br/>
                     <br/>
-                    <span class='menuIcon'>ACCESSORIES<i>'</i></span><br/> 
+                    <span >ACCESSORIES</span><br/> 
                     <br/>
                     <a style='color: black' href='shop.php?order=5'><strong>SALE'</strong></a>
                 </div>";
@@ -390,9 +390,9 @@ class FrontComponents
                     <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
                     <a style='color: black' href='shop.php?order=6'>SHOP ALL'</a><br/>
                     <br/>
-                    <span class='menuIcon'>ACCESSORIES<i>'</i></span><br/>
+                    <span >ACCESSORIES</span><br/>
                     <br/>
-                    <a style='color: black' class='menuIcon' href='shop.php?order=5'><span><strong>SALE</strong></span><i>'</i></a>
+                    <a style='color: black' href='shop.php?order=5'><span><strong>SALE</strong></span></a>
                 </div>";
             }
         }
