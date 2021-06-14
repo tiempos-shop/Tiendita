@@ -143,7 +143,7 @@ foreach ($elements as $element){
     $js="view('$code')";
     $htmlProducts.="<hr/>".$ui->Row([
         $ui->Columns("",2),
-        $ui->Columns("<img onclick=\"$js\" src='".$element["RutaImagen"]."' height='172'><div style='height: 100%;display: inline-block;vertical-align: top'>".$element["Descripcion"]."</div>",4),
+        $ui->Columns("<div style='cursor: pointer;' onclick=\"$js\"><img src='".$element["RutaImagen"]."' height='172'><div style='height: 100%;margin-left: 15px;display: inline-block;vertical-align: top'>".$element["Descripcion"]."</div></div>",4),
         //$ui->Columns($element["Descripcion"],2),
         $ui->Columns($fc->Borrar($element).$fc->BotonEditar($element),1),
         $ui->Columns($carrito["Talla"],1),
