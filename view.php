@@ -21,13 +21,13 @@ else{
 $html=new VistasHtml();
 $ui=new Utilidades();
 $db=new EntidadBase();
-$id=$_GET["id"];
+$id = $_GET["id"];
 
 $idiomaActual="";
 
 $fc=new \Tiendita\FrontComponents();
 
-$productInformation=$products=$db->getBy("Productos","Clave",$id)[0];
+$productInformation = $products = $db->getBy("Productos","Clave",$id)[0];
 
 $_SESSION["CheckOut"]=[ $productInformation->Clave,1,"ONE SIZE"];
 
@@ -136,7 +136,7 @@ foreach ($images as $image){
 }
 
 $modal="
-<table class='table table-borderless' style=''>
+<table class='table table-borderless prodSize' style=''>
     <thead>
         <tr>
             <td></td>
@@ -146,48 +146,50 @@ $modal="
             <th><span>XL</span></th>
         </tr>
     </thead>
-    <tr>
-        <td>HEIGHT</td>
-        <td>26</td>
-        <td>27</td>
-        <td>29</td>
-        <td>30</td>
-    </tr>
-    <tr>
-        <td>SHOULDER</td>
-        <td>22</td>
-        <td>23</td>
-        <td>25</td>
-        <td>27</td>
-    </tr>
-    <tr>
-        <td>BACK</td>
-        <td>26</td>
-        <td>28</td>
-        <td>30</td>
-        <td>32</td>
-    </tr>
-    <tr>
-        <td>CHEST</td>
-        <td>18</td>
-        <td>20</td>
-        <td>22</td>
-        <td>24</td>
-    </tr>
-    <tr>
-        <td>SLEEVE</td>
-        <td>26</td>
-        <td>28</td>
-        <td>30</td>
-        <td>32</td>
-    </tr>
-    <tr>
-        <td>EUROPEAN SIZE</td>
-        <td>46</td>
-        <td>48</td>
-        <td>50</td>
-        <td>52</td>
-    </tr>
+    <tbody>
+        <tr>
+            <td>HEIGHT</td>
+            <td>26</td>
+            <td>27</td>
+            <td>29</td>
+            <td>30</td>
+        </tr>
+        <tr>
+            <td>SHOULDER</td>
+            <td>22</td>
+            <td>23</td>
+            <td>25</td>
+            <td>27</td>
+        </tr>
+        <tr>
+            <td>BACK</td>
+            <td>26</td>
+            <td>28</td>
+            <td>30</td>
+            <td>32</td>
+        </tr>
+        <tr>
+            <td>CHEST</td>
+            <td>18</td>
+            <td>20</td>
+            <td>22</td>
+            <td>24</td>
+        </tr>
+        <tr>
+            <td>SLEEVE</td>
+            <td>26</td>
+            <td>28</td>
+            <td>30</td>
+            <td>32</td>
+        </tr>
+        <tr>
+            <td>EUROPEAN SIZE</td>
+            <td>46</td>
+            <td>48</td>
+            <td>50</td>
+            <td>52</td>
+        </tr>
+    </tbody>
 </table>";
 
 $db->close();
@@ -203,7 +205,6 @@ $h= $html->Html5(
         $html->LoadScripts(["js/popper.min.js","View/js/bootstrap.js"]),
         "
             <style>
-            
                 main,#component{
                     
                     padding-right: 0!important;
@@ -250,8 +251,10 @@ $h= $html->Html5(
                 
                 .left-top{
                     position: fixed;
-                    top: 5vh;
-                    left: 50vw;
+                    right: 0;
+                    //top: 5vh;
+                    margin-top: 50px;
+                    //left: 50vw;
                 }
                 .space{
                     position: relative;
@@ -295,7 +298,21 @@ $h= $html->Html5(
                 .small-font{
                     font-size: 0.9em;
                 }
-                
+                .prodSize{
+                    text-align: center;
+                }
+                .prodSize > tbody > tr > td:first-child {
+                    text-align: left; 
+                }
+                .prodSize > tbody > tr{
+                    border-bottom: 1px solid #000000;
+                }
+                .prodSize > tbody > tr:last-child{
+                    border: none;
+                }
+                .paddingNone{
+                    padding: 0;
+                }
             </style>
         ",
         '<script>
@@ -322,12 +339,12 @@ $h= $html->Html5(
             $ui->Row([
                 $ui->Columns(
                     $collage
-                    ,6,0,0,0,""),
+                    ,6,0,0,0,"paddingNone"),
                 $ui->Columns(
                     $ui->ContainerFluid([
                             "<br/>",
                             $ui->Row([
-                                $ui->Columns("<p style='font-family: NHaasGroteskDSPro-65Md'>$productWord</p>",12),
+                                $ui->Columns("<p style='font-family: NHaasGroteskDSPro-65Md'>.$productWord</p>",12),
 
                             ]),
                             $ui->Row([
@@ -352,20 +369,21 @@ $h= $html->Html5(
 //                        "<div class='container-fluid' style='position: fixed;bottom: 0;font-size: 0.9em;'>".
 //                            "<label><span>PRIVACY POLICY</span></label><label><span>SHIPPING RETURNS</span></label><label><button type='button' class='btn btn-link' style='text-decoration: none;color: black;padding: 0;border: none;font-weight: normal;font-size: 14.4px'  data-toggle='modal' data-target='#size'><span>SIZE GUIDE</span></button></label>".
 //                        "</div>"
-                    ,6,0,0,0,"left-top")
+                    ,6,0,0,0,"left-top paddingNone")
             ],"main")
         ]),
         '
-        <div class="modal" id="size" tabindex="-1" role="dialog" aria-labelledby="sizeLabel" aria-hidden="true" style="background-color: transparent;">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content" style="border-radius: 0;border: 0 solid transparent;top:30vh;background-color: white">
-              <div class="modal-header">
+        <div class="modal" id="size" tabindex="-1" role="dialog" aria-labelledby="sizeLabel" aria-hidden="true" 
+        style="background-color: transparent;">
+          <div class="modal-dialog modal-dialog-centered" style="max-width: 700px;" role="document">
+            <div class="modal-content" style="border-radius: 0;border: 0 solid transparent;background-color: white;">
+              <div class="modal-header" style="border-color: black; padding: 0px; padding-left: 20px; margin-bottom: 10px;">
                 <h5 class="modal-title" id="sizeLabel"><span>CM</span><div class="space"></div><span>IN</span></h5>
                 <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
                   X
                 </button>
               </div>
-              <div class="modal-body">
+              <div class="modal-body" style="padding: 0;">
                 '.$modal.'
               </div>
               
