@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="reset para gitignore">
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Ajuste de pp con mas de 4 productos en cart">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
     </list>
@@ -292,14 +292,7 @@
       <workItem from="1623781675485" duration="57000" />
       <workItem from="1623781862735" duration="131000" />
       <workItem from="1623782031702" duration="464000" />
-      <workItem from="1623787117192" duration="395000" />
-    </task>
-    <task id="LOCAL-00071" summary=" Isotipo png/svg">
-      <created>1613407689759</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1613407689761</updated>
+      <workItem from="1623787117192" duration="834000" />
     </task>
     <task id="LOCAL-00072" summary="Efectos Imagenes">
       <created>1613439361157</created>
@@ -637,7 +630,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623782098228</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="Ajuste de pp con mas de 4 productos en cart">
+      <created>1623787623044</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1623787623045</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -665,7 +665,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Menu IDIOMA&#10;Menu T" />
     <MESSAGE value="Menu T y Vista Previa Producto" />
     <MESSAGE value="Imagenes de SHOP de Base de datos" />
     <MESSAGE value="Imagenes de SHOP de Base de datos. Efecto Back" />
@@ -690,7 +689,8 @@
     <MESSAGE value="Correccion a la familia accesorios" />
     <MESSAGE value="ajuste de pp y posicion" />
     <MESSAGE value="reset para gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="reset para gitignore" />
+    <MESSAGE value="Ajuste de pp con mas de 4 productos en cart" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajuste de pp con mas de 4 productos en cart" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

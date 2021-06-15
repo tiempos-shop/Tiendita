@@ -226,7 +226,7 @@ $h= $html->Html5(
                 $ui->Columns("<p class='small'>$idiomaInformativo[$idiomaActual]</p>",5)
             ]),
         ],"container"),
-        $fc->Aviso("inherit"),
+        $fc->Aviso((count($elements)>2 ? "inherit": "absolute")),
     ],"style='background-color:#FFFFF;' ") //#AC9950
 );
 
