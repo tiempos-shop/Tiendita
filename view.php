@@ -374,7 +374,7 @@ $h= $html->Html5(
           <div class="modal-dialog modal-dialog-centered" style="max-width: 700px;" role="document">
             <div class="modal-content" style="border-radius: 0;border: 0 solid transparent; background-color:black;">
               <div class="modal-header" style="border-color: withe; padding: 0px; padding-left: 20px; margin-bottom: 10px;">
-                <h5 style="color:white;" class="modal-title" id="sizeLabel"><span>CM</span><div class="space"></div><span>IN</span></h5>
+                <h6 style="color:white;" class="modal-title" id="sizeLabel"><span>CM</span><div class="space"></div><span>IN</span></h6>
                 <button style="Color:white; " type="button" class="btn" data-dismiss="modal" aria-label="Close">
                   X
                 </button>
