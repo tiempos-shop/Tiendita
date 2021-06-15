@@ -236,8 +236,8 @@ $h= $html->Html5(
                 }
 
                 body,button {
-                    font-family: NHaasGroteskDSPro-55Rg;
-                    letter-spacing:0.09em; 
+                    
+                    
                     overflow: no-display;
                     font-size:.9em!important;
                 }
@@ -393,7 +393,7 @@ $h= $html->Html5(
         '
 
 
-    ],"style='background-color:#FFFFF;' ") //#AC9950
+    ],"style='background-color:#FFFFF;font-size: 0.9rem !important; letter-spacing: 0.09em;' ") //#AC9950
 );
 
 print_r($h);
