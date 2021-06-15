@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="ajuste de pp y posicion" />
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="reset para gitignore">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
+    </list>
     <list id="77ace032-8836-43a3-a0d8-daf54e77e745" name="Revert &quot;LOGIN: Signo de ojo para mostrar y ocultar contraseña. customerLogin.php FrontComponents.php&quot;" comment="Revert &quot;LOGIN: Signo de ojo para mostrar y ocultar contraseña. customerLogin.php FrontComponents.php&quot;&#10;&#10;This reverts commit 5abaa275" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -288,13 +291,8 @@
       <workItem from="1623781154240" duration="499000" />
       <workItem from="1623781675485" duration="57000" />
       <workItem from="1623781862735" duration="131000" />
-    </task>
-    <task id="LOCAL-00070" summary="fotos shop web">
-      <created>1613153080459</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1613153080460</updated>
+      <workItem from="1623782031702" duration="464000" />
+      <workItem from="1623787117192" duration="395000" />
     </task>
     <task id="LOCAL-00071" summary=" Isotipo png/svg">
       <created>1613407689759</created>
@@ -632,7 +630,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623705842050</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <task id="LOCAL-00119" summary="reset para gitignore">
+      <created>1623782098227</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1623782098228</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -660,7 +665,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Efectos Imagenes" />
     <MESSAGE value="Menu IDIOMA&#10;Menu T" />
     <MESSAGE value="Menu T y Vista Previa Producto" />
     <MESSAGE value="Imagenes de SHOP de Base de datos" />
@@ -685,7 +689,8 @@
     <MESSAGE value="Cambio de letra a .9em&#10;Correccion de fotos tienda&#10;Correccion de animacion&#10;Correcion menu&#10;Generacion de estilo global.css" />
     <MESSAGE value="Correccion a la familia accesorios" />
     <MESSAGE value="ajuste de pp y posicion" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajuste de pp y posicion" />
+    <MESSAGE value="reset para gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="reset para gitignore" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
