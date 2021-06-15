@@ -40,7 +40,7 @@ body,button {
     font-family: NHaasGroteskDSPro-55Rg;
     letter-spacing:0.09em;
     overflow-y: overlay;
-    font-size:.9em!important;
+    font-size:.9rem!important;
 }
 [type='submit']{
     -webkit-appearance: none!important;
@@ -92,5 +92,5 @@ hr{
     animation-delay: 1s;
 }
 .form-control{
-    font-size: .9em!important;
+    font-size: .9rem!important;
 }
