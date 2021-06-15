@@ -250,7 +250,7 @@ $h= $html->Html5(
                 }
                 [type='submit']{
                     -webkit-appearance: none!important;  
-                }
+                } 
                 
                 .left-top{
                     position: fixed;
@@ -294,12 +294,14 @@ $h= $html->Html5(
                 }
                 .prodSize{
                     text-align: center;
+                    color:white;
                 }
                 .prodSize > tbody > tr > td:first-child {
                     text-align: left; 
+                    
                 }
                 .prodSize > tbody > tr{
-                    border-bottom: 1px solid #000000;
+                 border-bottom: 1px solid #ffffff;
                 }
                 .prodSize > tbody > tr:last-child{
                     border: none;
@@ -368,12 +370,12 @@ $h= $html->Html5(
         ]),
         '
         <div class="modal" id="size" tabindex="-1" role="dialog" aria-labelledby="sizeLabel" aria-hidden="true" 
-        style="background-color: transparent;">
+        style="background-color: #ffffffcc;">
           <div class="modal-dialog modal-dialog-centered" style="max-width: 700px;" role="document">
-            <div class="modal-content" style="border-radius: 0;border: 0 solid transparent;background-color: white;">
-              <div class="modal-header" style="border-color: black; padding: 0px; padding-left: 20px; margin-bottom: 10px;">
-                <h5 class="modal-title" id="sizeLabel"><span>CM</span><div class="space"></div><span>IN</span></h5>
-                <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
+            <div class="modal-content" style="border-radius: 0;border: 0 solid transparent; background-color:black;">
+              <div class="modal-header" style="border-color: withe; padding: 0px; padding-left: 20px; margin-bottom: 10px;">
+                <h5 style="color:white;" class="modal-title" id="sizeLabel"><span>CM</span><div class="space"></div><span>IN</span></h5>
+                <button style="Color:white; " type="button" class="btn" data-dismiss="modal" aria-label="Close">
                   X
                 </button>
               </div>
