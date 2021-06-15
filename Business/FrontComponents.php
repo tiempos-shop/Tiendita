@@ -113,7 +113,7 @@ class FrontComponents
                             $this->ui->Input("language","",$this->idioma[ $idiomaActual ]["MENU"][4],"F",true),
                         ],
                         "",
-                        $this->idioma[ $idiomaActual ]["MENU"][4].$selected[4],"black" , "font-size: .9rem !important;vertical-align: inherit;"
+                        $this->idioma[ $idiomaActual ]["MENU"][4].$selected[4],"black" , "font-size: .9rem !important;vertical-align: sub; letter-spacing: 0.081rem !important;"
 
                     );
                     break;
@@ -578,12 +578,12 @@ class FrontComponents
     public function MenuPrivacyReturnView(bool $privacy,bool $return){
         $html= "
             <div class='container-fluid' style='position: fixed;bottom: 0;font-size: 0.7rem;'>
-                <label><span style='width: 10vw;'";
+                <label class='mr-4'><span style='width: 10vw;'";
         if($privacy) $html.=" onclick='go(\"privacy.php\")'";
-        $html.=">PRIVACY POLICY</span></label><label><span  style='width: 10vw;'";
+        $html.=">PRIVACY POLICY</span></label><label class='mr-4'><span  style='width: 10vw;'";
         if($return) $html.=" onclick='go(\"shipping.php\")'";
         $html.=">SHIPPING RETURNS</span></label>";
-        $html.="<button type='button' class='btn btn-link' style='text-decoration: none;color: #212529;padding: 0;border: none;font-weight: normal; vertical-align: baseline;font-size: inherit;'  data-toggle='modal' data-target='#size'><span>SIZE GUIDE</span></button>";
+        $html.="<button type='button' class='btn btn-link' style='text-decoration: none;color: #212529;padding: 0;border: none;font-weight: normal; vertical-align: baseline;font-size: inherit !important;; '  data-toggle='modal' data-target='#size'><span>SIZE GUIDE</span></button>";
         $html.="</div>";
 
         return $html;

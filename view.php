@@ -201,7 +201,7 @@ $h= $html->Html5(
     $html->Head(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
-        $html->LoadStyles(["View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
+        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
         $html->LoadScripts(["js/popper.min.js","View/js/bootstrap.js"]),
         "
             <style>
@@ -236,10 +236,13 @@ $h= $html->Html5(
                 }
 
                 body,button {
-                    
+                    font-family: NHaasGroteskDSPro-55Rg;
                     
                     overflow: no-display;
-                    font-size:.9em!important;
+                    font-size:.9em !important;
+                }
+                button {
+                    letter-spacing: 0.081rem !important;
                 }
                 .btn:focus {
                     outline: none;
@@ -267,13 +270,7 @@ $h= $html->Html5(
                     left: 90vw;
                     width: 7%
                 }
-                hr{
-                    margin-right: 0;
-                    margin-left: 0;
-                    margin-top:0!important; 
-                     
-                    opacity: 1;
-                }
+          
                 div{
                     padding-right: 0;
                     padding-left: 0;
@@ -291,10 +288,7 @@ $h= $html->Html5(
                     bottom: 0;
                     font-size: 0.9em;
                 }
-                label{
-                    padding-right: 50px;
-                    padding-bottom: 2vh;
-                }
+        
                 .small-font{
                     font-size: 0.9em;
                 }
