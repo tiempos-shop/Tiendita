@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Lupa en Vista Producto&#10;Cambio de Estilos a archivo externo view.css">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view.css" beforeDir="false" afterPath="$PROJECT_DIR$/view.css" afterDir="false" />
-    </list>
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Correccion comilla menu Producto Detalle" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -281,13 +278,6 @@
       <workItem from="1623291477193" duration="11426000" />
       <workItem from="1623458761986" duration="3436000" />
       <workItem from="1623688381758" duration="33221000" />
-    </task>
-    <task id="LOCAL-00072" summary="Efectos Imagenes">
-      <created>1613439361157</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1613439361158</updated>
     </task>
     <task id="LOCAL-00073" summary="Menu IDIOMA&#10;Menu T">
       <created>1613690096835</created>
@@ -625,7 +615,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623867192753</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="Correccion comilla menu Producto Detalle">
+      <created>1623879552525</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1623879552525</updated>
+    </task>
+    <option name="localTasksCounter" value="122" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -650,7 +647,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Menu IDIOMA&#10;Menu T" />
     <MESSAGE value="Menu T y Vista Previa Producto" />
     <MESSAGE value="Imagenes de SHOP de Base de datos" />
     <MESSAGE value="Imagenes de SHOP de Base de datos. Efecto Back" />
@@ -675,6 +671,7 @@
     <MESSAGE value="Correccion a la familia accesorios" />
     <MESSAGE value="Correccion a las comillas de Archive" />
     <MESSAGE value="Lupa en Vista Producto&#10;Cambio de Estilos a archivo externo view.css" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lupa en Vista Producto&#10;Cambio de Estilos a archivo externo view.css" />
+    <MESSAGE value="Correccion comilla menu Producto Detalle" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correccion comilla menu Producto Detalle" />
   </component>
 </project>
