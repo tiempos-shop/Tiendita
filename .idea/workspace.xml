@@ -23,9 +23,7 @@
       <change afterPath="$PROJECT_DIR$/js/jquery.mlens-1.7.min.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/view.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/FrontComponents.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/FrontComponents.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Business/Pago.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Pago.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/Utilidades.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Utilidades.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view.php" afterDir="false" />
     </list>
     <list id="77ace032-8836-43a3-a0d8-daf54e77e745" name="Revert &quot;LOGIN: Signo de ojo para mostrar y ocultar contraseña. customerLogin.php FrontComponents.php&quot;" comment="Revert &quot;LOGIN: Signo de ojo para mostrar y ocultar contraseña. customerLogin.php FrontComponents.php&quot;&#10;&#10;This reverts commit 5abaa275">
@@ -158,8 +156,8 @@
       <item itemvalue="PHP Script.INDEX Script" />
       <item itemvalue="PHP Script.bag.php" />
       <item itemvalue="PHP Web Page.Admin" />
-      <item itemvalue="PHP Web Page.XAMPP" />
       <item itemvalue="PHP Web Page.Shop" />
+      <item itemvalue="PHP Web Page.XAMPP" />
     </list>
     <recent_temporary>
       <list>
