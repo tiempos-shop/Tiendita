@@ -39,7 +39,16 @@ $products=$db->getAll("Productos");
 $db->close();
 
 $filtroDescripcion=array_column($products,"Descripcion");
-$filtroPrecio=array_column($products,"Costo");
+//$filtroPrecio=array_column($products,"Costo");
+
+foreach ($products as $producto) {
+    if ($producto->Sale == "1")
+        $filtroPrecio[] = $producto->CostoSale;
+    else
+        $filtroPrecio[] = $producto->Costo;
+}
+
+
 if(isset($_GET["order"])){
     $order=$_GET["order"];
     switch ($order){
@@ -65,7 +74,6 @@ if(isset($_GET["order"])){
     }
 
 }
-
 
 
 
@@ -124,7 +132,8 @@ $h= $html->Html5(
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
         $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
         $html->LoadScripts(["View/js/bootstrap.js"]),
-        "",
+        "
+        ",
         '<script>
                   function go(url){
                       window.location.href=url;
