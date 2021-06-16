@@ -404,9 +404,9 @@ class Utilidades
         return $html;
     }
 
-    public function FormButtomInline(array $content,string $url,string $button){
+    public function FormButtomInline(array $content,string $url,string $button, string $name){
         $html= "
-            <form method='post' action='$url'>";
+            <form method='post' action='$url'  name='$name'>";
         $html.=implode("",$content);
         $html.=$button;
         return $html;

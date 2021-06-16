@@ -66,9 +66,10 @@ else
 }
 
 if(count($_POST)>0){
+
     if(key_exists("borrar",$_POST)) {
         $clave=$_POST["borrar"];
-        $fc->BorrarCarrito($clave);
+        print_r( $fc->BorrarCarrito($clave));
         $productosCarrito=$_SESSION["ProductosCarrito"];
     }
     if(key_exists("language",$_POST)) {
@@ -145,7 +146,7 @@ foreach ($elements as $element){
         $ui->Columns("",2),
         $ui->Columns("<div style='cursor: pointer;' onclick=\"$js\"><img src='".$element["RutaImagen"]."' height='172'><div style='height: 100%;margin-left: 15px;display: inline-block;vertical-align: top'>".$element["Descripcion"]."</div></div>",4),
         //$ui->Columns($element["Descripcion"],2),
-        $ui->Columns($fc->Borrar($element).$fc->BotonEditar($element),1),
+        $ui->Columns($fc->Borrar($element).$fc->BotonEditar($element)."</form>",1),
         $ui->Columns($carrito["Talla"],1),
         $ui->Columns("",1),
         $price,
@@ -224,8 +225,8 @@ $h= $html->Html5(
                 $ui->Columns("",7),
                 $ui->Columns("<p class='small'>$idiomaInformativo[$idiomaActual]</p>",5)
             ]),
-            $fc->Aviso(),
-        ],"container")
+        ],"container"),
+        $fc->Aviso((count($elements)>2 ? "inherit": "absolute")),
     ],"style='background-color:#FFFFF;' ") //#AC9950
 );
 

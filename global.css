@@ -51,7 +51,7 @@ body,button {
     font-family: NHaasGroteskDSPro-55Rg!important;
     letter-spacing:0.09em!important;
     overflow-y: overlay;
-    font-size:.9em!important;
+    font-size:.9rem!important;
 }
 .btn:focus {
     outline: none;
@@ -117,7 +117,7 @@ hr{
     width:30px;
 }
 .form-control{
-    font-size: .9em!important;
+    font-size: .9rem!important;
 }
 .adjust{
     margin-top: -5px!important;

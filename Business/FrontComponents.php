@@ -113,7 +113,7 @@ class FrontComponents
                             $this->ui->Input("language","",$this->idioma[ $idiomaActual ]["MENU"][4],"F",true),
                         ],
                         "",
-                        $this->idioma[ $idiomaActual ]["MENU"][4].$selected[4],"black" , "font-size: .9rem !important;"
+                        $this->idioma[ $idiomaActual ]["MENU"][4].$selected[4],"black" , "font-size: .9rem !important;vertical-align: sub; letter-spacing: 0.081rem !important;"
 
                     );
                     break;
@@ -222,7 +222,7 @@ class FrontComponents
                             $this->ui->Input("language","",$this->idioma[ $idiomaActual ]["MENU"][4],"F",true),
                         ],
                         "",
-                        $this->idioma[ $idiomaActual ]["MENU"][4].$selected[4]
+                        $this->idioma[ $idiomaActual ]["MENU"][4].$selected[4], "", "font-size: .9rem !important;vertical-align: inherit;"
 
                     );
                     break;
@@ -293,6 +293,7 @@ class FrontComponents
     // Funciones
 
     function FormLink(array $content,string $url,string $button,string $color="black", string $estiloBoton =""){
+        $color= ($color == "" ? "black" : $color);
         $html= "
             <form method='post' action='$url'>";
         $html.=implode("",$content);
@@ -461,10 +462,12 @@ class FrontComponents
 
     public function Borrar(array $element)
     {
+        $clave = strval($element["Clave"]);
         return
         $this->ui->FormButtomInline([
-            $this->ui->Input("borrar","",$element["Clave"],"F",false)
-        ],"","<button type='submit' style='border:0 solid transparent;background-color:transparent;display: inline-block'>X</button>");
+            $this->ui->Input("borrar","", $clave ,"F",false)
+        ],"",
+        "<button type='submit' style='border:0 solid transparent;background-color:transparent;display: inline-block'>X</button>", $clave);
     }
 
     public function BorrarCarrito(string $clave){
@@ -574,13 +577,13 @@ class FrontComponents
 
     public function MenuPrivacyReturnView(bool $privacy,bool $return){
         $html= "
-            <div class='container-fluid' style='position: fixed;bottom: 0;font-size: 0.9em;'>
-                <label><span style='width: 10vw;display: block'";
+            <div class='container-fluid' style='position: fixed;bottom: 0;font-size: 0.7rem;'>
+                <label class='mr-4'><span style='width: 10vw;'";
         if($privacy) $html.=" onclick='go(\"privacy.php\")'";
-        $html.=">PRIVACY POLICY</span></label><label><span  style='width: 10vw;display: block'";
+        $html.=">PRIVACY POLICY</span></label><label class='mr-4'><span  style='width: 10vw;'";
         if($return) $html.=" onclick='go(\"shipping.php\")'";
         $html.=">SHIPPING RETURNS</span></label>";
-        $html.="<button type='button' class='btn btn-link' style='text-decoration: none;color: black;padding: 0;border: none;font-weight: normal;font-size: 14.4px'  data-toggle='modal' data-target='#size'><span>SIZE GUIDE</span></button>";
+        $html.="<button type='button' class='btn btn-link' style='text-decoration: none;color: #212529;padding: 0;border: none;font-weight: normal; vertical-align: baseline;font-size: inherit !important;; '  data-toggle='modal' data-target='#size'><span>SIZE GUIDE</span></button>";
         $html.="</div>";
 
         return $html;
