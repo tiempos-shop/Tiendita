@@ -288,26 +288,28 @@ $h= $html->Html5(
                     bottom: 0;
                     font-size: 0.9em;
                 }
-        
                 .small-font{
                     font-size: 0.9em;
                 }
                 .prodSize{
                     text-align: center;
                     color:white;
+                    background-color: black;
                 }
                 .prodSize > tbody > tr > td:first-child {
                     text-align: left; 
-                    
                 }
                 .prodSize > tbody > tr{
-                 border-bottom: 1px solid #ffffff;
+                    border-bottom: 1px solid #ffffff;
                 }
                 .prodSize > tbody > tr:last-child{
                     border: none;
                 }
                 .paddingNone{
                     padding: 0;
+                }
+                .modal-backdrop{
+                    background-color: transparent;
                 }
             </style>
         ",
@@ -370,11 +372,11 @@ $h= $html->Html5(
         ]),
         '
         <div class="modal" id="size" tabindex="-1" role="dialog" aria-labelledby="sizeLabel" aria-hidden="true" 
-        style="background-color: #ffffffcc;">
+        style="background-color: rgba(255,255,255, 0.5);">
           <div class="modal-dialog modal-dialog-centered" style="max-width: 700px;" role="document">
             <div class="modal-content" style="border-radius: 0;border: 0 solid transparent; background-color:black;">
-              <div class="modal-header" style="border-color: withe; padding: 0px; padding-left: 20px; margin-bottom: 10px;">
-                <h7 style="color:white;" class="modal-title" id="sizeLabel"><span>CM</span><div class="space"></div><span>IN</span></h7>
+              <div class="modal-header" style="border-color: withe; padding: 0px; padding-left: 20px; margin-bottom: 10px;color: white;">
+                <h7 class="modal-title" id="sizeLabel"><span>CM</span><div class="space"></div><span>IN</span></h7>
                 <button style="Color:white; " type="button" class="btn" data-dismiss="modal" aria-label="Close">
                   X
                 </button>
