@@ -142,20 +142,19 @@ foreach ($elements as $element){
     $code=$element["Clave"];
     $code=str_replace("'","_",$code);
     $js="view('$code')";
-    $htmlProducts.="<hr/>".$ui->Row([
+    $htmlProducts.="<hr style='margin: 0;' />".$ui->Row([
         $ui->Columns("",2),
-        $ui->Columns("<div style='cursor: pointer;' onclick=\"$js\"><img src='".$element["RutaImagen"]."' height='172'><div style='height: 100%;margin-left: 15px;display: inline-block;vertical-align: top'>".$element["Descripcion"]."</div></div>",4),
+        $ui->Columns("<div style='cursor: pointer;' onclick=\"$js\"><img src='".$element["RutaImagen"]."' height='172'><div style='height: 100%;margin-left: 15px;display: inline-block;vertical-align: top;margin-top: 16px;'>".$element["Descripcion"]."</div></div>",4),
         //$ui->Columns($element["Descripcion"],2),
-        $ui->Columns($fc->Borrar($element).$fc->BotonEditar($element)."</form>",1),
-        $ui->Columns($carrito["Talla"],1),
-        $ui->Columns("",1),
-        $price,
-        $ui->Columns("",2)
+        $ui->Columns("<div style='margin-top: 16px;'>".$fc->Borrar($element).$fc->BotonEditar($element)."</form></div>",1),
+        $ui->Columns("<div style='margin-top: 16px;'>".$carrito["Talla"]."</div>",1),
+        $ui->Columns('',1),
+        $ui->Columns("<div style='margin-top: 16px; display: inline-block;'>".$price."</div>",3)
     ]);
 
     if($idiomaActual=="ENGLISH") $suma+=floatval($n*$element["CostoSale"]/$tipoCambio);else $suma+=floatval($n*$element["CostoSale"]);
 }
-$htmlProducts.="<hr>";
+$htmlProducts.="<hr style='margin-top: 0;' />";
 
 $idiomaInformativo = array("ENGLISH" => "SHIPPING & TAXES CALCULATED AT CHECKOUT", "ESPAÑOL" => "ENVIO E IMPUESTO CALCULADOS AL PAGAR");
 
@@ -180,6 +179,7 @@ $h= $html->Html5(
                 }
                 
                 #container{
+                    margin-top: 55px;
                     padding: 0 0 0 0;
                 }
                 
@@ -207,9 +207,8 @@ $h= $html->Html5(
     $html->Body([
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","","","","'"]),
         $fc->LogoNegro(),
-        "<br/>",
         $ui->ContainerFluid([
-            $ui->RowSpace("1em"),
+            //$ui->RowSpace("1em"),
             $htmlProducts,
             $ui->Row([
                 $ui->Columns("",7),
