@@ -10,7 +10,7 @@ span:hover{
     cursor: pointer;
 }
 span:hover::after{
-    content: \"'\";
+    content: "'";
 }
 @font-face {
     font-family: NHaasGroteskDSPro-55Rg;

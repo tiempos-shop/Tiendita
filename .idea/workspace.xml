@@ -19,15 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Correccion a las comillas de Archive">
-      <change afterPath="$PROJECT_DIR$/js/jquery.mlens-1.7.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view.css" afterDir="false" />
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Lupa en Vista Producto&#10;Cambio de Estilos a archivo externo view.css">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/Pago.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Pago.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view.php" afterDir="false" />
-    </list>
-    <list id="77ace032-8836-43a3-a0d8-daf54e77e745" name="Revert &quot;LOGIN: Signo de ojo para mostrar y ocultar contraseña. customerLogin.php FrontComponents.php&quot;" comment="Revert &quot;LOGIN: Signo de ojo para mostrar y ocultar contraseña. customerLogin.php FrontComponents.php&quot;&#10;&#10;This reverts commit 5abaa275">
-      <change beforePath="$PROJECT_DIR$/customerLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/customerLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view.css" beforeDir="false" afterPath="$PROJECT_DIR$/view.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,8 +150,8 @@
       <item itemvalue="PHP Script.INDEX Script" />
       <item itemvalue="PHP Script.bag.php" />
       <item itemvalue="PHP Web Page.Admin" />
-      <item itemvalue="PHP Web Page.Shop" />
       <item itemvalue="PHP Web Page.XAMPP" />
+      <item itemvalue="PHP Web Page.Shop" />
     </list>
     <recent_temporary>
       <list>
@@ -287,13 +281,6 @@
       <workItem from="1623291477193" duration="11426000" />
       <workItem from="1623458761986" duration="3436000" />
       <workItem from="1623688381758" duration="33221000" />
-    </task>
-    <task id="LOCAL-00071" summary=" Isotipo png/svg">
-      <created>1613407689759</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1613407689761</updated>
     </task>
     <task id="LOCAL-00072" summary="Efectos Imagenes">
       <created>1613439361157</created>
@@ -631,7 +618,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623706965186</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="Lupa en Vista Producto&#10;Cambio de Estilos a archivo externo view.css">
+      <created>1623867192753</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1623867192753</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -656,7 +650,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Efectos Imagenes" />
     <MESSAGE value="Menu IDIOMA&#10;Menu T" />
     <MESSAGE value="Menu T y Vista Previa Producto" />
     <MESSAGE value="Imagenes de SHOP de Base de datos" />
@@ -681,6 +674,7 @@
     <MESSAGE value="Cambio de letra a .9em&#10;Correccion de fotos tienda&#10;Correccion de animacion&#10;Correcion menu&#10;Generacion de estilo global.css" />
     <MESSAGE value="Correccion a la familia accesorios" />
     <MESSAGE value="Correccion a las comillas de Archive" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correccion a las comillas de Archive" />
+    <MESSAGE value="Lupa en Vista Producto&#10;Cambio de Estilos a archivo externo view.css" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lupa en Vista Producto&#10;Cambio de Estilos a archivo externo view.css" />
   </component>
 </project>
