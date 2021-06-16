@@ -1,0 +1,76 @@
+Index: customerLogin.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\nuse Administracion\\VistasHtml;\r\nuse Tiendita\\EntidadBase;\r\nuse Tiendita\\FrontComponents;\r\nuse Tiendita\\Utilidades;\r\n\r\ninclude_once \"View/Componentes/Administracion/VistasHtml.php\";\r\ninclude_once \"Business/Utilidades.php\";\r\ninclude_once \"Data/Connection/EntidadBase.php\";\r\ninclude_once \"Business/FrontComponents.php\";\r\n\r\n$fc=new FrontComponents();\r\n$html=new VistasHtml();\r\n$ui=new Utilidades();\r\n$db=new EntidadBase();\r\n\r\nsession_start();\r\nif(isset($_SESSION[\"ProductosCarrito\"])){\r\n    $productosCarrito=$_SESSION[\"ProductosCarrito\"];\r\n    $numeroProductosCarrito=count($productosCarrito);\r\n}\r\nelse{\r\n    $numeroProductosCarrito=0;\r\n}\r\n\r\n// Idioma\r\n$idiomaActual=\"\";\r\nif(count($_POST)>0)\r\n{\r\n    if(isset($_POST[\"language\"])){\r\n        $idiomaActual=$_POST[\"language\"];\r\n        $_SESSION[\"language\"]=$idiomaActual;\r\n    }\r\n    else{\r\n        $idiomaActual=$_SESSION[\"language\"];\r\n    }\r\n\r\n    if(isset($_GET[\"action\"])){\r\n        $action=$_GET[\"action\"];\r\n        switch ($action){\r\n            case \"login\":\r\n                $realPassword=\"\";\r\n                $email=$_POST[\"login\"];\r\n                $password=$_POST[\"password\"];\r\n                $clienteTable=$db->getBy(\"Clientes\",\"CorreoElectronico\",$email);\r\n\r\n                if(count($clienteTable)>0){\r\n                    $realPassword=$clienteTable[0]->Password;\r\n\r\n                }\r\n                if($realPassword===$password){\r\n                    $_SESSION[\"LOGGED\"]=\"NORMAL\";\r\n                    $ui->Redirect(\"checkout.php\");\r\n                }\r\n                break;\r\n\r\n            case \"forgot\":\r\n                break;\r\n            case \"facebook\":\r\n                break;\r\n            case \"google\":\r\n                break;\r\n            case \"create\":\r\n                break;\r\n        }\r\n    }\r\n\r\n}\r\nelse{\r\n    $idiomaActual=$_SESSION[\"language\"];\r\n}\r\n$tipoCambio=20;\r\n$idioma=\r\n    [\r\n        \"ESPAÑOL\"=>[\r\n            \"MENU\"=>[ \"INICIO\",\"ARCHIVO\",\"MARCA\",\"ENGLISH\",\"CARRITO(*)\"],\r\n            \"LOGIN\" => [ \"ACCESO\",\"CORREO ELECTRÓNICO\",\"CONTRASEÑA\",\"OLVIDASTE TU CONTRASEÑA?\",\"ACCESO CON FACEBOOK\",\"ACCESO CON GOOGLE\" ],\r\n            \"CREAR\" => [ \"CREAR CUENTA\",\"NOMBRE\",\"APELLIDO(S)\",\"CORREO ELECTRÓNICO\",\"CONTRASEÑA\",\"REPETIR CONTRASEÑA\",\" SUSCRIBIRSE AL NEWSLETTER\" ]\r\n        ],\r\n        \"ENGLISH\"=>[\r\n            \"MENU\"=>[ \"HOME\",\"ARCHIVE\",\"IMPRINT\",\"ESPAÑOL\",\"CART(*)\" ],\r\n            \"LOGIN\" => [ \"LOGIN\",\"EMAIL ADDRES\",\"PASSWORD\",\"FORGOT YOUR PASSWORD?\",\"LOGIN WITH FACEBOOK\",\"LOGIN WITH GOOGLE\" ],\r\n            \"CREAR\" => [ \"CREATE AN ACCOUNT\",\"NAME\",\"LAST NAME\",\"EMAIL ADDRESS\",\"PASSWORD\",\"REPEAT PASSWORD\",\" SIGN UP FOR NEWSLETTER\" ]\r\n        ]\r\n    ];\r\n\r\n$h= $html->Html5(\r\n    $html->Head(\r\n        \"Tiempos Shop\",\r\n        $html->Meta(\"utf-8\",\"Tienda Online de Tiempos Shop\",\"Egil Ordonez\"),\r\n        $html->LoadStyles([\"global.css\",\"View/css/bootstrap.css\",\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\"]),\r\n        $html->LoadScripts([\"View/js/bootstrap.js\"]),\r\n        \"\r\n            <style>\r\n                \r\n                .btn:focus {\r\n                    outline: none;\r\n                    box-shadow: none;\r\n                }\r\n                .small-font{\r\n                    font-size: 0.9em;\r\n                }\r\n                .form-control:focus {\r\n                    box-shadow:  0 1px 1px black, 0 0 3px black;\r\n                }\r\n                \r\n            </style>\r\n        \",\r\n        '<script>\r\n                  function go(url){\r\n                      window.location.href=url;\r\n                  }\r\n                  function changeImage(imageElement,image){\r\n                      imageElement.src=image;\r\n                      imageElement.style.cursor=\"pointer\";\r\n                  }\r\n                  function view(str){\r\n                      let id=str.replace(\"_\", \"\\'\");\r\n                      go(\"view.php?id=\"+id);\r\n                  }\r\n                  function seteyePassword (e) {\r\n                      const input = document.getElementById(\"password\");\r\n                      const eye = e.querySelector(\".fa\");\r\n                      if(eye.classList.contains(\"fa-eye-slash\")){\r\n                          eye.classList.add(\"fa-eye\");\r\n                          eye.classList.remove(\"fa-eye-slash\");\r\n                          input.type = \"text\";\r\n                      }else{\r\n                          input.type = \"password\";\r\n                          eye.classList.add(\"fa-eye-slash\");\r\n                          eye.classList.remove(\"fa-eye\");\r\n                      }\r\n                  }\r\n                </script>'\r\n\r\n    ),\r\n    $html->Body([\r\n        // Load Facebook button\r\n        \"\r\n            <div id=\\\"fb-root\\\"></div>\r\n            <script async defer \r\n                crossorigin=\\\"anonymous\\\" \r\n                src=\\\"https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v9.0&appId=1794600520762591&autoLogAppEvents=1\\\" \r\n                nonce=\\\"wlJTE7aj\\\">\r\n            </script>\",\r\n        $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,[\"\",\"\",\"\",\"'\",\"\",\"\"]),\r\n        $fc->LogoNegro(),\r\n        $fc->TMenu(\"\"),\r\n\r\n        $ui->ContainerFluid([\r\n            $ui->Row([\r\n\r\n                $ui->Columns(\"<label style='font-family: NHaasGroteskDSPro-65Md'>\".$idioma[$idiomaActual][\"LOGIN\"][0].\"</label>\",12,0,0,0,\"\",\r\n                    \"text-align:center;margin-top:100px\")\r\n            ]),\r\n\r\n            $ui->RowSpace(\"2vh\"),\r\n            $ui->Row([\r\n                $ui->Columns(\"\",4),\r\n                $ui->Columns(\r\n                    $ui->Lines([\r\n                        $ui->FormButtom([\r\n                            $fc->BlackInput($idioma[$idiomaActual][\"LOGIN\"][1],\"login\"),\r\n                            $ui->RowSpace(\"1vh\"),\r\n                            $fc->BlackInputEye($idioma[$idiomaActual][\"LOGIN\"][2],\"password\",true),\r\n                            \"<button type='submit' formaction='customerLogin.php?action=forgot' class='btn small-font'>\".$idioma[$idiomaActual][\"LOGIN\"][3].\"</button>\",\r\n                        ],\"\",\"<button class='btn btn-block btn-dark' formaction='customerLogin.php?action=login' type='submit' style='border-radius: 0;background-color: black;'>\".$idioma[$idiomaActual][\"LOGIN\"][0].\"</button>\"),\r\n                        $ui->RowSpace(\"1vh\"),\r\n                        $ui->FormButtom([],\"\",\"<button class='btn btn-block' formaction='customerLogin.php?action=facebook' type='submit' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \\\"NHaasGroteskDSPro-65Md\\\"'>\".$idioma[$idiomaActual][\"LOGIN\"][4].\"</button>\"),\r\n                        $ui->FormButtom([],\"\",\"<button class='btn btn-block' formaction='customerLogin.php?action=google' type='submit' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \\\"NHaasGroteskDSPro-65Md\\\"'>\".$idioma[$idiomaActual][\"LOGIN\"][5].\"</button>\")\r\n\r\n                    ]),\r\n                4,0,0,0,\"\",\"text-align:center;\"),\r\n                $ui->Columns(\"\",4),\r\n            ]),\r\n            \"\",\r\n            $ui->Row([\r\n\r\n                $ui->Columns(\"<label style='font-family: NHaasGroteskDSPro-65Md'>\".$idioma[$idiomaActual][\"CREAR\"][0].\"</label>\",12,0,0,0,\"\",\r\n                    \"text-align:center;margin-top:100px\")\r\n            ]),\r\n            $ui->RowSpace(\"2vh\"),\r\n            $ui->Row([\r\n                $ui->Columns(\"\",4),\r\n                $ui->Columns(\r\n                    $ui->Lines([\r\n                        $ui->FormButtom([\r\n\r\n                            $fc->BlackInput($idioma[$idiomaActual][\"CREAR\"][1],\"name\"),\r\n                            $ui->RowSpace(\"1vh\"),\r\n                            $fc->BlackInput($idioma[$idiomaActual][\"CREAR\"][2],\"lastname\"),\r\n                            $ui->RowSpace(\"1vh\"),\r\n                            $fc->BlackInput($idioma[$idiomaActual][\"CREAR\"][3],\"login\"),\r\n                            $ui->RowSpace(\"1vh\"),\r\n                            $fc->BlackInput($idioma[$idiomaActual][\"CREAR\"][4],\"password1\",true),\r\n                            $ui->RowSpace(\"1vh\"),\r\n                            $fc->BlackInput($idioma[$idiomaActual][\"CREAR\"][5],\"password2\",true),\r\n                            $ui->RowSpace(\"1vh\"),\r\n                            \"<input class='form-check-input' type='checkbox' id='newsletter' name='newsletter' style='border-radius: 10px;border-color: black'>\".$idioma[$idiomaActual][\"CREAR\"][6].\"</input>\",\r\n\r\n                        ],\"\",\"<button class='btn btn-block btn-dark' formaction='customerLogin.php?action=create' type='submit' style='border-radius: 0;background-color: black;margin-top: 1em;'>\".$idioma[$idiomaActual][\"CREAR\"][0].\"</button>\"),\r\n                    ]),\r\n                    4,0,0,0,\"\",\"text-align:center;\"),\r\n                $ui->Columns(\"\",4),\r\n            ])\r\n\r\n\r\n        ]),\r\n        $fc->MenuPrivacyReturn(true,true)\r\n\r\n\r\n\r\n    ],\"style='background-color:#FFFFF;' \") //#AC9950\r\n);\r\n\r\nprint_r($h);\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/customerLogin.php b/customerLogin.php
+--- a/customerLogin.php	(revision d5c58a0821c6c50afcda6d323cb97e4fc1f12011)
++++ b/customerLogin.php	(date 1623463867846)
+@@ -2,7 +2,6 @@
+ 
+ use Administracion\VistasHtml;
+ use Tiendita\EntidadBase;
+-use Tiendita\FrontComponents;
+ use Tiendita\Utilidades;
+ 
+ include_once "View/Componentes/Administracion/VistasHtml.php";
+@@ -10,7 +9,7 @@
+ include_once "Data/Connection/EntidadBase.php";
+ include_once "Business/FrontComponents.php";
+ 
+-$fc=new FrontComponents();
++$fc=new \Tiendita\FrontComponents();
+ $html=new VistasHtml();
+ $ui=new Utilidades();
+ $db=new EntidadBase();
+@@ -85,6 +84,9 @@
+         ]
+     ];
+ 
++
++
++
+ $h= $html->Html5(
+     $html->Head(
+         "Tiempos Shop",
+@@ -119,19 +121,6 @@
+                       let id=str.replace("_", "\'");
+                       go("view.php?id="+id);
+                   }
+-                  function seteyePassword (e) {
+-                      const input = document.getElementById("password");
+-                      const eye = e.querySelector(".fa");
+-                      if(eye.classList.contains("fa-eye-slash")){
+-                          eye.classList.add("fa-eye");
+-                          eye.classList.remove("fa-eye-slash");
+-                          input.type = "text";
+-                      }else{
+-                          input.type = "password";
+-                          eye.classList.add("fa-eye-slash");
+-                          eye.classList.remove("fa-eye");
+-                      }
+-                  }
+                 </script>'
+ 
+     ),
+@@ -154,16 +143,16 @@
+                 $ui->Columns("<label style='font-family: NHaasGroteskDSPro-65Md'>".$idioma[$idiomaActual]["LOGIN"][0]."</label>",12,0,0,0,"",
+                     "text-align:center;margin-top:100px")
+             ]),
+-
+             $ui->RowSpace("2vh"),
+             $ui->Row([
+                 $ui->Columns("",4),
+                 $ui->Columns(
+                     $ui->Lines([
+                         $ui->FormButtom([
++
+                             $fc->BlackInput($idioma[$idiomaActual]["LOGIN"][1],"login"),
+                             $ui->RowSpace("1vh"),
+-                            $fc->BlackInputEye($idioma[$idiomaActual]["LOGIN"][2],"password",true),
++                            $fc->BlackInput($idioma[$idiomaActual]["LOGIN"][2],"password",true),
+                             "<button type='submit' formaction='customerLogin.php?action=forgot' class='btn small-font'>".$idioma[$idiomaActual]["LOGIN"][3]."</button>",
+                         ],"","<button class='btn btn-block btn-dark' formaction='customerLogin.php?action=login' type='submit' style='border-radius: 0;background-color: black;'>".$idioma[$idiomaActual]["LOGIN"][0]."</button>"),
+                         $ui->RowSpace("1vh"),
