@@ -656,32 +656,19 @@ class Utilidades
         return DateTime::createFromFormat($this->formatoFecha, $external);
     }
 
-    public function FechaHoyObjeto():DateTime
-    {
 
-        $hoy=getdate();
-        $segundos=$hoy["seconds"];
-        $minutos=$hoy["minutes"];
-        $horas=$hoy["hours"];
-        $dia=$hoy["mday"];
-        $mes=$hoy["mon"];
-        $ano=$hoy["year"];
-
-        $external = "$dia/$mes/$ano $horas:$minutos:$segundos";
-        $dateobj = DateTime::createFromFormat($this->formatoFecha, $external);
-        return $dateobj;
-    }
 
     public function FechaHoy():string
     {
-        $hoy=getdate();
-        $segundos=$hoy["seconds"];
-        $minutos=$hoy["minutes"];
-        $horas=$hoy["hours"];
-        $dia=$hoy["mday"];
-        $mes=$hoy["mon"];
-        $ano=$hoy["year"];
-        return "$dia/$mes/$ano $horas:$minutos:$segundos";
+//        $hoy=getdate();
+//        $segundos=$hoy["seconds"];
+//        $minutos=$hoy["minutes"];
+//        $horas=$hoy["hours"];
+//        $dia=$hoy["mday"];
+//        $mes=$hoy["mon"];
+//        $ano=$hoy["year"];
+
+        return "01-01-2000 00:00:00";
     }
 
     public function DisplayInputDate(array $date):string

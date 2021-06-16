@@ -131,9 +131,15 @@ $descriptionTable.="</tr></table>";
 $images=explode(",",$productInformation->RutaImagen);
 
 $collage="";
+$innerScript="";
+$count=0;
 foreach ($images as $image){
-    $collage.="<img class='img-fluid' src='$image'><br/>";
+    $count++;
+    $id="id".$count;
+    $collage.="<img id='$id' class='img-fluid' src='$image' data-big='$image' data-overlay=''><br/>";// data-overlay="fondo.png"
+    $innerScript.=$fc->ScriptAmpliarFoto($id);
 }
+$lupaScript=$fc->Lupa($innerScript);
 
 $modal="
 <table class='table table-borderless prodSize' style=''>
@@ -201,120 +207,9 @@ $h= $html->Html5(
     $html->Head(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
-        $html->LoadStyles(["View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
-        $html->LoadScripts(["js/popper.min.js","View/js/bootstrap.js"]),
-        "
-            <style>
-                main,#component{
-                    
-                    padding-right: 0!important;
-                    padding-left: 0!important;
-                }
-                td{
-                    text-align: center;                
-                }
-                span:hover{
-                    cursor: pointer;
-                }
-                span:hover::after{
-                    content: \"'\";
-                }
-                @font-face {
-                    font-family: NHaasGroteskDSPro-55Rg;
-                    src: url(font/NHaasGroteskDSPro-55Rg.woff);
-                    src: url(font/NHaasGroteskDSPro-55Rg.woff2);
-                    src: url(font/NHaasGroteskDSPro-55Rg.ttf);
-                    
-                }
-                
-                @font-face {
-                    font-family: NHaasGroteskDSPro-65Md;
-                    src: url(font/NHaasGroteskDSPro-65Md.woff);
-                    src: url(font/NHaasGroteskDSPro-65Md.woff2);
-                    src: url(font/NHaasGroteskDSPro-65Md.ttf);
-                    
-                }
-
-                body,button {
-                    font-family: NHaasGroteskDSPro-55Rg;
-                    letter-spacing:0.09em; 
-                    overflow: no-display;
-                    font-size:.9em!important;
-                }
-                .btn:focus {
-                    outline: none;
-                    box-shadow: none;
-                }
-                [type='submit']{
-                    -webkit-appearance: none!important;  
-                }
-                
-                .left-top{
-                    position: fixed;
-                    right: 0;
-                    //top: 5vh;
-                    margin-top: 50px;
-                    //left: 50vw;
-                }
-                .space{
-                    position: relative;
-                    display:inline-block; 
-                    width:30px; 
-                }
-                #logo{
-                    display:inline-block;
-                    top:50vh;
-                    left: 90vw;
-                    width: 7%
-                }
-                hr{
-                    margin-right: 0;
-                    margin-left: 0;
-                    margin-top:0!important; 
-                     
-                    opacity: 1;
-                }
-                div{
-                    padding-right: 0;
-                    padding-left: 0;
-                }
-                p{
-                    text-align: justify;
-                    text-align-last: justify;
-                    padding-left: 40px;
-                    padding-right: 40px; 
-                    margin: 0 0 0 0;
-                    font-size: inherit;
-                }
-                #componentBase{
-                    position: fixed;
-                    bottom: 0;
-                    font-size: 0.9em;
-                }
-                label{
-                    padding-right: 50px;
-                    padding-bottom: 2vh;
-                }
-                .small-font{
-                    font-size: 0.9em;
-                }
-                .prodSize{
-                    text-align: center;
-                }
-                .prodSize > tbody > tr > td:first-child {
-                    text-align: left; 
-                }
-                .prodSize > tbody > tr{
-                    border-bottom: 1px solid #000000;
-                }
-                .prodSize > tbody > tr:last-child{
-                    border: none;
-                }
-                .paddingNone{
-                    padding: 0;
-                }
-            </style>
-        ",
+        $html->LoadStyles(["view.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
+        $html->LoadScripts(["vendor/jquery/jquery.js","js/jquery.mlens-1.7.min.js","js/popper.min.js","View/js/bootstrap.js"]),
+        "",
         '<script>
                   function go(url){
                       window.location.href=url;
@@ -327,6 +222,7 @@ $h= $html->Html5(
                       let id=str.replace("_", "\'");
                       go("view.php?id="+id);
                   }
+                  '.$lupaScript.'
                 </script>'
 
     ),

@@ -608,4 +608,30 @@ class FrontComponents
             ";
     }
 
+    public function ScriptAmpliarFoto($id){
+        return
+            '
+            $("#'.$id.'").mlens(
+            {
+                imgSrc: $("#'.$id.'").attr("data-big"),
+                lensShape: "circle",
+                lensSize: 180,
+                borderSize: 4,
+                borderColor: "#fff",
+                borderRadius: 0,
+                imgOverlay: $("#'.$id.'").attr("data-overlay"),
+                overlayAdapt: true
+            });
+            ';
+    }
+    public function Lupa($idsScripts){
+        return
+        '
+        $(document).ready(function()
+        {
+        '.$idsScripts.'            
+        });
+        ';
+    }
+
 }
