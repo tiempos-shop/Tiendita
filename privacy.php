@@ -168,8 +168,7 @@ not process orders from persons that are not the Final Customer and any other or
         "</div>",
         $fc->LogoNegro(),
         $fc->TMenu(""),
-        $fc->Aviso(),
-        $fc->MenuPrivacyReturn(true,true)
+        $fc->MenuPrivacyReturnInside(true,true)
 
 
 

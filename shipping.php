@@ -168,12 +168,7 @@ not process orders from persons that are not the Final Customer and any other or
         "</div>",
         $fc->LogoNegro(),
         $fc->TMenu(""),
-        $fc->Aviso(),
-        $fc->MenuPrivacyReturn(true,true)
-//        "<div class='container-fluid' style='position: fixed;bottom: 0;font-size: 0.9em;padding-left: 55%'>".
-//        "<label><span onclick='go(\"privacy.php\")'>PRIVACY POLICY</span></label><label><span>SHIPPING RETURNS</span></label>".
-//        "</div>"
-
+        $fc->MenuPrivacyReturnInside(true,true)
 
     ],"style='background-color:#FFFFF;' ") //#AC9950
 );
