@@ -577,7 +577,7 @@ class FrontComponents
 
     public function MenuPrivacyReturnView(bool $privacy,bool $return){
         $html= "
-            <div class='container-fluid' style='position: fixed;bottom: 0;font-size: 0.7rem;'>
+            <div class='container-fluid' style='position: fixed;bottom: 0;font-size: 0.7rem; margin-top: calc(5% - 1rem);'>
                 <label class='mr-4'><span style='width: 10vw;'";
         if($privacy) $html.=" onclick='go(\"privacy.php\")'";
         $html.=">PRIVACY POLICY</span></label><label class='mr-4'><span  style='width: 10vw;'";

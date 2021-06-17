@@ -240,7 +240,7 @@ $h= $html->Html5(
                     $ui->ContainerFluid([
                             "<br/>",
                             $ui->Row([
-                                $ui->Columns("<p style='font-family: NHaasGroteskDSPro-65Md'>.$productWord</p>",12),
+                                $ui->Columns("<p style='font-family: NHaasGroteskDSPro-65Md;'>.$productWord</p>",12),
 
                             ]),
                             $ui->Row([
@@ -258,10 +258,10 @@ $h= $html->Html5(
                             "</div><hr style='margin: 0 0 0 0'/>",
                             $fc->SizeButton($botonTalla,$opcionesTallas),
                             $flowButton,
+                            $fc->MenuPrivacyReturnView(true,true)
 
+                        ],"component")
 
-                        ],"component").
-                        $fc->MenuPrivacyReturnView(true,true)
 //                        "<div class='container-fluid' style='position: fixed;bottom: 0;font-size: 0.9em;'>".
 //                            "<label><span>PRIVACY POLICY</span></label><label><span>SHIPPING RETURNS</span></label><label><button type='button' class='btn btn-link' style='text-decoration: none;color: black;padding: 0;border: none;font-weight: normal;font-size: 14.4px'  data-toggle='modal' data-target='#size'><span>SIZE GUIDE</span></button></label>".
 //                        "</div>"
