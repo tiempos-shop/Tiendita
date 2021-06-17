@@ -579,12 +579,18 @@ class FrontComponents
 
     public function MenuPrivacyReturnInside(bool $privacy,bool $return){
         $html= "
-            <div class='container-fluid' style='position: fixed;bottom: 0;font-size: 0.7em;padding-left: 35%'>
-                <label><span style='width: 10vw;display: block'";
-        if($privacy) $html.=" onclick='go(\"privacy.php\")'";
-        $html.=">PRIVACY POLICY</span></label><label><span";
-        if($return) $html.=" onclick='go(\"shipping.php\")'";
-        $html.=">SHIPPING RETURNS</span></label>
+            <div class='container-fluid' style='position: fixed;bottom: 1vh;font-size: 0.7rem;padding-left: 35%'>
+                <label style='width: 20vw;display: inline-block'>";
+        if($privacy) $html.="<span  onclick='go(\"privacy.php\")'>";
+        $html.="PRIVACY POLICY";
+        if($return) $html.="'";
+        if($privacy) $html.="</span>";
+        $html.="</label><label style='width: 20vw;display: inline-block'>";
+        if($return) $html.="<span onclick='go(\"shipping.php\")'>";
+        $html.="SHIPPING RETURNS";
+        if($privacy) $html.="'";
+        if($return) $html.="</span>";
+        $html.="</label>
             </div>";
         return $html;
     }

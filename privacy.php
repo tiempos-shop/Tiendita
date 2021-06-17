@@ -45,65 +45,9 @@ $h= $html->Html5(
     $html->Head(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
-        $html->LoadStyles(["View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
+        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
         $html->LoadScripts(["View/js/bootstrap.js"]),
-        "
-            <style>
-                span:hover{
-                    cursor: pointer;
-                }
-                span:hover::after{
-                    content: \"'\";
-                }
-                @font-face {
-                    font-family: NHaasGroteskDSPro-55Rg;
-                    src: url(font/NHaasGroteskDSPro-55Rg.woff);
-                    src: url(font/NHaasGroteskDSPro-55Rg.woff2);
-                    src: url(font/NHaasGroteskDSPro-55Rg.ttf);
-                }
-                
-                @font-face {
-                    font-family: NHaasGroteskDSPro-65Md;
-                    src: url(font/NHaasGroteskDSPro-65Md.woff);
-                    src: url(font/NHaasGroteskDSPro-65Md.woff2);
-                    src: url(font/NHaasGroteskDSPro-65Md.ttf);
-                    
-                }
-
-                body,button {
-                    font-family: NHaasGroteskDSPro-55Rg;
-                    letter-spacing:0.09em; 
-                }
-                .btn:focus {
-                    outline: none;
-                    box-shadow: none;
-                }
-                [type='submit']{
-                    -webkit-appearance: none!important;  
-                }
-                #logo{
-                    display:inline-block;
-                    top:50vh;
-                    left: 90vw;
-                    width: 7%
-                }
-                #t{
-                    position:fixed;
-                    display:inline-block;
-                    top:50vh;
-                    left: 2vw;
-                    
-                }
-                label{
-                    padding-right: 50px;
-                    padding-bottom: 2vh;
-                }
-                .small-font{
-                    font-size: 0.9em;
-                }
-                
-            </style>
-        ",
+        "",
         '<script>
                   function go(url){
                       window.location.href=url;
@@ -168,7 +112,7 @@ not process orders from persons that are not the Final Customer and any other or
         "</div>",
         $fc->LogoNegro(),
         $fc->TMenu(""),
-        $fc->MenuPrivacyReturnInside(true,true)
+        $fc->MenuPrivacyReturnInside(false,true)
 
 
 
