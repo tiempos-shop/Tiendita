@@ -207,7 +207,7 @@ $h= $html->Html5(
     $html->Head(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
-        $html->LoadStyles(["view.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
+        $html->LoadStyles(["View/css/bootstrap.css","css/view.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
         $html->LoadScripts(["vendor/jquery/jquery.js","js/jquery.mlens-1.7.min.js","js/popper.min.js","View/js/bootstrap.js"]),
         "",
         '<script>

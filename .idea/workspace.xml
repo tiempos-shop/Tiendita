@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -19,11 +22,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="ajuste de wokspace">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2021_01_07_p__m___Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2021_01_07_p__m___Revert__LOGIN__Signo_de_ojo_p.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Business/FrontComponents.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/FrontComponents.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/privacy.php" beforeDir="false" afterPath="$PROJECT_DIR$/privacy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shipping.php" beforeDir="false" afterPath="$PROJECT_DIR$/shipping.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/view.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,11 +118,11 @@
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\RICARDO\PhpstormProjects\Tiendita\css" />
       <recent name="C:\Users\Egil Ordonez\PhpstormProjects\Tiendita\js" />
       <recent name="C:\Users\Egil Ordonez\PhpstormProjects\Tiendita\img" />
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita\img" />
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita" />
-      <recent name="C:\Users\RENDER2\PhpstormProjects\Tiendita" />
     </key>
   </component>
   <component name="RunManager" selected="PHP Web Page.XAMPP">
@@ -284,6 +290,7 @@
       <workItem from="1623291477193" duration="11426000" />
       <workItem from="1623458761986" duration="3436000" />
       <workItem from="1623688381758" duration="33221000" />
+      <workItem from="1623893685339" duration="3905000" />
     </task>
     <task id="LOCAL-00075" summary="Menu T y Vista Previa Producto">
       <created>1613782114172</created>

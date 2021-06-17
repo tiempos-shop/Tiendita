@@ -26,7 +26,15 @@ $idiomaActual="";
 
 if(count($_GET)>0){
     $clave=$_GET["clave"];
-    $n=$_GET["n"];
+    if (is_numeric( $_GET["n"] ))
+    {
+        $n=$_GET["n"];
+    }
+    else
+    {
+        $n=1;
+    }
+
     $productosCarrito=$_SESSION["ProductosCarrito"];
     foreach ($productosCarrito as $key=>$producto){
         if($producto[0]==$clave){
@@ -69,7 +77,11 @@ if(count($_POST)>0){
 
     if(key_exists("borrar",$_POST)) {
         $clave=$_POST["borrar"];
-        print_r( $fc->BorrarCarrito($clave));
+        if ($fc->BorrarCarrito($clave))
+        {
+            $numeroProductosCarrito -= 1;
+            $_POST["borrar"] = "";
+        }
         $productosCarrito=$_SESSION["ProductosCarrito"];
     }
     if(key_exists("language",$_POST)) {

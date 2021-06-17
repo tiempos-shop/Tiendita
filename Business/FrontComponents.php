@@ -472,12 +472,15 @@ class FrontComponents
 
     public function BorrarCarrito(string $clave){
         $productosCarrito=$_SESSION["ProductosCarrito"];
+        $productoEliminado = false;
         foreach ($productosCarrito as $key=>$producto){
             if($producto[0]==$clave){
                 unset($productosCarrito[$key]);
+                $productoEliminado = true;
             }
         }
         $_SESSION["ProductosCarrito"]=$productosCarrito;
+        return $productoEliminado;
     }
 
     public function BotonEditar(array $element)
@@ -579,8 +582,8 @@ class FrontComponents
 
     public function MenuPrivacyReturnInside(bool $privacy,bool $return){
         $html= "
-            <div class='container-fluid' style='position: fixed;bottom: 1vh;font-size: 0.7rem;padding-left: 35%'>
-                <label style='width: 20vw;display: inline-block'>";
+            <div class='container-fluid mb-2' style='position: fixed;bottom: 1vh;font-size: 0.7rem;padding-left: 50%; padding-bottom: 0.5em;'>
+                <label style='width: 10vw;display: inline-block'>";
         if($privacy) $html.="<span  onclick='go(\"privacy.php\")'>";
         $html.="PRIVACY POLICY";
         if($return) $html.="'";
