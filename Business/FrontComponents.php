@@ -407,7 +407,17 @@ class FrontComponents
                     <br/>
                     <a style='color: black' href='shop.php?order=5'><span><strong>SALE</strong></span></a>
                 </div>";
-
+                default:
+                    return
+                        "</div>
+                            <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
+                            <a style='color: black' href='shop.php?order=6'>SHOP ALL'</a><br/>
+                            <br/>
+                            <a style='color: black' href='shop.php?order=7'><span>ACCESSORIES</span></a><br/>
+                            <br/>
+                            <a style='color: black' href='shop.php?order=5'><span><strong>SALE</strong></span></a>
+                        </div>";
+                    break;
             }
 
         }
@@ -511,7 +521,8 @@ class FrontComponents
                             <label style='width: 100%;text-align: right;'></label>
                         </div>
                         <div class='col-md-10'>
-                            <a href='shop.php?order=1' style='display: block'>FEATURED</a>
+                            <a href='shop.php?order=1' style='display: block'>FEATURED</a>                        
+                            
                                                     
                         </div>
                         <div class='col-md-1'>
@@ -606,7 +617,7 @@ class FrontComponents
         $html.=">PRIVACY POLICY</span></label><label class='mr-4'><span  style='width: 10vw;'";
         if($return) $html.=" onclick='go(\"shipping.php\")'";
         $html.=">SHIPPING RETURNS</span></label>";
-        $html.="<button type='button' class='btn btn-link' style='text-decoration: none;color: #212529;padding: 0;border: none;font-weight: normal; vertical-align: baseline;font-size: inherit !important;; '  data-toggle='modal' data-target='#size'><span>SIZE GUIDE</span></button>";
+        $html.="<button type='button' class='btn btn-link' style='text-decoration: none;color: #212529;padding: 0;border: none;font-weight: normal; vertical-align: baseline;font-size: inherit !important;; '  data-bs-toggle='modal' data-bs-target='#size'><span>SIZE GUIDE</span></button>";
         $html.="</div>";
 
         return $html;

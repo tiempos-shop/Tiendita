@@ -209,7 +209,117 @@ $h= $html->Html5(
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
         $html->LoadStyles(["View/css/bootstrap.css","css/view.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
         $html->LoadScripts(["vendor/jquery/jquery.js","js/jquery.mlens-1.7.min.js","js/popper.min.js","View/js/bootstrap.js"]),
-        "",
+        "
+        <style>
+                main,#component{
+
+    padding-right: 0!important;
+                    padding-left: 0!important;
+                }
+                td{
+    text-align: center;
+                }
+                span:hover{
+    cursor: pointer;
+}
+                span:hover::after{
+    content: \"'\";
+                }
+                @font-face {
+                    font-family: NHaasGroteskDSPro-55Rg;
+                    src: url(font/NHaasGroteskDSPro-55Rg.woff);
+                    src: url(font/NHaasGroteskDSPro-55Rg.woff2);
+                    src: url(font/NHaasGroteskDSPro-55Rg.ttf);
+                    
+                }
+                
+                @font-face {
+                    font-family: NHaasGroteskDSPro-65Md;
+                    src: url(font/NHaasGroteskDSPro-65Md.woff);
+                    src: url(font/NHaasGroteskDSPro-65Md.woff2);
+                    src: url(font/NHaasGroteskDSPro-65Md.ttf);
+                    
+                }
+
+                body,button {
+                    font-family: NHaasGroteskDSPro-55Rg;
+                    
+                    overflow: no-display;
+                    font-size:.9em !important;
+                }
+                button {
+                    letter-spacing: 0.081rem !important;
+                }
+                .btn:focus {
+                    outline: none;
+                    box-shadow: none;
+                }
+                [type='submit']{
+                    -webkit-appearance: none!important;  
+                } 
+                
+                .left-top{
+                    position: fixed;
+                    right: 0;
+                    //top: 5vh;
+                    margin-top: 50px;
+                    //left: 50vw;
+                }
+                .space{
+                    position: relative;
+                    display:inline-block; 
+                    width:30px; 
+                }
+                #logo{
+                    display:inline-block;
+                    top:50vh;
+                    left: 90vw;
+                    width: 7%
+                }
+          
+                div{
+                    padding-right: 0;
+                    padding-left: 0;
+                }
+                p{
+                    text-align: justify;
+                    text-align-last: justify;
+                    padding-left: 40px;
+                    padding-right: 40px; 
+                    margin: 0 0 0 0;
+                    font-size: inherit;
+                }
+                #componentBase{
+                    position: fixed;
+                    bottom: 0;
+                    font-size: 0.9em;
+                }
+        
+                .small-font{
+                    font-size: 0.9em;
+                }
+                .prodSize{
+                    text-align: center;
+                    color:white;
+                }
+                .prodSize > tbody > tr > td:first-child {
+                    text-align: left; 
+                    
+                }
+                .prodSize > tbody > tr{
+                 border-bottom: 1px solid #ffffff;
+                }
+                .prodSize > tbody > tr:last-child{
+                    border: none;
+                }
+                .paddingNone{
+                    padding: 0;
+                }
+                .modal-backdrop{
+                    background-color: transparent;
+                }
+            </style>
+        ",
         '<script>
                   function go(url){
                       window.location.href=url;
@@ -270,12 +380,12 @@ $h= $html->Html5(
         ]),
         '
         <div class="modal" id="size" tabindex="-1" role="dialog" aria-labelledby="sizeLabel" aria-hidden="true" 
-        style="background-color: transparent;">
+        style="background-color: #ffffffcc;">
           <div class="modal-dialog modal-dialog-centered" style="max-width: 700px;" role="document">
-            <div class="modal-content" style="border-radius: 0;border: 0 solid transparent;background-color: white;">
-              <div class="modal-header" style="border-color: black; padding: 0px; padding-left: 20px; margin-bottom: 10px;">
-                <h5 class="modal-title" id="sizeLabel"><span>CM</span><div class="space"></div><span>IN</span></h5>
-                <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
+            <div class="modal-content" style="border-radius: 0;border: 0 solid transparent; background-color:black;">
+              <div class="modal-header" style="border-color: withe; padding: 0px; padding-left: 20px; margin-bottom: 10px;">
+                <h6 style="color:white;" class="modal-title" id="sizeLabel"><span>CM</span><div class="space"></div><span>IN</span></h6>
+                <button style="Color:white; " type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
                   X
                 </button>
               </div>
