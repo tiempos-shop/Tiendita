@@ -350,7 +350,7 @@ $h= $html->Html5(
                     $ui->ContainerFluid([
                             "<br/>",
                             $ui->Row([
-                                $ui->Columns("<p style='font-family: NHaasGroteskDSPro-65Md;'>.$productWord</p>",12),
+                                $ui->Columns("<p style='font-family: NHaasGroteskDSPro-65Md;'>$productWord</p>",12),
 
                             ]),
                             $ui->Row([
