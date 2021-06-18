@@ -50,6 +50,45 @@ class VistasHtml
         return $html;
     }
 
+    public function MenuMovil($idioma, $idiomaActual,int $numeroProductosCarrito=0)
+    {
+        $fc=new \Tiendita\FrontComponents();
+
+
+        $nav  = "<nav id='menu-movil-dorado' class='navbar navbar-inverse navbar-static-top  d-sm-block d-md-none d-block d-block ' role='navigation'>
+                        <div class='ml-1'>
+                    <div class='navbar-header'>
+                <button type='button' class='navbar-toggle collapsed ml-3' data-toggle='collapse' id='botonMenuMovil'
+                    onClick='cambiarLogoFijo()'
+                    ;
+                    style='border: none; background-color: transparent;'>
+                    <span class='sr-only'>Toggle navigation</span>
+                    <i class='fa fa-bars' style='font-size: 6vw;' > </i>
+                </button>
+                </div>
+
+                <div id='menu-movil-dorado-opcion' class='collapse navbar-collapse'  >
+                            <ul class='nav navbar-nav row' style='padding: 35vh;padding-left: 2rem;margin-right: 0;'>
+                                <li class='col-md-2'><a href='shop.php'>".$idioma[ $idiomaActual ]["MENU"][0]."</a></li>
+                                <li><a href='archive.php'>".$idioma[ $idiomaActual ]["MENU"][1]."</a></li>
+                                <li><a href='imprint.php'>".$idioma[ $idiomaActual ]["MENU"][2]."</a></li>
+                                ".
+            "<form method='post'>
+                                <input type='hidden' value='".$idioma[ $idiomaActual]["MENU"][4]."' name='language' id='language'>
+                                <button type='submit' class='btn btn-link' style='text-decoration: none;padding: 0px !important; margin:0;border: none; color:black'>
+                                    <span type='submit'>".$idioma[ $idiomaActual]["MENU"][4]."</span></button>
+                                </form>
+                            </ul>
+
+
+                        </div>"
+            .$fc->PoliticaPrivacidadMovil("fixed").
+            "</nav>
+                ";
+
+        return $nav;
+    }
+
     public function Head($title, $meta, $loadStyles, $loadScripts, $styles="", $scripts=""){
         $title='<title>'.$title.'</title>';
         $this->title=$title;

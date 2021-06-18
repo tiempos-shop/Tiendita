@@ -16,7 +16,7 @@ class FrontComponents
 
     public function MenuDorado($idioma, $idiomaActual,int $numeroProductosCarrito=0):string{
 
-        return "<div class='fixed-top' style='padding-top:2vh;padding-bottom:0;padding-left: 2vw;padding-right: 2vw'>".
+        return "<div id='menu-web' style='padding-top:2vh;padding-bottom:0;padding-left: 2vw;padding-right: 2vw' class=' d-none d-sm-none d-md-block'>".
         $this->ui->Row([
             $this->ui->Columns(
                 "<span onclick='go(\"shop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][0]."</span>",
@@ -287,7 +287,7 @@ class FrontComponents
     }
 
     public function LogoDorado():string{
-        return "<img alt='SP' id='logo' class='fixed-top' src='img/ts_iso_oro.png' style='width: 7%'>";
+        return "<img alt='SP' id='logo'  src='img/ts_iso_oro.png' style='width: 7%'>";
     }
 
     // Funciones
@@ -567,10 +567,15 @@ class FrontComponents
         return "<div style='position: ".$position.";bottom: 0;margin-bottom: 0.8rem; min-height: 150px;' onclick='go(\"privacy.php\")' class='col-md-8 col-sm-12 text-right pr-4 pl-4 d-flex align-items-end'><span class='small mr-4 col-md-6'> PRIVACY POLICY</span><span  onclick='go(\"shipping.php\")' class='small ml-4 col-md-5'>SHIPPING & RETURNS</span></div>";
     }
 
+    public function PoliticaPrivacidadMovil(string $position = "fixed")
+    {
+        return "<div id='politica' class='d-flex justify-content-around w-100 d-none' style='position: ".$position."; bottom: 0;margin-bottom: 0.8rem; color:black; width:100%' onclick='go(\"privacy.php\")' ><span class=''> PRIVACY POLICY</span><span  onclick='go(\"shipping.php\")' class=''>SHIPPING & RETURNS</span></div>";
+    }
+
     public function MenuPrivacyReturn(bool $privacy,bool $return){
         return $this->PoliticaPrivacidad();
         $html= "
-            <div class='container-fluid' style='position: fixed;bottom: 0;font-size: 0.7em;padding-left: 35%'>
+            <div class='container-fluid' style='bottom: 0;font-size: 0.9em;padding-left: 35%'>
                 <label><span style='width: 10vw;display: block'";
         if($privacy) $html.=" onclick='go(\"privacy.php\")'";
         $html.=">PRIVACY POLICY</span></label><label><span";

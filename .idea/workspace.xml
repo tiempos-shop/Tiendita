@@ -22,14 +22,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="ajuste de wokspace">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2021_01_07_p__m___Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2021_01_07_p__m___Revert__LOGIN__Signo_de_ojo_p.xml" beforeDir="false" />
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="ajuste de cantidad en la cart y en la pagina de pp">
+      <change afterPath="$PROJECT_DIR$/css/menumovil.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_06_2021_05_34_p__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_06_2021_05_34_p__m___Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_02_2021_04_40_p__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_02_2021_04_40_p__m___Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_06_2021_09_39_p__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_06_2021_09_39_p__m___Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_06_2021_05_41_p__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_06_2021_05_41_p__m___Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_06_2021_08_25_p__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_06_2021_08_25_p__m___Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_06_2021_08_25_p__m___Revert__LOGIN__Signo_de_ojo_p.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_06_2021_08_25_p__m___Revert__LOGIN__Signo_de_ojo_p.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_06_2021_10_16_a__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_06_2021_10_16_a__m___Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_06_2021_02_22_p__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_06_2021_02_22_p__m___Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_06_2021_02_22_p__m___Revert__LOGIN__Signo_de_ojo_p.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_06_2021_02_22_p__m___Revert__LOGIN__Signo_de_ojo_p.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2021_05_27_p__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2021_05_27_p__m___Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Business/FrontComponents.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/FrontComponents.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/view.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistasHtml.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistasHtml.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

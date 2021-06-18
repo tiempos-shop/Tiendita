@@ -75,67 +75,21 @@ $h= $html->Html5(
     $html->Head(
         "Tiempos Shop",
             $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
-            $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
-            $html->LoadScripts(["View/js/bootstrap.js"]),
-            "
-                
-            ",
-        "<script>
-                      window.onload=function (){
-                          //load();
-                      }
-                      
-                      function go(url){
-                          window.location.href=url;
-                      }
-                      
-                      function load(){
-                        setTimeout(
-                              function ()
-                              {
-                                    var r=document.getElementById(\"right_home\");
-                                    r.style.visibility=\"visible\";
-                                    
-                              },1000
-                        );
-                       
-                      }
-                      
-                      function tOverMenu(){
-                          var t=document.getElementById(\"t\");
-                          var tover=document.getElementById(\"t-over\");
-                          t.style.visibility=\"hidden\";
-                          tover.style.visibility=\"visible\";
-                      }
-                      
-                      function tOffMenu(){
-                          const t=document.getElementById(\"t\");
-                          const tover=document.getElementById(\"t-over\");
-                          t.style.visibility=\"visible\";
-                          tover.style.visibility=\"hidden\";
-                      }
-                      
-                      function view(str){
-                          var id=str; //.replace(\"_\", \"\'\");
-                          go(\"view.php?id=\"+id);
-                      }
-                      
-                      
-                      
-                    </script>,"
-
-        ),
+        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", "css/menumovil.css"]),
+        $html->LoadScripts(["View/js/bootstrap.js", "js/index.js"]),
+        "",
+        ""
+    ),
     $html->Body([
+        $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito),
         $fc->MenuDorado($idioma,$idiomaActual,$numeroProductosCarrito),
         $fc->LogoDorado(),
         $fc->TMenu($htmlIds),
         $ui->ContainerFluid([
-            "<table cellpadding='0' cellspacing='0'>",
-            "<tr>",
-            "    <td><img id='left_home' class='img-fluid' src='img/ts-home_001.jpg'></img></td>",
-            "    <td><img id='right_home' class='img-fluid' src='img/ts-home_002.jpg'></img></td>",
-            "</tr>"
-        ],"principal")
+
+            "  <div id='fotosprincipal'>  <img id='left_home' class='img-fluid'  src='img/ts-home_001.jpg'></img>",
+            "    <img id='right_home' class='img-fluid' src='img/ts-home_002.jpg'></img> </div>",
+        ], "contenedorIndex")
 
     ],"style='background-color:#FFFFF;color:#AC9950'")
 );
