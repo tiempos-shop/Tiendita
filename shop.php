@@ -48,6 +48,7 @@ foreach ($products as $producto) {
         $filtroPrecio[] = $producto->Costo;
 }
 
+$fc1=new \Tiendita\FrontComponents();
 
 if(isset($_GET["order"])){
     $order=$_GET["order"];
@@ -61,18 +62,24 @@ if(isset($_GET["order"])){
         case 4:
             $temp=array_multisort($filtroPrecio,SORT_DESC,$products);
             break;
-        case 5:
+        default:
+            break;
+    }
+}
+if(isset($_GET["submenu"])){
+    $submenu=$_GET["submenu"];
+    switch ($submenu){
+        case 3:
             $temp=[];
             foreach ($products as $product){
                 if($product->Sale==1)
-                $temp[]=$product;
+                    $temp[]=$product;
             }
             $products=$temp;
-        case 7:
-
+            break;
         default:
+            break;
     }
-
 }
 
 
@@ -83,6 +90,7 @@ $htmlColumns=[];
 $htmlRow="";
 $n=count($products);
 $i=0;
+
 foreach ($products as $product){
     $i++;
     $image=$product->RutaImagen;
@@ -124,8 +132,6 @@ foreach ($products as $product){
 }
 $fc=new \Tiendita\FrontComponents();
 
-
-
 $h= $html->Html5(
     $html->Head(
         "Tiempos Shop",
@@ -151,6 +157,7 @@ $h= $html->Html5(
                       let smenu=document.getElementById("sMenu");
                       s.style.display="none";
                       smenu.style.display="block";
+                      
                   }
                 </script>'
 
@@ -160,7 +167,6 @@ $h= $html->Html5(
         $fc->LogoNegro(),
         "<div style='margin-left: 15%;margin-right: 15%'>",
         $htmlProducts,
-        
         $fc->MenuFamilia(),
         $fc->MenuFiltro(),
         $fc->Aviso( ($n< 3) ? 'absolute' : 'inherit'),

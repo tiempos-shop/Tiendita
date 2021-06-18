@@ -8,6 +8,7 @@ class FrontComponents
 {
     protected Utilidades $ui;
     protected array $idioma;
+    private $submenu = 1;
     public function __construct()
     {
         $this->ui=new Utilidades();
@@ -374,67 +375,53 @@ class FrontComponents
             "</div>";
     }
     public function MenuFamilia(){
-        if(isset($_GET["order"])){
-            $valor=$_GET["order"];
-            switch ($valor){
-                case 5:
+            if(isset($_GET["submenu"])){
+                $this->submenu = $_GET["submenu"];
+            }
+            switch ($this->submenu) {
+                case 1:
                     return
                         "</div>
                     <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
-                    <a style='color: black' href='shop.php?order=6'><span>SHOP ALL</span></a><br/>
+                    <a style='color: black' href='shop.php?submenu=1'>SHOP ALL'</a><br/>
                     <br/>
-                    <a style='color: black' href='shop.php?order=7'><span>ACCESSORIES</span></a><br/> 
+                    <a style='color: black' href='shop.php?submenu=2'><span>ACCESSORIES</span></a><br/> 
                     <br/>
-                    <a style='color: black' href='shop.php?order=5'><strong>SALE'</strong></a>
+                    <a style='color: black' href='shop.php?submenu=3'><span><strong>SALE</strong></span></a>
                 </div>";
-                case 6:
+                case 2:
                     return
                         "</div>
                     <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
-                    <a style='color: black' href='shop.php?order=6'>SHOP ALL'</a><br/>
+                    <a style='color: black' href='shop.php?submenu=1'><span>SHOP ALL</span></a><br/>
                     <br/>
-                    <a style='color: black' href='shop.php?order=7'><span>ACCESSORIES</span></a><br/>
+                    <a style='color: black' href='shop.php?submenu=2'>ACCESSORIES'</a><br/>
                     <br/>
-                    <a style='color: black' href='shop.php?order=5'><span><strong>SALE</strong></span></a>
+                    <a style='color: black' href='shop.php?submenu=3'><span><strong>SALE</strong></span></a>
                 </div>";
-                case 7:
+                case 3:
                     return
                         "</div>
                     <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
-                    <a style='color: black' href='shop.php?order=6'>SHOP ALL</a><br/>
+                    <a style='color: black' href='shop.php?submenu=1'><span>SHOP ALL</span></a><br/>
                     <br/>
-                    <a style='color: black' href='shop.php?order=7'><span>ACCESSORIES'</span></a><br/>
+                    <a style='color: black' href='shop.php?submenu=2'><span>ACCESSORIES</span></a><br/>
                     <br/>
-                    <a style='color: black' href='shop.php?order=5'><span><strong>SALE</strong></span></a>
-                </div>";
+                    <a style='color: black' href='shop.php?submenu=3'><strong>SALE</strong>'</a>
+                </div>'";
                 default:
                     return
                         "</div>
                             <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
-                            <a style='color: black' href='shop.php?order=6'>SHOP ALL'</a><br/>
+                            <a style='color: black' href='shop.php?submenu=1'>SHOP ALL'</a><br/>
                             <br/>
-                            <a style='color: black' href='shop.php?order=7'><span>ACCESSORIES</span></a><br/>
+                            <a style='color: black' href='shop.php?submenu=2'><span>ACCESSORIES</span></a><br/>
                             <br/>
-                            <a style='color: black' href='shop.php?order=5'><span><strong>SALE</strong></span></a>
+                            <a style='color: black' href='shop.php?submenu=3'><span><strong>SALE</strong></span></a>
                         </div>";
                     break;
             }
-
         }
-        else {
-            return
-                "</div>
-                    <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
-                    <a style='color: black' href='shop.php?order=6'>SHOP ALL'</a><br/>
-                    <br/>
-                    <a style='color: black' href='shop.php?order=7'><span>ACCESSORIES</span></a><br/>
-                    <br/>
-                    <a style='color: black' href='shop.php?order=5'><span><strong>SALE</strong></span></a>
-                </div>";
-        }
-
-
-    }
 
     public function SizeButton($botonTalla,$opcionesTallas){
         return '<div class="btn-group" style="width:100%">
@@ -521,7 +508,7 @@ class FrontComponents
                             <label style='width: 100%;text-align: right;'></label>
                         </div>
                         <div class='col-md-10'>
-                            <a href='shop.php?order=1' style='display: block'>FEATURED</a>                        
+                            <a href='shop.php?submenu={$this->submenu}&order=1' style='display: block'>FEATURED</a>                        
                             
                                                     
                         </div>
@@ -534,7 +521,7 @@ class FrontComponents
                             <label style='width: 100%;text-align: right'></label>
                         </div>
                         <div class='col-md-10'>
-                            <a href='shop.php?order=2' style='display: block'>A TO Z</a>
+                            <a href='shop.php?submenu={$this->submenu}&order=2' style='display: block'>A TO Z</a>
                                                     
                         </div>
                         <div class='col-md-1'>
@@ -546,7 +533,7 @@ class FrontComponents
                             <label style='width: 100%;text-align: right'></label>
                         </div>
                         <div class='col-md-10'>
-                            <a href='shop.php?order=3' style='display: block'>PRICE LOW TO HIGH</a>
+                            <a href='shop.php?submenu={$this->submenu}&order=3' style='display: block'>PRICE LOW TO HIGH</a>
                                                     
                         </div>
                         <div class='col-md-1'>
@@ -559,7 +546,7 @@ class FrontComponents
                             <label style='width: 100%;text-align: right'></label>
                         </div>
                         <div class='col-md-10'>
-                            <a href='shop.php?order=4' style='display: block'>PRICE HIGH TO LOW</a>
+                            <a href='shop.php?submenu={$this->submenu}&order=4' style='display: block'>PRICE HIGH TO LOW</a>
                                                     
                         </div>
                         <div class='col-md-1'>
@@ -670,5 +657,4 @@ class FrontComponents
         });
         ';
     }
-
 }
