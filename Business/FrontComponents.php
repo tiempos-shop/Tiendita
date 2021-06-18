@@ -562,7 +562,7 @@ class FrontComponents
 
     public function PoliticaPrivacidad(string $position = "inherit")
     {
-        return "<div style='position: ".$position.";bottom: 0;margin-bottom: 0.8rem; min-height: 150px;' onclick='go(\"privacy.php\")' class='col-md-8 col-sm-12 text-right pr-4 pl-4 d-flex align-items-end'><span class='small mr-4 col-md-6'> PRIVACY POLICY</span><span  onclick='go(\"shipping.php\")' class='small ml-4 col-md-5'>SHIPPING & RETURNS</span></div>";
+        return "<div style='position: ".$position.";bottom: 0;margin-bottom: 0.8rem; min-height: 150px;' class='col-md-8 col-sm-12 text-right pr-4 pl-4 d-flex align-items-end'><span class='small mr-4 col-md-6' onclick='go(\"privacy.php\")'> PRIVACY POLICY</span><span  onclick='go(\"shipping.php\")' class='small ml-4 col-md-5'>SHIPPING & RETURNS</span></div>";
     }
 
     public function MenuPrivacyReturn(bool $privacy,bool $return){
