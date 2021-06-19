@@ -50,16 +50,16 @@ class VistasHtml
         return $html;
     }
 
-    public function MenuMovil($idioma, $idiomaActual,int $numeroProductosCarrito=0)
+    public function MenuMovil($idioma, $idiomaActual,int $numeroProductosCarrito=0, $funcionMenuCLick = "cambiarLogoFijo()")
     {
         $fc=new \Tiendita\FrontComponents();
 
 
-        $nav  = "<nav id='menu-movil-dorado' class='navbar navbar-inverse navbar-static-top  d-sm-block d-md-none d-block d-block ' role='navigation'>
+        $nav  = "<nav id='menu-movil-dorado' class='navbar navbar-inverse navbar-static-top  d-sm-block d-md-none d-block d-block ' style='position: fixed; background-color: white; width: 100%; top:0' role='navigation'>
                         <div class='ml-1'>
                     <div class='navbar-header'>
                 <button type='button' class='navbar-toggle collapsed ml-3' data-toggle='collapse' id='botonMenuMovil'
-                    onClick='cambiarLogoFijo()'
+                    onClick='".$funcionMenuCLick."'
                     ;
                     style='border: none; background-color: transparent;'>
                     <span class='sr-only'>Toggle navigation</span>

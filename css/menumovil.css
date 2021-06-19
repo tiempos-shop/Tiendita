@@ -1,4 +1,4 @@
-#menu-movil-dorado >>> i {
+#botonMenuMovil.index i {
 
     color: #AC9950;
 }
@@ -13,7 +13,7 @@
 }
 
 
-#botonMenuMovil {
+.index #botonMenuMovil {
     color : #AC9950;
 }
 

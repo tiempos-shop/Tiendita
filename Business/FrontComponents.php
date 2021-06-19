@@ -133,7 +133,7 @@ class FrontComponents
 
 
 
-        return "<div class='fixed-top' style='padding-top:2vh;padding-bottom:0;padding-left: 2vw;padding-right: 2vw;background-color: $back;'>".
+        return "<div  id='menu-web' style='padding-top:2vh;padding-bottom:0;padding-left: 2vw;padding-right: 2vw;background-color: $back;' class=' d-none d-sm-none d-md-block fixed-top'>".
             $this->ui->Row([
                 $this->ui->Columns(
                     $lines[0],
@@ -379,7 +379,7 @@ class FrontComponents
             switch ($valor){
                 case 5:
                     return
-                        "</div>
+                        "
                     <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
                     <a style='color: black' href='shop.php?order=6'><span>SHOP ALL</span></a><br/>
                     <br/>
@@ -389,7 +389,7 @@ class FrontComponents
                 </div>";
                 case 6:
                     return
-                        "</div>
+                        "
                     <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
                     <a style='color: black' href='shop.php?order=6'>SHOP ALL'</a><br/>
                     <br/>
@@ -399,7 +399,7 @@ class FrontComponents
                 </div>";
                 case 7:
                     return
-                        "</div>
+                        "
                     <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
                     <a style='color: black' href='shop.php?order=6'>SHOP ALL</a><br/>
                     <br/>
@@ -413,7 +413,7 @@ class FrontComponents
         }
         else {
             return
-                "</div>
+                "
                     <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
                     <a style='color: black' href='shop.php?order=6'>SHOP ALL'</a><br/>
                     <br/>
@@ -502,7 +502,7 @@ class FrontComponents
     {
         return
         "
-        <div class='small' style='position: fixed;display: inline-block;top: 8.5vh;right: 1.6vw;width:11vw'>
+        <div id='menufiltro' class='small' style='position: fixed;display: none;top: 8.5vh;right: 1.6vw;width:11vw'>
             <label onclick='filter()' id='s' style='font-size: 0.9rem;'>SORT +</label>
             <div id='sMenu' style='color:white;background-color: gray;border-radius: 5px;display: none'>
                 <div class='container-fluid' style='padding-left: 0;padding-right: 0;padding-top: 0.5vh;padding-bottom: 0.5vh;'>
@@ -564,7 +564,7 @@ class FrontComponents
 
     public function PoliticaPrivacidad(string $position = "inherit")
     {
-        return "<div style='position: ".$position.";bottom: 0;margin-bottom: 0.8rem; min-height: 150px;' onclick='go(\"privacy.php\")' class='col-md-8 col-sm-12 text-right pr-4 pl-4 d-flex align-items-end'><span class='small mr-4 col-md-6'> PRIVACY POLICY</span><span  onclick='go(\"shipping.php\")' class='small ml-4 col-md-5'>SHIPPING & RETURNS</span></div>";
+        return "<div id='politicadesktop' style='position: ".$position.";bottom: 0;margin-bottom: 0.8rem; min-height: 150px;' onclick='go(\"privacy.php\")' class='col-md-8 col-sm-12 text-right pr-4 pl-4 d-flex align-items-end'><span class='small mr-4 col-md-6'> PRIVACY POLICY</span><span  onclick='go(\"shipping.php\")' class='small ml-4 col-md-5'>SHIPPING & RETURNS</span></div>";
     }
 
     public function PoliticaPrivacidadMovil(string $position = "fixed")

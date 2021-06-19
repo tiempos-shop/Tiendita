@@ -130,38 +130,23 @@ $h= $html->Html5(
     $html->Head(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
-        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
-        $html->LoadScripts(["View/js/bootstrap.js"]),
+        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", "css/menumovil.css"]),
+        $html->LoadScripts(["View/js/bootstrap.js", "js/shop.js", "js/menushop.js"]),
         "
         ",
-        '<script>
-                  function go(url){
-                      window.location.href=url;
-                  }
-                  function changeImage(imageElement,image){
-                      imageElement.src=image;
-                      imageElement.style.cursor="pointer";
-                  }
-                  function view(str){
-                      let id=str; //str.replace("_", "\'");
-                      go("view.php?id="+id);
-                  }
-                  function filter(){
-                      let s=document.getElementById("s");
-                      let smenu=document.getElementById("sMenu");
-                      s.style.display="none";
-                      smenu.style.display="block";
-                  }
-                </script>'
+        ''
 
     ),
     $html->Body([
+        $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "AbrirMenuMovil()"),
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["'","","","","",""]),
         $fc->LogoNegro(),
-        "<div style='margin-left: 15%;margin-right: 15%'>",
+        "<div style='margin-left: 15%;margin-right: 15%' id='contenedorIndex'>",
         $htmlProducts,
-        
-        $fc->MenuFamilia(),
+        "</div>",
+        "<div id='menufamilia' style='display: none'>",
+            $fc->MenuFamilia(),
+        "</div>",
         $fc->MenuFiltro(),
         $fc->Aviso( ($n< 3) ? 'absolute' : 'inherit'),
 

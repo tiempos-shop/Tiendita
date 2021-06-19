@@ -1,6 +1,15 @@
 
 var mostrarMenu = true;
 
+
+setTimeout(function() {
+
+
+    document.getElementById('botonMenuMovil').classList.add('index');
+
+
+}, 10);
+
 function validarDimenciones() {
     var alto = window.innerHeight;
     var ancho = window.innerWidth;
