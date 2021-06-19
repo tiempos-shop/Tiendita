@@ -23,15 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Evitar eliminado de Producto en  Cart cuando se da Enter">
-      <change afterPath="$PROJECT_DIR$/js/menushop.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/shop.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/FrontComponents.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/FrontComponents.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/Connection/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Connection/Database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistasHtml.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistasHtml.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/menumovil.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/menumovil.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/shop.php" afterDir="false" />
     </list>
     <list id="0e8517e8-4849-4dba-b416-5f3e44a7d134" name="Archivos XML" comment="Para documentos basura">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_06_2021_05_34_p__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_06_2021_05_34_p__m___Default_Changelist_.xml" afterDir="false" />
@@ -44,7 +36,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_06_2021_02_22_p__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_06_2021_02_22_p__m___Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_06_2021_02_22_p__m___Revert__LOGIN__Signo_de_ojo_p.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_06_2021_02_22_p__m___Revert__LOGIN__Signo_de_ojo_p.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2021_05_27_p__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2021_05_27_p__m___Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,19 +75,6 @@
         <option value="https://github.com/tiempos-shop/Tiendita" />
       </set>
     </option>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/.idea/workspace.xml">
-      <ranges>
-        <range start1="24" end1="27" start2="24" end2="36" changelist="c7384e96-ce64-4593-9c40-2709c2ca496f" />
-        <range start1="38" end1="41" start2="47" end2="47" changelist="c7384e96-ce64-4593-9c40-2709c2ca496f" />
-        <range start1="53" end1="54" start2="59" end2="59" changelist="c7384e96-ce64-4593-9c40-2709c2ca496f" />
-        <range start1="55" end1="55" start2="60" end2="61" changelist="c7384e96-ce64-4593-9c40-2709c2ca496f" />
-        <range start1="80" end1="80" start2="86" end2="99" changelist="c7384e96-ce64-4593-9c40-2709c2ca496f" />
-        <range start1="179" end1="179" start2="198" end2="199" changelist="0e8517e8-4849-4dba-b416-5f3e44a7d134" />
-        <range start1="677" end1="677" start2="697" end2="698" changelist="0e8517e8-4849-4dba-b416-5f3e44a7d134" />
-      </ranges>
-    </file>
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpServers">
@@ -196,6 +174,7 @@
         <item itemvalue="PHP Script.INDEX Script" />
         <item itemvalue="PHP Script.bag.php" />
         <item itemvalue="PHP Script.INDEX Script" />
+        <item itemvalue="PHP Script.bag.php" />
       </list>
     </recent_temporary>
   </component>
@@ -319,13 +298,6 @@
       <workItem from="1623458761986" duration="3436000" />
       <workItem from="1623688381758" duration="33221000" />
       <workItem from="1623893685339" duration="3905000" />
-    </task>
-    <task id="LOCAL-00075" summary="Menu T y Vista Previa Producto">
-      <created>1613782114172</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1613782114173</updated>
     </task>
     <task id="LOCAL-00076" summary="Imagenes de SHOP de Base de datos">
       <created>1613786213101</created>
@@ -663,7 +635,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623890149775</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="Pagina Shop Primeros cambios a movil">
+      <created>1624074479049</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1624074479049</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
