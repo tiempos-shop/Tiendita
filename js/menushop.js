@@ -1,30 +1,41 @@
 var mostrarMenu = true;
-
+var mostrarMenuMovilFiltro = true;
+var modoMovil = false;
 
 
 function validarDimenciones() {
     var alto = window.innerHeight;
     var ancho = window.innerWidth;
-    var modoMovil = false;
+
     //document.getElementById('botonMenuMovil').style.color = 'black';
+
+    ///PARA INICIO DE CARGA
+    document.getElementById('politicadesktop').classList.remove('d-flex');
+    document.getElementById('politicadesktop').classList.add('d-none');
+
 
     if (ancho<=768)
     {
         document.getElementById('menufamilia').style.display = 'none';
         document.getElementById('menufiltro').style.display = 'none';
+        document.getElementById('politicadesktop').classList.remove('d-flex');
+        document.getElementById('politicadesktop').classList.add('d-none');
+        modoMovil = true;
     }
     else
     {
         document.getElementById('menufiltro').style.display = 'inline-block';
         document.getElementById('menufamilia').style.display = 'block';
+        document.getElementById('politicadesktop').classList.remove('d-none');
+        document.getElementById('politicadesktop').classList.add('d-flex');
+        modoMovil = false;
     }
 
-    if (ancho> 768)
-    {
-        mostrarMenu = false;
-        AbrirMenuMovil();
-        modoMovil = true;
-    }
+    //para los row de productos
+
+    mostrarMenu = false;
+    AbrirMenuMovil();
+
 
 
 }
@@ -65,9 +76,12 @@ function AbrirMenuMovil()
 
 
         document.getElementById('politica').classList.add('d-none');
-        document.getElementById('politicadesktop').classList.remove('d-none');
-        document.getElementById('politicadesktop').classList.add('d-flex');
 
+        if (!modoMovil)
+        {
+            document.getElementById('politicadesktop').classList.remove('d-none');
+            document.getElementById('politicadesktop').classList.add('d-flex');
+        }
 
         setTimeout(function() {
 
@@ -82,6 +96,64 @@ function AbrirMenuMovil()
     }
 
     mostrarMenu =! mostrarMenu;
+}
+
+function AbrirMenuMovilFiltro()
+{
+
+    if (mostrarMenuMovilFiltro)
+    {
+
+
+        setTimeout(function() {
+
+            document.getElementById('menu-movil-filtro').className = 'navbar-collapse collapse collapsing show';
+
+        }, 50);
+
+        setTimeout(function() {
+
+            document.getElementById('menu-movil-filtro').style.height = '90vh';
+
+            document.getElementById('contenedorIndex').style.display = 'none';
+
+
+            document.getElementById('politica').classList.remove('d-none');
+            document.getElementById('politicadesktop').classList.remove('d-flex');
+            document.getElementById('politicadesktop').classList.add('d-none');
+            //politicadesktop
+
+        }, 150);
+
+
+    }
+    else
+    {
+
+        document.getElementById('menu-movil-filtro').style.height = '0';
+
+
+        document.getElementById('politica').classList.add('d-none');
+
+        if (!modoMovil)
+        {
+            document.getElementById('politicadesktop').classList.remove('d-none');
+            document.getElementById('politicadesktop').classList.add('d-flex');
+        }
+
+        setTimeout(function() {
+
+
+            document.getElementById('contenedorIndex').style.display = 'block';
+
+
+        }, 150);
+
+
+
+    }
+
+    mostrarMenuMovilFiltro =! mostrarMenuMovilFiltro;
 }
 
 

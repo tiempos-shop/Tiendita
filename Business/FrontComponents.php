@@ -283,7 +283,7 @@ class FrontComponents
     }
 
     public function LogoNegro():string{
-        return "<img onclick='go(\"index.php\")' alt='SP' id='logo' class='fixed-top' src='img/ts_iso_negro.png' style='width: 7%'>";
+        return "<img onclick='go(\"index.php\")' alt='SP' id='logo' class='fixed-top' src='img/ts_iso_negro.png' >";
     }
 
     public function LogoDorado():string{

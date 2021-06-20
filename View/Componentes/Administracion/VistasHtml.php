@@ -57,14 +57,17 @@ class VistasHtml
 
         $nav  = "<nav id='menu-movil-dorado' class='navbar navbar-inverse navbar-static-top  d-sm-block d-md-none d-block d-block ' style='position: fixed; background-color: white; width: 100%; top:0' role='navigation'>
                         <div class='ml-1'>
-                    <div class='navbar-header'>
-                <button type='button' class='navbar-toggle collapsed ml-3' data-toggle='collapse' id='botonMenuMovil'
-                    onClick='".$funcionMenuCLick."'
-                    ;
-                    style='border: none; background-color: transparent;'>
-                    <span class='sr-only'>Toggle navigation</span>
-                    <i class='fa fa-bars' style='font-size: 6vw;' > </i>
-                </button>
+                    <div class='navbar-header d-flex justify-content-between align-items-center'>
+                    <button type='button' class='navbar-toggle collapsed ml-3' data-toggle='collapse' id='botonMenuMovil'
+                        onClick='".$funcionMenuCLick."'
+                        ;
+                        style='border: none; background-color: transparent;'>
+                        <span class='sr-only'>Menu</span>
+                        <i class='fa fa-bars' style='font-size: 6vw;' > </i>
+                    </button>
+                    <a CLASS='elemento-menu-movil filtro' href='#' onclick='AbrirMenuMovilFiltro()'>".$idioma[ $idiomaActual ]["MENU"][6]."</a>
+                    <a CLASS='elemento-menu-movil ordenamiento' href='#'>".$idioma[ $idiomaActual ]["MENU"][6]."</a>
+                    <a CLASS='elemento-menu-movil carrito' href='#'>".$idioma[ $idiomaActual ]["MENU"][5]."</a>
                 </div>
 
                 <div id='menu-movil-dorado-opcion' class='collapse navbar-collapse'  >
@@ -81,13 +84,29 @@ class VistasHtml
                             </ul>
 
 
-                        </div>"
+                        </div>".
+            "<div id='menu-movil-filtro' class='collapse navbar-collapse'  >
+                    <ul class='nav navbar-nav row' style='padding: 35vh;padding-left: 2rem;margin-right: 0;'>
+                        <li class='col-md-2'><a href='shop.php?order=6'><span>SHOP ALL</span></li>
+                        <li><a href='shop.php?order=7'><span>ACCESSORIES</span></a></li>
+                        <li><a href='shop.php?order=5'><strong>SALE'</strong></a></li>
+                    </ul>
+            </div>".
+            "<div id='menu-movil-ordenamiento' class='collapse navbar-collapse'  >
+                    <ul class='nav navbar-nav row' style='padding: 35vh;padding-left: 2rem;margin-right: 0;'>
+                        <li class='col-md-2'><a href='shop.php?order=6'><span>SHOP ALL</span></li>
+                        <li><a href='shop.php?order=7'><span>ACCESSORIES</span></a></li>
+                        <li><a href='shop.php?order=5'><strong>SALE'</strong></a></li>
+                    </ul>
+            </div>"
             .$fc->PoliticaPrivacidadMovil("fixed").
             "</nav>
                 ";
 
         return $nav;
     }
+
+
 
     public function Head($title, $meta, $loadStyles, $loadScripts, $styles="", $scripts=""){
         $title='<title>'.$title.'</title>';

@@ -30,9 +30,16 @@ if(count($_POST)>0)
 else{
     $idiomaActual=$_SESSION["language"];
 }
+
+
 $tipoCambio=20;
 
-$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
+$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","INGRESO","ENGLISH","CARRITO(*)", "FILTRO"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","LOGIN","ESPAÑOL","CART(*)", "FILTER" ] ] ];
+
+if (!in_array($idiomaActual, $idioma))
+{
+    $idiomaActual = "ENGLISH";
+}
 
 
 $products=$db->getAll("Productos");
@@ -83,6 +90,11 @@ $htmlColumns=[];
 $htmlRow="";
 $n=count($products);
 $i=0;
+
+if ($n>0)
+{
+    $htmlRow = "<div class='row'>";
+}
 foreach ($products as $product){
     $i++;
     $image=$product->RutaImagen;
@@ -112,16 +124,18 @@ foreach ($products as $product){
     $code=$product->Clave;
     $code=str_replace("'","_",$code);
     $js="view('$code')";
-    $htmlColumns[]=$ui->Columns('<br/><br/><img onclick="'.$js.'" src="'.$arr[0].'" onmouseover="changeImage(this,'.$four.')" onmouseleave="changeImage(this,'.$first.')" style="width: 100%"><br/><br/><p style="font-family: NHaasGroteskDSPro-65Md;line-height: 1">'.$description.'</p><p>'.$price.'</p>',
-        4,0,0,0,"text-center");
-    if(count($htmlColumns)==3 or $n==$i)
-    {
-        $htmlRow.=$ui->Row($htmlColumns);
-        $htmlProducts.=$htmlRow;
-        $htmlRow="";
-        $htmlColumns=[];
-    }
+    $htmlRow.= $ui->Columns('<img onclick="'.$js.'" src="'.$arr[0].'" onmouseover="changeImage(this,'.$four.')" onmouseleave="changeImage(this,'.$first.')" style="width: 100%"><p class="descripcion" style="font-family: NHaasGroteskDSPro-65Md;line-height: 1">'.$description.'</p><p class="precios">'.$price.'</p>',
+        4,6,6,0,"text-center");
+
 }
+
+$htmlProducts.=$htmlRow;
+
+if ($n>0)
+{
+    $htmlProducts.="</div>";
+}
+
 $fc=new \Tiendita\FrontComponents();
 
 
@@ -141,7 +155,7 @@ $h= $html->Html5(
         $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "AbrirMenuMovil()"),
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["'","","","","",""]),
         $fc->LogoNegro(),
-        "<div style='margin-left: 15%;margin-right: 15%' id='contenedorIndex'>",
+        "<div class='productos' id='contenedorIndex'>",
         $htmlProducts,
         "</div>",
         "<div id='menufamilia' style='display: none'>",
