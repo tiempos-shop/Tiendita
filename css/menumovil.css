@@ -14,7 +14,31 @@
     color: black;
 }
 
+#menu-movil-ordenamiento {
+    text-decoration: none !important;
+
+    color: black;
+}
+
+#menu-movil-ordenamiento > ul > li > a {
+    text-decoration: none !important;
+
+    color: black;
+}
+
+a.elemento-menu-movil.ordenamiento{
+    text-decoration: none !important;
+    color: black;
+    margin-right: 2px;
+}
+
 a.elemento-menu-movil.filtro{
+    text-decoration: none !important;
+    color: black;
+    margin-right: 2px;
+}
+
+a.elemento-menu-movil.carrito{
     text-decoration: none !important;
     color: black;
     margin-right: 2px;

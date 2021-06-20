@@ -57,46 +57,64 @@ class VistasHtml
 
         $nav  = "<nav id='menu-movil-dorado' class='navbar navbar-inverse navbar-static-top  d-sm-block d-md-none d-block d-block ' style='position: fixed; background-color: white; width: 100%; top:0' role='navigation'>
                         <div class='ml-1'>
-                    <div class='navbar-header d-flex justify-content-between align-items-center'>
+                    <div class='navbar-header d-flex justify-content-around align-items-center'>
                     <button type='button' class='navbar-toggle collapsed ml-3' data-toggle='collapse' id='botonMenuMovil'
                         onClick='".$funcionMenuCLick."'
                         ;
                         style='border: none; background-color: transparent;'>
-                        <span class='sr-only'>Menu</span>
-                        <i class='fa fa-bars' style='font-size: 6vw;' > </i>
-                    </button>
-                    <a CLASS='elemento-menu-movil filtro' href='#' onclick='AbrirMenuMovilFiltro()'>".$idioma[ $idiomaActual ]["MENU"][6]."</a>
-                    <a CLASS='elemento-menu-movil ordenamiento' href='#'>".$idioma[ $idiomaActual ]["MENU"][6]."</a>
-                    <a CLASS='elemento-menu-movil carrito' href='#'>".$idioma[ $idiomaActual ]["MENU"][5]."</a>
+                        <span class='sr-only'>MENU</span>
+                        <i class='fa fa-bars' style='font-size: 18px;' > </i>
+                    </button>";
+
+
+
+        if (isset($idioma[ $idiomaActual ]["MENU"][6]))
+        {
+            $nav .="<a CLASS='elemento-menu-movil filtro' href='#'  onclick='AbrirMenuMovilFiltro()'>".$idioma[ $idiomaActual ]["MENU"][6]."</a>";
+        }
+
+        if (isset($idioma[ $idiomaActual ]["MENU"][7]))
+        {
+            $nav .= " <a CLASS='elemento-menu-movil ordenamiento' href='#' onclick='AbrirMenuMovilOrdenar()'>".$idioma[ $idiomaActual ]["MENU"][7]."</a>";
+        }
+
+        if (isset($idioma[ $idiomaActual ]["MENU"][5]))
+        {
+            $nav.= " <a CLASS='elemento-menu-movil carrito' href='cart.php' >".$fc->cart($numeroProductosCarrito,$idioma[ $idiomaActual ]["MENU"][5])."</a>";
+        }
+
+        $nav .=
+            "
                 </div>
 
                 <div id='menu-movil-dorado-opcion' class='collapse navbar-collapse'  >
-                            <ul class='nav navbar-nav row' style='padding: 35vh;padding-left: 2rem;margin-right: 0;'>
-                                <li class='col-md-2'><a href='shop.php'>".$idioma[ $idiomaActual ]["MENU"][0]."</a></li>
-                                <li><a href='archive.php'>".$idioma[ $idiomaActual ]["MENU"][1]."</a></li>
-                                <li><a href='imprint.php'>".$idioma[ $idiomaActual ]["MENU"][2]."</a></li>
-                                ".
-            "<form method='post'>
-                                <input type='hidden' value='".$idioma[ $idiomaActual]["MENU"][4]."' name='language' id='language'>
-                                <button type='submit' class='btn btn-link' style='text-decoration: none;padding: 0px !important; margin:0;border: none; color:black'>
-                                    <span type='submit'>".$idioma[ $idiomaActual]["MENU"][4]."</span></button>
-                                </form>
-                            </ul>
-
-
-                        </div>".
+                    <ul class='nav navbar-nav row' style='padding: 35vh;padding-left: 2rem;margin-right: 0;'>
+                        <li class='col-md-2'><a href='shop.php'>".$idioma[ $idiomaActual ]["MENU"][0]."</a></li>
+                        <li><a href='archive.php'>".$idioma[ $idiomaActual ]["MENU"][1]."</a></li>
+                        <li><a href='imprint.php'>".$idioma[ $idiomaActual ]["MENU"][2]."</a></li>
+                        ".
+                        "<form method='post'>
+                        <input type='hidden' value='".$idioma[ $idiomaActual]["MENU"][4]."' name='language' id='language'>
+                        <button type='submit' class='btn btn-link' style='text-decoration: none;padding: 0px !important; margin:0;border: none; color:black'>
+                            <span type='submit'>".$idioma[ $idiomaActual]["MENU"][4]."</span></button>
+                        </form>
+                    </ul>
+                </div>".
             "<div id='menu-movil-filtro' class='collapse navbar-collapse'  >
                     <ul class='nav navbar-nav row' style='padding: 35vh;padding-left: 2rem;margin-right: 0;'>
-                        <li class='col-md-2'><a href='shop.php?order=6'><span>SHOP ALL</span></li>
+                        <li class='col-md-2'><a href='shop.php?order=6'><span>SHOP ALL</span> </a></li>
                         <li><a href='shop.php?order=7'><span>ACCESSORIES</span></a></li>
                         <li><a href='shop.php?order=5'><strong>SALE'</strong></a></li>
                     </ul>
             </div>".
             "<div id='menu-movil-ordenamiento' class='collapse navbar-collapse'  >
                     <ul class='nav navbar-nav row' style='padding: 35vh;padding-left: 2rem;margin-right: 0;'>
-                        <li class='col-md-2'><a href='shop.php?order=6'><span>SHOP ALL</span></li>
-                        <li><a href='shop.php?order=7'><span>ACCESSORIES</span></a></li>
-                        <li><a href='shop.php?order=5'><strong>SALE'</strong></a></li>
+                    
+                        <li class='col-md-2'><a href='shop.php?order=1' style='display: block'>FEATURED</a></li>
+                        <li><a href='shop.php?order=2' style='display: block'>A TO Z</a></li>
+                        <li><a href='shop.php?order=3' style='display: block'>PRICE LOW TO HIGH</a></li>
+                        <li><a href='shop.php?order=4' style='display: block'>PRICE HIGH TO LOW</a></li>
+                        
                     </ul>
             </div>"
             .$fc->PoliticaPrivacidadMovil("fixed").

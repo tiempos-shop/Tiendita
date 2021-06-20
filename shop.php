@@ -34,7 +34,7 @@ else{
 
 $tipoCambio=20;
 
-$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","INGRESO","ENGLISH","CARRITO(*)", "FILTRO"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","LOGIN","ESPAÑOL","CART(*)", "FILTER" ] ] ];
+$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","INGRESO","ENGLISH","CARRITO(*)", "FILTRO", "ORDERNAR"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","LOGIN","ESPAÑOL","CART(*)", "FILTER", "ORDER" ] ] ];
 
 if (!in_array($idiomaActual, $idioma))
 {
@@ -155,7 +155,7 @@ $h= $html->Html5(
         $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "AbrirMenuMovil()"),
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["'","","","","",""]),
         $fc->LogoNegro(),
-        "<div class='productos' id='contenedorIndex'>",
+        "<div class='productos shop' id='contenedorIndex'>",
         $htmlProducts,
         "</div>",
         "<div id='menufamilia' style='display: none'>",

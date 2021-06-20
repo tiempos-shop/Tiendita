@@ -1,7 +1,7 @@
 var mostrarMenu = true;
 var mostrarMenuMovilFiltro = true;
 var modoMovil = false;
-
+var mostrarMenuMovilOrdenar = true;
 
 function validarDimenciones() {
     var alto = window.innerHeight;
@@ -33,19 +33,26 @@ function validarDimenciones() {
 
     //para los row de productos
 
-    mostrarMenu = false;
-    AbrirMenuMovil();
-
+    mostrarMenu = true;
+    AbrirMenuMovil(true);
+    mostrarMenuMovilFiltro = true;
+    AbrirMenuMovilFiltro(true);
 
 
 }
 
-function AbrirMenuMovil()
+function AbrirMenuMovil(esEjecucionAutomatica = false)
 {
 
-    if (mostrarMenu)
-    {
+    //oculto los demas menos moviles
+    document.getElementById('menu-movil-filtro').style.height = '0';
+    document.getElementById('menu-movil-ordenamiento').style.height = '0';
+    mostrarMenuMovilOrdenar = true;
+    mostrarMenuMovilFiltro = true;
 
+
+    if (mostrarMenu & !esEjecucionAutomatica)
+    {
 
         setTimeout(function() {
 
@@ -95,16 +102,23 @@ function AbrirMenuMovil()
 
     }
 
-    mostrarMenu =! mostrarMenu;
+    if (!esEjecucionAutomatica) { mostrarMenu =!mostrarMenu; console.log("mostrar", mostrarMenu); }
+
+
 }
 
-function AbrirMenuMovilFiltro()
+function AbrirMenuMovilFiltro(esEjecucionAutomatica = false)
 {
 
-    if (mostrarMenuMovilFiltro)
+    //oculto los demas menos moviles
+    document.getElementById('menu-movil-dorado-opcion').style.height = '0';
+    document.getElementById('menu-movil-ordenamiento').style.height = '0';
+
+    mostrarMenu = true;
+    mostrarMenuMovilOrdenar = true;
+
+    if (mostrarMenuMovilFiltro & !esEjecucionAutomatica)
     {
-
-
         setTimeout(function() {
 
             document.getElementById('menu-movil-filtro').className = 'navbar-collapse collapse collapsing show';
@@ -152,8 +166,71 @@ function AbrirMenuMovilFiltro()
 
 
     }
+    if (!esEjecucionAutomatica) { mostrarMenuMovilFiltro =! mostrarMenuMovilFiltro; }
 
-    mostrarMenuMovilFiltro =! mostrarMenuMovilFiltro;
+}
+
+function AbrirMenuMovilOrdenar(esEjecucionAutomatica = false )
+{
+
+    //oculto los demas menos moviles
+    document.getElementById('menu-movil-dorado-opcion').style.height = '0';
+    document.getElementById('menu-movil-filtro').style.height = '0';
+    mostrarMenu = true;
+    mostrarMenuMovilOrdenar = true;
+
+    if (mostrarMenuMovilOrdenar & !esEjecucionAutomatica)
+    {
+
+        setTimeout(function() {
+
+            document.getElementById('menu-movil-ordenamiento').className = 'navbar-collapse collapse collapsing show';
+
+        }, 50);
+
+        setTimeout(function() {
+
+            document.getElementById('menu-movil-ordenamiento').style.height = '90vh';
+
+            document.getElementById('contenedorIndex').style.display = 'none';
+
+
+            document.getElementById('politica').classList.remove('d-none');
+            document.getElementById('politicadesktop').classList.remove('d-flex');
+            document.getElementById('politicadesktop').classList.add('d-none');
+            //politicadesktop
+
+        }, 150);
+
+
+    }
+    else
+    {
+
+        document.getElementById('menu-movil-ordenamiento').style.height = '0';
+
+
+        document.getElementById('politica').classList.add('d-none');
+
+        if (!modoMovil)
+        {
+            document.getElementById('politicadesktop').classList.remove('d-none');
+            document.getElementById('politicadesktop').classList.add('d-flex');
+        }
+
+        setTimeout(function() {
+
+
+            document.getElementById('contenedorIndex').style.display = 'block';
+
+
+        }, 150);
+
+
+
+    }
+    if (!esEjecucionAutomatica) { mostrarMenuMovilOrdenar =! mostrarMenuMovilOrdenar; }
+
 }
 
 
