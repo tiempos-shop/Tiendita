@@ -42,7 +42,8 @@ else{
     $idiomaActual=$_SESSION["language"];
 }
 
-$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
+//$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
+$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","INGRESO","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","LOGIN","ESPAÑOL","CART(*)"] ] ];
 
 // Obtener de base de datos de productos
 $htmlIds="";
@@ -60,12 +61,13 @@ foreach ($products as $product){
 
 $fc=new \Tiendita\FrontComponents();
 
+;
 $h= $html->Html5(
     $html->Head(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
-        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
-        $html->LoadScripts(["View/js/bootstrap.js"]),
+        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css","css/menumovil.css"]),
+        $html->LoadScripts(["View/js/bootstrap.js", "js/index2.js"]),
         "
                 <style>
                     
@@ -118,11 +120,15 @@ $h= $html->Html5(
 
     ),
     $html->Body([
+          $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "cambiarLogoFijo();" , "index"),
           $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","'","","",""],true),
           $fc->LogoNegro(),
+          $ui-> Columns("",0,6,0,0),
           $fc->TMenu($htmlIds),
           $fc->About($idiomaActual),
-          $fc->Foot($idiomaActual)
+          $fc->Foot($idiomaActual),
+        $ui->ContainerFluid([
+        ], "contenedorIndex"),
 
     ],"style='background-color:#AC9950;color:black'")
 );
