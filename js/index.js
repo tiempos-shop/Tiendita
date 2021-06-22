@@ -41,7 +41,7 @@ function cambiarLogoFijo(esEjecucionAutomatica = false)
 
         setTimeout(function() {
             document.getElementById('menu-movil-dorado-opcion').style.position = 'fixed';
-            document.getElementById('menu-movil-dorado-opcion').style.height = '90vh';
+            document.getElementById('menu-movil-dorado-opcion').style.height = '100%';
             document.getElementById('menu-movil-dorado-opcion').style.background = 'white';
             document.getElementById('menu-movil-dorado').style.background = 'white';
             document.getElementById('menu-movil-dorado-opcion').style.left = '0';

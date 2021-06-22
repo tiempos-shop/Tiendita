@@ -137,7 +137,7 @@ foreach ($images as $image){
 $lupaScript=$fc->Lupa($innerScript);
 
 $modal="
-<table class='table table-borderless prodSize' style=''>
+<table class='table table-borderless prodSize' style='color: white;'>
     <thead>
         <tr>
             <td></td>
@@ -209,6 +209,9 @@ $h= $html->Html5(
                         margin: 0 !important;
                         padding: 0 !important;
                     }
+                    .modal-backdrop{
+                    background-color: transparent;
+                }
                </style>",
         '<script>
                   function go(url){
@@ -270,22 +273,20 @@ $h= $html->Html5(
             ],"main"),
             $fc->TMenu(""),
             $ui->ContainerFluid([
-                "  <div id='fotosprincipal'>  <img id='left_home' class='img-fluid'  src='img/ts-home_001.jpg'></img>",
-                "    <img id='right_home' class='img-fluid' src='img/ts-home_002.jpg'></img> </div>",
             ], "contenedorIndex")
         ]),
         '
         <div class="modal" id="size" tabindex="-1" role="dialog" aria-labelledby="sizeLabel" aria-hidden="true" 
-        style="background-color: transparent;">
+        style="background-color: rgba(255,255,255,0.6);">
           <div class="modal-dialog modal-dialog-centered" style="max-width: 700px;" role="document">
-            <div class="modal-content" style="border-radius: 0;border: 0 solid transparent;background-color: white;">
-              <div class="modal-header" style="border-color: black; padding: 0px; padding-left: 20px; margin-bottom: 10px;">
-                <h5 class="modal-title" id="sizeLabel"><span>CM</span><div class="space"></div><span>IN</span></h5>
-                <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
+            <div class="modal-content" style="border-radius: 0;border: 0 solid transparent;background-color: black; color: white;">
+              <div class="modal-header" style="border-color: white; padding: 0px; padding-left: 20px; margin-bottom: 10px;">
+                <h7 class="modal-title" id="sizeLabel"><span>CM</span><div class="space"></div><span>IN</span></h7>
+                <button style="color:white;" type="button" class="btn" data-dismiss="modal" aria-label="Close">
                   X
                 </button>
               </div>
-              <div class="modal-body" style="padding: 0;">
+              <div class="modal-body" style="padding: 0; color: white;">
                 '.$modal.'
               </div>
             </div>
