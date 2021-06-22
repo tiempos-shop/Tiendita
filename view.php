@@ -73,14 +73,12 @@ else
 
 
 $tipoCambio=20;
-$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"],"LOGIN"=>[] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
+//$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"],"LOGIN"=>[] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
+$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","INGRESO","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","LOGIN","ESPAÑOL","CART(*)"] ] ];
+
 
 $price=0;
 $tipoCambio=20;
-
-
-
-
 
 
 //$n=count($productWord);
@@ -124,9 +122,6 @@ $descriptionTable="<table class='table table-borderless'><tr>";
 //    $descriptionTable.="<td style='width: $p%'>$word</td>";
 //}
 $descriptionTable.="</tr></table>";
-
-
-
 
 $images=explode(",",$productInformation->RutaImagen);
 
@@ -207,9 +202,14 @@ $h= $html->Html5(
     $html->Head(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
-        $html->LoadStyles(["View/css/bootstrap.css","css/view.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
-        $html->LoadScripts(["vendor/jquery/jquery.js","js/jquery.mlens-1.7.min.js","js/popper.min.js","View/js/bootstrap.js"]),
-        "",
+        $html->LoadStyles(["View/css/bootstrap.css","css/view.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css","css/menumovil.css"]),
+        $html->LoadScripts(["vendor/jquery/jquery.js","js/jquery.mlens-1.7.min.js","vendor/bootstrap/js/bootstrap.bundle.js", "js/index.js"]),
+        "<style>
+                    .sinpadding{
+                        margin: 0 !important;
+                        padding: 0 !important;
+                    }
+               </style>",
         '<script>
                   function go(url){
                       window.location.href=url;
@@ -228,6 +228,7 @@ $h= $html->Html5(
     ),
     $html->Body([
 
+        $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "cambiarLogoFijo()" , "index"),
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["'","","","","",""]),
         $fc->LogoNegro(),
 
@@ -266,7 +267,12 @@ $h= $html->Html5(
 //                            "<label><span>PRIVACY POLICY</span></label><label><span>SHIPPING RETURNS</span></label><label><button type='button' class='btn btn-link' style='text-decoration: none;color: black;padding: 0;border: none;font-weight: normal;font-size: 14.4px'  data-toggle='modal' data-target='#size'><span>SIZE GUIDE</span></button></label>".
 //                        "</div>"
                     ,6,0,0,0,"left-top paddingNone")
-            ],"main")
+            ],"main"),
+            $fc->TMenu(""),
+            $ui->ContainerFluid([
+                "  <div id='fotosprincipal'>  <img id='left_home' class='img-fluid'  src='img/ts-home_001.jpg'></img>",
+                "    <img id='right_home' class='img-fluid' src='img/ts-home_002.jpg'></img> </div>",
+            ], "contenedorIndex")
         ]),
         '
         <div class="modal" id="size" tabindex="-1" role="dialog" aria-labelledby="sizeLabel" aria-hidden="true" 
@@ -282,7 +288,6 @@ $h= $html->Html5(
               <div class="modal-body" style="padding: 0;">
                 '.$modal.'
               </div>
-              
             </div>
           </div>
         </div>

@@ -133,33 +133,16 @@ class FrontComponents
 
 
 
-        return "<div  id='menu-web' style='padding-top:2vh;padding-bottom:0;padding-left: 2vw;padding-right: 2vw;background-color: $back;' class=' d-none d-sm-none d-md-block fixed-top'>".
-            $this->ui->Row([
-                $this->ui->Columns(
-                    $lines[0],
-                    2,0,0,0,""
-                ),
-                $this->ui->Columns(
-                    $lines[1],
-                    2,0,0,0,""
-                ),
-                $this->ui->Columns(
-                    $lines[2],
-                    2,0,0,0,""
-                ),
-                $this->ui->Columns(
-                    $lines[3],
-                    2,0,2,0,""
-                ),
-                $this->ui->Columns(
-                    $lines[4],2,0,0,0,"adjust"
-                ),
-                $this->ui->Columns(
-                    $lines[5],
-                    2,0,0,0,""
-                )
-            ],"right").$hr.
-            "</div>";
+        return "<div id='menu-web' style='padding-top:2vh;padding-bottom:0;padding-left: 2vw;padding-right: 2vw;background-color: $back;' class='fixed-top d-none d-md-block'>
+                <div class='row'>
+                    <div class='col d-md-block d-none'>".$lines[0]."</div>
+                    <div class='col d-md-block d-none'>".$lines[1]."</div>
+                    <div class='col d-md-block d-none'>".$lines[2]."</div>
+                    <div class='col d-md-block d-none'>".$lines[3]."</div>
+                    <div class='col adjust d-md-block d-none'>".$lines[4]."</div>
+                    <div class='col d-md-block d-none'>".$lines[5]."</div>
+                </div>
+            </div>";
     }
 
     public function MenuArchive($idioma, $idiomaActual,int $numeroProductosCarrito,array $selected,bool $transparente=false,bool $unremark=false):string{
@@ -323,7 +306,7 @@ class FrontComponents
     }
 
     public function About($idiomaActual):string{
-        return "<div class='fixed-top' style='top:57vh;padding-bottom:2vh;padding-left: 2vw;padding-right: 2vw'>".
+        return "<div class='' style='top:57vh;padding-bottom:2vh;padding-left: 2vw;padding-right: 2vw; position: fixed;left: 0; right: 0;top: 57;'>".
             $this->ui->Row([
                 $this->ui->Columns(
                     "<p>PIECES OF EVIDENCE</p>",
@@ -352,7 +335,7 @@ class FrontComponents
     }
 
     public function Foot($idiomaActual):string{
-        return "<div class='fixed-bottom' style='padding-top:2vh;padding-bottom:2vh;padding-left: 2vw;padding-right: 2vw'>".
+        return "<div class='' style='padding-top:2vh;padding-bottom:2vh;padding-left: 2vw;padding-right: 2vw; position: fixed; bottom: 0;left: 0;right: 0;'>".
             $this->ui->Row([
                 $this->ui->Columns(
                     "<p>ABOUT BRANDS S.A. DE C.V. ABR181008L27</p>",
@@ -568,7 +551,7 @@ class FrontComponents
 
     public function PoliticaPrivacidadMovil(string $position = "fixed")
     {
-        return "<div id='politica' class='d-flex justify-content-around w-100 d-none' style='position: ".$position."; bottom: 0;margin-bottom: 0.8rem; color:black; width:100%' onclick='go(\"privacy.php\")' ><span class=''> PRIVACY POLICY</span><span  onclick='go(\"shipping.php\")' class=''>SHIPPING & RETURNS</span></div>";
+        return "<div id='politica' class='d-flex justify-content-around w-100 d-none' style='position: ".$position."; bottom: 0;margin-bottom: 0.8rem; color:black; width:100%; background: white;' onclick='go(\"privacy.php\")' ><span class=''> PRIVACY POLICY</span><span  onclick='go(\"shipping.php\")' class=''>SHIPPING & RETURNS</span></div>";
     }
 
     public function MenuPrivacyReturn(bool $privacy,bool $return){
