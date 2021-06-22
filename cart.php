@@ -100,7 +100,8 @@ else{
 
 
 $tipoCambio=20;
-$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
+//$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
+$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","INGRESO","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","LOGIN","ESPAÑOL","CART(*)"] ] ];
 
 $price=0;
 $tipoCambio=20;
@@ -175,8 +176,8 @@ $h= $html->Html5(
     $html->Head(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
-        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
-        $html->LoadScripts(["View/js/bootstrap.js"]),
+        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css","css/menumovil.css"]),
+        $html->LoadScripts(["View/js/bootstrap.js", "js/index.js"]),
         "
             <style>
                 
@@ -191,7 +192,7 @@ $h= $html->Html5(
                 }
                 
                 #container{
-                    margin-top: 55px;
+                    margin-top: 10px;
                     padding: 0 0 0 0;
                 }
                 
@@ -217,6 +218,7 @@ $h= $html->Html5(
 
     ),
     $html->Body([
+        $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "cambiarLogoFijo()" , "index"),
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","","","","'"]),
         $fc->LogoNegro(),
         $ui->ContainerFluid([
@@ -237,6 +239,9 @@ $h= $html->Html5(
                 $ui->Columns("<p class='small'>$idiomaInformativo[$idiomaActual]</p>",5)
             ]),
         ],"container"),
+        $fc->TMenu(""),
+        $ui->ContainerFluid([
+        ], "contenedorIndex"),
         $fc->Aviso((count($elements)>2 ? "inherit": "absolute")),
     ],"style='background-color:#FFFFF;' ") //#AC9950
 );

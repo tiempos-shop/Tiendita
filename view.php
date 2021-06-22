@@ -73,14 +73,12 @@ else
 
 
 $tipoCambio=20;
-$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"],"LOGIN"=>[] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
+//$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"],"LOGIN"=>[] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
+$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","INGRESO","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","LOGIN","ESPAÑOL","CART(*)"] ] ];
+
 
 $price=0;
 $tipoCambio=20;
-
-
-
-
 
 
 //$n=count($productWord);
@@ -125,9 +123,6 @@ $descriptionTable="<table class='table table-borderless'><tr>";
 //}
 $descriptionTable.="</tr></table>";
 
-
-
-
 $images=explode(",",$productInformation->RutaImagen);
 
 $collage="";
@@ -142,7 +137,7 @@ foreach ($images as $image){
 $lupaScript=$fc->Lupa($innerScript);
 
 $modal="
-<table class='table table-borderless prodSize' style=''>
+<table class='table table-borderless prodSize' style='color: white;'>
     <thead>
         <tr>
             <td></td>
@@ -207,9 +202,17 @@ $h= $html->Html5(
     $html->Head(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
-        $html->LoadStyles(["View/css/bootstrap.css","css/view.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
-        $html->LoadScripts(["vendor/jquery/jquery.js","js/jquery.mlens-1.7.min.js","js/popper.min.js","View/js/bootstrap.js"]),
-        "",
+        $html->LoadStyles(["View/css/bootstrap.css","css/view.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css","css/menumovil.css"]),
+        $html->LoadScripts(["vendor/jquery/jquery.js","js/jquery.mlens-1.7.min.js","vendor/bootstrap/js/bootstrap.bundle.js", "js/index.js"]),
+        "<style>
+                    .sinpadding{
+                        margin: 0 !important;
+                        padding: 0 !important;
+                    }
+                    .modal-backdrop{
+                    background-color: transparent;
+                }
+               </style>",
         '<script>
                   function go(url){
                       window.location.href=url;
@@ -228,6 +231,7 @@ $h= $html->Html5(
     ),
     $html->Body([
 
+        $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "cambiarLogoFijo()" , "index"),
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["'","","","","",""]),
         $fc->LogoNegro(),
 
@@ -240,7 +244,7 @@ $h= $html->Html5(
                     $ui->ContainerFluid([
                             "<br/>",
                             $ui->Row([
-                                $ui->Columns("<p style='font-family: NHaasGroteskDSPro-65Md;'>.$productWord</p>",12),
+                                $ui->Columns("<p style='font-family: NHaasGroteskDSPro-65Md;'>$productWord</p>",12),
 
                             ]),
                             $ui->Row([
@@ -266,23 +270,25 @@ $h= $html->Html5(
 //                            "<label><span>PRIVACY POLICY</span></label><label><span>SHIPPING RETURNS</span></label><label><button type='button' class='btn btn-link' style='text-decoration: none;color: black;padding: 0;border: none;font-weight: normal;font-size: 14.4px'  data-toggle='modal' data-target='#size'><span>SIZE GUIDE</span></button></label>".
 //                        "</div>"
                     ,6,0,0,0,"left-top paddingNone")
-            ],"main")
+            ],"main"),
+            $fc->TMenu(""),
+            $ui->ContainerFluid([
+            ], "contenedorIndex")
         ]),
         '
         <div class="modal" id="size" tabindex="-1" role="dialog" aria-labelledby="sizeLabel" aria-hidden="true" 
-        style="background-color: transparent;">
+        style="background-color: rgba(255,255,255,0.6);">
           <div class="modal-dialog modal-dialog-centered" style="max-width: 700px;" role="document">
-            <div class="modal-content" style="border-radius: 0;border: 0 solid transparent;background-color: white;">
-              <div class="modal-header" style="border-color: black; padding: 0px; padding-left: 20px; margin-bottom: 10px;">
-                <h5 class="modal-title" id="sizeLabel"><span>CM</span><div class="space"></div><span>IN</span></h5>
-                <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
+            <div class="modal-content" style="border-radius: 0;border: 0 solid transparent;background-color: black; color: white;">
+              <div class="modal-header" style="border-color: white; padding: 0px; padding-left: 20px; margin-bottom: 10px;">
+                <h7 class="modal-title" id="sizeLabel"><span>CM</span><div class="space"></div><span>IN</span></h7>
+                <button style="color:white;" type="button" class="btn" data-dismiss="modal" aria-label="Close">
                   X
                 </button>
               </div>
-              <div class="modal-body" style="padding: 0;">
+              <div class="modal-body" style="padding: 0; color: white;">
                 '.$modal.'
               </div>
-              
             </div>
           </div>
         </div>

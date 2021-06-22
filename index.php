@@ -93,7 +93,6 @@ $h= $html->Html5(
         $fc->LogoDorado(),
         $fc->TMenu($htmlIds),
         $ui->ContainerFluid([
-
             "  <div id='fotosprincipal'>  <img id='left_home' class='img-fluid'  src='img/ts-home_001.jpg'></img>",
             "    <img id='right_home' class='img-fluid' src='img/ts-home_002.jpg'></img> </div>",
         ], "contenedorIndex")

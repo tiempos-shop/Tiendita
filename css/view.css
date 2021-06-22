@@ -98,7 +98,7 @@ label{
     text-align: left;
 }
 .prodSize > tbody > tr{
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid white;
 }
 .prodSize > tbody > tr:last-child{
     border: none;
