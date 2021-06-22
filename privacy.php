@@ -35,7 +35,9 @@ else{
     $idiomaActual=$_SESSION["language"];
 }
 $tipoCambio=20;
-$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
+
+$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","INGRESO","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","LOGIN","ESPAÑOL","CART(*)" ] ] ];
+
 
 
 
@@ -45,8 +47,8 @@ $h= $html->Html5(
     $html->Head(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
-        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
-        $html->LoadScripts(["View/js/bootstrap.js"]),
+        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", "css/menumovil.css", ]),
+        $html->LoadScripts(["View/js/bootstrap.js", "js/menuprivacity.js"]),
         "",
         '<script>
                   function go(url){
@@ -64,10 +66,10 @@ $h= $html->Html5(
 
     ),
     $html->Body([
-
+        $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "AbrirMenuMovil()", "privacity"),
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","","","",""]),
-        "<div style='position:absolute;width:100%;height: 93%;border-bottom: 1px solid black'>",
-        "<div style='padding-left:3%;padding-right:3%;overflow-y: auto;width:56%;height: 100%;border-left: 1px solid black;border-right: 1px solid black;margin-left: 21vw'>",
+        "<div id='privacity-content' style=''>",
+        "<div id='privacity-text' >",
         "<br/><br/><br/>",
         "<p style='text-align: center'>EJEMPLO DE TEXTO PRIVACY POLICY</p>",
         "<p style='text-align: center'>POLYCY</p>",

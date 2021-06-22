@@ -586,7 +586,7 @@ class FrontComponents
 
     public function MenuPrivacyReturnInside(bool $privacy,bool $return){
         $html= "
-            <div class='container-fluid mb-2' style='position: fixed;bottom: 1vh;font-size: 0.7rem;padding-left: 50%; padding-bottom: 0.5em;'>
+            <div class='container-fluid mb-2'  id='politicadesktop' style='position: fixed;bottom: 1vh;font-size: 0.7rem;padding-left: 50%; padding-bottom: 0.5em;'>
                 <label style='width: 10vw;display: inline-block'>";
         if($privacy) $html.="<span  onclick='go(\"privacy.php\")'>";
         $html.="PRIVACY POLICY";

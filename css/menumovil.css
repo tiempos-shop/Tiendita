@@ -19,6 +19,13 @@
     background-color: white;
 }
 
+#menu-movil-dorado.privacity {
+    background-color: white;
+    border-bottom: 1px solid black;
+}
+
+
+
 #menu-movil-filtro > ul > li > a {
     text-decoration: none !important;
 
@@ -180,8 +187,47 @@ a.elemento-menu-movil.carrito{
         max-width: 100%;
         margin-top: -8vh;
     }
-}
+    #privacity-content {
+        position: initial;
+        width: 100%;
+        height: 93%;
+        border-bottom: 1px solid black;
+        display: block;
+    }
 
+    #privacity-text {
+        padding-left: 3%;
+        padding-right: 3%;
+        margin-right: 4%;
+        margin-left: 4%;
+        overflow-y: auto;
+        width: auto;
+        height: 100%;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+    }
+}
+@media (max-width: 992px) {
+    #privacity-content {
+        position: initial;
+        width: 100%;
+        height: 93%;
+        border-bottom: 1px solid black;
+        display: block;
+    }
+
+    #privacity-text {
+        padding-left: 3%;
+        padding-right: 3%;
+        margin-right: 4%;
+        margin-left: 4%;
+        overflow-y: auto;
+        width: auto;
+        height: 100%;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+    }
+}
 @media (min-width: 992px) {
     #logo {
         width: 7%;
@@ -210,5 +256,23 @@ a.elemento-menu-movil.carrito{
     #right_home {
         max-width: 50%;
         margin-top: -1vh;
+    }
+
+    #privacity-content {
+        position: absolute;
+        width: 100%;
+        height: 93%;
+        border-bottom: 1px solid black;
+        display: block;
+    }
+    #privacity-text {
+        padding-left: 3%;
+        padding-right: 3%;
+        overflow-y: auto;
+        width: 56%;
+        height: 100%;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        margin-left: 21vw;
     }
 }
