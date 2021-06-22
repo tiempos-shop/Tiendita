@@ -126,7 +126,7 @@ foreach ($products as $product){
     $code=$product->Clave;
     $code=str_replace("'","_",$code);
     $js="view('$code')";
-    $htmlRow.= $ui->Columns('<img onclick="'.$js.'" src="'.$arr[0].'" onmouseover="changeImage(this,'.$four.')" onmouseleave="changeImage(this,'.$first.')" style="width: 100%"><p class="descripcion" style="font-family: NHaasGroteskDSPro-65Md;line-height: 1">'.$description.'</p><p class="precios">'.$price.'</p>',
+    $htmlRow.= $ui->Columns('<img onclick="'.$js.'" src="'.$arr[0].'" onmouseover="changeImage(this,'.$four.')" onmouseleave="changeImage(this,'.$first.')" style="width: 100%"><p class="descripcion"  style="margin-top: 10px; font-family: NHaasGroteskDSPro-65Md;line-height: 1">'.$description.'</p><p class="precios">'.$price.'</p>',
         4,6,6,0,"text-center");
 
 }
