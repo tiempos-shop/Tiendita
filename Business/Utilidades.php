@@ -752,7 +752,7 @@ class Utilidades
 
     public function RowSpace(string $unit)
     {
-        return $this->Row([$this->Columns("",12,12,12,12,"","height:".$unit)]);
+        return $this->Row([$this->Columns("",12,12,12,12,"","height:".$unit)], "rowspace");
     }
 
 }

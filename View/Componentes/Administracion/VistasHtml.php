@@ -50,20 +50,20 @@ class VistasHtml
         return $html;
     }
 
-    public function MenuMovil($idioma, $idiomaActual,int $numeroProductosCarrito=0, $funcionMenuCLick = "cambiarLogoFijo()")
+    public function MenuMovil($idioma, $idiomaActual,int $numeroProductosCarrito=0, $funcionMenuCLick = "cambiarLogoFijo()", $clase = '')
     {
         $fc=new \Tiendita\FrontComponents();
 
 
-        $nav  = "<nav id='menu-movil-dorado' class='navbar navbar-inverse navbar-static-top  d-sm-block d-md-none d-block d-block ' style='position: fixed; background-color: white; width: 100%; top:0' role='navigation'>
+        $nav  = "<nav id='menu-movil-dorado' class='navbar navbar-inverse navbar-static-top  d-sm-block d-md-none d-block d-block ".$clase."' style='position: fixed; width: 100%; top:0; ' role='navigation'>
                         <div class='ml-1'>
-                    <div class='navbar-header d-flex justify-content-around align-items-center'>
-                    <button type='button' class='navbar-toggle collapsed ml-3' data-toggle='collapse' id='botonMenuMovil'
+                    <div class='navbar-header d-flex justify-content-between align-items-center ml-1 mr-1'>
+                    <button type='button' class='navbar-toggle collapsed ' data-toggle='collapse' id='botonMenuMovil'
                         onClick='".$funcionMenuCLick."'
                         ;
                         style='border: none; background-color: transparent;'>
-                        <span class='sr-only'>MENU</span>
-                        <i class='fa fa-bars' style='font-size: 18px;' > </i>
+                        
+                        <span>MENU</span>
                     </button>";
 
 
@@ -80,7 +80,7 @@ class VistasHtml
 
         if (isset($idioma[ $idiomaActual ]["MENU"][5]))
         {
-            $nav.= " <a CLASS='elemento-menu-movil carrito' href='cart.php' >".$fc->cart($numeroProductosCarrito,$idioma[ $idiomaActual ]["MENU"][5])."</a>";
+            $nav.= " <a CLASS='elemento-menu-movil carrito' id='carrito' href='cart.php' >".$fc->cart($numeroProductosCarrito,$idioma[ $idiomaActual ]["MENU"][5])."</a>";
         }
 
         $nav .=

@@ -56,7 +56,8 @@ else{
 
 $idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","INGRESO","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","LOGIN","ESPAÑOL","CART(*)"] ] ];
 
-if (!in_array($idiomaActual, $idioma))
+
+if ($idioma[ $idiomaActual] == null)
 {
     $idiomaActual = "ENGLISH";
 }
@@ -87,7 +88,7 @@ $h= $html->Html5(
         ""
     ),
     $html->Body([
-        $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito),
+        $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "cambiarLogoFijo()" , "index"),
         $fc->MenuDorado($idioma,$idiomaActual,$numeroProductosCarrito),
         $fc->LogoDorado(),
         $fc->TMenu($htmlIds),

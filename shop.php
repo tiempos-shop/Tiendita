@@ -36,7 +36,9 @@ $tipoCambio=20;
 
 $idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","INGRESO","ENGLISH","CARRITO(*)", "FILTRO", "ORDERNAR"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","LOGIN","ESPAÑOL","CART(*)", "FILTER", "ORDER" ] ] ];
 
-if (!in_array($idiomaActual, $idioma))
+
+
+if ($idioma[ $idiomaActual] == null)
 {
     $idiomaActual = "ENGLISH";
 }
@@ -152,7 +154,7 @@ $h= $html->Html5(
 
     ),
     $html->Body([
-        $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "AbrirMenuMovil()"),
+        $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "AbrirMenuMovil()", "shop"),
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["'","","","","",""]),
         $fc->LogoNegro(),
         "<div class='productos shop' id='contenedorIndex'>",

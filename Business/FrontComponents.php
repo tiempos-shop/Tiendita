@@ -287,7 +287,7 @@ class FrontComponents
     }
 
     public function LogoDorado():string{
-        return "<img alt='SP' id='logo'  src='img/ts_iso_oro.png' style='width: 7%'>";
+        return "<img alt='SP' id='logo'  src='img/ts_iso_oro.png' >";
     }
 
     // Funciones
@@ -492,7 +492,6 @@ class FrontComponents
 
     public function Aviso(string $position = "inherit"){
         return
-            $this->ui->RowSpace("1em").
             $this->PoliticaPrivacidad($position);
     }
 

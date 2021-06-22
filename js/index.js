@@ -1,6 +1,6 @@
 
 var mostrarMenu = true;
-
+var modoMovil = false;
 
 setTimeout(function() {
 
@@ -13,26 +13,30 @@ setTimeout(function() {
 function validarDimenciones() {
     var alto = window.innerHeight;
     var ancho = window.innerWidth;
-    if (ancho>= 576)
+
+    document.getElementById('contenedorIndex').classList.add('ocultarmargen');
+
+
+    if (ancho<=768)
     {
-        mostrarMenu = false;
-        cambiarLogoFijo();
-        console.log("ajustado");
+        modoMovil = true;
+
     }
-    console.log("validando tamaño");
+    mostrarMenu = true;
+    cambiarLogoFijo(true);
 }
 
-function cambiarLogoFijo()
+function cambiarLogoFijo(esEjecucionAutomatica = false)
 {
 
-    if (mostrarMenu)
+    if (mostrarMenu & !esEjecucionAutomatica)
     {
         logo.src='img/ts_iso_negro.png';
 
         document.getElementById('t').style.display = 'none';
 
 
-        document.getElementById('botonMenuMovil').className = 'navbar-toggle ml-3';
+        document.getElementById('botonMenuMovil').className = 'navbar-toggle ';
 
         document.getElementById('t').style.position = 'relative';
 
@@ -47,6 +51,7 @@ function cambiarLogoFijo()
 
             document.getElementById('menu-movil-dorado-opcion').style.height = '90vh';
             document.getElementById('botonMenuMovil').style.color = 'black';
+            document.getElementById('carrito').style.color = 'black';
             document.getElementById('contenedorIndex').style.display = 'none';
             document.getElementById('t').style.display = 'none';
 
@@ -68,6 +73,7 @@ function cambiarLogoFijo()
 
             document.getElementById('t').style.position = 'fixed';
             document.getElementById('botonMenuMovil').style.color = '#AC9950';
+            document.getElementById('carrito').style.color = '#AC9950';
             document.getElementById('contenedorIndex').style.display = 'block';
             document.getElementById('t').style.display = 'block';
 
@@ -76,8 +82,8 @@ function cambiarLogoFijo()
 
 
     }
+    if (!esEjecucionAutomatica) { mostrarMenu =! mostrarMenu; }
 
-    mostrarMenu =! mostrarMenu;
 }
 window.onload=function (){
     //load();
@@ -117,5 +123,11 @@ function view(str){
     var id=str; //.replace("_", "'");
     go("view.php?id="+id);
 }
+
+
+
+setTimeout( function () {
+    validarDimenciones(true);
+}, 10);
 
 window.onresize = validarDimenciones;
