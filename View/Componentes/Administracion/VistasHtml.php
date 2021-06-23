@@ -88,9 +88,9 @@ class VistasHtml
                 </div>
 
                 <div id='menu-movil-dorado-opcion' class='collapse navbar-collapse'  >
-                    <ul class='nav navbar-nav row' style='padding: 35vh;padding-left: 2rem;margin-right: 0;'>
-                        <li class='col-md-2'><a href='shop.php'>".$idioma[ $idiomaActual ]["MENU"][0]."</a></li>
-                        <li><a href='archive.php'>".$idioma[ $idiomaActual ]["MENU"][1]."</a></li>
+                    <ul id='lista-menu' class='nav navbar-nav row' style='margin-right: 0;'>
+                        <li ><a href='shop.php'>".$idioma[ $idiomaActual ]["MENU"][0]."</a></li>
+                        <li><a href='archive.php' id='archive'>".$idioma[ $idiomaActual ]["MENU"][1]."</a></li>
                         <li><a href='imprint.php'>".$idioma[ $idiomaActual ]["MENU"][2]."</a></li>
                         ".
                         "<form method='post'>

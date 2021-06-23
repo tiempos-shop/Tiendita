@@ -551,7 +551,7 @@ class FrontComponents
 
     public function PoliticaPrivacidadMovil(string $position = "fixed")
     {
-        return "<div id='politica' class='d-flex justify-content-around w-100 d-none' style='position: ".$position."; bottom: 0;margin-bottom: 0.8rem; color:black; width:100%; background: white;' onclick='go(\"privacy.php\")' ><span class=''> PRIVACY POLICY</span><span  onclick='go(\"shipping.php\")' class=''>SHIPPING & RETURNS</span></div>";
+        return "<div id='politica' class='d-flex justify-content-around w-100 d-none' style='position: ".$position."; bottom: 0;margin-bottom: 0.8rem; color:black; width:100%; background: white;' ><span class='' onclick='go(\"privacy.php\")' > PRIVACY POLICY</span><span  onclick='go(\"shipping.php\")' class=''>SHIPPING & RETURNS</span></div>";
     }
 
     public function MenuPrivacyReturn(bool $privacy,bool $return){
