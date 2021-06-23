@@ -171,7 +171,7 @@ a.elemento-menu-movil.carrito{
         margin-right: 0;
     }
     #logo {
-
+        top: 50%;
         width: 12vw;
         left: 80vw;
     }
@@ -205,6 +205,40 @@ a.elemento-menu-movil.carrito{
         height: 100%;
         border-left: 1px solid black;
         border-right: 1px solid black;
+    }
+
+    #menu-movil-dorado-opcion ul .nav {
+        padding-top: 35vh;
+        padding-left: 0;
+        margin-right: 0;
+        position: absolute;
+        margin-left: 0;
+    }
+
+    .navbar-header {
+        margin-left: 20px !important;
+        margin-right: 20px !important;
+        margin-top: 10px !important;
+    }
+
+    #lista-menu {
+        padding-left: 0;
+        position: absolute;
+        margin: 0;
+        top: 48%;
+    }
+
+    #lista-menu li  {
+        padding-left: 0;
+    }
+
+    #lista-menu form  {
+        padding-left: 0;
+    }
+
+    #botonMenuMovil {
+        padding-left: 0px;
+
     }
 }
 @media (max-width: 992px) {

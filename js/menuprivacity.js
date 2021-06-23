@@ -12,8 +12,9 @@ function validarDimenciones() {
     ///PARA INICIO DE CARGA
     document.getElementById('politicadesktop').classList.remove('d-flex');
     document.getElementById('politicadesktop').classList.add('d-none');
-
-
+    var separacionBotonMenu = document.getElementById("botonMenuMovil").offsetLeft;
+    var separacionCart = document.getElementById("carrito").offsetLeft;
+    var anchoCart = document.getElementById('carrito').offsetWidth;
     if (ancho<=768)
     {
         document.getElementById('t').classList.remove('d-block');
@@ -21,6 +22,9 @@ function validarDimenciones() {
         document.getElementById('politicadesktop').classList.remove('d-flex');
         document.getElementById('politicadesktop').classList.add('d-none');
         document.getElementById('menu-movil-dorado').style.borderBottom = 'none';
+        document.getElementById('lista-menu').style.left = separacionBotonMenu +'px';
+        document.getElementById('logo').style.left = separacionCart +'px';
+        document.getElementById('logo').style.width = anchoCart + 'px';
         modoMovil = true;
     }
     else
@@ -70,6 +74,7 @@ function AbrirMenuMovil(esEjecucionAutomatica = false)
             document.getElementById('politica').classList.remove('d-none');
             document.getElementById('politicadesktop').classList.remove('d-flex');
             document.getElementById('politicadesktop').classList.add('d-none');
+            document.getElementById('lista-menu').style.display ='block';
             //politicadesktop
 
         }, 150);
@@ -83,6 +88,7 @@ function AbrirMenuMovil(esEjecucionAutomatica = false)
 
 
         document.getElementById('politica').classList.add('d-none');
+        document.getElementById('lista-menu').style.display ='none';
 
         if (!modoMovil)
         {
