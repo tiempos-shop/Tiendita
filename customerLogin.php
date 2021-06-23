@@ -62,6 +62,40 @@ if(count($_POST)>0)
             case "google":
                 break;
             case "create":
+                $name=$_POST["name"];
+                $lastname=$_POST["lastname"];
+                $login=$_POST["login"];
+                $password1=$_POST["password1"];
+                $password2=$_POST["password2"];
+                if(isset($_POST["newsletter"])){
+                    $newsletter=true;
+                    $news="Adicionalement se solicito el servicio de Newsletter.";
+                } else {
+                    $newsletter = false;
+                    $news="No se solicito el servicio de Newsletter.";
+                };
+                $mensaje=
+                    "
+                    <h2>Registro de Nuevo Cliente</h2>
+                    <h3>$name $lastname</h3>
+                    <p>Se registro el cliente con el password: $password1</p>
+                    <br/>
+                    <p>$news</p>
+                    <b>Saludos Cordiales</b>
+                    <b>El equipo de tiempos Shop</b>
+                    ";
+                if($password1===$password2){
+                    $ui->SendMail("Tiempos Shop","tiempos.shop@gmail.com",$login,"Registro de Cliente Tiempos Shop",$mensaje);
+                    echo "<script>alert('Solicitud correcta. Se envio un correo a $login.')</script>";
+                }
+                else
+                {
+                    echo "<script>alert('Los password no coinciden')</script>";
+                }
+
+
+
+
                 break;
         }
     }
@@ -187,15 +221,15 @@ $h= $html->Html5(
                     $ui->Lines([
                         $ui->FormButtom([
 
-                            $fc->BlackInput($idioma[$idiomaActual]["CREAR"][1],"name"),
+                            $fc->BlackInputType($idioma[$idiomaActual]["CREAR"][1],"name","text",true),
                             $ui->RowSpace("1vh"),
-                            $fc->BlackInput($idioma[$idiomaActual]["CREAR"][2],"lastname"),
+                            $fc->BlackInputType($idioma[$idiomaActual]["CREAR"][2],"lastname","text"),
                             $ui->RowSpace("1vh"),
-                            $fc->BlackInput($idioma[$idiomaActual]["CREAR"][3],"login"),
+                            $fc->BlackInputType($idioma[$idiomaActual]["CREAR"][3],"login","email"),
                             $ui->RowSpace("1vh"),
-                            $fc->BlackInput($idioma[$idiomaActual]["CREAR"][4],"password1",true),
+                            $fc->BlackInputType($idioma[$idiomaActual]["CREAR"][4],"password1","password",true),
                             $ui->RowSpace("1vh"),
-                            $fc->BlackInput($idioma[$idiomaActual]["CREAR"][5],"password2",true),
+                            $fc->BlackInputType($idioma[$idiomaActual]["CREAR"][5],"password2","password",true),
                             $ui->RowSpace("1vh"),
                             "<input class='form-check-input' type='checkbox' id='newsletter' name='newsletter' style='border-radius: 10px;border-color: black'>".$idioma[$idiomaActual]["CREAR"][6]."</input>",
 

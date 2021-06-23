@@ -617,6 +617,12 @@ class FrontComponents
         return "<input $type class='form-control' name='$id' placeholder='$title' style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em'/>";
     }
 
+    public function BlackInputType(string $title,$id,string $type,bool $requiered=false):string
+    {
+        if($requiered) return  "<input required type='$type' class='form-control' name='$id' placeholder='$title' style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em'/>";
+        else return "<input type='$type' class='form-control' name='$id' placeholder='$title' style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em'/>";
+    }
+
 
     public function BlackInputEye(string $title, $id ,bool $password = false) {
         $type="";
