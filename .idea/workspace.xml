@@ -4,33 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="ajuste de wokspace">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2021_01_07_p__m___Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2021_01_07_p__m___Revert__LOGIN__Signo_de_ojo_p.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/FrontComponents.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/FrontComponents.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/view.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view.php" afterDir="false" />
-    </list>
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Esto también se tiene que IGNORAR" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -159,8 +137,8 @@
       <item itemvalue="PHP Script.INDEX Script" />
       <item itemvalue="PHP Script.bag.php" />
       <item itemvalue="PHP Web Page.Admin" />
-      <item itemvalue="PHP Web Page.Shop" />
       <item itemvalue="PHP Web Page.XAMPP" />
+      <item itemvalue="PHP Web Page.Shop" />
     </list>
     <recent_temporary>
       <list>
@@ -291,13 +269,6 @@
       <workItem from="1623458761986" duration="3436000" />
       <workItem from="1623688381758" duration="33221000" />
       <workItem from="1623893685339" duration="3905000" />
-    </task>
-    <task id="LOCAL-00075" summary="Menu T y Vista Previa Producto">
-      <created>1613782114172</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1613782114173</updated>
     </task>
     <task id="LOCAL-00076" summary="Imagenes de SHOP de Base de datos">
       <created>1613786213101</created>
@@ -635,7 +606,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623890149775</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="Esto también se tiene que IGNORAR">
+      <created>1624484047883</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1624484047883</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -666,7 +644,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Imagenes de SHOP de Base de datos" />
     <MESSAGE value="Imagenes de SHOP de Base de datos. Efecto Back" />
     <MESSAGE value="Correccion de arreglo de fotografias producto" />
     <MESSAGE value="Correccion de Menu en Shop" />
@@ -691,6 +668,21 @@
     <MESSAGE value="Lupa en Vista Producto&#10;Cambio de Estilos a archivo externo view.css" />
     <MESSAGE value="Correccion comilla menu Producto Detalle" />
     <MESSAGE value="Correccion Menu privacy.php y shipping.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correccion Menu privacy.php y shipping.php" />
+    <MESSAGE value="Esto también se tiene que IGNORAR" />
+    <option name="LAST_COMMIT_MESSAGE" value="Esto también se tiene que IGNORAR" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="383" y="23" key="RollbackChangesDialog" timestamp="1624483917943">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state x="383" y="23" key="RollbackChangesDialog/0.23.1280.777@0.23.1280.777" timestamp="1624483917943" />
+    <state x="385" y="33" key="VCS.ChangeListViewerDialog" timestamp="1624483959046">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state x="385" y="33" key="VCS.ChangeListViewerDialog/0.23.1280.777@0.23.1280.777" timestamp="1624483959046" />
+    <state x="429" y="309" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1624484058923">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state x="429" y="309" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.777@0.23.1280.777" timestamp="1624484058923" />
   </component>
 </project>
