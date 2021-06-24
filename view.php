@@ -127,14 +127,52 @@ $images=explode(",",$productInformation->RutaImagen);
 
 $collage="";
 $innerScript="";
+
+
+
+$collage .= '
+<div class="container-fluid my-2 mb-5">
+    <div class="row">
+        <div class="col sinpadding">  
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+  <div class="carousel-inner">';
+
 $count=0;
-foreach ($images as $image){
-    $count++;
-    $id="id".$count;
-    $collage.="<img id='$id' class='img-fluid' src='$image' data-big='$image' data-overlay=''><br/>";// data-overlay="fondo.png"
-    $innerScript.=$fc->ScriptAmpliarFoto($id);
+foreach ($images as $image) {
+$count++;
+$id = "id" . $count;
+//$collage.="<img id='$id' class='img-fluid' src='$image' data-big='$image' data-overlay=''><br/>";// data-overlay="fondo.png"
+$collage.=ImagenCarrusel($id, $image);
 }
-$lupaScript=$fc->Lupa($innerScript);
+
+$collage .= '
+  </div>
+  
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+  </ol>
+</div>
+</div>
+</div>
+</div>';
+
+function ImagenCarrusel($id,$rutaImagen){
+    $active = "";
+    if($id == "id1")  $active = "active";
+
+    return '<div class="carousel-item '.$active.'">
+        <img src="'.$rutaImagen.'" class="d-block w-100" style="max-height: 800px;" alt="..." />
+      </div>';
+}
+
+
+//print_r($collage);
+;
+//$lupaScript=$fc->Lupa($innerScript);
 
 $modal="
 <table class='table table-borderless prodSize' style='color: white;'>
@@ -203,16 +241,38 @@ $h= $html->Html5(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
         $html->LoadStyles(["View/css/bootstrap.css","css/view.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css","css/menumovil.css"]),
-        $html->LoadScripts(["vendor/jquery/jquery.js","js/jquery.mlens-1.7.min.js","vendor/bootstrap/js/bootstrap.bundle.js", "js/index.js"]),
+        $html->LoadScripts(["vendor/jquery/jquery.js","js/jquery.mlens-1.7.min.js","vendor/bootstrap/js/bootstrap.bundle.js", "js/index.js","carousel.js"]),
         "<style>
-                    .sinpadding{
-                        margin: 0 !important;
-                        padding: 0 !important;
-                    }
-                    .modal-backdrop{
-                    background-color: transparent;
+                .sinpadding{
+                    margin: 0 !important;
+                    padding: 0 !important;
                 }
+                .modal-backdrop{
+                background-color: transparent;
+                }
+                .container-fluid{
+                    padding: 0 !important;
+                }
+                .row{
+                    margin: 0px !important;
+                }
+                .carousel-indicators li.active{
+                    background-color: black;
+                }
+                .carousel-indicators li {
+                    background-color: gray;
+                    height: 10px;
+                    width: 10px;
+                    border-radius: 50%;
+                  }
+                  .carousel-indicators{
+                    margin: 0px;
+                    bottom: -30px; 
+                    justify-content: normal; 
+                    padding-left: 40px;
+                  }
                </style>",
+
         '<script>
                   function go(url){
                       window.location.href=url;
@@ -225,7 +285,7 @@ $h= $html->Html5(
                       let id=str.replace("_", "\'");
                       go("view.php?id="+id);
                   }
-                  '.$lupaScript.'
+                  
                 </script>'
 
     ),
@@ -234,30 +294,24 @@ $h= $html->Html5(
         $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "cambiarLogoFijo()" , "index"),
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["'","","","","",""]),
         $fc->LogoNegro(),
-
+        $collage,
         $ui->ContainerFluid([
             $ui->Row([
-                $ui->Columns(
-                    $collage
-                    ,6,0,0,0,"paddingNone"),
-                $ui->Columns(
                     $ui->ContainerFluid([
-                            "<br/>",
+                            "<hr style='background-color: black; opacity: 1; margin: 0px 0px 10px 0px !important;' />" ,
                             $ui->Row([
-                                $ui->Columns("<p style='font-family: NHaasGroteskDSPro-65Md;'>$productWord</p>",12),
-
+                                $ui->Columns("<p style='font-family: NHaasGroteskDSPro-65Md;'>$productWord</p>",6),
                             ]),
                             $ui->Row([
                                 $ui->Columns("<p>$productInformation->Descripcion</p>",12),
 
                             ]),
-                            "<hr style='margin-top: 1em!important;'/>",
+                            "<hr style='margin: 10px 0px 10px 0px !important;' />",
                             $ui->Row([
                                 $ui->Columns($descripcionLarga,12,0,0,0,"small-font")
-
                             ]),
                             "<hr style='margin-top: 1em!important;'/>",
-                            "<div style='height: 25vh'>",
+                            "<div style='height: 25vh display: contents;'>",
                             "<label style='padding-left: 40px'>$price</label>",
                             "</div><hr style='margin: 0 0 0 0'/>",
                             $fc->SizeButton($botonTalla,$opcionesTallas),
@@ -269,12 +323,11 @@ $h= $html->Html5(
 //                        "<div class='container-fluid' style='position: fixed;bottom: 0;font-size: 0.9em;'>".
 //                            "<label><span>PRIVACY POLICY</span></label><label><span>SHIPPING RETURNS</span></label><label><button type='button' class='btn btn-link' style='text-decoration: none;color: black;padding: 0;border: none;font-weight: normal;font-size: 14.4px'  data-toggle='modal' data-target='#size'><span>SIZE GUIDE</span></button></label>".
 //                        "</div>"
-                    ,6,0,0,0,"left-top paddingNone")
             ],"main"),
-            $fc->TMenu(""),
-            $ui->ContainerFluid([
-            ], "contenedorIndex")
         ]),
+        $fc->TMenu(""),
+        $ui->ContainerFluid([
+        ], "contenedorIndex"),
         '
         <div class="modal" id="size" tabindex="-1" role="dialog" aria-labelledby="sizeLabel" aria-hidden="true" 
         style="background-color: rgba(255,255,255,0.6);">
