@@ -100,7 +100,6 @@ else{
 
 
 $tipoCambio=20;
-//$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
 $idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","INGRESO","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","LOGIN","ESPAÑOL","CART(*)"] ] ];
 
 $price=0;
@@ -155,19 +154,22 @@ foreach ($elements as $element){
     $code=$element["Clave"];
     $code=str_replace("'","_",$code);
     $js="view('$code')";
-    $htmlProducts.="<hr style='margin: 0;' />".$ui->Row([
-        $ui->Columns("",2),
-        $ui->Columns("<div style='cursor: pointer;' onclick=\"$js\"><img src='".$element["RutaImagen"]."' height='172'><div style='height: 100%;margin-left: 15px;display: inline-block;vertical-align: top;margin-top: 16px;'>".$element["Descripcion"]."</div></div>",4),
-        //$ui->Columns($element["Descripcion"],2),
-        $ui->Columns("<div style='margin-top: 16px;'>".$fc->Borrar($element).$fc->BotonEditar($element)."</form></div>",1),
-        $ui->Columns("<div style='margin-top: 16px;'>".$carrito["Talla"]."</div>",1),
-        $ui->Columns('',1),
-        $ui->Columns("<div style='margin-top: 16px; display: inline-block;'>".$price."</div>",3)
+    $htmlProducts.="<hr style='margin: 0; color:black; opacity: 1;' />".$ui->Row([
+            $ui->Columns("<div style='cursor: pointer;' onclick=\"$js\"><img src='".$element["RutaImagen"]."' style='width: 100%;' /></div>",0,0,0,0,"col-4"),
+            $ui->Columns(
+                $ui->Row([
+                    $ui->Columns("<div>".$element["Descripcion"]."</div>", 0, 0 ,0,0,"col"),
+                    $ui->Columns("<div>".$element["Descripcion"]."</div>", 0, 0 ,0,0,"col text-right mr-3")
+                ]).$ui->Row([
+                    $ui->Columns("<div style='margin-top: 16px;'>".$fc->Borrar($element)."<span class='mx-2'>".$fc->BotonEditar($element)."</span>".$carrito["Talla"]."</form></div>",
+                        0, 0 ,0,0,"col"),
+                ])
+                ,0,0,0,0,"col-8 mt-2"),
     ]);
 
     if($idiomaActual=="ENGLISH") $suma+=floatval($n*$element["CostoSale"]/$tipoCambio);else $suma+=floatval($n*$element["CostoSale"]);
 }
-$htmlProducts.="<hr style='margin-top: 0;' />";
+$htmlProducts.="<hr style='margin: 0; opacity: 1;' />";
 
 $idiomaInformativo = array("ENGLISH" => "SHIPPING & TAXES CALCULATED AT CHECKOUT", "ESPAÑOL" => "ENVIO E IMPUESTO CALCULADOS AL PAGAR");
 
@@ -220,26 +222,28 @@ $h= $html->Html5(
     $html->Body([
         $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "cambiarLogoFijo()" , "index"),
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","","","","'"]),
-        $fc->LogoNegro(),
-        $ui->ContainerFluid([
+        //$fc->LogoNegro(),
+        "<div id='logo'> </div>",
+        $ui->ContainerFluid([ "",
             //$ui->RowSpace("1em"),
             $htmlProducts,
             $ui->Row([
-                $ui->Columns("",7),
-                $ui->Columns("SUBTOTAL: ".$ui->Moneda($suma,),5)
-            ]),
+                $ui->Columns("",0,0,0,0,"col"),
+                $ui->Columns("SUBTOTAL:",0,0,0,0,"col text-center"),
+                $ui->Columns("".$ui->Moneda($suma),0,0,0,0,"col"),
+            ], "my-2"),
             "<button onclick='go(\"checkout.php\")' class='btn btn-dark btn-block' style='text-align: left;border-radius: 0'>
                 ".$ui->Row([
-                    $ui->Columns('',7),
-                    $ui->Columns('CHECKOUT',5,0,0,0,"")
+                    $ui->Columns('CHECKOUT',0,0,0,0,"col text-center")
                 ])."
             </button>",
             $ui->Row([
                 $ui->Columns("",7),
-                $ui->Columns("<p class='small'>$idiomaInformativo[$idiomaActual]</p>",5)
+                $ui->Columns("<p class='small'>$idiomaInformativo[$idiomaActual]</p>",5,0,0,0,"text-center")
             ]),
         ],"container"),
-        $fc->TMenu(""),
+        //$fc->TMenu(""),
+        "<label id='t'></label>",
         $ui->ContainerFluid([
         ], "contenedorIndex"),
         $fc->Aviso((count($elements)>2 ? "inherit": "absolute")),
