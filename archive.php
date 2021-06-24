@@ -132,10 +132,10 @@ $h= $html->Html5(
                     "
                         <table class='table table-borderless' style='width: 110%' >
                             <tr>
-                                <td><img width='300' src='img/0000-JALAPEÑO-back.jpg'></td>
+                                <td><img width='300' src='img/0000-JALAPENO-back.jpg'></td>
                                 <td><img width='300' src='img/0001-OBSIDIANA-back.jpg'></td>
                                 <td><img width='300' src='img/0002-TACUBAYA-back.jpg'></td>
-                                <td><img width='300' src='img/0003-AÑIL-back.jpg'></td>
+                                <td><img width='300' src='img/0003-ANIL-back.jpg'></td>
                             </tr>
                         </table>
                         ",11)
