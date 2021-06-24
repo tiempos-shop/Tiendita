@@ -22,6 +22,7 @@ function validarDimenciones() {
         document.getElementById('politicadesktop').classList.remove('d-flex');
         document.getElementById('politicadesktop').classList.add('d-none');
         document.getElementById('menu-movil-dorado').style.borderBottom = 'none';
+
         document.getElementById('lista-menu').style.left = separacionBotonMenu +'px';
         document.getElementById('logo').style.left = separacionCart +'px';
         document.getElementById('logo').style.width = anchoCart + 'px';

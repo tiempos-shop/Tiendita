@@ -6,7 +6,9 @@ var mostrarMenuMovilOrdenar = true;
 function validarDimenciones() {
     var alto = window.innerHeight;
     var ancho = window.innerWidth;
-
+    var separacionBotonMenu = document.getElementById("botonMenuMovil").offsetLeft;
+    var separacionCart = document.getElementById("carrito").offsetLeft;
+    var anchoCart = document.getElementById('carrito').offsetWidth;
     //document.getElementById('botonMenuMovil').style.color = 'black';
 
     ///PARA INICIO DE CARGA
@@ -20,6 +22,10 @@ function validarDimenciones() {
         document.getElementById('menufiltro').style.display = 'none';
         document.getElementById('politicadesktop').classList.remove('d-flex');
         document.getElementById('politicadesktop').classList.add('d-none');
+
+        document.getElementById('lista-menu').style.left = separacionBotonMenu +'px';
+        document.getElementById('logo').style.left = separacionCart +'px';
+        document.getElementById('logo').style.width = anchoCart + 'px';
         modoMovil = true;
     }
     else
@@ -70,6 +76,8 @@ function AbrirMenuMovil(esEjecucionAutomatica = false)
             document.getElementById('politica').classList.remove('d-none');
             document.getElementById('politicadesktop').classList.remove('d-flex');
             document.getElementById('politicadesktop').classList.add('d-none');
+
+            document.getElementById('lista-menu').style.display ='block';
             //politicadesktop
 
         }, 150);
@@ -80,7 +88,7 @@ function AbrirMenuMovil(esEjecucionAutomatica = false)
     {
 
         document.getElementById('menu-movil-dorado-opcion').style.height = '0';
-
+        document.getElementById('lista-menu').style.display ='none';
 
         document.getElementById('politica').classList.add('d-none');
 

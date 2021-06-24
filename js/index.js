@@ -14,11 +14,21 @@ function validarDimenciones() {
     var alto = window.innerHeight;
     var ancho = window.innerWidth;
 
+    //ajuste de elementos con relacion de boton y logo
+    var separacionBotonMenu = document.getElementById("botonMenuMovil").offsetLeft;
+    var separacionCart = document.getElementById("carrito").offsetLeft;
+    var anchoCart = document.getElementById('carrito').offsetWidth;
     document.getElementById('contenedorIndex').classList.add('ocultarmargen');
 
 
     if (ancho<=768)
     {
+
+        document.getElementById('menu-movil-dorado').style.transition = 'transition: background 0.2s ease 0s;';
+
+        document.getElementById('lista-menu').style.left = separacionBotonMenu +'px';
+        document.getElementById('logo').style.left = separacionCart +'px';
+        document.getElementById('logo').style.width = anchoCart + 'px';
         modoMovil = true;
 
     }
@@ -40,8 +50,9 @@ function cambiarLogoFijo(esEjecucionAutomatica = false)
         }, 50);
 
         setTimeout(function() {
-            document.getElementById('menu-movil-dorado-opcion').style.position = 'fixed';
-            document.getElementById('menu-movil-dorado-opcion').style.height = '100%';
+
+            document.getElementById('menu-movil-dorado-opcion').style.height = '100vh';
+            document.getElementById('menu-movil-dorado-opcion').style.marginTop = '-10vh';
             document.getElementById('menu-movil-dorado-opcion').style.background = 'white';
             document.getElementById('menu-movil-dorado').style.background = 'white';
             document.getElementById('menu-movil-dorado-opcion').style.left = '0';
@@ -50,21 +61,27 @@ function cambiarLogoFijo(esEjecucionAutomatica = false)
             document.getElementById('contenedorIndex').style.display = 'none';
             document.getElementById('t').style.display = 'none';
             document.getElementById('politica').classList.remove('d-none');
+            document.getElementById('lista-menu').style.display ='block';
         }, 150);
     }
     else
     {
         logo.src='img/ts_iso_oro.png';
         document.getElementById('menu-movil-dorado-opcion').style.height = '0';
-        document.getElementById('menu-movil-dorado').style.background = 'transparent';
+
         document.getElementById('politica').classList.add('d-none');
+        document.getElementById('lista-menu').style.display ='none';
         setTimeout(function() {
+
             document.getElementById('t').style.position = 'fixed';
             document.getElementById('botonMenuMovil').style.color = '#AC9950';
             document.getElementById('carrito').style.color = '#AC9950';
             document.getElementById('contenedorIndex').style.display = 'block';
             document.getElementById('t').style.display = 'block';
+            document.getElementById('menu-movil-dorado').style.background = 'transparent';
         }, 150);
+
+
     }
     if (!esEjecucionAutomatica) { mostrarMenu =! mostrarMenu; }
 }
