@@ -22,12 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="vista de privacidad y envio">
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Ajustes referente a otros elementos, alineación de menus logo">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2021_05_27_p__m__[Default_Changelist]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/FrontComponents.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/FrontComponents.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistasHtml.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistasHtml.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/menumovil.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/menumovil.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/menuprivacity.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/menuprivacity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/menushop.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/menushop.js" afterDir="false" />
     </list>
     <list id="0e8517e8-4849-4dba-b416-5f3e44a7d134" name="Archivos XML" comment="Para documentos basura">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_06_2021_05_34_p__m__[Default_Changelist]/shelved.patch" beforeDir="false" />
@@ -45,7 +46,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_06_2021_10_16_a__m___Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_06_2021_02_22_p__m___Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_06_2021_02_22_p__m___Revert__LOGIN__Signo_de_ojo_p.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2021_05_27_p__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2021_05_27_p__m___Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2021_05_27_p__m___Default_Changelist_.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -313,14 +314,8 @@
       <workItem from="1624313747071" duration="6147000" />
       <workItem from="1624330934547" duration="3600000" />
       <workItem from="1624334988982" duration="197000" />
-      <workItem from="1624413566135" duration="4513000" />
-    </task>
-    <task id="LOCAL-00080" summary="Correccion de Menu en Shop">
-      <created>1614275067241</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1614275067242</updated>
+      <workItem from="1624413566135" duration="4652000" />
+      <workItem from="1624487671486" duration="6295000" />
     </task>
     <task id="LOCAL-00081" summary="Seleccionar producto en Shop y dirigirlo a detalle de producto">
       <created>1614304943837</created>
@@ -658,7 +653,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624334458525</updated>
     </task>
-    <option name="localTasksCounter" value="129" />
+    <task id="LOCAL-00129" summary="Ajustes referente a otros elementos, alineación de menus logo">
+      <created>1624421248833</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1624421248833</updated>
+    </task>
+    <option name="localTasksCounter" value="130" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -689,7 +691,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Seleccionar producto en Shop y dirigirlo a detalle de producto" />
     <MESSAGE value="Vista detalle producto" />
     <MESSAGE value="Detalles" />
     <MESSAGE value="Imprints" />
@@ -714,7 +715,8 @@
     <MESSAGE value="menu filtro movil primera fase" />
     <MESSAGE value="cambio general en menu, estilo, y opciones de filtro y ordenamiento" />
     <MESSAGE value="vista de privacidad y envio" />
-    <option name="LAST_COMMIT_MESSAGE" value="vista de privacidad y envio" />
+    <MESSAGE value="Ajustes referente a otros elementos, alineación de menus logo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajustes referente a otros elementos, alineación de menus logo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
