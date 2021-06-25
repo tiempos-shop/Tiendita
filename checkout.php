@@ -58,8 +58,7 @@ else{
     $idiomaActual=$_SESSION["language"];
 }
 $tipoCambio=20;
-$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
-
+$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","INGRESO","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","LOGIN","ESPAÑOL","CART(*)" ] ] ];
 
 
 
@@ -69,7 +68,7 @@ $h= $html->Html5(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
         $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css","css/menumovil.css"]),
-        $html->LoadScripts(["View/js/bootstrap.js, js/index.js"]),
+        $html->LoadScripts(["View/js/bootstrap.js", "js/menucheckout.js"]),
         "",
         '<script>
                   function go(url){
@@ -88,15 +87,15 @@ $h= $html->Html5(
     ),
     $html->Body([
 
-        $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "cambiarLogoFijo()", "index"),
+        $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "AbrirMenuMovil()", "checkout"),
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","","'","",""]),
         "<div id='logo'> </div>",
         "<label id='t'></label>",
         $ui->ContainerFluid([
             $ui->Row([
 
-                $ui->Columns(" <hr style='opacity: 1; margin-inline: -15px; margin-top: 5px;' />  <label style='font-family: NHaasGroteskDSPro-65Md'>CHECKOUT</label>",12,0,0,0,"",
-                    "text-align:center;margin-top:0px")
+                $ui->Columns("<label style='font-family: NHaasGroteskDSPro-65Md;'>CHECKOUT</label>",12,0,0,0,"",
+                    "text-align:center;margin-top:15px")
             ]),
            // $ui->RowSpace("2vh"),
             "<hr style='opacity: 1; margin-inline: -15px'/>",
@@ -297,7 +296,7 @@ $h= $html->Html5(
             "<hr style='opacity: 1; margin-inline: -15px'/>",
             $ui->RowSpace("1vh"),
 
-        ]),
+        ], "checkout-contenedor"),
 
         $fc->MenuPrivacyReturn(true,true)
 
