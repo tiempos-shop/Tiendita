@@ -68,8 +68,8 @@ $h= $html->Html5(
     $html->Head(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
-        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
-        $html->LoadScripts(["View/js/bootstrap.js"]),
+        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css","css/menumovil.css"]),
+        $html->LoadScripts(["View/js/bootstrap.js, js/index.js"]),
         "",
         '<script>
                   function go(url){
@@ -88,21 +88,23 @@ $h= $html->Html5(
     ),
     $html->Body([
 
+        $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "cambiarLogoFijo()", "index"),
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","","'","",""]),
-
+        "<div id='logo'> </div>",
+        "<label id='t'></label>",
         $ui->ContainerFluid([
             $ui->Row([
 
-                $ui->Columns("<label style='font-family: NHaasGroteskDSPro-65Md'>CHECKOUT</label>",12,0,0,0,"",
-                    "text-align:center;margin-top:100px")
+                $ui->Columns(" <hr style='opacity: 1; margin-inline: -15px; margin-top: 5px;' />  <label style='font-family: NHaasGroteskDSPro-65Md'>CHECKOUT</label>",12,0,0,0,"",
+                    "text-align:center;margin-top:0px")
             ]),
-            $ui->RowSpace("2vh"),
-            "<hr style='opacity: 1'/>",
+           // $ui->RowSpace("2vh"),
+            "<hr style='opacity: 1; margin-inline: -15px'/>",
             $ui->RowSpace("1vh"),
             $ui->Row([
                 $ui->Columns("",2),
                 $ui->Columns(
-                    "SHIPPING ADDRESS",
+                    "<strong>SHIPPING ADDRESS</strong>",
                     4),
                 $ui->Columns(
                     "",
@@ -115,49 +117,58 @@ $h= $html->Html5(
                 $ui->Columns(
                     $fc->BlackInput("FIRST NAME","name"),
                     4),
+                $ui->RowSpace("0.7em"),
                 $ui->Columns(
                     $fc->BlackInput("LAST NAME","name"),
                     4),
                 $ui->Columns("",2),
             ]),
-            $ui->RowSpace("1em"),
+            $ui->RowSpace("0.7em"),
             $ui->Row([
                 $ui->Columns("",2),
                 $ui->Columns(
                     $fc->BlackInput("STREET ADDRESS","name"),
                     4),
+                $ui->RowSpace("0.7em"),
                 $ui->Columns(
                     $fc->BlackInput("COMPANY (OPTIONAL)","name"),
                     4),
                 $ui->Columns("",2),
             ]),
-            $ui->RowSpace("1em"),
+            $ui->RowSpace("0.7em"),
             $ui->Row([
                 $ui->Columns("",2),
                 $ui->Columns(
                     $fc->BlackInput("CITY","name"),
                     4),
+                $ui->RowSpace("0.7em"),
                 $ui->Columns(
                     $fc->BlackInput("ZIP OR POSTAL CODE","name"),
                     4),
                 $ui->Columns("",2),
             ]),
-            $ui->RowSpace("1em"),
+            $ui->RowSpace("0.7em"),
             $ui->Row([
                 $ui->Columns("",2),
                 $ui->Columns(
                     $fc->BlackInput("COUNTRY/REGION","name"),
                     4),
+                $ui->RowSpace("0.7em"),
                 $ui->Columns(
                     $fc->BlackInput("STATE/PROVINCE","name"),
                     4),
                 $ui->Columns("",2),
             ]),
+            $ui->RowSpace("0.7em"),
             $ui->RowSpace("2em"),
             $ui->Row([
                 $ui->Columns("",2),
                 $ui->Columns(
                     $fc->BlackInput("PHONE","name"),
+                    2),
+                $ui->RowSpace("0.7em"),
+                $ui->Columns(
+                    $fc->BlackInput("EMAIL","name"),
                     2),
                 $ui->Columns(
                     "",
@@ -166,13 +177,11 @@ $h= $html->Html5(
             ]),
             $ui->RowSpace("1em"),
             $ui->Row([
-                $ui->Columns("",2),
-                $ui->Columns(
-                    "<button class='btn btn-block btn-dark' formaction='customerLogin.php?action=create' type='submit' style='border-radius: 0;background-color: black;margin-top: 1em;'>SAVE</button>",
-                    2),
-                $ui->Columns(
-                    "<button class='btn btn-block btn-dark' formaction='customerLogin.php?action=create' type='submit' style='border-radius: 0;background-color: black;margin-top: 1em;'>CANCEL</button>",
-                    2),
+                $ui->Columns("<button class='btn btn-block btn-dark' formaction='customerLogin.php?action=create' type='submit' style='border-radius: 0;background-color: black;margin-top: 1em;'>SAVE</button>", 0,0,0,0,"col"),
+                $ui->Columns("<button class='btn btn-block btn' formaction='customerLogin.php?action=create' type='submit' style='border-color: black; border-radius:0;margin-top: 1em;'>CANCEL</button>",0,0,0,0, "col" ),
+                //$ui->Columns(
+
+                    //2),
                 $ui->Columns(
                     "",
                     4),
@@ -189,7 +198,7 @@ $h= $html->Html5(
                     4),
                 $ui->Columns("",2),
             ]),
-            "<hr style='opacity: 1'/>",
+            "<hr style='opacity: 1; margin-inline: -15px'/>",
             $ui->RowSpace("1vh"),
             $ui->Row([
                 $ui->Columns("",2),
@@ -213,7 +222,7 @@ $h= $html->Html5(
                 $ui->Columns("",2),
             ]),
             $ui->RowSpace("2vh"),
-            "<hr style='opacity: 1'/>",
+            "<hr style='opacity: 1;margin-inline: -15px'/>",
             $ui->RowSpace("1vh"),
             $ui->Row([
                 $ui->Columns("",2),
@@ -248,7 +257,7 @@ $h= $html->Html5(
                 $ui->Columns("",2),
             ]),
             $ui->RowSpace("2vh"),
-            "<hr style='opacity: 1'/>",
+            "<hr style='opacity: 1; margin-inline: -15px'/>",
             $ui->RowSpace("1vh"),
             $ui->Row([
                 $ui->Columns("",2),
@@ -266,27 +275,30 @@ $h= $html->Html5(
                 $ui->Columns(
                     $fc->BlackInput("CARD NUMBER","name"),
                     4),
+                $ui->RowSpace("0.7em"),
                 $ui->Columns(
                     $fc->BlackInput("EXPIRATION DAY","name"),
                     2),
                 $ui->Columns("",4),
             ]),
-            $ui->RowSpace("1em"),
+            $ui->RowSpace("0.7em"),
             $ui->Row([
                 $ui->Columns("",2),
                 $ui->Columns(
                     $fc->BlackInput("CARDHOLDDER´S NAME","name"),
                     4),
+                $ui->RowSpace("0.7em"),
                 $ui->Columns(
                     $fc->BlackInput("CVV","name"),
                     1),
                 $ui->Columns("",5),
             ]),
             $ui->RowSpace("2vh"),
-            "<hr style='opacity: 1'/>",
+            "<hr style='opacity: 1; margin-inline: -15px'/>",
             $ui->RowSpace("1vh"),
 
         ]),
+
         $fc->MenuPrivacyReturn(true,true)
 
 
