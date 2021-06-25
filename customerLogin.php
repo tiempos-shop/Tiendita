@@ -62,6 +62,7 @@ if(count($_POST)>0)
             case "google":
                 break;
             case "create":
+
                 $name=$_POST["name"];
                 $lastname=$_POST["lastname"];
                 $login=$_POST["login"];
@@ -74,7 +75,7 @@ if(count($_POST)>0)
                     $newsletter = false;
                     $news="No se solicito el servicio de Newsletter.";
                 };
-                $mensaje=
+                $mensaje="Test";/*
                     "
                     <h2>Registro de Nuevo Cliente</h2>
                     <h3>$name $lastname</h3>
@@ -84,9 +85,20 @@ if(count($_POST)>0)
                     <b>Saludos Cordiales</b>
                     <b>El equipo de tiempos Shop</b>
                     ";
+                    */
                 if($password1===$password2){
-                    $ui->SendMail("Tiempos Shop","tiempos.shop@gmail.com",$login,"Registro de Cliente Tiempos Shop",$mensaje);
-                    echo "<script>alert('Solicitud correcta. Se envio un correo a $login.')</script>";
+                    $ui->Debug($mensaje);
+                    $ui->Debug($login);
+                    if($ui->SendMail("Tiempos Shop","informes@softquimia.com",$login,"Registro de Cliente Tiempos Shop",$mensaje))
+                    {
+                        echo "<script>alert('Solicitud correcta. Se envio un correo a $login.')</script>";
+                    }
+                    else
+                    {
+                        echo "<script>alert('Error en el servidor de correos')</script>";
+                    }
+
+
                 }
                 else
                 {
@@ -166,6 +178,20 @@ $h= $html->Html5(
                           eye.classList.remove("fa-eye");
                       }
                   }
+                  function passwordValidate(){
+                      let password1=document.getElementById("password1");
+                      let password2=document.getElementById("password2");
+                      if(password1.value===password2.value){
+                          password1.style.borderColor="black";
+                          password2.style.borderColor="black";
+                          return true;
+                      }
+                      else {
+                          password1.style.borderColor="red";
+                          password2.style.borderColor="red";
+                          return false;
+                      }
+                  }
                 </script>'
 
     ),
@@ -227,13 +253,13 @@ $h= $html->Html5(
                             $ui->RowSpace("1vh"),
                             $fc->BlackInputType($idioma[$idiomaActual]["CREAR"][3],"login","email"),
                             $ui->RowSpace("1vh"),
-                            $fc->BlackInputType($idioma[$idiomaActual]["CREAR"][4],"password1","password",true),
+                            $fc->BlackInputTypeAttrib($idioma[$idiomaActual]["CREAR"][4],"password1","password",true,"onkeyup='passwordValidate()'"),
                             $ui->RowSpace("1vh"),
-                            $fc->BlackInputType($idioma[$idiomaActual]["CREAR"][5],"password2","password",true),
+                            $fc->BlackInputTypeAttrib($idioma[$idiomaActual]["CREAR"][5],"password2","password",true,"onkeyup='passwordValidate()'"),
                             $ui->RowSpace("1vh"),
                             "<input class='form-check-input' type='checkbox' id='newsletter' name='newsletter' style='border-radius: 10px;border-color: black'>".$idioma[$idiomaActual]["CREAR"][6]."</input>",
 
-                        ],"","<button class='btn btn-block btn-dark' formaction='customerLogin.php?action=create' type='submit' style='border-radius: 0;background-color: black;margin-top: 1em;'>".$idioma[$idiomaActual]["CREAR"][0]."</button>"),
+                        ],"","<button class='btn btn-block btn-dark' onclick='return passwordValidate()' formaction='customerLogin.php?action=create' type='submit' style='border-radius: 0;background-color: black;margin-top: 1em;'>".$idioma[$idiomaActual]["CREAR"][0]."</button>"),
                     ]),
                     4,0,0,0,"","text-align:center;"),
                 $ui->Columns("",4),

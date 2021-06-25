@@ -755,11 +755,12 @@ class Utilidades
         return $this->Row([$this->Columns("",12,12,12,12,"","height:".$unit)]);
     }
 
-    public function SendMail($fromName,$from,$to,$subject,$message){
+    public function SendMail($fromName,$from,$to,$subject,$message):bool
+    {
         $headers =  'MIME-Version: 1.0' . "\r\n";
         $headers .= 'From: '.$fromName.'<'.$from.'>' . "\r\n";
         $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-        mail($to,$subject,$message,$headers);
+        return mail($to,$subject,$message,$headers);
     }
 
 }
