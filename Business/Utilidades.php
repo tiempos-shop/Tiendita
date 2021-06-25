@@ -396,7 +396,7 @@ class Utilidades
         $html.=implode("",$content);
         $html.='
                 <div class="form-group row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12" style="padding: 0px;">
                         '.$button.'
                     </div>
                 </div>

@@ -587,14 +587,18 @@ class FrontComponents
 
     public function MenuPrivacyReturnView(bool $privacy,bool $return){
         $html= "
-            <div class='container-fluid' style='position: fixed;bottom: 0;font-size: 0.7rem; margin-top: calc(5% - 1rem);'>
-                <label class='mr-4'><span style='width: 10vw;'";
+            <div class='d-flex flex-row justify-content-between mt-3' style='position: relative;bottom: 0;font-size: 0.7rem;'>";
+
+        $html .= "<label class='ml-1'><span";
         if($privacy) $html.=" onclick='go(\"privacy.php\")'";
-        $html.=">PRIVACY POLICY</span></label><label class='mr-4'><span  style='width: 10vw;'";
+        $html.=">PRIVACY POLICY</span></label>";
+
+        $html.="<label><span";
         if($return) $html.=" onclick='go(\"shipping.php\")'";
         $html.=">SHIPPING RETURNS</span></label>";
-        $html.="<button type='button' class='btn btn-link' style='text-decoration: none;color: #212529;padding: 0;border: none;font-weight: normal; vertical-align: baseline;font-size: inherit !important;; '  data-toggle='modal' data-target='#size'><span>SIZE GUIDE</span></button>";
-        $html.="</div>";
+
+        $html.="<div class='mr-1'><button type='button' class='btn btn-link' style='text-decoration: none;color: #212529;padding: 0;border: none;font-weight: normal; vertical-align: baseline;font-size: inherit !important;; '  data-toggle='modal' data-target='#size'><span>SIZE GUIDE</span></button>";
+        $html.="</div> </div>";
 
         return $html;
     }
