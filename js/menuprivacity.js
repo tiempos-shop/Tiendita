@@ -15,6 +15,10 @@ function validarDimenciones() {
     var separacionBotonMenu = document.getElementById("botonMenuMovil").offsetLeft;
     var separacionCart = document.getElementById("carrito").offsetLeft;
     var anchoCart = document.getElementById('carrito').offsetWidth;
+
+    //ocultar logo en privacity
+    document.getElementById('logo').style.display = 'none';
+
     if (ancho<=768)
     {
         document.getElementById('t').classList.remove('d-block');
@@ -68,6 +72,7 @@ function AbrirMenuMovil(esEjecucionAutomatica = false)
         setTimeout(function() {
 
             document.getElementById('menu-movil-dorado-opcion').style.height = '90vh';
+            document.getElementById('logo').style.display = 'block';
 
             document.getElementById('privacity-content').style.display = 'none';
 
@@ -87,6 +92,8 @@ function AbrirMenuMovil(esEjecucionAutomatica = false)
         document.getElementById('menu-movil-dorado').style.borderBottom = '1px solid black';
         document.getElementById('menu-movil-dorado-opcion').style.height = '0';
 
+        //ocultar logo
+        document.getElementById('logo').style.display = 'none';
 
         document.getElementById('politica').classList.add('d-none');
         document.getElementById('lista-menu').style.display ='none';
@@ -118,9 +125,10 @@ function AbrirMenuMovil(esEjecucionAutomatica = false)
 
 
 
-
+///primer ejecucion por tiempo
 setTimeout( function () {
     validarDimenciones();
 }, 10);
 
+//para escuchar el evento de cambio de tamaño
 window.onresize = validarDimenciones;

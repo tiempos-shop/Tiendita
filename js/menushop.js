@@ -122,6 +122,9 @@ function AbrirMenuMovilFiltro(esEjecucionAutomatica = false)
     document.getElementById('menu-movil-dorado-opcion').style.height = '0';
     document.getElementById('menu-movil-ordenamiento').style.height = '0';
 
+    //para menu principal
+    document.getElementById('lista-menu').style.display ='none';
+
     mostrarMenu = true;
     mostrarMenuMovilOrdenar = true;
 
@@ -184,6 +187,9 @@ function AbrirMenuMovilOrdenar(esEjecucionAutomatica = false )
     //oculto los demas menos moviles
     document.getElementById('menu-movil-dorado-opcion').style.height = '0';
     document.getElementById('menu-movil-filtro').style.height = '0';
+    //para menu principal
+    document.getElementById('lista-menu').style.display ='none';
+
     mostrarMenu = true;
     mostrarMenuMovilOrdenar = true;
 
