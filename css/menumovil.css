@@ -130,6 +130,15 @@ a.elemento-menu-movil.carrito{
     margin-left: 0;
 }
 
+#menu-movil-filtro ul.navbar-nav {
+    top: 48vh;
+    position: absolute;
+}
+
+#menu-movil-ordenamiento ul.navbar-nav {
+    top: 48vh;
+    position: absolute;
+}
 @media (min-width: 576px) {
 
     #fotosprincipal {

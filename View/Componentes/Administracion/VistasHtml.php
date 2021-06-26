@@ -50,10 +50,26 @@ class VistasHtml
         return $html;
     }
 
-    public function  MenuMovil($idioma, $idiomaActual,int $numeroProductosCarrito=0, $funcionMenuCLick = "cambiarLogoFijo()", $clase = '')
+    public function  MenuMovil($idioma, $idiomaActual,int $numeroProductosCarrito=0, $funcionMenuCLick = "cambiarLogoFijo()", $clase = '', $numPaginaActual = -1, $filtroActual = -1, $ordenamientoActual = -1)
     {
         $fc=new \Tiendita\FrontComponents();
 
+        $caracterFocus = "'";
+
+        if (isset($idioma[ $idiomaActual ]["MENU"][$numPaginaActual]))
+        {
+            $idioma[ $idiomaActual ]["MENU"][$numPaginaActual] =   $idioma[ $idiomaActual ]["MENU"][$numPaginaActual].$caracterFocus;
+        }
+
+        if (isset($idioma[ $idiomaActual ]["ORDER"][$filtroActual]))
+        {
+            $idioma[ $idiomaActual ]["ORDER"][$filtroActual] = $idioma[ $idiomaActual ]["ORDER"][$filtroActual].$caracterFocus;
+        }
+
+        if (isset($idioma[ $idiomaActual ]["FILTER"][$ordenamientoActual]))
+        {
+            $idioma[ $idiomaActual ]["FILTER"][$ordenamientoActual] = $idioma[ $idiomaActual ]["FILTER"][$ordenamientoActual].$caracterFocus;
+        }
 
         $nav  = "<nav id='menu-movil-dorado' class='navbar navbar-inverse navbar-static-top  d-sm-block d-md-none d-block d-block ".$clase."' style='position: fixed; width: 100%; top:0; z-index: 2;left: 0;' role='navigation'>
                         <div class=''>
@@ -65,7 +81,6 @@ class VistasHtml
                         
                         <span>MENU</span>
                     </button>";
-
 
 
         if (isset($idioma[ $idiomaActual ]["MENU"][6]))
@@ -99,25 +114,35 @@ class VistasHtml
                             <span type='submit'>".$idioma[ $idiomaActual]["MENU"][4]."</span></button>
                         </form>
                     </ul>
-                </div>".
-            "<div id='menu-movil-filtro' class='collapse navbar-collapse'  >
-                    <ul class='nav navbar-nav row' style='padding: 35vh;padding-left: 2rem;margin-right: 0;'>
-                        <li class='col-md-2'><a href='shop.php?order=6'><span>SHOP ALL</span> </a></li>
-                        <li><a href='shop.php?order=7'><span>ACCESSORIES</span></a></li>
-                        <li><a href='shop.php?order=5'><strong>SALE'</strong></a></li>
+                </div>";
+
+        if (isset($idioma[ $idiomaActual]["ORDER"]))
+        {
+            $nav .= "<div id='menu-movil-filtro' class='collapse navbar-collapse'  >
+                    <ul id='lista-filtro' class='nav navbar-nav row' style=' padding-left: 2rem;margin-right: 0;'>
+                        <li ><a href='shop.php?order=6'><span>".$idioma[ $idiomaActual]["ORDER"][0]."</span> </a></li>
+                        <li><a href='shop.php?order=7'><span>".$idioma[ $idiomaActual]["ORDER"][1]."</span></a></li>
+                        <li><a href='shop.php?order=5'><strong>".$idioma[ $idiomaActual]["ORDER"][2]."</strong></a></li>
                     </ul>
-            </div>".
-            "<div id='menu-movil-ordenamiento' class='collapse navbar-collapse'  >
-                    <ul class='nav navbar-nav row' style='padding: 35vh;padding-left: 2rem;margin-right: 0;'>
+            </div>";
+
+        }
+
+        if (isset($idioma[ $idiomaActual]["FILTER"]))
+        {
+            $nav .= "<div id='menu-movil-ordenamiento' class='collapse navbar-collapse'  >
+                    <ul id='lista-orden' class='nav navbar-nav row' style='padding-left: 2rem;margin-right: 0;'>
                     
-                        <li class='col-md-2'><a href='shop.php?order=1' style='display: block'>FEATURED</a></li>
-                        <li><a href='shop.php?order=2' style='display: block'>A TO Z</a></li>
-                        <li><a href='shop.php?order=3' style='display: block'>PRICE LOW TO HIGH</a></li>
-                        <li><a href='shop.php?order=4' style='display: block'>PRICE HIGH TO LOW</a></li>
+                        <li class='col-md-2'><a href='shop.php?order=1' style='display: block'>".$idioma[ $idiomaActual]["FILTER"][0]."</a></li>
+                        <li><a href='shop.php?order=2' style='display: block'>".$idioma[ $idiomaActual]["FILTER"][1]."</a></li>
+                        <li><a href='shop.php?order=3' style='display: block'>".$idioma[ $idiomaActual]["FILTER"][2]."</a></li>
+                        <li><a href='shop.php?order=4' style='display: block'>".$idioma[ $idiomaActual]["FILTER"][3]."</a></li>
                         
                     </ul>
-            </div>"
-            .$fc->PoliticaPrivacidadMovil("fixed").
+            </div>";
+        }
+
+        $nav .= $fc->PoliticaPrivacidadMovil("fixed").
             "</nav>
                 ";
 

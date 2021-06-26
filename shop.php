@@ -22,6 +22,7 @@ $db=new \Tiendita\EntidadBase();
 
 $idiomaActual="";
 
+
 if(count($_POST)>0)
 {
     $idiomaActual=$_POST["language"];
@@ -34,9 +35,23 @@ else{
 
 $tipoCambio=20;
 
-$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","INGRESO","ENGLISH","CARRITO(*)", "FILTRO", "ORDERNAR"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","LOGIN","ESPAÑOL","CART(*)", "FILTER", "ORDER" ] ] ];
+$idioma=[ "ESPAÑOL"=>
+            [   "MENU"=>
+                    [ "TIENDA","ARCHIVO","MARCA","INGRESO","ENGLISH","CARRITO(*)", "FILTRO", "ORDERNAR"],
+                "ORDER"=>
+                    ["TODA LA TIENDA", "ACCESSORIOS" , "OFERTAS"],
+                "FILTER" => ["DESTACADOS", "NOMBRE", "PRECIO DE MÁS BAJO A MÁS ALTO", "PRECIO DE MÁS ALTO A MÁS BAJO"]],
+        "ENGLISH"=>
+            [   "MENU"=>
+                    [ "SHOP","ARCHIVE","IMPRINT","LOGIN","ESPAÑOL","CART(*)", "FILTER", "ORDER" ],
+                "ORDER"=>
+                    ["SHOP ALL", "ACCESSORIES" , "SALE"],
+                "FILTER" => ["FEATURED", "A TO Z", "PRICE LOW TO HIGH", "PRICE HIGH TO LOW"]]
+        ];
 
 
+$filtroActual = -1;
+$ordenActual = -1;
 
 if ($idioma[ $idiomaActual] == null)
 {
@@ -61,24 +76,40 @@ foreach ($products as $producto) {
 if(isset($_GET["order"])){
     $order=$_GET["order"];
     switch ($order){
+        case 1:
+            //destacados
+            $ordenActual = 0;
+            break;
         case 2:
+            //por nombre
+            $ordenActual = 1;
             $temp=array_multisort($filtroDescripcion,SORT_ASC,$products);
             break;
         case 3:
+            //PRECIO MAS BAJO
+            $ordenActual = 2;
             $temp=array_multisort($filtroPrecio,SORT_ASC,$products);
             break;
         case 4:
+            //PRECIO MAS ALTO
+            $ordenActual = 3;
             $temp=array_multisort($filtroPrecio,SORT_DESC,$products);
             break;
         case 5:
+            //ordenamiento en ofertas
+            $filtroActual = 2;
             $temp=[];
             foreach ($products as $product){
                 if($product->Sale==1)
                 $temp[]=$product;
             }
             $products=$temp;
+        case 6:
+            $filtroActual = 0;
+            break;
         case 7:
-
+            $filtroActual = 1;
+            break;
         default:
     }
 
@@ -154,7 +185,7 @@ $h= $html->Html5(
 
     ),
     $html->Body([
-        $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "AbrirMenuMovil()", "shop"),
+        $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "AbrirMenuMovil()", "shop", 0, $filtroActual, $ordenActual),
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["'","","","","",""]),
         $fc->LogoNegro(),
         "<div class='productos shop' id='contenedorIndex'>",

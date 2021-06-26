@@ -69,8 +69,8 @@ $h= $html->Html5(
         "<div id='privacity-content' >",
         "<div id='privacity-text'>",
         "<br/><br/><br/>",
-        "<p style='text-align: center'>SHIPPING & RETURNS</p>",
-        "<p style='text-align: center'>SHIPPING</p>",
+        "<b><p style='text-align: center'>SHIPPING & RETURNS</b></b>",
+        "<b><p style='text-align: center'>SHIPPING</p></b>",
         "<p>Shipping Information</p>",
         "<p style='text-align: justify'>
             Depending on the shipping service selected, orders placed on TIEMPOS.SHOP are delivered to the

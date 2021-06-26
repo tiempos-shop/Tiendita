@@ -71,8 +71,8 @@ $h= $html->Html5(
         "<div id='privacity-content' style=''>",
         "<div id='privacity-text' >",
         "<br/><br/><br/>",
-        "<p style='text-align: center'>EJEMPLO DE TEXTO PRIVACY POLICY</p>",
-        "<p style='text-align: center'>POLYCY</p>",
+        "<b><p style='text-align: center'>EJEMPLO DE TEXTO PRIVACY POLICY</p></b>",
+        "<b><p style='text-align: center'>POLYCY</p></b>",
         "<p>PRIVACY</p>",
         "<p style='text-align: justify'>
             Depending on the shipping service selected, orders placed on TIEMPOS.SHOP are delivered to the
