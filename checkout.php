@@ -88,6 +88,7 @@ $h= $html->Html5(
     $html->Body([
 
         $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "AbrirMenuMovil()", "checkout"),
+        '<br /><br />',
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","","'","",""]),
         "<div id='logo'> </div>",
         "<label id='t'></label>",
@@ -235,25 +236,19 @@ $h= $html->Html5(
             ]),
             $ui->RowSpace("2vh"),
             $ui->Row([
-                $ui->Columns("",2),
-                $ui->Columns(
-                    "<input class='form-check-input' type='checkbox' id='newsletter' name='newsletter' style='border-radius: 10px;border-color: black'> PAY WITH CREDIT OR DEBIT CARD</input>",
-                    4),
-                $ui->Columns(
-                    "<img id='pago-seguro' src='img/pago-seguro.png' class='img-fluid'/>",
-                    6,0,0,0,0,"")
-
-            ]),
-            $ui->RowSpace("1vh"),
-            $ui->Row([
-                $ui->Columns("",2),
-                $ui->Columns(
-                    "<input class='form-check-input' type='checkbox' id='newsletter' name='newsletter' style='border-radius: 10px;border-color: black'> PAY WITH PAYPAL</input>",
-                    4,0,0,0,0,"margin-top:-50px"),
-                $ui->Columns(
-                    "",
-                    4),
-                $ui->Columns("",2),
+                $ui->Columns($ui->Row([
+                    $ui->Columns(
+                        "<input class='form-check-input' type='checkbox' id='newsletter' name='newsletter' style='border-radius: 10px;border-color: black'> PAY WITH CREDIT OR DEBIT CARD</input>",
+                        12,0,12),
+                    $ui->Columns(
+                        "<input class='form-check-input' type='checkbox' id='newsletter' name='newsletter' style='border-radius: 10px;border-color: black'> PAY WITH PAYPAL</input>",
+                        12,0,12,0,0),
+                ]),6,0,12),
+                $ui->Columns($ui->Row([
+                    $ui->Columns(
+                        "<img id='pago-seguro' src='img/pago-seguro.png' class='img-fluid mt-2'/>",
+                        12,0,12,0,0,"")
+                ]),6,0,12),
             ]),
             $ui->RowSpace("2vh"),
             "<hr style='opacity: 1; margin-inline: -15px'/>",
@@ -284,7 +279,7 @@ $h= $html->Html5(
             $ui->Row([
                 $ui->Columns("",2),
                 $ui->Columns(
-                    $fc->BlackInput("CARDHOLDDER´S NAME","name"),
+                    $fc->BlackInput("CARD HOLDER´S NAME","name"),
                     4),
                 $ui->RowSpace("0.7em"),
                 $ui->Columns(
