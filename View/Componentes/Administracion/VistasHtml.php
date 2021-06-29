@@ -116,31 +116,56 @@ class VistasHtml
                     </ul>
                 </div>";
 
-        if (isset($idioma[ $idiomaActual]["ORDER"]))
-        {
-            $nav .= "<div id='menu-movil-filtro' class='collapse navbar-collapse'  >
-                    <ul id='lista-filtro' class='nav navbar-nav row' style=' padding-left: 2rem;margin-right: 0;'>
-                        <li ><a href='shop.php?order=6'><span>".$idioma[ $idiomaActual]["ORDER"][0]."</span> </a></li>
-                        <li><a href='shop.php?order=7'><span>".$idioma[ $idiomaActual]["ORDER"][1]."</span></a></li>
-                        <li><a href='shop.php?order=5'><strong>".$idioma[ $idiomaActual]["ORDER"][2]."</strong></a></li>
-                    </ul>
-            </div>";
-
-        }
-
         if (isset($idioma[ $idiomaActual]["FILTER"]))
         {
+            $nav .= "<div id='menu-movil-filtro' class='collapse navbar-collapse'  >
+                    <ul id='lista-filtro' class='nav navbar-nav row' style='margin-right: 0;'>";
+
+            $indexFiltro = 0;
+
+
+
+            foreach ($idioma[$idiomaActual]["FILTER"] as $filtro => $valor) {
+
+                if (is_array($valor))
+                {
+
+                    $nav .= "<li class='opcion'><a href='#' style='display: block'>". $filtro."</a>";
+                    $nav .="<ul class='navbar-nav'>";
+                    foreach ($valor as $elemento)
+                    {
+                        $nav .= "<li class='elemento' ><a href='#' style='display: block'>".$elemento."</a>";
+                    }
+                    $nav .="</ul>";
+                    $nav .= "</li>";
+                }
+                else
+                {
+                    $nav .= "<li class='opcion'><a href='".$idioma[$idiomaActual]["ACCIONFILTRO"][$indexFiltro]."' style='display: block'>".$valor."</a></li>";
+
+                }
+
+                $nav .= "</li>";
+                $indexFiltro++;
+            }
+
+            $nav .= " </ul>
+                </div>";
+        }
+
+        if (isset($idioma[ $idiomaActual]["ORDER"]))
+        {
             $nav .= "<div id='menu-movil-ordenamiento' class='collapse navbar-collapse'  >
-                    <ul id='lista-orden' class='nav navbar-nav row' style='padding-left: 2rem;margin-right: 0;'>
-                    
-                        <li class='col-md-2'><a href='shop.php?order=1' style='display: block'>".$idioma[ $idiomaActual]["FILTER"][0]."</a></li>
-                        <li><a href='shop.php?order=2' style='display: block'>".$idioma[ $idiomaActual]["FILTER"][1]."</a></li>
-                        <li><a href='shop.php?order=3' style='display: block'>".$idioma[ $idiomaActual]["FILTER"][2]."</a></li>
-                        <li><a href='shop.php?order=4' style='display: block'>".$idioma[ $idiomaActual]["FILTER"][3]."</a></li>
-                        
+                    <ul id='lista-orden' class='nav navbar-nav row' style='margin-right: 0;'>
+                        <li class='col-md-2'><a href='shop.php?order=1' style='display: block'>".$idioma[ $idiomaActual]["ORDER"][0]."</a></li>
+                        <li><a href='shop.php?order=2' style='display: block'>".$idioma[ $idiomaActual]["ORDER"][1]."</a></li>
+                        <li><a href='shop.php?order=3' style='display: block'>".$idioma[ $idiomaActual]["ORDER"][2]."</a></li>
+                        <li><a href='shop.php?order=4' style='display: block'>".$idioma[ $idiomaActual]["ORDER"][3]."</a></li>
                     </ul>
             </div>";
         }
+
+
 
         $nav .= $fc->PoliticaPrivacidadMovil("fixed").
             "</nav>

@@ -130,9 +130,18 @@ a.elemento-menu-movil.carrito{
     margin-left: 0;
 }
 
-#menu-movil-filtro ul.navbar-nav {
-    top: 48vh;
+#menu-movil-filtro ul#lista-filtro.navbar-nav {
+    top: 20vh;
     position: absolute;
+}
+
+#lista-filtro li.opcion {
+    margin-bottom: 2rem;
+}
+
+#lista-filtro li.elemento a {
+    color: black;
+    margin-left: 1.2rem;
 }
 
 #menu-movil-ordenamiento ul.navbar-nav {
