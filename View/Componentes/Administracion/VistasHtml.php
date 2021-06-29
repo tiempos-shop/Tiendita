@@ -145,28 +145,6 @@ class VistasHtml
 
                 }
 
-
-                /*
-                if (is_array($idioma[$idiomaActual]["FILTER"][$indexFiltro]))
-                {
-
-                    $nav .= "<li ><a href='" . $filtro . "' style='display: block'>";
-                }
-                else
-                {
-
-                    $nav .= "<li ><a href='" . $valor . "' style='display: block'>";
-                }
-                */
-                /*
-                $nav .= "<li ><a href='" . $filtro . "' style='display: block'>";
-
-                if (is_array($idioma[$idiomaActual]["FILTER"][$indexFiltro])) {
-                    $nav .= $filtro."</a>";
-                } else {
-                    $nav .= $idioma[$idiomaActual]["FILTER"][$indexFiltro] . "</a>";
-                }
-                */
                 $nav .= "</li>";
                 $indexFiltro++;
             }
@@ -178,7 +156,7 @@ class VistasHtml
         if (isset($idioma[ $idiomaActual]["ORDER"]))
         {
             $nav .= "<div id='menu-movil-ordenamiento' class='collapse navbar-collapse'  >
-                    <ul id='lista-orden' class='nav navbar-nav row' style=' padding-left: 2rem;margin-right: 0;'>
+                    <ul id='lista-orden' class='nav navbar-nav row' style='margin-right: 0;'>
                         <li class='col-md-2'><a href='shop.php?order=1' style='display: block'>".$idioma[ $idiomaActual]["ORDER"][0]."</a></li>
                         <li><a href='shop.php?order=2' style='display: block'>".$idioma[ $idiomaActual]["ORDER"][1]."</a></li>
                         <li><a href='shop.php?order=3' style='display: block'>".$idioma[ $idiomaActual]["ORDER"][2]."</a></li>
