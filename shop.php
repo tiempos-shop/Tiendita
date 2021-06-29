@@ -35,18 +35,23 @@ else{
 
 $tipoCambio=20;
 
+//Opciones de filtro para las acciones que tendran, respecto a su pocisión
+$accionFiltro = ["shop.php?order=6", "#", "#", "shop.php?order=7","shop.php?order=5"];
+
 $idioma=[ "ESPAÑOL"=>
             [   "MENU"=>
                     [ "TIENDA","ARCHIVO","MARCA","INGRESO","ENGLISH","CARRITO(*)", "FILTRO", "ORDERNAR"],
-                "ORDER"=>
-                    ["TODA LA TIENDA", "ACCESSORIOS" , "OFERTAS"],
-                "FILTER" => ["DESTACADOS", "NOMBRE", "PRECIO DE MÁS BAJO A MÁS ALTO", "PRECIO DE MÁS ALTO A MÁS BAJO"]],
+                "FILTER"=>
+                    ["TODA LA TIENDA", "HOMBRE" => ["CAMISAS", "PANTALON", "ZAPATOS"], "MUJER" => ["CAMISAS", "PANTALON", "ZAPATOS"], "ACCESSORIOS" , "OFERTAS"],
+                "ORDER" => ["DESTACADOS", "NOMBRE", "PRECIO DE MÁS BAJO A MÁS ALTO", "PRECIO DE MÁS ALTO A MÁS BAJO"],
+                "ACCIONFILTRO"=> $accionFiltro],
         "ENGLISH"=>
             [   "MENU"=>
                     [ "SHOP","ARCHIVE","IMPRINT","LOGIN","ESPAÑOL","CART(*)", "FILTER", "ORDER" ],
-                "ORDER"=>
-                    ["SHOP ALL", "ACCESSORIES" , "SALE"],
-                "FILTER" => ["FEATURED", "A TO Z", "PRICE LOW TO HIGH", "PRICE HIGH TO LOW"]]
+                "FILTER"=>
+                    ["SHOP ALL", "MEN" => ["TOPS", "PANTS", "SHOES"], "WOMENS" => ["TOPS", "PANTS", "SHOES"], "ACCESSORIES" , "SALE"],
+                "ORDER" => ["FEATURED", "A TO Z", "PRICE LOW TO HIGH", "PRICE HIGH TO LOW"],
+                "ACCIONFILTRO"=> $accionFiltro],
         ];
 
 

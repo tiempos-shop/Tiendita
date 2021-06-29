@@ -24,6 +24,8 @@ function validarDimenciones() {
         document.getElementById('politicadesktop').classList.add('d-none');
 
         document.getElementById('lista-menu').style.left = separacionBotonMenu +'px';
+        document.getElementById('lista-filtro').style.left = separacionBotonMenu +'px';
+        document.getElementById('lista-orden').style.left = separacionBotonMenu +'px';
         document.getElementById('logo').style.left = separacionCart +'px';
         document.getElementById('logo').style.width = anchoCart + 'px';
         modoMovil = true;

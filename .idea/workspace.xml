@@ -22,13 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="elementos de menu alineados con el logo respecto a cart">
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="TS-82 negrita de pp y ship, pintar comillas en order y filtro">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistasHtml.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistasHtml.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/menumovil.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/menumovil.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/menushop.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/menushop.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/privacy.php" beforeDir="false" afterPath="$PROJECT_DIR$/privacy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shipping.php" beforeDir="false" afterPath="$PROJECT_DIR$/shipping.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/shop.php" afterDir="false" />
     </list>
     <list id="0e8517e8-4849-4dba-b416-5f3e44a7d134" name="Archivos XML" comment="Para documentos basura">
@@ -320,14 +318,8 @@
       <workItem from="1624573372067" duration="3197000" />
       <workItem from="1624660391239" duration="6864000" />
       <workItem from="1624670470412" duration="1994000" />
-      <workItem from="1624672500054" duration="457000" />
-    </task>
-    <task id="LOCAL-00083" summary="Vista detalle producto">
-      <created>1614651285619</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1614651285620</updated>
+      <workItem from="1624672500054" duration="578000" />
+      <workItem from="1624919686937" duration="13377000" />
     </task>
     <task id="LOCAL-00084" summary="Detalles">
       <created>1614788912267</created>
@@ -665,7 +657,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624580107244</updated>
     </task>
-    <option name="localTasksCounter" value="132" />
+    <task id="LOCAL-00132" summary="TS-82 negrita de pp y ship, pintar comillas en order y filtro">
+      <created>1624673049379</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1624673049379</updated>
+    </task>
+    <option name="localTasksCounter" value="133" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -696,7 +695,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Imprints" />
     <MESSAGE value="archive" />
     <MESSAGE value="Correccion MAC" />
     <MESSAGE value="Carrito" />
@@ -721,6 +719,7 @@
     <MESSAGE value="Ajustes referente a otros elementos, alineación de menus logo" />
     <MESSAGE value="ajustes iniciales para alineacion de elementos en menu" />
     <MESSAGE value="elementos de menu alineados con el logo respecto a cart" />
-    <option name="LAST_COMMIT_MESSAGE" value="elementos de menu alineados con el logo respecto a cart" />
+    <MESSAGE value="TS-82 negrita de pp y ship, pintar comillas en order y filtro" />
+    <option name="LAST_COMMIT_MESSAGE" value="TS-82 negrita de pp y ship, pintar comillas en order y filtro" />
   </component>
 </project>
