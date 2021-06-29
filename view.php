@@ -292,6 +292,7 @@ $h= $html->Html5(
     $html->Body([
 
         $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "cambiarLogoFijo()" , "index"),
+        '<br /><br />',
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["'","","","","",""]),
         $fc->LogoNegro(),
         $collage,

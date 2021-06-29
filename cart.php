@@ -159,7 +159,7 @@ foreach ($elements as $element){
             $ui->Columns(
                 $ui->Row([
                     $ui->Columns("<div>".$element["Descripcion"]."</div>", 0, 0 ,0,0,"col"),
-                    $ui->Columns("<div>".$element["Descripcion"]."</div>", 0, 0 ,0,0,"col text-right mr-3")
+                    $ui->Columns("<div>".$element["CostoSale"]."</div>", 0, 0 ,0,0,"col text-right mr-3")
                 ]).$ui->Row([
                     $ui->Columns("<div style='margin-top: 16px;'>".$fc->Borrar($element)."<span class='mx-2'>".$fc->BotonEditar($element)."</span>".$carrito["Talla"]."</form></div>",
                         0, 0 ,0,0,"col"),
@@ -221,6 +221,7 @@ $h= $html->Html5(
     ),
     $html->Body([
         $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "cambiarLogoFijo()" , "index"),
+        '<br /><br />',
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","","","","'"]),
         //$fc->LogoNegro(),
         "<div id='logo'> </div>",
