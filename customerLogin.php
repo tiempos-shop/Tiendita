@@ -58,6 +58,7 @@ if(count($_POST)>0)
             case "forgot":
                 break;
             case "facebook":
+                $ui->Debug($_POST);
                 break;
             case "google":
                 break;
@@ -87,11 +88,26 @@ if(count($_POST)>0)
                     ";
                     */
                 if($password1===$password2){
-                    $ui->Debug($mensaje);
-                    $ui->Debug($login);
+                    //$ui->Debug($mensaje);
+                    //$ui->Debug($login);
                     if($ui->SendMail("Tiempos Shop","informes@softquimia.com",$login,"Registro de Cliente Tiempos Shop",$mensaje))
                     {
                         echo "<script>alert('Solicitud correcta. Se envio un correo a $login.')</script>";
+                        $cliente=new \Tiendita\Clientes();
+                        $cliente->Nombre=$name;
+                        $cliente->Apellidos=$lastname;
+                        $cliente->FechaCambio=$ui->FechaHoy();
+                        $cliente->CorreoElectronico->$login;
+                        $cliente->Password=$password1;
+
+                        $clientes=new \Tiendita\ModeloClientes();
+                        try {
+                            $clientes->insert($cliente);
+                            $clientes->SaveAll();
+                        }catch (mysqli_sql_exception $exception){
+                            $ui->Debug($exception);
+                        }
+
                     }
                     else
                     {
@@ -136,7 +152,7 @@ $h= $html->Html5(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
         $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
-        $html->LoadScripts(["View/js/bootstrap.js"]),
+        $html->LoadScripts(["vendor/jquery/jquery.js","View/js/bootstrap.js"]),
         "
             <style>
                 
@@ -192,6 +208,40 @@ $h= $html->Html5(
                           return false;
                       }
                   }
+                  
+                  
+                  
+                  window.fbAsyncInit = function() {
+                    FB.init({
+                        appId            : "836095217243492",
+                        autoLogAppEvents : true,
+                        xfbml            : true,
+                        version          : "v11.0"
+                    });
+                  };
+                  
+                  function loginFacebook(){
+                      FB.login(function(response) {
+                        if (response.authResponse) {
+                            console.log("Bienvenido!  Información");
+                            FB.api("/me", function(response) {
+                                alert("Gracias " + response.name + " por autorizar a Tiempos Shop el uso de tus datos en facebook, haremos uso de tu correo " + response.email + " para tu registro.");
+                                const email=document.getElementById("email");
+                                email.value=response.email;
+                                return true;
+                            });
+                        } 
+                        else 
+                        {
+                            alert("El usuario no autorizó.");
+                            return false;
+                        }
+                    });
+                  }
+                  
+                                 
+                  
+                  
                 </script>'
 
     ),
@@ -199,11 +249,8 @@ $h= $html->Html5(
         // Load Facebook button
         "
             <div id=\"fb-root\"></div>
-            <script async defer 
-                crossorigin=\"anonymous\" 
-                src=\"https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v9.0&appId=1794600520762591&autoLogAppEvents=1\" 
-                nonce=\"wlJTE7aj\">
-            </script>",
+            <script async defer crossorigin='anonymous' src='https://connect.facebook.net/en_US/sdk.js'></script>
+        ",
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","","'","",""]),
         $fc->LogoNegro(),
         $fc->TMenu(""),
@@ -227,8 +274,9 @@ $h= $html->Html5(
                             "<button type='submit' formaction='customerLogin.php?action=forgot' class='btn small-font'>".$idioma[$idiomaActual]["LOGIN"][3]."</button>",
                         ],"","<button class='btn btn-block btn-dark' formaction='customerLogin.php?action=login' type='submit' style='border-radius: 0;background-color: black;'>".$idioma[$idiomaActual]["LOGIN"][0]."</button>"),
                         $ui->RowSpace("1vh"),
-                        $ui->FormButtom([],"","<button class='btn btn-block' formaction='customerLogin.php?action=facebook' type='submit' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][4]."</button>"),
-                        $ui->FormButtom([],"","<button class='btn btn-block' formaction='customerLogin.php?action=google' type='submit' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][5]."</button>")
+                        "<button onclick='return loginFacebook()' class='btn btn-block' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][4]."</button>",
+                        //$ui->FormButtom([ $ui->Input("email","","","F",false) ],"","<button onclick='return loginFacebook()' class='btn btn-block' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][4]."</button>"),
+                        $ui->FormButtom([ ],"","<button class='btn btn-block' formaction='customerLogin.php?action=google' type='submit' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][5]."</button>")
 
                     ]),
                 4,0,0,0,"","text-align:center;"),

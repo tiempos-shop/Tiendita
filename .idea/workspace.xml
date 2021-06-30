@@ -23,11 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_02_2021_04_40_p__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_02_2021_04_40_p__m___Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2021_05_27_p__m__[Default_Changelist]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2021_05_27_p__m___Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/FrontComponents.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/FrontComponents.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/Utilidades.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/Utilidades.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/customerLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/customerLogin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +123,7 @@
       <recent name="C:\Users\Egil\PhpstormProjects\Tiendita" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Web Page.XAMPP">
+  <component name="RunManager" selected="PHP Web Page.XAMPP SSL">
     <configuration name="Admin Script" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/login.php">
       <CommandLine>
         <PhpTestInterpreterSettings>
@@ -150,6 +149,9 @@
     <configuration name="Shop" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="XAMPP Server" start_url="http://localhost:63342/Tiendita/shop.php">
       <method v="2" />
     </configuration>
+    <configuration name="XAMPP SSL" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="XAMPP Server" start_url="https://localhost:63342/Tiendita/index.php">
+      <method v="2" />
+    </configuration>
     <configuration name="XAMPP" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="XAMPP Server" start_url="http://localhost:63342/Tiendita/index.php">
       <method v="2" />
     </configuration>
@@ -158,8 +160,9 @@
       <item itemvalue="PHP Script.INDEX Script" />
       <item itemvalue="PHP Script.bag.php" />
       <item itemvalue="PHP Web Page.Admin" />
-      <item itemvalue="PHP Web Page.Shop" />
       <item itemvalue="PHP Web Page.XAMPP" />
+      <item itemvalue="PHP Web Page.XAMPP SSL" />
+      <item itemvalue="PHP Web Page.Shop" />
     </list>
     <recent_temporary>
       <list>
@@ -296,14 +299,9 @@
       <workItem from="1624473727228" duration="4791000" />
       <workItem from="1624549613942" duration="5033000" />
       <workItem from="1624578231152" duration="478000" />
-      <workItem from="1624630456599" duration="6357000" />
-    </task>
-    <task id="LOCAL-00076" summary="Imagenes de SHOP de Base de datos">
-      <created>1613786213101</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1613786213101</updated>
+      <workItem from="1624630456599" duration="8612000" />
+      <workItem from="1624890587285" duration="4574000" />
+      <workItem from="1624898067771" duration="20132000" />
     </task>
     <task id="LOCAL-00077" summary="Imagenes de SHOP de Base de datos">
       <created>1614017381751</created>
@@ -641,7 +639,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624397519806</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="Envio de Correo en Login y Validacion con bordes Rojos en passwords">
+      <created>1624662623459</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1624662623459</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -672,7 +677,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Imagenes de SHOP de Base de datos. Efecto Back" />
     <MESSAGE value="Correccion de arreglo de fotografias producto" />
     <MESSAGE value="Correccion de Menu en Shop" />
     <MESSAGE value="Seleccionar producto en Shop y dirigirlo a detalle de producto" />
@@ -697,6 +701,7 @@
     <MESSAGE value="Correccion comilla menu Producto Detalle" />
     <MESSAGE value="Correccion Menu privacy.php y shipping.php" />
     <MESSAGE value="Cambios en el Login" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambios en el Login" />
+    <MESSAGE value="Envio de Correo en Login y Validacion con bordes Rojos en passwords" />
+    <option name="LAST_COMMIT_MESSAGE" value="Envio de Correo en Login y Validacion con bordes Rojos en passwords" />
   </component>
 </project>
