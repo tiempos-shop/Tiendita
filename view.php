@@ -229,6 +229,22 @@ $h= $html->Html5(
                     justify-content: normal; 
                     padding-left: 40px;
                   }
+                  
+                   .prodSize{
+                    text-align: center;
+                    color:white;
+                }
+                .prodSize > tbody > tr > td:first-child {
+                    text-align: left; 
+                    
+                }
+                .prodSize > tbody > tr{
+                 border-bottom: 1px solid black;
+                }
+                .prodSize > tbody > tr:last-child{
+                    border: none;
+                }
+                  
                </style>",
 
         '<script>
