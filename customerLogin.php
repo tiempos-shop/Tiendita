@@ -223,11 +223,13 @@ $h= $html->Html5(
                   function loginFacebook(){
                       FB.login(function(response) {
                         if (response.authResponse) {
-                            console.log("Bienvenido!  Información");
                             FB.api("/me", function(response) {
-                                alert("Gracias " + response.name + " por autorizar a Tiempos Shop el uso de tus datos en facebook, haremos uso de tu correo " + response.email + " para tu registro.");
+                                alert("Gracias " + response.name + " por autorizar a Tiempos Shop el uso de tus datos en facebook, haremos uso de tu correo " + response + " para tu registro.");
+                                console.log(response);
                                 const email=document.getElementById("email");
-                                email.value=response.email;
+                                const name=document.getElementById("name");
+                                email.value=response.appid;
+                                name.value=response.name;
                                 return true;
                             });
                         } 
@@ -237,6 +239,7 @@ $h= $html->Html5(
                             return false;
                         }
                     });
+                    return false;
                   }
                   
                                  
@@ -274,8 +277,14 @@ $h= $html->Html5(
                             "<button type='submit' formaction='customerLogin.php?action=forgot' class='btn small-font'>".$idioma[$idiomaActual]["LOGIN"][3]."</button>",
                         ],"","<button class='btn btn-block btn-dark' formaction='customerLogin.php?action=login' type='submit' style='border-radius: 0;background-color: black;'>".$idioma[$idiomaActual]["LOGIN"][0]."</button>"),
                         $ui->RowSpace("1vh"),
-                        "<button onclick='return loginFacebook()' class='btn btn-block' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][4]."</button>",
-                        //$ui->FormButtom([ $ui->Input("email","","","F",false) ],"","<button onclick='return loginFacebook()' class='btn btn-block' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][4]."</button>"),
+                        //"<button onclick='return loginFacebook()' class='btn btn-block' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][4]."</button>",
+                        $ui->FormButtom(
+                            [
+                                $ui->Input("email","","NA","F",false),
+                                $ui->Input("name","","NA","F",false),
+                            ],
+                            "",
+                            "<button type='submit' formaction='customerLogin.php?action=facebook' onclick='return loginFacebook()' class='btn btn-block' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][4]."</button>"),
                         $ui->FormButtom([ ],"","<button class='btn btn-block' formaction='customerLogin.php?action=google' type='submit' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][5]."</button>")
 
                     ]),

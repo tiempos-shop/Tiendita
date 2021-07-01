@@ -25,6 +25,7 @@
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/Connection/EntidadBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Connection/EntidadBase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customerLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/customerLogin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,14 +299,7 @@
       <workItem from="1624578231152" duration="478000" />
       <workItem from="1624630456599" duration="8612000" />
       <workItem from="1624890587285" duration="4574000" />
-      <workItem from="1624898067771" duration="22944000" />
-    </task>
-    <task id="LOCAL-00078" summary="Imagenes de SHOP de Base de datos. Efecto Back">
-      <created>1614040878814</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1614040878814</updated>
+      <workItem from="1624898067771" duration="26223000" />
     </task>
     <task id="LOCAL-00079" summary="Correccion de arreglo de fotografias producto">
       <created>1614119418403</created>
@@ -643,7 +637,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625097051847</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="Activacion de base de datos">
+      <created>1625161462823</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1625161462823</updated>
+    </task>
+    <option name="localTasksCounter" value="128" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -674,7 +675,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Correccion de Menu en Shop" />
     <MESSAGE value="Seleccionar producto en Shop y dirigirlo a detalle de producto" />
     <MESSAGE value="Vista detalle producto" />
     <MESSAGE value="Detalles" />
@@ -699,6 +699,7 @@
     <MESSAGE value="Cambios en el Login" />
     <MESSAGE value="Envio de Correo en Login y Validacion con bordes Rojos en passwords" />
     <MESSAGE value="Facebook" />
-    <option name="LAST_COMMIT_MESSAGE" value="Facebook" />
+    <MESSAGE value="Activacion de base de datos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Activacion de base de datos" />
   </component>
 </project>

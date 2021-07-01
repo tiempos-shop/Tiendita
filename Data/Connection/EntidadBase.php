@@ -19,6 +19,7 @@ class EntidadBase{
     public function SaveAll(){
         $querys=implode(" ",$this->sqlSaveCache);
         $this->db->multi_query($querys);
+        $this->sqlSaveCache=[];
     }
 
     public function __construct() {
