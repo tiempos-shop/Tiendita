@@ -175,7 +175,7 @@ function ImagenCarrusel($id,$rutaImagen){
 //$lupaScript=$fc->Lupa($innerScript);
 
 $modal="
-<table class='table table-borderless prodSize' style='color: white;'>
+<table class='table table-borderless prodSize' style='color: black;'>
     <thead>
         <tr>
             <td></td>
@@ -326,14 +326,14 @@ $h= $html->Html5(
         <div class="modal" id="size" tabindex="-1" role="dialog" aria-labelledby="sizeLabel" aria-hidden="true" 
         style="background-color: rgba(255,255,255,0.6);">
           <div class="modal-dialog modal-dialog-centered" style="max-width: 700px;" role="document">
-            <div class="modal-content" style="border-radius: 0;border: 0 solid transparent;background-color: black; color: white;">
-              <div class="modal-header" style="border-color: white; padding: 0px; padding-left: 20px; margin-bottom: 10px;">
+            <div class="modal-content" style="border-radius: 0;border: 0 solid transparent;background-color: white; color: black;">
+              <div class="modal-header" style="border-color: black; padding: 0px; padding-left: 20px; margin-bottom: 10px;">
                 <h7 class="modal-title" id="sizeLabel"><span onclick="ChangeSize(1);">CM</span><div class="space"></div><span onclick="ChangeSize(2.54)">IN</span></h7>
-                <button style="color:white;" type="button" class="btn" data-dismiss="modal" aria-label="Close">
+                <button style="color:black;" type="button" class="btn" data-dismiss="modal" aria-label="Close">
                   X
                 </button>
               </div>
-              <div class="modal-body" style="padding: 0; color: white;">
+              <div class="modal-body" style="padding: 0;">
                 '.$modal.'
               </div>
             </div>
