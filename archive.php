@@ -146,8 +146,8 @@ $h= $html->Html5(
                     0,0,0,0,"col p-0")
             ]),
             $ui->Row([
-                $ui->Columns("<br/><br/>",0,0,12,0)
-            ]),
+                $ui->Columns("<span class='px-4 font-weight-bold'>IMAGEN</span> <br/><br/>",12)]
+                ,"mt-2"),
 //            $fc->Aviso()
 
         ],'padding: 0px;'),
