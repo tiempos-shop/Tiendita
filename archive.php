@@ -40,7 +40,8 @@ else{
 }
 $tipoCambio=20;
 
-$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
+$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","INGRESO","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","LOGIN","ESPAÑOL","CART(*)"] ] ];
+
 
 $htmlIds="";
 
@@ -71,7 +72,12 @@ $h= $html->Html5(
         $html->LoadScripts(["View/js/bootstrap.js"]),
         "
             <style>
-                
+                html, body {
+                    width: 100%;
+                    height: 100%;
+                    padding: 0;
+                    margin: 0;
+                }
                 body{
                     color:black;
                 }
@@ -110,42 +116,44 @@ $h= $html->Html5(
 
     ),
     $html->Body([
-        $fc->MenuArchive($idioma,$idiomaActual,$numeroProductosCarrito,["","'","","","",""],true,true),
-        $fc->LogoNegro(),
-        $fc->TMenu($htmlIds),
-        "<div class='fixed-top' style='z-index:100;display:block;width:96.1vw;height:95.7vh;background-color: transparent;border: 1px solid black;top:1vh;left: 2.1vw'></div>",
-        $ui->ContainerFluid([
-            $ui->Row([$ui->Columns("<br/><br/>",12)]),
+       // $fc->MenuArchive($idioma,$idiomaActual,$numeroProductosCarrito,["","'","","","",""],true,true),
+        $fc->LogoNegroLg(),
+        //$fc->TMenu($htmlIds),
+        '<div style="position: fixed;left:0; top:0;width: 100%;height: 100%; padding: 15px; z-index: -10;"><div style="border: 1px solid #000; width: 100%; height: 100%;"></div></div>',
+        //"<div class='fixed-top' style='z-index:100;display:block;width:96.1vw;height:95.7vh;background-color: transparent;border: 1px solid black;top:1vh;left: 2.1vw'></div>",
+        $ui->ContainerFluidStyle([
             $ui->Row([
-                $ui->Columns("",1),
+                $ui->Columns("<br/><br/>". $fc->TMenuSecond(""),0,0,12,0,"mb-1")
+            ],"px-4"),
+            $ui->Row([
                 $ui->Columns(
-                    '
-                        <iframe style="left: 80vw;width: 110%;height: 80vh"
-                            src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1">
-                        </iframe>
-        ',11),
+                    $fc->getPictureVideo("https://www.youtube.com/embed/Oo_WiY2QEz8","width: 100%; height: 350px;", "video"),
+                    0,0,0,0,"col px-0"),
             ]),
-            $ui->Row([$ui->Columns("<br/><br/>",12)]),
             $ui->Row([
-                $ui->Columns("",1),
+                $ui->Columns("<span class='px-4 font-weight-bold'>VIDEO</span> <br/><br/>",12)],
+                "mt-2"),
+            $ui->Row([
                 $ui->Columns(
-                    "
-                        <table class='table table-borderless' style='width: 110%' >
-                            <tr>
-                                <td><img width='300' src='img/0000-JALAPENO-back.jpg'></td>
-                                <td><img width='300' src='img/0001-OBSIDIANA-back.jpg'></td>
-                                <td><img width='300' src='img/0002-TACUBAYA-back.jpg'></td>
-                                <td><img width='300' src='img/0003-ANIL-back.jpg'></td>
-                            </tr>
-                        </table>
-                        ",11)
+                    $fc->getPictureVideo("https://picsum.photos/400/550", "width: 50%;").
+                    $fc->getPictureVideo("https://picsum.photos/400/550", "width: 50%;"),
+                    0,0,0,0,"col p-0")
+            ]),
+            $ui->Row([
+                $ui->Columns(
+                    $fc->getPictureVideo("https://picsum.photos/400/550", "width: 50%;").
+                    $fc->getPictureVideo("https://picsum.photos/400/550", "width: 50%;"),
+                    0,0,0,0,"col p-0")
+            ]),
+            $ui->Row([
+                $ui->Columns("<br/><br/>",0,0,12,0)
             ]),
 //            $fc->Aviso()
 
-        ]),
+        ],'padding: 0px;'),
 
 
-    ],"style='background-color:transparent;z-index:100'") //#AC9950
+    ],"'") //#AC9950
 );
 
 print_r($h);

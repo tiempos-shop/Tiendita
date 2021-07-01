@@ -266,11 +266,15 @@ class FrontComponents
     }
 
     public function LogoNegro():string{
-        return "<img onclick='go(\"index.php\")' alt='SP' id='logo' class='fixed-top' src='img/ts_iso_negro.png' >";
+        return "<img onclick='go(\"index.php\")' alt='SP' id='logo' class='fixed-top' src='img/ts_iso_negro.png' />";
+    }
+
+    public function LogoNegroLg():string{
+        return "<img onclick='go(\"index.php\")' alt='SP' id='logo' class='position-fixed' src='img/ts_iso_negro.png' style='width: 80px; height: 30px; left: 73vw;' />";
     }
 
     public function LogoDorado():string{
-        return "<img alt='SP' id='logo'  src='img/ts_iso_oro.png' >";
+        return "<img alt='SP' id='logo'  src='img/ts_iso_oro.png' />";
     }
 
     // Funciones
@@ -299,6 +303,15 @@ class FrontComponents
     public function TMenu(string $htmlIds)
     {
         return "<label id='t' style='font-size:1.1em;font-family: NHaasGroteskDSPro-55Rg;z-index: 100'>T0000'00</label>";
+//        return "<label id='t' onmouseover='tOverMenu();' style='font-size:1.1em;font-family: NHaasGroteskDSPro-55Rg;z-index: 100'>T0000'00</label>".
+//            "<div style='z-index: 1000' onmouseleave='tOffMenu();' id='t-over'>".
+//            $htmlIds.
+//            "</div>";
+    }
+
+    public function TMenuSecond(string $htmlIds)
+    {
+        return "<label style='font-size:1.1em;font-family: NHaasGroteskDSPro-55Rg;z-index: 100'>T0000'00</label>";
 //        return "<label id='t' onmouseover='tOverMenu();' style='font-size:1.1em;font-family: NHaasGroteskDSPro-55Rg;z-index: 100'>T0000'00</label>".
 //            "<div style='z-index: 1000' onmouseleave='tOffMenu();' id='t-over'>".
 //            $htmlIds.
@@ -649,6 +662,21 @@ class FrontComponents
         '.$idsScripts.'            
         });
         ';
+    }
+
+    public function getPictureVideo($url, $style = "", $type = "image", $typeVideo = "")
+    {
+        switch ($type){
+            case 'image':
+                return '<img src="'.$url.'" alt="resource" class="img-fluid" style="'.$style.'" />';
+                break;
+            case "video":
+                if($typeVideo == '')
+                    return '<iframe src="'.$url.'" style="'.$style.'"></iframe>';
+                else
+                    return '<video controls><source src="'.$url.'" type="'.$typeVideo.'" style="'.$style.'"></video>';
+                break;
+        }
     }
 
 }
