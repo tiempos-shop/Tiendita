@@ -185,49 +185,7 @@ $modal="
             <th><span>XL</span></th>
         </tr>
     </thead>
-    <tbody>
-        <tr>
-            <td>HEIGHT</td>
-            <td>26</td>
-            <td>27</td>
-            <td>29</td>
-            <td>30</td>
-        </tr>
-        <tr>
-            <td>SHOULDER</td>
-            <td>22</td>
-            <td>23</td>
-            <td>25</td>
-            <td>27</td>
-        </tr>
-        <tr>
-            <td>BACK</td>
-            <td>26</td>
-            <td>28</td>
-            <td>30</td>
-            <td>32</td>
-        </tr>
-        <tr>
-            <td>CHEST</td>
-            <td>18</td>
-            <td>20</td>
-            <td>22</td>
-            <td>24</td>
-        </tr>
-        <tr>
-            <td>SLEEVE</td>
-            <td>26</td>
-            <td>28</td>
-            <td>30</td>
-            <td>32</td>
-        </tr>
-        <tr>
-            <td>EUROPEAN SIZE</td>
-            <td>46</td>
-            <td>48</td>
-            <td>50</td>
-            <td>52</td>
-        </tr>
+    <tbody id='tableDetalle'>
     </tbody>
 </table>";
 
@@ -286,6 +244,41 @@ $h= $html->Html5(
                       go("view.php?id="+id);
                   }
                   
+                   const dataSize = [
+                          ["HEIGHT", 26, 27, 29, 30],
+                          ["SHOULDER", 22, 23, 25, 27],
+                          ["BACK", 26, 28, 30, 32],
+                          ["CHEST", 18, 20, 22, 24],
+                          ["SLEEVE", 26, 28, 30, 32],
+                          ["EUROPEAN SIZE", 46, 48, 50, 52]
+                      ];
+                  
+                  $(document).ready(function(e){
+                      for(let i = 0; i < dataSize.length; i++){
+                          $("#tableDetalle").append(`<tr>
+                            <td>${dataSize[i][0]}</td>
+                            <td>${dataSize[i][1]}</td>
+                            <td>${dataSize[i][2]}</td>
+                            <td>${dataSize[i][3]}</td>
+                            <td>${dataSize[i][4]}</td>
+                          </tr>`);
+                      }
+                  });
+                  
+                  function ChangeSize(conversion)
+                      {
+                          $("#tableDetalle").html("");
+                          for(let i = 0; i < dataSize.length; i++){
+                              $("#tableDetalle").append(`<tr>
+                                <td>${dataSize[i][0]}</td>
+                                <td>${ Math.round(dataSize[i][1] / conversion) }</td>
+                                <td>${ Math.round(dataSize[i][2] / conversion) }</td>
+                                <td>${ Math.round(dataSize[i][3] / conversion) }</td>
+                                <td>${ Math.round(dataSize[i][4] / conversion) }</td>
+                              </tr>`);
+                          }
+                      }
+                  
                 </script>'
 
     ),
@@ -335,7 +328,7 @@ $h= $html->Html5(
           <div class="modal-dialog modal-dialog-centered" style="max-width: 700px;" role="document">
             <div class="modal-content" style="border-radius: 0;border: 0 solid transparent;background-color: black; color: white;">
               <div class="modal-header" style="border-color: white; padding: 0px; padding-left: 20px; margin-bottom: 10px;">
-                <h7 class="modal-title" id="sizeLabel"><span>CM</span><div class="space"></div><span>IN</span></h7>
+                <h7 class="modal-title" id="sizeLabel"><span onclick="ChangeSize(1);">CM</span><div class="space"></div><span onclick="ChangeSize(2.54)">IN</span></h7>
                 <button style="color:white;" type="button" class="btn" data-dismiss="modal" aria-label="Close">
                   X
                 </button>
