@@ -22,7 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="Agregar categorias hombre mujer y sus subcategorias">
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="ajustes menu elementos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistasHtml.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistasHtml.php" afterDir="false" />
     </list>
@@ -63,7 +63,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="98ce66cdf12661a4087cd329487365e8a9637b55" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -317,21 +317,10 @@
       <workItem from="1624670470412" duration="1994000" />
       <workItem from="1624672500054" duration="578000" />
       <workItem from="1624919686937" duration="13553000" />
-      <workItem from="1624936148862" duration="513000" />
-    </task>
-    <task id="LOCAL-00085" summary="Detalles">
-      <created>1614792315732</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1614792315732</updated>
-    </task>
-    <task id="LOCAL-00086" summary="Detalles">
-      <created>1614792503617</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1614792503617</updated>
+      <workItem from="1624936148862" duration="1198000" />
+      <workItem from="1624995342424" duration="878000" />
+      <workItem from="1625006553603" duration="2975000" />
+      <workItem from="1625092278871" duration="5471000" />
     </task>
     <task id="LOCAL-00087" summary="Detalles">
       <created>1614792661455</created>
@@ -662,7 +651,21 @@
       <option name="project" value="LOCAL" />
       <updated>1624933733259</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="alineacion de elementos en orden">
+      <created>1624936730019</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1624936730019</updated>
+    </task>
+    <task id="LOCAL-00135" summary="ajustes menu elementos">
+      <created>1625103492896</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1625103492896</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -693,8 +696,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Correccion MAC" />
-    <MESSAGE value="Carrito" />
     <MESSAGE value="Correcciones Marzo 8" />
     <MESSAGE value="Correcciones Generales" />
     <MESSAGE value="Filtro de la tienda&#10;Scroll final de privacy policy &amp; SHIPPING &amp; RETURNS" />
@@ -718,6 +719,8 @@
     <MESSAGE value="elementos de menu alineados con el logo respecto a cart" />
     <MESSAGE value="TS-82 negrita de pp y ship, pintar comillas en order y filtro" />
     <MESSAGE value="Agregar categorias hombre mujer y sus subcategorias" />
-    <option name="LAST_COMMIT_MESSAGE" value="Agregar categorias hombre mujer y sus subcategorias" />
+    <MESSAGE value="alineacion de elementos en orden" />
+    <MESSAGE value="ajustes menu elementos" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajustes menu elementos" />
   </component>
 </project>

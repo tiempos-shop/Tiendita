@@ -17,7 +17,7 @@ function validarDimenciones() {
     //ajuste de elementos con relacion de boton y logo
     var separacionBotonMenu = document.getElementById("botonMenuMovil").offsetLeft;
     var separacionCart = document.getElementById("carrito").offsetLeft;
-    var anchoCart = document.getElementById('carrito').offsetWidth;
+
     document.getElementById('contenedorIndex').classList.add('ocultarmargen');
 
 
@@ -28,7 +28,7 @@ function validarDimenciones() {
 
         document.getElementById('lista-menu').style.left = separacionBotonMenu +'px';
         document.getElementById('logo').style.left = separacionCart +'px';
-        document.getElementById('logo').style.width = anchoCart + 'px';
+
         modoMovil = true;
 
     }

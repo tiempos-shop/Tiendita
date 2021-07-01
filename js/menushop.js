@@ -8,7 +8,7 @@ function validarDimenciones() {
     var ancho = window.innerWidth;
     var separacionBotonMenu = document.getElementById("botonMenuMovil").offsetLeft;
     var separacionCart = document.getElementById("carrito").offsetLeft;
-    var anchoCart = document.getElementById('carrito').offsetWidth;
+
     //document.getElementById('botonMenuMovil').style.color = 'black';
 
     ///PARA INICIO DE CARGA
@@ -27,7 +27,7 @@ function validarDimenciones() {
         document.getElementById('lista-filtro').style.left = separacionBotonMenu +'px';
         document.getElementById('lista-orden').style.left = separacionBotonMenu +'px';
         document.getElementById('logo').style.left = separacionCart +'px';
-        document.getElementById('logo').style.width = anchoCart + 'px';
+
         modoMovil = true;
     }
     else
