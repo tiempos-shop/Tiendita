@@ -17,11 +17,8 @@ class EntidadBase{
     }
 
     public function SaveAll(){
-        // Todo Descomentar las lineas
         $querys=implode(" ",$this->sqlSaveCache);
-        //$this->db->multi_query($querys);
-        var_dump($querys);
-
+        $this->db->multi_query($querys);
     }
 
     public function __construct() {
