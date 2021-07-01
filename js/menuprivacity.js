@@ -14,7 +14,7 @@ function validarDimenciones() {
     document.getElementById('politicadesktop').classList.add('d-none');
     var separacionBotonMenu = document.getElementById("botonMenuMovil").offsetLeft;
     var separacionCart = document.getElementById("carrito").offsetLeft;
-    var anchoCart = document.getElementById('carrito').offsetWidth;
+
 
     //ocultar logo en privacity
     document.getElementById('logo').style.display = 'none';
@@ -29,7 +29,7 @@ function validarDimenciones() {
 
         document.getElementById('lista-menu').style.left = separacionBotonMenu +'px';
         document.getElementById('logo').style.left = separacionCart +'px';
-        document.getElementById('logo').style.width = anchoCart + 'px';
+
         modoMovil = true;
     }
     else

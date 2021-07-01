@@ -61,14 +61,14 @@ class VistasHtml
             $idioma[ $idiomaActual ]["MENU"][$numPaginaActual] =   $idioma[ $idiomaActual ]["MENU"][$numPaginaActual].$caracterFocus;
         }
 
-        if (isset($idioma[ $idiomaActual ]["ORDER"][$filtroActual]))
+        if (isset($idioma[ $idiomaActual ]["FILTER"][$filtroActual]))
         {
-            $idioma[ $idiomaActual ]["ORDER"][$filtroActual] = $idioma[ $idiomaActual ]["ORDER"][$filtroActual].$caracterFocus;
+            $idioma[ $idiomaActual ]["FILTER"][$filtroActual] = $idioma[ $idiomaActual ]["FILTER"][$filtroActual].$caracterFocus;
         }
 
-        if (isset($idioma[ $idiomaActual ]["FILTER"][$ordenamientoActual]))
+        if (isset($idioma[ $idiomaActual ]["ORDER"][$ordenamientoActual]))
         {
-            $idioma[ $idiomaActual ]["FILTER"][$ordenamientoActual] = $idioma[ $idiomaActual ]["FILTER"][$ordenamientoActual].$caracterFocus;
+            $idioma[ $idiomaActual ]["ORDER"][$ordenamientoActual] = $idioma[ $idiomaActual ]["ORDER"][$ordenamientoActual].$caracterFocus;
         }
 
         $nav  = "<nav id='menu-movil-dorado' class='navbar navbar-inverse navbar-static-top position-fixed d-sm-block d-md-none d-block d-block bg-white ".$clase."' style='width: 100%; top:0; z-index: 2;left: 0;' role='navigation'>

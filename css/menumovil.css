@@ -88,6 +88,13 @@ a.elemento-menu-movil.carrito{
 
 #menu-movil-dorado #politica {
     font-size: 0.55rem !important;
+    bottom: 0;
+    margin-bottom: 0.8rem;
+    color:black;
+    width:75%;
+    margin-left: 12.5%;
+    letter-spacing: 0.035rem;
+    background: white;
 }
 
 #left_home {
@@ -167,11 +174,7 @@ a.elemento-menu-movil.carrito{
 }
 
 @media (max-width: 576px) {
-    #logo {
 
-        width: 12%;
-        left: 80vw;
-    }
     #contenedorIndex.productos .row .col-xs-6 {
         flex: 0 0 auto;
         width: 50%;
@@ -183,14 +186,22 @@ a.elemento-menu-movil.carrito{
 }
 
 @media (max-width: 768px) {
+    body {
+        font-size: 0.9rem !important;
+        letter-spacing: 0.07rem !important;
+    }
+    button {
+        font-size: 0.9rem !important;
+        letter-spacing: 0.07rem !important;
+    }
     #contenedorIndex {
         padding: 0 !important;
         margin-left: 0;
         margin-right: 0;
     }
     #logo {
-        top: 50%;
-        width: 12vw;
+        top: 48.5%;
+        width: 80px;
         left: 80vw;
     }
     #fotosprincipal {
@@ -243,7 +254,7 @@ a.elemento-menu-movil.carrito{
         padding-left: 0;
         position: absolute;
         margin: 0;
-        top: 48%;
+        top: 45%;
     }
 
     #lista-menu li  {
