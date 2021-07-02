@@ -26,10 +26,10 @@ a{
 .item:hover label::before{
     content: "'";
 }
-span:hover{
+span:not(.omitir):hover{
     cursor: pointer;
 }
-span:hover::after{
+span:not(.omitir):hover::after{
     content: "'";
 }
 @font-face {

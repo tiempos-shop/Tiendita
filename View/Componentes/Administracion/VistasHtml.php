@@ -74,28 +74,28 @@ class VistasHtml
         $nav  = "<nav id='menu-movil-dorado' class='navbar navbar-inverse navbar-static-top position-fixed d-sm-block d-md-none d-block d-block bg-white ".$clase."' style='width: 100%; top:0; z-index: 2;left: 0;' role='navigation'>
                         <div class='ml-1 mr-1'>
                     <div class='navbar-header d-flex justify-content-between align-items-center ml-2 mr-2' style='margin-top: 0;'>
-                    <button type='button' class='navbar-toggle collapsed ' data-toggle='collapse' id='botonMenuMovil'
+                    <button type='button' class='navbar-toggle collapsed menu' data-toggle='collapse' id='botonMenuMovil'
                         onClick='".$funcionMenuCLick."'
                         ;
                         style='border: none; background-color: transparent;'>
                         
-                        <span>MENU</span>
+                        <span class='sincaracter omitir'>MENU</span>
                     </button>";
 
 
         if (isset($idioma[ $idiomaActual ]["MENU"][6]))
         {
-            $nav .="<a CLASS='elemento-menu-movil filtro' href='#'  onclick='AbrirMenuMovilFiltro()'>".$idioma[ $idiomaActual ]["MENU"][6]."</a>";
+            $nav .="<a id='filtro' CLASS='elemento-menu-movil filtro menu' href='#'  onclick='AbrirMenuMovilFiltro()'><span class='sincaracter omitir'>".$idioma[ $idiomaActual ]["MENU"][6]."</span></a>";
         }
 
         if (isset($idioma[ $idiomaActual ]["MENU"][7]))
         {
-            $nav .= " <a CLASS='elemento-menu-movil ordenamiento' href='#' onclick='AbrirMenuMovilOrdenar()'>".$idioma[ $idiomaActual ]["MENU"][7]."</a>";
+            $nav .= " <a id='orden' CLASS='elemento-menu-movil ordenamiento menu' href='#' onclick='AbrirMenuMovilOrdenar()'><span class='sincaracter omitir'>".$idioma[ $idiomaActual ]["MENU"][7]."</span></a>";
         }
 
         if (isset($idioma[ $idiomaActual ]["MENU"][5]))
         {
-            $nav.= " <a CLASS='elemento-menu-movil carrito' id='carrito' href='cart.php' >".$fc->cart($numeroProductosCarrito,$idioma[ $idiomaActual ]["MENU"][5])."</a>";
+            $nav.= " <a CLASS='elemento-menu-movil carrito menu' id='carrito' href='cart.php' >".$fc->cart($numeroProductosCarrito,$idioma[ $idiomaActual ]["MENU"][5])."</a>";
         }
 
         $nav .=
@@ -122,22 +122,22 @@ class VistasHtml
                     <ul id='lista-filtro' class='nav navbar-nav row' style='margin-right: 0;'>";
 
             $indexFiltro = 0;
-
-
+            $indexColapsado = 0;
 
             foreach ($idioma[$idiomaActual]["FILTER"] as $filtro => $valor) {
 
                 if (is_array($valor))
                 {
 
-                    $nav .= "<li class='opcion'><a href='#' style='display: block'>". $filtro."</a>";
-                    $nav .="<ul class='navbar-nav'>";
+                    $nav .= "<li class='opcion'><a href='#' style='display: block' onclick='AbrirSubMenuFiltro($indexColapsado)'>". $filtro."</a>";
+                    $nav .="<ul class='navbar-nav collapse'>";
                     foreach ($valor as $elemento)
                     {
                         $nav .= "<li class='elemento' ><a href='#' style='display: block'>".$elemento."</a>";
                     }
                     $nav .="</ul>";
                     $nav .= "</li>";
+                    $indexColapsado++;
                 }
                 else
                 {
@@ -147,6 +147,7 @@ class VistasHtml
 
                 $nav .= "</li>";
                 $indexFiltro++;
+
             }
 
             $nav .= " </ul>
