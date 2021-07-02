@@ -69,7 +69,7 @@ $h= $html->Html5(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
         $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css","css/menumovil.css"]),
-        $html->LoadScripts(["View/js/bootstrap.js","js/menuprivacity.js"]),
+        $html->LoadScripts(["View/js/bootstrap.js","js/menuarchive.js"]),
         "
             <style>
                 html, body {
@@ -117,7 +117,7 @@ $h= $html->Html5(
     ),
     $html->Body([
        // $fc->MenuArchive($idioma,$idiomaActual,$numeroProductosCarrito,["","'","","","",""],true,true),
-        $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "AbrirMenuMovil()", "privacity"),
+        $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "cambiarLogoFijo()", "archive"),
         $fc->LogoNegroLg(),
         //$fc->TMenu($htmlIds),
         '<div style="position: fixed;left:0; top:0;width: 100%;height: 100%; padding: 15px; z-index: -10;"><div style="border: 1px solid #000; width: 100%; height: 100%;"></div></div>',
@@ -151,10 +151,10 @@ $h= $html->Html5(
                 ,"mt-2"),
 //            $fc->Aviso()
 
-        ],'padding: 0px;'),
+        ],'padding: 0px;', 'contenedorArchive'),
 
 
-    ],"'") //#AC9950
+    ],"") //#AC9950
 );
 
 print_r($h);

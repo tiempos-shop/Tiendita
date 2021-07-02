@@ -23,13 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="menu de index, opciones desplegables de filtro">
+      <change afterPath="$PROJECT_DIR$/js/menuarchive.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistasHtml.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistasHtml.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/menumovil.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/menumovil.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/global.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/menushop.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/menushop.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/shop.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive.php" beforeDir="false" afterPath="$PROJECT_DIR$/archive.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/menuprivacity.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/menuprivacity.js" afterDir="false" />
     </list>
     <list id="0e8517e8-4849-4dba-b416-5f3e44a7d134" name="Archivos XML" comment="Para documentos basura">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_06_2021_05_34_p__m__[Default_Changelist]/shelved.patch" beforeDir="false" />
@@ -327,14 +324,8 @@
       <workItem from="1625006553603" duration="2975000" />
       <workItem from="1625092278871" duration="5836000" />
       <workItem from="1625180492197" duration="4757000" />
-      <workItem from="1625190196659" duration="6167000" />
-    </task>
-    <task id="LOCAL-00088" summary="Detalles">
-      <created>1614793741185</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1614793741185</updated>
+      <workItem from="1625190196659" duration="6214000" />
+      <workItem from="1625265052171" duration="2348000" />
     </task>
     <task id="LOCAL-00089" summary="Detalles">
       <created>1614794300104</created>
@@ -672,7 +663,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625103697319</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="menu de index, opciones desplegables de filtro">
+      <created>1625196423053</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1625196423053</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

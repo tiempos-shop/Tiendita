@@ -10,8 +10,12 @@ function validarDimenciones() {
     //document.getElementById('botonMenuMovil').style.color = 'black';
 
     ///PARA INICIO DE CARGA
-    document.getElementById('politicadesktop').classList.remove('d-flex');
-    document.getElementById('politicadesktop').classList.add('d-none');
+    if (document.getElementById('politicadesktop') != null)
+    {
+        document.getElementById('politicadesktop').classList.remove('d-flex');
+        document.getElementById('politicadesktop').classList.add('d-none');
+    }
+
     var separacionBotonMenu = document.getElementById("botonMenuMovil").offsetLeft;
     var separacionCart = document.getElementById("carrito").offsetLeft;
 
@@ -21,10 +25,19 @@ function validarDimenciones() {
 
     if (ancho<=768)
     {
-        document.getElementById('t').classList.remove('d-block');
-        document.getElementById('t').classList.add('d-none');
-        document.getElementById('politicadesktop').classList.remove('d-flex');
-        document.getElementById('politicadesktop').classList.add('d-none');
+        if (document.getElementById('t') != null)
+        {
+            document.getElementById('t').classList.remove('d-block');
+            document.getElementById('t').classList.add('d-none');
+        }
+
+
+        if (document.getElementById('politicadesktop') != null)
+        {
+            document.getElementById('politicadesktop').classList.remove('d-flex');
+            document.getElementById('politicadesktop').classList.add('d-none');
+        }
+
         document.getElementById('menu-movil-dorado').style.borderBottom = 'none';
 
         document.getElementById('lista-menu').style.left = separacionBotonMenu +'px';
@@ -34,11 +47,18 @@ function validarDimenciones() {
     }
     else
     {
+        if (document.getElementById('t') != null)
+        {
+            document.getElementById('t').classList.remove('d-none');
+            document.getElementById('t').classList.add('d-block');
+        }
 
-        document.getElementById('t').classList.remove('d-none');
-        document.getElementById('t').classList.add('d-block');
-        document.getElementById('politicadesktop').classList.remove('d-none');
-        document.getElementById('politicadesktop').classList.add('d-flex');
+        if (document.getElementById('politicadesktop') != null)
+        {
+            document.getElementById('politicadesktop').classList.remove('d-none');
+            document.getElementById('politicadesktop').classList.add('d-flex');
+        }
+
         modoMovil = false;
     }
 
@@ -74,8 +94,10 @@ function AbrirMenuMovil(esEjecucionAutomatica = false)
             document.getElementById('menu-movil-dorado-opcion').style.height = '90vh';
             document.getElementById('logo').style.display = 'block';
 
-            document.getElementById('privacity-content').style.display = 'none';
-
+            if (document.getElementById('privacity-content'))
+            {
+                document.getElementById('privacity-content').style.display = 'none';
+            }
 
             document.getElementById('politica').classList.remove('d-none');
             document.getElementById('politicadesktop').classList.remove('d-flex');
@@ -100,14 +122,21 @@ function AbrirMenuMovil(esEjecucionAutomatica = false)
 
         if (!modoMovil)
         {
-            document.getElementById('politicadesktop').classList.remove('d-none');
-            document.getElementById('politicadesktop').classList.add('d-flex');
+            if (document.getElementById('politicadesktop') != null)
+            {
+                document.getElementById('politicadesktop').classList.remove('d-none');
+                document.getElementById('politicadesktop').classList.add('d-flex');
+            }
+
         }
 
         setTimeout(function() {
 
+            if (document.getElementById('privacity-content'))
+            {
+                document.getElementById('privacity-content').style.display = 'block';
+            }
 
-            document.getElementById('privacity-content').style.display = 'block';
 
 
         }, 150);
