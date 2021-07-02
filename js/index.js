@@ -19,7 +19,7 @@ function validarDimenciones() {
     var separacionCart = document.getElementById("carrito").offsetLeft;
 
     document.getElementById('contenedorIndex').classList.add('ocultarmargen');
-
+    document.getElementById('menu-movil-dorado').classList.remove('bg-white');
 
     if (ancho<=768)
     {

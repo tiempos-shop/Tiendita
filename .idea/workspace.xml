@@ -22,9 +22,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="ajustes menu elementos">
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="menu de index, opciones desplegables de filtro">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/Componentes/Administracion/VistasHtml.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/Componentes/Administracion/VistasHtml.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/menumovil.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/menumovil.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/menushop.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/menushop.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/shop.php" afterDir="false" />
     </list>
     <list id="0e8517e8-4849-4dba-b416-5f3e44a7d134" name="Archivos XML" comment="Para documentos basura">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_06_2021_05_34_p__m__[Default_Changelist]/shelved.patch" beforeDir="false" />
@@ -320,14 +325,9 @@
       <workItem from="1624936148862" duration="1198000" />
       <workItem from="1624995342424" duration="878000" />
       <workItem from="1625006553603" duration="2975000" />
-      <workItem from="1625092278871" duration="5471000" />
-    </task>
-    <task id="LOCAL-00087" summary="Detalles">
-      <created>1614792661455</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1614792661455</updated>
+      <workItem from="1625092278871" duration="5836000" />
+      <workItem from="1625180492197" duration="4757000" />
+      <workItem from="1625190196659" duration="6167000" />
     </task>
     <task id="LOCAL-00088" summary="Detalles">
       <created>1614793741185</created>
@@ -665,7 +665,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625103492896</updated>
     </task>
-    <option name="localTasksCounter" value="136" />
+    <task id="LOCAL-00136" summary="margen en el inicio de menu">
+      <created>1625103697319</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1625103697319</updated>
+    </task>
+    <option name="localTasksCounter" value="137" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -696,8 +703,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Correcciones Marzo 8" />
-    <MESSAGE value="Correcciones Generales" />
     <MESSAGE value="Filtro de la tienda&#10;Scroll final de privacy policy &amp; SHIPPING &amp; RETURNS" />
     <MESSAGE value="Crear Login Face &amp; Google" />
     <MESSAGE value="Sale en priductos" />
@@ -721,6 +726,8 @@
     <MESSAGE value="Agregar categorias hombre mujer y sus subcategorias" />
     <MESSAGE value="alineacion de elementos en orden" />
     <MESSAGE value="ajustes menu elementos" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajustes menu elementos" />
+    <MESSAGE value="margen en el inicio de menu" />
+    <MESSAGE value="menu de index, opciones desplegables de filtro" />
+    <option name="LAST_COMMIT_MESSAGE" value="menu de index, opciones desplegables de filtro" />
   </component>
 </project>

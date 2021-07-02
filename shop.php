@@ -47,15 +47,15 @@ $idioma=[ "ESPAÑOL"=>
                 "ACCIONFILTRO"=> $accionFiltro],
         "ENGLISH"=>
             [   "MENU"=>
-                    [ "SHOP","ARCHIVE","IMPRINT","LOGIN","ESPAÑOL","CART(*)", "FILTER", "ORDER" ],
+                    [ "SHOP","ARCHIVE","IMPRINT","LOGIN","ESPAÑOL","CART(*)", "FILTER", "SORT" ],
                 "FILTER"=>
                     ["SHOP ALL", "MEN" => ["TOPS", "PANTS", "SHOES"], "WOMENS" => ["TOPS", "PANTS", "SHOES"], "ACCESSORIES" , "SALE"],
                 "ORDER" => ["FEATURED", "A TO Z", "PRICE LOW TO HIGH", "PRICE HIGH TO LOW"],
                 "ACCIONFILTRO"=> $accionFiltro],
         ];
 
-
-$filtroActual = -1;
+//por defecto 0 ver all
+$filtroActual = 0;
 $ordenActual = -1;
 
 if ($idioma[ $idiomaActual] == null)
@@ -116,6 +116,8 @@ if(isset($_GET["order"])){
             $filtroActual = 1;
             break;
         default:
+
+
     }
 
 }

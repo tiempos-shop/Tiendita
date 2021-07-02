@@ -16,6 +16,7 @@ function validarDimenciones() {
     document.getElementById('politicadesktop').classList.add('d-none');
 
 
+
     if (ancho<=768)
     {
         document.getElementById('menufamilia').style.display = 'none';
@@ -49,8 +50,54 @@ function validarDimenciones() {
 
 }
 
+function  OcultarCaracter()
+{
+    var menus, i;
+    menus = document.querySelector('#menu-movil-dorado').querySelectorAll(".menu");
+
+
+    for (i = 0; i < menus.length; i++) {
+
+        menus[i].querySelector('.caracter').classList.add('text-white');
+
+    }
+}
+
+function  AbrirSubMenuFiltro(index) {
+
+    var collapseElementList = [].slice.call(document.getElementById('lista-filtro').querySelectorAll('.collapse'));
+
+
+    var internoIndex = 0;
+
+
+    var collapseList = collapseElementList.map(function (collapseEl) {
+
+
+        //si tiene show
+        if (internoIndex != index)
+        {
+            if (collapseEl.classList.contains('show'))
+            {
+               new bootstrap.Collapse(collapseEl);
+            }
+        }
+
+        if (internoIndex == index)
+        {
+            internoIndex++;
+            return new bootstrap.Collapse(collapseEl);
+
+        }
+        internoIndex++;
+    });
+
+
+}
+
 function AbrirMenuMovil(esEjecucionAutomatica = false)
 {
+    OcultarCaracter();
 
     //oculto los demas menos moviles
     document.getElementById('menu-movil-filtro').style.height = '0';
@@ -63,7 +110,7 @@ function AbrirMenuMovil(esEjecucionAutomatica = false)
 
     if (mostrarMenu & !esEjecucionAutomatica)
     {
-
+        document.getElementById('botonMenuMovil').querySelector('.caracter').classList.remove('text-white');
         setTimeout(function() {
 
             document.getElementById('menu-movil-dorado-opcion').className = 'navbar-collapse collapse collapsing show';
@@ -90,6 +137,7 @@ function AbrirMenuMovil(esEjecucionAutomatica = false)
     }
     else
     {
+
 
         document.getElementById('menu-movil-dorado-opcion').style.height = '0';
         document.getElementById('lista-menu').style.display ='none';
@@ -121,7 +169,7 @@ function AbrirMenuMovil(esEjecucionAutomatica = false)
 
 function AbrirMenuMovilFiltro(esEjecucionAutomatica = false)
 {
-
+    OcultarCaracter();
     //oculto los demas menos moviles
     document.getElementById('menu-movil-dorado-opcion').style.height = '0';
     document.getElementById('menu-movil-ordenamiento').style.height = '0';
@@ -135,6 +183,8 @@ function AbrirMenuMovilFiltro(esEjecucionAutomatica = false)
 
     if (mostrarMenuMovilFiltro & !esEjecucionAutomatica)
     {
+        document.getElementById('filtro').querySelector('.caracter').classList.remove('text-white');
+
         setTimeout(function() {
 
             document.getElementById('menu-movil-filtro').className = 'navbar-collapse collapse collapsing show';
@@ -189,6 +239,7 @@ function AbrirMenuMovilFiltro(esEjecucionAutomatica = false)
 
 function AbrirMenuMovilOrdenar(esEjecucionAutomatica = false )
 {
+    OcultarCaracter();
 
     //oculto los demas menos moviles
     document.getElementById('menu-movil-dorado-opcion').style.height = '0';
@@ -201,7 +252,7 @@ function AbrirMenuMovilOrdenar(esEjecucionAutomatica = false )
 
     if (mostrarMenuMovilOrdenar & !esEjecucionAutomatica)
     {
-
+        document.getElementById('orden').querySelector('.caracter').classList.remove('text-white');
         setTimeout(function() {
 
             document.getElementById('menu-movil-ordenamiento').className = 'navbar-collapse collapse collapsing show';
@@ -255,7 +306,25 @@ function AbrirMenuMovilOrdenar(esEjecucionAutomatica = false )
 
 
 setTimeout( function () {
+    ///para todos los elementos de menu principal agregar caracter
+    var menus, i;
+    menus = document.querySelectorAll(".menu");
+
+
+    for (i = 0; i < menus.length; i++) {
+        var caracterSpan = document.createElement("span");
+        var caracterValor = document.createTextNode("'");
+        caracterSpan.appendChild(caracterValor);
+        caracterSpan.classList.add('caracter', 'text-white', 'omitir');
+        menus[i].appendChild(caracterSpan);
+    }
+
+    //para el submenus de filtro
+
+
+
     validarDimenciones();
 }, 10);
 
 window.onresize = validarDimenciones;
+
