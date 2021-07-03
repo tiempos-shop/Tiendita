@@ -266,11 +266,11 @@ class FrontComponents
     }
 
     public function LogoNegro():string{
-        return "<img onclick='go(\"index.php\")' alt='SP' id='logo' class='fixed-top' src='img/ts_iso_negro.png' />";
+        return "<img onclick='go(\"index.php\")' alt='SP' id='logo'  src='img/ts_iso_negro.png' />";
     }
 
     public function LogoNegroLg():string{
-        return "<img onclick='go(\"index.php\")' alt='SP' id='logo' class='position-fixed' src='img/ts_iso_negro.png' style='width: 80px; height: 30px; left: 73vw;' />";
+        return "<img onclick='go(\"index.php\")' alt='SP' id='logo' class='position-fixed' src='img/ts_iso_negro.png'  />";
     }
 
     public function LogoDorado():string{
@@ -438,7 +438,7 @@ class FrontComponents
     public function CartButton(){
         return $this->ui->FormButtom([
                     $this->ui->Input("Cart","",1,"F",false)
-                ],"",'<button id="cart" type="submit" class="btn btn-dark btn-block" style="border-radius: 0">ADD TO CART</button>');
+                ],"",'<button id="cart" type="submit" class="btn btn-dark btn-block add-cart" style="border-radius: 0;">ADD TO CART</button>');
     }
 
     public function CheckoutButton(){
@@ -600,18 +600,22 @@ class FrontComponents
 
     public function MenuPrivacyReturnView(bool $privacy,bool $return){
         $html= "
-            <div class='d-flex flex-row justify-content-between mt-3' style='position: relative;bottom: 0;font-size: 0.7rem;'>";
+            <div class='d-flex flex-row justify-content-between mt-3 politicaguia' style='position: relative;bottom: 0;font-size: 0.7rem;'>";
 
-        $html .= "<label class='ml-1'><span";
+        $html.="<div class='ml-1'><button type='button' class='btn btn-link' 
+            style='text-decoration: none;color: #212529;padding: 0;border: none;font-weight: normal; vertical-align: baseline;font-size: inherit !important;; '  
+            data-toggle='modal' data-target='#size'><span style='letter-spacing: 0.34px;'>SIZE GUIDE</span></button>";
+        $html.="</div> ";
+
+        $html .= "<span class='ml-1'><span";
         if($privacy) $html.=" onclick='go(\"privacy.php\")'";
-        $html.=">PRIVACY POLICY</span></label>";
+        $html.=">PRIVACY POLICY</span></span>";
 
-        $html.="<label><span";
+        $html.="<span><span";
         if($return) $html.=" onclick='go(\"shipping.php\")'";
-        $html.=">SHIPPING RETURNS</span></label>";
+        $html.=">SHIPPING RETURNS</span></span> </div>";
 
-        $html.="<div class='mr-1'><button type='button' class='btn btn-link' style='text-decoration: none;color: #212529;padding: 0;border: none;font-weight: normal; vertical-align: baseline;font-size: inherit !important;; '  data-toggle='modal' data-target='#size'><span>SIZE GUIDE</span></button>";
-        $html.="</div> </div>";
+
 
         return $html;
     }

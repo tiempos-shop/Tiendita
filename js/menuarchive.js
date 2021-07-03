@@ -45,7 +45,7 @@ function cambiarLogoFijo(esEjecucionAutomatica = false)
 
         setTimeout(function() {
 
-            document.getElementById('menu-movil-dorado-opcion').style.height = '100vh';
+            document.getElementById('menu-movil-dorado-opcion').style.height = '110vh';
             document.getElementById('menu-movil-dorado-opcion').style.marginTop = '-10vh';
             document.getElementById('menu-movil-dorado-opcion').style.background = 'white';
             document.getElementById('menu-movil-dorado').style.background = 'white';
@@ -122,7 +122,9 @@ function view(str){
 
 
 setTimeout( function () {
-
+    var border = document.createElement('div');
+    border.classList.add('border-archive');
+    document.getElementById('menu-movil-dorado').appendChild(border);
     validarDimenciones(true);
 
 }, 10);

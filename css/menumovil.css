@@ -87,7 +87,7 @@ a.elemento-menu-movil.carrito{
 }
 
 #menu-movil-dorado #politica {
-    font-size: 0.55rem !important;
+    font-size: 1.524vh !important;
     bottom: 0;
     margin-bottom: 0.8rem;
     color:black;
@@ -144,6 +144,7 @@ a.elemento-menu-movil.carrito{
 
 #lista-filtro li.opcion {
     margin-bottom: 2rem;
+
 }
 
 #lista-filtro li.elemento a {
@@ -189,11 +190,11 @@ a.elemento-menu-movil.carrito{
 
 @media (max-width: 768px) {
     body {
-        font-size: 0.9rem !important;
+        font-size: 2.286vh !important;
         letter-spacing: 0.07rem !important;
     }
     button {
-        font-size: 0.9rem !important;
+        font-size: 2.286vh !important;
         letter-spacing: 0.07rem !important;
     }
     #contenedorIndex {
@@ -203,7 +204,7 @@ a.elemento-menu-movil.carrito{
     }
     #logo {
         top: 48.5%;
-        width: 80px;
+        width: 58px;
         left: 80vw;
     }
     #fotosprincipal {
@@ -226,6 +227,47 @@ a.elemento-menu-movil.carrito{
         display: block;
     }
 
+    #contenedorArchive {
+        margin-top: 2.5vh;
+    }
+    .politicaguia {
+        font-size: 1.6vh !important;
+        margin-bottom: 0.9vh;
+        padding-bottom: 0.3rem;
+        padding-top: 0.8rem;
+        padding-left: 0.3rem;
+        padding-right: 0.35rem;
+        letter-spacing: 0.34px;
+        margin-top: 0 !important;
+    }
+
+    .add-cart {
+        border-radius: 0;
+        background-color: black !important;
+        background-color: black !important;
+        padding: 0 !important;
+        padding-top: 0.3rem !important;
+        padding-bottom: 0.3rem !important;
+        letter-spacing: 0.2rem !important;
+    }
+    .desc-view p {
+        padding: 0 !important;
+    }
+
+    .titulo-view p {
+        padding: 0 !important;
+    }
+
+    .subtitulo-view p {
+        padding: 0 !important;
+    }
+
+    #contenedorArchive .alinear {
+        padding-left: 2.5vw;
+    }
+    #contenedorArchive .multimedia {
+        width: 100vw !important;
+    }
     #privacity-text {
         padding-left: 3%;
         padding-right: 3%;
@@ -237,7 +279,10 @@ a.elemento-menu-movil.carrito{
         border-left: 1px solid black;
         border-right: 1px solid black;
     }
-
+    #menu-movil-dorado-opcion {
+        width: 100vw;
+        margin-left: -0.25rem !important;
+    }
     #menu-movil-dorado-opcion ul .nav {
         padding-top: 35vh;
         padding-left: 0;
@@ -256,8 +301,9 @@ a.elemento-menu-movil.carrito{
         padding-left: 0;
         position: absolute;
         margin: 0;
-        top: 45%;
+        top: 44vh;
     }
+
 
     #lista-menu li  {
         padding-left: 0;
@@ -271,7 +317,31 @@ a.elemento-menu-movil.carrito{
         padding-left: 0px;
 
     }
+
+    .border-archive {
+
+        border-bottom: 1px solid black;
+        position: fixed;
+        z-index: -99;
+        width: 100%;
+        line-height: 1px;
+        display: block;
+        top: 0;
+        height: 8vh;
+    }
+
+    .borde-margen-archive {
+        position: fixed;
+        left:0;
+        top:0;
+        width: 100%;
+        height: 100%;
+        padding: 3vw;
+        z-index: -10;
+    }
 }
+
+
 @media (max-width: 992px) {
     #privacity-content {
         position: initial;

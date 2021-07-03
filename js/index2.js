@@ -14,13 +14,18 @@ function validarDimenciones() {
     var alto = window.innerHeight;
     var ancho = window.innerWidth;
 
-    document.getElementById('contenedorIndex').classList.add('ocultarmargen');
+    //ajuste de elementos con relacion de boton y logo
+    var separacionBotonMenu = document.getElementById("botonMenuMovil").offsetLeft;
+    var separacionCart = document.getElementById("carrito").offsetLeft;
 
+    document.getElementById('contenedorIndex').classList.add('ocultarmargen');
+    document.getElementById('menu-movil-dorado').classList.remove('bg-white');
 
     if (ancho<=768)
     {
         modoMovil = true;
-
+        document.getElementById('lista-menu').style.left = separacionBotonMenu +'px';
+        document.getElementById('logo').style.left = separacionCart +'px';
     }
     mostrarMenu = true;
     cambiarLogoFijo(true);
@@ -30,7 +35,7 @@ function cambiarLogoFijo(esEjecucionAutomatica = false)
 {
     if (mostrarMenu & !esEjecucionAutomatica)
     {
-        logo.src='img/ts_iso_oro.png';
+
         document.getElementById('t').style.display = 'none';
         document.getElementById('botonMenuMovil').className = 'navbar-toggle ';
         document.getElementById('t').style.position = 'relative';
@@ -40,24 +45,26 @@ function cambiarLogoFijo(esEjecucionAutomatica = false)
         }, 50);
 
         setTimeout(function() {
-            document.getElementById('menu-movil-dorado-opcion').style.position = 'fixed';
-            document.getElementById('menu-movil-dorado-opcion').style.height = '100%';
+
+            document.getElementById('menu-movil-dorado-opcion').style.height = '110vh';
+            document.getElementById('menu-movil-dorado-opcion').style.marginTop = '-10vh';
             document.getElementById('menu-movil-dorado-opcion').style.background = 'white';
             document.getElementById('menu-movil-dorado').style.background = 'white';
-            document.getElementById('menu-movil-dorado-opcion').style.left = '0';
-            document.getElementById('botonMenuMovil').style.color = '#AC9950';
-            document.getElementById('carrito').style.color = '#AC9950';
+
+
             document.getElementById('contenedorIndex').style.display = 'none';
             document.getElementById('t').style.display = 'none';
             document.getElementById('politica').classList.remove('d-none');
+            document.getElementById('lista-menu').style.display ='block';
         }, 150);
     }
     else
     {
-        logo.src='img/ts_iso_negro.png';
+
         document.getElementById('menu-movil-dorado-opcion').style.height = '0';
         document.getElementById('menu-movil-dorado').style.background = 'transparent';
         document.getElementById('politica').classList.add('d-none');
+        document.getElementById('lista-menu').style.display ='none';
         setTimeout(function() {
             document.getElementById('t').style.position = 'fixed';
             document.getElementById('botonMenuMovil').style.color = 'black';

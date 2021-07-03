@@ -199,7 +199,7 @@ $h= $html->Html5(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
         $html->LoadStyles(["View/css/bootstrap.css","css/view.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css","css/menumovil.css"]),
-        $html->LoadScripts(["vendor/jquery/jquery.js","js/jquery.mlens-1.7.min.js","vendor/bootstrap/js/bootstrap.bundle.js", "js/index.js","carousel.js"]),
+        $html->LoadScripts(["vendor/jquery/jquery.js","js/jquery.mlens-1.7.min.js","vendor/bootstrap/js/bootstrap.bundle.js", "js/menuview.js"]),
         "<style>
                 .sinpadding{
                     margin: 0 !important;
@@ -300,7 +300,7 @@ $h= $html->Html5(
     ),
     $html->Body([
 
-        $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "cambiarLogoFijo()" , "index"),
+        $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "cambiarLogoFijo()" , "view"),
         '<br /><br />',
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["'","","","","",""]),
         $fc->LogoNegro(),
@@ -311,14 +311,14 @@ $h= $html->Html5(
                             "<hr style='background-color: black; opacity: 1; margin: 0px 0px 10px 0px !important;' />" ,
                             $ui->Row([
                                 $ui->Columns("<p style='font-family: NHaasGroteskDSPro-65Md;'>$productWord</p>",6),
-                            ]),
+                            ], "titulo-view"),
                             $ui->Row([
                                 $ui->Columns("<p>$productInformation->Descripcion</p>",12),
 
-                            ]),
+                            ], "subtitulo-view"),
                             "<hr style='margin: 10px 0px 10px 0px !important;' />",
                             $ui->Row([
-                                $ui->Columns($descripcionLarga,12,0,0,0,"small-font")
+                                $ui->Columns($descripcionLarga,12,0,0,0,"small-font desc-view")
                             ]),
                             "<hr style='margin-top: 1em!important;'/>",
                             "<div style='height: 25vh display: contents;'>",
@@ -334,10 +334,10 @@ $h= $html->Html5(
 //                            "<label><span>PRIVACY POLICY</span></label><label><span>SHIPPING RETURNS</span></label><label><button type='button' class='btn btn-link' style='text-decoration: none;color: black;padding: 0;border: none;font-weight: normal;font-size: 14.4px'  data-toggle='modal' data-target='#size'><span>SIZE GUIDE</span></button></label>".
 //                        "</div>"
             ],"main"),
-        ]),
+        ], "contenedorView"),
         $fc->TMenu(""),
         $ui->ContainerFluid([
-        ], "contenedorIndex"),
+        ], ""),
         '
         <div class="modal" id="size" tabindex="-1" role="dialog" aria-labelledby="sizeLabel" aria-hidden="true" 
         style="background-color: rgba(255,255,255,0.6);">
@@ -358,8 +358,7 @@ $h= $html->Html5(
         '
 
 
-    ],"style='background-color:#FFFFF;' ") //#AC9950
-);
+    ],"style='background-color:#FFFFF;' "));
 
 print_r($h);
 

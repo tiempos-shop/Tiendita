@@ -23,10 +23,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="menu de index, opciones desplegables de filtro">
-      <change afterPath="$PROJECT_DIR$/js/menuarchive.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/FrontComponents.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/FrontComponents.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Connection/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Connection/Database.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/archive.php" beforeDir="false" afterPath="$PROJECT_DIR$/archive.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/menuprivacity.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/menuprivacity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/menumovil.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/menumovil.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/index2.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/menuarchive.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/menuarchive.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view.php" afterDir="false" />
     </list>
     <list id="0e8517e8-4849-4dba-b416-5f3e44a7d134" name="Archivos XML" comment="Para documentos basura">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_06_2021_05_34_p__m__[Default_Changelist]/shelved.patch" beforeDir="false" />
@@ -65,7 +69,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="98ce66cdf12661a4087cd329487365e8a9637b55" />
+        <entry key="$PROJECT_DIR$" value="a884874601d7d99d998d72a0dd835e134c366491" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -690,6 +694,17 @@
               <option name="CUSTOM_BOOLEAN_PROPERTIES">
                 <map>
                   <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="text">
+                    <value>
+                      <list>
+                        <option value="databas" />
+                      </list>
+                    </value>
+                  </entry>
                 </map>
               </option>
             </State>

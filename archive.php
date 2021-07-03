@@ -120,35 +120,35 @@ $h= $html->Html5(
         $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "cambiarLogoFijo()", "archive"),
         $fc->LogoNegroLg(),
         //$fc->TMenu($htmlIds),
-        '<div style="position: fixed;left:0; top:0;width: 100%;height: 100%; padding: 15px; z-index: -10;"><div style="border: 1px solid #000; width: 100%; height: 100%;"></div></div>',
+        '<div class="borde-margen-archive" ><div style="border: 1px solid #000; width: 100%; height: 100%;"></div></div>',
         //"<div class='fixed-top' style='z-index:100;display:block;width:96.1vw;height:95.7vh;background-color: transparent;border: 1px solid black;top:1vh;left: 2.1vw'></div>",
         $ui->ContainerFluidStyle([
             $ui->Row([
                 $ui->Columns("<br/><br/>". $fc->TMenuSecond(""),0,0,12,0,"mb-1")
-            ],"px-4"),
+            ], "alinear"),
             $ui->Row([
                 $ui->Columns(
-                    $fc->getPictureVideo("https://www.youtube.com/embed/Oo_WiY2QEz8","width: 100%; height: 350px;", "video"),
-                    0,0,0,0,"col px-0"),
-            ]),
+                    $fc->getPictureVideo("https://www.youtube.com/embed/Oo_WiY2QEz8","width:100%", "video"),
+                    0,0,0,0,"col px-0 "),
+            ], "multimedia"),
             $ui->Row([
-                $ui->Columns("<span class='px-4 font-weight-bold'>VIDEO</span> <br/><br/>",12)],
-                "mt-2"),
-            $ui->Row([
-                $ui->Columns(
-                    $fc->getPictureVideo("https://picsum.photos/400/550", "width: 50%;").
-                    $fc->getPictureVideo("https://picsum.photos/400/550", "width: 50%;"),
-                    0,0,0,0,"col p-0")
-            ]),
+                $ui->Columns("<span class='font-weight-bold'>VIDEO</span> <br/><br/>",12)],
+                "mt-2 alinear"),
             $ui->Row([
                 $ui->Columns(
                     $fc->getPictureVideo("https://picsum.photos/400/550", "width: 50%;").
                     $fc->getPictureVideo("https://picsum.photos/400/550", "width: 50%;"),
-                    0,0,0,0,"col p-0")
-            ]),
+                    0,0,0,0,"col p-0 ")
+            ], "multimedia"),
             $ui->Row([
-                $ui->Columns("<span class='px-4 font-weight-bold'>IMAGEN</span> <br/><br/>",12)]
-                ,"mt-2"),
+                $ui->Columns(
+                    $fc->getPictureVideo("https://picsum.photos/400/550", "width: 50%;").
+                    $fc->getPictureVideo("https://picsum.photos/400/550", "width: 50%;"),
+                    0,0,0,0,"col p-0 ")
+            ], "multimedia"),
+            $ui->Row([
+                $ui->Columns("<span class=' font-weight-bold'>IMAGEN</span> <br/><br/>",12)]
+                ,"mt-2 alinear"),
 //            $fc->Aviso()
 
         ],'padding: 0px;', 'contenedorArchive'),
