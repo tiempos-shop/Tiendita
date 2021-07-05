@@ -5,10 +5,13 @@ use Tiendita\EntidadBase;
 use Tiendita\FrontComponents;
 use Tiendita\Utilidades;
 
+
 include_once "View/Componentes/Administracion/VistasHtml.php";
 include_once "Business/Utilidades.php";
 include_once "Data/Connection/EntidadBase.php";
 include_once "Business/FrontComponents.php";
+include_once "Data\Models\Clientes.php";
+include_once "Data\Models\ModeloClientes.php";
 
 $fc=new FrontComponents();
 $html=new VistasHtml();
@@ -224,7 +227,7 @@ $h= $html->Html5(
                       FB.login(function(response) {
                         if (response.authResponse) {
                             FB.api("/me", function(response) {
-                                alert("Gracias " + response.name + " por autorizar a Tiempos Shop el uso de tus datos en facebook, haremos uso de tu correo " + response + " para tu registro.");
+                                alert("Gracias " + response.name + " por autorizar a Tiempos Shop el uso de tus datos en facebook, haremos uso de tu correo " + response.appid + " para tu registro.");
                                 console.log(response);
                                 const email=document.getElementById("email");
                                 const name=document.getElementById("name");
