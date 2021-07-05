@@ -125,30 +125,30 @@ $h= $html->Html5(
         $ui->ContainerFluidStyle([
             $ui->Row([
                 $ui->Columns("<br/><br/>". $fc->TMenuSecond(""),0,0,12,0,"mb-1")
-            ], "alinear"),
+            ], "ml-1 alinear"),
             $ui->Row([
                 $ui->Columns(
-                    $fc->getPictureVideo("https://www.youtube.com/embed/Oo_WiY2QEz8","width:100%", "video"),
-                    0,0,0,0,"col px-0 "),
-            ], "multimedia"),
+                    $fc->getPictureVideo("https://www.youtube.com/embed/5JhKWFxLhKo","width:100%; height: 100%;", "video"),
+                    0,0,0,0,"col p-0 "),
+            ], ""),
             $ui->Row([
-                $ui->Columns("<span class='font-weight-bold'>VIDEO</span> <br/><br/>",12)],
-                "mt-2 alinear"),
+                $ui->Columns("<span class='font-weight-bold'>VIDEO</span> <br/><br/>",0)],
+                "mt-2 ml-1 alinear"),
             $ui->Row([
                 $ui->Columns(
-                    $fc->getPictureVideo("https://picsum.photos/400/550", "width: 50%;").
-                    $fc->getPictureVideo("https://picsum.photos/400/550", "width: 50%;"),
+                    $fc->getPictureVideo("img/1.jpg", "width: 50%;").
+                    $fc->getPictureVideo("img/2.jpg", "width: 50%;"),
                     0,0,0,0,"col p-0 ")
-            ], "multimedia"),
+            ], ""),
             $ui->Row([
                 $ui->Columns(
-                    $fc->getPictureVideo("https://picsum.photos/400/550", "width: 50%;").
-                    $fc->getPictureVideo("https://picsum.photos/400/550", "width: 50%;"),
+                    $fc->getPictureVideo("img/4.jpg", "width: 50%;").
+                    $fc->getPictureVideo("img/3.jpg", "width: 50%;"),
                     0,0,0,0,"col p-0 ")
-            ], "multimedia"),
+            ], ""),
             $ui->Row([
                 $ui->Columns("<span class=' font-weight-bold'>IMAGEN</span> <br/><br/>",12)]
-                ,"mt-2 alinear"),
+                ,"mt-2 ml-1 alinear"),
 //            $fc->Aviso()
 
         ],'padding: 0px;', 'contenedorArchive'),
