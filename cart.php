@@ -179,7 +179,7 @@ $h= $html->Html5(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
         $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css","css/menumovil.css"]),
-        $html->LoadScripts(["View/js/bootstrap.js", "js/index.js"]),
+        $html->LoadScripts(["View/js/bootstrap.js", "js/index.js","js/menuarchive.js"]),
         "
             <style>
                 
@@ -220,9 +220,9 @@ $h= $html->Html5(
 
     ),
     $html->Body([
-        $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "cambiarLogoFijo()" , "index"),
+        $html->MenuMovilarchive($idioma, $idiomaActual, $numeroProductosCarrito, "cambiarLogoFijo()" , "archive"),
         '<br /><br />',
-        $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","","","","'"]),
+        //$fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","","","","'"]),
         //$fc->LogoNegro(),
         "<div id='logo'> </div>",
         $ui->ContainerFluid([ "",
