@@ -22,15 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="menu de index, opciones desplegables de filtro">
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="revision movil archive.php, archive.php, view">
+      <change afterPath="$PROJECT_DIR$/js/menucart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Business/FrontComponents.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/FrontComponents.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Connection/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Connection/Database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive.php" beforeDir="false" afterPath="$PROJECT_DIR$/archive.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/menumovil.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/menumovil.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/index2.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/menuarchive.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/menuarchive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view.php" afterDir="false" />
     </list>
     <list id="0e8517e8-4849-4dba-b416-5f3e44a7d134" name="Archivos XML" comment="Para documentos basura">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_06_2021_05_34_p__m__[Default_Changelist]/shelved.patch" beforeDir="false" />
@@ -330,13 +327,7 @@
       <workItem from="1625180492197" duration="4757000" />
       <workItem from="1625190196659" duration="6214000" />
       <workItem from="1625265052171" duration="2348000" />
-    </task>
-    <task id="LOCAL-00089" summary="Detalles">
-      <created>1614794300104</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1614794300104</updated>
+      <workItem from="1625524472440" duration="3281000" />
     </task>
     <task id="LOCAL-00090" summary="Imprints">
       <created>1614818788406</created>
@@ -674,7 +665,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625196423053</updated>
     </task>
-    <option name="localTasksCounter" value="138" />
+    <task id="LOCAL-00138" summary="revision movil archive.php, archive.php, view">
+      <created>1625330033092</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1625330033092</updated>
+    </task>
+    <option name="localTasksCounter" value="139" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -696,17 +694,6 @@
                   <entry key="Show.Git.Branches" value="false" />
                 </map>
               </option>
-              <option name="FILTERS">
-                <map>
-                  <entry key="text">
-                    <value>
-                      <list>
-                        <option value="databas" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
             </State>
           </value>
         </entry>
@@ -716,7 +703,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Filtro de la tienda&#10;Scroll final de privacy policy &amp; SHIPPING &amp; RETURNS" />
     <MESSAGE value="Crear Login Face &amp; Google" />
     <MESSAGE value="Sale en priductos" />
     <MESSAGE value="Cambios Archive" />
@@ -741,6 +727,7 @@
     <MESSAGE value="ajustes menu elementos" />
     <MESSAGE value="margen en el inicio de menu" />
     <MESSAGE value="menu de index, opciones desplegables de filtro" />
-    <option name="LAST_COMMIT_MESSAGE" value="menu de index, opciones desplegables de filtro" />
+    <MESSAGE value="revision movil archive.php, archive.php, view" />
+    <option name="LAST_COMMIT_MESSAGE" value="revision movil archive.php, archive.php, view" />
   </component>
 </project>

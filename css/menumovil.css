@@ -250,6 +250,10 @@ a.elemento-menu-movil.carrito{
         padding-bottom: 0.3rem !important;
         letter-spacing: 0.2rem !important;
     }
+
+    #politicadesktop.policita-cart .small {
+        font-size: 0.45rem !important;
+    }
     .desc-view p {
         padding: 0 !important;
     }
@@ -261,7 +265,10 @@ a.elemento-menu-movil.carrito{
     .subtitulo-view p {
         padding: 0 !important;
     }
-
+    #container p.informativo {
+        padding-top: 0.3rem;
+        font-size: 0.45rem !important;
+    }
     #contenedorArchive .alinear {
         padding-left: 2.5vw;
     }
@@ -350,6 +357,10 @@ a.elemento-menu-movil.carrito{
         border-bottom: 1px solid black;
         display: block;
     }
+    #politicadesktop {
+        bottom: 0;margin-bottom: 0.9vh; min-height: 150px;
+    }
+
 
     #privacity-text {
         padding-left: 3%;
