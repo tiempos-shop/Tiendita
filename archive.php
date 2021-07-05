@@ -117,7 +117,7 @@ $h= $html->Html5(
     ),
     $html->Body([
        // $fc->MenuArchive($idioma,$idiomaActual,$numeroProductosCarrito,["","'","","","",""],true,true),
-        $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "cambiarLogoFijo()", "archive"),
+        $html->MenuMovilarchive($idioma, $idiomaActual, $numeroProductosCarrito, "cambiarLogoFijo()", "archive"),
         $fc->LogoNegroLg(),
         //$fc->TMenu($htmlIds),
         '<div class="borde-margen-archive" ><div style="border: 1px solid #000; width: 100%; height: 100%;"></div></div>',
