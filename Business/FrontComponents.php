@@ -424,7 +424,7 @@ class FrontComponents
 
     public function SizeButton($botonTalla,$opcionesTallas){
         return '<div class="btn-group" style="width:100%">
-                    <button type="button" class="btn btn-block dropdown-toggle" data-toggle="dropdown">
+                    <button type="button" class="btn btn-block dropdown-toggle" style="padding: 0 !important;" data-toggle="dropdown">
                       '.$botonTalla.'
                     </button>
                     <div class="dropdown-menu align-content-center" role="menu" style="width:100%">

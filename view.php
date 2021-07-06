@@ -325,8 +325,8 @@ $h= $html->Html5(
                                 $ui->Columns($descripcionLarga,12,0,0,0,"small-font desc-view")
                             ]),
                             "<hr style='margin-top: 1em!important;'/>",
-                            "<div style='height: 25vh display: contents;'>",
-                            "<label style='padding-left: 40px'>$price</label>",
+                            "<div class='row' style='height: 25vh display: contents;'>",
+                            "<label class='col-md-12' style=''>$price</label>",
                             "</div><hr style='margin: 0 0 0 0'/>",
                             $fc->SizeButton($botonTalla,$opcionesTallas),
                             $flowButton,
