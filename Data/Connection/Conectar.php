@@ -25,8 +25,8 @@ class Conectar{
             try {
                 $con=new mysqli($this->host, $this->user, $this->pass, $this->database);
                 $con->query("SET NAMES '".$this->charset."'");
-            } catch (\Throwable  $e){
-                echo "<script>alert('Error al intentar conectarse al servidor');";
+            } catch (\mysqli_sql_exception  $e){
+                echo "<script>alert('Error al intentar conectarse al servidor');<script>";
                 echo "error";
             }
 
