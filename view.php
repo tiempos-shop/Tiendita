@@ -145,10 +145,10 @@ $modal="<table class='table table-borderless prodSize' style='color: black;'>
     <thead>
         <tr style='color: black; opacity: 1;'>
             <td></td>
-            <th><span>S</span></th>
-            <th><span>M</span></th>
-            <th><span>L</span></th>
-            <th><span>XL</span></th>
+            <th>S</th>
+            <th>M</th>
+            <th>L</th>
+            <th>XL</th>
         </tr>
     </thead>
     <tbody id='tableDetalle' style='color: black;'>
@@ -176,12 +176,8 @@ $h= $html->Html5(
                 td{
     text-align: center;
                 }
-                span:hover{
-    cursor: pointer;
-}
-                span:hover::after{
-    content: \"'\";
-                }
+
+ 
                 @font-face {
                     font-family: NHaasGroteskDSPro-55Rg;
                     src: url(font/NHaasGroteskDSPro-55Rg.woff);
