@@ -256,14 +256,17 @@ a.elemento-menu-movil.carrito{
     }
     .desc-view p {
         padding: 0 !important;
+        font-size: 1.4vh !important;
     }
 
     .titulo-view p {
         padding: 0 !important;
+        font-size: 1.4vh !important;
     }
 
     .subtitulo-view p {
         padding: 0 !important;
+        font-size: 1.4vh !important;
     }
     #container p.informativo {
         padding-top: 0.3rem;

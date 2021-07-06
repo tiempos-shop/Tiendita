@@ -154,7 +154,7 @@ foreach ($elements as $element){
     $code=$element["Clave"];
     $code=str_replace("'","_",$code);
     $js="view('$code')";
-    $htmlProducts.="".$ui->Row([
+    $htmlProducts.="<hr style='margin: 0; color:black; opacity: 1;' />".$ui->Row([
             $ui->Columns("<div style='cursor: pointer;' onclick=\"$js\"><img src='".$element["RutaImagen"]."' style='width: 100%;' /></div>",0,0,0,0,"col-4"),
             $ui->Columns(
                 $ui->Row([
@@ -165,7 +165,7 @@ foreach ($elements as $element){
                         0, 0 ,0,0,"col"),
                 ])
                 ,0,0,0,0,"col-8 mt-2"),
-    "<hr style='margin: 0; color:black; opacity: 1;' />"]);
+    ]);
 
     if($idiomaActual=="ENGLISH") $suma+=floatval($n*$element["CostoSale"]/$tipoCambio);else $suma+=floatval($n*$element["CostoSale"]);
 }
@@ -233,7 +233,7 @@ $h= $html->Html5(
                 $ui->Columns("SUBTOTAL:",0,0,0,0,"col text-center"),
                 $ui->Columns("".$ui->Moneda($suma),0,0,0,0,"col"),
             ], "my-2"),
-            "<button onclick='go(\"checkout.php\")' class='btn btn-dark btn-block' style='text-align: left;border-radius: 0'>
+            "<button onclick='go(\"checkout.php\")' class='btn btn-dark btn-block add-cart' style='text-align: left;border-radius: 0'>
                 ".$ui->Row([
                     $ui->Columns('CHECKOUT',0,0,0,0,"col text-center")
                 ])."

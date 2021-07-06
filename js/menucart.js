@@ -126,12 +126,7 @@ function view(str){
 
 
 setTimeout( function () {
-    var border = document.createElement('div');
-    border.classList.add('border-archive');
     document.getElementById('politicadesktop').classList.add('policita-cart');
-
-
-    document.getElementById('menu-movil-dorado').appendChild(border);
     validarDimenciones(true);
 
 }, 10);
