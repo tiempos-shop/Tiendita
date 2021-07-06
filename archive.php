@@ -75,6 +75,9 @@ $h= $html->Html5(
                 body{
                     color:black;
                 }
+                td{
+                    padding: 0!important;
+                }
 
             </style>
         ",
@@ -120,32 +123,68 @@ $h= $html->Html5(
                 $ui->Columns("",1),
                 $ui->Columns(
                     '
-                        <iframe style="left: 80vw;width: 110%;height: 80vh"
-                            src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1">
-                        </iframe>
-        ',11),
-            ]),
-            $ui->Row([$ui->Columns("<br/><br/>",12)]),
+                        <script>
+                            function play(){
+                                var d=document.getElementById("d");
+                                if (d.paused){
+                                    d.play(); 
+                                    alert("play");
+                                } 
+                                    
+                                else {
+                                    d.pause();
+                                    alert("play");
+                                }
+                                    
+                            }                       
+                        </script>
+                        
+                        <video id="d" style="width: 100%;height: auto;" autoplay muted>
+                            <source src="video/video.mp4" type="video/mp4" >
+                            
+                            Your browser does not support the video tag.
+                        </video>
+                            
+                        
+        ',11,0,0,0,"",""),
+            ],""),
+            $ui->Row(
+                [
+                    $ui->Columns("",1),
+                    $ui->Columns("<br/><label style='padding-right: 10%' >VIDEO</label><br/><br/>",11)
+                ]),
             $ui->Row([
                 $ui->Columns("",1),
                 $ui->Columns(
                     "
-                        <table class='table table-borderless' style='width: 110%' >
+                        <table class='table table-borderless' style='width: 100%;padding-right: 5%' >
                             <tr>
-                                <td><img width='300' src='img/0000-JALAPENO-back.jpg'></td>
-                                <td><img width='300' src='img/0001-OBSIDIANA-back.jpg'></td>
-                                <td><img width='300' src='img/0002-TACUBAYA-back.jpg'></td>
-                                <td><img width='300' src='img/0003-ANIL-back.jpg'></td>
+                                <td><img src='img/0000-JALAPENO.jpg' style='width: 100%'></td>
+                                <td><img src='img/0001-OBSIDIANA.jpg' style='width: 100%'></td>
+                                <td><img src='img/0002-TACUBAYA.jpg' style='width: 100%'></td>
+                                <td><img src='img/0003-ANIL.jpg' style='width: 100%'></td>
+                            </tr>
+                            <tr>
+                                <td><img src='img/0000-JALAPENO.jpg' style='width: 100%'></td>
+                                <td><img src='img/0001-OBSIDIANA.jpg' style='width: 100%'></td>
+                                <td><img src='img/0002-TACUBAYA.jpg' style='width: 100%'></td>
+                                <td><img src='img/0003-ANIL.jpg' style='width: 100%'></td>
                             </tr>
                         </table>
                         ",11)
             ]),
+            $ui->Row(
+                [
+                    $ui->Columns("",1),
+                    $ui->Columns("<br/><label style='padding-right: 10%' >COLLECTION</label><br/><br/>",11)
+                ]),
+            "<br/><br/>"
 //            $fc->Aviso()
 
         ]),
 
 
-    ],"style='background-color:transparent;z-index:100'") //#AC9950
+    ],"style='background-color:transparent;z-index:100;overflow-x:hidden'") //#AC9950
 );
 
 print_r($h);

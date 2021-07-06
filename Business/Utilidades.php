@@ -668,7 +668,7 @@ class Utilidades
 //        $mes=$hoy["mon"];
 //        $ano=$hoy["year"];
 
-        return "01-01-2000 00:00:00";
+        return date('d/m/Y H:i:s');
     }
 
     public function DisplayInputDate(array $date):string

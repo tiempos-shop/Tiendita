@@ -100,7 +100,7 @@ if(count($_POST)>0)
                         $cliente->Nombre=$name;
                         $cliente->Apellidos=$lastname;
                         $cliente->FechaCambio=$ui->FechaHoy();
-                        $cliente->CorreoElectronico->$login;
+                        $cliente->CorreoElectronico->login;
                         $cliente->Password=$password1;
 
                         $clientes=new \Tiendita\ModeloClientes();
