@@ -8,7 +8,6 @@ function validarDimenciones() {
     var ancho = window.innerWidth;
 
     //document.getElementById('botonMenuMovil').style.color = 'black';
-
     ///PARA INICIO DE CARGA
     document.getElementById('politicadesktop').classList.remove('d-flex');
     document.getElementById('politicadesktop').classList.add('d-none');

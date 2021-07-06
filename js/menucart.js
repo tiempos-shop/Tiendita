@@ -13,7 +13,7 @@ function validarDimenciones() {
     var separacionCart = document.getElementById("carrito").offsetLeft;
 
     document.getElementById('contenedorCart').classList.add('ocultarmargen');
-    document.getElementById('menu-movil-dorado').classList.remove('bg-white');
+    //document.getElementById('menu-movil-dorado').classList.remove('bg-white');
 
     if (ancho<=768)
     {
@@ -66,7 +66,7 @@ function cambiarLogoFijo(esEjecucionAutomatica = false)
     {
 
         document.getElementById('menu-movil-dorado-opcion').style.height = '0';
-
+        document.getElementById('menu-movil-dorado').style.height = '40px';
         document.getElementById('politica').classList.add('d-none');
         document.getElementById('lista-menu').style.display ='none';
         setTimeout(function() {
