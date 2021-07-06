@@ -131,7 +131,7 @@ $innerScript="";
 
 
 $collage .= '
-<div class="container-fluid my-2 mb-5">
+<div class="container-fluid my-1 mb-5">
     <div class="row">
         <div class="col sinpadding">  
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -149,7 +149,7 @@ $collage.=ImagenCarrusel($id, $image);
 $collage .= '
   </div>
   
-  <ol class="carousel-indicators">
+  <ol class="carousel-indicators" style="z-index: 0 !important;">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
@@ -303,7 +303,7 @@ $h= $html->Html5(
         $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "cambiarLogoFijo()" , "view"),
         '<br /><br />',
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["'","","","","",""]),
-        $fc->LogoNegro(),
+        //$fc->LogoNegro(),
         $collage,
         $ui->ContainerFluid([
             $ui->Row([
