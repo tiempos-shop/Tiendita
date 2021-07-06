@@ -179,10 +179,10 @@ $modal="
     <thead>
         <tr>
             <td></td>
-            <th><span>S</span></th>
-            <th><span>M</span></th>
-            <th><span>L</span></th>
-            <th><span>XL</span></th>
+            <th>S</th>
+            <th>M</th>
+            <th>L</th>
+            <th>XL</th>
         </tr>
     </thead>
     <tbody id='tableDetalle'>
@@ -335,7 +335,7 @@ $h= $html->Html5(
 //                        "</div>"
             ],"main"),
         ], "contenedorView"),
-        $fc->TMenu(""),
+        //$fc->TMenu(""),
         $ui->ContainerFluid([
         ], ""),
         '
