@@ -70,7 +70,7 @@ class DHL extends API
             [
                 "RateRequest" =>
                 [
-                    $RequestedShipment,
+                    "RequestedShipment" => $RequestedShipment,
                     "ClientDetails" => null
                 ]
             ];

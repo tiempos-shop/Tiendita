@@ -23,8 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="ajustes menu elementos">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_02_2021_04_40_p__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_02_2021_04_40_p__m___Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customerLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/customerLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/DHL/DHL.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/DHL/DHL.php" afterDir="false" />
     </list>
     <list id="0e8517e8-4849-4dba-b416-5f3e44a7d134" name="Archivos XML" comment="Para documentos basura" />
     <option name="SHOW_DIALOG" value="false" />
@@ -676,9 +677,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Seleccionar producto en Shop y dirigirlo a detalle de producto" />
-    <MESSAGE value="Vista detalle producto" />
-    <MESSAGE value="Detalles" />
     <MESSAGE value="Imprints" />
     <MESSAGE value="archive" />
     <MESSAGE value="Correccion MAC" />
@@ -701,6 +699,9 @@
     <MESSAGE value="Envio de Correo en Login y Validacion con bordes Rojos en passwords" />
     <MESSAGE value="Facebook" />
     <MESSAGE value="Activacion de base de datos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Activacion de base de datos" />
+    <MESSAGE value="Ajustes Archive y Login" />
+    <MESSAGE value="Ajuste conexion" />
+    <MESSAGE value="ajustes menu elementos" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajustes menu elementos" />
   </component>
 </project>
