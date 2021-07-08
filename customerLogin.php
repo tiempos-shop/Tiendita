@@ -10,8 +10,8 @@ include_once "View/Componentes/Administracion/VistasHtml.php";
 include_once "Business/Utilidades.php";
 include_once "Data/Connection/EntidadBase.php";
 include_once "Business/FrontComponents.php";
-include_once "Data\Models\Clientes.php";
-include_once "Data\Models\ModeloClientes.php";
+include_once "Data/Models/Clientes.php";
+include_once "Data/Models/ModeloClientes.php";
 
 $fc=new FrontComponents();
 $html=new VistasHtml();
