@@ -22,7 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="" />
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <list id="0e8517e8-4849-4dba-b416-5f3e44a7d134" name="Archivos XML" comment="Para documentos basura" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,13 +300,7 @@
       <workItem from="1624890587285" duration="4574000" />
       <workItem from="1624898067771" duration="26223000" />
       <workItem from="1625496915902" duration="1138000" />
-    </task>
-    <task id="LOCAL-00080" summary="Correccion de Menu en Shop">
-      <created>1614275067241</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1614275067242</updated>
+      <workItem from="1625772772221" duration="1237000" />
     </task>
     <task id="LOCAL-00081" summary="Seleccionar producto en Shop y dirigirlo a detalle de producto">
       <created>1614304943837</created>
@@ -642,7 +638,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625617244081</updated>
     </task>
-    <option name="localTasksCounter" value="129" />
+    <task id="LOCAL-00129" summary="ajustes menu elementos">
+      <created>1625617713200</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1625617713200</updated>
+    </task>
+    <option name="localTasksCounter" value="130" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
