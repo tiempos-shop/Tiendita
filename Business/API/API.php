@@ -75,7 +75,8 @@ class API
     {
         $up="$user:$passord";
         $json=json_encode($data,true);
-        return json_decode($this->CALL_API("POST",$url,$json,$up));
+        $jsonResponse=$this->CALL_API("POST",$url,$json,$up);
+        return json_decode($jsonResponse,true);
     }
 
     public function PUT (string $url)
