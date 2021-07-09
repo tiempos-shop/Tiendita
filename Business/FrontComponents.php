@@ -607,13 +607,13 @@ class FrontComponents
             data-toggle='modal' data-target='#size'><span style='letter-spacing: 0.34px;'>SIZE GUIDE</span></button>";
         $html.="</div> ";
 
-        $html .= "<span class='ml-1'><span";
+        $html .= "<div class='ml-1'><span";
         if($privacy) $html.=" onclick='go(\"privacy.php\")'";
-        $html.=">PRIVACY POLICY</span></span>";
+        $html.=">PRIVACY POLICY</span></div>";
 
-        $html.="<span><span";
+        $html.="<div><span";
         if($return) $html.=" onclick='go(\"shipping.php\")'";
-        $html.=">SHIPPING RETURNS</span></span> </div>";
+        $html.=">SHIPPING RETURNS</span></div> </div>";
 
 
 
