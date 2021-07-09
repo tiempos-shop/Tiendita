@@ -308,8 +308,10 @@ $h= $html->Html5(
                       }
                   });
                   
-                  function ChangeSize(conversion)
+                  function ChangeSize(conversion, e)
                       {
+                          $("span").removeClass("activerow");
+                          $(e).addClass("activerow");
                           $("#tableDetalle").html("");
                           for(let i = 0; i < dataSize.length; i++){
                               $("#tableDetalle").append(`<tr>
@@ -372,7 +374,7 @@ $h= $html->Html5(
           <div class="modal-dialog modal-dialog-centered" style="max-width: 700px;" role="document">
             <div class="modal-content" style="border-radius: 0;border: 0 solid transparent; background-color:white;">
               <div class="modal-header" style="border-color: black; padding: 0px; padding-left: 20px; margin-bottom: 10px;">
-                <h6 style="color:black;" class="modal-title" id="sizeLabel"><span onclick="ChangeSize(1);">CM</span><div class="space"></div><span onclick="ChangeSize(2.54)">IN</span></h6>
+                <h6 style="color:black;" class="modal-title" id="sizeLabel"><span onclick="ChangeSize(1, this);" class="activerow">CM</span><div class="space"></div><span onclick="ChangeSize(2.54, this)">IN</span></h6>
                 <button style="Color:black; " type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
                   X
                 </button>
