@@ -1,6 +1,8 @@
 <?php
 
-include_once "Business/DHL/ShipType.php";
+
+include_once "../DHL/ShipType.php";
+include_once "../API/API.php";
 
 class DHL extends API
 {
@@ -70,7 +72,7 @@ class DHL extends API
             [
                 "RateRequest" =>
                 [
-                    $RequestedShipment,
+                    "RequestedShipment" => $RequestedShipment,
                     "ClientDetails" => null
                 ]
             ];
@@ -94,15 +96,14 @@ class DHL extends API
     private function SpecialServices($monto_seguro,string $CurrencyCode="MXN"):array{
         return
             [
-                "SpecialServices" =>
-                [
-                    "Service" =>
+                
+                "Service" =>
+                    [
                         [
-                            "ServiceType" => "II",
-                            "ServiceValue" => $monto_seguro,
-                            "CurrencyCode" => $CurrencyCode
-                        ]
-                ]
+                        "ServiceType" => "II",
+                        "ServiceValue" => $monto_seguro,
+                        "CurrencyCode" => $CurrencyCode]
+                    ]
             ];
     }
 

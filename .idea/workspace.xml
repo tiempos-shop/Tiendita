@@ -22,9 +22,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="ajustes menu elementos">
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="borde superior de cart">
+      <change afterPath="$PROJECT_DIR$/Business/API/ApiDHL.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/API/ApiDHLController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_02_2021_04_40_p__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_02_2021_04_40_p__m___Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customerLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/customerLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/DHL/DHL.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/DHL/DHL.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/DHL/ShipType.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/DHL/ShipType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/DHL/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/DHL/config.php" afterDir="false" />
     </list>
     <list id="0e8517e8-4849-4dba-b416-5f3e44a7d134" name="Archivos XML" comment="Para documentos basura" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +72,6 @@
       </set>
     </option>
   </component>
-  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpServers">
     <servers>
       <server host="127.0.0.1" id="e820fe44-1307-4645-b719-522a0b5573cf" name="XAMPP Server" />
@@ -301,6 +306,11 @@
       <workItem from="1624890587285" duration="4574000" />
       <workItem from="1624898067771" duration="26223000" />
       <workItem from="1625496915902" duration="1138000" />
+      <workItem from="1625620536729" duration="1914000" />
+      <workItem from="1625703850323" duration="3238000" />
+      <workItem from="1625783061440" duration="5385000" />
+      <workItem from="1625798653263" duration="176000" />
+      <workItem from="1625870352030" duration="916000" />
     </task>
     <task id="LOCAL-00079" summary="Correccion de arreglo de fotografias producto">
       <created>1614119418403</created>
