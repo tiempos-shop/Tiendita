@@ -22,15 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="borde superior de cart">
-      <change afterPath="$PROJECT_DIR$/Business/API/ApiDHL.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/API/ApiDHLController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_02_2021_04_40_p__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_02_2021_04_40_p__m___Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/DHL/DHL.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/DHL/DHL.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/DHL/ShipType.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/DHL/ShipType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/DHL/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/DHL/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/API/API.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/API/API.php" afterDir="false" />
     </list>
     <list id="0e8517e8-4849-4dba-b416-5f3e44a7d134" name="Archivos XML" comment="Para documentos basura" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,6 +66,7 @@
       </set>
     </option>
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpServers">
     <servers>
       <server host="127.0.0.1" id="e820fe44-1307-4645-b719-522a0b5573cf" name="XAMPP Server" />
@@ -109,7 +104,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -306,46 +301,7 @@
       <workItem from="1624890587285" duration="4574000" />
       <workItem from="1624898067771" duration="26223000" />
       <workItem from="1625496915902" duration="1138000" />
-      <workItem from="1625620536729" duration="1914000" />
-      <workItem from="1625703850323" duration="3238000" />
-      <workItem from="1625783061440" duration="5385000" />
-      <workItem from="1625798653263" duration="176000" />
-      <workItem from="1625870352030" duration="916000" />
-    </task>
-    <task id="LOCAL-00079" summary="Correccion de arreglo de fotografias producto">
-      <created>1614119418403</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1614119418405</updated>
-    </task>
-    <task id="LOCAL-00080" summary="Correccion de Menu en Shop">
-      <created>1614275067241</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1614275067242</updated>
-    </task>
-    <task id="LOCAL-00081" summary="Seleccionar producto en Shop y dirigirlo a detalle de producto">
-      <created>1614304943837</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1614304943837</updated>
-    </task>
-    <task id="LOCAL-00082" summary="Vista detalle producto">
-      <created>1614400053112</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1614400053113</updated>
-    </task>
-    <task id="LOCAL-00083" summary="Vista detalle producto">
-      <created>1614651285619</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1614651285620</updated>
+      <workItem from="1625772772221" duration="14193000" />
     </task>
     <task id="LOCAL-00084" summary="Detalles">
       <created>1614788912267</created>
@@ -655,7 +611,42 @@
       <option name="project" value="LOCAL" />
       <updated>1625161462823</updated>
     </task>
-    <option name="localTasksCounter" value="128" />
+    <task id="LOCAL-00128" summary="ajustes menu elementos">
+      <created>1625617244081</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1625617244081</updated>
+    </task>
+    <task id="LOCAL-00129" summary="ajustes menu elementos">
+      <created>1625617713200</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1625617713200</updated>
+    </task>
+    <task id="LOCAL-00130" summary="ajustes menu elementos">
+      <created>1625781929344</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1625781929344</updated>
+    </task>
+    <task id="LOCAL-00131" summary="customerLogin&#10;correccion de Data/Models/Clientes">
+      <created>1625782811860</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1625782811860</updated>
+    </task>
+    <task id="LOCAL-00132" summary="Cambio de Servicios a prueba&#10;Cambio en llamada a tabla BD por ciudad ya que no es necesario&#10;Correccion en API para regresar un array">
+      <created>1625841231850</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1625841231850</updated>
+    </task>
+    <option name="localTasksCounter" value="133" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -686,11 +677,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Seleccionar producto en Shop y dirigirlo a detalle de producto" />
-    <MESSAGE value="Vista detalle producto" />
-    <MESSAGE value="Detalles" />
-    <MESSAGE value="Imprints" />
-    <MESSAGE value="archive" />
     <MESSAGE value="Correccion MAC" />
     <MESSAGE value="Carrito" />
     <MESSAGE value="Correcciones Marzo 8" />
@@ -711,6 +697,11 @@
     <MESSAGE value="Envio de Correo en Login y Validacion con bordes Rojos en passwords" />
     <MESSAGE value="Facebook" />
     <MESSAGE value="Activacion de base de datos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Activacion de base de datos" />
+    <MESSAGE value="Ajustes Archive y Login" />
+    <MESSAGE value="Ajuste conexion" />
+    <MESSAGE value="ajustes menu elementos" />
+    <MESSAGE value="customerLogin&#10;correccion de Data/Models/Clientes" />
+    <MESSAGE value="Cambio de Servicios a prueba&#10;Cambio en llamada a tabla BD por ciudad ya que no es necesario&#10;Correccion en API para regresar un array" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambio de Servicios a prueba&#10;Cambio en llamada a tabla BD por ciudad ya que no es necesario&#10;Correccion en API para regresar un array" />
   </component>
 </project>

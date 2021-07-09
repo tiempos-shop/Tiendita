@@ -1,8 +1,7 @@
 <?php
 
-
-include_once "../DHL/ShipType.php";
-include_once "../API/API.php";
+include_once "Business/API/API.php";
+include_once "Business/DHL/ShipType.php";
 
 class DHL extends API
 {
@@ -95,16 +94,15 @@ class DHL extends API
 
     private function SpecialServices($monto_seguro,string $CurrencyCode="MXN"):array{
         return
-            [
-                
-                "Service" =>
-                    [
+
+                [
+                    "Service" =>
                         [
-                        "ServiceType" => "II",
-                        "ServiceValue" => $monto_seguro,
-                        "CurrencyCode" => $CurrencyCode]
-                    ]
-            ];
+                            "ServiceType" => "II",
+                            "ServiceValue" => $monto_seguro,
+                            "CurrencyCode" => $CurrencyCode
+                        ]
+                ];
     }
 
     private function Ship(ShipType $shipper, ShipType $recipient):array{
@@ -149,8 +147,8 @@ class DHL extends API
         return $this->RateRequest($request_shipment);
     }
 
-    public function RateApiCall($precio,int $shipper_cp,int $receiver_cp,int $products_number,$weight,$length,$width,$height):array{
-        $request=$this->GetRateRequest($precio,$shipper_cp,$receiver_cp,$products_number,$weight,$length,$width,$height);
+    public function RateApiCall($precio,string $currency,int $shipper_cp,int $receiver_cp,int $products_number,$weight,$length,$width,$height):array{
+        $request=$this->GetRateRequest($precio,$currency,$shipper_cp,$receiver_cp,$products_number,$weight,$length,$width,$height);
         return $this->CALL_DHL($this->RateUrl,$request);
     }
 

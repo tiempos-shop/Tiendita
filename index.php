@@ -56,11 +56,10 @@ else{
 $idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","INGRESO","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","LOGIN","ESPAÑOL","CART(*)" ] ] ];
 
 // Obtener de base de datos de productos
-$htmlIds="";
+$htmlIds = "";
 
 
 foreach ($products as $product){
-
     $item->Clave=$product->Clave;
     $item->Costo=$product->Costo;
 
@@ -78,9 +77,23 @@ $h= $html->Html5(
             $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
             $html->LoadScripts(["View/js/bootstrap.js"]),
             "
-                
+                <style>
+                    #indexFronted{
+                        position: fixed;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        padding: 0px;
+                        margin: 0px;
+                    }
+                    body, html {
+                        height: 100%;
+                        width: 100%;
+                    }
+                </style>
             ",
-        "<script>
+            "<script>
                       window.onload=function (){
                           //load();
                       }
@@ -119,9 +132,7 @@ $h= $html->Html5(
                           var id=str; //.replace(\"_\", \"\'\");
                           go(\"view.php?id=\"+id);
                       }
-                      
-                      
-                      
+                    
                     </script>,"
 
         ),
@@ -130,12 +141,10 @@ $h= $html->Html5(
         $fc->LogoDorado(),
         $fc->TMenu($htmlIds),
         $ui->ContainerFluid([
-            "<table cellpadding='0' cellspacing='0'>",
-            "<tr>",
-            "    <td><img id='left_home' class='img-fluid' src='img/ts-home_001.jpg'></img></td>",
-            "    <td><img id='right_home' class='img-fluid' src='img/ts-home_002.jpg'></img></td>",
-            "</tr>"
-        ],"principal")
+            //$fc->setIndexView(["https://www.youtube.com/embed/tgbNymZ7vqY"], "video")
+            //$fc->setIndexView(["img/ts-home_001.jpg","img/ts-home_002.jpg"])
+            $fc->setIndexView(["img/ts-home_001.jpg"])
+        ],"indexFronted")
 
     ],"style='background-color:#FFFFF;color:#AC9950'")
 );
