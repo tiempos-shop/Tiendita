@@ -195,6 +195,7 @@ $h= $html->Html5(
         $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "AbrirMenuMovil()", "shop", 0, $filtroActual, $ordenActual),
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["'","","","","",""]),
         $fc->LogoNegro(),
+        "<br /> <br />",
         "<div class='productos shop' id='contenedorIndex'>",
         $htmlProducts,
         "</div>",
