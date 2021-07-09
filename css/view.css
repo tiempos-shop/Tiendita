@@ -9,6 +9,7 @@ td{
 span:hover{
     cursor: pointer;
 }
+span.activerow:after,
 span:hover::after{
     content: "'";
 }

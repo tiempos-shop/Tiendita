@@ -668,4 +668,20 @@ class FrontComponents
         });
         ';
     }
+
+    public function setIndexView($urls = [], $type = "img"){
+        $html = "<div class='row' style='padding: 0px; margin: 0px;'>";
+        foreach ($urls as $url){
+            $html .= "<div class='col' style='padding: 0px; margin: 0px;'>";
+
+            if($type == "img")
+                $html .= "<img src='$url' style='padding: 0px;margin: 0px; width: 100%; height: 100%;' />";
+            else
+                $html .= "<iframe src='$url' style='height: 100%; width: 100%; position: absolute;'></iframe>";
+
+            $html .= "</div>";
+        }
+        $html .= "</div>";
+        return $html;
+    }
 }
