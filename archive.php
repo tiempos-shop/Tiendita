@@ -85,8 +85,6 @@ $h= $html->Html5(
             </style>
         ",
         "<script>
-                      
-                      
                       function go(url){
                           window.location.href=url;
                       }
@@ -109,8 +107,6 @@ $h= $html->Html5(
                           var id=str; //.replace(\"_\", \"\'\");
                           go(\"view.php?id=\"+id);
                       }
-                      
-                      
                       
                     </script>"
 
