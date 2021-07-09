@@ -37,6 +37,10 @@ class API
             curl_setopt($this->curl, CURLOPT_USERPWD, $user_password);
         }
 
+        $headers = array(
+            'Content-Type:application/json'
+        );
+        curl_setopt($this->curl, CURLOPT_HTTPHEADER, $headers);
 
         curl_setopt($this->curl, CURLOPT_URL, $url);
         curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, 1);
