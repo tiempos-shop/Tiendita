@@ -120,27 +120,27 @@ $h= $html->Html5(
         //"<div class='fixed-top' style='z-index:100;display:block;width:96.1vw;height:95.7vh;background-color: transparent;border: 1px solid black;top:1vh;left: 2.1vw'></div>",
         $ui->ContainerFluidStyle([
             $ui->Row([
-                $ui->Columns("<br/><br/>". $fc->TMenuSecond(""),0,0,12,0,"mb-1")
+                $ui->Columns("<br/><br/>". $fc->TMenuSecond(""),0,0,12,0,"mb-1"),
             ], "ml-1 alinear"),
             $ui->Row([
                 $ui->Columns(
                     $fc->getPictureVideo("https://www.youtube.com/embed/5JhKWFxLhKo","width:100%; height: 100%;", "video"),
-                    0,0,0,0,"col p-0 "),
+                    0,0,0,0,"col p-0"),
             ], ""),
             $ui->Row([
                 $ui->Columns("<span class='font-weight-bold'>VIDEO</span> <br/><br/>",0)],
                 "mt-2 ml-1 alinear"),
             $ui->Row([
                 $ui->Columns(
-                    $fc->getPictureVideo("img/1.jpg", "width: 50%;").
-                    $fc->getPictureVideo("img/2.jpg", "width: 50%;"),
-                    0,0,0,0,"col p-0 ")
+                    $fc->getPictureVideo("img/1.jpg", "width: 50%;","image").
+                    $fc->getPictureVideo("img/2.jpg", "width: 50%;","image"),
+                    0,0,0,0,"col p-0"),
             ], ""),
             $ui->Row([
                 $ui->Columns(
                     $fc->getPictureVideo("img/4.jpg", "width: 50%;").
                     $fc->getPictureVideo("img/3.jpg", "width: 50%;"),
-                    0,0,0,0,"col p-0 ")
+                    0,0,0,0,"col p-0 "),
             ], ""),
             $ui->Row([
                 $ui->Columns("<span class=' font-weight-bold'>IMAGEN</span> <br/><br/>",12)]
