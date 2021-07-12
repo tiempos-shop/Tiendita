@@ -132,14 +132,14 @@ $h= $html->Html5(
                 "mt-2 ml-1 alinear"),
             $ui->Row([
                 $ui->Columns(
-                    $fc->getPictureVideo("img/1.jpg", "width: 50%;","image").
-                    $fc->getPictureVideo("img/2.jpg", "width: 50%;","image"),
+                    $fc->getPictureVideo("img/p1.jpg", "width: 50%;","image").
+                    $fc->getPictureVideo("img/p2.jpg", "width: 50%;","image"),
                     0,0,0,0,"col p-0"),
             ], ""),
             $ui->Row([
                 $ui->Columns(
-                    $fc->getPictureVideo("img/4.jpg", "width: 50%;").
-                    $fc->getPictureVideo("img/3.jpg", "width: 50%;"),
+                    $fc->getPictureVideo('img/p4.jpg', 'width: 50%;').
+                    $fc->getPictureVideo('img/p3.jpg', 'width: 50%;'),
                     0,0,0,0,"col p-0 "),
             ], ""),
             $ui->Row([
@@ -147,7 +147,7 @@ $h= $html->Html5(
                 ,"mt-2 ml-1 alinear"),
 //            $fc->Aviso()
 
-        ],'padding: 0px;', 'contenedorArchive'),
+        ],"padding: 0px;", "contenedorArchive"),
 
 
     ],"") //#AC9950
