@@ -22,7 +22,7 @@ switch ($requestMethod) {
         $hasError = false;
 
         //echo  file_get_contents('php://input');
-        $problemas = ["precio" => "", "moneda" =>"", "codigo_postal" =>""];
+        $problemas = ["precio" => "", "moneda" =>"", "codigo_postal" =>"", "sistema" =>""];
 
         if (!isset($data_info->precio))
         {
@@ -40,33 +40,40 @@ switch ($requestMethod) {
             $problemas["codigo_postal"] ="No se establecio el codigo postal";
             $hasError = true;
         }
+
+        $respuesta = json_decode(json_encode( $dhl_service->RateApiCall(
+            $data_info->precio,
+            $data_info->moneda,
+            "97133",
+            $data_info->codigo_postal,1,0.5,5, 3,3)
+        ));
+
+        if (isset($respuesta->RateResponse->Provider[0]->Service->TotalNet))
+        {
+            $precioEnvio =$respuesta->RateResponse->Provider[0]->Service->TotalNet;
+            $fechaEntrega =  date_create( $respuesta->RateResponse->Provider[0]->Service->DeliveryTime );
+            $fechaInicio = date_create( $respuesta->RateResponse->Provider[0]->Service->CutoffTime );
+            $diferencia = date_diff($fechaInicio, $fechaEntrega);
+            $precioEnvio->dias = $diferencia->format("%d");
+            echo json_encode($precioEnvio);
+        }
+        else
+        {
+            $problemas["sistema"] = "No se pudo obtener cotización";
+            $hasError = true;
+        }
+
         if ($hasError)
         {
             http_response_code(400);
             echo  json_encode($problemas);
         }
 
-        //$data = $dhl_service->GetRateRequest($data_info->precio,$data_info->moneda, "97133", $data_info->codigo_postal, 1, 0.5, 11,11, 11);
-        //echo json_encode($data);
-
-        $respuesta = json_decode(json_encode( $dhl_service->RateApiCall(
-            $data_info->precio,
-            $data_info->moneda,
-            "97133",
-            $data_info->codigo_postal,1,0.5,5, 5,5)
-        ));
-
-        if (isset($respuesta->RateResponse->Provider[0]->Service->TotalNet))
-        {
-            $precioEnvio =$respuesta->RateResponse->Provider[0]->Service->TotalNet;
-            echo json_encode($precioEnvio);
-
-        }
-        //echo  json_encode($respuesta);
 
         break;
     default :
         echo $requestMethod;
+
         break;
 }
 

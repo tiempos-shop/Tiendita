@@ -609,12 +609,12 @@ class FrontComponents
         return $html;
     }
 
-    public function BlackInput(string $title,$id,bool $password=false){
+    public function BlackInput(string $title,$id,bool $password=false, $maxlength  = 999999){
         $type="";
         if($password){
             $type="type='password'";
         }
-        return "<input $type class='form-control' name='$id' placeholder='$title' style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em'/>";
+        return "<input $type class='form-control' name='$id' id='$id' maxlength='$maxlength' placeholder='$title' style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em'/>";
     }
 
     public function BlackInputType(string $title,$id,string $type,bool $requiered=false):string

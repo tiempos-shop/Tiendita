@@ -58,18 +58,15 @@ else{
     $idiomaActual=$_SESSION["language"];
 }
 $tipoCambio=20;
-$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
+$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"], "CURRENCY" => "MXN" ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ], "CURRENCY" => "USD" ] ];
 
-
-
-
-
+$moneda = $idioma[$idiomaActual]["CURRENCY"];
 $h= $html->Html5(
     $html->Head(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
         $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
-        $html->LoadScripts(["View/js/bootstrap.js"]),
+        $html->LoadScripts(["View/js/bootstrap.js", "js/axios.min.js", "js/checkout.js"]),
         "",
         '<script>
                   function go(url){
@@ -100,7 +97,7 @@ $h= $html->Html5(
             "<hr style='opacity: 1'/>",
             $ui->RowSpace("1vh"),
             $ui->Row([
-                $ui->Columns("",2),
+                $ui->Columns("<input type='hidden' id='moneda' value='$moneda'>",2),
                 $ui->Columns(
                     "SHIPPING ADDRESS",
                     4),
@@ -135,10 +132,10 @@ $h= $html->Html5(
             $ui->Row([
                 $ui->Columns("",2),
                 $ui->Columns(
-                    $fc->BlackInput("CITY","name"),
+                    $fc->BlackInput("CITY","city"),
                     4),
                 $ui->Columns(
-                    $fc->BlackInput("ZIP OR POSTAL CODE","name"),
+                    $fc->BlackInput("ZIP OR POSTAL CODE","postalcode", false, "5"),
                     4),
                 $ui->Columns("",2),
             ]),
@@ -168,7 +165,7 @@ $h= $html->Html5(
             $ui->Row([
                 $ui->Columns("",2),
                 $ui->Columns(
-                    "<button class='btn btn-block btn-dark' formaction='customerLogin.php?action=create' type='submit' style='border-radius: 0;background-color: black;margin-top: 1em;'>SAVE</button>",
+                    "<button class='btn btn-block btn-dark' onclick='CalcRate()' style='border-radius: 0;background-color: black;margin-top: 1em;'>SAVE</button>",
                     2),
                 $ui->Columns(
                     "<button class='btn btn-block btn-dark' formaction='customerLogin.php?action=create' type='submit' style='border-radius: 0;background-color: black;margin-top: 1em;'>CANCEL</button>",
@@ -205,7 +202,8 @@ $h= $html->Html5(
             $ui->Row([
                 $ui->Columns("",2),
                 $ui->Columns(
-                    "<input class='form-check-input' type='checkbox' id='newsletter' name='newsletter' style='border-radius: 10px;border-color: black'> $40.00 USD | 5 DAYS | EXPRESS</input>",
+                    "<input class='form-check-input' type='checkbox' disabled id='tiempoEntrega' name='newsletter' style='border-radius: 10px;border-color: black'>"
+                    ."<span id='postalcodetext' class='ml-1 text-muted'>INPUT POSTAL CODE FIRST</span></input>",
                     4),
                 $ui->Columns(
                     "",
