@@ -66,6 +66,8 @@ class VistasHtml
             $idioma[ $idiomaActual ]["FILTER"][$filtroActual] = $idioma[ $idiomaActual ]["FILTER"][$filtroActual].$caracterFocus;
         }
 
+
+
         if (isset($idioma[ $idiomaActual ]["ORDER"][$ordenamientoActual]))
         {
             $idioma[ $idiomaActual ]["ORDER"][$ordenamientoActual] = $idioma[ $idiomaActual ]["ORDER"][$ordenamientoActual].$caracterFocus;
@@ -107,6 +109,7 @@ class VistasHtml
                         <li ><a href='shop.php'>".$idioma[ $idiomaActual ]["MENU"][0]."</a></li>
                         <li><a href='archive.php' id='archive'>".$idioma[ $idiomaActual ]["MENU"][1]."</a></li>
                         <li><a href='imprint.php'>".$idioma[ $idiomaActual ]["MENU"][2]."</a></li>
+                        <li><a href='customerLogin.php'>".$idioma[ $idiomaActual ]["MENU"][3]."</a></li>
                         ".
                         "<form method='post'>
                         <input type='hidden' value='".$idioma[ $idiomaActual]["MENU"][4]."' name='language' id='language'>
