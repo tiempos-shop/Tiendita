@@ -133,7 +133,7 @@ class VistasHtml
                 {
 
                     //$nav .= "<li class='opcion'><a href='#' style='display: block' onclick='AbrirSubMenuFiltro($indexColapsado)'>". $filtro."</a>";
-                    $nav .= "<li class='opcion'><a href='#' style='display: block'>". $filtro."</a>";
+                    $nav .= "<li class='opcion'><a href='#' style='display: block; margin-top: -11px;' >". $filtro."</a>";
                     $nav .="<ul class='navbar-nav collapse show'>";
                     foreach ($valor as $elemento)
                     {
@@ -145,7 +145,7 @@ class VistasHtml
                 }
                 else
                 {
-                    $nav .= "<li class='opcion'><a href='".$idioma[$idiomaActual]["ACCIONFILTRO"][$indexFiltro]."' style='display: block'>".$valor."</a></li>";
+                    $nav .= "<li class='opcion'><a href='".$idioma[$idiomaActual]["ACCIONFILTRO"][$indexFiltro]."' style='display: block; margin-top: -10px;'>".$valor."</a></li>";
 
                 }
 
