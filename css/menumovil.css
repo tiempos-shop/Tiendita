@@ -149,7 +149,7 @@ a.elemento-menu-movil.carrito{
 
 #lista-filtro li.elemento a {
     color: black;
-    margin-left: 1.2rem;
+    margin-left: 1.0rem;
 }
 
 
@@ -229,6 +229,7 @@ a.elemento-menu-movil.carrito{
 
     #contenedorArchive {
         margin-top: 2.5vh;
+        padding-right: 0px;
     }
     .politicaguia {
         font-size: 1.6vh !important;
@@ -274,9 +275,11 @@ a.elemento-menu-movil.carrito{
     }
     #contenedorArchive .alinear {
         padding-left: 2.5vw;
+
     }
     #contenedorArchive .multimedia {
         width: 100vw !important;
+
     }
     #privacity-text {
         padding-left: 3%;

@@ -64,16 +64,9 @@ function  OcultarCaracter()
 }
 
 function  AbrirSubMenuFiltro(index) {
-
     var collapseElementList = [].slice.call(document.getElementById('lista-filtro').querySelectorAll('.collapse'));
-
-
     var internoIndex = 0;
-
-
     var collapseList = collapseElementList.map(function (collapseEl) {
-
-
         //si tiene show
         if (internoIndex != index)
         {
@@ -82,7 +75,6 @@ function  AbrirSubMenuFiltro(index) {
                new bootstrap.Collapse(collapseEl);
             }
         }
-
         if (internoIndex == index)
         {
             internoIndex++;
@@ -91,8 +83,6 @@ function  AbrirSubMenuFiltro(index) {
         }
         internoIndex++;
     });
-
-
 }
 
 function AbrirMenuMovil(esEjecucionAutomatica = false)

@@ -49,7 +49,7 @@ $idioma=[ "ESPAÑOL"=>
             [   "MENU"=>
                     [ "SHOP","ARCHIVE","IMPRINT","LOGIN","ESPAÑOL","CART(*)", "FILTER", "SORT" ],
                 "FILTER"=>
-                    ["SHOP ALL", "MEN" => ["TOPS", "PANTS", "SHOES"], "WOMENS" => ["TOPS", "PANTS", "SHOES"], "ACCESSORIES" , "SALE"],
+                    ["SHOP ALL", "MENS" => ["TOPS", "PANTS", "SHOES"], "WOMENS" => ["TOPS", "PANTS", "SHOES"], "ACCESSORIES" , "SALE"],
                 "ORDER" => ["FEATURED", "A TO Z", "PRICE LOW TO HIGH", "PRICE HIGH TO LOW"],
                 "ACCIONFILTRO"=> $accionFiltro],
         ];
@@ -189,11 +189,10 @@ $h= $html->Html5(
         "
         ",
         ''
-
     ),
     $html->Body([
         $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "AbrirMenuMovil()", "shop", 0, $filtroActual, $ordenActual),
-        $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["'","","","","",""]),
+        //$fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["'","","","","",""]),
         $fc->LogoNegro(),
         "<br /> <br />",
         "<div class='productos shop' id='contenedorIndex'>",
