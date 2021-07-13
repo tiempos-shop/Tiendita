@@ -74,12 +74,12 @@ $tipoCambio=20;
 $idioma=
     [
         "ESPAÑOL"=>[
-            "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"],
+            "MENU"=>[ "TIENDA","ARCHIVO","MARCA","INGRESO","ENGLISH","CARRITO(*)"],
             "LOGIN" => [ "ACCESO","CORREO ELECTRÓNICO","CONTRASEÑA","OLVIDASTE TU CONTRASEÑA?","ACCESO CON FACEBOOK","ACCESO CON GOOGLE" ],
             "CREAR" => [ "CREAR CUENTA","NOMBRE","APELLIDO(S)","CORREO ELECTRÓNICO","CONTRASEÑA","REPETIR CONTRASEÑA"," SUSCRIBIRSE AL NEWSLETTER" ]
         ],
         "ENGLISH"=>[
-            "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ],
+            "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","LOGIN","ESPAÑOL","CART(*)" ],
             "LOGIN" => [ "LOGIN","EMAIL ADDRES","PASSWORD","FORGOT YOUR PASSWORD?","LOGIN WITH FACEBOOK","LOGIN WITH GOOGLE" ],
             "CREAR" => [ "CREATE AN ACCOUNT","NAME","LAST NAME","EMAIL ADDRESS","PASSWORD","REPEAT PASSWORD"," SIGN UP FOR NEWSLETTER" ]
         ]
@@ -89,8 +89,8 @@ $h= $html->Html5(
     $html->Head(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
-        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
-        $html->LoadScripts(["View/js/bootstrap.js"]),
+        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css","css/menumovil.css"]),
+        $html->LoadScripts(["View/js/bootstrap.js","js/menulogin.js"]),
         "
             <style>
                 
@@ -104,7 +104,16 @@ $h= $html->Html5(
                 .form-control:focus {
                     box-shadow:  0 1px 1px black, 0 0 3px black;
                 }
-                
+                #menu-movil-dorado{
+                    border-bottom: 1px solid black; 
+                }
+                .container-fluid{
+                    padding-left: 0px;
+                    padding-right: 0px;
+                }
+                .row{
+                    padding-left: calc(var(--bs-gutter-x) / 2); 
+                }
             </style>
         ",
         '<script>
@@ -137,25 +146,23 @@ $h= $html->Html5(
     ),
     $html->Body([
         // Load Facebook button
-        "
-            <div id=\"fb-root\"></div>
+        "<div id=\"fb-root\"></div>
             <script async defer 
                 crossorigin=\"anonymous\" 
                 src=\"https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v9.0&appId=1794600520762591&autoLogAppEvents=1\" 
                 nonce=\"wlJTE7aj\">
             </script>",
-        $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","","'","",""]),
+        $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "cambiarLogoFijo()" , "cart"),
+        '<br /><br />',
+        //$fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","","'","",""]),
         $fc->LogoNegro(),
-        $fc->TMenu(""),
+        //$fc->TMenu(""),
 
         $ui->ContainerFluid([
             $ui->Row([
-
                 $ui->Columns("<label style='font-family: NHaasGroteskDSPro-65Md'>".$idioma[$idiomaActual]["LOGIN"][0]."</label>",12,0,0,0,"",
-                    "text-align:center;margin-top:100px")
+                    "text-align:center;margin-top: 20px;margin-bottom:10px;")
             ]),
-
-            $ui->RowSpace("2vh"),
             $ui->Row([
                 $ui->Columns("",4),
                 $ui->Columns(
@@ -164,23 +171,21 @@ $h= $html->Html5(
                             $fc->BlackInput($idioma[$idiomaActual]["LOGIN"][1],"login"),
                             $ui->RowSpace("1vh"),
                             $fc->BlackInputEye($idioma[$idiomaActual]["LOGIN"][2],"password",true),
-                            "<button type='submit' formaction='customerLogin.php?action=forgot' class='btn small-font'>".$idioma[$idiomaActual]["LOGIN"][3]."</button>",
-                        ],"","<button class='btn btn-block btn-dark' formaction='customerLogin.php?action=login' type='submit' style='border-radius: 0;background-color: black;'>".$idioma[$idiomaActual]["LOGIN"][0]."</button>"),
+                            "<button type='submit' formaction='customerLogin.php?action=forgot' class='btn small-font'>".$idioma[$idiomaActual]["LOGIN"][3]."</button>".
+                            "<button class='btn btn-block btn-dark' formaction='customerLogin.php?action=login' type='submit' style='border-radius: 0;background-color: black;'>".$idioma[$idiomaActual]["LOGIN"][0]."</button>",
+                        ],"",''),
                         $ui->RowSpace("1vh"),
-                        $ui->FormButtom([],"","<button class='btn btn-block' formaction='customerLogin.php?action=facebook' type='submit' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][4]."</button>"),
-                        $ui->FormButtom([],"","<button class='btn btn-block' formaction='customerLogin.php?action=google' type='submit' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][5]."</button>")
-
+                        $ui->FormButtom(["<button class='btn btn-block' formaction='customerLogin.php?action=facebook' type='submit' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][4]."</button>"],"",""),
+                        $ui->FormButtom(["<button class='btn btn-block' formaction='customerLogin.php?action=google' type='submit' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][5]."</button>"],"","")
                     ]),
                 4,0,0,0,"","text-align:center;"),
                 $ui->Columns("",4),
             ]),
-            "",
+            "<hr class='mt-4 mb-4' />",
             $ui->Row([
-
                 $ui->Columns("<label style='font-family: NHaasGroteskDSPro-65Md'>".$idioma[$idiomaActual]["CREAR"][0]."</label>",12,0,0,0,"",
-                    "text-align:center;margin-top:100px")
+                    "text-align:center;")
             ]),
-            $ui->RowSpace("2vh"),
             $ui->Row([
                 $ui->Columns("",4),
                 $ui->Columns(
@@ -198,8 +203,8 @@ $h= $html->Html5(
                             $fc->BlackInput($idioma[$idiomaActual]["CREAR"][5],"password2",true),
                             $ui->RowSpace("1vh"),
                             "<input class='form-check-input' type='checkbox' id='newsletter' name='newsletter' style='border-radius: 10px;border-color: black'>".$idioma[$idiomaActual]["CREAR"][6]."</input>",
-
-                        ],"","<button class='btn btn-block btn-dark' formaction='customerLogin.php?action=create' type='submit' style='border-radius: 0;background-color: black;margin-top: 1em;'>".$idioma[$idiomaActual]["CREAR"][0]."</button>"),
+                            "<button class='btn btn-block btn-dark' formaction='customerLogin.php?action=create' type='submit' style='border-radius: 0;background-color: black;margin-top: 1em;'>".$idioma[$idiomaActual]["CREAR"][0]."</button>"
+                        ],"",""),
                     ]),
                     4,0,0,0,"","text-align:center;"),
                 $ui->Columns("",4),
