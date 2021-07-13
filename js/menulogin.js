@@ -123,7 +123,7 @@ function view(str){
 
 
 setTimeout( function () {
-    document.getElementById('politicadesktop').classList.add('policita-cart');
+    //document.getElementById('politicadesktop').classList.add('policita-cart');
     validarDimenciones(true);
 
 }, 10);

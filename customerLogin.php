@@ -176,7 +176,7 @@ $h= $html->Html5(
                         ],"",''),
                         $ui->RowSpace("1vh"),
                         $ui->FormButtom(["<button class='btn btn-block' formaction='customerLogin.php?action=facebook' type='submit' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][4]."</button>"],"",""),
-                        $ui->FormButtom(["<button class='btn btn-block' formaction='customerLogin.php?action=google' type='submit' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][5]."</button>"],"","")
+                        $ui->FormButtom(["<button class='btn btn-block' formaction='customerLogin.php?action=google' type='submit' style='border-radius: 0;border-color: black;background-color: white;margin-top: 0.5em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][5]."</button>"],"","")
                     ]),
                 4,0,0,0,"","text-align:center;"),
                 $ui->Columns("",4),
@@ -212,7 +212,7 @@ $h= $html->Html5(
 
 
         ]),
-        $fc->MenuPrivacyReturn(true,true)
+        //$fc->MenuPrivacyReturn(true,true)
 
 
 
