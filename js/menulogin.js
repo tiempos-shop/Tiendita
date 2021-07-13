@@ -21,9 +21,9 @@ function validarDimenciones() {
         document.getElementById('logo').style.left = separacionCart +'px';
 
         //quitar la clase small
-        document.getElementById('politicadesktop').classList.remove('col-md-8', 'col-sm-12',  'pr-4' ,'pl-4')
-        document.getElementById('politicadesktop').style.minHeight='0';
-        document.getElementById('politicadesktop').style.width = '100%';
+        //document.getElementById('politicadesktop').classList.remove('col-md-8', 'col-sm-12',  'pr-4' ,'pl-4')
+        //document.getElementById('politicadesktop').style.minHeight='0';
+        //document.getElementById('politicadesktop').style.width = '100%';
         modoMovil = true;
 
     }
