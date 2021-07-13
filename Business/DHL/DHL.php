@@ -1,7 +1,7 @@
 <?php
 
-include_once "Business/API/API.php";
-include_once "Business/DHL/ShipType.php";
+include_once "../API/API.php";
+include_once "../DHL/ShipType.php";
 
 class DHL extends API
 {
