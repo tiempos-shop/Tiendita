@@ -23,4 +23,23 @@ class ShipType
                 "CountryCode" => "MX"
             ];
     }
+
+    public function Contact($PersonName, $CompanyName, $PhoneNumber,$EmailAddress):array{
+        return [
+                "PersonName" => $PersonName,
+                "CompanyName"=> $CompanyName,
+                "PhoneNumber"=> $PhoneNumber,
+                "EmailAddress"=> $EmailAddress
+            ];
+    }
+
+    public function Address($StreetLines, $City, $PostalCode , $CountryCode):array
+    {
+        return [
+                "StreetLines"=> $StreetLines,
+                "City"=> $City,
+                "PostalCode"=> $PostalCode,
+                "CountryCode"=> $CountryCode
+            ];
+    }
 }

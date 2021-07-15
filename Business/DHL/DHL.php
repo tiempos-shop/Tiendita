@@ -152,10 +152,16 @@ class DHL extends API
         return $this->CALL_DHL($this->RateUrl,$request);
     }
 
-    private function ShipmentRequested($ShipmentInfo):array{
+    public function ShipmentRequested($ShipmentInfo, $PostalCode,$PersonName, $CompanyName, $PhoneNumber,$EmailAddress, $StreetLines, $City , $CountryCode):array{
         $date=date('Y-m-d');
         $time=date('H:i:s');
         $time_stamp=$date."T$time GMT-06:00";
+
+        $receiver = new ShipType($PostalCode);
+        $addressShop = $receiver->Address("calle guadalajara", "Guadalajara", "44220" , "MX");
+        $contactShop = $receiver->Contact("Estaban", "Tiendas Shop", "555-555-555","correo@tiendasshop.com");
+        $address = $receiver->Address($StreetLines, $City, $PostalCode , $CountryCode);
+        $contact = $receiver->Contact($PersonName, $CompanyName, $PhoneNumber,$EmailAddress);
         return
             [
                 "ShipmentRequest" =>
@@ -165,6 +171,13 @@ class DHL extends API
                                 "ShipmentInfo" => $ShipmentInfo,
                                 "ShipTimestamp" => $time_stamp,
                                 "PaymentInfo" => "DAP",
+                                "InternationalDetail" => $this->InternationalDetail(1,
+                                    "Cartera de Prueba color negro",
+                                    "1", "1", "1"),
+                                "Ship" => [
+                                    "Shipper" =>  [ "Contact" => $contactShop, "Address" => $addressShop],
+                                    "Recipient" => [ "Contact" => $contact, "Address" => $address]
+                                ],
 
                             ]
                     ]
@@ -172,7 +185,7 @@ class DHL extends API
 
     }
 
-    private function ShipmentInfo($precio,$currency){
+    public function ShipmentInfo($precio,$currency){
         return
             [
                 "DropOffType" => "REGULAR_PICKUP",
@@ -183,6 +196,19 @@ class DHL extends API
                 "LabelType" => "PDF",
                 "SpecialServices" => $this->SpecialServices($precio,$currency)
             ];
+    }
+
+    public function  InternationalDetail($numberOfPieces, $Description, $quantity, $unitPrice, $customsValue)
+    {
+        return [
+            "Commodities" => [
+                "NumberOfPieces" => $numberOfPieces,
+                "Description" =>$Description,
+                "Quantity"=>$quantity,
+                "UnitPrice" =>$unitPrice,
+                "customsValue" =>$customsValue
+            ]
+        ];
     }
 
 

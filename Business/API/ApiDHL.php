@@ -15,18 +15,120 @@ $uri = explode( '/', $uri );
 
 $data_info = json_decode(file_get_contents('php://input'));
 
+$ruta = "/";
+if (isset($_GET["ruta"]))
+{
+    $ruta = $_GET["ruta"];
+}
+
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
-switch ($requestMethod) {
-    case 'POST':
-        $hasError = false;
+switch ($ruta) {
+    case 'cotizar' :
+        switch ($requestMethod) {
+            case 'POST':
+                $hasError = false;
+                $problemas = ["precio" => "", "moneda" =>"", "codigo_postal" =>"", "sistema" =>""];
 
-        //echo  file_get_contents('php://input');
-        $problemas = ["precio" => "", "moneda" =>"", "codigo_postal" =>"", "sistema" =>""];
+                if (!isset($data_info->precio))
+                {
+                    $problemas["precio"] ="No se establecio el precio";
+                    $hasError = true;
+                }
+                if (!isset($data_info->moneda))
+                {
+                    $problemas["moneda"] ="No se establecio el moneda";
+                    $hasError = true;
+                }
+
+                if (!isset($data_info->codigo_postal))
+                {
+                    $problemas["codigo_postal"] ="No se establecio el codigo postal";
+                    $hasError = true;
+                }
+                $request=$dhl_service->GetRateRequest($data_info->precio,
+                    $data_info->moneda,
+                    "97133",
+                    $data_info->codigo_postal,1,0.5,5, 3,3);
+                echo json_encode($request);
+                return;
+                $respuesta = json_decode(json_encode( $dhl_service->RateApiCall(
+                    $data_info->precio,
+                    $data_info->moneda,
+                    "97133",
+                    $data_info->codigo_postal,1,0.5,5, 3,3)
+                ));
+
+                if (isset($respuesta->RateResponse->Provider[0]->Service->TotalNet))
+                {
+                    $precioEnvio =$respuesta->RateResponse->Provider[0]->Service->TotalNet;
+                    $fechaEntrega =  date_create( $respuesta->RateResponse->Provider[0]->Service->DeliveryTime );
+                    $fechaInicio = date_create( $respuesta->RateResponse->Provider[0]->Service->CutoffTime );
+                    $diferencia = date_diff($fechaInicio, $fechaEntrega);
+                    $precioEnvio->dias = $diferencia->format("%d");
+                    echo json_encode($precioEnvio);
+                }
+                else
+                {
+                    $problemas["sistema"] = "No se pudo obtener cotización";
+                    $hasError = true;
+                }
+
+                if ($hasError)
+                {
+                    http_response_code(400);
+                    echo  json_encode($problemas);
+                }
+
+
+                break;
+            default :
+                echo $requestMethod;
+                echo 'no existe ruta';
+                break;
+        }
+        break;
+    case 'envio':
+        $hasError = false;
+        $problemas = ["precio" => "", "moneda" =>"", "codigo_postal" =>"",
+            "sistema" =>"", "nombre" =>"", "telefono" =>"", "correo" => "",
+            "calle" =>"", "cuidad" =>"", "codigo_pais" =>""];
 
         if (!isset($data_info->precio))
         {
             $problemas["precio"] ="No se establecio el precio";
+            $hasError = true;
+        }
+
+        if (!isset($data_info->nombre))
+        {
+            $problemas["nombre"] ="No se establecio el nombre";
+            $hasError = true;
+        }
+
+        if (!isset($data_info->telefono))
+        {
+            $problemas["telefono"] ="No se establecio el telefono";
+            $hasError = true;
+        }
+        if (!isset($data_info->ciudad))
+        {
+            $problemas["ciudad"] ="No se establecio la cuidad";
+            $hasError = true;
+        }
+        if (!isset($data_info->calle))
+        {
+            $problemas["calle"] ="No se establecio la calle";
+            $hasError = true;
+        }
+        if (!isset($data_info->codigo_pais))
+        {
+            $problemas["codigo_pais"] ="No se establecio el codigo de pais";
+            $hasError = true;
+        }
+        if (!isset($data_info->correo))
+        {
+            $problemas["correo"] ="No se establecio el correo";
             $hasError = true;
         }
         if (!isset($data_info->moneda))
@@ -40,41 +142,19 @@ switch ($requestMethod) {
             $problemas["codigo_postal"] ="No se establecio el codigo postal";
             $hasError = true;
         }
+        $info = $dhl_service->ShipmentInfo($data_info->precio, $data_info->moneda);
+        $ship = $dhl_service->ShipmentRequested(
+        $info,$data_info->codigo_postal,
+        $data_info->nombre, "", $data_info->telefono,
+        $data_info->correo, $data_info->calle,
+        $data_info->ciudad, $data_info->codigo_pais );
 
-        $respuesta = json_decode(json_encode( $dhl_service->RateApiCall(
-            $data_info->precio,
-            $data_info->moneda,
-            "97133",
-            $data_info->codigo_postal,1,0.5,5, 3,3)
-        ));
-
-        if (isset($respuesta->RateResponse->Provider[0]->Service->TotalNet))
-        {
-            $precioEnvio =$respuesta->RateResponse->Provider[0]->Service->TotalNet;
-            $fechaEntrega =  date_create( $respuesta->RateResponse->Provider[0]->Service->DeliveryTime );
-            $fechaInicio = date_create( $respuesta->RateResponse->Provider[0]->Service->CutoffTime );
-            $diferencia = date_diff($fechaInicio, $fechaEntrega);
-            $precioEnvio->dias = $diferencia->format("%d");
-            echo json_encode($precioEnvio);
-        }
-        else
-        {
-            $problemas["sistema"] = "No se pudo obtener cotización";
-            $hasError = true;
-        }
-
-        if ($hasError)
-        {
-            http_response_code(400);
-            echo  json_encode($problemas);
-        }
-
-
+        echo json_encode($ship);
         break;
-    default :
-        echo $requestMethod;
-
+    default:
+        http_response_code(400);
+        echo  $ruta;
+        echo 'no existe ruta';
         break;
 }
-
 
