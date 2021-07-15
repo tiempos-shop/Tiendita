@@ -132,9 +132,9 @@ class VistasHtml
                 if (is_array($valor))
                 {
 
-                    //$nav .= "<li class='opcion'><a href='#' style='display: block' onclick='AbrirSubMenuFiltro($indexColapsado)'>". $filtro."</a>";
-                    $nav .= "<li class='opcion'><a href='#' style='display: block; margin-top: -11px;' >". $filtro."</a>";
-                    $nav .="<ul class='navbar-nav collapse show'>";
+                    $nav .= "<li class='opcion'><a href='#' style='display: block' onclick='AbrirSubMenuFiltro($indexColapsado)'>". $filtro."</a>";
+                    //$nav .= "<li class='opcion'><a href='#' style='display: block; margin-top: -11px;' >". $filtro."</a>";
+                    $nav .="<ul class='navbar-nav collapse'>";
                     foreach ($valor as $elemento)
                     {
                         $nav .= "<li class='elemento' ><a href='#' style='display: block'>".$elemento."</a>";
