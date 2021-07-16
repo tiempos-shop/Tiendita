@@ -2,6 +2,7 @@
 
 include_once "../API/API.php";
 include_once "../DHL/ShipType.php";
+include_once "../DHL/PackageModel.php";
 
 class DHL extends API
 {
@@ -92,16 +93,16 @@ class DHL extends API
             ];
     }
 
-    private function SpecialServices($monto_seguro,string $CurrencyCode="MXN"):array{
-        return
+    private function SpecialServices($monto_seguro,string $CurrencyCode="MXN", $isShip = false):array{
 
-                [
+        $dataService = [
+            "ServiceType" => "II",
+            "ServiceValue" => $monto_seguro,
+            "CurrencyCode" => $CurrencyCode
+        ];
+        return [
                     "Service" =>
-                        [
-                            "ServiceType" => "II",
-                            "ServiceValue" => $monto_seguro,
-                            "CurrencyCode" => $CurrencyCode
-                        ]
+                    $isShip ? [$dataService] : $dataService
                 ];
     }
 
@@ -132,6 +133,24 @@ class DHL extends API
         ];
     }
 
+    private function PackagesShip(PackageModel $packageModel):array{
+        return
+            [
+                "RequestedPackages" =>
+                    [[
+                        "@number" => $packageModel->number,
+                        "Weight"=> $packageModel->weight,
+                        "Dimensions" =>
+                            [
+                                "Length" => $packageModel->length,
+                                "Width" => $packageModel->width,
+                                "Height" => $packageModel->height
+                            ],
+                        "CustomerReferences" =>"38393070"
+                    ]]
+            ];
+    }
+
     public function GetRateRequest($precio,$currency,int $shipper_cp,int $receiver_cp,int $products_number,$weight,$length,$width,$height):array{
         $special_services=$this->SpecialServices($precio,$currency);
 
@@ -151,8 +170,11 @@ class DHL extends API
         $request=$this->GetRateRequest($precio,$currency,$shipper_cp,$receiver_cp,$products_number,$weight,$length,$width,$height);
         return $this->CALL_DHL($this->RateUrl,$request);
     }
-
-    public function ShipmentRequested($ShipmentInfo, $PostalCode,$PersonName, $CompanyName, $PhoneNumber,$EmailAddress, $StreetLines, $City , $CountryCode):array{
+    public function ShipingApiCall(Array $request)
+    {
+        return $this->CALL_DHL($this->ShipmentUrl, $request);
+    }
+    public function ShipmentRequested($ShipmentInfo, $PostalCode,$PersonName, $CompanyName, $PhoneNumber,$EmailAddress, $StreetLines, $City , $CountryCode, PackageModel $packageModel):array{
         $date=date('Y-m-d');
         $time=date('H:i:s');
         $time_stamp=$date."T$time GMT-06:00";
@@ -178,7 +200,7 @@ class DHL extends API
                                     "Shipper" =>  [ "Contact" => $contactShop, "Address" => $addressShop],
                                     "Recipient" => [ "Contact" => $contact, "Address" => $address]
                                 ],
-
+                                "Packages" => $this->PackagesShip($packageModel)
                             ]
                     ]
             ];
@@ -194,7 +216,7 @@ class DHL extends API
                 "Currency" => $currency,
                 "UnitOfMeasurement" => "SI",
                 "LabelType" => "PDF",
-                "SpecialServices" => $this->SpecialServices($precio,$currency)
+                "SpecialServices" => $this->SpecialServices($precio,$currency, true)
             ];
     }
 
@@ -206,7 +228,7 @@ class DHL extends API
                 "Description" =>$Description,
                 "Quantity"=>$quantity,
                 "UnitPrice" =>$unitPrice,
-                "customsValue" =>$customsValue
+                "CustomsValue" =>$customsValue
             ]
         ];
     }

@@ -79,8 +79,22 @@ class API
     {
         $up="$user:$passord";
         $json=json_encode($data,true);
-        $jsonResponse=$this->CALL_API("POST",$url,$json,$up);
-        return json_decode($jsonResponse,true);
+        try {
+            $jsonResponse=$this->CALL_API("POST",$url,$json,$up);
+            if (!isset($jsonResponse))
+            {
+                throw new Exception("no hay respuesta paqueteria");
+            }
+
+            return json_decode($jsonResponse,true);
+        }
+        catch (Exception $ex)
+        {
+
+            return ["problema" => $ex->getMessage()];
+        }
+
+
     }
 
     public function PUT (string $url)

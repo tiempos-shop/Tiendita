@@ -50,8 +50,7 @@ switch ($ruta) {
                     $data_info->moneda,
                     "97133",
                     $data_info->codigo_postal,1,0.5,5, 3,3);
-                echo json_encode($request);
-                return;
+
                 $respuesta = json_decode(json_encode( $dhl_service->RateApiCall(
                     $data_info->precio,
                     $data_info->moneda,
@@ -70,7 +69,17 @@ switch ($ruta) {
                 }
                 else
                 {
-                    $problemas["sistema"] = "No se pudo obtener cotización";
+
+                    if (isset($respuesta->problema))
+                    {
+
+                        $problemas["sistema"] = $respuesta->problema;
+                    }
+                    else
+                    {
+                        $problemas["sistema"] = "No se pudo obtener cotización";
+                    }
+
                     $hasError = true;
                 }
 
@@ -142,14 +151,43 @@ switch ($ruta) {
             $problemas["codigo_postal"] ="No se establecio el codigo postal";
             $hasError = true;
         }
+        $empacado = new PackageModel();
+        $empacado->number = 1;
+        $empacado->height = 1;
+        $empacado->length = 1;
+        $empacado->weight=2;
+        $empacado->width=5;
+
         $info = $dhl_service->ShipmentInfo($data_info->precio, $data_info->moneda);
         $ship = $dhl_service->ShipmentRequested(
         $info,$data_info->codigo_postal,
-        $data_info->nombre, "", $data_info->telefono,
+        $data_info->nombre, $data_info->nombre, $data_info->telefono,
         $data_info->correo, $data_info->calle,
-        $data_info->ciudad, $data_info->codigo_pais );
+        $data_info->ciudad, $data_info->codigo_pais, $empacado );
 
-        echo json_encode($ship);
+        //echo json_encode($ship);
+        //return;
+        $response = $dhl_service->ShipingApiCall($ship);
+
+        if (isset($response->ShipmentResponse))
+        {
+            echo json_encode($response);
+        }
+        else
+        {
+            if (isset($respuesta->problema))
+            {
+
+                $problemas["sistema"] = $respuesta->problema;
+            }
+            else
+            {
+                $problemas["sistema"] = "No se pudo obtener cotización";
+            }
+
+            $hasError = true;
+        }
+        echo json_encode($response);
         break;
     default:
         http_response_code(400);
