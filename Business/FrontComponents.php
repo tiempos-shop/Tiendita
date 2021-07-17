@@ -379,21 +379,15 @@ class FrontComponents
                 $this->submenu = $_GET["submenu"];
             }
             switch ($this->submenu) {
-                case 1:
-                    return
-                        "</div>
-                    <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
-                    <a style='color: black' href='shop.php?submenu=1'>SHOP ALL'</a><br/>
-                    <br/>
-                    <a style='color: black' href='shop.php?submenu=2'><span>ACCESSORIES</span></a><br/> 
-                    <br/>
-                    <a style='color: black' href='shop.php?submenu=3'><span><strong>SALE</strong></span></a>
-                </div>";
                 case 2:
                     return
                         "</div>
                     <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
                     <a style='color: black' href='shop.php?submenu=1'><span>SHOP ALL</span></a><br/>
+                    <br/>
+                    <a style='color: black'>MENS</a><br/>
+                    <br/>
+                     <a style='color: black'>WOMENS</a><br/>
                     <br/>
                     <a style='color: black' href='shop.php?submenu=2'>ACCESSORIES'</a><br/>
                     <br/>
@@ -405,6 +399,10 @@ class FrontComponents
                     <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
                     <a style='color: black' href='shop.php?submenu=1'><span>SHOP ALL</span></a><br/>
                     <br/>
+                    <a style='color: black'>MENS</a><br/>
+                    <br/>
+                     <a style='color: black'>WOMENS</a><br/>
+                    <br/>
                     <a style='color: black' href='shop.php?submenu=2'><span>ACCESSORIES</span></a><br/>
                     <br/>
                     <a style='color: black' href='shop.php?submenu=3'><strong>SALE</strong>'</a>
@@ -415,6 +413,10 @@ class FrontComponents
                             <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
                             <a style='color: black' href='shop.php?submenu=1'>SHOP ALL'</a><br/>
                             <br/>
+                            <a style='color: black'>MENS</a><br/>
+                            <br/>
+                            <a style='color: black'>WOMENS</a><br/>
+                            <br/>
                             <a style='color: black' href='shop.php?submenu=2'><span>ACCESSORIES</span></a><br/>
                             <br/>
                             <a style='color: black' href='shop.php?submenu=3'><span><strong>SALE</strong></span></a>
@@ -422,6 +424,30 @@ class FrontComponents
                     break;
             }
         }
+
+    public function MenuFamilia2($idioma = [], $accionFiltro = []){
+        $index = 0;
+        $nav = "<div style='position: fixed;top:8.5vh;margin-left: 2vw'>";
+        foreach ($idioma as $valor => $key){
+            if( is_array($key) )
+            {
+                $nav .= "<div class='p-2'>";
+                $nav .= "<a href='#' class='menu d-block text-dark'>$valor</a>";
+                $nav .= "<div class='submenu'>";
+                foreach ($key as $sub){
+                    $nav .= "<a href='#' class='d-block text-dark pl-2'>$sub</a>";
+                }
+                $nav .= "</div>";
+                $nav .= "</div>";
+            }else {
+                $nav .= "<a href='$accionFiltro[$index]' class='d-block text-dark p-1'>$idioma[$valor]</a>";
+            }
+            $index++;
+        }
+        $nav .= "</div>";
+        echo $nav;
+    }
+
 
     public function SizeButton($botonTalla,$opcionesTallas){
         return '<div class="btn-group" style="width:100%">
