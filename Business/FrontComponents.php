@@ -425,22 +425,30 @@ class FrontComponents
             }
         }
 
-    public function MenuFamilia2($idioma = [], $accionFiltro = []){
+    public function MenuFamilia2($idioma = [], $accionFiltro = [], $menu = 0){
+        $submenu = 0;
         $index = 0;
         $nav = "<div style='position: fixed;top:8.5vh;margin-left: 2vw'>";
         foreach ($idioma as $valor => $key){
             if( is_array($key) )
             {
                 $nav .= "<div class='p-2'>";
-                $nav .= "<a href='#' class='menu d-block text-dark'>$valor</a>";
-                $nav .= "<div class='submenu'>";
+                $nav .= "<a href='#' class='d-block text-dark' data-menu='$submenu' onclick='openSubmenu(this);'>$valor</a>";
+                $nav .= "<div class='submenu d-none'>";
                 foreach ($key as $sub){
                     $nav .= "<a href='#' class='d-block text-dark pl-2'>$sub</a>";
                 }
                 $nav .= "</div>";
                 $nav .= "</div>";
+                $submenu++;
             }else {
-                $nav .= "<a href='$accionFiltro[$index]' class='d-block text-dark p-1'>$idioma[$valor]</a>";
+
+                if( $index == 4 )
+                    $idioma[$valor] = "<b>$idioma[$valor]</b>";
+                if( $menu == $index  )
+                    $nav .= "<a href='$accionFiltro[$index]' class='d-block text-dark p-1'>$idioma[$valor]'</a>";
+                else
+                    $nav .= "<a href='$accionFiltro[$index]' class='d-block text-dark p-1'><span>$idioma[$valor]</span></a>";
             }
             $index++;
         }

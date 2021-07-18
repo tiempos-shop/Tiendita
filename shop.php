@@ -33,7 +33,7 @@ else{
 $tipoCambio=20;
 
 
-$accionFiltro = ["shop.php?submenu=1", "#", "#", "shop.php?submenu=2", "shop.php?submenu=3"];
+$accionFiltro = ["shop.php?submenu=0", "#", "#", "shop.php?submenu=3", "shop.php?submenu=4"];
 //$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
 $idioma = ["ESPAÑOL" =>
     ["MENU" =>
@@ -91,7 +91,7 @@ if(isset($_GET["order"])){
 if(isset($_GET["submenu"])){
     $submenu=$_GET["submenu"];
     switch ($submenu){
-        case 3:
+        case 4:
             $temp=[];
             foreach ($products as $product){
                 if($product->Sale==1)
@@ -154,6 +154,7 @@ foreach ($products as $product){
 }
 $fc=new \Tiendita\FrontComponents();
 //var_dump($idioma[$idiomaActual]['FILTER']);
+//var_dump($submenu);
 //exit(0);
 
 $h= $html->Html5(
@@ -164,9 +165,7 @@ $h= $html->Html5(
         $html->LoadScripts(["View/js/bootstrap.js"]),
         "
         <style>
-            .submenu{
-                display: none;
-            }
+            
         </style>
         ",
         '<script>
@@ -189,9 +188,20 @@ $h= $html->Html5(
                       
                   }
                   
-                  $(document).ready( function (){
-                      console.log("data")
-                  } );
+                  function openSubmenu(event){
+                     let menu = event.dataset.menu;
+                     let submenu = document.querySelectorAll("div.submenu"); 
+                     for (let i = 0; i < submenu.length; ++i) {
+                         if( parseInt(menu) === i )
+                            {
+                                if( submenu[i].classList.contains("d-none") ){
+                                    submenu[i].classList.remove("d-none");
+                                }else{
+                                    submenu[i].classList.add("d-none");
+                                }
+                            }
+                     }
+                  }
                 </script>'
 
     ),
@@ -200,7 +210,7 @@ $h= $html->Html5(
         $fc->LogoNegro(),
         "<div style='margin-left: 15%;margin-right: 15%'>",
         $htmlProducts,
-        $fc->MenuFamilia2($idioma[$idiomaActual]['FILTER'], $accionFiltro),
+        $fc->MenuFamilia2($idioma[$idiomaActual]['FILTER'], $accionFiltro, $submenu),
         $fc->MenuFiltro(),
         $fc->Aviso( ($n< 3) ? 'absolute' : 'inherit'),
 
