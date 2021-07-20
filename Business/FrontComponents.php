@@ -428,7 +428,7 @@ class FrontComponents
     public function MenuFamilia2($idioma = [], $accionFiltro = [], $menu = 0){
         $submenu = 0;
         $index = 0;
-        $nav = "<div style='position: fixed;top:8.5vh;margin-left: 2vw'>";
+        $nav ="<di v style='position: fixed;top:8.5vh;margin-left: 2vw'>";
         foreach ($idioma as $valor => $key){
             if( is_array($key) )
             {
@@ -717,5 +717,15 @@ class FrontComponents
         }
         $html .= "</div>";
         return $html;
+    }
+
+    public function MenuAccount($idioma){
+        //$nav ="<div style='position: fixed;top:8.5vh;margin-left: 2vw'>"
+        $nav ="<div>";
+        foreach ($idioma as $valor){
+            $nav .= "<a href='#' class='d-block text-dark p-1'><span>$valor</span></a>";
+        }
+        $nav .= "</div>";
+        return $nav;
     }
 }
