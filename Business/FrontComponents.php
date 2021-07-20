@@ -428,7 +428,7 @@ class FrontComponents
     public function MenuFamilia2($idioma = [], $accionFiltro = [], $menu = 0){
         $submenu = 0;
         $index = 0;
-        $nav ="<div style='position: fixed;top:8.5vh;margin-left: -10vw'>";
+        $nav ="<div style='position: fixed;top:8.5vh;margin-left: -12vw'>";
         foreach ($idioma as $valor => $key){
             if( is_array($key) )
             {
