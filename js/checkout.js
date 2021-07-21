@@ -19,16 +19,27 @@ async function CalcRate()
 
     checkEntrega.disabled = true;
 
-    await axios.post("business/api/apidhl.php", data)
+    await axios.post("http://127.0.0.1:8000/api/envios_mov/cotizar", data)
         .then((resultado) => {
             console.log(resultado.data);
             var info =resultado.data;
-            if (info.dias != null)
+            if (info.idcotizacion != null)
             {
                 checkEntrega.disabled = false;
                 checkLabel.classList.remove('text-muted');
-                checkLabel.textContent = info.Amount + " " + info.Currency + " " +  info.dias + " DAYS";
+                checkLabel.textContent = info.precio + " " + info.moneda + " " +  info.dias + " DAYS";
             }
         });
     //console.log(data);
 }
+
+async function ObtenerDireccionPrincipal()
+{
+    console.log("obte direcc");
+    await axios.get('http://127.0.0.1:8000/api/direccion/porcliente/1')
+        .then((resultado)=>{
+            console.log(resultado.data);
+        })
+}
+
+ObtenerDireccionPrincipal();

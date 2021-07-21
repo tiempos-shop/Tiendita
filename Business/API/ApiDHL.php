@@ -65,6 +65,7 @@ switch ($ruta) {
                     $fechaInicio = date_create( $respuesta->RateResponse->Provider[0]->Service->CutoffTime );
                     $diferencia = date_diff($fechaInicio, $fechaEntrega);
                     $precioEnvio->dias = $diferencia->format("%d");
+
                     echo json_encode($precioEnvio);
                 }
                 else
@@ -171,12 +172,25 @@ switch ($ruta) {
 
         if (isset($response->ShipmentResponse))
         {
-            echo json_encode($response);
+            $datos = ["TrackingNumber" =>"0", "LabelImageFormat"=> ""];
+            $packageResult = $response->ShipmentResponse->PackagesResult->PackageResult[0];
+            $labelImage =$response->ShipmentResponse->LabelImage[0].LabelImageFormat;
+            if (isset($packageResult))
+            {
+                $datos["TrackingNumber"] = $packageResult->TrackingNumber;
+            }
+            if (isset($labelImage))
+            {
+                $datos["LabelImageFormat"] = $labelImage;
+            }
+
+            echo $datos;
         }
         else
         {
             if (isset($respuesta->problema))
             {
+
 
                 $problemas["sistema"] = $respuesta->problema;
             }
@@ -187,7 +201,7 @@ switch ($ruta) {
 
             $hasError = true;
         }
-        echo json_encode($response);
+
         break;
     default:
         http_response_code(400);

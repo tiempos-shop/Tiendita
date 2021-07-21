@@ -93,7 +93,7 @@ class DHL extends API
             ];
     }
 
-    private function SpecialServices($monto_seguro,string $CurrencyCode="MXN", $isShip = false):array{
+    private function SpecialServices($monto_seguro,string $CurrencyCode="USD", $isShip = false):array{
 
         $dataService = [
             "ServiceType" => "II",
