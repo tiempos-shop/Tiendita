@@ -189,14 +189,14 @@ $h= $html->Html5(
             "<hr style='opacity: 1'/>",
             $ui->RowSpace("1vh"),
             $ui->Row([
-                $ui->Columns("",2),
+                $ui->Columns("",4,0,0,0,"","text-aling: center;"),
                 $ui->Columns(
                     "SHIPPING METHOD",
                     4),
                 $ui->Columns(
                     "",
                     4),
-                $ui->Columns("",2),
+
             ]),
             $ui->RowSpace("2vh"),
             $ui->Row([
