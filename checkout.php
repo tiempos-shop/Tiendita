@@ -304,26 +304,26 @@ $h= $html->Html5(
                                                         <small>Lorem ipsum dolor sit amet</small>
                                            </div>",3),
                         $ui->Columns("<div class ='d-flex flex-row' style='margin-top: 10px;'>
-                                                <span class='mr-5'>1</span>  
+                                                <p class='mr-5'>1</p>  
                                             </div>",1),
                         $ui->Columns("<div class ='d-flex flex-row' style='margin-top: 10px;'>
-                                                <span>SMALL</span>
+                                                <p>SMALL</p>
                                             </div>",2),
                         $ui->Columns("<div style='margin-top: 10px; display: inline-block;'> USD $154.00 </div>",2)
                     ],'border-top border-dark')
                     .$ui->Row([
                         $ui->Columns("",3,0,0,0,''),
                         $ui->Columns("<div class ='d-flex flex-column' style='margin-top: 10px;'>
-                                                <span class='mr-5'>Subtotal</span>
-                                                <span>Shipping total</span>
-                                                <span>Duties and taxes</span>
-                                                <span class='font-weight-bold mt-2'>Total</span>
+                                                <p class='mr-5'>Subtotal</p>
+                                                <p>Shipping total</p>
+                                                <p>Duties and taxes</p>
+                                                <p class='font-weight-bold mt-2'>Total</p>
                                             </div>",6),
                         $ui->Columns("<div style='margin-top: 10px;' class='d-flex flex-column'>
-                                                <span class='mr-5'>USD $90</span>
-                                                <span>USD $10</span>
-                                                <span>(Included)</span>
-                                                <span class='font-weight-bold mt-2'>USD $100</span>
+                                                <p class='mr-5'>USD $90</p>
+                                                <p>USD $10</p>
+                                                <p>(Included)</p>
+                                                <p class='font-weight-bold mt-2'>USD $100</p>
                                             </div>",3)
                     ],'border-top border-dark'),12,0,0,0,'pt-6 pb-4 border-bottom border-dark'),
                 "<button class='btn btn-dark btn-block' style='text-align: left;border-radius: 0'>
