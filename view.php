@@ -27,7 +27,7 @@ $idiomaActual="";
 
 $fc=new \Tiendita\FrontComponents();
 
-$productInformation = $products = $db->getBy("Productos","Clave",$id)[0];
+$productInformation = $products = $db->getBy("Productos","Clave", $id)[0];
 
 $_SESSION["CheckOut"]=[ $productInformation->Clave,1,"ONE SIZE"];
 
@@ -101,8 +101,12 @@ if($idiomaActual=="ENGLISH"){
         $price="<s>$price</s> ".$ui->Moneda($productInformation->CostoSale/$tipoCambio,"USD $");
     }
     $descripcionLarga=$productInformation->LargeDescription;
-    $tallas=$productInformation->SelectSize;
-    $opcionesTallas="<a class='dropdown-item' href='#'>$tallas (Products in stock: $inventario)</a>";
+    //$tallas=$productInformation->SelectSize;
+    //$opcionesTallas="<a class='dropdown-item' href='#'>$tallas (Products in stock: $inventario)</a>";
+    $tallas = array("XXS","XS", "S", "M", "L", "XL", "XXL");
+    foreach ($tallas as $value) {
+        $opcionesTallas .= "<a class='dropdown-item pl-4' href='#'>$value</a>";
+    }
     $botonTalla="SELECT SIZE";
 }
 else{
@@ -112,8 +116,13 @@ else{
         $price="<s>$price</s> ".$ui->Moneda($productInformation->CostoSale,"MXN $");
     }
     $descripcionLarga=$productInformation->DescripcionLarga;
-    $tallas=$productInformation->SeleccionarTalla;
-    $opcionesTallas="<a class='dropdown-item' href='#'>$tallas (Productos en inventario: $inventario)</a>";
+    //$tallas=$productInformation->SeleccrionaTalla;
+    $tallas = array( "XS", "SM", "GD" );
+    foreach ($tallas as $value) {
+        $opcionesTallas .= "<a class='dropdown-item pl-4' href='#'>$value</a>";
+    }
+    //$opcionesTallas="<a class='dropdown-item' href='#'>$tallas (Productos en inventario: $inventario)</a>";
+
     $botonTalla="SELECCIONAR TALLA";
 }
 //$n=count($productWord);

@@ -32,7 +32,29 @@ else{
 }
 $tipoCambio=20;
 
-$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
+
+$accionFiltro = ["shop.php?submenu=0", "#", "#", "shop.php?submenu=3", "shop.php?submenu=4"];
+//$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
+$idioma = ["ESPAÑOL" =>
+    ["MENU" =>
+        ["TIENDA", "ARCHIVO", "MARCA", "INGRESO", "ENGLISH", "CARRITO(*)", "FILTRO", "ORDERNAR"],
+        "FILTER" =>
+            ["TODA LA TIENDA", "HOMBRE" => ["CAMISAS", "PANTALON", "ZAPATOS"], "MUJER" => ["CAMISAS", "PANTALON", "ZAPATOS"], "ACCESSORIOS", "OFERTAS"],
+        "ORDER" => ["DESTACADOS", "NOMBRE", "PRECIO DE MÁS BAJO A MÁS ALTO", "PRECIO DE MÁS ALTO A MÁS BAJO"],
+        "ACCIONFILTRO" => $accionFiltro],
+    "ENGLISH" =>
+        ["MENU" =>
+            ["SHOP", "ARCHIVE", "IMPRINT", "LOGIN", "ESPAÑOL", "CART(*)", "FILTER", "SORT"],
+            "FILTER" =>
+                ["SHOP ALL", "MENS" => ["TOPS", "PANTS", "SHOES"], "WOMENS" => ["TOPS", "PANTS", "SHOES"], "ACCESSORIES", "SALE"],
+            "ORDER" => ["FEATURED", "A TO Z", "PRICE LOW TO HIGH", "PRICE HIGH TO LOW"],
+            "ACCIONFILTRO" => $accionFiltro],
+];
+$filtroActual = 0;
+$ordenActual = -1;
+if ($idioma[$idiomaActual] == null) {
+    $idiomaActual = "ENGLISH";
+}
 
 
 $products=$db->getAll("Productos");
@@ -69,7 +91,7 @@ if(isset($_GET["order"])){
 if(isset($_GET["submenu"])){
     $submenu=$_GET["submenu"];
     switch ($submenu){
-        case 3:
+        case 4:
             $temp=[];
             foreach ($products as $product){
                 if($product->Sale==1)
@@ -131,6 +153,9 @@ foreach ($products as $product){
     }
 }
 $fc=new \Tiendita\FrontComponents();
+//var_dump($idioma[$idiomaActual]['FILTER']);
+//var_dump($submenu);
+//exit(0);
 
 $h= $html->Html5(
     $html->Head(
@@ -139,6 +164,9 @@ $h= $html->Html5(
         $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
         $html->LoadScripts(["View/js/bootstrap.js"]),
         "
+        <style>
+            
+        </style>
         ",
         '<script>
                   function go(url){
@@ -159,6 +187,21 @@ $h= $html->Html5(
                       smenu.style.display="block";
                       
                   }
+                  
+                  function openSubmenu(event){
+                     let menu = event.dataset.menu;
+                     let submenu = document.querySelectorAll("div.submenu"); 
+                     for (let i = 0; i < submenu.length; ++i) {
+                         if( parseInt(menu) === i )
+                            {
+                                if( submenu[i].classList.contains("d-none") ){
+                                    submenu[i].classList.remove("d-none");
+                                }else{
+                                    submenu[i].classList.add("d-none");
+                                }
+                            }
+                     }
+                  }
                 </script>'
 
     ),
@@ -167,7 +210,7 @@ $h= $html->Html5(
         $fc->LogoNegro(),
         "<div style='margin-left: 15%;margin-right: 15%'>",
         $htmlProducts,
-        $fc->MenuFamilia(),
+        $fc->MenuFamilia2($idioma[$idiomaActual]['FILTER'], $accionFiltro, $submenu),
         $fc->MenuFiltro(),
         $fc->Aviso( ($n< 3) ? 'absolute' : 'inherit'),
 

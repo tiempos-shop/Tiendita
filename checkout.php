@@ -189,14 +189,14 @@ $h= $html->Html5(
             "<hr style='opacity: 1'/>",
             $ui->RowSpace("1vh"),
             $ui->Row([
-                $ui->Columns("",2),
+                $ui->Columns("",4,0,0,0,"","text-aling: center;"),
                 $ui->Columns(
                     "SHIPPING METHOD",
                     4),
                 $ui->Columns(
                     "",
                     4),
-                $ui->Columns("",2),
+
             ]),
             $ui->RowSpace("2vh"),
             $ui->Row([
@@ -283,7 +283,57 @@ $h= $html->Html5(
             $ui->RowSpace("2vh"),
             "<hr style='opacity: 1'/>",
             $ui->RowSpace("1vh"),
+            $ui->Row([
+                $ui->Columns("<label style='font-family: NHaasGroteskDSPro-65Md'>SUMMARY</label>",12,0,0,0,"",
+                    "text-align:center;margin-top:10px")
+            ]),
+            $ui->RowSpace("2vh"),
+            "<hr style='opacity: 1'/>",
 
+            $ui->Row([
+                $ui->Columns(
+                    $ui->Row([
+                        $ui->Columns('',3),
+                        $ui->Columns('<p><strong>Billing Address</strong><br><br> Santiago Martinez Alberú<br>Chicago 34 int. 10 Col. Nápoles<br>Ciudad de México, Distrito Federal, 03810<br>México<br>+525547317546 </p>',6,),
+                        $ui->Columns('',3,)                  ])
+                    .$ui->Row([
+                        $ui->Columns("",2),
+                        $ui->Columns("<div style='cursor: pointer;'><img src='img/0000-JALAPENO.jpg' height='150'  /></div>",1,0,0,0,'pl-0'),
+                        $ui->Columns("<div class ='d-flex flex-column' style='margin-top: 10px;'>
+                                                        <span class='text-uppercase'>Chaqueta mediana</span>
+                                                        <small>Lorem ipsum dolor sit amet</small>
+                                           </div>",3),
+                        $ui->Columns("<div class ='d-flex flex-row' style='margin-top: 10px;'>
+                                                <span class='mr-5'>1</span>  
+                                            </div>",1),
+                        $ui->Columns("<div class ='d-flex flex-row' style='margin-top: 10px;'>
+                                                <span>SMALL</span>
+                                            </div>",2),
+                        $ui->Columns("<div style='margin-top: 10px; display: inline-block;'> USD $154.00 </div>",2)
+                    ],'border-top border-dark')
+                    .$ui->Row([
+                        $ui->Columns("",3,0,0,0,''),
+                        $ui->Columns("<div class ='d-flex flex-column' style='margin-top: 10px;'>
+                                                <span class='mr-5'>Subtotal</span>
+                                                <span>Shipping total</span>
+                                                <span>Duties and taxes</span>
+                                                <span class='font-weight-bold mt-2'>Total</span>
+                                            </div>",6),
+                        $ui->Columns("<div style='margin-top: 10px;' class='d-flex flex-column'>
+                                                <span class='mr-5'>USD $90</span>
+                                                <span>USD $10</span>
+                                                <span>(Included)</span>
+                                                <span class='font-weight-bold mt-2'>USD $100</span>
+                                            </div>",3)
+                    ],'border-top border-dark'),12,0,0,0,'pt-6 pb-4 border-bottom border-dark'),
+                "<button class='btn btn-dark btn-block' style='text-align: left;border-radius: 0'>
+                ".$ui->Row([
+                    $ui->Columns('',6),
+                    $ui->Columns('PLACE ORDER',6,0,0,0,"")
+                ])."
+            </button>",
+
+            ],''),
         ]),
         $fc->MenuPrivacyReturn(true,true)
 
