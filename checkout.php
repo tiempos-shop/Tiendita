@@ -300,7 +300,7 @@ $h= $html->Html5(
                         $ui->Columns("",2),
                         $ui->Columns("<div style='cursor: pointer;'><img src='img/0000-JALAPENO.jpg' height='150'  /></div>",1,0,0,0,'pl-0'),
                         $ui->Columns("<div class ='d-flex flex-column' style='margin-top: 10px;'>
-                                                        <span class='text-uppercase'>Chaqueta mediana</span>
+                                                        <span class='text-uppercase'>JALAPEÑO</span>
                                                         <small>Lorem ipsum dolor sit amet</small>
                                            </div>",3),
                         $ui->Columns("<div class ='d-flex flex-row' style='margin-top: 10px;'>
