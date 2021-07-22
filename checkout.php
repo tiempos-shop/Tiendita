@@ -328,8 +328,8 @@ $h= $html->Html5(
                     ],'border-top border-dark'),12,0,0,0,'pt-6 pb-4 border-bottom border-dark'),
                 "<button class='btn btn-dark btn-block' style='text-align: left;border-radius: 0'>
                 ".$ui->Row([
-                    $ui->Columns('',6),
-                    $ui->Columns('PLACE ORDER',6,0,0,0,"")
+                    //$ui->Columns('',6),
+                    $ui->Columns('PLACE ORDER',12,0,0,0,"text-center")
                 ])."
             </button>",
 
