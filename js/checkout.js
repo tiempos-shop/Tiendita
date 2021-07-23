@@ -19,7 +19,7 @@ async function CalcRate()
 
     checkEntrega.disabled = true;
 
-    await axios.post("business/api/apidhl.php?ruta=cotizar", data)
+    await axios.post("Business/API/ApiDHL.php?ruta=cotizar", data)
         .then((resultado) => {
             console.log(resultado.data);
             var info =resultado.data;

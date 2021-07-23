@@ -50,13 +50,18 @@ switch ($ruta) {
                     $data_info->moneda,
                     "97133",
                     $data_info->codigo_postal,1,0.5,5, 3,3);
+                try {
+                    $respuesta = json_decode(json_encode( $dhl_service->RateApiCall(
+                        $data_info->precio,
+                        $data_info->moneda,
+                        "97133",
+                        $data_info->codigo_postal,1,0.5,5, 3,3)
+                    ));
+                }
+                catch (Exception $ex){
+                    echo var_dump($ex);
+                }
 
-                $respuesta = json_decode(json_encode( $dhl_service->RateApiCall(
-                    $data_info->precio,
-                    $data_info->moneda,
-                    "97133",
-                    $data_info->codigo_postal,1,0.5,5, 3,3)
-                ));
 
                 if (isset($respuesta->RateResponse->Provider[0]->Service->TotalNet))
                 {
