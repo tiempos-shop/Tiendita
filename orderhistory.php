@@ -233,56 +233,81 @@ $h= $html->Html5(
                 $ui->Columns( $fc->MenuAccount($idioma[$idiomaActual]['FILTER']) ,2,0,0,0,'pl-5 pt-2'),
                 $ui->Columns(
                     $ui->Row([
-                        $ui->Columns('<p>ORDER XXXXX</p> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium cupiditate eligendi eos,<br><br> est et eveniet in nam, nemo, quaerat quasi quidem quo sit soluta vitae voluptas voluptate voluptatem voluptates. Perferendis.  </p>',3),
-                        $ui->Columns('<p></p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti et illum ipsum libero minus omnis, quas sapiente? Accusantium<br><br> aperiam aut consequuntur delectus harum in, itaque, molestias nihil quae, rem sint!</p>',3,)
+                        $ui->Columns('<p>ORDER AJD831981</p>',3),
+                        $ui->Columns('<p>NOV. 20, 2021</p>',3,),
+                        $ui->Columns('<p>IN COURSE</p>',3),
+                        $ui->Columns('',3,),
+                    ])
+                     .$ui->Row([
+                        $ui->Columns('<p>BLACK & GREEN RIDGE KNIT ZIP-UP SWEATER<br>WHITE GRIMM SWEATER<br>BLACK DORIS SUNGLASSES<br>BLACK WAKE CARD HOLDER<br>WHITE RIBBED TANK TOP</p>',3,0,0,0,"","font-size: 10px",),
+                        $ui->Columns('',3,),
+                        $ui->Columns('<p><u>Track Order</u></p>',3),
+                        $ui->Columns('',3,),
                     ])
                     .$ui->Row([
-                        $ui->Columns("<div style='cursor: pointer;'><img src='img/0000-JALAPENO.jpg' height='172' /></div>",2,0,0,0,'px-0'),
-                        $ui->Columns("<div class ='d-flex flex-column' style='margin-top: 10px;'>
-                                                        <span class='text-uppercase'>JALAPEÑO</span>
-                                                        <small>Lorem ipsum dolor sit amet</small>
-                                           </div>",3),
-                        $ui->Columns("<div class ='d-flex flex-row' style='margin-top: 10px;'>
-                                                <span class='mr-5'>1</span>  
-                                            </div>",1),
-                        $ui->Columns("<div class ='d-flex flex-row' style='margin-top: 10px;'>
-                                                <span>SMALL</span>
-                                            </div>",2),
-                        $ui->Columns("<div style='margin-top: 10px; display: inline-block;'> USD $154.00 </div>",4)
-                    ],'border-top border-dark')
+                        $ui->Columns('<a href="" style="color: black;"><u>VIEW DETAILS</u></a>',3,0,0,0,"","font-size: 10px;",),
+                        $ui->Columns('',3,),
+                        $ui->Columns('',3),
+                        $ui->Columns('',3,),
+                    ])
+                    ,8,0,0,0,'pt-4 pb-5 border-left border-right px-0 border-bottom border-dark')
+
+                ,
+                $ui->Columns("",1)
+            ],'')
+             .$ui->Row([
+                 $ui->Columns('' ,2,0,0,0,'pl-5 pt-2'),
+                 $ui->Columns(
+                     $ui->Row([
+                         $ui->Columns('<p>ORDER AJD831981</p>',3),
+                         $ui->Columns('<p>NOV. 20, 2021</p>',3,),
+                         $ui->Columns('<p>IN COURSE</p>',3),
+                         $ui->Columns('',3,),
+                     ])
+                     .$ui->Row([
+                         $ui->Columns('<p>BLACK & GREEN RIDGE KNIT ZIP-UP SWEATER<br>WHITE GRIMM SWEATER<br>BLACK DORIS SUNGLASSES<br>BLACK WAKE CARD HOLDER<br>WHITE RIBBED TANK TOP</p>',3,0,0,0,"","font-size: 10px",),
+                         $ui->Columns('',3,),
+                         $ui->Columns('<p><u>Track Order</u></p>',3),
+                         $ui->Columns('',3,),
+                     ])
+                     .$ui->Row([
+                         $ui->Columns('<a href="" style="color: black;"><u>VIEW DETAILS</u></a>',3,0,0,0,"","font-size: 10px;",),
+                         $ui->Columns('',3,),
+                         $ui->Columns('',3),
+                         $ui->Columns('',3,),
+                     ])
+                     ,8,0,0,0,'pt-4 pb-5 border-left border-right px-0 border-bottom border-dark')
+
+                 ,
+                 $ui->Columns("",1)
+             ],'')
+            .$ui->Row([
+                $ui->Columns('' ,2,0,0,0,'pl-5 pt-2'),
+                $ui->Columns(
+                    $ui->Row([
+                        $ui->Columns('<p>ORDER AJD831981</p>',3),
+                        $ui->Columns('<p>NOV. 20, 2021</p>',3,),
+                        $ui->Columns('<p>IN COURSE</p>',3),
+                        $ui->Columns('',3,),
+                    ])
                     .$ui->Row([
-                        $ui->Columns("<div style='cursor: pointer;'><img src='img/0000-JALAPENO.jpg' height='172' /></div>",2,0,0,0,'px-0'),
-                        $ui->Columns("<div class ='d-flex flex-column' style='margin-top: 10px;'>
-                                                        <span class='text-uppercase'>JALAPEÑO</span>
-                                                        <small>Lorem ipsum dolor sit amet</small>
-                                           </div>",3),
-                        $ui->Columns("<div class ='d-flex flex-row' style='margin-top: 10px;'>
-                                                <span class='mr-5'>1</span>  
-                                            </div>",1),
-                        $ui->Columns("<div class ='d-flex flex-row' style='margin-top: 10px;'>
-                                                <span>SMALL</span>
-                                            </div>",2),
-                        $ui->Columns("<div style='margin-top: 10px; display: inline-block;'> USD $154.00 </div>",4)
-                    ],'border-top border-dark')
+                        $ui->Columns('<p>BLACK & GREEN RIDGE KNIT ZIP-UP SWEATER<br>WHITE GRIMM SWEATER<br>BLACK DORIS SUNGLASSES<br>BLACK WAKE CARD HOLDER<br>WHITE RIBBED TANK TOP</p>',3,0,0,0,"","font-size: 10px",),
+                        $ui->Columns('',3,),
+                        $ui->Columns('<p><u>Track Order</u></p>',3),
+                        $ui->Columns('',3,),
+                    ])
                     .$ui->Row([
-                        $ui->Columns("",2,0,0,0,''),
-                        $ui->Columns("",3),
-                        $ui->Columns("",1),
-                        $ui->Columns("<div class ='d-flex flex-column' style='margin-top: 10px;'>
-                                                <span class='mr-5'>Subtotal</span>
-                                                <span>Shipping total</span>
-                                                <span>Duties and taxes</span>
-                                                <span class='font-weight-bold mt-2'>Total</span>
-                                            </div>",2),
-                        $ui->Columns("<div style='margin-top: 10px;' class='d-flex flex-column'>
-                                                <span class='mr-5'>USD $90</span>
-                                                <span>USD $10</span>
-                                                <span>(Included)</span>
-                                                <span class='font-weight-bold mt-2'>USD $100</span>
-                                            </div>",4)
-                    ],'border-top border-dark'),8,0,0,0,'pt-4 pb-5 border-left border-right px-0 border-bottom border-dark'),
-                $ui->Columns("",2)
-            ],''),
+                        $ui->Columns('<a href="" style="color: black;"><u>VIEW DETAILS</u></a>',3,0,0,0,"","font-size: 10px;",),
+                        $ui->Columns('',3,),
+                        $ui->Columns('',3),
+                        $ui->Columns('',3,),
+                    ])
+                    ,8,0,0,0,'pt-4 pb-5 border-left border-right px-0 border-bottom border-dark')
+
+                ,
+                $ui->Columns("",1)
+            ],'')
+            ,
         ],"container"),
         $fc->Aviso((count($elements)>2 ? "inherit": "absolute")),
     ],"style='background-color:#FFFFF;' ") //#AC9950
