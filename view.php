@@ -102,8 +102,10 @@ if($idiomaActual=="ENGLISH"){
     }
     $descripcionLarga=$productInformation->LargeDescription;
     //$tallas=$productInformation->SelectSize;
-    //$opcionesTallas="<a class='dropdown-item' href='#'>$tallas (Products in stock: $inventario)</a>";
     $tallas = array("XXS","XS", "S", "M", "L", "XL", "XXL");
+    $opcionesTallas="";
+    //$opcionesTallas="<a class='dropdown-item' href='#'>$tallas (Products in stock: $inventario)</a>";
+
     foreach ($tallas as $value) {
         $opcionesTallas .= "<a class='dropdown-item pl-4' href='#'>$value</a>";
     }
@@ -336,10 +338,8 @@ $h= $html->Html5(
 
     ),
     $html->Body([
-
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["'","","","","",""]),
         $fc->LogoNegro(),
-
         $ui->ContainerFluid([
             $ui->Row([
                 $ui->Columns(
@@ -350,16 +350,13 @@ $h= $html->Html5(
                             "<br/>",
                             $ui->Row([
                                 $ui->Columns("<p style='font-family: NHaasGroteskDSPro-65Md;'>$productWord</p>",12),
-
                             ]),
                             $ui->Row([
                                 $ui->Columns("<p>$productInformation->Descripcion</p>",12),
-
                             ]),
                             "<hr style='margin-top: 1em!important;'/>",
                             $ui->Row([
                                 $ui->Columns($descripcionLarga,12,0,0,0,"small-font")
-
                             ]),
                             "<hr style='margin-top: 1em!important;'/>",
                             "<div style='height: 25vh'>",
@@ -367,7 +364,7 @@ $h= $html->Html5(
                             "</div><hr style='margin: 0 0 0 0'/>",
                             $fc->SizeButton($botonTalla,$opcionesTallas),
                             $flowButton,
-                            $fc->MenuPrivacyReturnView(true,true)
+                            //$fc->MenuPrivacyReturnView(true,true)
 
                         ],"component")
 
