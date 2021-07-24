@@ -66,7 +66,7 @@ $h= $html->Html5(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
         $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
-        $html->LoadScripts(["View/js/bootstrap.js", "js/axios.min.js", "js/checkout.js"]),
+        $html->LoadScripts(["View/js/bootstrap.js", "js/global.js", "js/axios.min.js", "js/checkout.js"]),
         "",
         '<script>
                   function go(url){
@@ -110,21 +110,10 @@ $h= $html->Html5(
             $ui->Row([
                 $ui->Columns("",2),
                 $ui->Columns(
-                    $fc->BlackInput("FIRST NAME","name"),
+                    $fc->BlackInput("FIRST NAME","nombre"),
                     4),
                 $ui->Columns(
-                    $fc->BlackInput("LAST NAME","name"),
-                    4),
-                $ui->Columns("",2),
-            ]),
-            $ui->RowSpace("1em"),
-            $ui->Row([
-                $ui->Columns("",2),
-                $ui->Columns(
-                    $fc->BlackInput("STREET ADDRESS","name"),
-                    4),
-                $ui->Columns(
-                    $fc->BlackInput("COMPANY (OPTIONAL)","name"),
+                    $fc->BlackInput("LAST NAME","apellido"),
                     4),
                 $ui->Columns("",2),
             ]),
@@ -132,7 +121,18 @@ $h= $html->Html5(
             $ui->Row([
                 $ui->Columns("",2),
                 $ui->Columns(
-                    $fc->BlackInput("CITY","city"),
+                    $fc->BlackInput("STREET ADDRESS","calle"),
+                    4),
+                $ui->Columns(
+                    $fc->BlackInput("COMPANY (OPTIONAL)","company"),
+                    4),
+                $ui->Columns("",2),
+            ]),
+            $ui->RowSpace("1em"),
+            $ui->Row([
+                $ui->Columns("",2),
+                $ui->Columns(
+                    $fc->BlackInput("CITY","ciudad"),
                     4),
                 $ui->Columns(
                     $fc->BlackInput("ZIP OR POSTAL CODE","postalcode", false, "5"),
@@ -143,10 +143,10 @@ $h= $html->Html5(
             $ui->Row([
                 $ui->Columns("",2),
                 $ui->Columns(
-                    $fc->BlackInput("COUNTRY/REGION","name"),
+                    $fc->BlackInput("COUNTRY/REGION","pais"),
                     4),
                 $ui->Columns(
-                    $fc->BlackInput("STATE/PROVINCE","name"),
+                    $fc->BlackInput("STATE/PROVINCE","estado"),
                     4),
                 $ui->Columns("",2),
             ]),
@@ -154,7 +154,7 @@ $h= $html->Html5(
             $ui->Row([
                 $ui->Columns("",2),
                 $ui->Columns(
-                    $fc->BlackInput("PHONE","name"),
+                    $fc->BlackInput("PHONE","telefono"),
                     2),
                 $ui->Columns(
                     "",

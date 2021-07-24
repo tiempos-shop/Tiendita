@@ -36,10 +36,22 @@ async function CalcRate()
 async function ObtenerDireccionPrincipal()
 {
     console.log("obte direcc");
-    await axios.get('http://127.0.0.1:8000/api/direccion/porcliente/1')
+    await axios.get(ServeApi + 'api/direccion/porcliente/1')
         .then((resultado)=>{
             console.log(resultado.data);
+            var data = resultado.data;
+            telefono.value= data.telefono;
+            nombre.value=data.nombre;
+            apellido.value = data.apellido;
+            company.value = data.company;
+            calle.value = data.Calle;
+            ciudad.value = data.Ciudad;
+            postalcode.value= data.CodigoPostal;
+            pais.value = data.Pais;
+            estado.value = data.estado;
         })
 }
 
 ObtenerDireccionPrincipal();
+
+console.log(ServeApi);
