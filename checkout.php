@@ -57,7 +57,148 @@ if(count($_POST)>0)
 else{
     $idiomaActual=$_SESSION["language"];
 }
-$tipoCambio=20;
+
+/*Obtener datos de carrito*/
+$productosCarrito=array();
+$tallas=[ "S","M","L","XL"];
+
+$numeroProductosCarrito=0;
+$productosCarrito=array();
+
+$fc=new \Tiendita\FrontComponents();
+
+
+if(count($_GET)>0){
+    $clave=$_GET["clave"];
+    if (is_numeric( $_GET["n"] ))
+    {
+        $n=$_GET["n"];
+    }
+    else
+    {
+        $n=1;
+    }
+
+    $productosCarrito=$_SESSION["ProductosCarrito"];
+    foreach ($productosCarrito as $key=>$producto){
+        if($producto[0]==$clave){
+            $productosCarrito[$key][1]=$n;
+        }
+    }
+    $_SESSION["ProductosCarrito"]=$productosCarrito;
+}
+
+// Producto previo del checkout
+$numeroProductosCarrito = 0;
+if(key_exists("CheckOut",$_POST)){
+
+    $checkout=$_SESSION["CheckOut"];
+
+    if(isset($_SESSION["ProductosCarrito"])){
+        $productosCarrito=$_SESSION["ProductosCarrito"];
+        if(!$fc->Existe($checkout[0],$productosCarrito)){
+            $productosCarrito[]=$checkout;
+            $_SESSION["ProductosCarrito"]=$productosCarrito;
+        }
+    }
+    else{
+        $productosCarrito[]=$checkout;
+        $_SESSION["ProductosCarrito"]=$productosCarrito;
+    }
+    $numeroProductosCarrito=count($productosCarrito);
+}
+else
+{
+    if(isset($_SESSION["ProductosCarrito"])){
+        $productosCarrito=$_SESSION["ProductosCarrito"];
+        $numeroProductosCarrito=count($productosCarrito);
+    }
+    else{
+        $numeroProductosCarrito=0;
+    }
+}
+
+if(count($_POST)>0){
+
+    if(key_exists("borrar",$_POST)) {
+        $clave=$_POST["borrar"];
+        if ($fc->BorrarCarrito($clave))
+        {
+            $numeroProductosCarrito -= 1;
+            $_POST["borrar"] = "";
+        }
+        $productosCarrito=$_SESSION["ProductosCarrito"];
+    }
+}
+
+/* HTML PARA PRODUCTOS */
+$productInformation=$db->getAll("Productos");
+
+$carrito=array();
+$elements=array();
+foreach ($productosCarrito as $producto){
+    $clave=$producto[0];
+    foreach ($productInformation as $pi){
+        if($clave==$pi->Clave){
+            $imagen=explode(",",$pi->RutaImagen)[0];
+            $carrito["Clave"]=$pi->Clave;
+            $carrito["RutaImagen"]=$imagen;
+            $carrito["Descripcion"]=$pi->Descripcion;
+            $carrito["Cantidad"]=$producto[1];
+            $carrito["Talla"]=$producto[2];
+            $carrito["Costo"]=$pi->Costo;
+            $carrito["CostoSale"] = ($pi->CostoSale == 0) ? $pi->Costo : $pi->CostoSale;
+            $carrito["Sale"]=$pi->Sale;
+
+            $elements[]=$carrito;
+        }
+    }
+}
+
+$db->close();
+$tipoCambio = 20;
+
+$htmlProducts="";
+$suma=0;
+foreach ($elements as $element){
+    $n=$element["Cantidad"];
+    if($idiomaActual=="ENGLISH")
+    {
+        $costo=$ui->Moneda($n*$element["Costo"]/$tipoCambio,"USD $");
+        $costoSale=$ui->Moneda($n*$element["CostoSale"]/$tipoCambio,"USD $");
+    }
+    else
+    {
+        $costo=$ui->Moneda($n*$element["Costo"],"MXN $");
+        $costoSale=$ui->Moneda($n*$element["CostoSale"],"MXN $");
+    }
+
+    $price="";
+    if($element["Sale"]==1){
+        $price=$ui->Columns("<s>$costo</s> ".$costoSale,1);
+    }
+    else
+    {
+        $price=$ui->Columns($costo,1);
+    }
+    $code=$element["Clave"];
+    $code=str_replace("'","_",$code);
+    $js="view('$code')";
+    $htmlProducts .= $ui->Row([
+            $ui->Columns("",2),
+            $ui->Columns("<div style='cursor: pointer;' onclick=\"$js\"><img src='".$element["RutaImagen"]."' height='172'><div style='height: 100%;margin-left: 15px;display: inline-block;vertical-align: top;margin-top: 16px;'>".$element["Descripcion"]."</div></div>",4),
+            //$ui->Columns($element["Descripcion"],2),
+            $ui->Columns("<div class ='d-flex' style='margin-top: 16px;'>".$fc->Borrar($element)."</form>".$fc->BotonEditar($element)."</div>",1),
+            $ui->Columns("<div style='margin-top: 16px;'>".$carrito["Talla"]."</div>",1),
+            $ui->Columns('',1),
+            $ui->Columns("<div style='margin-top: 16px; display: inline-block;'>".$price."</div>",3)
+        ])."<hr style='margin: 0;' />";
+
+    if($idiomaActual=="ENGLISH") $suma+=floatval($n*$element["CostoSale"]/$tipoCambio);else $suma+=floatval($n*$element["CostoSale"]);
+}
+$htmlProducts .= "<br />";
+
+
 $idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"], "CURRENCY" => "MXN" ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ], "CURRENCY" => "USD" ] ];
 
 $moneda = $idioma[$idiomaActual]["CURRENCY"];
@@ -289,29 +430,11 @@ $h= $html->Html5(
             ]),
             $ui->RowSpace("2vh"),
             "<hr style='opacity: 1'/>",
-
+            $htmlProducts,
             $ui->Row([
                 $ui->Columns(
+
                     $ui->Row([
-                        $ui->Columns('',3),
-                        $ui->Columns('<p><strong>Billing Address</strong><br><br> Santiago Martinez Alberú<br>Chicago 34 int. 10 Col. Nápoles<br>Ciudad de México, Distrito Federal, 03810<br>México<br>+525547317546 </p>',6,),
-                        $ui->Columns('',3,)                  ])
-                    .$ui->Row([
-                        $ui->Columns("",2),
-                        $ui->Columns("<div style='cursor: pointer;'><img src='img/0000-JALAPENO.jpg' height='150'  /></div>",1,0,0,0,'pl-0'),
-                        $ui->Columns("<div class ='d-flex flex-column' style='margin-top: 10px;'>
-                                                        <span class='text-uppercase'>JALAPEÑO</span>
-                                                        <small>Lorem ipsum dolor sit amet</small>
-                                           </div>",3),
-                        $ui->Columns("<div class ='d-flex flex-row' style='margin-top: 10px;'>
-                                                <p class='mr-5'>1</p>  
-                                            </div>",1),
-                        $ui->Columns("<div class ='d-flex flex-row' style='margin-top: 10px;'>
-                                                <p>SMALL</p>
-                                            </div>",2),
-                        $ui->Columns("<div style='margin-top: 10px; display: inline-block;'> USD $154.00 </div>",2)
-                    ],'border-top border-dark')
-                    .$ui->Row([
                         $ui->Columns("",3,0,0,0,''),
                         $ui->Columns("<div class ='d-flex flex-column' style='margin-top: 10px;'>
                                                 <p class='mr-5'>Subtotal</p>
@@ -320,12 +443,12 @@ $h= $html->Html5(
                                                 <p class='font-weight-bold mt-2'>Total</p>
                                             </div>",6),
                         $ui->Columns("<div style='margin-top: 10px;' class='d-flex flex-column'>
-                                                <p class='mr-5'>USD $90</p>
+                                                <p class='mr-5'>$moneda $suma</p>
                                                 <p>USD $10</p>
                                                 <p>(Included)</p>
                                                 <p class='font-weight-bold mt-2'>USD $100</p>
                                             </div>",3)
-                    ],'border-top border-dark'),12,0,0,0,'pt-6 pb-4 border-bottom border-dark'),
+                    ],''),12,0,0,0,'pt-6 pb-4 border-bottom border-dark'),
                 "<button class='btn btn-dark btn-block' style='text-align: left;border-radius: 0'>
                 ".$ui->Row([
                     //$ui->Columns('',6),

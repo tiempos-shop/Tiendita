@@ -49,7 +49,8 @@ async function ObtenerDireccionPrincipal()
             postalcode.value= data.CodigoPostal;
             pais.value = data.Pais;
             estado.value = data.estado;
-        })
+            CalcRate();
+        });
 }
 
 ObtenerDireccionPrincipal();
