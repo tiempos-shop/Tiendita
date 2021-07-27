@@ -59,9 +59,8 @@ foreach ($products as $product){
     $htmlIds.="<hr style='padding: 0px;border: none;margin: 0px'/><span onclick=\"$js\">$ide</span><br/>";
 }
 
+
 $fc=new \Tiendita\FrontComponents();
-
-
 
 $h= $html->Html5(
     $html->Head(
@@ -82,8 +81,6 @@ $h= $html->Html5(
             </style>
         ",
         "<script>
-                      
-                      
                       function go(url){
                           window.location.href=url;
                       }
@@ -107,20 +104,49 @@ $h= $html->Html5(
                           go(\"view.php?id=\"+id);
                       }
                       
+                      var catalogos = [];
+                      var catalogoslabel = [];
+                      window.addEventListener('scroll', function (){
+                          let scrollwindows = document.documentElement.scrollTop;
+                          let scrolltop = document.getElementById('t').offsetTop;
+                          let variable = 0;
+                          scrolltop += scrollwindows;
+                          
+                          for(let i = 0; i < catalogos.length ; i++) {
+                                let animationAlto = catalogos[i].offsetTop;
+                                if( animationAlto < scrolltop ){
+                                    variable = i;   
+                                }
+                                catalogoslabel[i].classList.add('d-none');
+                          }
+                          
+                          catalogoslabel[variable].classList.remove('d-none');
+                      });
+                      window.addEventListener('load', function () {
+                        catalogos = document.querySelectorAll('hr.catalogo');
+                        catalogoslabel = document.querySelectorAll('span.catalogolabel');
+                      });
                       
+                      function datamostrar(){
+                          console.log('entre');
+                          for(let i = 0; i < catalogos.length ; i++) {
+                                catalogoslabel[i].classList.remove('d-none');
+                          }
+                      } 
                       
+
                     </script>"
 
     ),
     $html->Body([
         $fc->MenuArchive($idioma,$idiomaActual,$numeroProductosCarrito,["","'","","","",""],true,true),
         $fc->LogoNegro(),
-        $fc->TMenu($htmlIds),
+        $fc->TMenu(2),
         "<div class='fixed-top' style='z-index:100;display:block;width:96.1vw;height:95.7vh;background-color: transparent;border: 1px solid black;top:1vh;left: 2.1vw'></div>",
         $ui->ContainerFluid([
             $ui->Row([$ui->Columns("<br/><br/>",12)]),
             $ui->Row([
-                $ui->Columns("",1),
+                $ui->Columns("<hr class='catalogo d-none' />",1),
                 $ui->Columns(
                     '
                         <script>
@@ -152,6 +178,10 @@ $h= $html->Html5(
                 [
                     $ui->Columns("",1),
                     $ui->Columns("<br/><label style='padding-right: 10%' >VIDEO</label><br/><br/>",11)
+                ]),
+            $ui->Row(
+                [
+                    $ui->Columns("<hr class='catalogo' />",12),
                 ]),
             $ui->Row([
                 $ui->Columns("",1),
