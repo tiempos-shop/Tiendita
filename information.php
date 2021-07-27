@@ -106,12 +106,12 @@ $idiomaL=
         "ESPAÑOL"=>[
             "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"],
             "LOGIN" => [ "ACCESO","CORREO ELECTRÓNICO","CONTRASEÑA","OLVIDASTE TU CONTRASEÑA?","ACCESO CON FACEBOOK","ACCESO CON GOOGLE" ],
-            "CREAR" => [ "CREAR CUENTA","NOMBRE","APELLIDO(S)","CORREO ELECTRÓNICO","CONTRASEÑA","REPETIR CONTRASEÑA"," SUSCRIBIRSE AL NEWSLETTER" ]
+            "CREAR" => [ "GUARDAR CAMBIOS","NOMBRE","APELLIDO(S)","CORREO ELECTRÓNICO","CONTRASEÑA","REPETIR CONTRASEÑA"," SUSCRIBIRSE AL NEWSLETTER","" ]
         ],
         "ENGLISH"=>[
             "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ],
             "LOGIN" => [ "LOGIN","EMAIL ADDRES","PASSWORD","FORGOT YOUR PASSWORD?","LOGIN WITH FACEBOOK","LOGIN WITH GOOGLE" ],
-            "CREAR" => [ "CREATE AN ACCOUNT","NAME","LAST NAME","EMAIL ADDRESS","PASSWORD","REPEAT PASSWORD"," SIGN UP FOR NEWSLETTER" ]
+            "CREAR" => [ "SAVE CHANGES","NAME","LAST NAME","EMAIL ADDRESS","PASSWORD","REPEAT PASSWORD"," SIGN UP FOR NEWSLETTER","" ]
         ]
     ];
 
@@ -241,31 +241,34 @@ $h= $html->Html5(
         $fc->LogoNegro(),
         //$fc->MenuAccount($idioma[$idiomaActual]['FILTER']),
         $ui->ContainerFluid([
+
             $ui->Row([
-                $ui->Columns( $fc->MenuAccount($idioma[$idiomaActual]['FILTER']) ,2,0,0,0,'pl-5 pt-2'),
+                $ui->Columns( $fc->MenuAccount($idioma[$idiomaActual]['FILTER']) ,2,0,0,0,'',"padding-top:10px;"),
                 $ui->Columns(
                     $ui->RowSpace("2vh")
                     .$ui->Row([
-                        $ui->Columns("",4),
+                        $ui->Columns("",2),
                         $ui->Columns(
-                            $ui->Lines([
+
+                            $ui->Lines([ "<label style='margin-bottom: 20px;'><strong>ACCOUNT INFORMATION</strong></label>",
                                 $ui->FormButtom([
 
-                                    $fc->BlackInputType($idiomaL[$idiomaActual]["CREAR"][1],"name","text",true),
-                                    $ui->RowSpace("1vh"),
-                                    $fc->BlackInputType($idiomaL[$idiomaActual]["CREAR"][2],"lastname","text"),
-                                    $ui->RowSpace("1vh"),
-                                    $fc->BlackInputType($idiomaL[$idiomaActual]["CREAR"][3],"login","email"),
-                                    $ui->RowSpace("1vh"),
-                                    $fc->BlackInputTypeAttrib($idiomaL[$idiomaActual]["CREAR"][4],"password1","password",true,"onkeyup='passwordValidate()'"),
-                                    $ui->RowSpace("1vh"),
-                                    $fc->BlackInputTypeAttrib($idiomaL[$idiomaActual]["CREAR"][5],"password2","password",true,"onkeyup='passwordValidate()'"),
-                                    $ui->RowSpace("1vh"),
+                                    $fc->BlackInputType($idiomaL[$idiomaActual]["CREAR"][7],"name","text",true),"<label style='margin-left: -55vh; font-size: 12px;'>".$idiomaL[$idiomaActual]["CREAR"][1]."</label>",
+                                    $ui->RowSpace("2vh"),
+                                    $fc->BlackInputType($idiomaL[$idiomaActual]["CREAR"][7],"lastname","text"),"<label style='margin-left: -51vh; font-size: 12px;'>".$idiomaL[$idiomaActual]["CREAR"][2]."</label>",
+                                    $ui->RowSpace("2vh"),
+                                    $fc->BlackInputType($idiomaL[$idiomaActual]["CREAR"][7],"login","email"),"<label style='margin-left: -48vh; font-size: 12px;'>".$idiomaL[$idiomaActual]["CREAR"][3]."</label>",
+                                    $ui->RowSpace("2vh"),
+                                    $fc->BlackInputTypeAttrib($idiomaL[$idiomaActual]["CREAR"][7],"password1","password",true,"onkeyup='passwordValidate()'"),"<label style='margin-left: -51vh; font-size: 12px;'>".$idiomaL[$idiomaActual]["CREAR"][4]."</label>",
+                                    $ui->RowSpace("2vh"),
+                                    $fc->BlackInputTypeAttrib($idiomaL[$idiomaActual]["CREAR"][7],"password2","password",true,"onkeyup='passwordValidate()'"),"<label style='margin-left: -45vh; font-size: 12px;'>".$idiomaL[$idiomaActual]["CREAR"][5]."</label>",
+                                    $ui->RowSpace("2vh"),
                                     "<input class='form-check-input' type='checkbox' id='newsletter' name='newsletter' style='border-radius: 10px;border-color: black'>".$idiomaL[$idiomaActual]["CREAR"][6]."</input>",
 
                                 ],"","<button class='btn btn-block btn-dark' onclick='return passwordValidate()' formaction='information.php?action=create' type='submit' style='border-radius: 0;background-color: black;margin-top: 1em;'>".$idiomaL[$idiomaActual]["CREAR"][0]."</button>"),
                             ]),
                            6,0,0,0),
+                        $ui->Columns("",4),
                     ]), 10,0,0,0,"","text-align:center;")
             ],'')
 
