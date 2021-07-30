@@ -70,14 +70,34 @@ $h= $html->Html5(
         $html->LoadScripts(["View/js/bootstrap.js"]),
         "
             <style>
-                
                 body{
                     color:black;
                 }
                 td{
                     padding: 0!important;
                 }
-
+                #t{
+                    left: 0px; 
+                    text-align: center;
+                    width: 9%;
+                }
+                #t > span{
+                    padding: 8px 10px; 
+                    display: block; 
+                    user-select: none; 
+                    -moz-user-select: none; 
+                    -webkit-user-select: none;
+                }
+                #t > span.hidden{
+                    opacity: 0;
+                }
+                #t:hover > span{
+                    border-top: 1px solid #000;
+                    opacity: 100;
+                }
+                #t:hover > span:last-child{
+                    border-bottom: 1px solid #000;
+                }
             </style>
         ",
         "<script>
@@ -102,13 +122,20 @@ $h= $html->Html5(
                       function view(str){
                           var id=str; //.replace(\"_\", \"\'\");
                           go(\"view.php?id=\"+id);
-                      }
+                      } 
                       
                       var catalogos = [];
                       var catalogoslabel = [];
-                      window.addEventListener('scroll', function (){
+                      window.addEventListener(\"scroll\", reordenarcatalogo);
+                      window.addEventListener(\"load\", function () {
+                        catalogos = document.querySelectorAll(\"hr.catalogo\");
+                        catalogoslabel = document.querySelectorAll(\"span.catalogolabel\");
+                        reordenarcatalogo();
+                      });
+                      
+                      function reordenarcatalogo(){
                           let scrollwindows = document.documentElement.scrollTop;
-                          let scrolltop = document.getElementById('t').offsetTop;
+                          let scrolltop = document.getElementById(\"t\").offsetTop;
                           let variable = 0;
                           scrolltop += scrollwindows;
                           
@@ -117,24 +144,15 @@ $h= $html->Html5(
                                 if( animationAlto < scrolltop ){
                                     variable = i;   
                                 }
-                                catalogoslabel[i].classList.add('d-none');
+                                catalogoslabel[i].classList.add(\"hidden\");
                           }
-                          
-                          catalogoslabel[variable].classList.remove('d-none');
-                      });
-                      window.addEventListener('load', function () {
-                        catalogos = document.querySelectorAll('hr.catalogo');
-                        catalogoslabel = document.querySelectorAll('span.catalogolabel');
-                      });
+                          catalogoslabel[variable].classList.remove(\"hidden\");
+                      }
                       
-                      function datamostrar(){
-                          console.log('entre');
-                          for(let i = 0; i < catalogos.length ; i++) {
-                                catalogoslabel[i].classList.remove('d-none');
-                          }
-                      } 
-                      
-
+                      function  ircatalogo(e){
+                          let altocatalogo = catalogos[e].offsetTop;
+                          window.scroll({ top: altocatalogo, behavior: 'smooth' });
+                      }
                     </script>"
 
     ),

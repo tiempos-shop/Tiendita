@@ -316,9 +316,9 @@ class FrontComponents
 
     public function TMenu(int $catalogo)
     {
-        $msg = "<div id='t' onclick='datamostrar()' style='font-size:1.1em;font-family: NHaasGroteskDSPro-55Rg;z-index: 100'>";
+        $msg = "<div id='t' style='font-size:1.1em;font-family: NHaasGroteskDSPro-55Rg;z-index: 900'>";
         for ($i = 0; $i <$catalogo; $i++){
-            $msg .= "<span class='d-block catalogolabel'>T0".$i."00'00</span>";
+            $msg .= "<span onclick='ircatalogo($i)' class='hidden catalogolabel'>T0".($catalogo - $i)."00'00</span>";
         }
         $msg .= "</div>";
         return $msg;
