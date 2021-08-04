@@ -314,13 +314,14 @@ class FrontComponents
         return str_replace("*",$number,$label);
     }
 
-    public function TMenu(string $htmlIds)
+    public function TMenu(int $catalogo)
     {
-        return "<label id='t' style='font-size:1.1em;font-family: NHaasGroteskDSPro-55Rg;z-index: 100'>T0000'00</label>";
-//        return "<label id='t' onmouseover='tOverMenu();' style='font-size:1.1em;font-family: NHaasGroteskDSPro-55Rg;z-index: 100'>T0000'00</label>".
-//            "<div style='z-index: 1000' onmouseleave='tOffMenu();' id='t-over'>".
-//            $htmlIds.
-//            "</div>";
+        $msg = "<div id='t' style='font-size:1.1em;font-family: NHaasGroteskDSPro-55Rg;z-index: 900'>";
+        for ($i = 0; $i <$catalogo; $i++){
+            $msg .= "<span onclick='ircatalogo($i)' class='hidden catalogolabel'>T0".($catalogo - $i)."00'00</span>";
+        }
+        $msg .= "</div>";
+        return $msg;
     }
 
     public function About($idiomaActual):string{

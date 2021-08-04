@@ -59,9 +59,8 @@ foreach ($products as $product){
     $htmlIds.="<hr style='padding: 0px;border: none;margin: 0px'/><span onclick=\"$js\">$ide</span><br/>";
 }
 
+
 $fc=new \Tiendita\FrontComponents();
-
-
 
 $h= $html->Html5(
     $html->Head(
@@ -71,19 +70,37 @@ $h= $html->Html5(
         $html->LoadScripts(["View/js/bootstrap.js"]),
         "
             <style>
-                
                 body{
                     color:black;
                 }
                 td{
                     padding: 0!important;
                 }
-
+                #t{
+                    left: 0px; 
+                    text-align: center;
+                    width: 9%;
+                }
+                #t > span{
+                    padding: 8px 10px; 
+                    display: block; 
+                    user-select: none; 
+                    -moz-user-select: none; 
+                    -webkit-user-select: none;
+                }
+                #t > span.hidden{
+                    opacity: 0;
+                }
+                #t:hover > span{
+                    border-top: 1px solid #000;
+                    opacity: 100;
+                }
+                #t:hover > span:last-child{
+                    border-bottom: 1px solid #000;
+                }
             </style>
         ",
         "<script>
-                      
-                      
                       function go(url){
                           window.location.href=url;
                       }
@@ -105,22 +122,49 @@ $h= $html->Html5(
                       function view(str){
                           var id=str; //.replace(\"_\", \"\'\");
                           go(\"view.php?id=\"+id);
+                      } 
+                      
+                      var catalogos = [];
+                      var catalogoslabel = [];
+                      window.addEventListener(\"scroll\", reordenarcatalogo);
+                      window.addEventListener(\"load\", function () {
+                        catalogos = document.querySelectorAll(\"hr.catalogo\");
+                        catalogoslabel = document.querySelectorAll(\"span.catalogolabel\");
+                        reordenarcatalogo();
+                      });
+                      
+                      function reordenarcatalogo(){
+                          let scrollwindows = document.documentElement.scrollTop;
+                          let scrolltop = document.getElementById(\"t\").offsetTop;
+                          let variable = 0;
+                          scrolltop += scrollwindows;
+                          
+                          for(let i = 0; i < catalogos.length ; i++) {
+                                let animationAlto = catalogos[i].offsetTop;
+                                if( animationAlto < scrolltop ){
+                                    variable = i;   
+                                }
+                                catalogoslabel[i].classList.add(\"hidden\");
+                          }
+                          catalogoslabel[variable].classList.remove(\"hidden\");
                       }
                       
-                      
-                      
+                      function  ircatalogo(e){
+                          let altocatalogo = catalogos[e].offsetTop;
+                          window.scroll({ top: altocatalogo, behavior: 'smooth' });
+                      }
                     </script>"
 
     ),
     $html->Body([
         $fc->MenuArchive($idioma,$idiomaActual,$numeroProductosCarrito,["","'","","","",""],true,true),
         $fc->LogoNegro(),
-        $fc->TMenu($htmlIds),
+        $fc->TMenu(2),
         "<div class='fixed-top' style='z-index:100;display:block;width:96.1vw;height:95.7vh;background-color: transparent;border: 1px solid black;top:1vh;left: 2.1vw'></div>",
         $ui->ContainerFluid([
             $ui->Row([$ui->Columns("<br/><br/>",12)]),
             $ui->Row([
-                $ui->Columns("",1),
+                $ui->Columns("<hr class='catalogo d-none' />",1),
                 $ui->Columns(
                     '
                         <script>
@@ -152,6 +196,10 @@ $h= $html->Html5(
                 [
                     $ui->Columns("",1),
                     $ui->Columns("<br/><label style='padding-right: 10%' >VIDEO</label><br/><br/>",11)
+                ]),
+            $ui->Row(
+                [
+                    $ui->Columns("<hr class='catalogo' />",12),
                 ]),
             $ui->Row([
                 $ui->Columns("",1),
