@@ -227,7 +227,7 @@ $h= $html->Html5(
     $html->Body([
 
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","","'","",""]),
-
+        "<input type='hidden' value='$idiomaActual'  id='idiomaActual' >",
         $ui->ContainerFluid([
             $ui->Row([
 
@@ -443,18 +443,15 @@ $h= $html->Html5(
                                                 <p class='font-weight-bold mt-2'>Total</p>
                                             </div>",6),
                         $ui->Columns("<div style='margin-top: 10px;' class='d-flex flex-column'>
-                                                <p class='mr-5'>$moneda $suma</p>
-                                                <p>USD $10</p>
+                                                <p class='mr-5'>$moneda $suma <input type='hidden' value='$suma' id='subtotal'> </p>
+                                                <p >  <span  id='monedaEnvio'></span> <span class='ml-1' id='precioEnvio'></span> </p>
                                                 <p>(Included)</p>
-                                                <p class='font-weight-bold mt-2'>USD $100</p>
+                                                <p class='font-weight-bold mt-2'><span  id='monedaTotal'></span> <span class='ml-1' id='precioTotal'></span></p>
                                             </div>",3)
                     ],''),12,0,0,0,'pt-6 pb-4 border-bottom border-dark'),
-                "<button class='btn btn-dark btn-block' style='text-align: left;border-radius: 0'>
-                ".$ui->Row([
-                    //$ui->Columns('',6),
-                    $ui->Columns('PLACE ORDER',12,0,0,0,"text-center")
-                ])."
-            </button>",
+                "<button class='btn btn-dark btn-block' style='text-align: left;border-radius: 0' onclick='ProcesarPedido()'>
+                    <div class='text-center' id='procesarText'>PLACE ORDER</div>
+                </button>",
 
             ],''),
         ]),
