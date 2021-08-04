@@ -186,7 +186,7 @@ foreach ($elements as $element){
     $js="view('$code')";
     $htmlProducts .= $ui->Row([
             $ui->Columns("",2),
-            $ui->Columns("<div style='cursor: pointer;' onclick=\"$js\"><img src='".$element["RutaImagen"]."' height='172'><div style='height: 100%;margin-left: 15px;display: inline-block;vertical-align: top;margin-top: 16px;'>".$element["Descripcion"]."</div></div>",4),
+            $ui->Columns("<div style='cursor: pointer;' onclick=\"$js\"><img src='".$element["RutaImagen"]."' alt='' height='172'><div style='height: 100%;margin-left: 15px;display: inline-block;vertical-align: top;margin-top: 16px;'>".$element["Descripcion"]."</div></div>",4),
             //$ui->Columns($element["Descripcion"],2),
             $ui->Columns("<div class ='d-flex' style='margin-top: 16px;'>".$fc->Borrar($element)."</form>".$fc->BotonEditar($element)."</div>",1),
             $ui->Columns("<div style='margin-top: 16px;'>".$carrito["Talla"]."</div>",1),
@@ -446,7 +446,7 @@ $h= $html->Html5(
                                                 <p class='mr-5'>$moneda $suma</p>
                                                 <p>USD $10</p>
                                                 <p>(Included)</p>
-                                                <p class='font-weight-bold mt-2'>USD $100</p>
+                                                <p class='font-weight-bold mt-2'>$moneda $suma</p>
                                             </div>",3)
                     ],''),12,0,0,0,'pt-6 pb-4 border-bottom border-dark'),
                 "<button class='btn btn-dark btn-block' style='text-align: left;border-radius: 0'>
