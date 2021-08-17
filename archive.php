@@ -40,7 +40,8 @@ else{
 }
 $tipoCambio=20;
 
-$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
+$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","INGRESO","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","LOGIN","ESPAÑOL","CART(*)"] ] ];
+
 
 $htmlIds="";
 
@@ -59,45 +60,28 @@ foreach ($products as $product){
     $htmlIds.="<hr style='padding: 0px;border: none;margin: 0px'/><span onclick=\"$js\">$ide</span><br/>";
 }
 
-
 $fc=new \Tiendita\FrontComponents();
+
+
 
 $h= $html->Html5(
     $html->Head(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
-        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
-        $html->LoadScripts(["View/js/bootstrap.js"]),
+        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css","css/menumovil.css"]),
+        $html->LoadScripts(["View/js/bootstrap.js","js/menuarchive.js"]),
         "
             <style>
+                html, body {
+                    width: 100%;
+                    height: 100%;
+                    padding: 0;
+                    margin: 0;
+                }
                 body{
                     color:black;
                 }
-                td{
-                    padding: 0!important;
-                }
-                #t{
-                    left: 0px; 
-                    text-align: center;
-                    width: 9%;
-                }
-                #t > span{
-                    padding: 8px 10px; 
-                    display: block; 
-                    user-select: none; 
-                    -moz-user-select: none; 
-                    -webkit-user-select: none;
-                }
-                #t > span.hidden{
-                    opacity: 0;
-                }
-                #t:hover > span{
-                    border-top: 1px solid #000;
-                    opacity: 100;
-                }
-                #t:hover > span:last-child{
-                    border-bottom: 1px solid #000;
-                }
+
             </style>
         ",
         "<script>
@@ -122,117 +106,51 @@ $h= $html->Html5(
                       function view(str){
                           var id=str; //.replace(\"_\", \"\'\");
                           go(\"view.php?id=\"+id);
-                      } 
-                      
-                      var catalogos = [];
-                      var catalogoslabel = [];
-                      window.addEventListener(\"scroll\", reordenarcatalogo);
-                      window.addEventListener(\"load\", function () {
-                        catalogos = document.querySelectorAll(\"hr.catalogo\");
-                        catalogoslabel = document.querySelectorAll(\"span.catalogolabel\");
-                        reordenarcatalogo();
-                      });
-                      
-                      function reordenarcatalogo(){
-                          let scrollwindows = document.documentElement.scrollTop;
-                          let scrolltop = document.getElementById(\"t\").offsetTop;
-                          let variable = 0;
-                          scrolltop += scrollwindows;
-                          
-                          for(let i = 0; i < catalogos.length ; i++) {
-                                let animationAlto = catalogos[i].offsetTop;
-                                if( animationAlto < scrolltop ){
-                                    variable = i;   
-                                }
-                                catalogoslabel[i].classList.add(\"hidden\");
-                          }
-                          catalogoslabel[variable].classList.remove(\"hidden\");
                       }
                       
-                      function  ircatalogo(e){
-                          let altocatalogo = catalogos[e].offsetTop;
-                          window.scroll({ top: altocatalogo, behavior: 'smooth' });
-                      }
                     </script>"
 
     ),
     $html->Body([
-        $fc->MenuArchive($idioma,$idiomaActual,$numeroProductosCarrito,["","'","","","",""],true,true),
-        $fc->LogoNegro(),
-        $fc->TMenu(2),
-        "<div class='fixed-top' style='z-index:100;display:block;width:96.1vw;height:95.7vh;background-color: transparent;border: 1px solid black;top:1vh;left: 2.1vw'></div>",
-        $ui->ContainerFluid([
-            $ui->Row([$ui->Columns("<br/><br/>",12)]),
+        // $fc->MenuArchive($idioma,$idiomaActual,$numeroProductosCarrito,["","'","","","",""],true,true),
+        $html->MenuMovil($idioma, $idiomaActual, $numeroProductosCarrito, "cambiarLogoFijo()", "archive"),
+        $fc->LogoNegroLg(),
+        //$fc->TMenu($htmlIds),
+        '<div class="borde-margen-archive" ><div style="border: 1px solid #000; width: 100%; height: 100%;"></div></div>',
+        //"<div class='fixed-top' style='z-index:100;display:block;width:96.1vw;height:95.7vh;background-color: transparent;border: 1px solid black;top:1vh;left: 2.1vw'></div>",
+        $ui->ContainerFluidStyle([
             $ui->Row([
-                $ui->Columns("<hr class='catalogo d-none' />",1),
-                $ui->Columns(
-                    '
-                        <script>
-                            function play(){
-                                var d=document.getElementById("d");
-                                if (d.paused){
-                                    d.play(); 
-                                    alert("play");
-                                } 
-                                    
-                                else {
-                                    d.pause();
-                                    alert("play");
-                                }
-                                    
-                            }                       
-                        </script>
-                        
-                        <video id="d" style="width: 100%;height: auto;" autoplay muted>
-                            <source src="video/video.mp4" type="video/mp4" >
-                            
-                            Your browser does not support the video tag.
-                        </video>
-                            
-                        
-        ',11,0,0,0,"",""),
-            ],""),
-            $ui->Row(
-                [
-                    $ui->Columns("",1),
-                    $ui->Columns("<br/><label style='padding-right: 10%' >VIDEO</label><br/><br/>",11)
-                ]),
-            $ui->Row(
-                [
-                    $ui->Columns("<hr class='catalogo' />",12),
-                ]),
+                $ui->Columns("<br/><br/>". $fc->TMenuSecond(""),0,0,12,0,"mb-1"),
+            ], "ml-1 alinear"),
             $ui->Row([
-                $ui->Columns("",1),
                 $ui->Columns(
-                    "
-                        <table class='table table-borderless' style='width: 100%;padding-right: 5%' >
-                            <tr>
-                                <td><img src='img/0000-JALAPENO.jpg' style='width: 100%'></td>
-                                <td><img src='img/0001-OBSIDIANA.jpg' style='width: 100%'></td>
-                                <td><img src='img/0002-TACUBAYA.jpg' style='width: 100%'></td>
-                                <td><img src='img/0003-ANIL.jpg' style='width: 100%'></td>
-                            </tr>
-                            <tr>
-                                <td><img src='img/0000-JALAPENO.jpg' style='width: 100%'></td>
-                                <td><img src='img/0001-OBSIDIANA.jpg' style='width: 100%'></td>
-                                <td><img src='img/0002-TACUBAYA.jpg' style='width: 100%'></td>
-                                <td><img src='img/0003-ANIL.jpg' style='width: 100%'></td>
-                            </tr>
-                        </table>
-                        ",11)
-            ]),
-            $ui->Row(
-                [
-                    $ui->Columns("",1),
-                    $ui->Columns("<br/><label style='padding-right: 10%' >COLLECTION</label><br/><br/>",11)
-                ]),
-            "<br/><br/>"
+                    $fc->getPictureVideo("https://www.youtube.com/embed/5JhKWFxLhKo","width:100%; height: 100%;", "video"),
+                    0,0,0,0,"col p-0"),
+            ], ""),
+            $ui->Row([
+                $ui->Columns("<span class='font-weight-bold'>VIDEO</span> <br/><br/>",0)],
+                "mt-2 ml-1 alinear"),
+            $ui->Row([
+                $ui->Columns(
+                    $fc->getPictureVideo("img/1.jpg", "width: 50%;","image").
+                    $fc->getPictureVideo("img/2.jpg", "width: 50%;","image"),
+                    0,0,0,0,"col p-0"),
+            ], ""),
+            $ui->Row([
+                $ui->Columns(
+                    $fc->getPictureVideo('img/4.jpg', 'width: 50%;').
+                    $fc->getPictureVideo('img/3.jpg', 'width: 50%;'),
+                    0,0,0,0,"col p-0 "),
+            ], ""),
+            $ui->Row([
+                    $ui->Columns("<span class=' font-weight-bold'>IMAGEN</span> <br/><br/>",12)]
+                ,"mt-2 ml-1 alinear"),
 //            $fc->Aviso()
 
-        ]),
+        ],"padding: 0px;", "contenedorArchive"),
 
 
-    ],"style='background-color:transparent;z-index:100;overflow-x:hidden'") //#AC9950
+    ],"") //#AC9950
 );
 
 print_r($h);
