@@ -120,7 +120,7 @@ $h= $html->Html5(
     $html->Body([
           $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","'","","",""],true),
           $fc->LogoNegro(),
-          $fc->TMenu(2),
+          $fc->TMenu(3),
           $fc->About($idiomaActual),
           $fc->Foot($idiomaActual)
 
