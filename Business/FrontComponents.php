@@ -637,7 +637,7 @@ class FrontComponents
         return "
                 <div class='input-group'>
                     <input $type class='form-control' name='$id' id='$id' placeholder='$title' style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em'>
-                    <a href='#' onclick='seteyePassword(this);' style='position: absolute; right: 10px;z-index: 99;top: 2px;'><i class='fa fa-eye-slash' style='color: black;' aria-hidden='true'></i></a>
+                    <a href='#' onclick='seteyePassword(this);' style='position: absolute; right: 10px;top: 2px;'><i class='fa fa-eye-slash' style='color: black;' aria-hidden='true'></i></a>
                 </div>
             ";
     }
