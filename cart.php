@@ -167,7 +167,7 @@ foreach ($elements as $element){
                     $ui->Columns("<div>".$element["Descripcion"]."</div>", 0, 0 ,0,0,"col"),
                     $ui->Columns("<div>".$costoSale."</div>", 0, 0 ,0,0,"col text-right mr-3")
                 ]).$ui->Row([
-                    $ui->Columns("<div style='margin-top: 16px;'>".$fc->Borrar($element)."<span class='mx-2'>".$fc->BotonEditar($element)."</span>".$carrito["Talla"]."</form></div>",
+                    $ui->Columns("<div style='margin-top: 16px;'>".$fc->Borrar($element)."<label class='mx-2'>".$fc->BotonEditar($element)."</label>".$carrito["Talla"]."</form></div>",
                         0, 0 ,0,0,"col"),
                 ])
                 ,0,0,0,0,"col-8 mt-2"),
