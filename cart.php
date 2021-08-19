@@ -130,12 +130,18 @@ foreach ($productosCarrito as $producto){
 $db->close();
 $htmlProducts="";
 $suma=0;
+
+if($idiomaActual=="ENGLISH")
+    $tipoMoneda = "USD $ ";
+else
+    $tipoMoneda = "MXN $ ";
+
 foreach ($elements as $element){
     $n=$element["Cantidad"];
     if($idiomaActual=="ENGLISH")
     {
-        $costo=$ui->Moneda($n*$element["Costo"]/$tipoCambio,"USD $");
-        $costoSale=$ui->Moneda($n*$element["CostoSale"]/$tipoCambio,"USD $");
+        $costo=$ui->Moneda(($n*$element["Costo"])/$tipoCambio,"USD $");
+        $costoSale=$ui->Moneda(($n*$element["CostoSale"])/$tipoCambio,"USD $");
     }
     else
     {
@@ -159,7 +165,7 @@ foreach ($elements as $element){
             $ui->Columns(
                 $ui->Row([
                     $ui->Columns("<div>".$element["Descripcion"]."</div>", 0, 0 ,0,0,"col"),
-                    $ui->Columns("<div>".$element["CostoSale"]."</div>", 0, 0 ,0,0,"col text-right mr-3")
+                    $ui->Columns("<div>".$costoSale."</div>", 0, 0 ,0,0,"col text-right mr-3")
                 ]).$ui->Row([
                     $ui->Columns("<div style='margin-top: 16px;'>".$fc->Borrar($element)."<span class='mx-2'>".$fc->BotonEditar($element)."</span>".$carrito["Talla"]."</form></div>",
                         0, 0 ,0,0,"col"),
@@ -167,7 +173,9 @@ foreach ($elements as $element){
                 ,0,0,0,0,"col-8 mt-2"),
     ]);
 
-    if($idiomaActual=="ENGLISH") $suma+=floatval($n*$element["CostoSale"]/$tipoCambio);else $suma+=floatval($n*$element["CostoSale"]);
+    if($idiomaActual=="ENGLISH")
+        $suma+=floatval($n*$element["CostoSale"]/$tipoCambio);
+        else $suma+=floatval($n*$element["CostoSale"]);
 }
 $htmlProducts.="<hr style='margin: 0; opacity: 1;' />";
 
@@ -231,7 +239,7 @@ $h= $html->Html5(
             $ui->Row([
                 $ui->Columns("",0,0,0,0,"col"),
                 $ui->Columns("SUBTOTAL:",0,0,0,0,"col text-center"),
-                $ui->Columns("".$ui->Moneda($suma),0,0,0,0,"col"),
+                $ui->Columns("".$ui->Moneda($suma, $tipoMoneda),0,0,0,0,"col"),
             ], "my-2"),
             "<button onclick='go(\"checkout.php\")' class='btn btn-dark btn-block add-cart' style='text-align: left;border-radius: 0'>
                 ".$ui->Row([
