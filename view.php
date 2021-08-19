@@ -364,7 +364,7 @@ $h= $html->Html5(
                             "</div><hr style='margin: 0 0 0 0'/>",
                             $fc->SizeButton($botonTalla,$opcionesTallas),
                             $flowButton,
-                            //$fc->MenuPrivacyReturnView(true,true)
+                            $fc->MenuPrivacyReturnView(true,true)
 
                         ],"component")
 
