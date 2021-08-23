@@ -25,6 +25,8 @@ $id = $_GET["id"];
 
 $idiomaActual="";
 
+
+
 $fc=new \Tiendita\FrontComponents();
 
 $productInformation = $products = $db->getBy("Productos","Clave", $id)[0];
