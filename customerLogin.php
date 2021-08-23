@@ -259,7 +259,7 @@ $h= $html->Html5(
         ",
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","","'","",""]),
         $fc->LogoNegro(),
-        $fc->TMenu(""),
+        //$fc->TMenu(2),
 
         $ui->ContainerFluid([
             $ui->Row([

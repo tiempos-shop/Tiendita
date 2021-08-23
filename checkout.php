@@ -188,7 +188,7 @@ foreach ($elements as $element){
             $ui->Columns("",2),
             $ui->Columns("<div style='cursor: pointer;' onclick=\"$js\"><img src='".$element["RutaImagen"]."' height='172'><div style='height: 100%;margin-left: 15px;display: inline-block;vertical-align: top;margin-top: 16px;'>".$element["Descripcion"]."</div></div>",4),
             //$ui->Columns($element["Descripcion"],2),
-            $ui->Columns("<div class ='d-flex' style='margin-top: 16px;'>".$fc->Borrar($element)."</form>".$fc->BotonEditar($element)."</div>",1),
+            $ui->Columns("<div class ='d-flex' style='margin-top: 16px;'></form>".$element["Cantidad"]."</div>",1),
             $ui->Columns("<div style='margin-top: 16px;'>".$carrito["Talla"]."</div>",1),
             $ui->Columns('',1),
             $ui->Columns("<div style='margin-top: 16px; display: inline-block;'>".$price."</div>",3)
@@ -429,7 +429,7 @@ $h= $html->Html5(
                     "text-align:center;margin-top:10px")
             ]),
             $ui->RowSpace("2vh"),
-            "<hr style='opacity: 1'/>",
+            "<hr style='opacity: 1; margin: 0px;' />",
             $htmlProducts,
             $ui->Row([
                 $ui->Columns(
