@@ -308,25 +308,28 @@ print_r($menu);
         style='width: 7%'>
     <div class="container-fluid">
         <div class="row main">
-            <div class='  col-md-6  paddingNone' style=''>
-                <img id='id1' class='img-fluid' src='img/0001-OBSIDIANA.jpg' data-big='img/0001-OBSIDIANA.jpg'
-                    data-overlay=''><br /><img id='id2' class='img-fluid' src='img/0001-OBSIDIANA-back.jpg'
-                    data-big='img/0001-OBSIDIANA-back.jpg' data-overlay=''><br /><img id='id3' class='img-fluid'
-                    src='img/0001-OBSIDIANA-unfold.jpg' data-big='img/0001-OBSIDIANA-unfold.jpg' data-overlay=''><br />
+            <div class='  col-md-6  paddingNone' >
+               
+       
+                <div class=' ' v-for="(imagen, index) in imagenes" :key="index">
+                    <img :id="'ids' + (index + 1)" class='img-fluid' :src="imagen.ruta" :data-big="imagen.ruta"
+                        data-overlay=''><br />
+
+                </div>
             </div>
             <div class='  col-md-6  left-top paddingNone' style=''>
                 <div id='component' class="container-fluid" ><br />
 
-                    <input type="hidden" value="<?php echo $_GET["id"] ?>" id="idproducto">
+                    <input type="hidden" value="<?php echo $_GET["id"] ?>" id="idProducto">
                     
                     <div class="row ">
                         <div class='  col-md-12  ' style=''>
-                            <p style='font-family: NHaasGroteskDSPro-65Md;'>THE WALLET PROJECT</p>
+                            <p style='font-family: NHaasGroteskDSPro-65Md;'>{{producto.nombre}}</p>
                         </div>
                     </div>
                     <div class="row ">
                         <div class='  col-md-12  ' style=''>
-                            <p>{{producto.nombre}}</p>
+                            <p>{{producto.color}}</p>
                         </div>
                     </div>
                     <hr style='margin-top: 1em!important;' />
@@ -340,12 +343,15 @@ print_r($menu);
                     <hr style='margin: 0 0 0 0' />
                     <div class="btn-group" style="width:100%">
                         <button type="button" class="btn btn-block dropdown-toggle "
+                            v-if="producto.manejaraTallas"
                             @click="status.verVariantes = !status.verVariantes">
-                            SELECT SIZE
+                            {{productoVariante.valor}}
                         </button>
-                        <div class="dropdown-menu align-content-center ":class="status.verVariantes ? 'show' : ''"  style="width: 100%; position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(0px, -35px);">
+                        <div class="dropdown-menu align-content-center " 
+                            :class="status.verVariantes ? 'show' : ''"  
+                            style="width: 100%; position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(0px, -35px);">
                             <a class='dropdown-item pl-4' href='#' v-for="(talla, index) in variantes" :key="index"
-                                @click="status.verVariantes = false;">
+                                @click="EstablecerVarianteTallas(talla)">
                                 {{talla.valor}}
                             </a>
                         
@@ -357,8 +363,10 @@ print_r($menu);
                     
                     <div class="form-group row">
                         <div class="col-sm-12">
-                            <button id="cart" type="submit" class="btn btn-dark btn-block"
+                            <button id="cart" type="submit" class="btn btn-dark btn-block" v-if="!status.agregadoAlCarrito"
                                 style="border-radius: 0" @click="AgregarAlCarrito()">ADD TO CART</button>
+                            <button id="cart" type="submit" class="btn btn-dark btn-block" v-else
+                                style="border-radius: 0" @click="IrAlCheckout()">PROCEED TO CHECKOUT</button>
                         </div>
                     </div>
                     
@@ -419,19 +427,68 @@ print_r($menu);
         el:'#app',
         data:{
             producto:{},
-
+            idCliente:0,
             variantes:[],
+            productoVariante:{
+                valor:'SELECT SIZE'
+            },
+            imagenes:[],
+            enCarrito:[],
             status:{
                 verVariantes:false,
+                agregadoAlCarrito: false,
             }
         },
         methods: {
+            IrAlCheckout()
+            {
+                window.location.href="carttienda.php";
+            },
+            ValidarSiExisteEnCarrito()
+            {
+                this.status.agregadoAlCarrito = false;
+
+                var productoEncontrado = this.enCarrito.find( (p) => { return p.idProducto == this.producto.idProducto});
+
+                if (productoEncontrado)
+                {
+                    if (!this.producto.manejaraTallas)
+                    {
+                        this.status.agregadoAlCarrito = true;
+                    }
+                    else{
+                        var tallaEncontrada = this.variantes.find((v)=> { 
+                            return v.idProductoVarianteDetalle == this.producto.idProductoVarianteDetalle});
+                        if (tallaEncontrada)
+                        {
+                            this.status.agregadoAlCarrito = true;
+                        }
+                    }
+                    
+                }
+                else
+                {
+                    console.log("no encontrado");
+                }
+            },
+            EstablecerVarianteTallas(talla)
+            {
+                this.status.verVariantes = false; 
+                this.producto.idProductoVarianteDetalle = talla.idProductoVarianteDetalle; 
+                this.productoVariante.valor = talla.valor;
+                this.ValidarSiExisteEnCarrito();
+
+            },
             async AgregarAlCarrito()
             {
-                await axios.post(ServeApi + "api/encarrito/", { "producto" : this.producto, "movimiento":"A"})
+                await axios.post(ServeApi + "api/encarrito/", { "producto" : this.producto, "movimiento":"AGREGAR"})
                 .then((resultado) =>{
                     console.log(resultado.data);
-                })
+                    if (resultado.data.idDetalle > 0)
+                    {
+                        this.status.agregadoAlCarrito = true;
+                    }
+                });
 
                 return;
                 await axios.post("enCarrito.php", { "producto" : this.producto, "movimiento":"A"})
@@ -441,7 +498,7 @@ print_r($menu);
             },
            async ObtenerProducto()
            {
-               var idProducto = document.getElementById('idproducto');
+               var idProducto = document.getElementById('idProducto');
                if (idProducto != null)
                {
                    idProducto = idProducto.value;
@@ -454,13 +511,32 @@ print_r($menu);
                             if (resultado.data != null)
                             {
                                 this.producto = resultado.data.producto;
-
+                                this.producto.idProductoVarianteDetalle = 0;
+                                this.producto.idCliente = this.idCliente;
                                 if (resultado.data.variantes.length > 0)
                                 {
                                     this.variantes = resultado.data.variantes;
                                 }
+                                if (resultado.data.imagenes)
+                                {
+                                    this.imagenes =resultado.data.imagenes;
+                                }
                             }
                         });
+
+                        await axios.get(ServeApi + "api/encarrito/" + this.idCliente)
+                        .then((resultado) =>{
+                            if (resultado.data != null)
+                            {
+                                this.enCarrito = resultado.data;
+                                
+                                this.ValidarSiExisteEnCarrito();
+                            }
+                            else
+                            {
+                                console.log("no hay data");
+                            }
+                        })
                    }
                     
                }
@@ -472,7 +548,9 @@ print_r($menu);
            }
         },
         mounted() {
+            this.idCliente = 1;
             this.ObtenerProducto();
+            
         },
         
 
