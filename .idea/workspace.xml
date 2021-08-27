@@ -22,12 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2d2b98de-a85d-42f1-89c6-b0ec15ef4483" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_02_2021_04_40_p__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_02_2021_04_40_p__m___Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shipping.php" beforeDir="false" afterPath="$PROJECT_DIR$/shipping.php" afterDir="false" />
-    </list>
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="" />
+    <list id="0e8517e8-4849-4dba-b416-5f3e44a7d134" name="Archivos XML" comment="Para documentos basura" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,7 +43,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="movil" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -683,7 +679,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Correccion MAC" />
     <MESSAGE value="Carrito" />
     <MESSAGE value="Correcciones Marzo 8" />
     <MESSAGE value="Correcciones Generales" />
@@ -708,6 +703,7 @@
     <MESSAGE value="ajustes menu elementos" />
     <MESSAGE value="customerLogin&#10;correccion de Data/Models/Clientes" />
     <MESSAGE value="Cambio de Servicios a prueba&#10;Cambio en llamada a tabla BD por ciudad ya que no es necesario&#10;Correccion en API para regresar un array" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambio de Servicios a prueba&#10;Cambio en llamada a tabla BD por ciudad ya que no es necesario&#10;Correccion en API para regresar un array" />
+    <MESSAGE value="Correccion al shiping y policy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correccion al shiping y policy" />
   </component>
 </project>

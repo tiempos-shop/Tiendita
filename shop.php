@@ -153,6 +153,7 @@ foreach ($products as $product){
     }
 }
 $fc=new \Tiendita\FrontComponents();
+$submenu=0;
 
 $h= $html->Html5(
     $html->Head(
