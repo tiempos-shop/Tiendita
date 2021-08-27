@@ -111,7 +111,7 @@ not process orders from persons that are not the Final Customer and any other or
         "</div>",
         "</div>",
         $fc->LogoNegro(),
-        $fc->TMenu(""),
+        //$fc->TMenu(""),
         $fc->MenuPrivacyReturnInside(true,false)
 
     ],"style='background-color:#FFFFF;' ") //#AC9950
