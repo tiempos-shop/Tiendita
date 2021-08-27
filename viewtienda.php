@@ -321,12 +321,12 @@ print_r($menu);
                     
                     <div class="row ">
                         <div class='  col-md-12  ' style=''>
-                            <p style='font-family: NHaasGroteskDSPro-65Md;'>THE WALLET PROJECT</p>
+                            <p style='font-family: NHaasGroteskDSPro-65Md;'>{{producto.nombre}}</p>
                         </div>
                     </div>
                     <div class="row ">
                         <div class='  col-md-12  ' style=''>
-                            <p>{{producto.nombre}}</p>
+                            <p>{{producto.color}}</p>
                         </div>
                     </div>
                     <hr style='margin-top: 1em!important;' />

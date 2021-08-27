@@ -104,8 +104,8 @@ print_r($menu);
                                     @click="VerProducto(producto.idproducto)"
                                     @mouseover="producto.dentro = true; CambiarImagen(producto,false)"
                                     @mouseleave="producto.dentro = false; CambiarImagen(producto,true)" style="width: 100%"><br /><br />
-                    <p style="font-family: NHaasGroteskDSPro-65Md;line-height: 1">JALAPEÑO</p>
-                    <p><s>USD $65.00</s> USD $50.00</p>
+                    <p style="font-family: NHaasGroteskDSPro-65Md;line-height: 1">{{producto.color}}</p>
+                    <p><s style="font-size: 0.7rem;">USD {{producto.precioComparativo}}</s> USD {{producto.precio}}</p>
                 </div>
                 
             </div>
@@ -197,7 +197,7 @@ print_r($menu);
                                                                       class='small ml-4 col-md-5'>SHIPPING & RETURNS</span></div>
     </div>
 
-    <h1>{{mensaje}}</h1>
+    
 </div>
 
 
