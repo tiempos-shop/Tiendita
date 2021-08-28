@@ -98,7 +98,7 @@ print_r($menu);
         <div class="row ">
             <div v-for="(producto, index) in listaProductos" :key="index" class="col-md-4">
             
-                <div class='text-center' style=''>
+                <div class='text-center' >
                    
                     <br /><br /><img   :src="producto.imagenPrincipal"
                                     @click="VerProducto(producto.idProducto)"

@@ -139,7 +139,7 @@ print_r($menu);
             <div class="  col-md-3  " >
                 <div style="margin-top: 16px; display: inline-block;">
                     <div class="  col-md-1  " >
-                        USD {{producto.precio}}
+                        {{siglasMoneda}} {{producto.precio}}
                     </div>
                 </div>
             </div>
@@ -152,17 +152,18 @@ print_r($menu);
 
             </div>
             <div class="  col-md-5  " >
-                SUBTOTAL: $ 65.00
+                SUBTOTAL: $ {{subtotal}}
             </div>
-        </div><button onclick="go('checkout.php')" class="btn btn-dark btn-block"
-            style="text-align: left;border-radius: 0">
-            <div class="row ">
-                <div class="  col-md-7  " >
+        </div>
+            <button  class="btn btn-dark btn-block"
+                style="text-align: left;border-radius: 0" @click="IrACheckOut()">
+                <div class="row ">
+                    <div class="  col-md-7  " >
 
-                </div>
-                <div class="  col-md-5  " >
-                    CHECKOUT
-                </div>
+                    </div>
+                    <div class="  col-md-5  " >
+                        CHECKOUT
+                    </div>
             </div>
         </button>
         <div class="row ">
@@ -179,7 +180,7 @@ print_r($menu);
 
         </div>
     </div>
-    <div style="position: absolute;bottom: 0;margin-bottom: 0.8rem; min-height: 150px;"
+    <div style="bottom: 0;margin-bottom: 0.8rem; min-height: 150px;"
         class="col-md-8 col-sm-12 text-right pr-4 pl-4 d-flex align-items-end"><span class="small mr-4 col-md-6"
             onclick="go('privacy.php')"> PRIVACY POLICY</span><span onclick="go('shipping.php')"
             class="small ml-4 col-md-5">SHIPPING & RETURNS</span></div>
@@ -203,9 +204,31 @@ print_r($menu);
         data:{
             enCarrito:[],
             idCliente:0,
+            monedas:[],
+            idMoneda:0,
+            siglasMoneda:"",
+            subtotal:0
         },
         methods: {
-            
+            IrACheckOut()
+            {
+                location.href = "checkoutshop.php";
+            },
+            SumarProductos()
+            {
+                var subtotal = 0;
+                this.enCarrito.forEach(element => {
+                    subtotal +=  Number(element.cantidad) * Number(element.precio);
+                });
+                this.subtotal = subtotal;
+            },
+            async CargaInicial()
+            {
+                await axios.get(ServeApi + "api/cargainicial/")
+                .then((resultado) => {
+                    this.monedas = resultado.data;
+                });
+            },
             ValidarSiExisteEnCarrito()
             {
                 this.status.agregadoAlCarrito = false;
@@ -242,17 +265,20 @@ print_r($menu);
                 if (resultado.data != null)
                 {
                     this.enCarrito = resultado.data;
-                    
+                    this.SumarProductos();
                 }
    
             });
                
            }
         },
-        mounted() {
+        async mounted() {
             this.idCliente = 1;
+            var respuestaMonedas = this.CargaInicial();
             this.ObtenerCarrito();
-            
+            await respuestaMonedas;
+            this.idMoneda = idMoneda;
+            this.siglasMoneda = siglasMoneda;
         },
         
 
