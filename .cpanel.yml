@@ -1,9 +1,7 @@
 ---
 deployment:
   tasks:
-    # Carpeta de publicación
     - export DEPLOYPATH=/home/softqui2/public_html/ts
-    # Copia de archivos y carpetas
     - /bin/cp * $DEPLOYPATH
     - /bin/cp -R img $DEPLOYPATH
     - /bin/cp -R video $DEPLOYPATH
@@ -16,5 +14,4 @@ deployment:
     - /bin/cp -R vendor $DEPLOYPATH
     - /bin/cp -R View $DEPLOYPATH
     - /bin/cp -R iimg $DEPLOYPATH
-    # Archivo de coneccion a la base
     - /bin/cp /home/softqui2/data/Database.php $DEPLOYPATH
