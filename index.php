@@ -139,7 +139,7 @@ $h= $html->Html5(
     $html->Body([
         $fc->MenuDorado($idioma,$idiomaActual,$numeroProductosCarrito),
         $fc->LogoDorado(),
-        $fc->TMenu(2),
+        //$fc->TMenu(2),
         $ui->ContainerFluid([
             //$fc->setIndexView(["https://www.youtube.com/embed/tgbNymZ7vqY"], "video")
             //$fc->setIndexView(["img/ts-home_001.jpg","img/ts-home_002.jpg"])

@@ -142,7 +142,7 @@ foreach ($products as $product){
     $code=$product->Clave;
     $code=str_replace("'","_",$code);
     $js="view('$code')";
-    $htmlColumns[]=$ui->Columns('<br/><br/><img onclick="'.$js.'" src="'.$arr[0].'" onmouseover="changeImage(this,'.$four.')" onmouseleave="changeImage(this,'.$first.')" style="width: 100%"><br/><br/><p style="font-family: NHaasGroteskDSPro-65Md;line-height: 1">'.$description.'</p><p>'.$price.'</p>',
+    $htmlColumns[]=$ui->Columns('<img onclick="'.$js.'" src="'.$arr[0].'" onmouseover="changeImage(this,'.$four.')" onmouseleave="changeImage(this,'.$first.')" style="width: 100%"><br/><br/><p style="font-family: NHaasGroteskDSPro-65Md;line-height: 1">'.$description.'</p><p>'.$price.'</p>',
         4,0,0,0,"text-center");
     if(count($htmlColumns)==3 or $n==$i)
     {
@@ -153,9 +153,7 @@ foreach ($products as $product){
     }
 }
 $fc=new \Tiendita\FrontComponents();
-//var_dump($idioma[$idiomaActual]['FILTER']);
-//var_dump($submenu);
-//exit(0);
+$submenu=0;
 
 $h= $html->Html5(
     $html->Head(

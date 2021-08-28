@@ -25,6 +25,8 @@ $id = $_GET["id"];
 
 $idiomaActual="";
 
+
+
 $fc=new \Tiendita\FrontComponents();
 
 $productInformation = $products = $db->getBy("Productos","Clave", $id)[0];
@@ -364,7 +366,7 @@ $h= $html->Html5(
                             "</div><hr style='margin: 0 0 0 0'/>",
                             $fc->SizeButton($botonTalla,$opcionesTallas),
                             $flowButton,
-                            //$fc->MenuPrivacyReturnView(true,true)
+                            $fc->MenuPrivacyReturnView(true,true)
 
                         ],"component")
 

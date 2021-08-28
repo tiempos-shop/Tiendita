@@ -186,9 +186,9 @@ foreach ($elements as $element){
     $js="view('$code')";
     $htmlProducts .= $ui->Row([
             $ui->Columns("",2),
-            $ui->Columns("<div style='cursor: pointer;' onclick=\"$js\"><img src='".$element["RutaImagen"]."' alt='' height='172'><div style='height: 100%;margin-left: 15px;display: inline-block;vertical-align: top;margin-top: 16px;'>".$element["Descripcion"]."</div></div>",4),
+            $ui->Columns("<div style='cursor: pointer;' onclick=\"$js\"><img src='".$element["RutaImagen"]."' height='172'><div style='height: 100%;margin-left: 15px;display: inline-block;vertical-align: top;margin-top: 16px;'>".$element["Descripcion"]."</div></div>",4),
             //$ui->Columns($element["Descripcion"],2),
-            $ui->Columns("<div class ='d-flex' style='margin-top: 16px;'>".$fc->Borrar($element)."</form>".$fc->BotonEditar($element)."</div>",1),
+            $ui->Columns("<div class ='d-flex' style='margin-top: 16px;'></form>".$element["Cantidad"]."</div>",1),
             $ui->Columns("<div style='margin-top: 16px;'>".$carrito["Talla"]."</div>",1),
             $ui->Columns('',1),
             $ui->Columns("<div style='margin-top: 16px; display: inline-block;'>".$price."</div>",3)
@@ -227,7 +227,7 @@ $h= $html->Html5(
     $html->Body([
 
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","","'","",""]),
-
+        "<input type='hidden' value='$idiomaActual'  id='idiomaActual' >",
         $ui->ContainerFluid([
             $ui->Row([
 
@@ -429,7 +429,7 @@ $h= $html->Html5(
                     "text-align:center;margin-top:10px")
             ]),
             $ui->RowSpace("2vh"),
-            "<hr style='opacity: 1'/>",
+            "<hr style='opacity: 1; margin: 0px;' />",
             $htmlProducts,
             $ui->Row([
                 $ui->Columns(
@@ -443,18 +443,15 @@ $h= $html->Html5(
                                                 <p class='font-weight-bold mt-2'>Total</p>
                                             </div>",6),
                         $ui->Columns("<div style='margin-top: 10px;' class='d-flex flex-column'>
-                                                <p class='mr-5'>$moneda $suma</p>
-                                                <p>USD $10</p>
+                                                <p class='mr-5'>$moneda $suma <input type='hidden' value='$suma' id='subtotal'> </p>
+                                                <p >  <span  id='monedaEnvio'></span> <span class='ml-1' id='precioEnvio'></span> </p>
                                                 <p>(Included)</p>
-                                                <p class='font-weight-bold mt-2'>$moneda $suma</p>
+                                                <p class='font-weight-bold mt-2'><span  id='monedaTotal'></span> <span class='ml-1' id='precioTotal'></span></p>
                                             </div>",3)
                     ],''),12,0,0,0,'pt-6 pb-4 border-bottom border-dark'),
-                "<button class='btn btn-dark btn-block' style='text-align: left;border-radius: 0'>
-                ".$ui->Row([
-                    //$ui->Columns('',6),
-                    $ui->Columns('PLACE ORDER',12,0,0,0,"text-center")
-                ])."
-            </button>",
+                "<button class='btn btn-dark btn-block' style='text-align: left;border-radius: 0' onclick='ProcesarPedido()'>
+                    <div class='text-center' id='procesarText'>PLACE ORDER</div>
+                </button>",
 
             ],''),
         ]),

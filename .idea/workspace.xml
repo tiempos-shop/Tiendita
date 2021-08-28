@@ -22,10 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/API/API.php" beforeDir="false" afterPath="$PROJECT_DIR$/Business/API/API.php" afterDir="false" />
-    </list>
+    <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="" />
     <list id="0e8517e8-4849-4dba-b416-5f3e44a7d134" name="Archivos XML" comment="Para documentos basura" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +43,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="movil" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -302,6 +299,11 @@
       <workItem from="1624898067771" duration="26223000" />
       <workItem from="1625496915902" duration="1138000" />
       <workItem from="1625772772221" duration="14193000" />
+      <workItem from="1628636376623" duration="1312000" />
+      <workItem from="1628810143390" duration="1341000" />
+      <workItem from="1629322979918" duration="611000" />
+      <workItem from="1629413792679" duration="6646000" />
+      <workItem from="1629567613977" duration="956000" />
     </task>
     <task id="LOCAL-00084" summary="Detalles">
       <created>1614788912267</created>
@@ -677,7 +679,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Correccion MAC" />
     <MESSAGE value="Carrito" />
     <MESSAGE value="Correcciones Marzo 8" />
     <MESSAGE value="Correcciones Generales" />
@@ -702,6 +703,7 @@
     <MESSAGE value="ajustes menu elementos" />
     <MESSAGE value="customerLogin&#10;correccion de Data/Models/Clientes" />
     <MESSAGE value="Cambio de Servicios a prueba&#10;Cambio en llamada a tabla BD por ciudad ya que no es necesario&#10;Correccion en API para regresar un array" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambio de Servicios a prueba&#10;Cambio en llamada a tabla BD por ciudad ya que no es necesario&#10;Correccion en API para regresar un array" />
+    <MESSAGE value="Correccion al shiping y policy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correccion al shiping y policy" />
   </component>
 </project>
