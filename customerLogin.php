@@ -79,21 +79,19 @@ if(count($_POST)>0)
                     $newsletter = false;
                     $news="No se solicito el servicio de Newsletter.";
                 };
-                $mensaje="Test";/*
-                    "
-                    <h2>Registro de Nuevo Cliente</h2>
+                $mensaje = "<h2>Registro de Nuevo Cliente</h2>
                     <h3>$name $lastname</h3>
                     <p>Se registro el cliente con el password: $password1</p>
                     <br/>
                     <p>$news</p>
                     <b>Saludos Cordiales</b>
-                    <b>El equipo de tiempos Shop</b>
-                    ";
-                    */
+                    <b>El equipo de tiempos Shop</b>";
+
                 if($password1===$password2){
                     //$ui->Debug($mensaje);
                     //$ui->Debug($login);
-                    if($ui->SendMail("Tiempos Shop","informes@softquimia.com",$login,"Registro de Cliente Tiempos Shop",$mensaje))
+                    $mail = $ui->SendMail("Tiempos Shop","informes@softquimia.com",$login,"Registro de Cliente Tiempos Shop",$mensaje);
+                    if($mail)
                     {
                         echo "<script>alert('Solicitud correcta. Se envio un correo a $login.')</script>";
                         $cliente=new \Tiendita\Clientes();
@@ -110,22 +108,16 @@ if(count($_POST)>0)
                         }catch (mysqli_sql_exception $exception){
                             $ui->Debug($exception);
                         }
-
                     }
                     else
                     {
                         echo "<script>alert('Error en el servidor de correos')</script>";
                     }
-
-
                 }
                 else
                 {
                     echo "<script>alert('Los password no coinciden')</script>";
                 }
-
-
-
 
                 break;
         }
