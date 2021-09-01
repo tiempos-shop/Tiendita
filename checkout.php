@@ -209,7 +209,8 @@ $h= $html->Html5(
         $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
         $html->LoadScripts(["View/js/bootstrap.js", "js/global.js", "js/axios.min.js", "js/checkout.js"]),
         "",
-        '<script>
+        '
+                <script>
                   function go(url){
                       window.location.href=url;
                   }
@@ -221,12 +222,14 @@ $h= $html->Html5(
                       let id=str.replace("_", "\'");
                       go("view.php?id="+id);
                   }
+                  
+                  
                 </script>'
 
     ),
     $html->Body([
 
-        $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","","'","",""]),
+        $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","","","",""]),
         "<input type='hidden' value='$idiomaActual'  id='idiomaActual' >",
         $ui->ContainerFluid([
             $ui->Row([
@@ -378,8 +381,53 @@ $h= $html->Html5(
             $ui->RowSpace("1vh"),
             $ui->Row([
                 $ui->Columns("",2),
-                $ui->Columns(
-                    "<input class='form-check-input' type='checkbox' id='newsletter' name='newsletter' style='border-radius: 10px;border-color: black'> PAY WITH PAYPAL</input>",
+                $ui->Columns("
+<div id='smart-button-container'>
+      <div style='text-align: center;'>
+        <div id='paypal-button-container'></div>
+      </div>
+    </div>
+  <script src='https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD' data-sdk-integration-source='button-factory'></script>
+  <script>
+    function initPayPalButton() {
+      paypal.Buttons({
+        style: {
+          shape: 'rect',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'paypal',
+          
+        },
+
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{'amount':{'currency_code':'USD','value':$suma}}]
+          });
+        },
+
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(orderData) {
+            
+            // Full available details
+            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+            // Show a success message within this page, e.g.
+            const element = document.getElementById('paypal-button-container');
+            element.innerHTML = '';
+            element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+            // Or go to another URL:  actions.redirect('thank_you.html');
+            
+          });
+        },
+
+        onError: function(err) {
+          console.log(err);
+        }
+      }).render('#paypal-button-container');
+    }
+    initPayPalButton();
+  </script>",
                     4,0,0,0,0,"margin-top:-50px"),
                 $ui->Columns(
                     "",
