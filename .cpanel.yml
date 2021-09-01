@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/softqui2/public_html/ts
+    - /bin/cp -R * $DEPLOYPATH
+    - /bin/cp /home/softqui2/data/Database.php $DEPLOYPATH
