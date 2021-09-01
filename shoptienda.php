@@ -1,63 +1,11 @@
 <?php
 
 use Administracion\VistasHtml;
-use Tiendita\EntidadBase;
-use Tiendita\Utilidades;
 
 include_once "View/Componentes/Administracion/VistasHtml.php";
-include_once "Business/Utilidades.php";
-include_once "Data/Connection/EntidadBase.php";
-include_once "Business/FrontComponents.php";
 
-$fc=new \Tiendita\FrontComponents();
 $html=new VistasHtml();
-$ui=new Utilidades();
-$db=new EntidadBase();
 
-session_start();
-if(isset($_SESSION["ProductosCarrito"])){
-    $productosCarrito=$_SESSION["ProductosCarrito"];
-    $numeroProductosCarrito=count($productosCarrito);
-}
-else{
-    $numeroProductosCarrito=0;
-}
-
-// Idioma
-$idiomaActual="";
-if(count($_POST)>0)
-{
-    if(isset($_POST["language"])){
-        $idiomaActual=$_POST["language"];
-        $_SESSION["language"]=$idiomaActual;
-    }
-    else{
-        $idiomaActual=$_SESSION["language"];
-    }
-
-    if(isset($_GET["action"])){
-        $action=$_GET["action"];
-        $ui->Debug($_POST);
-        switch ($action){
-            case "login":
-                break;
-            case "forgot":
-                break;
-            case "facebook":
-                break;
-            case "google":
-                break;
-            case "create":
-                break;
-        }
-    }
-
-}
-else{
-    $idiomaActual=$_SESSION["language"];
-}
-
-$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"], "CURRENCY" => "MXN" ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ], "CURRENCY" => "USD" ] ];
 
 
 $htmlPrincipal = "<!DOCTYPE html>
@@ -67,7 +15,7 @@ $h = $html->Head(
     "Tiempos Shop",
     $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
     $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
-    $html->LoadScripts(["View/js/bootstrap.js", "js/global.js", "js/axios.min.js", "js/vue.js"]),
+    $html->LoadScripts(["View/js/bootstrap.js", "js/axios.min.js", "js/vue.js", "js/global.js"]),
     "",
     '<script>
                   function go(url){
@@ -86,8 +34,7 @@ $h = $html->Head(
 );
 print_r($h);
 
-$menu = $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","","'","",""]);
-print_r($menu);
+require_once('menu.php');
 ?>
 
 <div id="app">
@@ -187,7 +134,7 @@ print_r($menu);
         </div>
         <div class="row ">
             <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 ' style='height:1em'>
-
+                
             </div>
         </div>
         <div style='position: inherit;bottom: 0;margin-bottom: 0.8rem; min-height: 150px;'
@@ -208,7 +155,9 @@ print_r($menu);
         el:'#app',
         data:{
             mensaje:'hola',
-            listaProductos:[]
+            listaProductos:[],
+            idCliente:0,
+            enCarrito:[],
         },
         methods: {
             VerProducto(idProducto)
@@ -245,6 +194,21 @@ print_r($menu);
 
                 this.listaProductos = result;
             },
+            async ObtenerEnCarrito()
+            {
+                await axios.get(ServeApi + "api/encarrito/" + this.idCliente)
+                    .then((resultado) =>{
+                        if (resultado.data != null)
+                        {
+                            this.enCarrito = resultado.data;
+                            this.$cantidadCarrito = this.enCarrito.length;
+                        }
+                        else
+                        {
+                            console.log("no hay data");
+                        }
+                    })
+            },
             CambiarImagen(producto, regresar)
             {
                 var app = this;
@@ -257,25 +221,21 @@ print_r($menu);
                         if (regresar)
                         {
                             producto.imagenPrincipal = producto.imagen[0].ruta;
-                            console.log("regresar");
                         }
                         else
                         {
                             producto.imagenPrincipal = producto.imagen[1].ruta;
-                            console.log("otro");
                         }
 
                         producto.cargandoImagen = true;
                     }
                     else
                     {
-                        console.log("reg", regresar);
                         if (regresar & producto.dentro)
                         {
                             setTimeout(() => {
                                 producto.cargandoImagen = false;
                                 producto.imagenPrincipal = producto.imagen[0].ruta;
-                                console.log("regresando original");
                             }, 40);
                         }
                     }
@@ -291,6 +251,9 @@ print_r($menu);
         },
         mounted() {
             this.ObtenerProductos();
+            
+            this.idCliente = idCliente;
+            this.ObtenerEnCarrito();
         },
         
 

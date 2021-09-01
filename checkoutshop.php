@@ -1,58 +1,12 @@
 <?php
 
 use Administracion\VistasHtml;
-use Tiendita\EntidadBase;
-use Tiendita\Utilidades;
+
 
 include_once "View/Componentes/Administracion/VistasHtml.php";
-include_once "Business/Utilidades.php";
-include_once "Data/Connection/EntidadBase.php";
-include_once "Business/FrontComponents.php";
 
-$fc = new \Tiendita\FrontComponents();
 $html = new VistasHtml();
-$ui = new Utilidades();
-$db = new EntidadBase();
 
-session_start();
-if (isset($_SESSION["ProductosCarrito"])) {
-    $productosCarrito = $_SESSION["ProductosCarrito"];
-    $numeroProductosCarrito = count($productosCarrito);
-} else {
-    $numeroProductosCarrito = 0;
-}
-
-// Idioma
-$idiomaActual = "";
-if (count($_POST) > 0) {
-    if (isset($_POST["language"])) {
-        $idiomaActual = $_POST["language"];
-        $_SESSION["language"] = $idiomaActual;
-    } else {
-        $idiomaActual = $_SESSION["language"];
-    }
-
-    if (isset($_GET["action"])) {
-        $action = $_GET["action"];
-        $ui->Debug($_POST);
-        switch ($action) {
-            case "login":
-                break;
-            case "forgot":
-                break;
-            case "facebook":
-                break;
-            case "google":
-                break;
-            case "create":
-                break;
-        }
-    }
-} else {
-    $idiomaActual = $_SESSION["language"];
-}
-
-$idioma = ["ESPAÑOL" => ["MENU" => ["INICIO", "ARCHIVO", "MARCA", "ENGLISH", "CARRITO(*)"], "CURRENCY" => "MXN"], "ENGLISH" => ["MENU" => ["HOME", "ARCHIVE", "IMPRINT", "ESPAÑOL", "CART(*)"], "CURRENCY" => "USD"]];
 
 
 $htmlPrincipal = "<!DOCTYPE html>
@@ -62,7 +16,7 @@ $h = $html->Head(
     "Tiempos Shop",
     $html->Meta("utf-8", "Tienda Online de Tiempos Shop", "Egil Ordonez"),
     $html->LoadStyles(["global.css", "View/css/bootstrap.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
-    $html->LoadScripts(["View/js/bootstrap.js", "js/global.js", "js/axios.min.js", "js/vue.js"]),
+    $html->LoadScripts(["View/js/bootstrap.js",  "js/axios.min.js", "js/vue.js", "js/global.js",]),
     "",
     '<script>
                   function go(url){
@@ -81,9 +35,7 @@ $h = $html->Head(
 );
 print_r($h);
 
-$menu = $fc->Menu($idioma, $idiomaActual, $numeroProductosCarrito, ["", "", "", "'", "", ""]);
-print_r($menu);
-
+require_once('menu.php');
 ?>
 
 <div class="container-fluid" id="app">
@@ -481,8 +433,12 @@ print_r($menu);
                 </div>
                 <div class="  col-md-1  ">
                     <div class="d-flex" style="margin-top: 16px;">
-                        <form method="post" action="" name="T0001_02"><button type="submit" style="border:0 solid transparent;background-color:transparent;display: inline-block">X</button>
-                        </form><input onchange="edit(this,'T0001_02');" type="text" maxlength="1" v-model="producto.cantidad" style="width: 25px;padding-left: 5px;">
+                        
+                            <button type="submit" style="border:0 solid transparent;background-color:transparent;display: inline-block">X</button>
+                            <input @change="CambiarCantidad(producto)" type="number" maxlength="1" 
+                            :max="producto.inventario"
+                            :disabled="producto.enviando"
+                            v-model="producto.cantidad" style="width: 65px;padding-left: 5px;">
                     </div>
                 </div>
                 <div class="  col-md-1  ">
@@ -493,7 +449,7 @@ print_r($menu);
                 </div>
                 <div class="  col-md-3  ">
                     <div style="margin-top: 16px; display: inline-block;">
-                        <div class="  col-md-1  ">
+                        <div class="  ">
                             {{siglasMoneda}} {{producto.precio}}
                         </div>
                     </div>
@@ -517,12 +473,14 @@ print_r($menu);
                         </div>
                         <div class="  col-md-3  ">
                             <div style="margin-top: 10px;" class="d-flex flex-column">
-                                <p class="mr-5">{{siglasMoneda}} {{subtotal}} <input type="hidden" value="1300" id="subtotal"> </p>
+                                <p class="mr-5">{{siglasMoneda}} {{subtotal | moneda}} <input type="hidden" value="1300" id="subtotal"> </p>
                                 <p> <span id="monedaEnvio"></span> <span class="ml-1" id="precioEnvio">
-                                    {{envio | moneda}}
+                                    {{siglasMoneda}} {{envio | moneda}}
                                 </span> </p>
                                 <p>(Included)</p>
-                                <p class="font-weight-bold mt-2"><span id="monedaTotal"></span> <span class="ml-1" id="precioTotal"></span></p>
+                                <p class="font-weight-bold mt-2"><span id="monedaTotal"></span> <span class="ml-1" id="precioTotal">
+                                {{siglasMoneda}}  {{total | moneda}}
+                                </span></p>
                             </div>
                         </div>
                     </div>
@@ -531,6 +489,12 @@ print_r($menu);
                     @click="ProcesarPedido()" :disabled="status.procesado || status.enviandoPedido || status.cotizando">
                     <div class="text-center" id="procesarText">{{status.procesadoEstatus}}</div>
                 </button>
+
+                <div class="col-md-12 mt-2">
+                    <div class="bg-danger text-white p-2" v-if="errores.sistema.length > 0">
+                        {{errores.sistema}}
+                    </div>
+                </div>
             </div>
         </div>
  
@@ -584,37 +548,84 @@ print_r($menu);
                 textoDias:'DAYS',
                 resultadoCotizacion: 'INPUT POSTAL CODE FIRST',
                 procesadoEstatus:'PLACE ORDER',
+            },
+            errores:{
+                sistema:''
             }
         },
         methods: {
+            async CambiarCantidad(producto)
+            {   
+                producto.enviando = true;
+                
+                try {
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    console.log("envio terminado");
+                    
+
+                    await axios.post(ServeApi + "api/encarrito/", { "producto" : producto, "movimiento":"MODIFICAR"})
+                    .then((resultado) =>{
+                        
+                        if (resultado.data.idDetalle > 0)
+                        {
+                            console.log("actualizado");
+                        }
+                    }).catch((problema) =>{
+
+                    });
+
+                    await this.ObtenerCarrito();
+                } catch (error) {
+                    
+                }
+                
+                producto.enviando = false;
+                
+            },
             async ProcesarPedido()
             {
                 this.status.enviandoPedido = true;
-                var data = {
-                    "idCliente": this.idCliente,
-                    "nombre": this.direccion.nombre,
-                    "apellido" : this.direccion.apellido,
-                    "idDireccion" : 2,
-                    "moneda": this.siglasMoneda,
-                    "total" : this.total,
-                    "precioEnvio" : this.envio,
-                    "subtotal": this.subtotal,
-                    "nombre_recibe": this.direccion.nombre +  " " +  this.direccion.apellido
-                }
-                
-         
 
-                await axios.post(ServeApi + "api/pedidos", data)
-                .then((resultado) => {
-                    console.log(resultado.data);
-                    var info =resultado.data;
-                    if (info.IdPedido>0)
-                    {
-                        this.status.procesado = true;
-                        console.log("Procesado!");
-                        this.status.procesadoEstatus = "READY!";
+                try {
+                    var data = {
+                        "idCliente": this.idCliente,
+                        "nombre": this.direccion.nombre,
+                        "apellido" : this.direccion.apellido,
+                        "idDireccion" : 2,
+                        "moneda": this.siglasMoneda,
+                        "total" : this.total,
+                        "precioEnvio" : this.envio,
+                        "subtotal": this.subtotal,
+                        "nombre_recibe": this.direccion.nombre +  " " +  this.direccion.apellido,
+                        "productos": this.enCarrito
                     }
-                });
+            
+                    await axios.post(ServeApi + "api/pedidos", data)
+                    .then((resultado) => {
+                        
+                        var info =resultado.data;
+                        if (info.IdPedido>0)
+                        {
+                            this.status.procesado = true;
+                            
+                            this.status.procesadoEstatus = "READY!";
+                        }
+                    }).catch((problema) =>
+                    {
+                        if (problema.response.data)
+                        {
+                            this.errores.sistema = problema.response.data;
+                            
+                        }
+                        else
+                        {
+                            console.log("problema", problema);
+                        }
+                        
+                    });
+                } catch (error) {
+                    
+                }
 
                 this.status.enviandoPedido = false;
             },
@@ -626,7 +637,8 @@ print_r($menu);
                     "moneda": this.siglasMoneda,
                     "codigo_postal": this.direccion.codigo_postal,
                     "cantidad_productos":this.enCarrito.length,
-                    "idCliente": this.idCliente
+                    "idCliente": this.idCliente,
+                    "productos": this.enCarrito,
                 }
                 var idiomaActual = "ESPAÑOL";
 
@@ -646,13 +658,14 @@ print_r($menu);
 
                 await axios.post(ServeApi + "api/envios_mov/cotizar", data)
                 .then((resultado) => {
-                    console.log(resultado.data);
+                    
                     var info =resultado.data;
                     if (info.dias != null)
                     {
                         
                         this.status.resultadoCotizacion = info.precio + " " + info.moneda + " " +  info.dias + " " +  this.textoDias;
                         this.envio = Number(info.precio);
+                        this.SumarProductos();
                     }
                 });
                 this.status.cotizando = false;
@@ -663,9 +676,15 @@ print_r($menu);
             SumarProductos() {
                 var subtotal = 0;
                 this.enCarrito.forEach(element => {
+                    
                     subtotal += Number(element.cantidad) * Number(element.precio);
+                    
                 });
-                this.subtotal = subtotal;
+                this.subtotal = Number(subtotal);
+                
+                this.total = (Number(subtotal) + Number(this.envio)).toFixed(2);
+                
+
             },
             async CargaInicial() {
                 await axios.get(ServeApi + "api/cargainicial/")
@@ -721,7 +740,14 @@ print_r($menu);
                 await axios.get(ServeApi + "api/encarrito/" + this.idCliente)
                     .then((resultado) => {
                         if (resultado.data != null) {
+                            
+                            resultado.data.forEach(element => {
+                                element.enviando = false;
+                            });
+
                             this.enCarrito = resultado.data;
+
+                            this.$cantidadCarrito = this.enCarrito.length;
                             this.SumarProductos();
                         }
 
@@ -730,6 +756,7 @@ print_r($menu);
             }
         },
         async mounted() {
+            this.$cantidadCarrito = 0;
             this.idCliente = 1;
             var respuestaMonedas = this.CargaInicial();
             this.ObtenerCarrito();
