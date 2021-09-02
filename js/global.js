@@ -8,6 +8,7 @@ var idCliente = 1;
 
 const cantidadCarrito = Vue.observable({ cantidadCarrito: {} })
 
+
 Object.defineProperty(Vue.prototype, '$cantidadCarrito', {
   get () {
     return cantidadCarrito.cantidadCarrito
@@ -17,3 +18,5 @@ Object.defineProperty(Vue.prototype, '$cantidadCarrito', {
     cantidadCarrito.cantidadCarrito = value
   }
 })
+
+cantidadCarrito.cantidadCarrito = 0;
