@@ -58,11 +58,9 @@ class Pago
         $entidadPagos->Descripcion=$this->card;
         $entidadPagos->EstatusPago=true;
         $entidadPagos->MontoPago=$this->total;
-        $entidadPagos->FechaCambio="01/01/2000 0:0:0";//$u->FechaHoy();
+        $entidadPagos->FechaCambio=$u->FechaHoy();
         $entidadPagos->IdTipoMovimiento=1;
         $entidadPagos->IdUsuarioBase=0;
-        $entidadPagos->
-
         $oPagos->insert($entidadPagos);
         return true;
     }
