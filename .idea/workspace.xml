@@ -23,8 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.cpanel.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Connection/Conectar.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Connection/Conectar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Connection/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Connection/Database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Connection/EntidadBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Connection/EntidadBase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Models/ModeloBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/ModeloBase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customerLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/customerLogin.php" afterDir="false" />
     </list>
     <list id="0e8517e8-4849-4dba-b416-5f3e44a7d134" name="Archivos XML" comment="Para documentos basura" />
     <option name="SHOW_DIALOG" value="false" />
@@ -158,9 +162,9 @@
       <item itemvalue="PHP Script.INDEX Script" />
       <item itemvalue="PHP Script.bag.php" />
       <item itemvalue="PHP Web Page.Admin" />
-      <item itemvalue="PHP Web Page.XAMPP" />
-      <item itemvalue="PHP Web Page.XAMPP SSL" />
       <item itemvalue="PHP Web Page.Shop" />
+      <item itemvalue="PHP Web Page.XAMPP SSL" />
+      <item itemvalue="PHP Web Page.XAMPP" />
     </list>
     <recent_temporary>
       <list>
@@ -308,6 +312,8 @@
       <workItem from="1629413792679" duration="6646000" />
       <workItem from="1629567613977" duration="956000" />
       <workItem from="1630189891650" duration="2281000" />
+      <workItem from="1630548330177" duration="41000" />
+      <workItem from="1630634513140" duration="4165000" />
     </task>
     <task id="LOCAL-00085" summary="Detalles">
       <created>1614792315732</created>
@@ -709,5 +715,9 @@
     <MESSAGE value="Correccion al shiping y policy" />
     <MESSAGE value="Correccion del metodo de menu Familia (Coleccion)" />
     <option name="LAST_COMMIT_MESSAGE" value="Correccion del metodo de menu Familia (Coleccion)" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

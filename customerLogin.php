@@ -90,24 +90,29 @@ if(count($_POST)>0)
                 if($password1===$password2){
                     //$ui->Debug($mensaje);
                     //$ui->Debug($login);
-                    $mail = $ui->SendMail("Tiempos Shop","informes@softquimia.com",$login,"Registro de Cliente Tiempos Shop",$mensaje);
-                    if($mail)
+                    //$mail = $ui->SendMail("Tiempos Shop","informes@softquimia.com",$login,"Registro de Cliente Tiempos Shop",$mensaje);
+                    if(true)
                     {
-                        echo "<script>alert('Solicitud correcta. Se envio un correo a $login.')</script>";
+
                         $cliente=new \Tiendita\Clientes();
                         $cliente->Nombre=$name;
                         $cliente->Apellidos=$lastname;
                         $cliente->FechaCambio=$ui->FechaHoy();
-                        $cliente->CorreoElectronico->login;
+                        $cliente->CorreoElectronico=$login;
+                        $cliente->IdTipoMovimiento=1;
+                        $cliente->IdUsuarioBase=1;
                         $cliente->Password=$password1;
 
-                        $clientes=new \Tiendita\ModeloClientes();
                         try {
-                            $clientes->insert($cliente);
-                            $clientes->SaveAll();
+                            $sql=\Tiendita\ModeloBase::GetInsert($cliente,"Clientes",\Tiendita\Clientes::getProperties());
+                            $db->AddQuerys($sql);
+                            $db->SaveAll();
                         }catch (mysqli_sql_exception $exception){
                             $ui->Debug($exception);
                         }
+                        echo "<script>alert('Solicitud correcta. Se envio un correo a $login.')</script>";
+                        $_SESSION["LOGGED"]="NORMAL";
+                        $ui->Redirect("checkout.php");
                     }
                     else
                     {

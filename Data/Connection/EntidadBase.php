@@ -3,6 +3,7 @@
 
 namespace Tiendita;
 use Exception;
+use mysqli_sql_exception;
 
 require_once 'Conectar.php';
 
@@ -17,8 +18,11 @@ class EntidadBase{
     }
 
     public function SaveAll(){
-        $querys=implode(" ",$this->sqlSaveCache);
-        $this->db->multi_query($querys);
+        foreach ($this->sqlSaveCache as $sql){
+
+            $r=$this->db->query($sql);
+            echo "result $r on query $sql";
+        }
         $this->sqlSaveCache=[];
     }
 
@@ -28,7 +32,7 @@ class EntidadBase{
 
             $this->conectar=new Conectar();
             $this->db=$this->conectar->conexion();
-        } catch (Exception $e){
+        } catch (mysqli_sql_exception $e){
             echo $e->getMessage();
         }
 
