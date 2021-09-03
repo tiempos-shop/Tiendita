@@ -90,8 +90,8 @@ if(count($_POST)>0)
                 if($password1===$password2){
                     //$ui->Debug($mensaje);
                     //$ui->Debug($login);
-                    //$mail = $ui->SendMail("Tiempos Shop","informes@softquimia.com",$login,"Registro de Cliente Tiempos Shop",$mensaje);
-                    if(true)
+                    $mail = $ui->SendMail("Tiempos Shop","informes@softquimia.com",$login,"Registro de Cliente Tiempos Shop",$mensaje);
+                    if($mail)
                     {
 
                         $cliente=new \Tiendita\Clientes();
