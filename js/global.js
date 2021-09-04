@@ -1,4 +1,15 @@
-const ServeApi = "http://127.0.0.1:8000/";
+var ServeApi = "http://127.0.0.1:8000/";
+
+var nombreServidor = location.href;
+var esProduction = nombreServidor.toString().indexOf("localhost");
+
+console.log("server",nombreServidor);
+console.log("es production", esProduction);
+
+if (String().indexOf("localhost")==0)
+{
+  ServeApi = "http://softquimia.com/adminshop/public/";
+}
 
 var idMoneda = 1;
 var siglasMoneda = "MXN";

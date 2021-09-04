@@ -25,6 +25,17 @@ class VistasHtml
 
     }
 
+    public function ValidarSession()
+    {
+        
+        if (isset($_SESSION["idCliente"]) && isset($_SESSION["nombre"]))
+        {
+            return false;            
+        }
+
+        return true;
+    }
+
     public function Html5(string $head, string $body,$lang="es"){
         $this->head=$head;
         $this->body=$body;

@@ -3,9 +3,17 @@
 use Administracion\VistasHtml;
 
 
+
 include_once "View/Componentes/Administracion/VistasHtml.php";
 
 $html = new VistasHtml();
+session_start();
+
+if(!$html->ValidarSession())
+{
+    header("Location: shoptienda.php", TRUE, 301);
+    exit();
+}
 
 $h = $html->Html5(
     $html->Head(
@@ -133,25 +141,35 @@ require_once('menu.php');
 
         </div>
         <div class='  col-md-4  ' style='text-align:center;'>
+            
+            <input type="text"  class="form-control" value="<?php  echo isset($_SESSION["idCliente"]) ? $_SESSION["idCliente"] : '' ?>" id="idCliente">
 
-            <form method='post' action=''><input class='form-control' name='login' id='login' maxlength='999999' placeholder='EMAIL ADDRES' style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em' />
+            <input class='form-control' name='login' id='login' maxlength='999999' 
+                placeholder='EMAIL ADDRES' v-model="login.email"
+                style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em' />
                 <div class="row ">
                     <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 ' style='height:1vh'>
 
                     </div>
                 </div>
                 <div class='input-group'>
-                    <input type='password' class='form-control' name='password' id='password' placeholder='PASSWORD' style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em'>
-                    <a href='#' onclick='seteyePassword(this);' style='position: absolute; right: 10px;z-index: 99;top: 2px;'><i class='fa fa-eye-slash' style='color: black;' aria-hidden='true'></i></a>
+                    <input type='password' class='form-control' name='password' 
+                        id='password' placeholder='PASSWORD' v-model="login.password"
+                        style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em'>
+                        <a href='#' onclick='seteyePassword(this);' style='position: absolute; right: 10px;z-index: 99;top: 2px;'>
+                        <i class='fa fa-eye-slash' style='color: black;' aria-hidden='true'></i></a>
                 </div>
-                <button  formaction='customerLogin.php?action=forgot' class='btn small-font'>FORGOT
+                <button   class='btn small-font'>FORGOT
                     YOUR PASSWORD?</button>
                 <div class="form-group row">
                     <div class="col-sm-12">
-                        <button class='btn btn-block btn-dark' formaction='customerLogin.php?action=login'  style='border-radius: 0;background-color: black;'>LOGIN</button>
+                        <button class='btn btn-block ' :class="!status.inicioConfirmado ? 'btn-dark' : ''"   
+                            style='border-radius: 0;'
+                            :disabled="status.iniciando || status.inicioConfirmado"
+                            @click="Iniciar()">LOGIN</button>
                     </div>
                 </div>
-            </form>
+            
             <div class="row ">
                 <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 ' style='height:1vh'>
 

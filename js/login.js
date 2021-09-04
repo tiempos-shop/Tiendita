@@ -15,18 +15,47 @@ var app = new Vue({
             password:'',
             newsletter: false
         },
+        login:{
+            email:'',
+            password:'',
+            session:'',
+            accion:'',
+        },
         status:{
             enviando:false,
             confirmadoEnvio:false,
+            iniciando:false,
+            inicioConfirmado:false,
         }
 
     },
     methods: {
+        async Iniciar()
+        {
+            this.status.iniciando = true;
+            this.login.accion ="ingresar";
+            await axios.post(ServeApi + "api/login", this.login)
+            .then((resultado) =>{
+                if (resultado.data && resultado.data.idCliente != 0 && resultado.data.idCliente.length > 15)
+                {
+                    console.log("iniciado correcto");
+                    resultado.data.accion ="ingresar";
+                    axios.post("session.php", resultado.data)
+                    .then((data) =>{
+                        console.log("data", data.data);
+                        this.status.inicioConfirmado = true;
+                    })
+                    
+                }
+                
+            });
+            this.status.iniciando = false;
+        },
         async CrearCuenta()
         {
             this.status.enviando = true;
 
-            await axios.post(ServeApi + "api/login", this.cliente)
+            await axios.post(ServeApi + "api/login/registrar", this.cliente)
             .then((resultado) =>{
                 if (resultado.data == 1)
                 {

@@ -6,6 +6,8 @@ include_once "View/Componentes/Administracion/VistasHtml.php";
 
 $html=new VistasHtml();
 
+//para obtener datos de sesion
+session_start();
 
 
 $htmlPrincipal = "<!DOCTYPE html>
@@ -249,8 +251,11 @@ require_once('menu.php');
                 }
             }
         },
-        mounted() {
+        created() {
             this.ObtenerProductos();
+        },
+        mounted() {
+            
             
             this.idCliente = idCliente;
             this.ObtenerEnCarrito();
