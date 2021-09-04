@@ -1,9 +1,9 @@
 <?php
 return array(
     "driver"    =>"mysql",
-    "host"      =>"35.208.244.105",
-    "user"      =>"ugxk3xdjd2s7j",
-    "pass"      =>"f5wes5yzeg6r",
-    "database"  =>"dbnrgu5abqfqpz",
+    "host"      =>"162.253.224.19",
+    "user"      =>"softqui2_ts",
+    "pass"      =>"So1980198019",
+    "database"  =>"softqui2_tiemposhop_web",
     "charset"   =>"utf8"
 );

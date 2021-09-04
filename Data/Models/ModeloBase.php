@@ -148,6 +148,31 @@ abstract class ModeloBase implements iModeloBase
         $this->getAll = false;
     }
 
+    public function insertQuery(object $row):string
+    {
+
+        $sql = "INSERT INTO $this->Table ";
+        $campos = "";
+        $valores = "";
+        foreach ($this->properties as $campo => $property) {
+            if ($property["type"] <> "I") {
+                $campos .= $campo . ",";
+                if ($property["typeDb"] == "#") {
+                    $valores .= $row->$campo;
+                } else {
+                    $valores .= "'" . $row->$campo . "'";
+                }
+
+                $valores .= ",";
+            }
+        }
+        $campos = trim($campos, ",");
+        $valores = trim($valores, ",");
+        $sql .= "($campos) VALUES ($valores);";
+        return $sql;
+
+    }
+
     public static function GetInsert(object $row,string $table,array $properties)
     {
 
