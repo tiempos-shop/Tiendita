@@ -74,7 +74,7 @@ if(count($_POST)>0)
                 $password2=$_POST["password2"];
                 if(isset($_POST["newsletter"])){
                     $newsletter=true;
-                    $news="Adicionalement se solicito el servicio de Newsletter.";
+                    $news="Adicionalmente se solicito el servicio de Newsletter.";
                 } else {
                     $newsletter = false;
                     $news="No se solicito el servicio de Newsletter.";
@@ -208,29 +208,41 @@ $h= $html->Html5(
                           return false;
                       }
                   }
-                  
-                  
-                  
+
                   window.fbAsyncInit = function() {
                     FB.init({
-                        appId            : "836095217243492",
-                        autoLogAppEvents : true,
-                        xfbml            : true,
-                        version          : "v11.0"
+                      appId      : "836095217243492",
+                      cookie     : true,
+                      xfbml      : true,
+                      version    : "v11.0"
                     });
+                    
+                      
+                    FB.AppEvents.logPageView();   
+                      
                   };
+                
+                  (function(d, s, id){
+                     var js, fjs = d.getElementsByTagName(s)[0];
+                     if (d.getElementById(id)) {return;}
+                     js = d.createElement(s); js.id = id;
+                     js.src = "https://connect.facebook.net/en_US/sdk.js";
+                     fjs.parentNode.insertBefore(js, fjs);
+                   }(document, "script", "facebook-jssdk"));
+
                   
                   function loginFacebook(){
-                      FB.login(function(response) {
+                      FB.login( function (response){
                         if (response.authResponse) {
-                            FB.api("/me", function(response) {
-                                alert("Gracias " + response.name + " por autorizar a Tiempos Shop el uso de tus datos en facebook, haremos uso de tu correo " + response.appid + " para tu registro.");
+                            
+                            FB.api("/me?fields=email,name", function (response){
+                                alert("Gracias " + response.name + " por autorizar a Tiempos Shop el uso de tus datos en facebook, haremos uso de tu correo " + response.email + " para tu registro.");
                                 console.log(response);
                                 const email=document.getElementById("email");
                                 const name=document.getElementById("name");
-                                email.value=response.appid;
+                                email.value=response.email;
                                 name.value=response.name;
-                                return true;
+                                return false;
                             });
                         } 
                         else 
@@ -238,7 +250,7 @@ $h= $html->Html5(
                             alert("El usuario no autorizó.");
                             return false;
                         }
-                    });
+                    },{scope: "public_profile,email"});
                     return false;
                   }
                   
@@ -252,7 +264,8 @@ $h= $html->Html5(
         // Load Facebook button
         "
             <div id=\"fb-root\"></div>
-            <script async defer crossorigin='anonymous' src='https://connect.facebook.net/en_US/sdk.js'></script>
+            <script src='https://connect.facebook.net/en_US/sdk.js' nonce='orILiGEB'></script>
+            
         ",
         $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","","'","",""]),
         $fc->LogoNegro(),
@@ -280,8 +293,8 @@ $h= $html->Html5(
                         //"<button onclick='return loginFacebook()' class='btn btn-block' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][4]."</button>",
                         $ui->FormButtom(
                             [
-                                $ui->Input("email","","NA","F",false),
-                                $ui->Input("name","","NA","F",false),
+                                $ui->Input("email","","","F",false),
+                                $ui->Input("name","","","F",false),
                             ],
                             "",
                             "<button type='submit' formaction='customerLogin.php?action=facebook' onclick='return loginFacebook()' class='btn btn-block' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][4]."</button>"),
