@@ -36,7 +36,16 @@ if(count($_POST)>0)
     $_SESSION["language"]=$idiomaActual;
 }
 else{
-    $idiomaActual=$_SESSION["language"];
+    if (isset($_SESSION["language"]))
+    {
+        $idiomaActual=$_SESSION["language"];
+    }
+    else
+    {
+        $idiomaActual="ENGLISH";
+        $_SESSION["language"] = $idiomaActual;
+    }
+
 }
 $tipoCambio=20;
 
