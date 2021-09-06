@@ -579,7 +579,7 @@ require_once('menu.php');
                     console.log("envio terminado");
                     
 
-                    await axios.post(ServeApi + "api/encarrito/", { "producto" : producto, "movimiento":"MODIFICAR"})
+                    await axios.post(ServeApi + "api/encarrito", { "producto" : producto, "movimiento":"MODIFICAR"})
                     .then((resultado) =>{
                         
                         if (resultado.data.idDetalle > 0)
@@ -703,14 +703,14 @@ require_once('menu.php');
 
             },
             async CargaInicial() {
-                await axios.get(ServeApi + "api/cargainicial/")
+                await axios.get(ServeApi + "api/cargainicial")
                     .then((resultado) => {
                         this.monedas = resultado.data;
                     });
             },
             async ObtenerDireccionPrincipal()
             {
-                await axios.post(ServeApi + 'api/direccion/porcliente/', {"idCliente" : this.idCliente})
+                await axios.post(ServeApi + 'api/direccion/porcliente', {"idCliente" : this.idCliente})
                 .then((resultado)=>{
                     console.log(resultado.data);
                     var data = resultado.data;

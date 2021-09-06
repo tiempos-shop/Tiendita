@@ -172,7 +172,7 @@ require_once('menu.php');
             },
             async CargaInicial()
             {
-                await axios.get(ServeApi + "api/cargainicial/")
+                await axios.get(ServeApi + "api/cargainicial")
                 .then((resultado) => {
                     this.monedas = resultado.data;
                 });
