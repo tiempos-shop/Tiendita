@@ -6,7 +6,7 @@ var esProduction = nombreServidor.toString().indexOf("localhost");
 console.log("server",nombreServidor);
 console.log("es production", esProduction);
 
-if (String().indexOf("localhost")==0)
+if (esProduction == -1)
 {
   ServeApi = "http://softquimia.com/adminshop/public/";
 }
