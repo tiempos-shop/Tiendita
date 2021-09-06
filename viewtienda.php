@@ -439,7 +439,7 @@ require_once('menu.php');
             },
             async AgregarAlCarrito()
             {
-                await axios.post(ServeApi + "api/encarrito/", { "producto" : this.producto, "movimiento":"AGREGAR"})
+                await axios.post(ServeApi + "api/encarrito", { "producto" : this.producto, "movimiento":"AGREGAR"})
                 .then((resultado) =>{
                     console.log(resultado.data);
                     if (resultado.data.idDetalle > 0)
