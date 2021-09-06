@@ -20,7 +20,7 @@ class FrontComponents
         return "<div class='fixed-top' style='padding-top:2vh;padding-bottom:0;padding-left: 2vw;padding-right: 2vw'>".
         $this->ui->Row([
             $this->ui->Columns(
-                "<span onclick='go(\"shop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][0]."</span>",
+                "<span onclick='go(\"shoptienda.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][0]."</span>",
                 2,0,2,0,""
             ),
             $this->ui->Columns(
@@ -78,10 +78,10 @@ class FrontComponents
             {
                 case 0:
                     if($select=="'"){
-                        $lines[$i]="<label onclick='go(\"shop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
+                        $lines[$i]="<label onclick='go(\"shoptienda.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
                     }
                     else{
-                        $lines[$i]="<span  onclick='go(\"shop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i]."</span>";
+                        $lines[$i]="<span  onclick='go(\"shoptienda.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i]."</span>";
                     }
                     break;
                 case 1:
@@ -131,8 +131,6 @@ class FrontComponents
             }
             $i++;
         }
-
-
 
         return "<div class='fixed-top' style='padding-top:2vh;padding-bottom:0;padding-left: 2vw;padding-right: 2vw;background-color: $back;'>".
             $this->ui->Row([
@@ -187,10 +185,10 @@ class FrontComponents
             {
                 case 0:
                     if($select=="'"){
-                        $lines[$i]="<label onclick='go(\"shop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
+                        $lines[$i]="<label onclick='go(\"shoptienda.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
                     }
                     else{
-                        $lines[$i]="<span class='menuIcon' onclick='go(\"shop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i]."</span>";
+                        $lines[$i]="<span class='menuIcon' onclick='go(\"shoptienda.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][$i]."</span>";
                     }
                     break;
                 case 1:
@@ -384,43 +382,43 @@ class FrontComponents
                     return
                         "</div>
                     <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
-                    <a style='color: black' href='shop.php?submenu=1'><span>SHOP ALL</span></a><br/>
+                    <a style='color: black' href='shoptienda.php?submenu=1'><span>SHOP ALL</span></a><br/>
                     <br/>
                     <a style='color: black'>MENS</a><br/>
                     <br/>
                      <a style='color: black'>WOMENS</a><br/>
                     <br/>
-                    <a style='color: black' href='shop.php?submenu=2'>ACCESSORIES'</a><br/>
+                    <a style='color: black' href='shoptienda.php?submenu=2'>ACCESSORIES'</a><br/>
                     <br/>
-                    <a style='color: black' href='shop.php?submenu=3'><span><strong>SALE</strong></span></a>
+                    <a style='color: black' href='shoptienda.php?submenu=3'><span><strong>SALE</strong></span></a>
                 </div>";
                 case 3:
                     return
                         "</div>
                     <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
-                    <a style='color: black' href='shop.php?submenu=1'><span>SHOP ALL</span></a><br/>
+                    <a style='color: black' href='shoptienda.php?submenu=1'><span>SHOP ALL</span></a><br/>
                     <br/>
                     <a style='color: black'>MENS</a><br/>
                     <br/>
                      <a style='color: black'>WOMENS</a><br/>
                     <br/>
-                    <a style='color: black' href='shop.php?submenu=2'><span>ACCESSORIES</span></a><br/>
+                    <a style='color: black' href='shoptienda.php?submenu=2'><span>ACCESSORIES</span></a><br/>
                     <br/>
-                    <a style='color: black' href='shop.php?submenu=3'><strong>SALE</strong>'</a>
+                    <a style='color: black' href='shoptienda.php?submenu=3'><strong>SALE</strong>'</a>
                 </div>'";
                 default:
                     return
                         "</div>
                             <div style='position: fixed;top:8.5vh;margin-left: 2vw'>
-                            <a style='color: black' href='shop.php?submenu=1'>SHOP ALL'</a><br/>
+                            <a style='color: black' href='shoptienda.php?submenu=1'>SHOP ALL'</a><br/>
                             <br/>
                             <a style='color: black'>MENS</a><br/>
                             <br/>
                             <a style='color: black'>WOMENS</a><br/>
                             <br/>
-                            <a style='color: black' href='shop.php?submenu=2'><span>ACCESSORIES</span></a><br/>
+                            <a style='color: black' href='shoptienda.php?submenu=2'><span>ACCESSORIES</span></a><br/>
                             <br/>
-                            <a style='color: black' href='shop.php?submenu=3'><span><strong>SALE</strong></span></a>
+                            <a style='color: black' href='shoptienda.php?submenu=3'><span><strong>SALE</strong></span></a>
                         </div>";
                     break;
             }
@@ -542,7 +540,7 @@ class FrontComponents
                             <label style='width: 100%;text-align: right;'></label>
                         </div>
                         <div class='col-md-10'>
-                            <a href='shop.php?submenu={$this->submenu}&order=1' style='display: block'>FEATURED</a>                        
+                            <a href='shoptienda.php?submenu={$this->submenu}&order=1' style='display: block'>FEATURED</a>                        
                             
                                                     
                         </div>
@@ -555,7 +553,7 @@ class FrontComponents
                             <label style='width: 100%;text-align: right'></label>
                         </div>
                         <div class='col-md-10'>
-                            <a href='shop.php?submenu={$this->submenu}&order=2' style='display: block'>A TO Z</a>
+                            <a href='shoptienda.php?submenu={$this->submenu}&order=2' style='display: block'>A TO Z</a>
                                                     
                         </div>
                         <div class='col-md-1'>
@@ -567,7 +565,7 @@ class FrontComponents
                             <label style='width: 100%;text-align: right'></label>
                         </div>
                         <div class='col-md-10'>
-                            <a href='shop.php?submenu={$this->submenu}&order=3' style='display: block'>PRICE LOW TO HIGH</a>
+                            <a href='shoptienda.php?submenu={$this->submenu}&order=3' style='display: block'>PRICE LOW TO HIGH</a>
                                                     
                         </div>
                         <div class='col-md-1'>
@@ -580,7 +578,7 @@ class FrontComponents
                             <label style='width: 100%;text-align: right'></label>
                         </div>
                         <div class='col-md-10'>
-                            <a href='shop.php?submenu={$this->submenu}&order=4' style='display: block'>PRICE HIGH TO LOW</a>
+                            <a href='shoptienda.php?submenu={$this->submenu}&order=4' style='display: block'>PRICE HIGH TO LOW</a>
                                                     
                         </div>
                         <div class='col-md-1'>
