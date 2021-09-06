@@ -398,30 +398,36 @@ require_once('menu.php');
             },
             ValidarSiExisteEnCarrito()
             {
-                this.status.agregadoAlCarrito = false;
+                
 
-                var productoEncontrado = this.enCarrito.find( (p) => { return p.idProducto == this.producto.idProducto});
-
-                if (productoEncontrado)
+                if (this.enCarrito.length>0)
                 {
-                    if (!this.producto.manejaraTallas)
+                    this.status.agregadoAlCarrito = false;
+                    
+                    var productoEncontrado = this.enCarrito.find( (p) => { return p.idProducto == this.producto.idProducto});
+
+                    if (productoEncontrado)
                     {
-                        this.status.agregadoAlCarrito = true;
-                    }
-                    else{
-                        var tallaEncontrada = this.variantes.find((v)=> { 
-                            return v.idProductoVarianteDetalle == this.producto.idProductoVarianteDetalle});
-                        if (tallaEncontrada)
+                        if (!this.producto.manejaraTallas)
                         {
                             this.status.agregadoAlCarrito = true;
                         }
+                        else{
+                            var tallaEncontrada = this.variantes.find((v)=> { 
+                                return v.idProductoVarianteDetalle == this.producto.idProductoVarianteDetalle});
+                            if (tallaEncontrada)
+                            {
+                                this.status.agregadoAlCarrito = true;
+                            }
+                        }
+                        
                     }
-                    
+                    else
+                    {
+                        console.log("no encontrado");
+                    }
                 }
-                else
-                {
-                    console.log("no encontrado");
-                }
+                
             },
             EstablecerVarianteTallas(talla)
             {
