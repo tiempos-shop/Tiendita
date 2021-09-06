@@ -2,6 +2,7 @@
 
 use Administracion\VistasHtml;
 
+session_start();
 
 include_once "View/Componentes/Administracion/VistasHtml.php";
 
@@ -57,6 +58,7 @@ require_once('menu.php');
 <img onclick="go('index.php')" alt="SP" id="logo" class="fixed-top" src="img/ts_iso_negro.png"
         style="width: 7%">
     <div  class="container-fluid"  id="app">
+    <input type="hidden"  class="form-control" value="<?php  echo isset($_SESSION["idCliente"]) ? $_SESSION["idCliente"] : '' ?>" id="idCliente">
         <div class="row " v-for="(producto, index) in enCarrito" :key="index">
             <div class="  col-md-2  " >
 
@@ -222,7 +224,7 @@ require_once('menu.php');
         },
         async mounted() {
             this.$cantidadCarrito = 0;
-            this.idCliente = 1;
+            this.idCliente = document.getElementById('idCliente').value;
             var respuestaMonedas = this.CargaInicial();
             await this.ObtenerCarrito();
             await respuestaMonedas;

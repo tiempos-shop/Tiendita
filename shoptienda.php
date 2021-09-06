@@ -136,7 +136,7 @@ require_once('menu.php');
         </div>
         <div class="row ">
             <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 ' style='height:1em'>
-            <input type="text"  class="form-control" value="<?php  echo isset($_SESSION["idCliente"]) ? $_SESSION["idCliente"] : '' ?>" id="idCliente">
+            <input type="hidden"  class="form-control" value="<?php  echo isset($_SESSION["idCliente"]) ? $_SESSION["idCliente"] : '' ?>" id="idCliente">
             </div>
         </div>
         <div style='position: inherit;bottom: 0;margin-bottom: 0.8rem; min-height: 150px;'

@@ -53,7 +53,7 @@ require_once('menu.php');
     </div>
     <div class="row ">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 " style="height:2vh">
-        <input type="text"  class="form-control" value="<?php  echo isset($_SESSION["idCliente"]) ? $_SESSION["idCliente"] : '' ?>" id="idCliente">
+        <input type="hidden"  class="form-control" value="<?php  echo isset($_SESSION["idCliente"]) ? $_SESSION["idCliente"] : '' ?>" id="idCliente">
         </div>
     </div>
     <hr style="opacity: 1" />
@@ -176,6 +176,13 @@ require_once('menu.php');
     <div class="row ">
         <div class="  col-md-2  ">
 
+        </div>
+        <div class="col-md-4">
+        
+            <input class="form-control"
+            v-model="direccion.colonia"
+            name="telefono" id="colonia"  placeholder="colony" style="border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em" />
+        
         </div>
         <div class="  col-md-2  ">
             <input class="form-control"
@@ -547,6 +554,7 @@ require_once('menu.php');
                 ciudad:'',
                 pais:'',
                 estado:'',
+                colonia:'',
                 idDireccion:0
             },
             status:{
@@ -706,11 +714,13 @@ require_once('menu.php');
                 .then((resultado)=>{
                     console.log(resultado.data);
                     var data = resultado.data;
-                    if (data)
+                    if (data == "undefined" | data == undefined | data.length == 0) 
                     {
                         return;
                     }
-                    this.direccion.idDireccion = data.idDireccion;
+
+                    console.log("data", data);
+                    this.direccion.idDireccion = data.IdDireccion;
                     this.direccion.telefono= data.telefono;
                     this.direccion.nombre=data.nombre;
                     this.direccion.apellido = data.apellido;

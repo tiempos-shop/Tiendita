@@ -269,18 +269,18 @@ require_once('menu.php');
 
                 </div>
             </div>
-            <div class='  col-md-6  left-top paddingNone' style=''>
+            <div class='  col-md-6  left-top paddingNone' >
                 <div id='component' class="container-fluid" ><br />
 
                     <input type="hidden" value="<?php echo $_GET["id"] ?>" id="idProducto">
-                    <input type="text"  class="form-control" value="<?php  echo isset($_SESSION["idCliente"]) ? $_SESSION["idCliente"] : '' ?>" id="idCliente">
+                    <input type="hidden"  class="form-control" value="<?php  echo isset($_SESSION["idCliente"]) ? $_SESSION["idCliente"] : '' ?>" id="idCliente">
                     <div class="row ">
-                        <div class='  col-md-12  ' style=''>
+                        <div class='  col-md-12  ' >
                             <p style='font-family: NHaasGroteskDSPro-65Md;'>{{producto.nombre}}</p>
                         </div>
                     </div>
                     <div class="row ">
-                        <div class='  col-md-12  ' style=''>
+                        <div class='  col-md-12  '>
                             <p>{{producto.color}}</p>
                         </div>
                     </div>
