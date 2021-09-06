@@ -273,7 +273,7 @@ require_once('menu.php');
                 <div id='component' class="container-fluid" ><br />
 
                     <input type="hidden" value="<?php echo $_GET["id"] ?>" id="idProducto">
-                    
+                    <input type="text"  class="form-control" value="<?php  echo isset($_SESSION["idCliente"]) ? $_SESSION["idCliente"] : '' ?>" id="idCliente">
                     <div class="row ">
                         <div class='  col-md-12  ' style=''>
                             <p style='font-family: NHaasGroteskDSPro-65Md;'>{{producto.nombre}}</p>
@@ -503,7 +503,7 @@ require_once('menu.php');
            }
         },
         mounted() {
-            this.idCliente = 1;
+            this.idCliente = document.getElementById('idCliente').value;
             this.ObtenerProducto();
             this.$cantidadCarrito = this.enCarrito.length;
             

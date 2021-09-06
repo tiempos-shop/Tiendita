@@ -7,7 +7,13 @@ include_once "View/Componentes/Administracion/VistasHtml.php";
 
 $html = new VistasHtml();
 
+session_start();
 
+if($html->ValidarSession())
+{
+    header("Location: loginshop.php", TRUE, 301);
+    exit();
+}
 
 $htmlPrincipal = "<!DOCTYPE html>
         <html lang='es'>";
@@ -39,6 +45,7 @@ require_once('menu.php');
 ?>
 
 <div class="container-fluid" id="app">
+    
     <div class="row ">
         <div class="  col-md-12  " style="text-align:center;margin-top:100px">
             <label style="font-family: NHaasGroteskDSPro-65Md">CHECKOUT</label>
@@ -46,7 +53,7 @@ require_once('menu.php');
     </div>
     <div class="row ">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 " style="height:2vh">
-
+        <input type="text"  class="form-control" value="<?php  echo isset($_SESSION["idCliente"]) ? $_SESSION["idCliente"] : '' ?>" id="idCliente">
         </div>
     </div>
     <hr style="opacity: 1" />
@@ -192,7 +199,7 @@ require_once('menu.php');
 
         </div>
         <div class="  col-md-2  ">
-            <button class="btn btn-block btn-dark" onclick="CalcRate()" style="border-radius: 0;background-color: black;margin-top: 1em;">SAVE</button>
+            <button class="btn btn-block btn-dark" @click="CalcularEnvio()" style="border-radius: 0;background-color: black;margin-top: 1em;">SAVE</button>
         </div>
         <div class="  col-md-2  ">
             <button class="btn btn-block btn-dark" formaction="customerLogin.php?action=create" type="submit" style="border-radius: 0;background-color: black;margin-top: 1em;">CANCEL</button>
@@ -479,7 +486,7 @@ require_once('menu.php');
                                 </span> </p>
                                 <p>(Included)</p>
                                 <p class="font-weight-bold mt-2"><span id="monedaTotal"></span> <span class="ml-1" id="precioTotal">
-                                {{siglasMoneda}}  {{total | moneda}}
+                                {{siglasMoneda}}  {{Number(total) | moneda}}
                                 </span></p>
                             </div>
                         </div>
@@ -539,7 +546,8 @@ require_once('menu.php');
                 calle:'',
                 ciudad:'',
                 pais:'',
-                estado:''
+                estado:'',
+                idDireccion:0
             },
             status:{
                 cotizando:false,
@@ -591,13 +599,13 @@ require_once('menu.php');
                         "idCliente": this.idCliente,
                         "nombre": this.direccion.nombre,
                         "apellido" : this.direccion.apellido,
-                        "idDireccion" : 2,
                         "moneda": this.siglasMoneda,
                         "total" : this.total,
                         "precioEnvio" : this.envio,
                         "subtotal": this.subtotal,
                         "nombre_recibe": this.direccion.nombre +  " " +  this.direccion.apellido,
-                        "productos": this.enCarrito
+                        "productos": this.enCarrito,
+                        "direccion" : this.direccion
                     }
             
                     await axios.post(ServeApi + "api/pedidos", data)
@@ -694,11 +702,15 @@ require_once('menu.php');
             },
             async ObtenerDireccionPrincipal()
             {
-                await axios.get(ServeApi + 'api/direccion/porcliente/' + this.idCliente)
+                await axios.post(ServeApi + 'api/direccion/porcliente/', {"idCliente" : this.idCliente})
                 .then((resultado)=>{
                     console.log(resultado.data);
                     var data = resultado.data;
-
+                    if (data)
+                    {
+                        return;
+                    }
+                    this.direccion.idDireccion = data.idDireccion;
                     this.direccion.telefono= data.telefono;
                     this.direccion.nombre=data.nombre;
                     this.direccion.apellido = data.apellido;
@@ -757,7 +769,7 @@ require_once('menu.php');
         },
         async mounted() {
             this.$cantidadCarrito = 0;
-            this.idCliente = 1;
+            this.idCliente = document.getElementById('idCliente').value;
             var respuestaMonedas = this.CargaInicial();
             this.ObtenerCarrito();
             this.ObtenerDireccionPrincipal();

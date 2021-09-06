@@ -1,7 +1,7 @@
 
 <div class="fixed-top" id="menu"
     style="padding-top:2vh;padding-bottom:0;padding-left: 2vw;padding-right: 2vw;background-color: white;">
-    <input type="hidden" id="idCliente" value="<?php echo isset($_SESSION["nombre"]) ?  $_SESSION["nombre"] : '' ?>">
+    <input type="hidden" id="nombre" value="<?php echo isset($_SESSION["nombre"]) ?  $_SESSION["nombre"] : '' ?>">
     <div class="row right">
         <div class="  col-md-2  " >
             <span @click="irAlUrl('shoptienda.php')">{{elemento.shop}} </span>

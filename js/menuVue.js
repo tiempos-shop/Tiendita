@@ -37,11 +37,15 @@ var menuApp = new Vue({
             await axios.post("session.php", this.login)
             .then((resultado) =>{
                 console.log(resultado.data);
+                if (resultado.data = "cerrado")
+                {
+                    location.href ="shoptienda.php";
+                }
             })
         }
     },
     async mounted() {
-        var nombreCliente = document.getElementById("idCliente");
+        var nombreCliente = document.getElementById("nombre");
 
         if (nombreCliente != null)
         {

@@ -142,7 +142,7 @@ require_once('menu.php');
         </div>
         <div class='  col-md-4  ' style='text-align:center;'>
             
-            <input type="text"  class="form-control" value="<?php  echo isset($_SESSION["idCliente"]) ? $_SESSION["idCliente"] : '' ?>" id="idCliente">
+            <input type="hidden"  class="form-control" value="<?php  echo isset($_SESSION["idCliente"]) ? $_SESSION["idCliente"] : '' ?>" id="idCliente">
 
             <input class='form-control' name='login' id='login' maxlength='999999' 
                 placeholder='EMAIL ADDRES' v-model="login.email"

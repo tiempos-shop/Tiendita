@@ -40,10 +40,12 @@ var app = new Vue({
                 {
                     console.log("iniciado correcto");
                     resultado.data.accion ="ingresar";
+                    
                     axios.post("session.php", resultado.data)
                     .then((data) =>{
                         console.log("data", data.data);
                         this.status.inicioConfirmado = true;
+                        window.history.back();
                     })
                     
                 }
