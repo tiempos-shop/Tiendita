@@ -276,22 +276,22 @@ require_once('menu.php');
                     <input type="hidden"  class="form-control" value="<?php  echo isset($_SESSION["idCliente"]) ? $_SESSION["idCliente"] : '' ?>" id="idCliente">
                     <div class="row ">
                         <div class='  col-md-12  ' >
-                            <p style='font-family: NHaasGroteskDSPro-65Md;'>{{producto.nombre}}</p>
+                            <p style='font-family: NHaasGroteskDSPro-65Md;'>{{info.nombre}}</p>
                         </div>
                     </div>
                     <div class="row ">
                         <div class='  col-md-12  '>
-                            <p>{{producto.color}}</p>
+                            <p>{{info.color}}</p>
                         </div>
                     </div>
                     <hr style='margin-top: 1em!important;' />
                     <div class="row ">
                         <div class='  col-md-12  small-font' id="descripcion">
-                            <div v-html="producto.descripcion"></div>
+                            <div v-html="info.descripcion"></div>
                         </div>
                     </div>
                     <hr style='margin-top: 1em!important;' />
-                    <div style='height: 25vh'><label style='padding-left: 40px'>USD {{Number(producto.precio) | moneda}}</label></div>
+                    <div style='height: 25vh'><label style='padding-left: 40px'>{{siglasMoneda}} {{Number(producto.precio) | moneda}}</label></div>
                     <hr style='margin: 0 0 0 0' />
                     <div class="btn-group" style="width:100%">
                         <button type="button" class="btn btn-block dropdown-toggle "
@@ -379,6 +379,16 @@ require_once('menu.php');
         el:'#app',
         data:{
             producto:{},
+            english:{
+                idProductoIdioma:0,
+                nombre:'',
+                descripcion:'',
+            },
+            info:{
+                nombre: '.',
+                descripcion : '...',
+                color: '....'
+            },
             idCliente:0,
             variantes:[],
             productoVariante:{
@@ -389,7 +399,9 @@ require_once('menu.php');
             status:{
                 verVariantes:false,
                 agregadoAlCarrito: false,
-            }
+            },
+            idioma : '',
+            siglasMoneda: '..'
         },
         methods: {
             IrAlCheckout()
@@ -454,6 +466,9 @@ require_once('menu.php');
            async ObtenerProducto()
            {
                var idProducto = document.getElementById('idProducto');
+
+               this.ObtenerMoneda();
+
                if (idProducto != null)
                {
                    idProducto = idProducto.value;
@@ -466,8 +481,27 @@ require_once('menu.php');
                             if (resultado.data != null)
                             {
                                 this.producto = resultado.data.producto;
+                                this.english = resultado.data.english;
                                 this.producto.idProductoVarianteDetalle = 0;
                                 this.producto.idCliente = this.idCliente;
+                                
+                                if (this.idioma != "ENGLISH")
+                                {
+                                    /*para la traduccion*/
+                                    this.info.nombre = this.english.nombre;
+                                    this.info.descripcion = this.english.descripcion;
+                                    
+                                    console.log("english");
+                                }
+                                else
+                                {
+                                    this.info.nombre = this.producto.nombre;
+                                    this.info.descripcion = this.producto.descripcion;
+                                    console.log("español", this.english);
+                                }
+                                /*general*/
+                                this.info.color = this.producto.color;
+
                                 if (resultado.data.variantes.length > 0)
                                 {
                                     this.variantes = resultado.data.variantes;
@@ -490,6 +524,10 @@ require_once('menu.php');
                }
                
            },
+           ObtenerMoneda()
+           {
+                this.siglasMoneda = localStorage.getItem("moneda");
+           },
            async ObtenerEnCarrito()
            {
                 await axios.get(ServeApi + "api/encarrito/" + this.idCliente)
@@ -509,6 +547,17 @@ require_once('menu.php');
            }
         },
         mounted() {
+            this.ObtenerMoneda();
+
+            this.idioma = localStorage.getItem("idioma");
+            
+            if (this.idioma == null)
+            {
+                this.idioma = "ENGLISH"
+            };
+
+            
+
             this.idCliente = document.getElementById('idCliente').value;
             this.ObtenerProducto();
             this.$cantidadCarrito = this.enCarrito.length;

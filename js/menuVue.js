@@ -24,7 +24,8 @@ var menuApp = new Vue({
             archive: 'ARCHIVE',
             imprimt : 'IMPRINT'
         },
-        totalEnCarrito:0
+        totalEnCarrito:0,
+        idioma:'-'
     },
     methods: {
         irAlUrl(url)
@@ -42,10 +43,57 @@ var menuApp = new Vue({
                     location.href ="shoptienda.php";
                 }
             })
-        }
+        },
+        EstablecerIdioma()
+        {
+            var idioma = this.ObtenerIdioma();
+            var moneda = "USD";
+
+            if (idioma == "ENGLISH")
+            {
+                idioma = "ESPAÑOL";
+                moneda = "MXN";
+            }
+            else
+            {
+                idioma = "ENGLISH";
+                moneda = "USD";
+            }
+
+            localStorage.setItem("idioma", idioma);
+            localStorage.setItem("moneda", moneda);
+
+            location.reload();
+        },
+        ObtenerIdioma()
+        {
+            var idioma = localStorage.getItem("idioma");
+            var moneda = "USD";
+
+
+            if (idioma == null)
+            {
+                idioma = "ENGLISH";
+                moneda = "USD";
+            }
+
+            if (idioma != "ENGLISH")
+            {
+                moneda = "USD";
+            }
+            else
+            {
+                moneda = "MXN";
+            }
+
+            localStorage.setItem("moneda", moneda);
+
+            return idioma;
+        },
     },
     async mounted() {
         var nombreCliente = document.getElementById("nombre");
+        this.idioma = this.ObtenerIdioma();
 
         if (nombreCliente != null)
         {
@@ -56,6 +104,8 @@ var menuApp = new Vue({
                 this.cliente.nombre = nombre;
             }
         }
+
+        
     },
     
 

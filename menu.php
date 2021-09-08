@@ -23,7 +23,7 @@
             
         </div>
         <div class="  col-md-2  adjust" >
-            <span style="padding-left: 35%">ESPAÑOL</span>
+            <span style="padding-left: 35%" @click="EstablecerIdioma()">{{idioma}}</span>
         </div>
         <div class="  col-md-2  " >
             <span style="right: 2%;position: absolute" @click="irAlUrl('carttienda.php')">CART({{$cantidadCarrito}})</span>
