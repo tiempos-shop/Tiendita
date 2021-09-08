@@ -61,7 +61,9 @@ if(count($_POST)>0)
             case "forgot":
                 break;
             case "facebook":
-                $ui->Debug($_POST);
+                $datos = $_POST;
+                var_dump($datos);
+                exit(0);
                 break;
             case "google":
                 break;
@@ -93,7 +95,6 @@ if(count($_POST)>0)
                     $mail = $ui->SendMail("Tiempos Shop","informes@softquimia.com",$login,"Registro de Cliente Tiempos Shop",$mensaje);
                     if($mail)
                     {
-
                         $cliente=new \Tiendita\Clientes();
                         $cliente->Nombre=$name;
                         $cliente->Apellidos=$lastname;
@@ -231,31 +232,25 @@ $h= $html->Html5(
                    }(document, "script", "facebook-jssdk"));
 
                   
-                  function loginFacebook(){
-                      FB.login( function (response){
-                        if (response.authResponse) {
-                            
-                            FB.api("/me?fields=email,name", function (response){
-                                alert("Gracias " + response.name + " por autorizar a Tiempos Shop el uso de tus datos en facebook, haremos uso de tu correo " + response.email + " para tu registro.");
-                                console.log(response);
-                                const email=document.getElementById("email");
-                                const name=document.getElementById("name");
-                                email.value=response.email;
-                                name.value=response.name;
-                                return false;
-                            });
-                        } 
-                        else 
-                        {
-                            alert("El usuario no autorizó.");
-                            return false;
-                        }
-                    },{scope: "public_profile,email"});
-                    return false;
+                  function loginFacebook () {
+                        FB.login( function (response) {
+                            if (response.authResponse) {
+                                FB.api("/me?fields=email,name", function (response){
+                                    alert("Gracias " + response.name + " por autorizar a Tiempos Shop el uso de tus datos en facebook, haremos uso de tu correo " + response.email + " para tu registro.");
+                                    //console.log(response);
+                                    const email = document.getElementById("email");
+                                    const name = document.getElementById("name");
+                                    email.value = response.email;
+                                    name.value = response.name;
+                                    document.getElementById("formFacebook").submit();
+                                });
+                            } 
+                            else 
+                            {
+                                alert("El usuario no autorizó.");
+                            }
+                        },{scope: "public_profile,email"});   
                   }
-                  
-                                 
-                  
                   
                 </script>'
 
@@ -296,9 +291,10 @@ $h= $html->Html5(
                                 $ui->Input("email","","","F",false),
                                 $ui->Input("name","","","F",false),
                             ],
-                            "",
-                            "<button type='submit' formaction='customerLogin.php?action=facebook' onclick='return loginFacebook()' class='btn btn-block' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][4]."</button>"),
-                        $ui->FormButtom([ ],"","<button class='btn btn-block' formaction='customerLogin.php?action=google' type='submit' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][5]."</button>")
+                            "customerLogin.php?action=facebook",
+                            "<button type='button' onclick='loginFacebook(this)' class='btn btn-block' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][4]."</button>",
+                            "formFacebook"),
+                        //$ui->FormButtom([ ],"","<button class='btn btn-block' formaction='customerLogin.php?action=google' type='submit' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: \"NHaasGroteskDSPro-65Md\"'>".$idioma[$idiomaActual]["LOGIN"][5]."</button>")
 
                     ]),
                 4,0,0,0,"","text-align:center;"),
