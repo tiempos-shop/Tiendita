@@ -76,23 +76,28 @@ var app = new Vue({
         },
         async ObtenerCarrito()
         {
-
-        await axios.get(ServeApi + "api/encarrito/" + this.idCliente)
-        .then((resultado) =>{
-            if (resultado.data != null)
+            if (this.idCliente.length >0)
             {
-                this.enCarrito = resultado.data;    
-                this.$cantidadCarrito = this.enCarrito.length;
-              
-            }
+                await axios.get(ServeApi + "api/encarrito/" + this.idCliente)
+                .then((resultado) =>{
+                    if (resultado.data != null)
+                    {
+                        this.enCarrito = resultado.data;    
+                        this.$cantidadCarrito = this.enCarrito.length;
+                    
+                    }
 
-        });
+                });
+            }
+            
+        
             
         }
     },
     async mounted() {
         this.$cantidadCarrito = 0;
-        this.idCliente = 1;
+        
+        this.idCliente = document.getElementById('idCliente').value;
         var respuestaMonedas = this.CargaInicial();
         await this.ObtenerCarrito();
         await respuestaMonedas;

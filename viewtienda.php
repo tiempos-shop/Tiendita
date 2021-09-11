@@ -321,6 +321,22 @@ require_once('menu.php');
                                 style="border-radius: 0" @click="IrAlCheckout()">PROCEED TO CHECKOUT</button>
                         </div>
                     </div>
+
+                    <div class="container-fluid mb-2"
+                    style="position: fixed;bottom: 0;font-size: 0.7rem; margin-top: calc(5% - 1rem);">
+                        <label class="mr-4"><span style="width: 10vw;" >PRIVACY
+                                POLICY</span>
+                        </label>
+                        <label class="mr-4"><span style="width: 10vw;"
+                            >SHIPPING RETURNS</span>
+                        </label>
+                        <button type="button"
+                            class="btn btn-link"
+                            style="text-decoration: none;color: #212529;padding: 0;border: none;font-weight: normal; vertical-align: baseline;font-size: inherit !important; "
+                            data-bs-toggle="modal" data-bs-target="#size">
+                            <span>SIZE GUIDE</span>
+                        </button>
+                    </div>
                     
                 </div>
             </div>
