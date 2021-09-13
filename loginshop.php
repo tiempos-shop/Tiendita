@@ -9,6 +9,7 @@ include_once "View/Componentes/Administracion/VistasHtml.php";
 $html = new VistasHtml();
 session_start();
 
+
 if(!$html->ValidarSession())
 {
     header("Location: shoptienda.php", TRUE, 301);

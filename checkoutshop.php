@@ -9,11 +9,13 @@ $html = new VistasHtml();
 
 session_start();
 
+
 if($html->ValidarSession())
 {
     header("Location: loginshop.php", TRUE, 301);
     exit();
 }
+
 
 $htmlPrincipal = "<!DOCTYPE html>
         <html lang='es'>";

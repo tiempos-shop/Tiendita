@@ -26,31 +26,51 @@ var app = new Vue({
             confirmadoEnvio:false,
             iniciando:false,
             inicioConfirmado:false,
+        },
+        problemas:{
+            sistema:''
         }
 
     },
     methods: {
         async Iniciar()
         {
-            this.status.iniciando = true;
-            this.login.accion ="ingresar";
-            await axios.post(ServeApi + "api/login", this.login)
-            .then((resultado) =>{
-                if (resultado.data && resultado.data.idCliente != 0 && resultado.data.idCliente.length > 15)
-                {
-                    console.log("iniciado correcto");
-                    resultado.data.accion ="ingresar";
+            
+            this.problemas.sistema = "";
+            try {
+                this.status.iniciando = true;
+                this.login.accion ="ingresar";
+                await axios.post(ServeApi + "api/login", this.login)
+                .then((resultado) =>{
+                    if (resultado.data && resultado.data.idCliente != 0 && resultado.data.idCliente.length > 15)
+                    {
+                        console.log("iniciado correcto");
+                        resultado.data.accion ="ingresar";
+                        
+                        axios.post("session.php", resultado.data)
+                        .then((data) =>{
+                            console.log("data", data.data);
+                            this.status.inicioConfirmado = true;
+                            location.href = "shoptienda.php";
+                        });
+                        
+                    }
+                    else
+                    {
+                        if (resultado.data.idCliente == 0)
+                        {
+                            this.problemas.sistema = "no hay información de la sessión, idcliente";
+                        }
+                    };
                     
-                    axios.post("session.php", resultado.data)
-                    .then((data) =>{
-                        console.log("data", data.data);
-                        this.status.inicioConfirmado = true;
-                        window.history.back();
-                    })
-                    
-                }
+                }).catch((problemas) =>{
+                    this.problemas.sistema = "ocurrio un problema con el inicio de sesión";
+                    this.status.iniciando = false;
+                });
+            } catch (error) {
                 
-            });
+            }
+            
             this.status.iniciando = false;
         },
         async CrearCuenta()
