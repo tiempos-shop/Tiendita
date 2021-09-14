@@ -82,35 +82,49 @@ $h = $html->Html5(
                   
                   window.fbAsyncInit = function() {
                     FB.init({
-                        appId            : "836095217243492",
-                        autoLogAppEvents : true,
-                        xfbml            : true,
-                        version          : "v11.0"
+                      appId      : "836095217243492",
+                      cookie     : true,
+                      xfbml      : true,
+                      version    : "v11.0"
                     });
+                    
+                      
+                    FB.AppEvents.logPageView();   
+                      
                   };
+                
+                  (function(d, s, id){
+                     var js, fjs = d.getElementsByTagName(s)[0];
+                     if (d.getElementById(id)) {return;}
+                     js = d.createElement(s); js.id = id;
+                     js.src = "https://connect.facebook.net/en_US/sdk.js";
+                     fjs.parentNode.insertBefore(js, fjs);
+                   }(document, "script", "facebook-jssdk"));
+
                   
-                  function loginFacebook(){
-                      FB.login(function(response) {
-                        if (response.authResponse) {
-                            FB.api("/me", function(response) {
-                                alert("Gracias " + response.name + " por autorizar a Tiempos Shop el uso de tus datos en facebook, haremos uso de tu correo " + response.appid + " para tu registro.");
-                                console.log(response);
-                                const email=document.getElementById("email");
-                                const name=document.getElementById("name");
-                                email.value=response.appid;
-                                name.value=response.name;
-                                return true;
-                            });
-                        } 
-                        else 
-                        {
-                            alert("El usuario no autorizó.");
-                            return false;
-                        }
-                    });
-                    return false;
+                  function loginFacebook () {
+                        FB.login( function (response) {
+                            if (response.authResponse) {
+                                FB.api("/me?fields=id,email,name,last_name", function (response){                        
+                                    alert("Gracias " + response.id + " por autorizar a Tiempos Shop el uso de tus datos en facebook, haremos uso de tu correo " + response.email + " para tu registro.");
+                                    console.log(response);
+                                    const email = document.getElementById("email");
+                                    const name = document.getElementById("name");
+                                    const lastname = document.getElementById("lastname");
+                                   const password1 = document.getElementById("password1");
+                                    email.value = response.email;
+                                    name.value = response.name;
+                                    lastname.value = response.last_name;
+                                    password1.value = response.id;
+                                    document.getElementById("formFacebook").submit();
+                                });
+                            } 
+                            else 
+                            {
+                                alert("El usuario no autorizó.");
+                            }
+                        },{scope: "public_profile,email"});   
                   }
-                  
                                  
                   
                   
