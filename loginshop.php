@@ -8,7 +8,7 @@ include_once "View/Componentes/Administracion/VistasHtml.php";
 
 $html = new VistasHtml();
 session_start();
-$ui=new Utilidades();
+//$ui=new Utilidades();
 
 if(!$html->ValidarSession())
 {
@@ -40,7 +40,7 @@ if(count($_POST)>0) {
 
                 if ($realPassword === $password) {
                     $_SESSION["LOGGED"] = "NORMAL";
-                    $ui->Redirect("checkout.php");
+                    //$ui->Redirect("checkout.php");
                 }
                 break;
 
@@ -65,7 +65,7 @@ if(count($_POST)>0) {
                 $cliente = new \Tiendita\Clientes();
                 $cliente->Nombre = $name;
                 $cliente->Apellidos = $lastname;
-                $cliente->FechaCambio = $ui->FechaHoy();
+                $cliente->FechaCambio = '';
                 $cliente->CorreoElectronico = $login;
                 $cliente->IdTipoMovimiento = 1;
                 $cliente->IdUsuarioBase = 1;
@@ -76,7 +76,7 @@ if(count($_POST)>0) {
                     //$db->AddQuerys($sql);
                     //$db->SaveAll();
                 } catch (mysqli_sql_exception $exception) {
-                    $ui->Debug($exception);
+                    //$ui->Debug($exception);
                 }
                 echo "<script>alert('Solicitud correcta. Se envio un correo a $login.')</script>";
                 $_SESSION["LOGGED"] = "NORMAL";
@@ -115,12 +115,12 @@ if(count($_POST)>0) {
                 if ($password1 === $password2) {
                     //$ui->Debug($mensaje);
                     //$ui->Debug($login);
-                    $mail = $ui->SendMail("Tiempos Shop", "informes@softquimia.com", $login, "Registro de Cliente Tiempos Shop", $mensaje);
-                    if ($mail) {
+                    //$mail = $ui->SendMail("Tiempos Shop", "informes@softquimia.com", $login, "Registro de Cliente Tiempos Shop", $mensaje);
+                    if (true) {
                         $cliente = new \Tiendita\Clientes();
                         $cliente->Nombre = $name;
                         $cliente->Apellidos = $lastname;
-                        $cliente->FechaCambio = $ui->FechaHoy();
+                        $cliente->FechaCambio = '';
                         $cliente->CorreoElectronico = $login;
                         $cliente->IdTipoMovimiento = 1;
                         $cliente->IdUsuarioBase = 1;
@@ -131,11 +131,11 @@ if(count($_POST)>0) {
                             //$db->AddQuerys($sql);
                             //$db->SaveAll();
                         } catch (mysqli_sql_exception $exception) {
-                            $ui->Debug($exception);
+                            //$ui->Debug($exception);
                         }
                         echo "<script>alert('Solicitud correcta. Se envio un correo a $login.')</script>";
                         $_SESSION["LOGGED"] = "NORMAL";
-                        $ui->Redirect("checkout.php");
+                        //$ui->Redirect("checkout.php");
                     } else {
                         echo "<script>alert('Error en el servidor de correos')</script>";
                     }
