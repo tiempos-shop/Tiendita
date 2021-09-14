@@ -32,7 +32,7 @@ class FrontComponents
                 2,0,2,0,""
             ),
             $this->ui->Columns(
-                "<span style='padding-left: 35%' onclick='go(\"customerLogin.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][3]."</span>",
+                "<span style='padding-left: 35%' onclick='go(\"loginshop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][3]."</span>",
                 2,0,2,0,""
             ),
             $this->ui->Columns(
@@ -105,7 +105,7 @@ class FrontComponents
                         $lines[$i]="<label  style='padding-left: 35%'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
                     }
                     else{
-                        $lines[$i]="<span style='padding-left: 35%' onclick='go(\"customerLogin.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][3]."$selected[3]</span>";
+                        $lines[$i]="<span style='padding-left: 35%' onclick='go(\"loginshop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][3]."$selected[3]</span>";
                     }
                     break;
                 case 4:
@@ -212,7 +212,7 @@ class FrontComponents
                         $lines[$i]="<label  style='padding-left: 35%'>".$this->idioma[ $idiomaActual ]["MENU"][$i].$select."</label>";
                     }
                     else{
-                        $lines[$i]="<span class='menuIcon' style='padding-left: 35%' onclick='go(\"customerLogin.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][3]."$selected[3]</span>";
+                        $lines[$i]="<span class='menuIcon' style='padding-left: 35%' onclick='go(\"loginshop.php\")'>".$this->idioma[ $idiomaActual ]["MENU"][3]."$selected[3]</span>";
                     }
                     break;
                 case 4:
