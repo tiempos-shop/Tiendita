@@ -24,11 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Connection/Conectar.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Connection/Conectar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Connection/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Connection/Database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Connection/EntidadBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Connection/EntidadBase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Models/ModeloBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Models/ModeloBase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customerLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/customerLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginshop.php" beforeDir="false" afterPath="$PROJECT_DIR$/loginshop.php" afterDir="false" />
     </list>
     <list id="0e8517e8-4849-4dba-b416-5f3e44a7d134" name="Archivos XML" comment="Para documentos basura" />
     <option name="SHOW_DIALOG" value="false" />
@@ -313,21 +309,13 @@
       <workItem from="1629567613977" duration="956000" />
       <workItem from="1630189891650" duration="2281000" />
       <workItem from="1630548330177" duration="41000" />
-      <workItem from="1630634513140" duration="4165000" />
-    </task>
-    <task id="LOCAL-00085" summary="Detalles">
-      <created>1614792315732</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1614792315732</updated>
-    </task>
-    <task id="LOCAL-00086" summary="Detalles">
-      <created>1614792503617</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1614792503617</updated>
+      <workItem from="1630634513140" duration="4314000" />
+      <workItem from="1630677777618" duration="600000" />
+      <workItem from="1630881290329" duration="1444000" />
+      <workItem from="1630953434751" duration="3930000" />
+      <workItem from="1631472653787" duration="1101000" />
+      <workItem from="1631473777511" duration="387000" />
+      <workItem from="1631640625139" duration="2653000" />
     </task>
     <task id="LOCAL-00087" summary="Detalles">
       <created>1614792661455</created>
@@ -658,7 +646,21 @@
       <option name="project" value="LOCAL" />
       <updated>1630101431821</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="Correccion guardar login. Cacha errores de base de datos">
+      <created>1630641548154</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1630641548155</updated>
+    </task>
+    <task id="LOCAL-00135" summary="Correccion guardar login. Cacha errores de base de datos">
+      <created>1630641634079</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1630641634079</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -689,7 +691,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Correcciones Marzo 8" />
     <MESSAGE value="Correcciones Generales" />
     <MESSAGE value="Filtro de la tienda&#10;Scroll final de privacy policy &amp; SHIPPING &amp; RETURNS" />
     <MESSAGE value="Crear Login Face &amp; Google" />
@@ -714,7 +715,8 @@
     <MESSAGE value="Cambio de Servicios a prueba&#10;Cambio en llamada a tabla BD por ciudad ya que no es necesario&#10;Correccion en API para regresar un array" />
     <MESSAGE value="Correccion al shiping y policy" />
     <MESSAGE value="Correccion del metodo de menu Familia (Coleccion)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correccion del metodo de menu Familia (Coleccion)" />
+    <MESSAGE value="Correccion guardar login. Cacha errores de base de datos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correccion guardar login. Cacha errores de base de datos" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

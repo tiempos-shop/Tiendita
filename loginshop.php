@@ -1,19 +1,151 @@
 <?php
 
 use Administracion\VistasHtml;
-
+use Tiendita\Utilidades;
 
 
 include_once "View/Componentes/Administracion/VistasHtml.php";
 
 $html = new VistasHtml();
 session_start();
-
+$ui=new Utilidades();
 
 if(!$html->ValidarSession())
 {
     header("Location: shoptienda.php", TRUE, 301);
     exit();
+}
+
+if(count($_POST)>0) {
+    if (isset($_POST["language"])) {
+        $idiomaActual = $_POST["language"];
+        $_SESSION["language"] = $idiomaActual;
+    } else {
+        $idiomaActual = $_SESSION["language"];
+    }
+
+    if (isset($_GET["action"])) {
+        $action = $_GET["action"];
+        switch ($action) {
+            case "login":
+                $realPassword = "";
+                $email = $_POST["login"];
+                $password = $_POST["password"];
+                //$clienteTable = $db->getBy("Clientes", "CorreoElectronico", $email);
+
+                //if (count($clienteTable) > 0) {
+                //    $realPassword = $clienteTable[0]->Password;
+
+                //}
+
+                if ($realPassword === $password) {
+                    $_SESSION["LOGGED"] = "NORMAL";
+                    $ui->Redirect("checkout.php");
+                }
+                break;
+
+            case "forgot":
+                break;
+            case "facebook":
+
+                $name = $_POST["name"];
+                $lastname = $_POST["lastname"];
+                $login = $_POST["email"];
+                $password1 = $_POST["password1"];
+                //$datos = $_POST;
+
+                $mensaje = "<h2>Registro de Nuevo Cliente</h2>
+                    <h3>$name $lastname</h3>
+                    <p>Se registro el cliente con el password: $password1</p>
+                    <br/>
+                    <b>Saludos Cordiales</b>
+                    <b>El equipo de tiempos Shop</b>";
+                //$mail = $ui->SendMail("Tiempos Shop", "informes@softquimia.com", $login, "Registro de Cliente Tiempos Shop", $mensaje)
+                //if ($mail) {
+                $cliente = new \Tiendita\Clientes();
+                $cliente->Nombre = $name;
+                $cliente->Apellidos = $lastname;
+                $cliente->FechaCambio = $ui->FechaHoy();
+                $cliente->CorreoElectronico = $login;
+                $cliente->IdTipoMovimiento = 1;
+                $cliente->IdUsuarioBase = 1;
+                $cliente->Password = $password1;
+
+                try {
+                    $sql = \Tiendita\ModeloBase::GetInsert($cliente, "Clientes", \Tiendita\Clientes::getProperties());
+                    //$db->AddQuerys($sql);
+                    //$db->SaveAll();
+                } catch (mysqli_sql_exception $exception) {
+                    $ui->Debug($exception);
+                }
+                echo "<script>alert('Solicitud correcta. Se envio un correo a $login.')</script>";
+                $_SESSION["LOGGED"] = "NORMAL";
+                exit(0);
+                $ui->Redirect("checkout.php");
+                //} else {
+                // echo "<script>alert('Error en el servidor de correos')</script>";
+                //}
+
+                break;
+
+            case "google":
+                break;
+            case "create":
+
+                $name = $_POST["name"];
+                $lastname = $_POST["lastname"];
+                $login = $_POST["login"];
+                $password1 = $_POST["password1"];
+                $password2 = $_POST["password2"];
+                if (isset($_POST["newsletter"])) {
+                    $newsletter = true;
+                    $news = "Adicionalmente se solicito el servicio de Newsletter.";
+                } else {
+                    $newsletter = false;
+                    $news = "No se solicitó el servicio de Newsletter.";
+                };
+                $mensaje = "<h2>Registro de Nuevo Cliente</h2>
+                    <h3>$name $lastname</h3>
+                    <p>Se registro el cliente con el password: $password1</p>
+                    <br/>
+                    <p>$news</p>
+                    <b>Saludos Cordiales</b>
+                    <b>El equipo de tiempos Shop</b>";
+
+                if ($password1 === $password2) {
+                    //$ui->Debug($mensaje);
+                    //$ui->Debug($login);
+                    $mail = $ui->SendMail("Tiempos Shop", "informes@softquimia.com", $login, "Registro de Cliente Tiempos Shop", $mensaje);
+                    if ($mail) {
+                        $cliente = new \Tiendita\Clientes();
+                        $cliente->Nombre = $name;
+                        $cliente->Apellidos = $lastname;
+                        $cliente->FechaCambio = $ui->FechaHoy();
+                        $cliente->CorreoElectronico = $login;
+                        $cliente->IdTipoMovimiento = 1;
+                        $cliente->IdUsuarioBase = 1;
+                        $cliente->Password = $password1;
+
+                        try {
+                            $sql = \Tiendita\ModeloBase::GetInsert($cliente, "Clientes", \Tiendita\Clientes::getProperties());
+                            //$db->AddQuerys($sql);
+                            //$db->SaveAll();
+                        } catch (mysqli_sql_exception $exception) {
+                            $ui->Debug($exception);
+                        }
+                        echo "<script>alert('Solicitud correcta. Se envio un correo a $login.')</script>";
+                        $_SESSION["LOGGED"] = "NORMAL";
+                        $ui->Redirect("checkout.php");
+                    } else {
+                        echo "<script>alert('Error en el servidor de correos')</script>";
+                    }
+                } else {
+                    echo "<script>alert('Los password no coinciden')</script>";
+                }
+
+                break;
+        }
+    }
 }
 
 $h = $html->Html5(
@@ -191,9 +323,17 @@ require_once('menu.php');
                 </div>
             </div>
 
-            <form method='post' action=''><input type="hidden" value="NA" name="email" id="email"><input type="hidden" value="NA" name="name" id="name">
+
+
+            <form method='post' action='loginshop.php?action=facebook'>
+
                 <div class="form-group row">
                     <div class="col-sm-12">
+                        <input type="hidden" value="" name="email" id="email" >
+                        <input type="hidden" value="" name="name" id="name" >
+                        <input type="hidden" value="" name="lastname" id="lastname" >
+                        <input type="hidden" value="" name="password1" id="password1" >
+
                         <button  formaction='customerLogin.php?action=facebook' onclick='return loginFacebook()' class='btn btn-block' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: "NHaasGroteskDSPro-65Md"'>LOGIN
                             WITH FACEBOOK</button>
                     </div>
