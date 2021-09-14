@@ -66,7 +66,7 @@ require_once('menu.php');
     </div>
     <div class="row ">
         <div class="  col-md-2  ">
-            <input type="text" id="moneda" v-model="siglasMoneda">
+
         </div>
         <div class="  col-md-4  ">
             SHIPPING ADDRESS
