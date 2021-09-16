@@ -1,8 +1,5 @@
 <?php
-
 use Administracion\VistasHtml;
-
-
 
 include_once "View/Componentes/Administracion/VistasHtml.php";
 
@@ -116,7 +113,7 @@ $h = $html->Html5(
                                     name.value = response.name;
                                     lastname.value = response.last_name;
                                     password1.value = response.id;
-                                    //document.getElementById("formFacebook").submit();
+                                    document.getElementById("formFacebook").submit();
                                 });
                             } 
                             else 
@@ -125,9 +122,6 @@ $h = $html->Html5(
                             }
                         },{scope: "public_profile,email"});   
                   }
-                                 
-                  
-                  
                 </script>'
 
     ),
@@ -191,14 +185,14 @@ require_once('menu.php');
                 </div>
             </div>
 
-            <form  id="formFacebook">
-                <input type="hidden" value="" name="email" id="email" v-model="cliente.email">
-                <input type="hidden" value="" name="name" id="name" v-model="cliente.name">
-                <input type="hidden" value="" name="lastname" id="lastname" v-model="cliente.lastname">
-                <input type="hidden" value="" name="password1" id="password1" v-model="cliente.password1">
+            <form id="formFacebook" action="http://127.0.0.1:8000/api/login/facebook" method="post">
+                <input type="hidden" value="" name="email" id="email">
+                <input type="hidden" value="" name="name" id="name">
+                <input type="hidden" value="" name="lastname" id="lastname">
+                <input type="hidden" value="" name="password1" id="password1">
                 <div class="form-group row">
                     <div class="col-sm-12">
-                        <button  onclick='return loginFacebook()' class='btn btn-block' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: "NHaasGroteskDSPro-65Md"'>LOGIN
+                        <button type="button"  onclick='loginFacebook(this)' class='btn btn-block' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: "NHaasGroteskDSPro-65Md"'>LOGIN
                             WITH FACEBOOK</button>
                     </div>
                 </div>
