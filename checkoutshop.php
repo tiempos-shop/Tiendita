@@ -66,7 +66,7 @@ require_once('menu.php');
     </div>
     <div class="row ">
         <div class="  col-md-2  ">
-            <input type="hidden" id="moneda" value="MXN">
+
         </div>
         <div class="  col-md-4  ">
             SHIPPING ADDRESS
@@ -246,13 +246,13 @@ require_once('menu.php');
         </div>
     </div>
     <div class="row ">
-        <div class="  col-md-4  ">
+        <div class="  col-md-2  ">
 
         </div>
         <div class="  col-md-4  ">
             SHIPPING METHOD
         </div>
-        <div class="  col-md-4  ">
+        <div class="  col-md-6  ">
 
         </div>
     </div>
@@ -322,7 +322,13 @@ require_once('menu.php');
 
                 </div>
                 <div class="  col-md-4  ">
-                    <input class="form-check-input" type="checkbox" id="newsletter" name="newsletter" style="border-radius: 10px;border-color: black"> PAY WITH CREDIT OR DEBIT CARD</input>
+                    <Label style="border-radius: 10px;border-color: black"> PAY WITH PAYPAL</Label>
+                    <div id="smart-button-container">
+                        <div style="text-align: center;">
+                            <div id="paypal-button-container"></div>
+                        </div>
+                    </div>
+                 
                 </div>
                 <div class="  col-md-6  0">
                     <img id="pago-seguro" src="img/pago-seguro.png" class="img-fluid" />
@@ -333,12 +339,14 @@ require_once('menu.php');
 
                 </div>
             </div>
+            <hr style="opacity: 1" />
             <div class="row ">
                 <div class="  col-md-2  ">
 
                 </div>
                 <div class="  col-md-4  " >
-                    <input class="form-check-input" type="checkbox" id="newsletter" name="newsletter" style="border-radius: 10px;border-color: black"> PAY WITH PAYPAL</input>
+                <label style="border-radius: 10px;border-color: black">PAY WITH CREDIT OR DEBIT CARD </ilabel>
+
                 </div>
                 <div class="  col-md-4  ">
 
@@ -352,7 +360,6 @@ require_once('menu.php');
 
                 </div>
             </div>
-            <hr style="opacity: 1" />
             <div class="row ">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 " style="height:1vh">
 
@@ -363,6 +370,7 @@ require_once('menu.php');
 
                 </div>
                 <div class="  col-md-4  ">
+               
                     CARD DETAILS
                 </div>
                 <div class="  col-md-4  ">
@@ -497,6 +505,7 @@ require_once('menu.php');
                                 <p class="font-weight-bold mt-2"><span id="monedaTotal"></span> <span class="ml-1" id="precioTotal">
                                 {{siglasMoneda}}  {{Number(total) | moneda}}
                                 </span></p>
+                                <input type="text" v-model="total" id="totalCompra">
                             </div>
                         </div>
                     </div>
@@ -793,3 +802,55 @@ require_once('menu.php');
 
     })
 </script>
+
+<script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=MXN"& data-sdk-integration-source="button-factory"></script>
+                    <script>
+                        function initPayPalButton() {
+                            paypal.Buttons({
+                                style: {
+                                    shape: 'rect',
+                                    color: 'gold',
+                                    layout: 'vertical',
+                                    label: 'paypal',
+
+                                },
+
+                                createOrder: function(data, actions) {
+                                    var moneda = document.getElementById('moneda').value;
+                                    
+                                    var suma = document.getElementById('totalCompra').value;
+
+
+                                    if (suma == null)
+                                    {
+                                        console.log("no hay suma")
+                                        return;
+                                    }
+                                    return actions.order.create({
+                                        purchase_units: [{'amount':{'currency_code': 'MXN','value':suma}}]
+                                    });
+                                },
+
+                                onApprove: function(data, actions) {
+                                    return actions.order.capture().then(function(orderData) {
+
+                                        // Full available details
+                                        console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+                                        // Show a success message within this page, e.g.
+                                        const element = document.getElementById('paypal-button-container');
+                                        element.innerHTML = '';
+                                        element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+                                        // Or go to another URL:  actions.redirect('thank_you.html');
+
+                                    });
+                                },
+
+                                onError: function(err) {
+                                    console.log(err);
+                                }
+                            }).render('#paypal-button-container');
+                        }
+                        initPayPalButton();
+                    </script>

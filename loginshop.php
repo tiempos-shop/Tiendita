@@ -82,35 +82,49 @@ $h = $html->Html5(
                   
                   window.fbAsyncInit = function() {
                     FB.init({
-                        appId            : "836095217243492",
-                        autoLogAppEvents : true,
-                        xfbml            : true,
-                        version          : "v11.0"
+                      appId      : "836095217243492",
+                      cookie     : true,
+                      xfbml      : true,
+                      version    : "v11.0"
                     });
+                    
+                      
+                    FB.AppEvents.logPageView();   
+                      
                   };
+                
+                  (function(d, s, id){
+                     var js, fjs = d.getElementsByTagName(s)[0];
+                     if (d.getElementById(id)) {return;}
+                     js = d.createElement(s); js.id = id;
+                     js.src = "https://connect.facebook.net/en_US/sdk.js";
+                     fjs.parentNode.insertBefore(js, fjs);
+                   }(document, "script", "facebook-jssdk"));
+
                   
-                  function loginFacebook(){
-                      FB.login(function(response) {
-                        if (response.authResponse) {
-                            FB.api("/me", function(response) {
-                                alert("Gracias " + response.name + " por autorizar a Tiempos Shop el uso de tus datos en facebook, haremos uso de tu correo " + response.appid + " para tu registro.");
-                                console.log(response);
-                                const email=document.getElementById("email");
-                                const name=document.getElementById("name");
-                                email.value=response.appid;
-                                name.value=response.name;
-                                return true;
-                            });
-                        } 
-                        else 
-                        {
-                            alert("El usuario no autorizó.");
-                            return false;
-                        }
-                    });
-                    return false;
+                  function loginFacebook () {
+                        FB.login( function (response) {
+                            if (response.authResponse) {
+                                FB.api("/me?fields=id,email,name,last_name", function (response){                        
+                                    alert("Gracias " + response.id + " por autorizar a Tiempos Shop el uso de tus datos en facebook, haremos uso de tu correo " + response.email + " para tu registro.");
+                                    console.log(response);
+                                    const email = document.getElementById("email");
+                                    const name = document.getElementById("name");
+                                    const lastname = document.getElementById("lastname");
+                                   const password1 = document.getElementById("password1");
+                                    email.value = response.email;
+                                    name.value = response.name;
+                                    lastname.value = response.last_name;
+                                    password1.value = response.id;
+                                    //document.getElementById("formFacebook").submit();
+                                });
+                            } 
+                            else 
+                            {
+                                alert("El usuario no autorizó.");
+                            }
+                        },{scope: "public_profile,email"});   
                   }
-                  
                                  
                   
                   
@@ -177,10 +191,14 @@ require_once('menu.php');
                 </div>
             </div>
 
-            <form method='post' action=''><input type="hidden" value="NA" name="email" id="email"><input type="hidden" value="NA" name="name" id="name">
+            <form  id="formFacebook">
+                <input type="hidden" value="" name="email" id="email" v-model="cliente.email">
+                <input type="hidden" value="" name="name" id="name" v-model="cliente.name">
+                <input type="hidden" value="" name="lastname" id="lastname" v-model="cliente.lastname">
+                <input type="hidden" value="" name="password1" id="password1" v-model="cliente.password1">
                 <div class="form-group row">
                     <div class="col-sm-12">
-                        <button  formaction='customerLogin.php?action=facebook' onclick='return loginFacebook()' class='btn btn-block' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: "NHaasGroteskDSPro-65Md"'>LOGIN
+                        <button  onclick='return loginFacebook()' class='btn btn-block' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: "NHaasGroteskDSPro-65Md"'>LOGIN
                             WITH FACEBOOK</button>
                     </div>
                 </div>
@@ -189,8 +207,8 @@ require_once('menu.php');
             <form method='post' action=''>
                 <div class="form-group row">
                     <div class="col-sm-12">
-                        <button class='btn btn-block' formaction='customerLogin.php?action=google'  style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: "NHaasGroteskDSPro-65Md"'>LOGIN
-                            WITH GOOGLE</button>
+                      <!--  <button class='btn btn-block' formaction='customerLogin.php?action=google'  style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: "NHaasGroteskDSPro-65Md"'>LOGIN
+                            WITH GOOGLE</button> -->
                     </div>
                 </div>
             </form>
