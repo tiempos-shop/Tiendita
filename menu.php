@@ -22,7 +22,7 @@
             </div>
             
         </div>
-        <div class="  col-md-2  adjust" >
+        <div class="  col-md-2 " >
             <span style="padding-left: 35%" @click="EstablecerIdioma()">{{idioma}}</span>
         </div>
         <div class="  col-md-2  " >

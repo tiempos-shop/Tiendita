@@ -344,32 +344,11 @@ require_once('menu.php');
     </div>
     <div class="modal" id="size" tabindex="-1" role="dialog" aria-labelledby="sizeLabel" aria-hidden="true"
         style="background-color: #ffffff8C;">
-        <div class="modal-dialog modal-dialog-centered" style="max-width: 700px;" role="document">
-            <div class="modal-content" style="border-radius: 0;border: 0 solid transparent; background-color:white;">
-                <div class="modal-header"
-                    style="border-color: black; padding: 0px; padding-left: 20px; margin-bottom: 10px;">
-                    <h6 style="color:black;" class="modal-title" id="sizeLabel"><span onclick="ChangeSize(1, this);"
-                            class="activerow">CM</span>
-                        <div class="space"></div><span onclick="ChangeSize(2.54, this)">IN</span>
-                    </h6>
-                    <button style="Color:black; " type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
-                        X
-                    </button>
-                </div>
+        <div class="modal-dialog modal-dialog-centered"  role="document">
+            <div class="modal-content" style="border-radius: 0;border: 0 solid transparent; background-color:white;width: auto;">
+               
                 <div class="modal-body" style="padding: 0;">
-                    <table class='table table-borderless prodSize' style='color: black;'>
-                        <thead>
-                            <tr style='color: black; opacity: 1;'>
-                                <td></td>
-                                <th>S</th>
-                                <th>M</th>
-                                <th>L</th>
-                                <th>XL</th>
-                            </tr>
-                        </thead>
-                        <tbody id='tableDetalle' style='color: black;'>
-                        </tbody>
-                    </table>
+                    <img :src="producto.rutaGuiaTallas" alt="Guia de tallas" style="min-width: 400px;max-width: 480px;">
                 </div>
 
             </div>
