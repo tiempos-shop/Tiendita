@@ -116,7 +116,7 @@ $h = $html->Html5(
                                     name.value = response.name;
                                     lastname.value = response.last_name;
                                     password1.value = response.id;
-                                    document.getElementById("formFacebook").submit();
+                                    //document.getElementById("formFacebook").submit();
                                 });
                             } 
                             else 
@@ -191,10 +191,14 @@ require_once('menu.php');
                 </div>
             </div>
 
-            <form method='post' action=''><input type="hidden" value="NA" name="email" id="email"><input type="hidden" value="NA" name="name" id="name">
+            <form  id="formFacebook">
+                <input type="hidden" value="" name="email" id="email" v-model="cliente.email">
+                <input type="hidden" value="" name="name" id="name" v-model="cliente.name">
+                <input type="hidden" value="" name="lastname" id="lastname" v-model="cliente.lastname">
+                <input type="hidden" value="" name="password1" id="password1" v-model="cliente.password1">
                 <div class="form-group row">
                     <div class="col-sm-12">
-                        <button  formaction='customerLogin.php?action=facebook' onclick='return loginFacebook()' class='btn btn-block' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: "NHaasGroteskDSPro-65Md"'>LOGIN
+                        <button  onclick='return loginFacebook()' class='btn btn-block' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: "NHaasGroteskDSPro-65Md"'>LOGIN
                             WITH FACEBOOK</button>
                     </div>
                 </div>
@@ -203,8 +207,8 @@ require_once('menu.php');
             <form method='post' action=''>
                 <div class="form-group row">
                     <div class="col-sm-12">
-                        <button class='btn btn-block' formaction='customerLogin.php?action=google'  style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: "NHaasGroteskDSPro-65Md"'>LOGIN
-                            WITH GOOGLE</button>
+                      <!--  <button class='btn btn-block' formaction='customerLogin.php?action=google'  style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: "NHaasGroteskDSPro-65Md"'>LOGIN
+                            WITH GOOGLE</button> -->
                     </div>
                 </div>
             </form>
