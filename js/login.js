@@ -50,8 +50,15 @@ var app = new Vue({
                         axios.post("session.php", resultado.data)
                         .then((data) =>{
                             console.log("data", data.data);
-                            this.status.inicioConfirmado = true;
-                            location.href = "shoptienda.php";
+                            if (data.data == "iniciado")
+                            {
+                                this.status.inicioConfirmado = true;
+                                location.href = "shoptienda.php";
+                            }
+                            else
+                            {
+                                this.status.iniciando = false;
+                            }
                         });
                         
                     }

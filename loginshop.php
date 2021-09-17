@@ -6,6 +6,7 @@ include_once "View/Componentes/Administracion/VistasHtml.php";
 $html = new VistasHtml();
 session_start();
 
+header('Access-Control-Allow-Origin: *');
 
 if(!$html->ValidarSession())
 {
@@ -99,28 +100,51 @@ $h = $html->Html5(
                    }(document, "script", "facebook-jssdk"));
 
                   
-                  function loginFacebook () {
-                        FB.login( function (response) {
+                  function loginFacebook() {
+                        console.clear();
+                        var respuesta =  FB.login( function (response) {
                             if (response.authResponse) {
-                                FB.api("/me?fields=id,email,name,last_name", function (response){                        
-                                    alert("Gracias " + response.id + " por autorizar a Tiempos Shop el uso de tus datos en facebook, haremos uso de tu correo " + response.email + " para tu registro.");
-                                    console.log(response);
-                                    const email = document.getElementById("email");
-                                    const name = document.getElementById("name");
-                                    const lastname = document.getElementById("lastname");
-                                   const password1 = document.getElementById("password1");
-                                    email.value = response.email;
-                                    name.value = response.name;
-                                    lastname.value = response.last_name;
-                                    password1.value = response.id;
-                                    document.getElementById("formFacebook").submit();
+                                var datos = FB.api("/me?fields=id,email,name,last_name", function (response){                        
+                                    
+                                    console.log("response", response);
+                                
+                                    var obj = { "email" : response.email, "name": response.name, "lastname":response.last_name, "password": response.id};
+                                    
+                                    axios.post(ServeApi + "api/login/facebook", obj)
+                                    .then((resultado) => {
+                                        console.log("sesion", resultado.data);
+                                        
+                                        if (resultado.data && resultado.data.idCliente != 0 && resultado.data.idCliente.length > 15)
+                                        {
+                                             resultado.data.accion ="ingresar";
+                        
+                                            axios.post("session.php", resultado.data)
+                                            .then((data) =>{
+                                                console.log("data", data.data);
+                                                if (data.data == "iniciado")
+                                                {
+                                                    
+                                                    location.href = "shoptienda.php";
+                                                }
+                                                
+                                            });
+                                         
+                                        }
+                                        
+                                        
+                                    });
+                                    
+                                    
                                 });
+                                
                             } 
                             else 
                             {
                                 alert("El usuario no autorizó.");
+                                return null;
                             }
                         },{scope: "public_profile,email"});   
+                       
                   }
                 </script>'
 
@@ -185,7 +209,7 @@ require_once('menu.php');
                 </div>
             </div>
 
-            <form id="formFacebook" action="http://127.0.0.1:8000/api/login/facebook" method="post">
+            <form id="formFacebook" >
                 <input type="hidden" value="" name="email" id="email">
                 <input type="hidden" value="" name="name" id="name">
                 <input type="hidden" value="" name="lastname" id="lastname">
