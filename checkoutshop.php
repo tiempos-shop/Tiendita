@@ -266,13 +266,15 @@ require_once('menu.php');
 
         </div>
         <div class="  col-md-4  ">
-            <input class="form-check-input" type="checkbox" 
-                :disabled="status.cotizando" 
-                style="border-radius: 10px;border-color: black">
-                <span id="postalcodetext" class="ml-1 text-muted">
-                    {{status.resultadoCotizacion}}
-                </span>
-            </input>
+
+            <input class="form-check-input" type="radio" name="opcionEnvio" 
+                id="opcionEnvio1" value="option1" :disabled="status.cotizando" 
+                style="border-radius: 10px;border-color: black"
+                checked>
+            <label class="form-check-label ml-1 text-muted" for="opcionEnvio1" id="postalcodetext">
+                {{status.resultadoCotizacion}}
+            </label>
+          
         </div>
         <div class="  col-md-4  ">
 
@@ -458,8 +460,9 @@ require_once('menu.php');
                 <div class="  col-md-1  ">
                     <div class="d-flex" style="margin-top: 16px;">
                         
-                            <button type="submit" style="border:0 solid transparent;background-color:transparent;display: inline-block">X</button>
-                            <input @change="CambiarCantidad(producto)" type="number" maxlength="1" 
+                            <button type="submit" style="border:0 solid transparent;background-color:transparent;display: inline-block"
+                            @click="EliminarProducto(producto)">X</button>
+                            <input @change="CambiarCantidad(producto)" type="number" 
                             :max="producto.inventario"
                             :disabled="producto.enviando"
                             v-model="producto.cantidad" style="width: 65px;padding-left: 5px;">
@@ -581,6 +584,33 @@ require_once('menu.php');
             }
         },
         methods: {
+            async EliminarProducto(producto)
+            {
+                producto.enviando = true;
+                
+                try {
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    console.log("envio terminado");
+                    
+                    producto.idCliente = this.idCliente;
+                    await axios.post(ServeApi + "api/encarrito", { "producto" : producto, "movimiento":"ELIMINAR"})
+                    .then((resultado) =>{
+                        
+                        if (resultado.data == "eliminado")
+                        {
+                            console.log("eliminado");
+                        }
+                    }).catch((problema) =>{
+
+                    });
+
+                    await this.ObtenerCarrito();
+                } catch (error) {
+                    
+                }
+                
+                producto.enviando = false;
+            },
             async CambiarCantidad(producto)
             {   
                 producto.enviando = true;
@@ -682,6 +712,27 @@ require_once('menu.php');
                 }
 
                 this.status.cotizando = true;
+
+                if (this.enCarrito.length == 0)
+                {
+                    /*no hay productos en el carrito */
+                    this.subtotal = 0;
+                    this.envio = 0;
+                    this.status.cotizando = false;
+
+                    switch (idiomaActual)
+                    {
+                        case "ESPAÑOL" :
+                            this.status.resultadoCotizacion = "Agregar productos";
+                            this.textoDias = "DÍAS";
+                            break;
+                        default:
+                            this.status.resultadoCotizacion = "ADD PRODUCTS ";
+                            this.textoDias = "DAYS";
+                            break;
+                    }
+                    return;
+                }
 
                 await axios.post(ServeApi + "api/envios_mov/cotizar", data)
                 .then((resultado) => {
@@ -786,17 +837,55 @@ require_once('menu.php');
 
                     });
 
+            },
+            async EnviarCarritoLocal()
+            {
+                if (this.idCliente.length >0)
+                {
+                    /*Obtener el carrito local */
+                    var productosLocal = localStorage.getItem("productos");
+
+                    if (productosLocal != null)
+                    {
+                        
+                        productosLocal = JSON.parse(productosLocal);
+
+                        console.log("productos local", productosLocal);
+                        
+                        console.clear();
+                        productosLocal.forEach(async producto => {
+                            /*Enviar post de cada producto */
+
+                            /*Optimizar datos a enviar */
+                            producto.idCliente = this.idCliente;
+                            await axios.post(ServeApi + "api/encarrito", { "producto" : producto, "movimiento":"AGREGAR"})
+                            .then((resultado) =>{
+                                if (resultado.data.idDetalle > 0)
+                                {
+                                    console.log("producto agregado");
+                                }
+                                
+                            });
+                        });
+
+                        localStorage.removeItem("productos");
+
+                        
+                    }
+                }
             }
         },
         async mounted() {
             this.$cantidadCarrito = 0;
             this.idCliente = document.getElementById('idCliente').value;
             var respuestaMonedas = this.CargaInicial();
-            this.ObtenerCarrito();
+
+            await this.EnviarCarritoLocal();
+            await this.ObtenerCarrito();
             this.ObtenerDireccionPrincipal();
             await respuestaMonedas;
             this.idMoneda = idMoneda;
-            this.siglasMoneda = siglasMoneda;
+            this.siglasMoneda = localStorage.getItem("moneda");;
         },
 
 

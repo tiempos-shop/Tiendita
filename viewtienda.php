@@ -394,6 +394,7 @@ require_once('menu.php');
             status:{
                 verVariantes:false,
                 agregadoAlCarrito: false,
+                esClienteLocal:false,
             },
             idioma : '',
             siglasMoneda: '..'
@@ -446,15 +447,40 @@ require_once('menu.php');
             },
             async AgregarAlCarrito()
             {
-                await axios.post(ServeApi + "api/encarrito", { "producto" : this.producto, "movimiento":"AGREGAR"})
-                .then((resultado) =>{
-                    console.log(resultado.data);
-                    if (resultado.data.idDetalle > 0)
-                    {
-                        this.status.agregadoAlCarrito = true;
-                    }
-                });
+                if (this.status.esClienteLocal)
+                {
+                    var productosLocal = await this.ObtenerEnCarrito();
 
+                    console.log("prod", productosLocal);
+
+                    //si es nulo la lista de productos crear una lista;
+                    if (productosLocal == null)
+                    {
+                        productosLocal = [];
+                    }
+                    
+                    //agregar cantidad
+                    this.producto.cantidad = 1;
+                    console.log("producto a guardar", this.producto);
+                    productosLocal.push(this.producto);
+                    console.log("productos push", productosLocal);
+                    localStorage.setItem("productos", JSON.stringify(productosLocal));
+
+                }
+                else
+                {
+                
+                    await axios.post(ServeApi + "api/encarrito", { "producto" : this.producto, "movimiento":"AGREGAR"})
+                    .then((resultado) =>{
+                        console.log(resultado.data);
+                        if (resultado.data.idDetalle > 0)
+                        {
+                            this.status.agregadoAlCarrito = true;
+                        }
+                    });
+                }
+                
+                //global para ambos casos
                 await this.ObtenerEnCarrito();
   
             },
@@ -525,7 +551,30 @@ require_once('menu.php');
            },
            async ObtenerEnCarrito()
            {
-                await axios.get(ServeApi + "api/encarrito/" + this.idCliente)
+               if (this.status.esClienteLocal)
+               {
+                    var productosLocal = localStorage.getItem("productos");
+                    //convertir json
+                    if (productosLocal != null)
+                    {
+                        
+                        productosLocal = JSON.parse(productosLocal);
+
+                        console.log("productos local", productosLocal);
+
+                        this.enCarrito = productosLocal;
+                        this.$cantidadCarrito = this.enCarrito.length;
+                        
+                        this.ValidarSiExisteEnCarrito();
+                    }
+                    
+
+                    return productosLocal;
+
+               }
+               else
+               {
+                    await axios.get(ServeApi + "api/encarrito/" + this.idCliente)
                     .then((resultado) =>{
                         if (resultado.data != null)
                         {
@@ -539,6 +588,8 @@ require_once('menu.php');
                             console.log("no hay data");
                         }
                     });
+               }
+                
            }
         },
         mounted() {
@@ -554,6 +605,14 @@ require_once('menu.php');
             
 
             this.idCliente = document.getElementById('idCliente').value;
+
+            /*validar si es cliente con sesion o cliente local */
+            if (this.idCliente.length == 0)
+            {
+                //local
+                this.status.esClienteLocal = true;
+            }
+
             this.ObtenerProducto();
             this.$cantidadCarrito = this.enCarrito.length;
             

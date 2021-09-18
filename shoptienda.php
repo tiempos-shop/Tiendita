@@ -31,6 +31,20 @@ $h = $html->Head(
                       let id=str.replace("_", "\'");
                       go("view.php?id="+id);
                   }
+                  function filter(){
+                    let s=document.getElementById("s");
+                    let smenu=document.getElementById("sMenu");
+                    s.style.display="none";
+                    smenu.style.display="block";
+                    
+                    }
+                    function showfilter(){
+                        let s=document.getElementById("s");
+                        let smenu=document.getElementById("sMenu");
+                        s.style.display="block";
+                        smenu.style.display="none";
+                        
+                        }          
                 </script>'
 
 );
@@ -85,7 +99,7 @@ require_once('menu.php');
                             <label style='width: 100%;text-align: right;'></label>
                         </div>
                         <div class='col-md-10'>
-                            <a href='shop.php?submenu=1&order=1' style='display: block'>FEATURED</a>
+                            <a href='#' style='display: block' @click="ordenar(1)">FEATURED</a>
 
 
                         </div>
@@ -98,7 +112,7 @@ require_once('menu.php');
                             <label style='width: 100%;text-align: right'></label>
                         </div>
                         <div class='col-md-10'>
-                            <a href='shop.php?submenu=1&order=2' style='display: block'>A TO Z</a>
+                            <a href='#' style='display: block' @click="ordenar(2)">A TO Z</a>
 
                         </div>
                         <div class='col-md-1'>
@@ -110,7 +124,7 @@ require_once('menu.php');
                             <label style='width: 100%;text-align: right'></label>
                         </div>
                         <div class='col-md-10'>
-                            <a href='shop.php?submenu=1&order=3' style='display: block'>PRICE LOW TO HIGH</a>
+                            <a href='#' style='display: block' @click="ordenar(3)">PRICE LOW TO HIGH</a>
 
                         </div>
                         <div class='col-md-1'>
@@ -123,7 +137,7 @@ require_once('menu.php');
                             <label style='width: 100%;text-align: right'></label>
                         </div>
                         <div class='col-md-10'>
-                            <a href='shop.php?submenu=1&order=4' style='display: block'>PRICE HIGH TO LOW</a>
+                            <a href='#' style='display: block' @click="ordenar(4)">PRICE HIGH TO LOW</a>
 
                         </div>
                         <div class='col-md-1'>
@@ -162,6 +176,49 @@ require_once('menu.php');
             enCarrito:[],
         },
         methods: {
+            ordenar(opcion)
+            {
+                var ListaOrdenProductos = this.listaProductos.slice();
+
+                switch (opcion) {
+                    case 1:
+                        //featured
+                        
+                        ListaOrdenProductos.sort(function(a,b) {
+                            return  b.idProducto - a.idProducto;
+                        });
+                        break;
+                    case 2:
+                        //a - z
+                        
+                        ListaOrdenProductos.sort(function(a,b) {
+                            var x = a.color.toLowerCase();
+                            var y = b.color.toLowerCase();
+                            return x < y ? -1 : x > y ? 1 : 0;
+                        });
+                        break;
+                    case 3:
+                        //price low
+                        
+                        ListaOrdenProductos.sort(function(a,b) {
+                            return a.precio - b.precio;
+                        });
+                        break;
+                    case 4:
+                        //price higth
+                        
+                        ListaOrdenProductos.sort(function(a,b) {
+                            return  b.precio - a.precio;
+                        });
+                        
+                        break;
+                    default:
+                        break;
+                }
+
+                this.listaProductos = ListaOrdenProductos;
+                showfilter();
+            },
             VerProducto(idProducto)
             {
                 window.location.href="viewtienda.php?id=" + idProducto;
