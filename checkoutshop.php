@@ -4,6 +4,31 @@ use Administracion\VistasHtml;
 
 
 include_once "View/Componentes/Administracion/VistasHtml.php";
+include_once "Data/Connection/EntidadBase.php";
+
+$db=new \Tiendita\EntidadBase();
+
+try {
+    $paises=$db->getAll("paises");
+    $db->close();
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+
+$dataOpcionPais = "";
+$dataOpcionPais = "<input class='form-control'
+    v-model='direccion.pais'
+    list='listaPais'
+name='pais' id='pais' maxlength='999999' placeholder='COUNTRY/REGION' style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em' /><datalist id='listaPais'>";
+
+foreach($paises as $pais) 
+{
+    $dataOpcionPais = $dataOpcionPais."<option value='$pais->nombre' ></option>";
+
+}
+
+
+$dataOpcionPais = $dataOpcionPais."</datalist>";
 
 $html = new VistasHtml();
 
@@ -157,9 +182,8 @@ require_once('menu.php');
 
         </div>
         <div class="  col-md-4  ">
-            <input class="form-control"
-            v-model="direccion.pais"
-            name="pais" id="pais" maxlength="999999" placeholder="COUNTRY/REGION" style="border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em" />
+           
+            <?php echo $dataOpcionPais; ?>
         </div>
         <div class="  col-md-4  ">
             <input class="form-control" 

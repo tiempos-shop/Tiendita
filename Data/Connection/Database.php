@@ -4,6 +4,6 @@ return array(
     "host"      =>"162.253.224.19",
     "user"      =>"softqui2_ts",
     "pass"      =>"So1980198019",
-    "database"  =>"softqui2_tiemposhop_web",
+    "database"  =>"softqui2_tiemposhop",
     "charset"   =>"utf8"
 );
