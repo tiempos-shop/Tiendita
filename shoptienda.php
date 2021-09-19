@@ -3,8 +3,17 @@
 use Administracion\VistasHtml;
 
 include_once "View/Componentes/Administracion/VistasHtml.php";
+include_once "Data/Connection/EntidadBase.php";
 
 $html=new VistasHtml();
+$db=new \Tiendita\EntidadBase();
+
+$menu = $db->getAll("menus");
+
+$db->close();
+
+//var_dump($menu[0]->idMenu);
+//exit(0);
 
 //para obtener datos de sesion
 session_start();
@@ -232,7 +241,7 @@ require_once('menu.php');
                     var productos = null;
 
                     productos = resultado.data;
-                    
+
                     return productos;
                 });
 
