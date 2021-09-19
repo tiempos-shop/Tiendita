@@ -52,7 +52,7 @@ print_r($h);
 
 require_once('menu.php');
 ?>
-
+<body>
 <div id="app">
 
     <img onclick='go("index.php")' alt='SP' id='logo' class='fixed-top' src='img/ts_iso_negro.png'
@@ -321,3 +321,4 @@ require_once('menu.php');
 
     })
 </script>
+</body>

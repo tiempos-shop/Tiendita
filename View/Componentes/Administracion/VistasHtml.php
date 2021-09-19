@@ -50,6 +50,20 @@ class VistasHtml
         </html>';
     }
 
+    public function Html5Shop(string $head, string $body,$lang="es"){
+        $this->head=$head;
+        $this->body=$body;
+        $this->lang=$lang;
+
+        return '
+        <!DOCTYPE html>
+        <html lang="'.$lang.'">
+            '.$head.'
+            <body>
+            '.$this->lastScripts.'
+        ';
+    }
+
 
 
     public function Body(array $contents,string $attributes){
