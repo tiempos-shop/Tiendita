@@ -371,7 +371,7 @@ require_once('menu.php');
 
                 </div>
                 <div class="  col-md-4  " >
-                <label style="border-radius: 10px;border-color: black">PAY WITH CREDIT OR DEBIT CARD </ilabel>
+                <label style="border-radius: 10px;border-color: black">PAY WITH CREDIT OR DEBIT CARD </label>
 
                 </div>
                 <div class="  col-md-4  ">
@@ -844,7 +844,7 @@ require_once('menu.php');
             },
 
             async ObtenerCarrito() {
-
+                console.log("obtieniendo productos al carrito");
                 await axios.get(ServeApi + "api/encarrito/" + this.idCliente)
                     .then((resultado) => {
                         if (resultado.data != null) {
@@ -866,6 +866,7 @@ require_once('menu.php');
             {
                 if (this.idCliente.length >0)
                 {
+                    console.log("enviando productos al carrito");
                     /*Obtener el carrito local */
                     var productosLocal = localStorage.getItem("productos");
 
@@ -876,8 +877,8 @@ require_once('menu.php');
 
                         console.log("productos local", productosLocal);
                         
-                        console.clear();
-                        productosLocal.forEach(async producto => {
+
+                        await Promise.all(productosLocal.map(async producto => {
                             /*Enviar post de cada producto */
 
                             /*Optimizar datos a enviar */
@@ -888,9 +889,9 @@ require_once('menu.php');
                                 {
                                     console.log("producto agregado");
                                 }
-                                
+                                return resultado;
                             });
-                        });
+                        }));
 
                         localStorage.removeItem("productos");
 
@@ -903,6 +904,7 @@ require_once('menu.php');
             this.$cantidadCarrito = 0;
             this.idCliente = document.getElementById('idCliente').value;
             var respuestaMonedas = this.CargaInicial();
+
 
             await this.EnviarCarritoLocal();
             await this.ObtenerCarrito();

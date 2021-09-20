@@ -52,6 +52,7 @@ $h = $html->Head(
 
 );
 print_r($h);
+print_r('<body>');
 require_once('menu.php');
 ?>
 
@@ -229,6 +230,25 @@ require_once('menu.php');
                 return img;
 
             },
+            EstablecerRutaRedirigir()
+            {
+                var rutaActual = "checkoutshop.php";
+                var ultimaRuta = localStorage.getItem('ruta');
+                if (ultimaRuta == null)
+                {
+                    localStorage.setItem('ruta', rutaActual);
+                }
+
+                if (rutaActual != ultimaRuta)
+                {
+                    localStorage.setItem('ruta', rutaActual);
+                }
+
+                /*actualizando ultima ruta */
+
+                ultimaRuta = localStorage.getItem('ruta');
+                return ultimaRuta;
+            },
             async ObtenerCarrito()
             {
                 if (this.status.esClienteLocal)
@@ -287,6 +307,8 @@ require_once('menu.php');
                 this.status.esClienteLocal = true;
             }
 
+            this.EstablecerRutaRedirigir();
+
             var respuestaMonedas = this.CargaInicial();
             await this.ObtenerCarrito();
          
@@ -299,6 +321,7 @@ require_once('menu.php');
                 this.enCarrito.forEach(async element => {
                     var ruta = await this.ObtenerInfoLocalCarrito(element);
                     element.ruta = ruta;
+
                 });
                 
             }
@@ -309,3 +332,5 @@ require_once('menu.php');
 
     });
 </script>
+
+</body>

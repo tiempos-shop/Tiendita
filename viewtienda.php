@@ -38,7 +38,7 @@ $h = $html->Head(
 
 );
 print_r($h);
-
+print_r('<body>');
 require_once('menu.php');
 ?>
 
@@ -621,4 +621,6 @@ require_once('menu.php');
 
     })
 </script>
+
+</body>
 

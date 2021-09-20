@@ -14,7 +14,7 @@ if(!$html->ValidarSession())
     exit();
 }
 
-$h = $html->Html5(
+$h = $html->Html5Shop(
     $html->Head(
         "Tiempos Shop",
         $html->Meta("utf-8", "Tienda Online de Tiempos Shop", "Egil Ordonez"),
@@ -307,4 +307,8 @@ require_once('menu.php');
     <span onclick='go("shipping.php")' class='small ml-4 col-md-5'>SHIPPING & RETURNS</span>
 </div>
 
-<script src="js/login.js"></script>
+
+<script src='js/login.js'></script>
+
+</body>
+</html>
