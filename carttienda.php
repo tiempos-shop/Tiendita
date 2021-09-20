@@ -52,19 +52,21 @@ $h = $html->Head(
 
 );
 print_r($h);
+print_r('<body>');
 require_once('menu.php');
 ?>
 
 <img onclick="go('index.php')" alt="SP" id="logo" class="fixed-top" src="img/ts_iso_negro.png"
         style="width: 7%">
-    <div  class="container-fluid"  id="app">
+    <div  class="container-fluid"  id="app" style="min-height: 20vh;">
     <input type="hidden"  class="form-control" value="<?php  echo isset($_SESSION["idCliente"]) ? $_SESSION["idCliente"] : '' ?>" id="idCliente">
         <div class="row " v-for="(producto, index) in enCarrito" :key="index">
             <div class="  col-md-2  " >
-
+                
             </div>
             <div class="  col-md-4  " >
-                <div style="cursor: pointer;" onclick="view('T0001_02')"><img :src="producto.ruta" height="172">
+                <div style="cursor: pointer;" ><img :src="producto.ruta" height="172">
+                    
                     <div
                         style="height: 100%;margin-left: 15px;display: inline-block;vertical-align: top;margin-top: 16px;">
                         {{producto.color}}</div>
@@ -155,7 +157,10 @@ require_once('menu.php');
             monedas:[],
             idMoneda:0,
             siglasMoneda:"",
-            subtotal:0
+            subtotal:0,
+            status:{
+                esClienteLocal:false,
+            }
         },
         methods: {
             IrACheckOut()
@@ -204,30 +209,122 @@ require_once('menu.php');
                     console.log("no encontrado");
                 }
             },
+            async ObtenerInfoLocalCarrito(Producto)
+            {
+                //api/encarritolocal/5
+                var img = await axios.get(ServeApi + "api/encarritolocal/" + Producto.idProducto)
+                .then((resultado) => {
+                    console.log("info", resultado.data);
+                    var info = resultado.data;
 
-           async ObtenerCarrito()
-           {
-    
-            await axios.get(ServeApi + "api/encarrito/" + this.idCliente)
-            .then((resultado) =>{
-                if (resultado.data != null)
+                    if (info.imagen)
+                    {
+                        if (info.imagen.ruta.length > 0)
+                        {
+                            
+                            return info.imagen.ruta;   
+                        }
+                    }
+                });
+
+                return img;
+
+            },
+            EstablecerRutaRedirigir()
+            {
+                var rutaActual = "checkoutshop.php";
+                var ultimaRuta = localStorage.getItem('ruta');
+                if (ultimaRuta == null)
                 {
-                    this.enCarrito = resultado.data;    
-                    this.$cantidadCarrito = this.enCarrito.length;
-                    
-                    this.SumarProductos();
+                    localStorage.setItem('ruta', rutaActual);
                 }
-   
-            });
-               
-           }
+
+                if (rutaActual != ultimaRuta)
+                {
+                    localStorage.setItem('ruta', rutaActual);
+                }
+
+                /*actualizando ultima ruta */
+
+                ultimaRuta = localStorage.getItem('ruta');
+                return ultimaRuta;
+            },
+            async ObtenerCarrito()
+            {
+                if (this.status.esClienteLocal)
+                {
+                    var productosLocal = localStorage.getItem("productos");
+                    //convertir json
+                    if (productosLocal != null)
+                    {
+                        
+                        productosLocal = JSON.parse(productosLocal);
+
+                        console.log("productos local", productosLocal);
+                        
+                        productosLocal.forEach(element => {
+                            element.ruta = "";
+                        });
+
+                        this.enCarrito = productosLocal;
+                        this.$cantidadCarrito = this.enCarrito.length;
+                        this.SumarProductos();
+                        
+                    }
+                    
+
+                    return productosLocal;
+
+                }
+                else
+                {
+                    await axios.get(ServeApi + "api/encarrito/" + this.idCliente)
+                    .then((resultado) =>{
+                        if (resultado.data != null)
+                        {
+                            this.enCarrito = resultado.data;    
+                            this.$cantidadCarrito = this.enCarrito.length;
+                            
+                            this.SumarProductos();
+                        }
+        
+                    });
+                }
+                
+                return null;
+            
+                
+            }
         },
         async mounted() {
             this.$cantidadCarrito = 0;
             this.idCliente = document.getElementById('idCliente').value;
+
+            /*validar si es cliente con sesion o cliente local */
+            if (this.idCliente.length == 0)
+            {
+                //local
+                this.status.esClienteLocal = true;
+            }
+
+            this.EstablecerRutaRedirigir();
+
             var respuestaMonedas = this.CargaInicial();
             await this.ObtenerCarrito();
+         
+
             await respuestaMonedas;
+
+               
+            if (this.status.esClienteLocal)
+            {
+                this.enCarrito.forEach(async element => {
+                    var ruta = await this.ObtenerInfoLocalCarrito(element);
+                    element.ruta = ruta;
+
+                });
+                
+            }
             this.idMoneda = idMoneda;
             this.siglasMoneda = siglasMoneda;
         },
@@ -235,3 +332,5 @@ require_once('menu.php');
 
     });
 </script>
+
+</body>

@@ -33,6 +33,17 @@ var app = new Vue({
 
     },
     methods: {
+        ObtenerRutaRedirigir()
+        {
+
+            var rutaRedirigir = localStorage.getItem('ruta');
+            if (rutaRedirigir == null)
+            {
+                rutaRedirigir = "shoptienda.php";
+            }
+
+            return rutaRedirigir;
+        },
         async Iniciar()
         {
             
@@ -53,7 +64,7 @@ var app = new Vue({
                             if (data.data == "iniciado")
                             {
                                 this.status.inicioConfirmado = true;
-                                location.href = "shoptienda.php";
+                                location.href = this.ObtenerRutaRedirigir();
                             }
                             else
                             {

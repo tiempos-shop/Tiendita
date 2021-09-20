@@ -90,6 +90,25 @@ var menuApp = new Vue({
 
             return idioma;
         },
+        ObtenerUltimaRuta()
+        {
+            var rutaActual = location.href;
+            var ultimaRuta = localStorage.getItem('ruta');
+            if (ultimaRuta == null)
+            {
+                localStorage.setItem('ruta', rutaActual);
+            }
+            if (ultimaRuta != "checkoutshop.php")
+            {
+                localStorage.setItem('ruta', rutaActual);
+            }
+
+
+            /*actualizando ultima ruta */
+
+            ultimaRuta = localStorage.getItem('ruta');
+            return ultimaRuta;
+        }
     },
     async mounted() {
         var nombreCliente = document.getElementById("nombre");
@@ -105,6 +124,7 @@ var menuApp = new Vue({
             }
         }
 
+        this.ObtenerUltimaRuta();
         
     },
     
