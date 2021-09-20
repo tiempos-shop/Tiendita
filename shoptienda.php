@@ -106,7 +106,7 @@ require_once('menu.php');
                         $menuSecundario .= "<a href='#' class='d-block text-dark pl-2'>$subvalor->SubMenu</a>";
                 }
                 if ( $menuSecundario != "" ){
-                    $menuPrincipal .= "<div class='p-2'><a href='#' class='d-block text-dark' style='text-transform: uppercase;' data-menu='$auxmenu' onclick='openSubmenu(this);'>$valor->menu</a>";
+                    $menuPrincipal .= "<div class='p-1'><a href='#' class='d-block text-dark' style='text-transform: uppercase;' data-menu='$auxmenu' onclick='openSubmenu(this);'>$valor->menu</a>";
                     $menuPrincipal .= "<div class='submenu d-none'>";
                     $menuPrincipal .= $menuSecundario;
                     $menuPrincipal .= "</div>";
