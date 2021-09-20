@@ -8,7 +8,7 @@ include_once "Data/Connection/EntidadBase.php";
 $html=new VistasHtml();
 $db=new \Tiendita\EntidadBase();
 
-$menu = $db->getAll("menus");
+$menus = $db->getAll("menus");
 
 $db->close();
 
@@ -60,6 +60,13 @@ $h = $html->Head(
 print_r($h);
 
 require_once('menu.php');
+
+
+
+
+
+
+
 ?>
 <body>
 <div id="app">
@@ -83,20 +90,20 @@ require_once('menu.php');
             </div>
         </div>
 
-      
-        <div style='position: fixed;top:8.5vh;margin-left: -12vw'><a href='shop.php?submenu=0'
-                                                                     class='d-block text-dark p-1'>SHOP ALL'</a>
-            <div class='p-2'><a href='#' class='d-block text-dark' data-menu='0' onclick='openSubmenu(this);'>MENS</a>
-                <div class='submenu d-none'><a href='#' class='d-block text-dark pl-2'>TOPS</a><a href='#'
-                                                                                                  class='d-block text-dark pl-2'>PANTS</a><a href='#' class='d-block text-dark pl-2'>SHOES</a>
-                </div>
-            </div>
-            <div class='p-2'><a href='#' class='d-block text-dark' data-menu='1' onclick='openSubmenu(this);'>WOMENS</a>
-                <div class='submenu d-none'><a href='#' class='d-block text-dark pl-2'>TOPS</a><a href='#'
-                                                                                                  class='d-block text-dark pl-2'>PANTS</a><a href='#' class='d-block text-dark pl-2'>SHOES</a>
-                </div>
-            </div><a href='shop.php?submenu=3' class='d-block text-dark p-1'><span>ACCESSORIES</span></a><a
-                    href='shop.php?submenu=4' class='d-block text-dark p-1'><span><b>SALE</b></span></a>
+
+        <div style='position: fixed;top:8.5vh;margin-left: -12vw'>
+            <a href='shop.php?submenu=0' class='d-block text-dark p-1'>SHOP ALL'</a>
+            <?php
+                $print="";
+                foreach ($menus as $menu){
+                    $print.="<div class='p-2'>
+                    <a href='#' class='d-block text-dark' data-menu='0' onclick='openSubmenu(this);'>".$menu->menu."</a>
+                </div>";
+                }
+                echo $print;
+            ?>
+
+            <a hef='shop.php?submenu=4' class='d-block text-dark p-1'><span><b>SALE</b></span></a>
         </div>
         <div class='small' style='position: fixed;display: inline-block;top: 8.5vh;right: 1.6vw;width:11vw'>
             <label onclick='filter()' id='s' style='font-size: 0.9rem;'>SORT +</label>
