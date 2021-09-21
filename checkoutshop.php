@@ -670,8 +670,15 @@ require_once('menu.php');
             },
             async ProcesarPedido()
             {
+                this.errores.sistema = "";
+                
                 this.status.enviandoPedido = true;
+                var idPaypal = localStorage.getItem("pagoPaypal");
 
+                if (idPaypal == null || idPaypal.length < 2)
+                {
+                    this.errores.sistema = "no se ha realizado el pago de paypal primero";
+                }
                 try {
                     var data = {
                         "idCliente": this.idCliente,
@@ -683,7 +690,8 @@ require_once('menu.php');
                         "subtotal": this.subtotal,
                         "nombre_recibe": this.direccion.nombre +  " " +  this.direccion.apellido,
                         "productos": this.enCarrito,
-                        "direccion" : this.direccion
+                        "direccion" : this.direccion,
+                        "idPaypal": idPaypal
                     }
             
                     await axios.post(ServeApi + "api/pedidos", data)
@@ -1019,7 +1027,7 @@ require_once('menu.php');
                                         element.innerHTML = '';
                                         element.innerHTML = '<h3>Thank you for your payment!</h3>';
 
-                                        // Or go to another URL:  actions.redirect('thank_you.html');
+                                        localStorage.setItem("pagoPaypal", orderData.id);
 
                                     });
                                 },
