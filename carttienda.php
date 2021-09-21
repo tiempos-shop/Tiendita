@@ -60,6 +60,11 @@ require_once('menu.php');
         style="width: 7%">
     <div  class="container-fluid"  id="app" style="min-height: 20vh;">
     <input type="hidden"  class="form-control" value="<?php  echo isset($_SESSION["idCliente"]) ? $_SESSION["idCliente"] : '' ?>" id="idCliente">
+        <div class="container p-4 m-4" v-if="status.cargandoProductos">
+            <br><br>
+            <div class="text-center"><i class='fa fa-spinner fa-spin' ></i></div>
+
+        </div>
         <div class="row " v-for="(producto, index) in enCarrito" :key="index">
             <div class="  col-md-2  " >
                 
@@ -89,7 +94,7 @@ require_once('menu.php');
             <div class="  col-md-3  " >
                 <div style="margin-top: 16px; display: inline-block;">
                     <div class="  col-md-1  " >
-                        {{siglasMoneda}} {{producto.precio}}
+                        {{siglasMoneda}} {{Number(producto.precioFinal) | moneda}}
                     </div>
                 </div>
             </div>
@@ -102,7 +107,7 @@ require_once('menu.php');
 
             </div>
             <div class="  col-md-5  " >
-                SUBTOTAL: $ {{subtotal}}
+                SUBTOTAL: {{subtotal | moneda}}
             </div>
         </div>
             <button  class="btn btn-dark btn-block"
@@ -160,18 +165,20 @@ require_once('menu.php');
             subtotal:0,
             status:{
                 esClienteLocal:false,
+                cargandoProductos:true,
             }
         },
         methods: {
             IrACheckOut()
             {
                 location.href = "checkoutshop.php";
+
             },
             SumarProductos()
             {
                 var subtotal = 0;
                 this.enCarrito.forEach(element => {
-                    subtotal +=  Number(element.cantidad) * Number(element.precio);
+                    subtotal +=  Number(element.cantidad) * Number(element.precioFinal);
                 });
                 this.subtotal = subtotal;
             },
@@ -179,7 +186,7 @@ require_once('menu.php');
             {
                 await axios.get(ServeApi + "api/cargainicial")
                 .then((resultado) => {
-                    this.monedas = resultado.data;
+                     this.monedas = resultado.data.monedas;
                 });
             },
             ValidarSiExisteEnCarrito()
@@ -268,16 +275,16 @@ require_once('menu.php');
 
                         this.enCarrito = productosLocal;
                         this.$cantidadCarrito = this.enCarrito.length;
-                        this.SumarProductos();
                         
                     }
-                    
 
-                    return productosLocal;
+                    this.status.cargandoProductos = false;
+
 
                 }
                 else
                 {
+                    this.status.cargandoProductos = true;
                     await axios.get(ServeApi + "api/encarrito/" + this.idCliente)
                     .then((resultado) =>{
                         if (resultado.data != null)
@@ -285,11 +292,26 @@ require_once('menu.php');
                             this.enCarrito = resultado.data;    
                             this.$cantidadCarrito = this.enCarrito.length;
                             
-                            this.SumarProductos();
                         }
         
                     });
+
+                    this.status.cargandoProductos = false;
                 }
+
+                 /*ajustar precio final conversion Moneda*/
+                if (this.siglasMoneda = "USD")
+                {
+                        
+                    var monedaEncontrada = this.monedas.find((moneda) => moneda.siglas == "USD" );
+                    console.log("moneda encon", monedaEncontrada);
+                    
+                    this.enCarrito.forEach(element => {
+                        element.precioFinal = element.precio / monedaEncontrada.convertirMoneda;
+                    });
+                }
+                
+                this.SumarProductos();
                 
                 return null;
             
@@ -300,6 +322,8 @@ require_once('menu.php');
             this.$cantidadCarrito = 0;
             this.idCliente = document.getElementById('idCliente').value;
 
+            await this.CargaInicial();
+
             /*validar si es cliente con sesion o cliente local */
             if (this.idCliente.length == 0)
             {
@@ -309,12 +333,8 @@ require_once('menu.php');
 
             this.EstablecerRutaRedirigir();
 
-            var respuestaMonedas = this.CargaInicial();
+            
             await this.ObtenerCarrito();
-         
-
-            await respuestaMonedas;
-
                
             if (this.status.esClienteLocal)
             {
@@ -326,7 +346,7 @@ require_once('menu.php');
                 
             }
             this.idMoneda = idMoneda;
-            this.siglasMoneda = siglasMoneda;
+            this.siglasMoneda = localStorage.getItem("moneda");
         },
         
 

@@ -12,6 +12,8 @@ $auxmenu = 0;
 $menuPrincipal = "";
 $menu = $db->getAll("menus");
 $submenu = $db->getAll("submenus");
+
+
 $db->close();
 
 session_start();
@@ -79,7 +81,12 @@ require_once('menu.php');
     <img onclick='go("index.php")' alt='SP' id='logo' class='fixed-top' src='img/ts_iso_negro.png'
          style='width: 7%'>
     <div style='margin-left: 15%;margin-right: 15%'>
-        <div class="row ">
+        <div class="row mt-2">
+            <div class="container p-4 m-4" v-if="status.cargandoProductos">
+                <br><br>
+                <div class="text-center"><i class='fa fa-spinner fa-spin' ></i></div>
+
+            </div>
             <div v-for="(producto, index) in listaProductos" :key="index" class="col-md-4">
             
                 <div class='text-center' >
@@ -89,7 +96,7 @@ require_once('menu.php');
                                     @mouseover="producto.dentro = true; CambiarImagen(producto,false)"
                                     @mouseleave="producto.dentro = false; CambiarImagen(producto,true)" style="width: 100%"><br /><br />
                     <p style="font-family: NHaasGroteskDSPro-65Md;line-height: 1">{{producto.color}}</p>
-                    <p><s style="font-size: 0.7rem;">USD {{producto.precioComparativo}}</s> USD {{producto.precio}}</p>
+                    <p><s style="font-size: 0.7rem;" v-if="producto.precioComparativo>0 && producto.precioComparativo != producto.precioFinal">USD {{Number(producto.precioComparativo) | moneda}}</s> USD {{Number(producto.precioFinal) | moneda}}</p>
                 </div>
                 
             </div>
@@ -97,7 +104,7 @@ require_once('menu.php');
 
       
         <div style='position: fixed;top:8.5vh;margin-left: -12vw'>
-            <a href='shop.php?submenu=0' class='d-block text-dark p-1'>SHOP ALL'</a>
+            <a @click='ObtenerProductos(0)'  class='d-block text-dark p-1' style="cursor: pointer;">SHOP ALL'</a>
             <?php
             foreach ($menu as $valor) {
                 $menuSecundario = "";
@@ -106,14 +113,14 @@ require_once('menu.php');
                         $menuSecundario .= "<a href='#' class='d-block text-dark pl-2'>$subvalor->SubMenu</a>";
                 }
                 if ( $menuSecundario != "" ){
-                    $menuPrincipal .= "<div class='p-1'><a href='#' class='d-block text-dark' style='text-transform: uppercase;' data-menu='$auxmenu' onclick='openSubmenu(this);'>$valor->menu</a>";
+                    $menuPrincipal .= "<div class='p-1'><a href='#' class='d-block text-dark' style='text-transform: uppercase;' data-menu='$auxmenu' onclick='openSubmenu(this);' @click='ObtenerProductos(".$valor->idMenu.")'>$valor->menu</a>";
                     $menuPrincipal .= "<div class='submenu d-none'>";
                     $menuPrincipal .= $menuSecundario;
                     $menuPrincipal .= "</div>";
                     $menuPrincipal .= "</div>";
                     $auxmenu++;
                 }else{
-                    $menuPrincipal .= "<a href='shop.php?submenu=$valor->idMenu' class='d-block text-dark p-1'><span style='text-transform: uppercase;'>$valor->menu</span></a>";
+                    $menuPrincipal .= "<a @click='ObtenerProductos(".$valor->idMenu.")' class='d-block text-dark p-1'><span style='text-transform: uppercase;'>$valor->menu</span></a>";
                 }
             }
             echo $menuPrincipal;
@@ -197,6 +204,17 @@ require_once('menu.php');
 
 
 <script>
+     Vue.filter('moneda', function (value) {
+        if (typeof value !== "number") {
+            return value;
+        }
+        var formatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 2
+        });
+        return formatter.format(value);
+    });
 
     var app = new Vue({
         el:'#app',
@@ -205,6 +223,12 @@ require_once('menu.php');
             listaProductos:[],
             idCliente:0,
             enCarrito:[],
+            status:{
+                cargandoProductos:true,
+                esClienteLocal:false
+            },
+            siglasMoneda:'',
+            monedas:[]
         },
         methods: {
             ordenar(opcion)
@@ -254,10 +278,20 @@ require_once('menu.php');
             {
                 window.location.href="viewtienda.php?id=" + idProducto;
             },
-            async ObtenerProductos()
+            async ObtenerProductos(idMenu)
             {
-                
-                var result = await axios.get(ServeApi + "api/productostienda")
+                var inicial = this.CargaInicial();
+                if (idMenu == null || idMenu == "undefined")
+                {
+                    idMenu = 0;
+                }
+
+                console.log("idmenu", idMenu);
+
+                var busqueda = { "idMenu": idMenu};
+
+                this.status.cargandoProductos = true;
+                var result = await axios.post(ServeApi + "api/productostiendabusqueda", busqueda)
                 .then((resultado) =>{
                     console.log("resultado", resultado.data);
                     var productos = null;
@@ -266,6 +300,15 @@ require_once('menu.php');
 
                     return productos;
                 });
+                
+                await inicial;
+                if (this.siglasMoneda = "USD")
+                {
+                        
+                    var monedaEncontrada = this.monedas.find((moneda) => moneda.siglas == "USD" );
+                    console.log("moneda encon", monedaEncontrada);
+                    
+                }
 
                 result.forEach(element => {
                         if (element.imagen.length>0)
@@ -279,25 +322,65 @@ require_once('menu.php');
                         }
                         element.cargandoImagen = false;
                         element.dentro = false;
+                        element.precioFinal = element.precio / monedaEncontrada.convertirMoneda;
+                        element.precioComparativo = element.precioComparativo / monedaEncontrada.convertirMoneda;
                         
                     });
+
+                this.status.cargandoProductos = false;
 
                 this.listaProductos = result;
             },
             async ObtenerEnCarrito()
             {
-                await axios.get(ServeApi + "api/encarrito/" + this.idCliente)
+                if (this.status.esClienteLocal)
+                {
+                    var productosLocal = localStorage.getItem("productos");
+                    //convertir json
+                    if (productosLocal != null)
+                    {
+                        
+                        productosLocal = JSON.parse(productosLocal);
+
+                        console.log("productos local", productosLocal);
+                        
+                        productosLocal.forEach(element => {
+                            element.ruta = "";
+                        });
+
+                        this.enCarrito = productosLocal;
+                        this.$cantidadCarrito = this.enCarrito.length;
+                        
+                    }
+                    
+
+                    return productosLocal;
+
+                }
+                else
+                {
+                    
+                    await axios.get(ServeApi + "api/encarrito/" + this.idCliente)
                     .then((resultado) =>{
                         if (resultado.data != null)
                         {
-                            this.enCarrito = resultado.data;
+                            this.enCarrito = resultado.data;    
                             this.$cantidadCarrito = this.enCarrito.length;
+                            
                         }
-                        else
-                        {
-                            console.log("no hay data");
-                        }
-                    })
+        
+                    });
+
+                    
+                }
+              
+            },
+            async CargaInicial()
+            {
+                await axios.get(ServeApi + "api/cargainicial")
+                .then((resultado) => {
+                     this.monedas = resultado.data.monedas;
+                });
             },
             CambiarImagen(producto, regresar)
             {
@@ -342,10 +425,17 @@ require_once('menu.php');
         created() {
             this.ObtenerProductos();
         },
-        mounted() {
-            
+        async mounted() {
             
             this.idCliente = document.getElementById('idCliente').value;
+
+            if (this.idCliente.length == 0)
+            {
+                //local
+                this.status.esClienteLocal = true;
+            }
+
+            this.siglasMoneda = localStorage.getItem("moneda");
             this.ObtenerEnCarrito();
         },
         

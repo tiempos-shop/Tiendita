@@ -532,7 +532,8 @@ require_once('menu.php');
                                 <p class="font-weight-bold mt-2"><span id="monedaTotal"></span> <span class="ml-1" id="precioTotal">
                                 {{siglasMoneda}}  {{Number(total) | moneda}}
                                 </span></p>
-                                <input type="text" v-model="total" id="totalCompra">
+                                <input type="hidden" v-model="total" id="totalCompra">
+                                <input type="hidden" v-model="siglasMoneda" id="moneda">
                             </div>
                         </div>
                     </div>
@@ -911,7 +912,7 @@ require_once('menu.php');
             this.ObtenerDireccionPrincipal();
             await respuestaMonedas;
             this.idMoneda = idMoneda;
-            this.siglasMoneda = localStorage.getItem("moneda");;
+            this.siglasMoneda = localStorage.getItem("moneda");
         },
 
 
@@ -935,6 +936,7 @@ require_once('menu.php');
                                     
                                     var suma = document.getElementById('totalCompra').value;
 
+                                    console.log("SUMA", suma);
 
                                     if (suma == null)
                                     {

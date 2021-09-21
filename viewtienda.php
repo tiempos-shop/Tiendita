@@ -261,7 +261,8 @@ require_once('menu.php');
     <div class="container-fluid">
         <div class="row main">
             <div class='  col-md-6  paddingNone' >
-               
+
+
        
                 <div class=' ' v-for="(imagen, index) in imagenes" :key="index">
                     <img :id="'ids' + (index + 1)" class='img-fluid' :src="imagen.ruta" :data-big="imagen.ruta"
@@ -274,24 +275,30 @@ require_once('menu.php');
 
                     <input type="hidden" value="<?php echo $_GET["id"] ?>" id="idProducto">
                     <input type="hidden"  class="form-control" value="<?php  echo isset($_SESSION["idCliente"]) ? $_SESSION["idCliente"] : '' ?>" id="idCliente">
-                    <div class="row ">
+
+                    <div class="container p-4 m-4" v-if="status.cargandoProductos">
+                        <br><br>
+                        <div class="text-center"><i class='fa fa-spinner fa-spin' ></i></div>
+
+                    </div>
+                    <div class="row " v-else>
                         <div class='  col-md-12  ' >
                             <p style='font-family: NHaasGroteskDSPro-65Md;'>{{info.nombre}}</p>
                         </div>
                     </div>
-                    <div class="row ">
+                    <div class="row " v-if="!status.cargandoProductos">
                         <div class='  col-md-12  '>
                             <p>{{info.color}}</p>
                         </div>
                     </div>
                     <hr style='margin-top: 1em!important;' />
-                    <div class="row ">
+                    <div class="row " v-if="!status.cargandoProductos">
                         <div class='  col-md-12  small-font' id="descripcion">
                             <div v-html="info.descripcion"></div>
                         </div>
                     </div>
                     <hr style='margin-top: 1em!important;' />
-                    <div style='height: 25vh'><label style='padding-left: 40px'>{{siglasMoneda}} {{Number(producto.precio) | moneda}}</label></div>
+                    <div style='height: 25vh' v-if="!status.cargandoProductos"><label style='padding-left: 40px'>{{siglasMoneda}} {{Number(producto.precio) | moneda}}</label></div>
                     <hr style='margin: 0 0 0 0' />
                     <div class="btn-group" style="width:100%">
                         <button type="button" class="btn btn-block dropdown-toggle "
@@ -395,6 +402,7 @@ require_once('menu.php');
                 verVariantes:false,
                 agregadoAlCarrito: false,
                 esClienteLocal:false,
+                cargandoProductos:true,
             },
             idioma : '',
             siglasMoneda: '..'
@@ -487,7 +495,7 @@ require_once('menu.php');
            async ObtenerProducto()
            {
                var idProducto = document.getElementById('idProducto');
-
+               this.status.cargandoProductos = true;
                this.ObtenerMoneda();
 
                if (idProducto != null)
@@ -535,7 +543,7 @@ require_once('menu.php');
                         });
 
                    }
-
+                   this.status.cargandoProductos = false;
                    await this.ObtenerEnCarrito();
                     
                }
