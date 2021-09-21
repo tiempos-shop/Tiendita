@@ -18,6 +18,8 @@ try {
 $dataOpcionPais = "";
 $dataOpcionPais = "<input class='form-control'
     v-model='direccion.pais'
+    @change='ObtenerIdPais(direccion.pais)'
+    v-on:input='ObtenerIdPais(direccion.pais)'
     list='listaPais'
 name='pais' id='pais' maxlength='999999' placeholder='COUNTRY/REGION' style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em' /><datalist id='listaPais'>";
 
@@ -501,7 +503,7 @@ require_once('menu.php');
                 <div class="  col-md-3  ">
                     <div style="margin-top: 16px; display: inline-block;">
                         <div class="  ">
-                            {{siglasMoneda}} {{producto.precio}}
+                            {{siglasMoneda}} {{Number(producto.precioFinal) | moneda}}
                         </div>
                     </div>
                 </div>
@@ -583,6 +585,7 @@ require_once('menu.php');
             subtotal: 0,
             envio: 0,
             total:0,
+            paises:[],
             direccion:{
                 codigo_postal:'',
                 telefono:'',
@@ -594,7 +597,8 @@ require_once('menu.php');
                 pais:'',
                 estado:'',
                 colonia:'',
-                idDireccion:0
+                idDireccion:0,
+                idPais:0,
             },
             status:{
                 cotizando:false,
@@ -721,6 +725,7 @@ require_once('menu.php');
                     "cantidad_productos":this.enCarrito.length,
                     "idCliente": this.idCliente,
                     "productos": this.enCarrito,
+                    "idPais":this.direccion.idPais
                 }
                 var idiomaActual = "ESPAÑOL";
 
@@ -765,7 +770,24 @@ require_once('menu.php');
                     var info =resultado.data;
                     if (info.dias != null)
                     {
-                        
+                        /*convertir moneda de cotizacion */
+                        if (info.moneda != this.siglasMoneda && info.moneda == "MXN")
+                        {
+                            var monedaEncontrada = this.monedas.find((moneda) => moneda.siglas == "USD" );
+                            console.log("moneda encon", monedaEncontrada);
+
+                            info.precio = info.precio / monedaEncontrada.convertirMoneda;
+                            info.moneda = "USD";
+                        }
+                        if (info.moneda != this.siglasMoneda && info.moneda == "USD")
+                        {
+                            var monedaEncontrada = this.monedas.find((moneda) => moneda.siglas == "USD" );
+                            console.log("moneda encon", monedaEncontrada);
+
+                            info.precio = info.precio * monedaEncontrada.convertirMoneda;
+                            info.moneda = "MXN";
+                        }
+                        info.precio = info.precio.toFixed(2);
                         this.status.resultadoCotizacion = info.precio + " " + info.moneda + " " +  info.dias + " " +  this.textoDias;
                         this.envio = Number(info.precio);
                         this.SumarProductos();
@@ -780,7 +802,7 @@ require_once('menu.php');
                 var subtotal = 0;
                 this.enCarrito.forEach(element => {
                     
-                    subtotal += Number(element.cantidad) * Number(element.precio);
+                    subtotal += Number(element.cantidad) * Number(element.precioFinal);
                     
                 });
                 this.subtotal = Number(subtotal);
@@ -792,7 +814,7 @@ require_once('menu.php');
             async CargaInicial() {
                 await axios.get(ServeApi + "api/cargainicial")
                     .then((resultado) => {
-                        this.monedas = resultado.data;
+                        this.monedas = resultado.data.monedas;
                     });
             },
             async ObtenerDireccionPrincipal()
@@ -817,6 +839,7 @@ require_once('menu.php');
                     this.direccion.codigo_postal= data.CodigoPostal;
                     this.direccion.pais = data.Pais;
                     this.direccion.estado = data.estado;
+                    this.direccion.idPais = data.idPais;
                     this.CalcularEnvio();
                 });
             },
@@ -849,12 +872,24 @@ require_once('menu.php');
                 await axios.get(ServeApi + "api/encarrito/" + this.idCliente)
                     .then((resultado) => {
                         if (resultado.data != null) {
-                            
+
+
                             resultado.data.forEach(element => {
                                 element.enviando = false;
                             });
 
                             this.enCarrito = resultado.data;
+
+                            if (this.siglasMoneda = "USD")
+                            {
+
+                                var monedaEncontrada = this.monedas.find((moneda) => moneda.siglas == "USD" );
+                                console.log("moneda encon", monedaEncontrada);
+
+                                this.enCarrito.forEach(element => {
+                                    element.precioFinal = element.precio / monedaEncontrada.convertirMoneda;
+                                });
+                            }
 
                             this.$cantidadCarrito = this.enCarrito.length;
                             this.SumarProductos();
@@ -862,6 +897,22 @@ require_once('menu.php');
 
                     });
 
+            },
+            ObtenerIdPais(nombrePais)
+            {
+                console.log("buscando");
+                var resultado = this.paises.find((pais) => pais.nombre == nombrePais);
+                if (resultado != null)
+                {
+                    this.direccion.idPais = resultado.idPais;
+                }
+                else
+                {
+                    this.direccion.idPais = 0;
+                }
+
+                console.log("idpais", this.direccion.idPais);
+                
             },
             async EnviarCarritoLocal()
             {
@@ -902,17 +953,26 @@ require_once('menu.php');
             }
         },
         async mounted() {
+
             this.$cantidadCarrito = 0;
             this.idCliente = document.getElementById('idCliente').value;
-            var respuestaMonedas = this.CargaInicial();
-
+            await this.CargaInicial();
+            this.ObtenerDireccionPrincipal();
 
             await this.EnviarCarritoLocal();
-            await this.ObtenerCarrito();
-            this.ObtenerDireccionPrincipal();
-            await respuestaMonedas;
             this.idMoneda = idMoneda;
             this.siglasMoneda = localStorage.getItem("moneda");
+            await this.ObtenerCarrito();
+            
+            <?php echo "this.paises = ["; ?>
+                <?php 
+                foreach ($paises as $pais) {
+                   echo "{idPais : ".$pais->idPais.",";
+                   echo "nombre : '".$pais->nombre."'},";
+                } 
+                ?>
+            <?php echo "];"; ?>; 
+
         },
 
 
