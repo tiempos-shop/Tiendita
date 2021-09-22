@@ -51,7 +51,7 @@ $h = $html->Head(
     "Tiempos Shop",
     $html->Meta("utf-8", "Tienda Online de Tiempos Shop", "Egil Ordonez"),
     $html->LoadStyles(["global.css", "View/css/bootstrap.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
-    $html->LoadScripts(["View/js/bootstrap.js",  "js/axios.min.js", "js/vue.js", "js/global.js",]),
+    $html->LoadScripts(["View/js/bootstrap.js", "js/axios.min.js", "js/vue.js", "js/global.js", "https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js","https://cdn.conekta.io/js/latest/conekta.js"]),
     "",
     '<script>
                   function go(url){
@@ -65,6 +65,49 @@ $h = $html->Head(
                       let id=str.replace("_", "\'");
                       go("view.php?id="+id);
                   }
+                  
+                  Conekta.setPublicKey("key_eYvWV7gSDkNYXsmr");
+
+    var conektaSuccessResponseHandler= function(token){
+
+        $("#conektaTokenId").val(token.id);
+
+        jsPay();
+    };
+
+    var conektaErrorResponseHandler =function(response){
+        var $form=$("#card-form");
+
+        alert(response.message_to_purchaser);
+    }
+
+    $(document).ready(function(){
+
+        $("#card-form").submit(function(e){
+            e.preventDefault();
+
+            var $form=$("#card-form");
+
+            Conekta.Token.create($form,conektaSuccessResponseHandler,conektaErrorResponseHandler);
+        })
+
+    })
+
+    function jsPay(){
+        let params=$("#card-form").serialize();
+        let url="respuestaPago.php";
+
+        $.post(url,params,function(data){
+            alert(data);
+            jsClean();
+        })
+
+    }
+
+    function jsClean(){
+        $(".form-control").prop("value","");
+        $("#conektaTokenId").prop("value","");
+    }
                 </script>'
 
 );
