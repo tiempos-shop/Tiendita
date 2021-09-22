@@ -121,10 +121,10 @@ require_once('menu.php');
         <div id="app">
         <input type="hidden" value="<?php echo $_GET['clave']; ?>"  id="clave" >
 
-        <div >
+        <div>
             <h2 style="background-color: #555555;margin-top: 20%;" class="p-3 rounded text-white text-center"
                 v-if="!status.confirmado">
-                  espere... 
+                  Cuenta Confirmada, procede a Login
             </h2>
             <h1 style="background-color: #333333;margin-top: 20%;" class="p-3 rounded text-white text-center"
                 v-else>
