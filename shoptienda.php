@@ -302,11 +302,11 @@ require_once('menu.php');
                 });
                 
                 await inicial;
-                if (this.siglasMoneda = "USD")
+                if (this.siglasMoneda == "USD")
                 {
                         
                     var monedaEncontrada = this.monedas.find((moneda) => moneda.siglas == "USD" );
-                    console.log("moneda encon", monedaEncontrada);
+
                     
                 }
 
@@ -320,10 +320,15 @@ require_once('menu.php');
                         {
                             element.imagenPrincipal = '';
                         }
+                        element.precioFinal =element.precio;
                         element.cargandoImagen = false;
                         element.dentro = false;
-                        element.precioFinal = element.precio / monedaEncontrada.convertirMoneda;
-                        element.precioComparativo = element.precioComparativo / monedaEncontrada.convertirMoneda;
+                        if (this.siglasMoneda == "USD")
+                        {
+                            element.precioFinal = element.precio / monedaEncontrada.convertirMoneda;
+                            element.precioComparativo = element.precioComparativo / monedaEncontrada.convertirMoneda;
+                        }
+
                         
                     });
 
