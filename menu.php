@@ -17,11 +17,9 @@
         </div>
         <div class=" col-sm-2  " v-else>
             <span style="padding-left: 5%" >{{cliente.nombre}}</span>
-            <div>
-                <span class="text-muted" style="margin-top: -15px;" @click="CerrarSession()">
-                    <img src="img/push.png" alt="cerrarSesion" style="width: 32px;" />
+            <span class="text-muted"  @click="CerrarSession()">
+                    <img src="img/push.png" alt="cerrarSesion" style="width: 30px; margin-bottom: 10px" />
                 </span>
-            </div>
             
         </div>
         <div class="  col-md-2 " >
