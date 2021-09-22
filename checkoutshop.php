@@ -894,6 +894,7 @@ require_once('menu.php');
                     this.direccion.pais = data.Pais;
                     this.direccion.estado = data.estado;
                     this.direccion.idPais = data.idPais;
+                    this.direccion.colonia = data.Colonia;
                     this.CalcularEnvio();
                 });
             },
