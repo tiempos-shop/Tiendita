@@ -299,17 +299,27 @@ require_once('menu.php');
                     this.status.cargandoProductos = false;
                 }
 
+                var monedaEncontrada = this.monedas.find((moneda) => moneda.siglas == "USD" );
                  /*ajustar precio final conversion Moneda*/
-                if (this.siglasMoneda == "USD")
-                {
+
                         
-                    var monedaEncontrada = this.monedas.find((moneda) => moneda.siglas == "USD" );
-                    console.log("moneda encon", monedaEncontrada);
+
+
                     
                     this.enCarrito.forEach(element => {
-                        element.precioFinal = element.precio / monedaEncontrada.convertirMoneda;
+
+                        if (this.siglasMoneda == "USD")
+                        {
+
+                            element.precioFinal = element.precio / monedaEncontrada.convertirMoneda;
+                        }
+                        else
+                        {
+
+                            element.precioFinal = element.precio;
+                        }
                     });
-                }
+
                 
                 this.SumarProductos();
                 
@@ -333,6 +343,8 @@ require_once('menu.php');
 
             this.EstablecerRutaRedirigir();
 
+            this.idMoneda = idMoneda;
+            this.siglasMoneda = localStorage.getItem("moneda");
             
             await this.ObtenerCarrito();
                
@@ -345,8 +357,7 @@ require_once('menu.php');
                 });
                 
             }
-            this.idMoneda = idMoneda;
-            this.siglasMoneda = localStorage.getItem("moneda");
+
         },
         
 
