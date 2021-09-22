@@ -300,7 +300,7 @@ require_once('menu.php');
                 }
 
                  /*ajustar precio final conversion Moneda*/
-                if (this.siglasMoneda = "USD")
+                if (this.siglasMoneda == "USD")
                 {
                         
                     var monedaEncontrada = this.monedas.find((moneda) => moneda.siglas == "USD" );
