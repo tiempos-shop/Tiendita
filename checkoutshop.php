@@ -417,32 +417,78 @@ require_once('menu.php');
                 <div class="  col-md-2  ">
 
                 </div>
-                <div class="  col-md-4  ">
-                    <input class="form-control" name="name" id="name" maxlength="999999" placeholder="CARD NUMBER" style="border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em" />
-                </div>
-                <div class="  col-md-2  ">
-                    <input class="form-control" name="name" id="name" maxlength="999999" placeholder="EXPIRATION DAY" style="border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em" />
-                </div>
-                <div class="  col-md-4  ">
+                <div class="  col-md-8  ">
+                    <form id='card-form'>
 
-                </div>
-            </div>
-            <div class="row ">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 " style="height:1em">
+                        <input type='hidden' name='conektaTokenId' id='conektaTokenId' value=''>
 
-                </div>
-            </div>
-            <div class="row ">
-                <div class="  col-md-2  ">
+                        <div class='card'>
+                            <div class='card-header'>
+                                <div>
+                                    <h3>Pago en línea</h3>
+                                </div>
+                            </div>
+                            <div class='card-body'>
+                                <div class='row'>
+                                    <div class='col-md-6'>
+                                        <label>
+                                            Nombre del tarjetahabiente
+                                        </label>
+                                        <input value='Juan Ramirez Ledesma' data-conekta='card[name]' class='form-control' name='name' id='name'  type='text' >
+                                    </div>
+                                    <div class='col-md-6'>
+                                        <label>
+                                            Número de tarjeta
+                                        </label>
+                                        <input value='4242424242424242' name='card' id='card' data-conekta='card[number]' class='form-control'   type='text' maxlength='16' >
+                                    </div>
+                                </div>
+                                <div class='row'>
+                                    <div class='col-md-6'>
+                                        <label>
+                                            CVC
+                                        </label>
+                                        <input value='399' data-conekta='card[cvc]' class='form-control'  type='text' maxlength='4' >
+                                    </div>
+                                    <div class='col-md-6'>
+                                        <label>
+                                            Fecha de expiración (MM/AA)
+                                        </label>
+                                        <div>
+                                            <input style='width:50px; display:inline-block' value='11' data-conekta='card[exp_month]' class='form-control'  type='text' maxlength='2' >
+                                            <input style='width:50px; display:inline-block' value='22' data-conekta='card[exp_year]' class='form-control' type='text' maxlength='2' >
 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='row'>
+                                    <div class='col-md-4'>
+                                        <label><span>Email</span></label>
+                                        <input class='form-control' type='text' name='email' id='email' maxlength='200' value='pepepecaspicapapasconunpico666@gmail.com'>
+                                    </div>
+                                    <div class='col-md-4'>
+                                        <label>Concepto</label>
+                                        <input class='form-control' type='text' name='description' id='description' maxlength='100' value='papitas'>
+                                    </div>
+                                    <div class='col-md-4'>
+                                        <label>Monto</label>
+                                        <input class='form-control' type='number' name='total' id='total' value='30'>
+                                    </div>
+
+                                </div>
+                                <br>
+                                <div class='row'>
+                                    <div class='col-md-12' style='text-align:center;'>
+                                        <button class='btn btn-success btn-lg'>
+                                            <i class='fa fa-check-square'></i> PAGAR
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <div class="  col-md-4  ">
-                    <input class="form-control" name="name" id="name" maxlength="999999" placeholder="CARDHOLDDER´S NAME" style="border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em" />
-                </div>
-                <div class="  col-md-1  ">
-                    <input class="form-control" name="name" id="name" maxlength="999999" placeholder="CVV" style="border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em" />
-                </div>
-                <div class="  col-md-5  ">
 
                 </div>
             </div>
