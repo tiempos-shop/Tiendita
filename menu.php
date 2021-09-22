@@ -7,10 +7,10 @@
             <span @click="irAlUrl('shoptienda.php')">{{elemento.shop}} </span>
         </div>
         <div class="  col-md-2  " >
-            <span style="padding-left: 5%" @click="irAlUrl('archive.php')" >ARCHIVE</span>
+            <span style="padding-left: 5%" @click="irAlUrl('archive.php')" >{{elemento.archive}}</span>
         </div>
         <div class="  col-md-2  " >
-            <span style="padding-left: 20%" @click="irAlUrl('imprint.php')" >IMPRINT</span>
+            <span style="padding-left: 20%" @click="irAlUrl('imprint.php')" >{{elemento.imprint}}</span>
         </div>
         <div class=" col-sm-2  " v-if="cliente.nombre.length == 0">
             <span style="padding-left: 35%" @click="irAlUrl('loginshop.php')">LOGIN</span>
