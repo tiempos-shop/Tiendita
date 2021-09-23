@@ -47,7 +47,7 @@ class FrontComponents
                 2,0,2,0,"adjust"
             ),
             $this->ui->Columns(
-                "<span  style='right: 2%;position: absolute' onclick='go(\"cart.php\")'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5])."</span>",
+                "<span  style='right: 2%;position: absolute' onclick='go(\"carttienda.php\")'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5])."</span>",
                 2,0,2,0,""
             )
         ],"right").
@@ -123,7 +123,7 @@ class FrontComponents
                         $lines[$i]="<label style='right: 2%;position: absolute'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5]).$selected[5]."</label>";
                     }
                     else{
-                        $lines[$i]="<span style='right: 2%;position: absolute' onclick='go(\"cart.php\")'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5])."$selected[5]</span>";
+                        $lines[$i]="<span style='right: 2%;position: absolute' onclick='go(\"carttienda.php\")'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5])."$selected[5]</span>";
                     }
 
                     break;
@@ -230,7 +230,7 @@ class FrontComponents
                         $lines[$i]="<label style='right: 2%;position: absolute'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5]).$selected[5]."</label>";
                     }
                     else{
-                        $lines[$i]="<span style='right: 2%;position: absolute' onclick='go(\"cart.php\")'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5])."$selected[5]</span>";
+                        $lines[$i]="<span style='right: 2%;position: absolute' onclick='go(\"carttienda.php\")'>".$this->Cart($numeroProductosCarrito,$this->idioma[ $idiomaActual ]["MENU"][5])."$selected[5]</span>";
                     }
 
                     break;

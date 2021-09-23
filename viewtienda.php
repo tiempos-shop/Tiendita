@@ -298,7 +298,7 @@ require_once('menu.php');
                         </div>
                     </div>
                     <hr style='margin-top: 1em!important;' />
-                    <div style='height: 25vh' v-if="!status.cargandoProductos"><label style='padding-left: 40px'>{{siglasMoneda}} {{Number(producto.precio) | moneda}}</label></div>
+                    <div style='height: 25vh' v-if="!status.cargandoProductos"><label style='padding-left: 40px'>{{siglasMoneda}} {{Number(producto.precioFinal) | moneda}}</label></div>
                     <hr style='margin: 0 0 0 0' />
                     <div class="btn-group" style="width:100%">
                         <button type="button" class="btn btn-block dropdown-toggle "
@@ -496,7 +496,7 @@ require_once('menu.php');
            {
                var idProducto = document.getElementById('idProducto');
                this.status.cargandoProductos = true;
-               this.ObtenerMoneda();
+
 
                if (idProducto != null)
                {
@@ -539,6 +539,18 @@ require_once('menu.php');
                                 {
                                     this.imagenes =resultado.data.imagenes;
                                 }
+
+                                if (this.siglasMoneda == "USD")
+                                {
+
+                                    var monedaEncontrada = this.monedas.find((moneda) => moneda.siglas == "USD" );
+                                    this.producto.precioFinal = this.producto.precio / monedaEncontrada.convertirMoneda;
+                                }
+                                else
+                                {
+                                    this.producto.precioFinal = this.producto.precio;
+                                }
+
                             }
                         });
 
@@ -557,6 +569,13 @@ require_once('menu.php');
            {
                 this.siglasMoneda = localStorage.getItem("moneda");
            },
+            async CargaInicial()
+            {
+                await axios.get(ServeApi + "api/cargainicial")
+                    .then((resultado) => {
+                        this.monedas = resultado.data.monedas;
+                    });
+            },
            async ObtenerEnCarrito()
            {
                if (this.status.esClienteLocal)
@@ -600,9 +619,9 @@ require_once('menu.php');
                 
            }
         },
-        mounted() {
-            this.ObtenerMoneda();
-
+        async mounted() {
+            await this.ObtenerMoneda();
+            await this.CargaInicial();
             this.idioma = localStorage.getItem("idioma");
             
             if (this.idioma == null)

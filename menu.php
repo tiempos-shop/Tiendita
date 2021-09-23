@@ -7,23 +7,23 @@
             <span @click="irAlUrl('shoptienda.php')">{{elemento.shop}} </span>
         </div>
         <div class="  col-md-2  " >
-            <span style="padding-left: 5%" @click="irAlUrl('archive.php')" >ARCHIVE</span>
+            <span style="padding-left: 5%" @click="irAlUrl('archive.php')" >{{elemento.archive}}</span>
         </div>
         <div class="  col-md-2  " >
-            <span style="padding-left: 20%" @click="irAlUrl('imprint.php')" >IMPRINT</span>
+            <span style="padding-left: 20%" @click="irAlUrl('imprint.php')" >{{elemento.imprint}}</span>
         </div>
         <div class=" col-sm-2  " v-if="cliente.nombre.length == 0">
             <span style="padding-left: 35%" @click="irAlUrl('loginshop.php')">LOGIN</span>
         </div>
-        <div class=" col-sm-2  " v-else>
-            <span style="padding-left: 5%" >{{cliente.nombre}}</span>
-            <div>
-                <span class="text-muted" style="margin-top: -15px;" @click="CerrarSession()">Cerrar sessión</span>
-            </div>
+        <div class=" col-sm-2  " style="margin-top: -8px" v-else>
+            <span style="padding-left: 20%;" >{{cliente.nombre}}</span>
+            <span class="text-muted"  @click="CerrarSession()">
+                    <img src="img/push.png" alt="cerrarSesion" style="width: 30px; margin-bottom: 10px" />
+                </span>
             
         </div>
         <div class="  col-md-2 " >
-            <span style="padding-left: 35%" @click="EstablecerIdioma()">{{idioma}}</span>
+            <span style="padding-left: 50%" @click="EstablecerIdioma()">{{idioma}}</span>
         </div>
         <div class="  col-md-2  " >
             <span style="right: 2%;position: absolute" @click="irAlUrl('carttienda.php')">CART({{$cantidadCarrito}})</span>

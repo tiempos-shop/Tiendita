@@ -96,7 +96,7 @@ require_once('menu.php');
                                     @mouseover="producto.dentro = true; CambiarImagen(producto,false)"
                                     @mouseleave="producto.dentro = false; CambiarImagen(producto,true)" style="width: 100%"><br /><br />
                     <p style="font-family: NHaasGroteskDSPro-65Md;line-height: 1">{{producto.color}}</p>
-                    <p><s style="font-size: 0.7rem;" v-if="producto.precioComparativo>0 && producto.precioComparativo != producto.precioFinal">USD {{Number(producto.precioComparativo) | moneda}}</s> USD {{Number(producto.precioFinal) | moneda}}</p>
+                    <p><s style="font-size: 0.7rem;" v-if="producto.precioComparativo>0 && producto.precioComparativo != producto.precioFinal">{{siglasMoneda}} {{Number(producto.precioComparativo) | moneda}}</s> {{siglasMoneda}} {{Number(producto.precioFinal) | moneda}}</p>
                 </div>
                 
             </div>
@@ -302,11 +302,11 @@ require_once('menu.php');
                 });
                 
                 await inicial;
-                if (this.siglasMoneda = "USD")
+                if (this.siglasMoneda == "USD")
                 {
                         
                     var monedaEncontrada = this.monedas.find((moneda) => moneda.siglas == "USD" );
-                    console.log("moneda encon", monedaEncontrada);
+
                     
                 }
 
@@ -320,10 +320,15 @@ require_once('menu.php');
                         {
                             element.imagenPrincipal = '';
                         }
+                        element.precioFinal =element.precio;
                         element.cargandoImagen = false;
                         element.dentro = false;
-                        element.precioFinal = element.precio / monedaEncontrada.convertirMoneda;
-                        element.precioComparativo = element.precioComparativo / monedaEncontrada.convertirMoneda;
+                        if (this.siglasMoneda == "USD")
+                        {
+                            element.precioFinal = element.precio / monedaEncontrada.convertirMoneda;
+                            element.precioComparativo = element.precioComparativo / monedaEncontrada.convertirMoneda;
+                        }
+
                         
                     });
 
@@ -423,6 +428,7 @@ require_once('menu.php');
             }
         },
         created() {
+            this.siglasMoneda = localStorage.getItem("moneda");
             this.ObtenerProductos();
         },
         async mounted() {
@@ -435,8 +441,8 @@ require_once('menu.php');
                 this.status.esClienteLocal = true;
             }
 
-            this.siglasMoneda = localStorage.getItem("moneda");
-            this.ObtenerEnCarrito();
+
+            await this.ObtenerEnCarrito();
         },
         
 

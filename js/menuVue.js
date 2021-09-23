@@ -22,7 +22,8 @@ var menuApp = new Vue({
         elemento: {
             shop: 'SHOP',
             archive: 'ARCHIVE',
-            imprimt : 'IMPRINT'
+            imprint : 'IMPRINT',
+
         },
         totalEnCarrito:0,
         idioma:'-'
@@ -113,6 +114,20 @@ var menuApp = new Vue({
     async mounted() {
         var nombreCliente = document.getElementById("nombre");
         this.idioma = this.ObtenerIdioma();
+
+        /*Condición para traducción*/
+        /*Archivo, marca */
+        if (this.idioma == "ENGLISH")
+        {
+            this.elemento.archive = "ARCHIVO";
+            this.elemento.imprint = "MARCA";
+        }
+        else
+        {
+            this.elemento.archive = "ARCHIVE";
+            this.elemento.imprint = "IMPRINT";
+        }
+
 
         if (nombreCliente != null)
         {
