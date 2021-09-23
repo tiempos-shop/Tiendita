@@ -24,8 +24,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive.php" beforeDir="false" afterPath="$PROJECT_DIR$/archive.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imprint.php" beforeDir="false" afterPath="$PROJECT_DIR$/imprint.php" afterDir="false" />
     </list>
     <list id="0e8517e8-4849-4dba-b416-5f3e44a7d134" name="Archivos XML" comment="Para documentos basura" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,6 +101,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -319,14 +318,7 @@
       <workItem from="1631640625139" duration="2940000" />
       <workItem from="1631644180516" duration="11000" />
       <workItem from="1631924292258" duration="824000" />
-      <workItem from="1632101634687" duration="8032000" />
-    </task>
-    <task id="LOCAL-00090" summary="Imprints">
-      <created>1614818788406</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1614818788406</updated>
+      <workItem from="1632101634687" duration="15229000" />
     </task>
     <task id="LOCAL-00091" summary="archive">
       <created>1614820585473</created>
@@ -664,7 +656,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632147164165</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="Correccion Archive Inprint">
+      <created>1632247639266</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1632247639266</updated>
+    </task>
+    <option name="localTasksCounter" value="140" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -695,7 +694,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Crear Login Face &amp; Google" />
     <MESSAGE value="Sale en priductos" />
     <MESSAGE value="Cambios Archive" />
     <MESSAGE value="Cambios Logged" />
@@ -720,7 +718,8 @@
     <MESSAGE value="Correccion guardar login. Cacha errores de base de datos" />
     <MESSAGE value="Correccion guardar login facebook." />
     <MESSAGE value="Despliegue de Menu lateral Productos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Despliegue de Menu lateral Productos" />
+    <MESSAGE value="Correccion Archive Inprint" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correccion Archive Inprint" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
