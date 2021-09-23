@@ -205,7 +205,7 @@ require_once('menu.php');
 
                     producto.enviando = false;
                 },
-            async CambiarCantidad(producto)
+            /* async CambiarCantidad(producto)
             {
                 producto.enviando = true;
 
@@ -232,7 +232,7 @@ require_once('menu.php');
 
                 producto.enviando = false;
 
-            },
+            },*/
             SumarProductos()
             {
                 var subtotal = 0;
