@@ -205,6 +205,34 @@ require_once('menu.php');
 
                     producto.enviando = false;
                 },
+            async CambiarCantidad(producto)
+            {
+                producto.enviando = true;
+
+                try {
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    console.log("envio terminado");
+
+                    producto.idCliente = this.idCliente;
+                    await axios.post(ServeApi + "api/encarrito", { "producto" : producto, "movimiento":"MODIFICAR"})
+                        .then((resultado) =>{
+
+                            if (resultado.data.idDetalle > 0)
+                            {
+                                console.log("actualizado");
+                            }
+                        }).catch((problema) =>{
+
+                        });
+
+                    await this.ObtenerCarrito();
+                } catch (error) {
+
+                }
+
+                producto.enviando = false;
+
+            },
             SumarProductos()
             {
                 var subtotal = 0;
