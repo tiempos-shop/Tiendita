@@ -737,7 +737,7 @@ require_once('menu.php');
                     await new Promise(resolve => setTimeout(resolve, 1000));
                     console.log("envio terminado");
 
-                    /*producto.idCliente = this.idCliente;*/
+                    producto.idCliente = this.idCliente;
                     await axios.post(ServeApi + "api/encarrito", { "producto" : producto, "movimiento":"MODIFICAR"})
                     .then((resultado) =>{
                         
