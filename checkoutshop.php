@@ -444,8 +444,7 @@ require_once('menu.php');
 
                 </div>
                 <div class="  col-md-4  ">
-               
-                    CARD DETAILS
+
                 </div>
                 <div class="  col-md-4  ">
 
@@ -471,7 +470,8 @@ require_once('menu.php');
                         <div class='card'>
                             <div class='card-header'>
                                 <div>
-                                    <h3>Pago en línea</h3>
+                                    <h3>Pago en línea <img src="img/conekta.png" alt="cerrarSesion" style="width: 100px;" /></h3>
+
                                 </div>
                             </div>
                             <div class='card-body'>
@@ -518,7 +518,7 @@ require_once('menu.php');
                                     </div>
                                     <div class='col-md-4'>
                                         <label>Monto</label>
-                                        <input class='form-control' type='number' name='total' id='total' value='30'>
+                                        <input class='form-control' type='number' name='total' id='total' value=''>
                                     </div>
 
                                 </div>
@@ -740,8 +740,8 @@ require_once('menu.php');
                 try {
                     await new Promise(resolve => setTimeout(resolve, 1000));
                     console.log("envio terminado");
-                    
 
+                    producto.idCliente = this.idCliente;
                     await axios.post(ServeApi + "api/encarrito", { "producto" : producto, "movimiento":"MODIFICAR"})
                     .then((resultado) =>{
                         

@@ -15,15 +15,15 @@
         <div class=" col-sm-2  " v-if="cliente.nombre.length == 0">
             <span style="padding-left: 35%" @click="irAlUrl('loginshop.php')">LOGIN</span>
         </div>
-        <div class=" col-sm-2  " v-else>
-            <span style="padding-left: 5%" >{{cliente.nombre}}</span>
+        <div class=" col-sm-2  " style="margin-top: -8px" v-else>
+            <span style="padding-left: 20%;" >{{cliente.nombre}}</span>
             <span class="text-muted"  @click="CerrarSession()">
                     <img src="img/push.png" alt="cerrarSesion" style="width: 30px; margin-bottom: 10px" />
                 </span>
             
         </div>
         <div class="  col-md-2 " >
-            <span style="padding-left: 35%" @click="EstablecerIdioma()">{{idioma}}</span>
+            <span style="padding-left: 50%" @click="EstablecerIdioma()">{{idioma}}</span>
         </div>
         <div class="  col-md-2  " >
             <span style="right: 2%;position: absolute" @click="irAlUrl('carttienda.php')">CART({{$cantidadCarrito}})</span>

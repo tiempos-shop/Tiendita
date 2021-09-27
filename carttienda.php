@@ -79,10 +79,13 @@ require_once('menu.php');
             </div>
             <div class="  col-md-1  " >
                 <div class="d-flex" style="margin-top: 16px;">
-                    <form method="post" action="" name="T0001_02"><button type="submit"
-                            style="border:0 solid transparent;background-color:transparent;display: inline-block">X</button>
-                    </form><input onchange="edit(this,'T0001_02');" type="text" maxlength="1" v-model="producto.cantidad"
-                        style="width: 25px;padding-left: 5px;">
+
+                    <button type="submit" style="border:0 solid transparent;background-color:transparent;display: inline-block"
+                            @click="EliminarProducto(producto)">X</button>
+                    <input @change="CambiarCantidad(producto)" type="number"
+                           :max="producto.inventario"
+                           :disabled="producto.enviando"
+                           v-model="producto.cantidad" style="width: 65px;padding-left: 5px;">
                 </div>
             </div>
             <div class="  col-md-1  " >
@@ -154,6 +157,7 @@ require_once('menu.php');
         return formatter.format(value);
     });
 
+
       var app = new Vue({
         el:'#app',
         data:{
@@ -172,6 +176,61 @@ require_once('menu.php');
             IrACheckOut()
             {
                 location.href = "checkoutshop.php";
+
+            },
+                async EliminarProducto(producto)
+                {
+                    producto.enviando = true;
+
+                    try {
+                        await new Promise(resolve => setTimeout(resolve, 1000));
+                        console.log("envio terminado");
+
+                        producto.idCliente = this.idCliente;
+                        await axios.post(ServeApi + "api/encarrito", { "producto" : producto, "movimiento":"ELIMINAR"})
+                            .then((resultado) =>{
+
+                                if (resultado.data == "eliminado")
+                                {
+                                    console.log("eliminado");
+                                }
+                            }).catch((problema) =>{
+
+                            });
+
+                        await this.ObtenerCarrito();
+                    } catch (error) {
+
+                    }
+
+                    producto.enviando = false;
+                },
+            async CambiarCantidad(producto)
+            {
+                producto.enviando = true;
+
+                try {
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    console.log("envio terminado");
+
+                    producto.idCliente = this.idCliente;
+                    await axios.post(ServeApi + "api/encarrito", { "producto" : producto, "movimiento":"MODIFICAR"})
+                        .then((resultado) =>{
+
+                            if (resultado.data.idDetalle > 0)
+                            {
+                                console.log("actualizado");
+                            }
+                        }).catch((problema) =>{
+
+                        });
+
+                    await this.ObtenerCarrito();
+                } catch (error) {
+
+                }
+
+                producto.enviando = false;
 
             },
             SumarProductos()
