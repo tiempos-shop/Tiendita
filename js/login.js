@@ -28,7 +28,8 @@ var app = new Vue({
             inicioConfirmado:false,
         },
         problemas:{
-            sistema:''
+            sistema:'',
+            inicio:""
         }
 
     },
@@ -46,7 +47,7 @@ var app = new Vue({
         },
         async Iniciar()
         {
-            
+            this.problemas.inicio = "";
             this.problemas.sistema = "";
             try {
                 this.status.iniciando = true;
@@ -82,11 +83,17 @@ var app = new Vue({
                     };
                     
                 }).catch((problemas) =>{
+
                     this.problemas.sistema = "ocurrio un problema con el inicio de sesión";
+
+                    if (problemas.response.data)
+                    {
+                        this.problemas.inicio = problemas.response.data;
+                    }
                     this.status.iniciando = false;
                 });
             } catch (error) {
-                
+                this.status.iniciando = false;
             }
             
             this.status.iniciando = false;

@@ -343,6 +343,9 @@ require_once('menu.php');
             <label class="form-check-label ml-1 text-muted" for="opcionEnvio1" id="postalcodetext">
                 {{status.resultadoCotizacion}}
             </label>
+            <div class="p-1 text-danger" v-if="errores.envio.length>0">
+                {{errores.envio}}
+            </div>
           
         </div>
         <div class="  col-md-4  ">
@@ -698,7 +701,8 @@ require_once('menu.php');
                 procesadoEstatus:'PLACE ORDER',
             },
             errores:{
-                sistema:''
+                sistema:'',
+                envio:''
             }
         },
         methods: {
@@ -814,7 +818,7 @@ require_once('menu.php');
             },
             async CalcularEnvio()
             {
-               
+                this.errores.envio = "";
                 var data = {
                     "precio": this.subtotal,
                     "moneda": this.siglasMoneda,
@@ -860,36 +864,64 @@ require_once('menu.php');
                     }
                     return;
                 }
+                try {
+                    await axios.post(ServeApi + "api/envios_mov/cotizar", data)
+                        .then((resultado) => {
 
-                await axios.post(ServeApi + "api/envios_mov/cotizar", data)
-                .then((resultado) => {
-                    
-                    var info =resultado.data;
-                    if (info.dias != null)
+                            var info =resultado.data;
+                            if (info.dias != null)
+                            {
+                                /*convertir moneda de cotizacion */
+                                if (info.moneda != this.siglasMoneda && info.moneda == "MXN")
+                                {
+                                    var monedaEncontrada = this.monedas.find((moneda) => moneda.siglas == "USD" );
+                                    console.log("moneda encon", monedaEncontrada);
+
+                                    info.precio = info.precio / monedaEncontrada.convertirMoneda;
+                                    info.moneda = "USD";
+                                }
+                                if (info.moneda != this.siglasMoneda && info.moneda == "USD")
+                                {
+                                    var monedaEncontrada = this.monedas.find((moneda) => moneda.siglas == "USD" );
+                                    console.log("moneda encon", monedaEncontrada);
+
+                                    info.precio = info.precio * monedaEncontrada.convertirMoneda;
+                                    info.moneda = "MXN";
+                                }
+                                info.precio = info.precio.toFixed(2);
+                                this.status.resultadoCotizacion = info.precio + " " + info.moneda + " " +  info.dias + " " +  this.textoDias;
+                                this.envio = Number(info.precio);
+                                this.SumarProductos();
+                            }
+                        })
+                        .catch((problema)=>
+                        {
+                            if (problema.response)
+                            {
+                                console.log("problema resp",problema.response);
+                            }
+                            if (problema.response.data)
+                            {
+                                console.log("problema data",problema.response.data);
+                                this.errores.envio = problema.response.data;
+                            }
+                            this.status.resultadoCotizacion = "INPUT POSTAL CODE FIRST";
+                            this.status.cotizando = false;
+                        });
+                }
+                catch (problema){
+                    this.status.cotizando = false;
+                    if (problema.response)
                     {
-                        /*convertir moneda de cotizacion */
-                        if (info.moneda != this.siglasMoneda && info.moneda == "MXN")
-                        {
-                            var monedaEncontrada = this.monedas.find((moneda) => moneda.siglas == "USD" );
-                            console.log("moneda encon", monedaEncontrada);
-
-                            info.precio = info.precio / monedaEncontrada.convertirMoneda;
-                            info.moneda = "USD";
-                        }
-                        if (info.moneda != this.siglasMoneda && info.moneda == "USD")
-                        {
-                            var monedaEncontrada = this.monedas.find((moneda) => moneda.siglas == "USD" );
-                            console.log("moneda encon", monedaEncontrada);
-
-                            info.precio = info.precio * monedaEncontrada.convertirMoneda;
-                            info.moneda = "MXN";
-                        }
-                        info.precio = info.precio.toFixed(2);
-                        this.status.resultadoCotizacion = info.precio + " " + info.moneda + " " +  info.dias + " " +  this.textoDias;
-                        this.envio = Number(info.precio);
-                        this.SumarProductos();
+                        console.log("problema resp",problema.response);
                     }
-                });
+
+                    if (problema.response.data)
+                    {
+                        console.log("problema data",problema.response.data);
+                    }
+
+                };
                 this.status.cotizando = false;
             },
             IrACheckOut() {

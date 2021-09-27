@@ -200,6 +200,10 @@ require_once('menu.php');
                             style='border-radius: 0;'
                             :disabled="status.iniciando || status.inicioConfirmado"
                             @click="Iniciar()">LOGIN</button>
+
+                        <div class="p-1 text-danger" v-if="problemas.inicio.length>0">
+                            {{problemas.inicio}}
+                        </div>
                     </div>
                 </div>
             

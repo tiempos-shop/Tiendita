@@ -8,7 +8,7 @@ console.log("es production", esProduction);
 
 if (esProduction == -1)
 {
-  ServeApi = "http://softquimia.com/adminshop/public/";
+  ServeApi = "https://softquimia.com/adminshop/public/";
 }
 
 var idMoneda = 1;
