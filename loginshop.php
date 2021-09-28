@@ -299,6 +299,9 @@ require_once('menu.php');
                             Revisa tu correo para confirmar la cuenta
                         </div>
                     </div>
+                    <div class="p-1 text-danger" v-if="problemas.registrar.length>0">
+                        {{problemas.registrar}}
+                    </div>
                 </div>
             
         </div>

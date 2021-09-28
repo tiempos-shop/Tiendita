@@ -29,7 +29,8 @@ var app = new Vue({
         },
         problemas:{
             sistema:'',
-            inicio:""
+            inicio:"",
+            registrar:""
         }
 
     },
@@ -108,6 +109,43 @@ var app = new Vue({
                 {
                     this.status.confirmadoEnvio = true;
                 }
+            }).
+            catch((problemas)=>
+            {
+                this.status.enviando = false;
+                this.problemas.registrar = "ocurrio un problema con el registro";
+                var respuesta = problemas.response.data;
+                if (respuesta)
+                {
+                    this.problemas.registrar = "problem!";
+                    if (respuesta.name)
+                    {
+                        this.problemas.registrar = respuesta.name;
+                    }
+                    if (respuesta.lastname)
+                    {
+                        this.problemas.registrar = respuesta.lastname;
+                    }
+                    if (respuesta.email)
+                    {
+                        this.problemas.registrar = respuesta.email;
+                    }
+                    if (respuesta.password)
+                    {
+                        this.problemas.registrar = respuesta.password;
+                    }
+                    if (respuesta.password2)
+                    {
+                        this.problemas.registrar = respuesta.password2;
+                    }
+                    if (respuesta.sistema)
+                    {
+                        this.problemas.registrar = respuesta.sistema;
+                    }
+                }
+
+
+
             });
 
             this.status.enviando = false;
