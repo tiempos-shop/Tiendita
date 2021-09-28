@@ -1010,7 +1010,7 @@ require_once('menu.php');
 
                             this.enCarrito = resultado.data;
 
-                            if (this.siglasMoneda = "USD")
+                            if (this.siglasMoneda == "USD")
                             {
 
                                 var monedaEncontrada = this.monedas.find((moneda) => moneda.siglas == "USD" );
@@ -1018,6 +1018,12 @@ require_once('menu.php');
 
                                 this.enCarrito.forEach(element => {
                                     element.precioFinal = element.precio / monedaEncontrada.convertirMoneda;
+                                });
+                            }
+                            else
+                            {
+                                this.enCarrito.forEach(element => {
+                                    element.precioFinal = element.precio;
                                 });
                             }
 
@@ -1092,6 +1098,7 @@ require_once('menu.php');
             await this.EnviarCarritoLocal();
             this.idMoneda = idMoneda;
             this.siglasMoneda = localStorage.getItem("moneda");
+            console.log("siglas",this.siglasMoneda);
             await this.ObtenerCarrito();
             
             <?php echo "this.paises = ["; ?>
