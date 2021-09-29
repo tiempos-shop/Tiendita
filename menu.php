@@ -1,5 +1,6 @@
 <?php
 
+include_once ("Data/Connection/EntidadBase.php");
 $db=new \Tiendita\EntidadBase();
 $menu = $db->getAll("menus");
 

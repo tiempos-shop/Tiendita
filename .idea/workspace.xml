@@ -24,6 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c7384e96-ce64-4593-9c40-2709c2ca496f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/menu.php" afterDir="false" />
     </list>
     <list id="0e8517e8-4849-4dba-b416-5f3e44a7d134" name="Archivos XML" comment="Para documentos basura" />
     <option name="SHOW_DIALOG" value="false" />
@@ -318,14 +319,9 @@
       <workItem from="1631640625139" duration="2940000" />
       <workItem from="1631644180516" duration="11000" />
       <workItem from="1631924292258" duration="824000" />
-      <workItem from="1632101634687" duration="15229000" />
-    </task>
-    <task id="LOCAL-00091" summary="archive">
-      <created>1614820585473</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1614820585473</updated>
+      <workItem from="1632101634687" duration="15957000" />
+      <workItem from="1632712045071" duration="797000" />
+      <workItem from="1632948557943" duration="878000" />
     </task>
     <task id="LOCAL-00092" summary="archive">
       <created>1614821380854</created>
@@ -663,11 +659,28 @@
       <option name="project" value="LOCAL" />
       <updated>1632247639266</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="Correccion Home">
+      <created>1632359536676</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1632359536676</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -694,7 +707,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Sale en priductos" />
     <MESSAGE value="Cambios Archive" />
     <MESSAGE value="Cambios Logged" />
     <MESSAGE value="Correcciones Login, Checkout" />
@@ -719,7 +731,8 @@
     <MESSAGE value="Correccion guardar login facebook." />
     <MESSAGE value="Despliegue de Menu lateral Productos" />
     <MESSAGE value="Correccion Archive Inprint" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correccion Archive Inprint" />
+    <MESSAGE value="Correccion Home" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correccion Home" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
