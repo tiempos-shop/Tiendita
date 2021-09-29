@@ -24,7 +24,7 @@ print_r($htmlPrincipal);
 $h = $html->Head(
     "Tiempos Shop",
     $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
-    $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
+    $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", "css/menumovil.css"]),
     $html->LoadScripts(["View/js/bootstrap.js", "js/axios.min.js", "js/vue.js", "js/global.js"]),
     "",
     '<script>
@@ -79,8 +79,8 @@ require_once('menu.php');
 <div id="app">
 
     <img onclick='go("index.php")' alt='SP' id='logo' class='fixed-top' src='img/ts_iso_negro.png'
-         style='width: 7%'>
-    <div style='margin-left: 15%;margin-right: 15%'>
+         >
+    <div style='margin-left: 15%;margin-right: 15%' id="contenedorIndex">
         <div class="row mt-2">
             <div class="container p-4 m-4" v-if="status.cargandoProductos">
                 <br><br>
@@ -103,7 +103,7 @@ require_once('menu.php');
         </div>
 
       
-        <div style='position: fixed;top:8.5vh;margin-left: -12vw'>
+        <div style='position: fixed;top:8.5vh;margin-left: -12vw' class="d-none d-md-block">
             <a @click='ObtenerProductos(0)'  class='d-block text-dark p-1' style="cursor: pointer;">SHOP ALL'</a>
             <?php
             foreach ($menu as $valor) {
@@ -127,7 +127,7 @@ require_once('menu.php');
             ?>
         </div>
 
-        <div class='small' style='position: fixed;display: inline-block;top: 8.5vh;right: 1.6vw;width:11vw'>
+        <div class='small d-none d-md-block' style='position: fixed;display: inline-block;top: 8.5vh;right: 1.6vw;width:11vw'>
             <label onclick='filter()' id='s' style='font-size: 0.9rem;'>SORT +</label>
             <div id='sMenu' style='color:white;background-color: gray;border-radius: 5px;display: none'>
                 <div class='container-fluid'
@@ -192,6 +192,7 @@ require_once('menu.php');
             </div>
         </div>
         <div style='position: inherit;bottom: 0;margin-bottom: 0.8rem; min-height: 150px;'
+             id="politicadesktop"
              class='col-md-8 col-sm-12 text-right pr-4 pl-4 d-flex align-items-end'>
         <span class='small mr-4 col-md-6'
               onclick='go("privacy.php")'> PRIVACY POLICY</span><span onclick='go("shipping.php")'

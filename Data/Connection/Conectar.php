@@ -13,7 +13,7 @@ class Conectar{
 
     public function __construct() {
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-        $db_cfg = require_once 'Database.php';
+        $db_cfg = require 'Database.php';
         $this->driver=$db_cfg["driver"];
         $this->host=$db_cfg["host"];
         $this->user=$db_cfg["user"];

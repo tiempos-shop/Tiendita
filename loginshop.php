@@ -2,6 +2,7 @@
 use Administracion\VistasHtml;
 
 include_once "View/Componentes/Administracion/VistasHtml.php";
+include_once "Data/Connection/EntidadBase.php";
 
 $html = new VistasHtml();
 session_start();
@@ -18,7 +19,7 @@ $h = $html->Html5Shop(
     $html->Head(
         "Tiempos Shop",
         $html->Meta("utf-8", "Tienda Online de Tiempos Shop", "Egil Ordonez"),
-        $html->LoadStyles(["global.css", "View/css/bootstrap.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
+        $html->LoadStyles(["global.css", "View/css/bootstrap.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", "css/menumovil.css"]),
         $html->LoadScripts(["vendor/jquery/jquery.js", "js/axios.min.js", "View/js/bootstrap.js", "js/vue.js", "js/global.js"]),
         "
             <style>
@@ -157,103 +158,104 @@ print_r($h);
 require_once('menu.php');
 ?>
 
-<img onclick='go("index.php")' alt='SP' id='logo' class='fixed-top' src='img/ts_iso_negro.png' style='width: 7%'>
+<img onclick='go("index.php")' alt='SP' id='logo' class='fixed-top' src='img/ts_iso_negro.png' >
 <div class="container-fluid" id="app">
-    <div class="row ">
-        <div class='  col-md-12  ' style='text-align:center;margin-top:100px'>
-            <label style='font-family: NHaasGroteskDSPro-65Md'>LOGIN</label>
+    <div id="contenedorIndex">
+        <div class="row ">
+            <div class='  col-md-12  ' style='text-align:center;margin-top:100px'>
+                <label style='font-family: NHaasGroteskDSPro-65Md'>LOGIN</label>
+            </div>
         </div>
-    </div>
-    <div class="row ">
-        <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 ' style='height:2vh'>
+        <div class="row ">
+            <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 ' style='height:2vh'>
 
+            </div>
         </div>
-    </div>
-    <div class="row ">
-        <div class='  col-md-4  '>
+        <div class="row ">
+            <div class='  col-md-4  '>
 
-        </div>
-        <div class='  col-md-4  ' style='text-align:center;'>
-            
-            <input type="hidden"  class="form-control" value="<?php  echo isset($_SESSION["idCliente"]) ? $_SESSION["idCliente"] : '' ?>" id="idCliente">
+            </div>
+            <div class='  col-md-4  ' style='text-align:center;'>
 
-            <input class='form-control' name='login' id='login' maxlength='999999' 
-                placeholder='EMAIL ADDRES' v-model="login.email"
-                style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em' />
+                <input type="hidden"  class="form-control" value="<?php  echo isset($_SESSION["idCliente"]) ? $_SESSION["idCliente"] : '' ?>" id="idCliente">
+
+                <input class='form-control' name='login' id='login' maxlength='999999'
+                       placeholder='EMAIL ADDRES' v-model="login.email"
+                       style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em' />
                 <div class="row ">
                     <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 ' style='height:1vh'>
 
                     </div>
                 </div>
                 <div class='input-group'>
-                    <input type='password' class='form-control' name='password' 
-                        id='password' placeholder='PASSWORD' v-model="login.password"
-                        style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em'>
-                        <a href='#' onclick='seteyePassword(this);' style='position: absolute; right: 10px;z-index: 99;top: 2px;'>
+                    <input type='password' class='form-control' name='password'
+                           id='password' placeholder='PASSWORD' v-model="login.password"
+                           style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em'>
+                    <a href='#' onclick='seteyePassword(this);' style='position: absolute; right: 10px;z-index: 99;top: 2px;'>
                         <i class='fa fa-eye-slash' style='color: black;' aria-hidden='true'></i></a>
                 </div>
                 <button   class='btn small-font'>FORGOT
                     YOUR PASSWORD?</button>
                 <div class="form-group row">
                     <div class="col-sm-12">
-                        <button class='btn btn-block ' :class="!status.inicioConfirmado ? 'btn-dark' : ''"   
-                            style='border-radius: 0;'
-                            :disabled="status.iniciando || status.inicioConfirmado"
-                            @click="Iniciar()">LOGIN</button>
+                        <button class='btn btn-block ' :class="!status.inicioConfirmado ? 'btn-dark' : ''"
+                                style='border-radius: 0;'
+                                :disabled="status.iniciando || status.inicioConfirmado"
+                                @click="Iniciar()">LOGIN</button>
 
                         <div class="p-1 text-danger" v-if="problemas.inicio.length>0">
                             {{problemas.inicio}}
                         </div>
                     </div>
                 </div>
-            
-            <div class="row ">
-                <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 ' style='height:1vh'>
 
+                <div class="row ">
+                    <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 ' style='height:1vh'>
+
+                    </div>
                 </div>
+
+                <form id="formFacebook" >
+                    <input type="hidden" value="" name="email" id="email">
+                    <input type="hidden" value="" name="name" id="name">
+                    <input type="hidden" value="" name="lastname" id="lastname">
+                    <input type="hidden" value="" name="password1" id="password1">
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <button type="button"  onclick='loginFacebook(this)' class='btn btn-block' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: "NHaasGroteskDSPro-65Md"'>LOGIN
+                                WITH FACEBOOK</button>
+                        </div>
+                    </div>
+                </form>
+
+                <form method='post' action=''>
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <!--  <button class='btn btn-block' formaction='customerLogin.php?action=google'  style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: "NHaasGroteskDSPro-65Md"'>LOGIN
+                                  WITH GOOGLE</button> -->
+                        </div>
+                    </div>
+                </form>
             </div>
 
-            <form id="formFacebook" >
-                <input type="hidden" value="" name="email" id="email">
-                <input type="hidden" value="" name="name" id="name">
-                <input type="hidden" value="" name="lastname" id="lastname">
-                <input type="hidden" value="" name="password1" id="password1">
-                <div class="form-group row">
-                    <div class="col-sm-12">
-                        <button type="button"  onclick='loginFacebook(this)' class='btn btn-block' style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: "NHaasGroteskDSPro-65Md"'>LOGIN
-                            WITH FACEBOOK</button>
-                    </div>
-                </div>
-            </form>
-
-            <form method='post' action=''>
-                <div class="form-group row">
-                    <div class="col-sm-12">
-                      <!--  <button class='btn btn-block' formaction='customerLogin.php?action=google'  style='border-radius: 0;border-color: black;background-color: white;margin-top: 1em;font-family: "NHaasGroteskDSPro-65Md"'>LOGIN
-                            WITH GOOGLE</button> -->
-                    </div>
-                </div>
-            </form>
         </div>
-
-    </div>
-    <div class="row ">
-        <div class='  col-md-12  ' style='text-align:center;margin-top:100px'>
-            <label style='font-family: NHaasGroteskDSPro-65Md'>CREATE AN ACCOUNT</label>
+        <div class="row ">
+            <div class='  col-md-12  ' style='text-align:center;margin-top:100px'>
+                <label style='font-family: NHaasGroteskDSPro-65Md'>CREATE AN ACCOUNT</label>
+            </div>
         </div>
-    </div>
-    <div class="row ">
-        <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 ' style='height:2vh'>
+        <div class="row ">
+            <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 ' style='height:2vh'>
 
+            </div>
         </div>
-    </div>
-    <div class="row ">
-        <div class='  col-md-4  '>
+        <div class="row ">
+            <div class='  col-md-4  '>
 
-        </div>
-        <div class='  col-md-4  ' style='text-align:center;'>
+            </div>
+            <div class='  col-md-4  ' style='text-align:center;'>
 
-            
+
                 <input required type='text' class='form-control' name='name' placeholder='NAME' v-model="cliente.name" style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em' />
                 <div class="row ">
                     <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 ' style='height:1vh'>
@@ -266,34 +268,34 @@ require_once('menu.php');
 
                     </div>
                 </div>
-                <input type='email' class='form-control' name='login' placeholder='EMAIL ADDRESS' 
-                    v-model="cliente.email" style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em' />
+                <input type='email' class='form-control' name='login' placeholder='EMAIL ADDRESS'
+                       v-model="cliente.email" style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em' />
                 <div class="row ">
                     <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 ' style='height:1vh'>
 
                     </div>
                 </div>
-                <input  required type='password' class='form-control' name='password1' id='password1' 
-                    v-model="cliente.password" placeholder='PASSWORD' style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em' />
+                <input  required type='password' class='form-control' name='password1' id='password1'
+                        v-model="cliente.password" placeholder='PASSWORD' style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em' />
                 <div class="row ">
                     <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 ' style='height:1vh'>
 
                     </div>
                 </div>
-                <input  required type='password' class='form-control' name='password2' id='password2' 
-                    v-model="cliente.password2" placeholder='REPEAT PASSWORD' style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em' />
+                <input  required type='password' class='form-control' name='password2' id='password2'
+                        v-model="cliente.password2" placeholder='REPEAT PASSWORD' style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em' />
                 <div class="row ">
                     <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 ' style='height:1vh'>
 
                     </div>
                 </div>
-                <input class='form-check-input' type='checkbox' id='newsletter' name='newsletter' 
-                    v-model="cliente.newsletter" style='border-radius: 10px;border-color: black'> SIGN UP FOR NEWSLETTER</input>
+                <input class='form-check-input' type='checkbox' id='newsletter' name='newsletter'
+                       v-model="cliente.newsletter" style='border-radius: 10px;border-color: black'> SIGN UP FOR NEWSLETTER</input>
                 <div class="form-group row">
                     <div class="col-sm-12">
                         <button class='btn btn-block btn-dark' @click="CrearCuenta()"
-                            :disabled="status.enviando || status.confirmadoEnvio" v-if="!status.confirmadoEnvio"
-                            style='border-radius: 0;background-color: black;margin-top: 1em;'>CREATE AN
+                                :disabled="status.enviando || status.confirmadoEnvio" v-if="!status.confirmadoEnvio"
+                                style='border-radius: 0;background-color: black;margin-top: 1em;'>CREATE AN
                             ACCOUNT</button>
                         <div class='btn btn-block  ' style="background-color: #899583;" v-else>
                             Revisa tu correo para confirmar la cuenta
@@ -303,13 +305,15 @@ require_once('menu.php');
                         {{problemas.registrar}}
                     </div>
                 </div>
-            
-        </div>
 
+            </div>
+
+        </div>
     </div>
+
 </div>
 <div style='position: inherit;bottom: 0;margin-bottom: 0.8rem; min-height: 150px;' 
-    class='col-md-8 col-sm-12 text-right pr-4 pl-4 d-flex align-items-end'>
+    class='col-md-8 col-sm-12 text-right pr-4 pl-4 d-flex align-items-end' id="politicadesktop">
     <span class='small mr-4 col-md-6' onclick='go("privacy.php")'> PRIVACY POLICY</span>
     <span onclick='go("shipping.php")' class='small ml-4 col-md-5'>SHIPPING & RETURNS</span>
 </div>

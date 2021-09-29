@@ -1,0 +1,432 @@
+#botonMenuMovil.index i {
+
+    color: #AC9950;
+}
+#menu-movil-dorado-opcion > ul > li > a {
+    text-decoration: none !important;
+
+    color: black;
+}
+#menu-movil-dorado.index {
+    background-color: transparent;
+}
+
+#menu-movil-dorado.index a.carrito {
+    color: #AC9950;
+}
+
+#menu-movil-dorado.shop {
+    background-color: white;
+}
+
+#menu-movil-dorado.privacity {
+    background-color: white;
+    border-bottom: 1px solid black;
+}
+
+
+
+#menu-movil-filtro > ul > li > a {
+    text-decoration: none !important;
+
+    color: black;
+}
+
+#menu-movil-ordenamiento {
+    text-decoration: none !important;
+
+    color: black;
+}
+
+#menu-movil-ordenamiento > ul > li > a {
+    text-decoration: none !important;
+
+    color: black;
+}
+
+a.elemento-menu-movil.ordenamiento{
+    text-decoration: none !important;
+    color: black;
+    margin-right: 2px;
+}
+
+a.elemento-menu-movil.filtro{
+    text-decoration: none !important;
+    color: black;
+    margin-right: 2px;
+}
+
+a.elemento-menu-movil.carrito{
+    text-decoration: none !important;
+    color: black;
+    margin-right: 2px;
+}
+
+#contenedorIndex {
+    padding: 0 !important;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+#contenedorIndex.shop .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+#contenedorIndex p.descripcion {
+    margin-top: 1rem;
+    margin-bottom: 0.1rem;
+}
+
+
+#contenedorIndex p.precios {
+    font-size: 0.7rem;
+}
+
+.index #botonMenuMovil {
+    color : #AC9950;
+}
+
+#menu-movil-dorado #politica {
+    font-size: 1.524vh !important;
+    bottom: 0;
+    margin-bottom: 0.8rem;
+    color:black;
+    width:75%;
+    margin-left: 12.5%;
+    letter-spacing: 0.035rem;
+    background: white;
+}
+
+#left_home {
+    max-width: 50%;
+    height: auto;
+
+}
+
+#right_home {
+    max-width: 50%;
+    height: auto;
+
+}
+
+#fotosprincipal {
+    display: block;
+
+    margin-top: -6vh;
+}
+
+#menu-web {
+    position: sticky;
+}
+
+#logo {
+    width: 7%;
+    position: fixed;
+    z-index: 999;
+    left: 70vw;
+    transition: width 0.3s ease 0s, height 1s ease 0s;
+}
+
+.precios s {
+    color: gray;
+    font-size: 0.6rem;
+}
+
+#contenedorIndex.ocultarmargen {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+#menu-movil-filtro ul#lista-filtro.navbar-nav {
+    top: 20vh;
+    position: absolute;
+}
+
+#lista-filtro li.opcion {
+    margin-bottom: 2rem;
+
+}
+
+#lista-filtro li.elemento a {
+    color: black;
+    margin-left: 1.0rem;
+}
+
+
+
+#menu-movil-ordenamiento ul.navbar-nav {
+    top: 43vh;
+    position: absolute;
+
+}
+@media (min-width: 576px) {
+
+    #fotosprincipal {
+        display: block !important;
+    }
+    #left_home {
+        max-width: 100%;
+        margin-top: -8vh;
+
+    }
+    #right_home {
+        max-width: 100%;
+        margin-top: -8vh;
+    }
+
+   
+}
+
+@media (max-width: 576px) {
+
+    #contenedorIndex.productos .row .col-xs-6 {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+
+    #contenedorIndex.productos .row .col-xs-6 .descripcion {
+        margin: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 2.286vh !important;
+        letter-spacing: 0.07rem !important;
+    }
+    button {
+        font-size: 2.286vh !important;
+        letter-spacing: 0.07rem !important;
+    }
+    #contenedorIndex {
+        padding: 0 !important;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    #logo {
+        top: 48.5%;
+        width: 58px;
+        left: 80vw;
+    }
+    #fotosprincipal {
+        display: block !important;
+    }
+    #left_home {
+        max-width: 100%;
+        margin-top: -8vh;
+
+    }
+    #right_home {
+        max-width: 100%;
+        margin-top: -8vh;
+    }
+    #privacity-content {
+        position: initial;
+        width: 100%;
+        height: 93%;
+        border-bottom: 1px solid black;
+        display: block;
+    }
+
+    #contenedorArchive {
+        margin-top: 2.5vh;
+        padding-right: 0px;
+    }
+    .politicaguia {
+        font-size: 1.6vh !important;
+        margin-bottom: 0.9vh;
+        padding-bottom: 0.3rem;
+        padding-top: 0.8rem;
+        padding-left: 0.3rem;
+        padding-right: 0.35rem;
+        letter-spacing: 0.34px;
+        margin-top: 0 !important;
+    }
+
+    .add-cart {
+        border-radius: 0;
+        background-color: black !important;
+        background-color: black !important;
+        padding: 0 !important;
+        padding-top: 0.3rem !important;
+        padding-bottom: 0.3rem !important;
+        letter-spacing: 0.2rem !important;
+    }
+
+    #politicadesktop.policita-cart .small {
+        font-size: 0.45rem !important;
+    }
+    .desc-view p {
+        padding: 0 !important;
+        font-size: 1.4vh !important;
+    }
+
+    .titulo-view p {
+        padding: 0 !important;
+        font-size: 1.4vh !important;
+    }
+
+    .subtitulo-view p {
+        padding: 0 !important;
+        font-size: 1.4vh !important;
+    }
+    #container p.informativo {
+        padding-top: 0.3rem;
+        font-size: 0.45rem !important;
+    }
+    #contenedorArchive .alinear {
+        padding-left: 2.5vw;
+
+    }
+    #contenedorArchive .multimedia {
+        width: 100vw !important;
+
+    }
+    #privacity-text {
+        padding-left: 3%;
+        padding-right: 3%;
+        margin-right: 4%;
+        margin-left: 4%;
+        overflow-y: auto;
+        width: auto;
+        height: 100%;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+    }
+    #menu-movil-dorado-opcion {
+        width: 100vw;
+        margin-left: -0.25rem !important;
+    }
+    #menu-movil-dorado-opcion ul .nav {
+        padding-top: 35vh;
+        padding-left: 0;
+        margin-right: 0;
+        position: absolute;
+        margin-left: 0;
+    }
+
+    .navbar-header {
+        margin-left: 20px !important;
+        margin-right: 20px !important;
+        margin-top: 5px !important;
+    }
+
+    #lista-menu {
+        padding-left: 0;
+        position: absolute;
+        margin: 0;
+        top: 44vh;
+    }
+
+
+    #lista-menu li  {
+        padding-left: 0;
+    }
+
+    #lista-menu form  {
+        padding-left: 0;
+    }
+
+    #botonMenuMovil {
+        padding-left: 0px;
+
+    }
+
+    .border-archive {
+
+        border-bottom: 1px solid black;
+        position: fixed;
+        z-index: -99;
+        width: 100%;
+        line-height: 1px;
+        display: block;
+        top: 0;
+        height: 8vh;
+        background-colorcolor: white;
+    }
+
+    .borde-margen-archive {
+        position: fixed;
+        left:0;
+        top:0;
+        width: 100%;
+        height: 100%;
+        padding: 3vw;
+        z-index: -10;
+    }
+}
+
+
+@media (max-width: 992px) {
+    #privacity-content {
+        position: initial;
+        width: 100%;
+        height: 93%;
+        border-bottom: 1px solid black;
+        display: block;
+    }
+    #politicadesktop {
+        bottom: 0;margin-bottom: 0.9vh; min-height: 150px;
+    }
+
+
+    #privacity-text {
+        padding-left: 3%;
+        padding-right: 3%;
+        margin-right: 4%;
+        margin-left: 4%;
+        overflow-y: auto;
+        width: auto;
+        height: 100%;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+    }
+}
+@media (min-width: 992px) {
+    #logo {
+        width: 7%;
+        top: 50vh;
+        left: 90vw;
+    }
+    #fotosprincipal {
+        display: flex !important;
+    }
+    #left_home {
+        max-width: 50%;
+        height: auto;
+
+    }
+
+    #right_home {
+        max-width: 50%;
+        height: auto;
+
+    }
+    #left_home {
+        max-width: 50%;
+        margin-top: -4vh;
+
+    }
+    #right_home {
+        max-width: 50%;
+        margin-top: -1vh;
+    }
+
+    #privacity-content {
+        position: absolute;
+        width: 100%;
+        height: 93%;
+        border-bottom: 1px solid black;
+        display: block;
+    }
+    #privacity-text {
+        padding-left: 3%;
+        padding-right: 3%;
+        overflow-y: auto;
+        width: 56%;
+        height: 100%;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        margin-left: 21vw;
+    }
+}

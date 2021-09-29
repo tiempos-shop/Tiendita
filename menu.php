@@ -1,35 +1,126 @@
+<?php
 
-<div class="fixed-top" id="menu"
-    style="padding-top:2vh;padding-bottom:0;padding-left: 2vw;padding-right: 2vw;background-color: white;">
-    <input type="hidden" id="nombre" value="<?php echo isset($_SESSION["nombre"]) ?  $_SESSION["nombre"] : '' ?>">
-    <div class="row right">
-        <div class="  col-md-2  " >
-            <span @click="irAlUrl('shoptienda.php')">{{elemento.shop}} </span>
-        </div>
-        <div class="  col-md-2  " >
-            <span style="padding-left: 5%" @click="irAlUrl('archive.php')" >{{elemento.archive}}</span>
-        </div>
-        <div class="  col-md-2  " >
-            <span style="padding-left: 20%" @click="irAlUrl('imprint.php')" >{{elemento.imprint}}</span>
-        </div>
-        <div class=" col-sm-2  " v-if="cliente.nombre.length == 0">
-            <span style="padding-left: 35%" @click="irAlUrl('loginshop.php')">LOGIN</span>
-        </div>
-        <div class=" col-sm-2  " style="margin-top: -8px" v-else>
-            <span style="padding-left: 20%;" >{{cliente.nombre}}</span>
-            <span class="text-muted"  @click="CerrarSession()">
+$db=new \Tiendita\EntidadBase();
+$menu = $db->getAll("menus");
+
+$db->close();
+?>
+
+<div id="menu">
+    <div class="fixed-top d-none d-md-block"
+         style="padding-top:2vh;padding-bottom:0;padding-left: 2vw;padding-right: 2vw;background-color: white;">
+        <input type="hidden" id="nombre" value="<?php echo isset($_SESSION["nombre"]) ?  $_SESSION["nombre"] : '' ?>">
+        <div class="row right">
+            <div class="  col-md-2  " >
+                <span @click="irAlUrl('shoptienda.php')">{{elemento.shop}} </span>
+            </div>
+            <div class="  col-md-2  " >
+                <span style="padding-left: 5%" @click="irAlUrl('archive.php')" >{{elemento.archive}}</span>
+            </div>
+            <div class="  col-md-2  " >
+                <span style="padding-left: 20%" @click="irAlUrl('imprint.php')" >{{elemento.imprint}}</span>
+            </div>
+            <div class=" col-sm-2  " v-if="cliente.nombre.length == 0">
+                <span style="padding-left: 35%" @click="irAlUrl('loginshop.php')">LOGIN</span>
+            </div>
+            <div class=" col-sm-2  " style="margin-top: -8px" v-else>
+                <span style="padding-left: 20%;" >{{cliente.nombre}}</span>
+                <span class="text-muted"  @click="CerrarSession()">
                     <img src="img/push.png" alt="cerrarSesion" style="width: 30px; margin-bottom: 10px" />
                 </span>
-            
+
+            </div>
+            <div class="  col-md-2 " >
+                <span style="padding-left: 50%" @click="EstablecerIdioma()">{{idioma}}</span>
+            </div>
+            <div class="  col-md-2  " >
+                <span style="right: 2%;position: absolute" @click="irAlUrl('carttienda.php')">CART({{$cantidadCarrito}})</span>
+            </div>
         </div>
-        <div class="  col-md-2 " >
-            <span style="padding-left: 50%" @click="EstablecerIdioma()">{{idioma}}</span>
-        </div>
-        <div class="  col-md-2  " >
-            <span style="right: 2%;position: absolute" @click="irAlUrl('carttienda.php')">CART({{$cantidadCarrito}})</span>
-        </div>
+        <hr style="margin: 1em -3vw 0px -2vw;opacity: 1; " :style="cliente.nombre.length > 0 ? 'margin-top:0;' : ''" />
     </div>
-    <hr style="margin: 1em -3vw 0px -2vw;opacity: 1; " :style="cliente.nombre.length > 0 ? 'margin-top:0;' : ''" />
+
+    <!--menu movil -->
+
+    <nav id="menu-movil-dorado"
+         class="navbar navbar-inverse navbar-static-top position-fixed d-sm-block d-md-none d-block d-block bg-white shop"
+         style="width: 100%; top:0; z-index: 2;left: 0;" role="navigation">
+        <div class="ml-1 mr-1">
+            <div class="navbar-header d-flex justify-content-between align-items-center ml-2 mr-2"
+                 style="margin-top: 0;">
+                <button type="button" class="navbar-toggle collapsed menu" data-toggle="collapse" id="botonMenuMovil"
+                        @click="AbrirMenuMovil()" style="border: none; background-color: transparent;">
+
+                    <span class="sincaracter omitir" >MENU</span>
+                </button><a id="filtro" CLASS="elemento-menu-movil filtro menu" href="#"
+                            v-if="status.enTienda"
+                            @click="AbrirMenuMovilFiltro()">
+                        <span class="sincaracter omitir"
+                            >FILTER</span></a>
+                <a id="orden" CLASS="elemento-menu-movil ordenamiento menu" href="#"
+                    v-if="status.enTienda"
+                    @click="AbrirMenuMovilOrdenar()"><span
+                            class="sincaracter omitir">SORT</span></a>
+
+                <span  class="elemento-menu-movil carrito menu"
+                      id="carrito"
+                      @click="irAlUrl('carttienda.php')">CART({{$cantidadCarrito}})</span>
+            </div>
+
+            <div id="menu-movil-dorado-opcion" class="collapse navbar-collapse">
+                <ul id="lista-menu" class="nav navbar-nav row" style="margin-right: 0;">
+                    <li><span @click="irAlUrl('shoptienda.php')">{{elemento.shop}} </span></li>
+                    <li><span @click="irAlUrl('archive.php')" >{{elemento.archive}}</span></li>
+                    <li><span @click="irAlUrl('imprint.php')" >{{elemento.imprint}}</span></li>
+                    <li v-if="cliente.nombre.length == 0"><span  @click="irAlUrl('loginshop.php')">LOGIN</span></li>
+                    <li v-else>
+                        <span  >{{cliente.nombre}}</span>
+                        <span class="text-muted"  @click="CerrarSession()">
+                            <img src="img/push.png" alt="cerrarSesion" style="width: 30px;" />
+                        </span>
+                    </li>
+                    <li>
+                        <span  @click="EstablecerIdioma()">{{idioma}}</span>
+                    </li>
+                </ul>
+            </div>
+            <div id="menu-movil-filtro" class="collapse navbar-collapse">
+                <ul id="lista-filtro" class="nav navbar-nav row" style="margin-right: 0;">
+                    <li class="opcion">
+                        <a  style="display: block; margin-top: -10px;" @click="FiltrarProductos(0)">SHOP
+                            ALL"</a></li>
+
+                    </li>
+
+                    <?php
+                    $menuPrincipal = "";
+                    foreach ($menu as $valor) {
+                        $menuPrincipal .= "
+                        <li class='opcion'><a
+                            @click='FiltrarProductos(".$valor->idMenu.")'
+                          style='display: block; margin-top: -10px;text-transform: uppercase;'>$valor->menu</a></li>
+                        </li>";
+
+                    }
+                    echo $menuPrincipal;
+                    ?>
+
+                    <li class="opcion"><a  style="display: block; margin-top: -10px;">SALE</a>
+                    </li>
+                    </li>
+                </ul>
+            </div>
+            <div id="menu-movil-ordenamiento" class="collapse navbar-collapse">
+                <ul id="lista-orden" class="nav navbar-nav row" style="margin-right: 0;">
+                    <li class="col-md-2"><a  style="display: block" @click="Ordenamiento(1)">FEATURED</a></li>
+                    <li><a  style="display: block" @click="Ordenamiento(2)">A TO Z</a></li>
+                    <li><a style="display: block" @click="Ordenamiento(3)">PRICE LOW TO HIGH</a></li>
+                    <li><a style="display: block" @click="Ordenamiento(4)">PRICE HIGH TO LOW</a></li>
+                </ul>
+            </div>
+            <div id="politica" class="d-flex justify-content-around  d-none" style="position: fixed; "><span > PRIVACY POLICY</span><span class="">SHIPPING & RETURNS</span></div>
+    </nav>
+
 </div>
 
 <script src="js/menuVue.js"></script>
