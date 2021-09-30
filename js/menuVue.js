@@ -106,6 +106,7 @@ var menuApp = new Vue({
             menuAbierto : false,
             enTienda:false,
             enIndex:false,
+            enImprint:false,
         },
         totalEnCarrito:0,
         idioma:'-'
@@ -475,6 +476,10 @@ var menuApp = new Vue({
         if (nombrePaginaHtml.indexOf("index.php")>=0)
         {
             this.status.enIndex = true;
+        }
+        if (nombrePaginaHtml.indexOf("imprint.php")>=0)
+        {
+            this.status.enImprint = true;
         }
 
         var nombreCliente = document.getElementById("nombre");

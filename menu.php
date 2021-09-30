@@ -9,7 +9,7 @@ $db->close();
 
 <div id="menu">
     <div class="fixed-top d-none d-md-block"
-         style="padding-top:2vh;padding-bottom:0;padding-left: 2vw;padding-right: 2vw;background-color: white;">
+         style="padding-top:2vh;padding-bottom:0;padding-left: 2vw;padding-right: 2vw; ">
         <input type="hidden" id="nombre" value="<?php echo isset($_SESSION["nombre"]) ?  $_SESSION["nombre"] : '' ?>">
         <div class="row right">
             <div class="  col-md-2  " >
@@ -38,7 +38,8 @@ $db->close();
                 <span style="right: 2%;position: absolute" @click="irAlUrl('carttienda.php')">CART({{$cantidadCarrito}})</span>
             </div>
         </div>
-        <hr style="margin: 1em -3vw 0px -2vw;opacity: 1; " :style="cliente.nombre.length > 0 ? 'margin-top:0;' : ''" />
+        <hr v-if="!status.enIndex && !status.enImprint" style="margin: 1em -3vw 0px -2vw;opacity: 1; " :style="cliente.nombre.length > 0 ? 'margin-top:0;' : ''" />
+
     </div>
 
     <!--menu movil -->
