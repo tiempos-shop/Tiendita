@@ -58,6 +58,7 @@ function validarDimenciones() {
         //document.getElementById('menufamilia').style.display = 'block';
         document.getElementById('politicadesktop').classList.remove('d-none');
         document.getElementById('politicadesktop').classList.add('d-flex');
+        document.getElementById('contenedorIndex').style.display = 'block';
         modoMovil = false;
     }
 

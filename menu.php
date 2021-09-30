@@ -85,32 +85,35 @@ $db->close();
                     </li>
                 </ul>
             </div>
-            <div id="menu-movil-filtro" class="collapse navbar-collapse">
-                <ul id="lista-filtro" class="nav navbar-nav row" style="margin-right: 0;">
-                    <li class="opcion">
-                        <a  style="display: block; margin-top: -10px;" @click="FiltrarProductos(0)">SHOP
-                            ALL"</a></li>
+            <div class="d-sm-block d-md-none d-block d-block ">
+                <div id="menu-movil-filtro" class="collapse navbar-collapse">
+                    <ul id="lista-filtro" class="nav navbar-nav row" style="margin-right: 0;">
+                        <li class="opcion">
+                            <a  style="margin-top: -10px;" @click="FiltrarProductos(0)">SHOP
+                                ALL"</a></li>
 
-                    </li>
+                        </li>
 
-                    <?php
-                    $menuPrincipal = "";
-                    foreach ($menu as $valor) {
-                        $menuPrincipal .= "
-                        <li class='opcion'><a
+                        <?php
+                        $menuPrincipal = "";
+                        foreach ($menu as $valor) {
+                            $menuPrincipal .= "
+                        <li class='opcion d-md-none'><a
                             @click='FiltrarProductos(".$valor->idMenu.")'
-                          style='display: block; margin-top: -10px;text-transform: uppercase;'>$valor->menu</a></li>
+                          style=' margin-top: -10px;text-transform: uppercase;'>$valor->menu</a></li>
                         </li>";
 
-                    }
-                    echo $menuPrincipal;
-                    ?>
+                        }
+                        echo $menuPrincipal;
+                        ?>
 
-                    <li class="opcion"><a  style="display: block; margin-top: -10px;">SALE</a>
-                    </li>
-                    </li>
-                </ul>
+                        <li class="opcion"><a  style="display: block; margin-top: -10px;">SALE</a>
+                        </li>
+
+                    </ul>
+                </div>
             </div>
+
             <div id="menu-movil-ordenamiento" class="collapse navbar-collapse">
                 <ul id="lista-orden" class="nav navbar-nav row" style="margin-right: 0;">
                     <li class="col-md-2"><a  style="display: block" @click="Ordenamiento(1)">FEATURED</a></li>
