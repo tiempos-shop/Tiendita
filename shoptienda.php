@@ -111,6 +111,7 @@ require_once('menu.php');
                 foreach ($submenu as $subvalor) {
                     if( $subvalor->idMenu == $valor->idMenu )
                         $menuSecundario .= "<a href='#' class='d-block text-dark pl-2'>$subvalor->SubMenu</a>";
+                    $menuSecundario = "";
                 }
                 if ( $menuSecundario != "" ){
                     $menuPrincipal .= "<div class='p-1'><a href='#' class='d-block text-dark' style='text-transform: uppercase;' data-menu='$auxmenu' onclick='openSubmenu(this);' @click='ObtenerProductos(".$valor->idMenu.")'>$valor->menu</a>";
