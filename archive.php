@@ -10,73 +10,22 @@ include_once "Business/FrontComponents.php";
 include_once "Data/Models/Producto.php";
 
 session_start();
-if(isset($_SESSION["ProductosCarrito"])){
-    $productosCarrito=$_SESSION["ProductosCarrito"];
-    $numeroProductosCarrito=count($productosCarrito);
-}
-else{
-    $numeroProductosCarrito=0;
-}
+
 $html=new VistasHtml();
 $ui=new Utilidades();
-$entity=new \Tiendita\EntidadBase();
-try {
-    $products = $entity->getAll("Productos");
-} catch (Exception $e) {
 
-}
-$entity->close();
-$item=new \Tiendita\Producto(0,1);
 global $idioma;
 $idiomaActual="";
-
-if(count($_POST)>0)
-{
-    $idiomaActual=$_POST["language"];
-    $_SESSION["language"]=$idiomaActual;
-}
-else{
-    if (isset($_SESSION["language"]))
-    {
-        $idiomaActual=$_SESSION["language"];
-    }
-    else
-    {
-        $idiomaActual="ENGLISH";
-        $_SESSION["language"] = $idiomaActual;
-    }
-
-}
-$tipoCambio=20;
-
-$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "INICIO","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "HOME","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
-
-$htmlIds="";
-
-
-// Obtener de base de datos de productos
-$htmlIds="";
-
-
-/*foreach ($products as $product){
-
-    $item->Clave=$product->Clave;
-    $item->Costo=$product->Costo;
-
-    $ide=str_replace("_","'",$item->Clave);
-    $js="view('$product->Clave')";
-    $htmlIds.="<hr style='padding: 0px;border: none;margin: 0px'/><span onclick=\"$js\">$ide</span><br/>";
-}*/
 
 
 $fc=new \Tiendita\FrontComponents();
 
-$h= $html->Html5(
+$h= $html->Html5Shop(
     $html->Head(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
-        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
-        $html->LoadScripts(["View/js/bootstrap.js"]),
+        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", "css/menumovil.css"]),
+        $html->LoadScripts(["View/js/bootstrap.js", "js/axios.min.js",  "js/vue.js", "js/global.js"]),
         "
             <style>
                 body{
@@ -164,84 +113,104 @@ $h= $html->Html5(
                       }
                     </script>"
 
-    ),
-    $html->Body([
-        $fc->MenuArchive($idioma,$idiomaActual,$numeroProductosCarrito,["","'","","","",""],true,true),
-        $fc->LogoNegro(),
-        $fc->TMenu(2),
-        "<div class='fixed-top' style='z-index:100;display:block;width:96.1vw;height:95.7vh;background-color: transparent;border: 1px solid black;top:1vh;left: 2.1vw'></div>",
-        $ui->ContainerFluid([
-            $ui->Row([$ui->Columns("<br/><br/>",12)]),
-            $ui->Row([
-                $ui->Columns("<hr class='catalogo d-none' />",1),
-                $ui->Columns(
-                    '
-                        <script>
-                            function play(){
-                                var d=document.getElementById("d");
-                                if (d.paused){
-                                    d.play(); 
-                                    alert("play");
-                                } 
-                                    
-                                else {
-                                    d.pause();
-                                    alert("play");
-                                }
-                                    
-                            }                       
-                        </script>
-                        
-                        <video id="d" style="width: 100%;height: auto;" autoplay muted>
-                            <source src="video/video.mp4" type="video/mp4" >
-                            
-                            Your browser does not support the video tag.
-                        </video>
-                            
-                        
-        ',11,0,0,0,"",""),
-            ],""),
-            $ui->Row(
-                [
-                    $ui->Columns("",1),
-                    $ui->Columns("<br/><label style='padding-right: 10%' >VIDEO</label><br/><br/>",11)
-                ]),
-            $ui->Row(
-                [
-                    $ui->Columns("<hr class='catalogo' />",12),
-                ]),
-            $ui->Row([
-                $ui->Columns("",1),
-                $ui->Columns(
-                    "
-                        <table class='table table-borderless' style='width: 100%;padding-right: 5%' >
-                            <tr>
-                                <td><img src='img/0000-JALAPENO.jpg' style='width: 100%'></td>
-                                <td><img src='img/0001-OBSIDIANA.jpg' style='width: 100%'></td>
-                                <td><img src='img/0002-TACUBAYA.jpg' style='width: 100%'></td>
-                                <td><img src='img/0003-ANIL.jpg' style='width: 100%'></td>
-                            </tr>
-                            <tr>
-                                <td><img src='img/0000-JALAPENO.jpg' style='width: 100%'></td>
-                                <td><img src='img/0001-OBSIDIANA.jpg' style='width: 100%'></td>
-                                <td><img src='img/0002-TACUBAYA.jpg' style='width: 100%'></td>
-                                <td><img src='img/0003-ANIL.jpg' style='width: 100%'></td>
-                            </tr>
-                        </table>
-                        ",11)
-            ]),
-            $ui->Row(
-                [
-                    $ui->Columns("",1),
-                    $ui->Columns("<br/><label style='padding-right: 10%' >COLLECTION</label><br/><br/>",11)
-                ]),
-            "<br/><br/>"
-//            $fc->Aviso()
-
-        ]),
-
-
-    ],"style='background-color:transparent;z-index:100;overflow-x:hidden'") //#AC9950
-);
+    ),"style='background-color:transparent;z-index:100;overflow-x:hidden'");
 
 print_r($h);
+
+require_once('menu.php');
+?>
+
+<img onclick="go('index.php')" alt="SP" id="logo" class="fixed-top" src="img/ts_iso_negro.png"
+>
+<div id="t" style="font-size:1.1em;font-family: NHaasGroteskDSPro-55Rg;z-index: 900"><span onclick="ircatalogo(0)"
+                                                                                           class="hidden catalogolabel">T0200"00</span><span onclick="ircatalogo(1)"
+                                                                                                                                             class="hidden catalogolabel">T0100"00</span></div>
+<div class="fixed-top"
+     style="z-index:100;display:block;width:96.1vw;height:95.7vh;background-color: transparent;border: 1px solid black;top:1vh;left: 2.1vw; z-index: -10;">
+</div>
+<div class="container-fluid" id="contenedorIndex">
+    <div class="row ">
+        <div class="  col-md-12  " >
+            <br /><br />
+        </div>
+    </div>
+    <div class="row ">
+        <div class="  col-md-1  " >
+            <hr class="catalogo d-none" />
+        </div>
+        <div class="  col-md-11  " >
+
+            <script>
+                function play() {
+                    var d = document.getElementById("d");
+                    if (d.paused) {
+                        d.play();
+                        alert("play");
+                    }
+
+                    else {
+                        d.pause();
+                        alert("play");
+                    }
+
+                }
+            </script>
+
+            <video id="d" style="width: 100%;height: auto;" autoplay muted>
+                <source src="video/video.mp4" type="video/mp4">
+
+                Your browser does not support the video tag.
+            </video>
+
+
+
+        </div>
+    </div>
+    <div class="row ">
+        <div class="  col-md-1  " >
+
+        </div>
+        <div class="  col-md-11  " >
+            <br /><label style="padding-right: 10%">VIDEO</label><br /><br />
+        </div>
+    </div>
+    <div class="row ">
+        <div class="  col-md-12  " >
+            <hr class="catalogo" />
+        </div>
+    </div>
+    <div class="row ">
+        <div class="  col-md-1  " >
+
+        </div>
+        <div class="  col-md-11  " >
+
+            <table class="table table-borderless" style="width: 100%;padding-right: 5%">
+                <tr>
+                    <td><img src="img/0000-JALAPENO.jpg" style="width: 100%"></td>
+                    <td><img src="img/0001-OBSIDIANA.jpg" style="width: 100%"></td>
+                    <td><img src="img/0002-TACUBAYA.jpg" style="width: 100%"></td>
+                    <td><img src="img/0003-ANIL.jpg" style="width: 100%"></td>
+                </tr>
+                <tr>
+                    <td><img src="img/0000-JALAPENO.jpg" style="width: 100%"></td>
+                    <td><img src="img/0001-OBSIDIANA.jpg" style="width: 100%"></td>
+                    <td><img src="img/0002-TACUBAYA.jpg" style="width: 100%"></td>
+                    <td><img src="img/0003-ANIL.jpg" style="width: 100%"></td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+    <div class="row ">
+        <div class="  col-md-1  " >
+
+        </div>
+        <div class="  col-md-11  " >
+            <br /><label style="padding-right: 10%">COLLECTION</label><br /><br />
+        </div>
+    </div><br /><br />
+</div>
+<div id="politicadesktop"></div>
+</body>
+</html>
