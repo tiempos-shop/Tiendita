@@ -26,11 +26,15 @@ a{
 .item:hover label::before{
     content: "'";
 }
-span:hover{
+span:not:hover{
     cursor: pointer;
 }
 span:hover::after{
     content: "'";
+}
+
+.sincaracter.omitir::after{
+    content: "";
 }
 @font-face {
     font-family: NHaasGroteskDSPro-55Rg;

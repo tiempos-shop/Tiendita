@@ -1,81 +1,22 @@
 <?php
-date_default_timezone_set('America/Monterrey');
 use Administracion\VistasHtml;
 
-use Tiendita\Utilidades;
-
 include_once "View/Componentes/Administracion/VistasHtml.php";
-include_once "Business/Utilidades.php";
 include_once "Data/Connection/EntidadBase.php";
-include_once "Data/Models/Producto.php";
-include_once "Business/FrontComponents.php";
 
+$html = new VistasHtml();
 session_start();
-if(isset($_SESSION["ProductosCarrito"])){
-    $productosCarrito=$_SESSION["ProductosCarrito"];
-    $numeroProductosCarrito=count($productosCarrito);
-}
-else{
-    $numeroProductosCarrito=0;
-}
-$html=new VistasHtml();
-$ui=new Utilidades();
-$entity=new \Tiendita\EntidadBase();
-try {
-    $products = $entity->getAll("Productos");
-} catch (Exception $e) {
 
-}
-$entity->close();
-$item=new \Tiendita\Producto(0,1);
+header('Access-Control-Allow-Origin: *');
 
-global $idioma;
-$idiomaActual="";
-
-
-if(count($_POST)>0)
-{
-    $idiomaActual=$_POST["language"];
-    $_SESSION["language"]=$idiomaActual;
-}
-else{
-    if (isset($_SESSION["language"]))
-    {
-        $idiomaActual=$_SESSION["language"];
-    }
-    else
-    {
-        $idiomaActual="ENGLISH";
-        $_SESSION["language"] = $idiomaActual;
-    }
-}
-
-$idioma=[ "ESPAÑOL"=>[ "MENU"=>[ "TIENDA","ARCHIVO","MARCA","ENGLISH","CARRITO(*)"] ],"ENGLISH"=>[ "MENU"=>[ "SHOP","ARCHIVE","IMPRINT","ESPAÑOL","CART(*)" ] ] ];
-
-// Obtener de base de datos de productos
-$htmlIds="";
-
-
-/*foreach ($products as $product){
-
-    $item->Clave=$product->Clave;
-    $item->Costo=$product->Costo;
-
-    $ide=str_replace("_","'",$item->Clave);
-    $js="view('$product->Clave')";
-    $htmlIds.="<hr style='padding: 0px;border: none;margin: 0px'/><span onclick=\"$js\">$ide</span><br/>";
-}*/
-
-$fc=new \Tiendita\FrontComponents();
-
-$h= $html->Html5(
+$h = $html->Html5Shop(
     $html->Head(
         "Tiempos Shop",
-        $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
-        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
-        $html->LoadScripts(["View/js/bootstrap.js"]),
+        $html->Meta("utf-8", "Tienda Online de Tiempos Shop", "Egil Ordonez"),
+        $html->LoadStyles(["global.css", "View/css/bootstrap.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", "css/menumovil.css"]),
+        $html->LoadScripts(["vendor/jquery/jquery.js", "js/axios.min.js", "View/js/bootstrap.js", "js/vue.js", "js/global.js"]),
         "
-                <style>
+            <style>
                     
                     button{
                         background-color: transparent;
@@ -93,10 +34,8 @@ $h= $html->Html5(
                     }
                     
                 </style>
-            ",
+        ",
         "<script>
-                      
-                      
                       function go(url){
                           window.location.href=url;
                       }
@@ -118,21 +57,93 @@ $h= $html->Html5(
                       function view(str){
                           var id=str; //.replace(\"_\", \"\'\");
                           go(\"view.php?id=\"+id);
+                      } 
+                      
+                      var catalogos = [];
+                      var catalogoslabel = [];
+                      window.addEventListener(\"scroll\", reordenarcatalogo);
+                      window.addEventListener(\"load\", function () {
+                        catalogos = document.querySelectorAll(\"hr.catalogo\");
+                        catalogoslabel = document.querySelectorAll(\"span.catalogolabel\");
+                        reordenarcatalogo();
+                      });
+                      
+                      function reordenarcatalogo(){
+                          let scrollwindows = document.documentElement.scrollTop;
+                          let scrolltop = document.getElementById(\"t\").offsetTop;
+                          let variable = 0;
+                          scrolltop += scrollwindows;
+                          
+                          for(let i = 0; i < catalogos.length ; i++) {
+                                let animationAlto = catalogos[i].offsetTop;
+                                if( animationAlto < scrolltop ){
+                                    variable = i;   
+                                }
+                                catalogoslabel[i].classList.add(\"hidden\");
+                          }
+                          catalogoslabel[variable].classList.remove(\"hidden\");
                       }
                       
-                      
-                      
+                      function  ircatalogo(e){
+                          let altocatalogo = catalogos[e].offsetTop;
+                          window.scroll({ top: altocatalogo, behavior: 'smooth' });
+                      }
                     </script>"
 
     ),
-    $html->Body([
-          $fc->Menu($idioma,$idiomaActual,$numeroProductosCarrito,["","","'","","",""],true),
-          $fc->LogoNegro(),
-          //$fc->TMenu(2),
-          $fc->About($idiomaActual),
-          $fc->Foot($idiomaActual)
-
-    ],"style='background-color:#AC9950;color:black'")
-);
+    "style='background-color:#AC9950;color:black'");
 
 print_r($h);
+
+
+require_once('menu.php');
+
+?>
+<div id="contenedorIndex">
+    <img onclick="go('index.php')" alt="SP" id="logo" class="fixed-top" src="img/ts_iso_negro.png"
+    >
+    <div class="fixed-top" style="top:57vh;padding-bottom:2vh;padding-left: 2vw;padding-right: 2vw">
+        <div class="row ">
+            <div class="  col-md-12  " >
+                <p>PIECES OF EVIDENCE</p>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="  col-md-12  " >
+                <p>WITHIN FLEETING TIMES . AN AIM TO CREATE</p>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="  col-md-12  " >
+                <p>PUNCTUAL YET LASTING MOMENTS</p>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="  col-md-12  " >
+                <p>WWW . TIEMPOS . SHOP</p>
+            </div>
+        </div>
+    </div>
+    <div class="fixed-bottom" style="padding-top:2vh;padding-bottom:2vh;padding-left: 2vw;padding-right: 2vw">
+        <div class="row ">
+            <div class="  col-md-12  " >
+                <p>ABOUT BRANDS S.A. DE C.V. ABR181008L27</p>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="  col-md-12  " >
+                <p>CALLE INDUSTRIAL 4 51D</p>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="  col-md-12  " >
+                <p>COL. LA PRIMAVERA 8030 CULIACÁN SIN. MX</p>
+            </div>
+        </div>
+        <div id="politicadesktop"></div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -59,7 +59,7 @@ class VistasHtml
         <!DOCTYPE html>
         <html lang="'.$lang.'">
             '.$head.'
-            <body>
+            <body '.$body.'>
             '.$this->lastScripts.'
         ';
     }

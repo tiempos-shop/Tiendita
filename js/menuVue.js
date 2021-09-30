@@ -13,7 +13,7 @@ setTimeout( function () {
         var caracterSpan = document.createElement("span");
         var caracterValor = document.createTextNode("'");
         caracterSpan.appendChild(caracterValor);
-        caracterSpan.classList.add('caracter', 'text-white', 'omitir');
+        caracterSpan.classList.add('caracter', 'omitir', 'd-none');
         menus[i].appendChild(caracterSpan);
     }
 
@@ -229,6 +229,7 @@ var menuApp = new Vue({
             console.log("menu");
             this.OcultarCaracter();
 
+
             //oculto los demas menos moviles
             document.getElementById('menu-movil-filtro').style.height = '0';
             document.getElementById('lista-filtro').style.display = 'none';
@@ -240,7 +241,8 @@ var menuApp = new Vue({
 
             if (mostrarMenu & !esEjecucionAutomatica)
             {
-                document.getElementById('botonMenuMovil').querySelector('.caracter').classList.remove('text-white');
+                document.getElementById('menu-movil-dorado').style.backgroundColor = 'white';
+                //document.getElementById('botonMenuMovil').querySelector('.caracter').classList.remove('text-white');
                 setTimeout(function() {
 
                     document.getElementById('menu-movil-dorado-opcion').className = 'navbar-collapse collapse collapsing show';
@@ -267,7 +269,7 @@ var menuApp = new Vue({
             }
             else
             {
-
+                document.getElementById('menu-movil-dorado').style.backgroundColor = 'transparent';
 
                 document.getElementById('menu-movil-dorado-opcion').style.height = '0';
                 document.getElementById('lista-menu').style.display ='none';
@@ -286,7 +288,7 @@ var menuApp = new Vue({
                     document.getElementById('contenedorIndex').style.display = 'block';
 
 
-                }, 150);
+                }, 90);
 
 
 
