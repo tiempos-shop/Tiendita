@@ -15,7 +15,6 @@
     color: #AC9950;
 }
 
-
 #menu-movil-dorado.privacity {
     background-color: white;
     border-bottom: 1px solid black;
@@ -79,9 +78,10 @@ a.elemento-menu-movil.carrito{
     font-size: 0.7rem;
 }
 
-.index #botonMenuMovil {
+#botonMenuMovil {
     color : #AC9950;
 }
+
 
 #menu-movil-dorado #politica {
     font-size: 1.524vh !important;

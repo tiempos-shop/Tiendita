@@ -105,6 +105,7 @@ var menuApp = new Vue({
         status:{
             menuAbierto : false,
             enTienda:false,
+            enIndex:false,
         },
         totalEnCarrito:0,
         idioma:'-'
@@ -243,8 +244,16 @@ var menuApp = new Vue({
             {
                 document.getElementById('menu-movil-dorado').style.backgroundColor = 'white';
                 //document.getElementById('botonMenuMovil').querySelector('.caracter').classList.remove('text-white');
+                var appThis = this;
                 setTimeout(function() {
+                    if (appThis.status.enIndex)
+                    {
+                        logo.src='img/ts_iso_negro.png';
+                        document.getElementById('lista-menu').style.color ='black';
+                        document.getElementById('botonMenuMovil').style.color = 'black';
+                        document.getElementById('carrito').style.color = 'black';
 
+                    }
                     document.getElementById('menu-movil-dorado-opcion').className = 'navbar-collapse collapse collapsing show';
 
                 }, 50);
@@ -281,9 +290,15 @@ var menuApp = new Vue({
                     document.getElementById('politicadesktop').classList.remove('d-none');
                     document.getElementById('politicadesktop').classList.add('d-flex');
                 }
-
+                var appThis = this;
                 setTimeout(function() {
-
+                    if (appThis.status.enIndex)
+                    {
+                        logo.src='img/ts_iso_oro.png';
+                        document.getElementById('botonMenuMovil').style.color = '#AC9950';
+                        document.getElementById('carrito').style.color = '#AC9950';
+                        document.getElementById('lista-menu').style.color ='#AC9950';
+                    }
 
                     document.getElementById('contenedorIndex').style.display = 'block';
 
@@ -456,6 +471,10 @@ var menuApp = new Vue({
         if (nombrePaginaHtml.indexOf("shoptienda.php")>=0)
         {
             this.status.enTienda = true;
+        }
+        if (nombrePaginaHtml.indexOf("index.php")>=0)
+        {
+            this.status.enIndex = true;
         }
 
         var nombreCliente = document.getElementById("nombre");

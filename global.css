@@ -36,6 +36,8 @@ span:hover::after{
 .sincaracter.omitir::after{
     content: "";
 }
+
+
 @font-face {
     font-family: NHaasGroteskDSPro-55Rg;
     src: url(font/NHaasGroteskDSPro-55Rg.woff);
