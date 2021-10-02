@@ -122,9 +122,9 @@ require_once('menu.php');
 
 <img onclick="go('index.php')" alt="SP" id="logo" class="fixed-top" src="img/ts_iso_negro.png"
 >
-<div id="t" style="font-size:1.1em;font-family: NHaasGroteskDSPro-55Rg;z-index: 900"><span onclick="ircatalogo(0)"
-                                                                                           class="hidden catalogolabel">T0200"00</span><span onclick="ircatalogo(1)"
-                                                                                                                                             class="hidden catalogolabel">T0100"00</span></div>
+ <div id="t" style="font-size:1.1em;font-family: NHaasGroteskDSPro-55Rg;z-index: 900" class="d-none d-md-block"><span onclick="ircatalogo(0)"
+    class="hidden catalogolabel">T0200"00</span><span onclick="ircatalogo(1)"
+    class="hidden catalogolabel">T0100"00</span></div>
 <div class="fixed-top"
      style="z-index:100;display:block;width:96.1vw;height:95.7vh;background-color: transparent;border: 1px solid black;top:1vh;left: 2.1vw; z-index: -10;">
 </div>

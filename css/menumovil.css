@@ -60,8 +60,6 @@ a.elemento-menu-movil.carrito{
 
 #contenedorIndex {
     padding: 0 !important;
-    margin-left: 15%;
-    margin-right: 15%;
 }
 
 #contenedorIndex.shop .row {
@@ -171,7 +169,10 @@ a.elemento-menu-movil.carrito{
 }
 
 @media (max-width: 576px) {
-
+    #contenedorIndex {
+        margin-left: 15%;
+        margin-right: 15%;
+    }
     #contenedorIndex.productos .row .col-xs-6 {
         flex: 0 0 auto;
         width: 50%;
@@ -376,6 +377,7 @@ a.elemento-menu-movil.carrito{
     }
 }
 @media (min-width: 992px) {
+
     #logo {
         width: 7%;
         top: 50vh;
