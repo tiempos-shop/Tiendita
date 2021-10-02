@@ -8,8 +8,10 @@ $db->close();
 ?>
 
 <div id="menu">
-    <div class="fixed-top d-none d-md-block"
-         style="padding-top:2vh;padding-bottom:0;padding-left: 2vw;padding-right: 2vw; ">
+    <div id="margen-der" v-if="status.enArchivo" style="background-color: white; min-height: 37px;margin-right: -1vw;z-index: 103;position: fixed;width: 100%;"></div>
+    <div class="fixed-top d-none d-md-block bg-white" id="menudesk"
+         :style="estilo.menuEscritorio">
+        <div style="background-color: white;position: fixed;top: 0;right: 0;left: 0;z-index: 99; height: 8px;"></div>
         <input type="hidden" id="nombre" value="<?php echo isset($_SESSION["nombre"]) ?  $_SESSION["nombre"] : '' ?>">
         <div class="row right">
             <div class="  col-md-2  " >
@@ -38,7 +40,8 @@ $db->close();
                 <span style="right: 2%;position: absolute" @click="irAlUrl('carttienda.php')">CART({{$cantidadCarrito}})</span>
             </div>
         </div>
-        <hr v-if="!status.enIndex && !status.enImprint" style="margin: 1em -3vw 0px -2vw;opacity: 1; " :style="cliente.nombre.length > 0 ? 'margin-top:0;' : ''" />
+        <div id="margen-der"  v-if="status.enArchivo" style="background-color: white; min-height: 10px"></div>
+        <hr v-if="!status.enIndex && !status.enImprint && !status.enArchivo" style="margin: 1em -3vw 0px -2vw;opacity: 1; " :style="cliente.nombre.length > 0 ? 'margin-top:0;' : ''" />
 
     </div>
 

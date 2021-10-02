@@ -125,8 +125,9 @@ require_once('menu.php');
  <div id="t" style="font-size:1.1em;font-family: NHaasGroteskDSPro-55Rg;z-index: 900" class="d-none d-md-block"><span onclick="ircatalogo(0)"
     class="hidden catalogolabel">T0200"00</span><span onclick="ircatalogo(1)"
     class="hidden catalogolabel">T0100"00</span></div>
-<div class="fixed-top"
+<div class="fixed-top" id="bordepagina"
      style="z-index:100;display:block;width:96.1vw;height:95.7vh;background-color: transparent;border: 1px solid black;top:1vh;left: 2.1vw; z-index: -10;">
+
 </div>
 <div class="container-fluid" id="contenedorIndex">
     <div class="row ">

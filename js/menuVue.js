@@ -40,6 +40,7 @@ function validarDimenciones() {
 
     if (ancho<=768)
     {
+        /*Movil*/
         //document.getElementById('menufamilia').style.display = 'none';
         //document.getElementById('menufiltro').style.display = 'none';
         document.getElementById('politicadesktop').classList.remove('d-flex');
@@ -50,10 +51,22 @@ function validarDimenciones() {
         document.getElementById('lista-orden').style.left = separacionBotonMenu +'px';
         document.getElementById('logo').style.left = separacionCart +'px';
 
+        if (location.pathname.indexOf('archive.php')>=0)
+        {
+            /*para archivo*/
+            document.getElementById('margen-der').style.display = 'none';
+        }
+
         modoMovil = true;
     }
     else
     {
+
+        if (location.pathname.indexOf('archive.php')>=0)
+        {
+            /*para archivo*/
+            document.getElementById('margen-der').style.display = 'block';
+        }
         //document.getElementById('menufiltro').style.display = 'inline-block';
         //document.getElementById('menufamilia').style.display = 'block';
         document.getElementById('politicadesktop').classList.remove('d-none');
@@ -107,6 +120,10 @@ var menuApp = new Vue({
             enTienda:false,
             enIndex:false,
             enImprint:false,
+            enArchivo:false,
+        },
+        estilo:{
+            menuEscritorio:'padding: 2vh 2vw 0px;'
         },
         totalEnCarrito:0,
         idioma:'-'
@@ -475,11 +492,21 @@ var menuApp = new Vue({
         }
         if (nombrePaginaHtml.indexOf("index.php")>=0)
         {
+            /*agregar transparencia*/
+            document.getElementById('menudesk').classList.remove('bg-white');
             this.status.enIndex = true;
         }
         if (nombrePaginaHtml.indexOf("imprint.php")>=0)
         {
+
             this.status.enImprint = true;
+        }
+
+        if (nombrePaginaHtml.indexOf('archive.php')>=0)
+        {
+            this.status.enArchivo = true;
+            this.estilo.menuEscritorio = 'margin: 2vh 2vw 0px;margin-top: 1.1vh; margin-left: 2.1vw;border: 1px solid black; border-bottom:0;margin-right: 0.6vw;min-height: 4vh; width: 96.1vw; '
+            //document.getElementById('menudesk').classList.remove('bg-white');
         }
 
         var nombreCliente = document.getElementById("nombre");
