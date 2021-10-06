@@ -37,7 +37,7 @@ $db->close();
                 <span style="padding-left: 50%" @click="EstablecerIdioma()">{{idioma}}</span>
             </div>
             <div class="  col-md-2  " >
-                <span style="right: 2%;position: absolute" @click="irAlUrl('carttienda.php')">CART({{$cantidadCarrito}})</span>
+                <span style="right: 2%;position: absolute" @click="irAlUrl('carttienda.php')" id="cartitoDesk">CART({{$cantidadCarrito}})</span>
             </div>
         </div>
         <div id="margen-der"  v-if="status.enArchivo" style="background-color: white; min-height: 10px"></div>
@@ -48,7 +48,7 @@ $db->close();
     <!--menu movil -->
 
     <nav id="menu-movil-dorado"
-         class="navbar navbar-inverse navbar-static-top position-fixed d-sm-block d-md-none d-block d-block  shop"
+         class="navbar navbar-inverse navbar-static-top position-fixed d-sm-block d-md-none d-block d-block  shop bg-white"
          style="width: 100%; top:0; z-index: 2;left: 0;" role="navigation">
         <div class="ml-1 mr-1">
             <div class="navbar-header d-flex justify-content-between align-items-center ml-2 mr-2"

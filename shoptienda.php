@@ -80,14 +80,14 @@ require_once('menu.php');
 
     <img onclick='go("index.php")' alt='SP' id='logo' class='fixed-top' src='img/ts_iso_negro.png'
          >
-    <div style='margin-left: 15%;margin-right: 15%' id="contenedorIndex">
+    <div id="contenedorIndex" class="shop">
         <div class="row mt-2">
             <div class="container p-4 m-4" v-if="status.cargandoProductos">
                 <br><br>
                 <div class="text-center"><i class='fa fa-spinner fa-spin' ></i></div>
 
             </div>
-            <div v-for="(producto, index) in listaProductos" :key="index" class="col-md-4">
+            <div v-for="(producto, index) in listaProductos" :key="index" class="col-md-4" :style="estilo.productos">
             
                 <div class='text-center' >
                    
@@ -230,9 +230,15 @@ require_once('menu.php');
                 esClienteLocal:false
             },
             siglasMoneda:'',
-            monedas:[]
+            monedas:[],
+            estilo:{
+                tablaProducto:'',
+                productos:'',
+
+            }
         },
         methods: {
+
             ordenar(opcion)
             {
                 var ListaOrdenProductos = this.listaProductos.slice();
@@ -434,6 +440,8 @@ require_once('menu.php');
             this.ObtenerProductos();
         },
         async mounted() {
+
+
             
             this.idCliente = document.getElementById('idCliente').value;
 
@@ -448,5 +456,6 @@ require_once('menu.php');
         },
         
 
-    })
+    });
+
 </script>

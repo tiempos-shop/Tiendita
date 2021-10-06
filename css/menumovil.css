@@ -150,6 +150,85 @@ a.elemento-menu-movil.carrito{
     position: absolute;
 
 }
+
+@media (max-width: 992px) {
+    #privacity-content {
+        position: initial;
+        width: 100%;
+        height: 93%;
+        border-bottom: 1px solid black;
+        display: block;
+    }
+    #politicadesktop {
+        bottom: 0;margin-bottom: 0.9vh; min-height: 150px;
+    }
+
+    #contenedorIndex.shop {
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    #privacity-text {
+        padding-left: 3%;
+        padding-right: 3%;
+        margin-right: 4%;
+        margin-left: 4%;
+        overflow-y: auto;
+        width: auto;
+        height: 100%;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+    }
+}
+@media (min-width: 992px) {
+
+    #logo {
+        width: 7%;
+        top: 50vh;
+        left: 90vw;
+    }
+    #fotosprincipal {
+        display: flex !important;
+    }
+    #left_home {
+        max-width: 50%;
+        height: auto;
+
+    }
+
+    #right_home {
+        max-width: 50%;
+        height: auto;
+
+    }
+    #left_home {
+        max-width: 50%;
+        margin-top: -4vh;
+
+    }
+    #right_home {
+        max-width: 50%;
+        margin-top: -1vh;
+    }
+
+    #privacity-content {
+        position: absolute;
+        width: 100%;
+        height: 93%;
+        border-bottom: 1px solid black;
+        display: block;
+    }
+    #privacity-text {
+        padding-left: 3%;
+        padding-right: 3%;
+        overflow-y: auto;
+        width: 56%;
+        height: 100%;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        margin-left: 21vw;
+    }
+}
+
 @media (min-width: 576px) {
 
     #fotosprincipal {
@@ -184,13 +263,19 @@ a.elemento-menu-movil.carrito{
 }
 
 @media (max-width: 768px) {
+
     body {
         font-size: 2.286vh !important;
         letter-spacing: 0.07rem !important;
     }
+
     button {
         font-size: 2.286vh !important;
         letter-spacing: 0.07rem !important;
+    }
+    #contenedorIndex.shop {
+        margin-left: 0 ;
+        margin-right: 0;
     }
     #contenedorIndex {
         padding: 0 !important;
@@ -350,78 +435,3 @@ a.elemento-menu-movil.carrito{
     }
 }
 
-
-@media (max-width: 992px) {
-    #privacity-content {
-        position: initial;
-        width: 100%;
-        height: 93%;
-        border-bottom: 1px solid black;
-        display: block;
-    }
-    #politicadesktop {
-        bottom: 0;margin-bottom: 0.9vh; min-height: 150px;
-    }
-
-
-    #privacity-text {
-        padding-left: 3%;
-        padding-right: 3%;
-        margin-right: 4%;
-        margin-left: 4%;
-        overflow-y: auto;
-        width: auto;
-        height: 100%;
-        border-left: 1px solid black;
-        border-right: 1px solid black;
-    }
-}
-@media (min-width: 992px) {
-
-    #logo {
-        width: 7%;
-        top: 50vh;
-        left: 90vw;
-    }
-    #fotosprincipal {
-        display: flex !important;
-    }
-    #left_home {
-        max-width: 50%;
-        height: auto;
-
-    }
-
-    #right_home {
-        max-width: 50%;
-        height: auto;
-
-    }
-    #left_home {
-        max-width: 50%;
-        margin-top: -4vh;
-
-    }
-    #right_home {
-        max-width: 50%;
-        margin-top: -1vh;
-    }
-
-    #privacity-content {
-        position: absolute;
-        width: 100%;
-        height: 93%;
-        border-bottom: 1px solid black;
-        display: block;
-    }
-    #privacity-text {
-        padding-left: 3%;
-        padding-right: 3%;
-        overflow-y: auto;
-        width: 56%;
-        height: 100%;
-        border-left: 1px solid black;
-        border-right: 1px solid black;
-        margin-left: 21vw;
-    }
-}

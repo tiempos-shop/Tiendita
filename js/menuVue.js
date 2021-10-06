@@ -30,6 +30,13 @@ function validarDimenciones() {
     var separacionBotonMenu = document.getElementById("botonMenuMovil").offsetLeft;
     var separacionCart = document.getElementById("carrito").offsetLeft;
 
+    var separacionCartDesk = null;
+    if (document.getElementById('carritoDesk') != null)
+    {
+        separacionCartDesk = document.getElementById("carritoDesk").offsetLeft;
+    }
+
+
     //document.getElementById('botonMenuMovil').style.color = 'black';
 
     ///PARA INICIO DE CARGA
@@ -57,10 +64,22 @@ function validarDimenciones() {
             document.getElementById('margen-der').style.display = 'none';
         }
 
+        /*para productos en shop*/
+        if (location.pathname.indexOf('shoptienda.php') >= 0)
+        {
+            app.estilo.productos = 'width:50%';
+        }
+
+
+
         modoMovil = true;
     }
     else
     {
+        if (location.pathname.indexOf('shoptienda.php') >= 0)
+        {
+            app.estilo.productos = '';
+        }
 
         if (location.pathname.indexOf('archive.php')>=0)
         {
@@ -72,6 +91,11 @@ function validarDimenciones() {
         document.getElementById('politicadesktop').classList.remove('d-none');
         document.getElementById('politicadesktop').classList.add('d-flex');
         document.getElementById('contenedorIndex').style.display = 'block';
+        if (separacionCartDesk != null)
+        {
+            document.getElementById('logo').style.left = separacionCartDesk +'px';
+        }
+
         modoMovil = false;
     }
 
@@ -489,6 +513,7 @@ var menuApp = new Vue({
         if (nombrePaginaHtml.indexOf("shoptienda.php")>=0)
         {
             this.status.enTienda = true;
+            console.log("entienda");
         }
         if (nombrePaginaHtml.indexOf("index.php")>=0)
         {

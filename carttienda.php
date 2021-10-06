@@ -15,7 +15,7 @@ print_r($htmlPrincipal);
 $h = $html->Head(
     "Tiempos Shop",
     $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
-    $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
+    $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", "css/menumovil.css"]),
     $html->LoadScripts(["View/js/bootstrap.js",  "js/axios.min.js", "js/vue.js", "js/global.js", "vendor/jquery/jquery.js","js/jquery.mlens-1.7.min.js"]),
     "",
     '<style>
@@ -58,6 +58,9 @@ require_once('menu.php');
 
 <img onclick="go('index.php')" alt="SP" id="logo" class="fixed-top" src="img/ts_iso_negro.png"
         style="width: 7%">
+    <div id="contenedorIndex">
+
+
     <div  class="container-fluid"  id="app" style="min-height: 20vh;">
     <input type="hidden"  class="form-control" value="<?php  echo isset($_SESSION["idCliente"]) ? $_SESSION["idCliente"] : '' ?>" id="idCliente">
         <div class="container p-4 m-4" v-if="status.cargandoProductos">
@@ -139,9 +142,12 @@ require_once('menu.php');
         </div>
     </div>
     <div style="bottom: 0;margin-bottom: 0.8rem; min-height: 150px;"
+         id="politicadesktop"
         class="col-md-8 col-sm-12 text-right pr-4 pl-4 d-flex align-items-end"><span class="small mr-4 col-md-6"
             onclick="go('privacy.php')"> PRIVACY POLICY</span><span onclick="go('shipping.php')"
             class="small ml-4 col-md-5">SHIPPING & RETURNS</span></div>
+
+    </div>
 
 <script>
     
