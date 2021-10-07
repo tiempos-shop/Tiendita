@@ -312,13 +312,13 @@ require_once('menu.php');
     </div>
 
 </div>
-<div style='position: inherit;bottom: 0;margin-bottom: 0.8rem; min-height: 150px;' 
-    class='col-md-8 col-sm-12 text-right pr-4 pl-4 d-flex align-items-end' id="politicadesktop">
-    <span class='small mr-4 col-md-6' onclick='go("privacy.php")'> PRIVACY POLICY</span>
-    <span onclick='go("shipping.php")' class='small ml-4 col-md-5'>SHIPPING & RETURNS</span>
+
+
+<div class='container-fluid mt-4'
+     style='position: inherit;bottom: 1vh;font-size: 0.7rem;padding-left: 50%; padding-bottom: 0.5em;'>
+    <label style='width: 10vw;display: inline-block'>PRIVACY POLICY'</label><label
+            style='width: 20vw;display: inline-block'><span onclick='go("shipping.php")'>SHIPPING RETURNS</span></label>
 </div>
-
-
 <script src='js/login.js'></script>
 
 </body>
