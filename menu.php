@@ -11,7 +11,7 @@ $db->close();
     <div id="margen-der" v-if="status.enArchivo" style="background-color: white; min-height: 37px;margin-right: -1vw;z-index: 103;position: fixed;width: 100%;"></div>
     <div class="fixed-top d-none d-md-block bg-white" id="menudesk"
          :style="estilo.menuEscritorio">
-        <div style="background-color: white;position: fixed;top: 0;right: 0;left: 0;z-index: 99; height: 8px;"></div>
+        <div style="background-color: white;position: fixed;top: 0;right: 0;left: 0;z-index: 99; height: 8px;" id="barraArchive"></div>
         <input type="hidden" id="nombre" value="<?php echo isset($_SESSION["nombre"]) ?  $_SESSION["nombre"] : '' ?>">
         <div class="row right">
             <div class="  col-md-2  " >

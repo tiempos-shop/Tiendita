@@ -532,6 +532,12 @@ var menuApp = new Vue({
             this.status.enArchivo = true;
             this.estilo.menuEscritorio = 'margin: 2vh 2vw 0px;margin-top: 1.1vh; margin-left: 2.1vw;border: 1px solid black; border-bottom:0;margin-right: 0.6vw;min-height: 4vh; width: 96.1vw; '
             //document.getElementById('menudesk').classList.remove('bg-white');
+
+        }
+        else
+        {
+            //OCULTAR BARRA ARCHIVO en otras paginas POR LA TRANSPARENCIA
+            document.getElementById('barraArchive').style.display = 'none';
         }
 
         var nombreCliente = document.getElementById("nombre");
