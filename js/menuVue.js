@@ -67,7 +67,7 @@ function validarDimenciones() {
         /*para productos en shop*/
         if (location.pathname.indexOf('shoptienda.php') >= 0)
         {
-            app.estilo.productos = 'width:50%';
+            app.estilo.productos = 'width: 50%;padding-left: 0px;padding-right: 0px;';
         }
 
 
@@ -93,6 +93,7 @@ function validarDimenciones() {
         document.getElementById('contenedorIndex').style.display = 'block';
         if (separacionCartDesk != null)
         {
+
             document.getElementById('logo').style.left = separacionCartDesk +'px';
         }
 
@@ -519,6 +520,8 @@ var menuApp = new Vue({
         {
             /*agregar transparencia*/
             document.getElementById('menudesk').classList.remove('bg-white');
+            document.getElementById('menu-movil-dorado').classList.remove('bg-white');
+            document.getElementById('botonMenuMovil').style.color = '#AC9950';
             this.status.enIndex = true;
         }
         if (nombrePaginaHtml.indexOf("imprint.php")>=0)

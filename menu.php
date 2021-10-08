@@ -37,7 +37,7 @@ $db->close();
                 <span style="padding-left: 50%" @click="EstablecerIdioma()">{{idioma}}</span>
             </div>
             <div class="  col-md-2  " >
-                <span style="right: 2%;position: absolute" @click="irAlUrl('carttienda.php')" id="cartitoDesk">CART({{$cantidadCarrito}})</span>
+                <span style="right: 2%;position: absolute" @click="irAlUrl('carttienda.php')" id="carritoDesk">CART({{$cantidadCarrito}})</span>
             </div>
         </div>
         <div id="margen-der"  v-if="status.enArchivo" style="background-color: white; min-height: 10px"></div>
