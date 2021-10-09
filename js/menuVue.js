@@ -36,9 +36,6 @@ function validarDimenciones() {
         separacionCartDesk = document.getElementById("carritoDesk").offsetLeft;
     }
 
-
-    //document.getElementById('botonMenuMovil').style.color = 'black';
-
     ///PARA INICIO DE CARGA
     document.getElementById('politicadesktop').classList.remove('d-flex');
     document.getElementById('politicadesktop').classList.add('d-none');
@@ -70,6 +67,13 @@ function validarDimenciones() {
             app.estilo.productos = 'width: 50%;padding-left: 0px;padding-right: 0px;';
         }
 
+        /*para privacity*/
+        if (location.pathname.indexOf('privacy.php') >= 0)
+        {
+
+            document.getElementById('privacity-text').style.marginLeft = null;
+        }
+
 
 
         modoMovil = true;
@@ -96,6 +100,8 @@ function validarDimenciones() {
 
             document.getElementById('logo').style.left = separacionCartDesk +'px';
         }
+
+
 
         modoMovil = false;
     }
@@ -146,6 +152,7 @@ var menuApp = new Vue({
             enIndex:false,
             enImprint:false,
             enArchivo:false,
+            enPricavy:false,
         },
         estilo:{
             menuEscritorio:'padding: 2vh 2vw 0px;'
@@ -528,6 +535,12 @@ var menuApp = new Vue({
         {
 
             this.status.enImprint = true;
+        }
+
+        if (nombrePaginaHtml.indexOf("privacy.php")>=0)
+        {
+
+            this.status.enPricavy = true;
         }
 
         if (nombrePaginaHtml.indexOf('archive.php')>=0)

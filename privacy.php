@@ -19,7 +19,7 @@ $h= $html->Html5Shop(
     $html->Head(
         "Tiempos Shop",
         $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
-        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
+        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", "css/menumovil.css"]),
         $html->LoadScripts(["View/js/bootstrap.js","js/axios.min.js", "js/vue.js", "js/global.js"]),
         "",
         '<script>
@@ -42,9 +42,8 @@ print_r($h);
 require_once('menu.php');
 ?>
 
-<div style='position:absolute;width:100%;height: 93%;border-bottom: 1px solid black'>
-    <div
-        style='padding-left:3%;padding-right:3%;overflow-y: auto;width:56%;height: 100%;border-left: 1px solid black;border-right: 1px solid black;margin-left: 21vw'>
+<div style='width:100%;height: 93%;border-bottom: 1px solid black' id="contenedorIndex">
+    <div id="privacity-text">
         <br /><br /><br />
         <p style='text-align: center'>EJEMPLO DE TEXTO PRIVACY POLICY</p>
         <p style='text-align: center'>POLYCY</p>
@@ -91,13 +90,12 @@ require_once('menu.php');
             not process orders from persons that are not the Final Customer and any other orders that are not in</p>
     </div>
 </div>
-<img onclick='go("index.php")' alt='SP' id='logo' class='fixed-top' src='img/ts_iso_negro.png'
-     >
+<img onclick='go("index.php")' alt='SP' id='logo' class='fixed-top' src='img/ts_iso_negro.png'>
 
-<div class='container-fluid mb-2'
-     style='position: fixed;bottom: 1vh;font-size: 0.7rem;padding-left: 50%; padding-bottom: 0.5em;'>
-    <label style='width: 10vw;display: inline-block'>PRIVACY POLICY'</label><label
-        style='padding-left: 10% width: 20vw;display: inline-block'><span onclick='go("shipping.php")'>SHIPPING RETURNS</span></label>
+<div class='container-fluid mb-2 privacity-pie'
+     style='bottom: 1vh;font-size: 0.7rem;padding-left: 50%; padding-bottom: 1.5rem;' id="politicadesktop">
+        <label style='width: 14vw;display: inline-block;position: absolute;left: 50vw;font-size: 0.7rem;' onclick='go("privacy.php")'>PRIVACY POLICY'</label>
+        <label style='width: 15vw;display: inline-block;position: absolute;left: 62vw;font-size: 0.7rem;'><span onclick='go("shipping.php")'>SHIPPING RETURNS</span></label>
 </div>
 
 
