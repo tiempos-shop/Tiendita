@@ -154,6 +154,7 @@ var menuApp = new Vue({
         idioma:'-'
     },
     methods: {
+
         OcultarCaracter()
         {
             var menus, i;
@@ -268,6 +269,16 @@ var menuApp = new Vue({
                 internoIndex++;
             });
         },
+
+         nombreUsuarioSubstring(nombreCliente) {
+    nameShort = nombreCliente;
+    if (nombreCliente.length > 16) {
+        nameShort = nombreCliente.substring(0,14);//"12345678910111213";
+        nameShort = nameShort + "...";
+    }
+    return nameShort;
+    },
+
         AbrirMenuMovil(esEjecucionAutomatica = false)
         {
             console.log("menu");
