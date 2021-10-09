@@ -76,11 +76,13 @@ print_r($h);
 require_once('menu.php');
 ?>
 
-<div id="app">
+<div id="app" >
+
+    <div  style="min-height: 84vh">
 
     <img onclick='go("index.php")' alt='SP' id='logo' class='fixed-top' src='img/ts_iso_negro.png'
          >
-    <div id="contenedorIndex" class="shop">
+    <div id="contenedorIndex" stryle = "min-height: 80vh" class="shop">
         <div class="row mt-2">
 
             <div class="container p-4 m-4" v-if="status.cargandoProductos">
@@ -196,17 +198,21 @@ require_once('menu.php');
 
         </div>
 
-        <div style='position: inherit;bottom: 0;margin-bottom: 0.8rem; min-height: 150px;'
-             id="politicadesktop"
-             class='col-md-8 col-sm-12 text-right pr-4 pl-4 d-flex align-items-end'>
-        <span class='small mr-4 col-md-6'
-              onclick='go("privacy.php")'> PRIVACY POLICY</span><span onclick='go("shipping.php")'
-                                                                      class='small ml-4 col-md-5'>SHIPPING & RETURNS</span></div>
-    </div>
+
 
     
 </div>
 
+    </div>
+
+    <div style='bottom: 1vh;font-size: 0.7rem;padding-left: 50%; padding-bottom: 0.5em;'
+         id="politicadesktop"
+         class='container-fluid mt-4'    >
+        <span style='width: 10vw;display: inline-block' onclick='go("privacy.php")'> PRIVACY POLICY</span>
+        <span onclick='go("shipping.php")' >SHIPPING & RETURNS</span></div>
+
+
+</div>
 
 
 <script>

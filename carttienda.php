@@ -61,7 +61,7 @@ require_once('menu.php');
     <div id="contenedorIndex">
 
 
-    <div  class="container-fluid"  id="app" style="min-height: 20vh;">
+    <div  class="container-fluid"  id="app" style="min-height: 84vh;">
     <input type="hidden"  class="form-control" value="<?php  echo isset($_SESSION["idCliente"]) ? $_SESSION["idCliente"] : '' ?>" id="idCliente">
         <div class="container p-4 m-4" v-if="status.cargandoProductos">
             <br><br>
