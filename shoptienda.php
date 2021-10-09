@@ -82,15 +82,17 @@ require_once('menu.php');
          >
     <div id="contenedorIndex" class="shop">
         <div class="row mt-2">
+
             <div class="container p-4 m-4" v-if="status.cargandoProductos">
                 <br><br>
                 <div class="text-center"><i class='fa fa-spinner fa-spin' ></i></div>
 
             </div>
+
             <div v-for="(producto, index) in listaProductos" :key="index" class="col-md-4" :style="estilo.productos">
-            
+
                 <div class='text-center' >
-                   
+
                     <br /><br /><img   :src="producto.imagenPrincipal"
                                     @click="VerProducto(producto.idProducto)"
                                     @mouseover="producto.dentro = true; CambiarImagen(producto,false)"
@@ -98,11 +100,11 @@ require_once('menu.php');
                     <p style="font-family: NHaasGroteskDSPro-65Md;line-height: 1">{{producto.color}}</p>
                     <p><s style="font-size: 0.7rem;" v-if="producto.precioComparativo>0 && producto.precioComparativo != producto.precioFinal">{{siglasMoneda}} {{Number(producto.precioComparativo) | moneda}}</s> {{siglasMoneda}} {{Number(producto.precioFinal) | moneda}}</p>
                 </div>
-                
+
             </div>
         </div>
 
-      
+
         <div style='position: fixed;top:8.5vh;margin-left: -12vw' class="d-none d-md-block">
             <a @click='ObtenerProductos(0)'  class='d-block text-dark p-1' style="cursor: pointer;">SHOP ALL'</a>
             <?php
@@ -187,17 +189,19 @@ require_once('menu.php');
 
             </div>
         </div>
-        <div class="row ">
-            <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 ' style='height:1em'>
+
+        <div class=" ">
+
             <input type="hidden"  class="form-control" value="<?php  echo isset($_SESSION["idCliente"]) ? $_SESSION["idCliente"] : '' ?>" id="idCliente">
-            </div>
+
         </div>
-        <div style='bottom: 1vh;font-size: 0.7rem;padding-left: 50%; padding-bottom: 0.5em;'
+
+        <div style='position: inherit;bottom: 0;margin-bottom: 0.8rem; min-height: 150px;'
              id="politicadesktop"
-              class='container-fluid mt-4'
-             >
-        <span style='width: 10vw;display: inline-block' onclick='go("privacy.php")'> PRIVACY POLICY</span>
-            <span onclick='go("shipping.php")' >SHIPPING & RETURNS</span></div>
+             class='col-md-8 col-sm-12 text-right pr-4 pl-4 d-flex align-items-end'>
+        <span class='small mr-4 col-md-6'
+              onclick='go("privacy.php")'> PRIVACY POLICY</span><span onclick='go("shipping.php")'
+                                                                      class='small ml-4 col-md-5'>SHIPPING & RETURNS</span></div>
     </div>
 
     
@@ -299,6 +303,7 @@ require_once('menu.php');
                 var busqueda = { "idMenu": idMenu};
 
                 this.status.cargandoProductos = true;
+                this.listaProductos = [];
                 var result = await axios.post(ServeApi + "api/productostiendabusqueda", busqueda)
                 .then((resultado) =>{
                     console.log("resultado", resultado.data);

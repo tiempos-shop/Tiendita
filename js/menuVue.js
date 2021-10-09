@@ -67,7 +67,7 @@ function validarDimenciones() {
         /*para productos en shop*/
         if (location.pathname.indexOf('shoptienda.php') >= 0)
         {
-            app.estilo.productos = 'width:50%';
+            app.estilo.productos = 'width: 50%;padding-left: 0px;padding-right: 0px;';
         }
 
 
@@ -93,6 +93,7 @@ function validarDimenciones() {
         document.getElementById('contenedorIndex').style.display = 'block';
         if (separacionCartDesk != null)
         {
+
             document.getElementById('logo').style.left = separacionCartDesk +'px';
         }
 
@@ -519,6 +520,8 @@ var menuApp = new Vue({
         {
             /*agregar transparencia*/
             document.getElementById('menudesk').classList.remove('bg-white');
+            document.getElementById('menu-movil-dorado').classList.remove('bg-white');
+            document.getElementById('botonMenuMovil').style.color = '#AC9950';
             this.status.enIndex = true;
         }
         if (nombrePaginaHtml.indexOf("imprint.php")>=0)
@@ -532,6 +535,12 @@ var menuApp = new Vue({
             this.status.enArchivo = true;
             this.estilo.menuEscritorio = 'margin: 2vh 2vw 0px;margin-top: 1.1vh; margin-left: 2.1vw;border: 1px solid black; border-bottom:0;margin-right: 0.6vw;min-height: 4vh; width: 96.1vw; '
             //document.getElementById('menudesk').classList.remove('bg-white');
+
+        }
+        else
+        {
+            //OCULTAR BARRA ARCHIVO en otras paginas POR LA TRANSPARENCIA
+            document.getElementById('barraArchive').style.display = 'none';
         }
 
         var nombreCliente = document.getElementById("nombre");
