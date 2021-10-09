@@ -97,7 +97,7 @@ require_once('menu.php');
 <div class='container-fluid mb-2'
      style='position: fixed;bottom: 1vh;font-size: 0.7rem;padding-left: 50%; padding-bottom: 0.5em;'>
     <label style='width: 10vw;display: inline-block'>PRIVACY POLICY'</label><label
-        style='width: 20vw;display: inline-block'><span onclick='go("shipping.php")'>SHIPPING RETURNS</span></label>
+        style='padding-left: 10% width: 20vw;display: inline-block'><span onclick='go("shipping.php")'>SHIPPING RETURNS</span></label>
 </div>
 
 
