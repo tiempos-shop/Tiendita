@@ -126,7 +126,7 @@ $db->close();
                     <li><a style="display: block" @click="Ordenamiento(4)">PRICE HIGH TO LOW</a></li>
                 </ul>
             </div>
-            <div id="politica" class="d-flex justify-content-around  d-none" style="position: fixed; "><span > PRIVACY POLICY</span><span class="">SHIPPING & RETURNS</span></div>
+            <div id="politica" class="d-flex justify-content-around  d-none" style="position: fixed; "><a href="privacy.php"> PRIVACY POLICY</a><a href="shipping.php" class="">SHIPPING & RETURNS</a></div>
     </nav>
 
 </div>

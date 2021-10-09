@@ -11,6 +11,10 @@
     background-color: transparent;
 }
 
+a{
+    color: black;
+}
+
 #menu-movil-dorado.index a.carrito {
     color: #AC9950;
 }
@@ -149,6 +153,11 @@ a.elemento-menu-movil.carrito{
     top: 43vh;
     position: absolute;
 
+}
+
+#contenedorIndex.shop {
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 @media (max-width: 992px) {
