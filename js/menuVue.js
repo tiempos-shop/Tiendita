@@ -61,6 +61,18 @@ function validarDimenciones() {
             document.getElementById('margen-der').style.display = 'none';
         }
 
+        if (location.pathname.indexOf('viewtienda')>=0)
+        {
+            /*para view del producto*/
+            document.getElementById('infoProducto').classList.remove('left-top');
+            document.getElementById('infoProducto').style.paddingBottom = '1.5rem';
+            document.getElementById('component').style.fontSize ='1.9vh';
+            document.getElementById('precio').style.cssText =null;
+            document.getElementById('precio').style.minHeight= '5vh';
+            document.getElementById('carouselExampleIndicators').style.display = 'block';
+            document.getElementById('imagenesDesk').style.display = 'none';
+        }
+
         /*para productos en shop*/
         if (location.pathname.indexOf('shoptienda.php') >= 0)
         {
@@ -90,6 +102,15 @@ function validarDimenciones() {
             /*para archivo*/
             document.getElementById('margen-der').style.display = 'block';
         }
+
+        if (location.pathname.indexOf('viewtienda')>=0)
+        {
+            /*para view del producto*/
+            document.getElementById('infoProducto').classList.add('left-top');
+            document.getElementById('carouselExampleIndicators').style.display = 'none';
+            document.getElementById('imagenesDesk').style.display = 'block';
+        }
+
         //document.getElementById('menufiltro').style.display = 'inline-block';
         //document.getElementById('menufamilia').style.display = 'block';
         document.getElementById('politicadesktop').classList.remove('d-none');

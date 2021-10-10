@@ -11,8 +11,35 @@
     background-color: transparent;
 }
 
+.sinpadding {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+#component p {
+    display: block;
+}
 a{
     color: black;
+}
+.carousel-indicators {
+    position: static !important;
+    padding-left: 0.1vw !important;
+}
+.carousel-indicators li.active{
+    background-color: black;
+}
+.carousel-indicators li {
+    background-color: gray;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+}
+
+.carousel-indicators{
+    margin: 0px;
+    bottom: -30px;
+    justify-content: normal;
+    padding-left: 40px;
 }
 
 .privacity-pie {
@@ -209,6 +236,7 @@ a.elemento-menu-movil.carrito{
     #fotosprincipal {
         display: flex !important;
     }
+
     #left_home {
         max-width: 50%;
         height: auto;
@@ -298,6 +326,12 @@ a.elemento-menu-movil.carrito{
     body {
         font-size: 2.286vh !important;
         letter-spacing: 0.07rem !important;
+    }
+    #component p {
+        padding-left: 0.8rem !important;
+        padding-right: 0.8rem !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
     }
 
     button {

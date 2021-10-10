@@ -96,7 +96,6 @@ $db->close();
                             <a  style="margin-top: -10px;" @click="FiltrarProductos(0)">SHOP
                                 ALL"</a></li>
 
-                        </li>
 
                         <?php
                         $menuPrincipal = "";
@@ -105,7 +104,7 @@ $db->close();
                         <li class='opcion d-md-none'><a
                             @click='FiltrarProductos(".$valor->idMenu.")'
                           style=' margin-top: -10px;text-transform: uppercase;'>$valor->menu</a></li>
-                        </li>";
+                        ";
 
                         }
                         echo $menuPrincipal;
