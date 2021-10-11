@@ -77,6 +77,7 @@ function validarDimenciones() {
         if (location.pathname.indexOf('shoptienda.php') >= 0)
         {
             app.estilo.productos = 'width: 50%;padding-left: 0px;padding-right: 0px;';
+
         }
 
         /*para privacity*/
@@ -84,6 +85,7 @@ function validarDimenciones() {
         {
 
             document.getElementById('privacity-text').style.marginLeft = null;
+            document.getElementById('menu-movil-dorado').style.borderBottom = '1px solid black';
         }
 
 
@@ -331,7 +333,7 @@ var menuApp = new Vue({
 
                 setTimeout(function() {
 
-                    document.getElementById('menu-movil-dorado-opcion').style.height = '90vh';
+                    document.getElementById('menu-movil-dorado-opcion').style.height = '95vh';
 
                     document.getElementById('contenedorIndex').style.display = 'none';
 
