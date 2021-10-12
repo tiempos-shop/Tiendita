@@ -229,7 +229,8 @@ a.elemento-menu-movil.carrito{
 @media (min-width: 992px) {
 
     #logo {
-        width: 7%;
+        width: 6%;
+        max-width: 67px;
         top: 50vh;
         left: 90vw;
     }

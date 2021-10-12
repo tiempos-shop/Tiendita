@@ -53,7 +53,7 @@ function validarDimenciones() {
         document.getElementById('lista-menu').style.left = separacionBotonMenu +'px';
         document.getElementById('lista-filtro').style.left = separacionBotonMenu +'px';
         document.getElementById('lista-orden').style.left = separacionBotonMenu +'px';
-        document.getElementById('logo').style.left = separacionCart +'px';
+        document.getElementById('logo').style.left = (separacionCart + 10) +'px';
 
         if (location.pathname.indexOf('archive.php')>=0)
         {
@@ -556,7 +556,7 @@ var menuApp = new Vue({
         }
         if (nombrePaginaHtml.indexOf("imprint.php")>=0)
         {
-
+            document.getElementById('menudesk').classList.remove('bg-white');
             this.status.enImprint = true;
         }
 
@@ -570,6 +570,12 @@ var menuApp = new Vue({
         {
             this.status.enArchivo = true;
             this.estilo.menuEscritorio = 'margin: 2vh 2vw 0px;margin-top: 1.1vh; margin-left: 2.1vw;border: 1px solid black; border-bottom:0;margin-right: 0.6vw;min-height: 4vh; width: 96.1vw; '
+            document.getElementById('menuEspacio').style.border='1px solid black';
+            document.getElementById('menuEspacio').style.width ='96.1vw';
+            document.getElementById('menuEspacio').classList.remove('ml-1');
+            document.getElementById('menuEspacio').style.marginLeft ='2.1vw';
+
+            document.getElementById('menu-movil-dorado').classList.remove('bg-white');
             //document.getElementById('menudesk').classList.remove('bg-white');
 
         }

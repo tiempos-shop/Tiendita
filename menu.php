@@ -50,7 +50,7 @@ $db->close();
     <nav id="menu-movil-dorado"
          class="navbar navbar-inverse navbar-static-top position-fixed d-sm-block d-md-none d-block d-block  shop bg-white"
          style="width: 100%; top:0; z-index: 2;left: 0;" role="navigation">
-        <div class="ml-1 mr-1">
+        <div class="ml-1 mr-1" id="menuEspacio">
             <div class="navbar-header d-flex justify-content-between align-items-center ml-2 mr-2"
                  style="margin-top: 0;">
                 <button type="button" class="navbar-toggle collapsed menu" data-toggle="collapse" id="botonMenuMovil"

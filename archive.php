@@ -213,5 +213,12 @@ require_once('menu.php');
     </div><br /><br />
 </div>
 <div id="politicadesktop"></div>
+<script>
+    document.getElementById('bordepagina').style.borderTop = 'none';
+
+    document.getElementById('contenedorIndex').style.marginTop = '10px';
+    document.getElementById('menu-movil-dorado').style.backgroundColor = 'white';
+    document.getElementById('menu-movil-dorado').style.paddingBottom = '0px';
+</script>
 </body>
 </html>
