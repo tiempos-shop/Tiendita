@@ -50,7 +50,7 @@ $db->close();
     <nav id="menu-movil-dorado"
          class="navbar navbar-inverse navbar-static-top position-fixed d-sm-block d-md-none d-block d-block  shop bg-white"
          style="width: 100%; top:0; z-index: 2;left: 0;" role="navigation">
-        <div class="ml-1 mr-1">
+        <div class="ml-1 mr-1" id="menuEspacio">
             <div class="navbar-header d-flex justify-content-between align-items-center ml-2 mr-2"
                  style="margin-top: 0;">
                 <button type="button" class="navbar-toggle collapsed menu" data-toggle="collapse" id="botonMenuMovil"
@@ -96,7 +96,6 @@ $db->close();
                             <a  style="margin-top: -10px;" @click="FiltrarProductos(0)">SHOP
                                 ALL"</a></li>
 
-                        </li>
 
                         <?php
                         $menuPrincipal = "";
@@ -105,7 +104,7 @@ $db->close();
                         <li class='opcion d-md-none'><a
                             @click='FiltrarProductos(".$valor->idMenu.")'
                           style=' margin-top: -10px;text-transform: uppercase;'>$valor->menu</a></li>
-                        </li>";
+                        ";
 
                         }
                         echo $menuPrincipal;
@@ -126,7 +125,7 @@ $db->close();
                     <li><a style="display: block" @click="Ordenamiento(4)">PRICE HIGH TO LOW</a></li>
                 </ul>
             </div>
-            <div id="politica" class="d-flex justify-content-around  d-none" style="position: fixed; "><span > PRIVACY POLICY</span><span class="">SHIPPING & RETURNS</span></div>
+            <div id="politica" class="d-flex justify-content-around  d-none" style="position: fixed; "><a href="privacy.php"> PRIVACY POLICY</a><a href="shipping.php" class="">SHIPPING & RETURNS</a></div>
     </nav>
 
 </div>

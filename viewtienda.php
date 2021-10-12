@@ -12,37 +12,14 @@ $html=new VistasHtml();
 
 session_start();
 
-$htmlPrincipal = "<!DOCTYPE html>
-        <html lang='es'>";
-print_r($htmlPrincipal);
-$h = $html->Head(
-    "Tiempos Shop",
-    $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
-    $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
-    $html->LoadScripts(["View/js/bootstrap.js", 
-    "js/axios.min.js", "js/vue.js", "js/global.js", "vendor/jquery/jquery.js", "js/jquery.mlens-1.7.min.js"]),
-    "",
-    '<script>
-                  function go(url){
-                      window.location.href=url;
-                  }
-                  function changeImage(imageElement,image){
-                      imageElement.src=image;
-                      imageElement.style.cursor="pointer";
-                  }
-                  function view(str){
-                      let id=str.replace("_", "\'");
-                      go("view.php?id="+id);
-                  }
-                </script>'
 
-);
-print_r($h);
-print_r('<body>');
-require_once('menu.php');
-?>
-
-<style>
+$h = $html->Html5Shop(
+    $html->Head('Tiempos Shop',
+        $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
+        $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", "css/menumovil.css"]),
+    $html->LoadScripts(["View/js/bootstrap.js",
+        "vendor/jquery/jquery.js", "js/jquery.mlens-1.7.min.js", "js/axios.min.js", "js/vue.js", "js/global.js"]),
+        "<style>
     main,
     #component {
 
@@ -106,12 +83,7 @@ require_once('menu.php');
         width: 30px;
     }
 
-    #logo {
-        display: inline-block;
-        top: 50vh;
-        left: 90vw;
-        width: 7%
-    }
+
 
     div {
         padding-right: 0;
@@ -162,105 +134,50 @@ require_once('menu.php');
     .modal-backdrop {
         background-color: transparent;
     }
-</style>
+</style>",
+        '<script>
+                      function go(url){
+                          window.location.href=url;
+                      }
+                      function changeImage(imageElement,image){
+                          imageElement.src=image;
+                          imageElement.style.cursor="pointer";
+                      }
+                      function view(str){
+                          let id=str.replace("_", "\'");
+                          go("view.php?id="+id);
+                      }
+                    </script>'), "style='background-color:#FFFFF;' ");
+print_r($h);
 
-<script>
-    function go(url) {
-        window.location.href = url;
-    }
-    function changeImage(imageElement, image) {
-        imageElement.src = image;
-        imageElement.style.cursor = "pointer";
-    }
-    function view(str) {
-        let id = str.replace("_", "'");
-        go("view.php?id=" + id);
-    }
-
-    $(document).ready(function () {
-
-        $("#id1").mlens(
-            {
-                imgSrc: $("#id1").attr("data-big"),
-                lensShape: "circle",
-                lensSize: 180,
-                borderSize: 4,
-                borderColor: "#fff",
-                borderRadius: 0,
-                imgOverlay: $("#id1").attr("data-overlay"),
-                overlayAdapt: true
-            });
-
-        $("#id2").mlens(
-            {
-                imgSrc: $("#id2").attr("data-big"),
-                lensShape: "circle",
-                lensSize: 180,
-                borderSize: 4,
-                borderColor: "#fff",
-                borderRadius: 0,
-                imgOverlay: $("#id2").attr("data-overlay"),
-                overlayAdapt: true
-            });
-
-        $("#id3").mlens(
-            {
-                imgSrc: $("#id3").attr("data-big"),
-                lensShape: "circle",
-                lensSize: 180,
-                borderSize: 4,
-                borderColor: "#fff",
-                borderRadius: 0,
-                imgOverlay: $("#id3").attr("data-overlay"),
-                overlayAdapt: true
-            });
-
-    });
-
-
-    const dataSize = [
-        ["HEIGHT", 26, 27, 29, 30],
-        ["SHOULDER", 22, 23, 25, 27],
-        ["BACK", 26, 28, 30, 32],
-        ["CHEST", 18, 20, 22, 24],
-        ["SLEEVE", 26, 28, 30, 32],
-        ["EUROPEAN SIZE", 46, 48, 50, 52]
-    ];
-
-    $(document).ready(function (e) {
-        for (let i = 0; i < dataSize.length; i++) {
-            $("#tableDetalle").append(`<tr>
-                        <td>${dataSize[i][0]}</td>
-                        <td>${dataSize[i][1]}</td>
-                        <td>${dataSize[i][2]}</td>
-                        <td>${dataSize[i][3]}</td>
-                        <td>${dataSize[i][4]}</td>
-                        </tr>`);
-        }
-    });
-
-    function ChangeSize(conversion, e) {
-        $("span").removeClass("activerow");
-        $(e).addClass("activerow");
-        $("#tableDetalle").html("");
-        for (let i = 0; i < dataSize.length; i++) {
-            $("#tableDetalle").append(`<tr>
-                            <td>${dataSize[i][0]}</td>
-                            <td>${Math.round(dataSize[i][1] / conversion)}</td>
-                            <td>${Math.round(dataSize[i][2] / conversion)}</td>
-                            <td>${Math.round(dataSize[i][3] / conversion)}</td>
-                            <td>${Math.round(dataSize[i][4] / conversion)}</td>
-                            </tr>`);
-        }
-    }
-    </script>
+require_once('menu.php');
+?>
 
 <div id="app">
     <img onclick='go("index.php")' alt='SP' id='logo' class='fixed-top' src='img/ts_iso_negro.png'
-        style='width: 7%'>
-    <div class="container-fluid">
-        <div class="row main">
-            <div class='  col-md-6  paddingNone' >
+        >
+    <div class="container-fluid" id="contenedorIndex">
+        <div class="row main sinpadding">
+
+            <!-- para movil mostrar el carousel -->
+            <div id="carouselExampleIndicators" class="carousel slide " >
+
+                <div class="carousel-inner">
+                    <div class="carousel-item " v-for="(imagen, index) in imagenes" :key="index"
+                         :class="index == 0 ? 'active' : ''" >
+                        <img class="d-block w-100" style="max-height: 800px;" :src="imagen.ruta" alt="First slide">
+                    </div>
+
+                </div>
+
+
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" v-for="(imagen, index) in imagenes" :key="index" :data-slide-to="index" :class="index == 0 ? 'active' : ''" ></li>
+                </ol>
+            </div>
+
+            <div class='  col-md-6  paddingNone' style="display: none" id="imagenesDesk">
+
 
 
        
@@ -270,18 +187,19 @@ require_once('menu.php');
 
                 </div>
             </div>
-            <div class='  col-md-6  left-top paddingNone' >
+            <div class='  col-md-6  left-top paddingNone' id="infoProducto">
+                <div class="container p-4 m-4" v-if="status.cargandoProductos">
+                    <br><br>
+                    <div class="text-center"><i class='fa fa-spinner fa-spin' ></i></div>
+
+                </div>
                 <div id='component' class="container-fluid" ><br />
 
                     <input type="hidden" value="<?php echo $_GET["id"] ?>" id="idProducto">
                     <input type="hidden"  class="form-control" value="<?php  echo isset($_SESSION["idCliente"]) ? $_SESSION["idCliente"] : '' ?>" id="idCliente">
 
-                    <div class="container p-4 m-4" v-if="status.cargandoProductos">
-                        <br><br>
-                        <div class="text-center"><i class='fa fa-spinner fa-spin' ></i></div>
 
-                    </div>
-                    <div class="row " v-else>
+                    <div class="row " v-if="!status.cargandoProductos">
                         <div class='  col-md-12  ' >
                             <p style='font-family: NHaasGroteskDSPro-65Md;'>{{info.nombre}}</p>
                         </div>
@@ -298,7 +216,7 @@ require_once('menu.php');
                         </div>
                     </div>
                     <hr style='margin-top: 1em!important;' />
-                    <div style='height: 25vh' v-if="!status.cargandoProductos"><label style='padding-left: 40px'>{{siglasMoneda}} {{Number(producto.precioFinal) | moneda}}</label></div>
+                    <div style='height: 25vh' v-show="!status.cargandoProductos" id="precio"><label style='padding-left: 40px'>{{siglasMoneda}} {{Number(producto.precioFinal) | moneda}}</label></div>
                     <hr style='margin: 0 0 0 0' />
                     <div class="btn-group" style="width:100%">
                         <button type="button" class="btn btn-block dropdown-toggle "
@@ -329,7 +247,7 @@ require_once('menu.php');
                         </div>
                     </div>
 
-                    <div class="container-fluid mb-2"
+    <div class="container-fluid mb-2" id="politicadesktop"
                     style="position: fixed;bottom: 0;font-size: 0.7rem; margin-top: calc(5% - 1rem);">
                         <label class="mr-4"><span style="width: 10vw;" >PRIVACY
                                 POLICY</span>
@@ -349,6 +267,9 @@ require_once('menu.php');
             </div>
         </div>
     </div>
+
+
+
     <div class="modal" id="size" tabindex="-1" role="dialog" aria-labelledby="sizeLabel" aria-hidden="true"
         style="background-color: #ffffff8C;">
         <div class="modal-dialog modal-dialog-centered"  role="document">
@@ -601,20 +522,28 @@ require_once('menu.php');
                }
                else
                {
-                    await axios.get(ServeApi + "api/encarrito/" + this.idCliente)
-                    .then((resultado) =>{
-                        if (resultado.data != null)
-                        {
-                            this.enCarrito = resultado.data;
-                            this.$cantidadCarrito = this.enCarrito.length;
-                            
-                            this.ValidarSiExisteEnCarrito();
-                        }
-                        else
-                        {
-                            console.log("no hay data");
-                        }
-                    });
+                   try
+                   {
+
+                   }
+                   catch (theError)
+                   {
+                       await axios.get(ServeApi + "api/encarrito/" + this.idCliente)
+                           .then((resultado) =>{
+                               if (resultado.data != null)
+                               {
+                                   this.enCarrito = resultado.data;
+                                   this.$cantidadCarrito = this.enCarrito.length;
+
+                                   this.ValidarSiExisteEnCarrito();
+                               }
+                               else
+                               {
+                                   console.log("no hay data");
+                               }
+                           });
+                   }
+
                }
                 
            }
@@ -649,5 +578,100 @@ require_once('menu.php');
     })
 </script>
 
+<script>
+    //var myCarousel = document.querySelector('#carouselExampleIndicators');
+    //var carousel = new bootstrap.Carousel(myCarousel);
+
+    function go(url) {
+        window.location.href = url;
+    }
+    function changeImage(imageElement, image) {
+        imageElement.src = image;
+        imageElement.style.cursor = "pointer";
+    }
+    function view(str) {
+        let id = str.replace("_", "'");
+        go("view.php?id=" + id);
+    }
+
+    $(document).ready(function () {
+
+        $("#id1").mlens(
+            {
+                imgSrc: $("#id1").attr("data-big"),
+                lensShape: "circle",
+                lensSize: 180,
+                borderSize: 4,
+                borderColor: "#fff",
+                borderRadius: 0,
+                imgOverlay: $("#id1").attr("data-overlay"),
+                overlayAdapt: true
+            });
+
+        $("#id2").mlens(
+            {
+                imgSrc: $("#id2").attr("data-big"),
+                lensShape: "circle",
+                lensSize: 180,
+                borderSize: 4,
+                borderColor: "#fff",
+                borderRadius: 0,
+                imgOverlay: $("#id2").attr("data-overlay"),
+                overlayAdapt: true
+            });
+
+        $("#id3").mlens(
+            {
+                imgSrc: $("#id3").attr("data-big"),
+                lensShape: "circle",
+                lensSize: 180,
+                borderSize: 4,
+                borderColor: "#fff",
+                borderRadius: 0,
+                imgOverlay: $("#id3").attr("data-overlay"),
+                overlayAdapt: true
+            });
+
+    });
+
+
+    const dataSize = [
+        ["HEIGHT", 26, 27, 29, 30],
+        ["SHOULDER", 22, 23, 25, 27],
+        ["BACK", 26, 28, 30, 32],
+        ["CHEST", 18, 20, 22, 24],
+        ["SLEEVE", 26, 28, 30, 32],
+        ["EUROPEAN SIZE", 46, 48, 50, 52]
+    ];
+
+    $(document).ready(function (e) {
+        for (let i = 0; i < dataSize.length; i++) {
+            $("#tableDetalle").append(`<tr>
+                        <td>${dataSize[i][0]}</td>
+                        <td>${dataSize[i][1]}</td>
+                        <td>${dataSize[i][2]}</td>
+                        <td>${dataSize[i][3]}</td>
+                        <td>${dataSize[i][4]}</td>
+                        </tr>`);
+        }
+    });
+
+    function ChangeSize(conversion, e) {
+        $("span").removeClass("activerow");
+        $(e).addClass("activerow");
+        $("#tableDetalle").html("");
+        for (let i = 0; i < dataSize.length; i++) {
+            $("#tableDetalle").append(`<tr>
+                            <td>${dataSize[i][0]}</td>
+                            <td>${Math.round(dataSize[i][1] / conversion)}</td>
+                            <td>${Math.round(dataSize[i][2] / conversion)}</td>
+                            <td>${Math.round(dataSize[i][3] / conversion)}</td>
+                            <td>${Math.round(dataSize[i][4] / conversion)}</td>
+                            </tr>`);
+        }
+    }
+</script>
+
 </body>
+</html>
 

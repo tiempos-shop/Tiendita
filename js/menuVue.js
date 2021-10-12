@@ -36,9 +36,6 @@ function validarDimenciones() {
         separacionCartDesk = document.getElementById("carritoDesk").offsetLeft;
     }
 
-
-    //document.getElementById('botonMenuMovil').style.color = 'black';
-
     ///PARA INICIO DE CARGA
     document.getElementById('politicadesktop').classList.remove('d-flex');
     document.getElementById('politicadesktop').classList.add('d-none');
@@ -56,7 +53,7 @@ function validarDimenciones() {
         document.getElementById('lista-menu').style.left = separacionBotonMenu +'px';
         document.getElementById('lista-filtro').style.left = separacionBotonMenu +'px';
         document.getElementById('lista-orden').style.left = separacionBotonMenu +'px';
-        document.getElementById('logo').style.left = separacionCart +'px';
+        document.getElementById('logo').style.left = (separacionCart + 10) +'px';
 
         if (location.pathname.indexOf('archive.php')>=0)
         {
@@ -64,10 +61,31 @@ function validarDimenciones() {
             document.getElementById('margen-der').style.display = 'none';
         }
 
+        if (location.pathname.indexOf('viewtienda')>=0)
+        {
+            /*para view del producto*/
+            document.getElementById('infoProducto').classList.remove('left-top');
+            document.getElementById('infoProducto').style.paddingBottom = '1.5rem';
+            document.getElementById('component').style.fontSize ='1.9vh';
+            document.getElementById('precio').style.cssText =null;
+            document.getElementById('precio').style.minHeight= '5vh';
+            document.getElementById('carouselExampleIndicators').style.display = 'block';
+            document.getElementById('imagenesDesk').style.display = 'none';
+        }
+
         /*para productos en shop*/
         if (location.pathname.indexOf('shoptienda.php') >= 0)
         {
             app.estilo.productos = 'width: 50%;padding-left: 0px;padding-right: 0px;';
+
+        }
+
+        /*para privacity*/
+        if (location.pathname.indexOf('privacy.php') >= 0)
+        {
+
+            document.getElementById('privacity-text').style.marginLeft = null;
+            document.getElementById('menu-movil-dorado').style.borderBottom = '1px solid black';
         }
 
 
@@ -86,6 +104,15 @@ function validarDimenciones() {
             /*para archivo*/
             document.getElementById('margen-der').style.display = 'block';
         }
+
+        if (location.pathname.indexOf('viewtienda')>=0)
+        {
+            /*para view del producto*/
+            document.getElementById('infoProducto').classList.add('left-top');
+            document.getElementById('carouselExampleIndicators').style.display = 'none';
+            document.getElementById('imagenesDesk').style.display = 'block';
+        }
+
         //document.getElementById('menufiltro').style.display = 'inline-block';
         //document.getElementById('menufamilia').style.display = 'block';
         document.getElementById('politicadesktop').classList.remove('d-none');
@@ -96,6 +123,8 @@ function validarDimenciones() {
 
             document.getElementById('logo').style.left = separacionCartDesk +'px';
         }
+
+
 
         modoMovil = false;
     }
@@ -146,6 +175,7 @@ var menuApp = new Vue({
             enIndex:false,
             enImprint:false,
             enArchivo:false,
+            enPricavy:false,
         },
         estilo:{
             menuEscritorio:'padding: 2vh 2vw 0px;'
@@ -314,7 +344,7 @@ var menuApp = new Vue({
 
                 setTimeout(function() {
 
-                    document.getElementById('menu-movil-dorado-opcion').style.height = '90vh';
+                    document.getElementById('menu-movil-dorado-opcion').style.height = '95vh';
 
                     document.getElementById('contenedorIndex').style.display = 'none';
 
@@ -537,14 +567,26 @@ var menuApp = new Vue({
         }
         if (nombrePaginaHtml.indexOf("imprint.php")>=0)
         {
-
+            document.getElementById('menudesk').classList.remove('bg-white');
             this.status.enImprint = true;
+        }
+
+        if (nombrePaginaHtml.indexOf("privacy.php")>=0)
+        {
+
+            this.status.enPricavy = true;
         }
 
         if (nombrePaginaHtml.indexOf('archive.php')>=0)
         {
             this.status.enArchivo = true;
             this.estilo.menuEscritorio = 'margin: 2vh 2vw 0px;margin-top: 1.1vh; margin-left: 2.1vw;border: 1px solid black; border-bottom:0;margin-right: 0.6vw;min-height: 4vh; width: 96.1vw; '
+            document.getElementById('menuEspacio').style.border='1px solid black';
+            document.getElementById('menuEspacio').style.width ='96.1vw';
+            document.getElementById('menuEspacio').classList.remove('ml-1');
+            document.getElementById('menuEspacio').style.marginLeft ='2.1vw';
+
+            document.getElementById('menu-movil-dorado').classList.remove('bg-white');
             //document.getElementById('menudesk').classList.remove('bg-white');
 
         }
