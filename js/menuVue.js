@@ -565,6 +565,9 @@ var menuApp = new Vue({
             document.getElementById('botonMenuMovil').style.color = '#AC9950';
             this.status.enIndex = true;
         }
+        if (nombrePaginaHtml.indexOf("imprint.php")>=0) {
+            document.getElementById('menu-movil-dorado').classList.remove('bg-white');
+        }
         if (nombrePaginaHtml.indexOf("imprint.php")>=0)
         {
             document.getElementById('menudesk').classList.remove('bg-white');
