@@ -88,7 +88,10 @@ function validarDimenciones() {
             document.getElementById('menu-movil-dorado').style.borderBottom = '1px solid black';
         }
 
-
+        if (location.pathname.indexOf('loginshop.php')>=0)
+        {
+            document.getElementById('contenedorIndex').style.cssText = "padding-bottom: 2rem !important;";
+        }
 
         modoMovil = true;
     }
@@ -300,7 +303,7 @@ var menuApp = new Vue({
         },
         AbrirMenuMovil(esEjecucionAutomatica = false)
         {
-            console.log("menu");
+
             this.OcultarCaracter();
 
 
@@ -382,7 +385,7 @@ var menuApp = new Vue({
 
             }
 
-            if (!esEjecucionAutomatica) { mostrarMenu =!mostrarMenu; console.log("mostrar", mostrarMenu); }
+            if (!esEjecucionAutomatica) { mostrarMenu =!mostrarMenu;  }
 
         },
         AbrirMenuMovilFiltro(esEjecucionAutomatica = false)
@@ -463,7 +466,7 @@ var menuApp = new Vue({
             this.login.accion ="cerrar";
             await axios.post("session.php", this.login)
             .then((resultado) =>{
-                console.log(resultado.data);
+
                 if (resultado.data = "cerrado")
                 {
                     location.href ="shoptienda.php";
@@ -544,7 +547,7 @@ var menuApp = new Vue({
         if (nombrePaginaHtml.indexOf("shoptienda.php")>=0)
         {
             this.status.enTienda = true;
-            console.log("entienda");
+
         }
         if (nombrePaginaHtml.indexOf("index.php")>=0)
         {
