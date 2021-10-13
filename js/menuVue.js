@@ -87,6 +87,13 @@ function validarDimenciones() {
             document.getElementById('privacity-text').style.marginLeft = null;
             document.getElementById('menu-movil-dorado').style.borderBottom = '1px solid black';
         }
+        if (location.pathname.indexOf('shipping.php') >= 0)
+        {
+
+            document.getElementById('shipping-text').style.marginLeft = null;
+            document.getElementById('menu-movil-dorado').style.borderBottom = '1px solid black';
+        }
+
 
         if (location.pathname.indexOf('loginshop.php')>=0)
         {
