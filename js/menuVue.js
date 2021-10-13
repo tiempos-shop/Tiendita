@@ -187,6 +187,7 @@ var menuApp = new Vue({
         idioma:'-'
     },
     methods: {
+
         OcultarCaracter()
         {
             var menus, i;
@@ -301,6 +302,16 @@ var menuApp = new Vue({
                 internoIndex++;
             });
         },
+
+         nombreUsuarioSubstring(nombreCliente) {
+    nameShort = nombreCliente;
+    if (nombreCliente.length > 16) {
+        nameShort = nombreCliente.substring(0,14);//"12345678910111213";
+        nameShort = nameShort + "...";
+    }
+    return nameShort;
+    },
+
         AbrirMenuMovil(esEjecucionAutomatica = false)
         {
 
@@ -556,6 +567,9 @@ var menuApp = new Vue({
             document.getElementById('menu-movil-dorado').classList.remove('bg-white');
             document.getElementById('botonMenuMovil').style.color = '#AC9950';
             this.status.enIndex = true;
+        }
+        if (nombrePaginaHtml.indexOf("imprint.php")>=0) {
+            document.getElementById('menu-movil-dorado').classList.remove('bg-white');
         }
         if (nombrePaginaHtml.indexOf("imprint.php")>=0)
         {
