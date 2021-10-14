@@ -1,3 +1,7 @@
+p {
+    display: block;
+}
+
 #botonMenuMovil.index i {
 
     color: #AC9950;
@@ -332,6 +336,10 @@ a.elemento-menu-movil.carrito{
 }
 
 @media (max-width: 576px) {
+    .border-check {
+        width: 100vw;
+        margin-left: -2rem;
+    }
     #contenedorIndex {
         margin-left: 15%;
         margin-right: 15%;

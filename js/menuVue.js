@@ -61,6 +61,11 @@ function validarDimenciones() {
             document.getElementById('margen-der').style.display = 'none';
         }
 
+        if (location.pathname.indexOf('checkout')>=0)
+        {
+            document.getElementById('contenedorIndex').style.cssText = "padding: 2rem !important;";
+
+        }
         if (location.pathname.indexOf('viewtienda')>=0)
         {
             /*para view del producto*/

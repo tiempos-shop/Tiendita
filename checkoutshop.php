@@ -50,7 +50,7 @@ print_r($htmlPrincipal);
 $h = $html->Head(
     "Tiempos Shop",
     $html->Meta("utf-8", "Tienda Online de Tiempos Shop", "Egil Ordonez"),
-    $html->LoadStyles(["global.css", "View/css/bootstrap.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]),
+    $html->LoadStyles(["global.css", "View/css/bootstrap.css", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", "css/menumovil.css"]),
     $html->LoadScripts(["View/js/bootstrap.js", "js/axios.min.js", "js/vue.js", "js/global.js", "https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js","https://cdn.conekta.io/js/latest/conekta.js"]),
     "",
     '<script>
@@ -115,8 +115,8 @@ print_r($h);
 
 require_once('menu.php');
 ?>
-
-<div class="container-fluid" id="app">
+<img onclick='go("index.php")' alt='SP' id='logo' class='fixed-top' src='img/ts_iso_negro.png'>
+<div class="container-fluid" id="contenedorIndex">
     
     <div class="row ">
         <div class="  col-md-12  " style="text-align:center;margin-top:100px">
@@ -128,7 +128,7 @@ require_once('menu.php');
         <input type="hidden"  class="form-control" value="<?php  echo isset($_SESSION["idCliente"]) ? $_SESSION["idCliente"] : '' ?>" id="idCliente">
         </div>
     </div>
-    <hr style="opacity: 1" />
+    <hr style="opacity: 1" class="border-check" />
     <div class="row ">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 " style="height:1vh">
 
@@ -157,7 +157,7 @@ require_once('menu.php');
         <div class="  col-md-2  ">
 
         </div>
-        <div class="  col-md-4  ">
+        <div class="  col-md-4  " style="padding-bottom: 0.3rem;">
             <input class="form-control"  id="nombre" maxlength="999999" 
             v-model="direccion.nombre"
             placeholder="FIRST NAME" style="border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em" />
@@ -180,7 +180,7 @@ require_once('menu.php');
         <div class="  col-md-2  ">
 
         </div>
-        <div class="  col-md-4  ">
+        <div class="  col-md-4  " style="padding-bottom: 0.3rem;">
             <input class="form-control" name="calle" 
             v-model="direccion.calle"
             id="calle" maxlength="999999" placeholder="STREET ADDRESS" style="border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em" />
@@ -203,7 +203,7 @@ require_once('menu.php');
         <div class="  col-md-2  ">
 
         </div>
-        <div class="  col-md-4  ">
+        <div class="  col-md-4  " style="padding-bottom: 0.3rem;">
             <input class="form-control" name="ciudad" 
             v-model="direccion.ciudad"
             id="ciudad" maxlength="999999" placeholder="CITY" style="border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em" />
@@ -226,7 +226,7 @@ require_once('menu.php');
         <div class="  col-md-2  ">
 
         </div>
-        <div class="  col-md-4  ">
+        <div class="  col-md-4  " style="padding-bottom: 0.3rem;">
            
             <?php echo $dataOpcionPais; ?>
         </div>
@@ -248,7 +248,7 @@ require_once('menu.php');
         <div class="  col-md-2  ">
 
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" style="padding-bottom: 0.3rem;">
         
             <input class="form-control"
             v-model="direccion.colonia"
@@ -308,7 +308,7 @@ require_once('menu.php');
 
         </div>
     </div>
-    <hr style="opacity: 1" />
+    <hr style="opacity: 1" class="border-check" />
     <div class="row ">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 " style="height:1vh">
 
@@ -360,7 +360,7 @@ require_once('menu.php');
 
         </div>
     </div>
-    <hr style="opacity: 1" />
+    <hr style="opacity: 1"  class="border-check"/>
     <div class="row ">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 " style="height:1vh">
 
@@ -413,7 +413,7 @@ require_once('menu.php');
 
                 </div>
             </div>
-            <hr style="opacity: 1" />
+            <hr style="opacity: 1" class="border-check" />
             <div class="row ">
                 <div class="  col-md-2  ">
 
@@ -543,7 +543,7 @@ require_once('menu.php');
 
                 </div>
             </div>
-            <hr style="opacity: 1" />
+            <hr style="opacity: 1"  class="border-check"/>
             <div class="row ">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 " style="height:1vh">
 
@@ -555,7 +555,7 @@ require_once('menu.php');
                 </div>
             </div>
 
-            <hr style="opacity: 1;margin-bottom: 0px;" />
+            <hr style="opacity: 1;margin-bottom: 0px;" class="border-check" />
             <div class="row " v-for="(producto, index) in enCarrito" :key="index">
                 <div class="  col-md-2  ">
 
@@ -599,7 +599,7 @@ require_once('menu.php');
                         </div>
                     </div>
                 </div>
-                <hr style="margin: 0;opacity: 1;margin-bottom: 0px;" />
+                <hr style="margin: 0;opacity: 1;margin-bottom: 0px;" class="border-check"/>
             </div>
 
             <div class="row ">
@@ -651,10 +651,10 @@ require_once('menu.php');
 
     
 </div>
-<div style='bottom: 1vh;font-size: 0.7rem;padding-left: 50%; padding-bottom: 0.5em;'
-     class='container-fluid mt-4' >
-    <span class=" mr-4 col-md-6" onclick="go('privacy.php')"> PRIVACY POLICY</span>
-    <span onclick="go('shipping.php')" class=" ml-4 col-md-5">SHIPPING & RETURNS</span>
+<div class='container-fluid mb-2'
+     style='bottom: 1vh;font-size: 0.7rem;padding-left: 50%; padding-bottom: 1.5rem;' id="politicadesktop">
+    <label style='width: 14vw;display: inline-block;position: absolute;left: 50vw;font-size: 0.7rem;' onclick='go("privacy.php")'>PRIVACY POLICY</label>
+    <label style='width: 15vw;display: inline-block;position: absolute;left: 62vw;font-size: 0.7rem;'><span onclick='go("shipping.php")'>SHIPPING RETURNS</span></label>
 </div>
 
 <script>
@@ -671,7 +671,7 @@ require_once('menu.php');
     });
 
     var app = new Vue({
-        el: '#app',
+        el: '#contenedorIndex',
         data: {
             enCarrito: [],
             idCliente: 0,
