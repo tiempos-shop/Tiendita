@@ -191,7 +191,7 @@ require_once('menu.php');
                     <input type='password' class='form-control' name='password'
                            id='password' placeholder='PASSWORD' v-model="login.password"
                            style='border-color: black;border-radius: 0;min-height: 2em;padding-bottom: 0.3em;padding-top: 0.3em'>
-                    <a href='#' onclick='seteyePassword(this);' style='position: absolute; right: 10px;z-index: 99;top: 2px;'>
+                    <a href='#' onclick='seteyePassword(this);' style='position: absolute; right: 10px;z-index: 1;top: 2px;'>
                         <i class='fa fa-eye-slash' style='color: black;' aria-hidden='true'></i></a>
                 </div>
                 <button   class='btn small-font'>FORGOT
@@ -315,6 +315,7 @@ require_once('menu.php');
 
 
 <div class='container-fluid mt-4'
+     id="politicadesktop"
      style='position: inherit;bottom: 1vh;font-size: 0.7rem;padding-left: 50%; padding-bottom: 0.5em;'>
     <label style='width: 10vw;display: inline-block'>PRIVACY POLICY'</label><label
             style='width: 20vw;display: inline-block'><span onclick='go("shipping.php")'>SHIPPING RETURNS</span></label>
