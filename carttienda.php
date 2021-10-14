@@ -68,6 +68,7 @@ require_once('menu.php');
             <div class="text-center"><i class='fa fa-spinner fa-spin' ></i></div>
 
         </div>
+    <div id="carritoProductos">
         <div class="row " v-for="(producto, index) in enCarrito" :key="index">
             <div class="  col-md-2  " >
                 
@@ -105,14 +106,62 @@ require_once('menu.php');
                 </div>
             </div>
         </div>
+    </div>
 
+        <div id="carritoProductosMovil" class="container">
+            <div class="row " v-for="(producto, index) in enCarrito" :key="index">
+                <hr>
+            <table>
+                <tr>
+                    <td rowspan="4">
+
+                                <img :src="producto.ruta" height="172">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td  style ="display: inline-block;">
+                        <p class="small">
+                        {{producto.nombre}}
+                    </p>
+                    </td>
+                    <td></td>
+                    <td style ="display: inline-block;" >
+
+                            {{siglasMoneda}} {{Number(producto.precioFinal) | moneda}}
+
+                </tr>
+                <tr>
+                    <td style ="display: inline-block;"> <button type="submit" style="border:0 solid transparent;background-color:transparent;display: inline-block"
+                                 @click="EliminarProducto(producto)">X</button>
+                        <input @change="CambiarCantidad(producto)" type="number"
+                               :max="producto.inventario"
+                               :disabled="producto.enviando"
+                               v-model="producto.cantidad" style="width: 65px;padding-left: 5px;">
+
+                            {{producto.color}}
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td> </td>
+                </tr>
+            </table>
+            </div>
+        </div>
         
         <hr style="margin: 0;" /><br />
         <div class="row ">
             <div class="  col-md-7  " >
 
             </div>
-            <div class="  col-md-5  " >
+            <div id="SubtotalWeb" class="  col-md-5  ">
+                SUBTOTAL: {{subtotal | moneda}}
+            </div>
+            <div id="SubtotalMovil" class="  col-md-5  " style="padding-right: 90px;text-align: right" >
                 SUBTOTAL: {{subtotal | moneda}}
             </div>
         </div>
@@ -131,11 +180,15 @@ require_once('menu.php');
             <div class="  col-md-7  " >
 
             </div>
-            <div class="  col-md-5  " >
+            <div id="shippingWeb" class="  col-md-5 " >
                 <p class="small">SHIPPING & TAXES CALCULATED AT CHECKOUT</p>
             </div>
         </div>
+        <div id="shippingMovil" style="padding-left: 12%;" class="  col-md-3 " >
+            <p class="small text-align-center">SHIPPING & TAXES CALCULATED AT CHECKOUT</p>
+        </div>
     </div>
+
     <div class="row ">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 " style="height:1em">
 
