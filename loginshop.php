@@ -314,11 +314,16 @@ require_once('menu.php');
 </div>
 
 
-<div class='container-fluid mt-4'
+<!--<div class='container-fluid mt-4'
      id="politicadesktop"
      style='position: inherit;bottom: 1vh;font-size: 0.7rem;padding-left: 50%; padding-bottom: 0.5em;'>
     <label style='width: 10vw;display: inline-block'>PRIVACY POLICY'</label><label
             style='width: 20vw;display: inline-block'><span onclick='go("shipping.php")'>SHIPPING RETURNS</span></label>
+</div>-->
+<div style="margin-top: 4px;" id="politicadesktop">
+    <?php
+    require_once('privacyShiping.php');
+    ?>
 </div>
 <script src='js/login.js'></script>
 

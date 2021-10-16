@@ -194,7 +194,7 @@ require_once('menu.php');
 
         </div>
     </div>
-    <div style='bottom: 1vh;font-size: 0.7rem;padding-left: 50%; padding-bottom: 0.5em;'
+    <!--div style='bottom: 1vh;font-size: 0.7rem;padding-left: 50%; padding-bottom: 0.5em;'
          id="politicadesktop"
          class='container-fluid mb-2'
         <span
@@ -202,7 +202,12 @@ require_once('menu.php');
         <span style = "padding-left: 10%" onclick="go('shipping.php')"
             >SHIPPING & RETURNS</span></div>
 
-    </div>
+    </div-->
+        <div  id="politicadesktop">
+            <?php
+            require_once('privacyShiping.php');
+            ?>
+        </div>
 
 <script>
     

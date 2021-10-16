@@ -205,12 +205,16 @@ require_once('menu.php');
 
     </div>
 
-    <div class='container-fluid mb-2'
+    <!--<div class='container-fluid mb-2'
          style='bottom: 1vh;font-size: 0.7rem;padding-left: 50%; padding-bottom: 1.5rem;' id="politicadesktop">
         <label style='width: 14vw;display: inline-block;position: absolute;left: 50vw;font-size: 0.7rem;' onclick='go("privacy.php")'>PRIVACY POLICY'</label>
         <label style='width: 15vw;display: inline-block;position: absolute;left: 62vw;font-size: 0.7rem;'><span onclick='go("shipping.php")'>SHIPPING RETURNS</span></label>
-    </div>
-
+    </div>-->
+<div id="politicadesktop">
+<?php
+    require_once('privacyShiping.php');
+?>
+</div>
 
 </div>
 
