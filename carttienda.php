@@ -108,9 +108,9 @@ require_once('menu.php');
         </div>
     </div>
 
-        <div id="carritoProductosMovil" class="container">
+        <div id="carritoProductosMovil" >
             <div class="row " v-for="(producto, index) in enCarrito" :key="index">
-                <hr>
+                <hr style="opacity: 1;margin-top: -1px;margin-bottom: -1px; " />
             <table>
                 <tr>
                     <td rowspan="4">
