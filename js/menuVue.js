@@ -108,14 +108,20 @@ function validarDimenciones() {
             document.getElementById('SubtotalWeb').style.display = 'none';
             document.getElementById('shippingWeb').style.display = 'none';
             document.getElementById('shippingMovil').style.display = 'block';
-            document.getElementById('logo').style.display = 'none';
+            //document.getElementById('logo').style.display = 'none';
         }
 
         if (location.pathname.indexOf('loginshop.php')>=0)
         {
             document.getElementById('contenedorIndex').style.cssText = "padding-bottom: 2rem !important;";
         }
-
+        if (location.pathname.indexOf('checkoutshop.php')>=0)
+        {
+            document.getElementById('productosWeb').style.display = 'none';
+            document.getElementById('productosCheckoutMovil').style.display = 'block';
+            document.getElementById('sumFinalWeb').style.display = 'none';
+            document.getElementById('movilTotal').style.display = 'block';
+        }
         modoMovil = true;
     }
     else
@@ -160,7 +166,14 @@ function validarDimenciones() {
             document.getElementById('shippingMovil').style.display = 'none';
             document.getElementById('logo').style.display = 'block';
         }
+        if (location.pathname.indexOf('checkoutshop.php')>=0)
+        {
+            document.getElementById('productosWeb').style.display = 'block';
+            document.getElementById('productosCheckoutMovil').style.display = 'none';
+            document.getElementById('sumFinalWeb').style.display = 'block';
+            document.getElementById('movilTotal').style.display = 'none';
 
+        }
         modoMovil = false;
     }
 

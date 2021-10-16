@@ -555,8 +555,9 @@ require_once('menu.php');
                 </div>
             </div>
 
+            <div id= "productosWeb">
             <hr style="opacity: 1;margin-bottom: 0px;" class="border-check" />
-            <div class="row " v-for="(producto, index) in enCarrito" :key="index">
+            <div  class="row " v-for="(producto, index) in enCarrito" :key="index">
                 <div class="  col-md-2  ">
 
                 </div>
@@ -577,13 +578,13 @@ require_once('menu.php');
                 </div>
                 <div class="  col-md-1  ">
                     <div class="d-flex" style="margin-top: 16px;">
-                        
-                            <button type="submit" style="border:0 solid transparent;background-color:transparent;display: inline-block"
-                            @click="EliminarProducto(producto)">X</button>
-                            <input @change="CambiarCantidad(producto)" type="number" 
-                            :max="producto.inventario"
-                            :disabled="producto.enviando"
-                            v-model="producto.cantidad" style="width: 65px;padding-left: 5px;">
+
+                        <button type="submit" style="border:0 solid transparent;background-color:transparent;display: inline-block"
+                                @click="EliminarProducto(producto)">X</button>
+                        <input @change="CambiarCantidad(producto)" type="number"
+                               :max="producto.inventario"
+                               :disabled="producto.enviando"
+                               v-model="producto.cantidad" style="width: 65px;padding-left: 5px;">
                     </div>
                 </div>
                 <div class="  col-md-1  ">
@@ -601,8 +602,90 @@ require_once('menu.php');
                 </div>
                 <hr style="margin: 0;opacity: 1;margin-bottom: 0px;" class="border-check"/>
             </div>
+        </div>
 
-            <div class="row ">
+            <div id="productosCheckoutMovil">
+                <hr style="opacity: 1;margin-bottom: 0px; margin-left: -32px;margin-right: -25px;" class="border-check"/>
+                <div  v-for="(producto, index) in enCarrito" :key="index">
+
+                    <table>
+                        <tr>
+                            <td rowspan="4">
+
+                                <img :src="producto.ruta" height="172">
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td  style ="display: inline-block;">
+                                <p class="small">
+                                    {{producto.nombre}}
+                                </p>
+                            </td>
+                            <td></td>
+                            <td style ="display: inline-block;" >
+
+                                {{siglasMoneda}} {{Number(producto.precioFinal) | moneda}}
+
+                        </tr>
+                        <tr>
+                            <td style ="display: inline-block;"> <button type="submit" style="border:0 solid transparent;background-color:transparent;display: inline-block"
+                                                                         @click="EliminarProducto(producto)">X</button>
+                                <input @change="CambiarCantidad(producto)" type="number"
+                                       :max="producto.inventario"
+                                       :disabled="producto.enviando"
+                                       v-model="producto.cantidad" style="width: 65px;padding-left: 5px;">
+
+                                {{producto.color}}
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td> </td>
+                        </tr>
+                    </table>
+                    <hr style="opacity: 1;margin-top: -1px;margin-bottom: -1px; margin-left: -32px;margin-right: -35px;" />
+                </div>
+
+
+
+            </div>
+
+        <div id="movilTotal">
+            <div >
+                <div class="row ">
+
+                    <div class="  col  ">
+                        <div class="d-flex flex-column" style="margin-top: 10px;">
+                            <p class="mr-5">Subtotal</p>
+                            <p>Shipping total</p>
+                            <p>Duties and taxes</p>
+                            <p class="font-weight-bold mt-2">Total</p>
+                        </div>
+                    </div>
+                    <div class="  col  ">
+                        <div style="margin-top: 10px;" class="d-flex flex-column">
+                            <p class="mr-5">{{siglasMoneda}} {{subtotal | moneda}} <input type="hidden" value="1300" id="subtotal"> </p>
+                            <p> <span id="monedaEnvio"></span> <span class="ml-1" id="precioEnvio">
+                                    {{siglasMoneda}} {{envio | moneda}}
+                                </span> </p>
+                            <p>(Included)</p>
+                            <p class="font-weight-bold mt-2"><span id="monedaTotal"></span> <span class="ml-1" id="precioTotal">
+                                {{siglasMoneda}}  {{Number(total) | moneda}}
+                                </span></p>
+                            <input type="hidden" v-model="total" id="totalCompra">
+                            <input type="hidden" v-model="siglasMoneda" id="moneda">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr style="opacity: 1;margin-top: -1px;margin-bottom: -1px; margin-left: -32px;margin-right: -35px;" />
+        </div>
+
+            <div id="sumFinalWeb" class="row ">
                 <div class="  col-md-12  pt-6 pb-4 border-bottom border-dark">
                     <div class="row ">
                         <div class="  col-md-3  ">
@@ -632,7 +715,7 @@ require_once('menu.php');
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-dark btn-block" style="text-align: left;border-radius: 0" 
+                <button class="btn btn-dark btn-block" style="text-align: left;border-radius: 0"
                     @click="ProcesarPedido()" :disabled="status.procesado || status.enviandoPedido || status.cotizando">
                     <div class="text-center" id="procesarText">{{status.procesadoEstatus}}</div>
                 </button>
