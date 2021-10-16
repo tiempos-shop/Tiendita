@@ -10,6 +10,19 @@ include_once "Data/Connection/EntidadBase.php";
 include_once "Business/FrontComponents.php";
 
 session_start();
+
+$db=new \Tiendita\EntidadBase();
+
+try {
+    $confiIndex=$db->getAll("configindex where activo = 1");
+    $dbURLAdmin = $db->getBy('configuracion','idConfiguracion','1');
+    $nombreURLAdmin = $dbURLAdmin[0]->valor."/";
+    $db->close();
+} catch (Exception $e) {
+    echo  $e->getMessage();
+}
+
+
 $html=new VistasHtml();
 $ui=new Utilidades();
 
@@ -90,15 +103,19 @@ require_once('menu.php');
 
 <img alt="SP" id="logo" class="fixed-top" src="img/ts_iso_oro.png">
 <input type="hidden"  class="form-control" value="<?php  echo isset($_SESSION["idCliente"]) ? $_SESSION["idCliente"] : '' ?>" id="idCliente">
-<div id="contenedorIndex" class="container-fluid" >
+<div id="contenedorIndex" class="container-fluid" style="overflow: auto">
     <div >
         <div id="app">
             <div class="col" style="padding: 0px; margin: 0px;">
-                <img src="img/ts-home_001.jpg"
-                    style="padding: 0px;margin: 0px; width: 100%; height: 100%;" />
-                <img src="img/ts-home_002.jpg"
-                     v-if="status.enIndex"
-                     style="padding: 0px;margin: 0px; width: 100%; height: 100%;" />
+                <?php
+
+                    if ($confiIndex[0]->idConfig == 1)
+                    {
+                        echo "<div><img src='".$nombreURLAdmin.$confiIndex[0]->img1."'  class='img-config' style='padding: 0px;margin: 0px; height: 100%; width: 100vw;' /></div>";
+                        echo "<div><img src='".$nombreURLAdmin.$confiIndex[0]->img2."' class='img-config' style='padding: 0px;margin: 0px; height: 100%; width: 100vw;' /></div>";
+                    }
+                ?>
+
         </div>
 
 

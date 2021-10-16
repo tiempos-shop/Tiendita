@@ -7,7 +7,7 @@ $menu = $db->getAll("menus");
 $db->close();
 ?>
 
-<div id="menu">
+<div id="menu" style="display: none">
     <div id="margen-der" v-if="status.enArchivo" style="background-color: white; min-height: 37px;margin-right: -1vw;z-index: 103;position: fixed;width: 100%;"></div>
     <div class="fixed-top d-none d-md-block bg-white" id="menudesk"
          :style="estilo.menuEscritorio">

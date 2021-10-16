@@ -355,7 +355,10 @@ a.elemento-menu-movil.carrito{
 }
 
 @media (max-width: 768px) {
-
+    .img-config {
+        width: 150vw !important;
+        margin-left: -50vw !important;
+    }
     body {
         font-size: 2.286vh !important;
         letter-spacing: 0.07rem !important;
