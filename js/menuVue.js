@@ -599,13 +599,14 @@ var menuApp = new Vue({
 
         /*para ocultar elementos del menu*/
         var nombrePaginaHtml =location.pathname;
+        document.getElementById('menu').style.display = 'block';
 
         if (nombrePaginaHtml.indexOf("shoptienda.php")>=0)
         {
             this.status.enTienda = true;
 
         }
-        if (nombrePaginaHtml.indexOf("index.php")>=0)
+        if (nombrePaginaHtml.indexOf("index.php")>=0 || location.pathname == "/")
         {
             /*agregar transparencia*/
             document.getElementById('menudesk').classList.remove('bg-white');
