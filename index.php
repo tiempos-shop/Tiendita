@@ -34,7 +34,7 @@ $h= $html->Html5Shop(
         "Tiempos Shop",
             $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
             $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", "css/menumovil.css"]),
-            $html->LoadScripts(["View/js/bootstrap.js", "js/vue.js", "js/global.js"]),
+            $html->LoadScripts(["View/js/bootstrap.js", "js/axios.min.js", "js/vue.js", "js/global.js"]),
             "
                 <style>
                     #contenedorIndex{

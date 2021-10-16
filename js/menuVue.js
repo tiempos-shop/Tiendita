@@ -606,7 +606,7 @@ var menuApp = new Vue({
             this.status.enTienda = true;
 
         }
-        if (nombrePaginaHtml.indexOf("index.php")>=0 || location.pathname == "/")
+        if (nombrePaginaHtml.indexOf("index.php")>=0 || location.pathname == "/" || location.pathname == "/tiendita/")
         {
             /*agregar transparencia*/
             document.getElementById('menudesk').classList.remove('bg-white');
