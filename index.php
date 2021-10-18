@@ -109,10 +109,19 @@ require_once('menu.php');
             <div class="col" style="padding: 0px; margin: 0px;">
                 <?php
 
-                    if ($confiIndex[0]->idConfig == 1)
+                    if ($confiIndex[0]->idConfig == 1 || $confiIndex[0]->idConfig == 2)
                     {
                         echo "<div><img src='".$nombreURLAdmin.$confiIndex[0]->img1."'  class='img-config' style='padding: 0px;margin: 0px; height: 100%; width: 100vw;' /></div>";
-                        echo "<div><img src='".$nombreURLAdmin.$confiIndex[0]->img2."' class='img-config' style='padding: 0px;margin: 0px; height: 100%; width: 100vw;' /></div>";
+                        if (strlen($confiIndex[0]->img2)>0){
+                            /*para la segunda opcion de imagen */
+                            echo "<div><img src='".$nombreURLAdmin.$confiIndex[0]->img2."' class='img-config' style='padding: 0px;margin: 0px; height: 100%; width: 100vw;' /></div>";
+                        }
+                        
+                    }
+                    if ($confiIndex[0]->idConfig == 3)
+                    {
+                        /*para youtube */
+                        
                     }
                 ?>
 
