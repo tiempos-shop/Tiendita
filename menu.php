@@ -15,29 +15,29 @@ $db->close();
         <input type="hidden" id="nombre" value="<?php echo isset($_SESSION["nombre"]) ?  $_SESSION["nombre"] : '' ?>">
         <div class="row right">
             <div class="  col-md-2  " >
-                <span @click="irAlUrl('shoptienda.php')">{{elemento.shop}} </span>
+                <span @click="irAlUrl('shoptienda.php')" style="cursor: pointer;">{{elemento.shop}} </span>
             </div>
             <div class="  col-md-2  " >
-                <span style="padding-left: 5%" @click="irAlUrl('archive.php')" >{{elemento.archive}}</span>
+                <span style="padding-left: 5%; cursor: pointer;" @click="irAlUrl('archive.php')" >{{elemento.archive}}</span>
             </div>
             <div class="  col-md-2  " >
-                <span style="padding-left: 20%" @click="irAlUrl('imprint.php')" >{{elemento.imprint}}</span>
+                <span style="padding-left: 20%; cursor: pointer;" @click="irAlUrl('imprint.php')" >{{elemento.imprint}}</span>
             </div>
             <div class=" col-sm-2  " v-if="cliente.nombre.length == 0">
-                <span style="padding-left: 35%" @click="irAlUrl('loginshop.php')">LOGIN</span>
+                <span style="padding-left: 35%; cursor: pointer;" @click="irAlUrl('loginshop.php')" >LOGIN</span>
             </div>
             <div class=" col-sm-2  " style="margin-top: -8px" v-else>
                 <span class="text-muted"  @click="CerrarSession()">
                     <img src="img/push.png" alt="cerrarSesion" style="width: 30px; margin-bottom: 10px" />
                 </span>
-                <span  >{{nombreUsuarioSubstring(cliente.nombre)}}</span>
+                <span style="cursor: pointer;" >{{nombreUsuarioSubstring(cliente.nombre)}}</span>
 
             </div>
             <div class="  col-md-2 " >
-                <span style="padding-left: 50%" @click="EstablecerIdioma()">{{idioma}}</span>
+                <span style="padding-left: 50%; cursor: pointer;" @click="EstablecerIdioma()" >{{idioma}}</span>
             </div>
             <div class="  col-md-2  " >
-                <span style="right: 2%;position: absolute" @click="irAlUrl('carttienda.php')" id="carritoDesk">CART({{$cantidadCarrito}})</span>
+                <span style="right: 2%;position: absolute; cursor: pointer;" @click="irAlUrl('carttienda.php')" id="carritoDesk" >CART({{$cantidadCarrito}})</span>
             </div>
         </div>
         <div id="margen-der"  v-if="status.enArchivo" style="background-color: white; min-height: 10px"></div>
