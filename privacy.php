@@ -92,12 +92,17 @@ require_once('menu.php');
 </div>
 <img onclick='go("index.php")' alt='SP' id='logo' class='fixed-top' src='img/ts_iso_negro.png'>
 
-<div class='container-fluid mb-2 privacity-pie'
+<!--div class='container-fluid mb-2 privacity-pie'
      style='bottom: 1vh;font-size: 0.7rem;padding-left: 50%; padding-bottom: 1.5rem;' id="politicadesktop">
         <label style='width: 14vw;display: inline-block;position: absolute;left: 50vw;font-size: 0.7rem;' onclick='go("privacy.php")'>PRIVACY POLICY'</label>
         <label style='width: 15vw;display: inline-block;position: absolute;left: 62vw;font-size: 0.7rem;'><span onclick='go("shipping.php")'>SHIPPING RETURNS</span></label>
+</div-->
+<div class='container-fluid mb-2 privacity-pie'
+     style='bottom: 1vh;font-size: 0.7rem;' id="politicadesktop">
+    <?php
+    require_once('privacyShiping.php');
+    ?>
 </div>
-
 
 
 </body>
