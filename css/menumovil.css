@@ -1,5 +1,6 @@
 p {
     display: block;
+    text-align: justify !important;
 }
 
 .embed-responsive-item {
