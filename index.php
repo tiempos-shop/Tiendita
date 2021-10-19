@@ -34,7 +34,7 @@ $h= $html->Html5Shop(
         "Tiempos Shop",
             $html->Meta("utf-8","Tienda Online de Tiempos Shop","Egil Ordonez"),
             $html->LoadStyles(["global.css","View/css/bootstrap.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", "css/menumovil.css"]),
-            $html->LoadScripts(["View/js/bootstrap.js", "js/axios.min.js", "js/vue.js", "js/global.js"]),
+            $html->LoadScripts(["View/js/bootstrap.js", "js/axios.min.js", "js/video-embed.min.js", "js/vue.js", "js/global.js"]),
             "
                 <style>
                     #contenedorIndex{
@@ -52,7 +52,10 @@ $h= $html->Html5Shop(
                     }
                 </style>
             ",
-            "<script>
+            
+            "
+            <script src='https://unpkg.com/v-video-embed/dist/video-embed.min.js' type='text/javascript'></script>
+            <script>
                       window.onload=function (){
                           //load();
                       }
@@ -94,7 +97,7 @@ $h= $html->Html5Shop(
                     
                     </script>,"
 
-        ),"style='background-color:#FFFFF;color:#AC9950'");
+        ),"style='background-color:#000000;color:#AC9950'");
 
 print_r($h);
 
@@ -121,7 +124,7 @@ require_once('menu.php');
                     if ($confiIndex[0]->idConfig == 3)
                     {
                         /*para youtube */
-                        
+                        echo "<video-embed  :params='{autoplay: 1}' css='embed-responsive-21by9' src='".$confiIndex[0]->img1."'></video-embed>";   
                     }
                 ?>
 
@@ -136,7 +139,7 @@ require_once('menu.php');
 
 <script>
 
-
+    
     var app = new Vue({
         el:'#app',
         data:{
@@ -204,7 +207,8 @@ require_once('menu.php');
         },
         async mounted() {
             var nombrePaginaHtml =location.pathname;
-
+            
+            
             if (nombrePaginaHtml.indexOf("index.php")>=0)
             {
                 this.status.enIndex = true;
@@ -218,6 +222,7 @@ require_once('menu.php');
                 this.status.esClienteLocal = true;
             }
 
+            
 
             await this.ObtenerEnCarrito();
         },

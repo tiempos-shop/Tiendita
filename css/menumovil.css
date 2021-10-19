@@ -2,6 +2,17 @@ p {
     display: block;
 }
 
+.embed-responsive-item {
+    width: 90vw !important;
+    height: 95vh !important;
+    margin-top: 2vh;
+    margin-left: 5vw;
+}
+
+.ytp-chrome-top{
+    display: none !important;
+}
+
 #botonMenuMovil.index i {
 
     color: #AC9950;
