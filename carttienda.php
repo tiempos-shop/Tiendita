@@ -56,7 +56,7 @@ require_once('menu.php');
 ?>
 
 <img onclick="go('index.php')" alt="SP" id="logo" class="fixed-top" src="img/ts_iso_negro.png"
-        style="width: 7%">
+        >
     <div id="contenedorIndex">
 
 
@@ -184,7 +184,7 @@ require_once('menu.php');
             </div>
         </div>
         <div id="shippingMovil" style="padding-left: 12%;" class="  col-md-3 " >
-            <p class="small text-align-center">SHIPPING & TAXES CALCULATED AT CHECKOUT</p>
+            <p class="small text-align-center" id="text-st">SHIPPING & TAXES CALCULATED AT CHECKOUT</p>
         </div>
     </div>
 

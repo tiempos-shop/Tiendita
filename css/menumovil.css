@@ -330,7 +330,7 @@ a.elemento-menu-movil.carrito{
 }
 
 @media (min-width: 576px) {
-
+   
     #fotosprincipal {
         display: block !important;
     }
@@ -348,6 +348,9 @@ a.elemento-menu-movil.carrito{
 }
 
 @media (max-width: 576px) {
+    #text-st {
+        font-size: 0.7rem !important;
+    }
     .border-check {
         width: 100vw;
         margin-left: -2rem;
