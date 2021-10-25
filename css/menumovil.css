@@ -348,6 +348,7 @@ a.elemento-menu-movil.carrito{
 }
 
 @media (max-width: 576px) {
+    
     #text-st {
         font-size: 0.7rem !important;
     }
@@ -370,6 +371,12 @@ a.elemento-menu-movil.carrito{
 }
 
 @media (max-width: 768px) {
+    .shop-color{
+        text-align: center !important;
+    }
+    .shop-precio{
+        text-align: center !important;
+    }
     .img-config {
         width: 150vw !important;
         margin-left: -50vw !important;

@@ -470,7 +470,7 @@ require_once('menu.php');
                         <div class='card'>
                             <div class='card-header'>
                                 <div>
-                                    <h3>Pago en línea <img src="img/conekta.png" alt="cerrarSesion" style="width: 100px;" /></h3>
+                                    <h3>Pago en línea </h3>
 
                                 </div>
                             </div>

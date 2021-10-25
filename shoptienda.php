@@ -99,8 +99,10 @@ require_once('menu.php');
                                     @click="VerProducto(producto.idProducto)"
                                     @mouseover="producto.dentro = true; CambiarImagen(producto,false)"
                                     @mouseleave="producto.dentro = false; CambiarImagen(producto,true)" style="width: 100%"><br /><br />
-                    <p style="font-family: NHaasGroteskDSPro-65Md;line-height: 1">{{producto.color}}</p>
-                    <p><s style="font-size: 0.7rem;" v-if="producto.precioComparativo>0 && producto.precioComparativo != producto.precioFinal">{{siglasMoneda}} {{Number(producto.precioComparativo) | moneda}}</s> {{siglasMoneda}} {{Number(producto.precioFinal) | moneda}}</p>
+                    <p style="font-family: NHaasGroteskDSPro-65Md;line-height: 1" class="shop-color">{{producto.color}}</p>
+                    <p class="shop-precio">
+                        <s style="font-size: 0.7rem;" v-if="producto.precioComparativo>0 && producto.precioComparativo != producto.precioFinal">{{siglasMoneda}} {{Number(producto.precioComparativo) | moneda}}</s> {{siglasMoneda}} {{Number(producto.precioFinal) | moneda}}
+                    </p>
                 </div>
 
             </div>
