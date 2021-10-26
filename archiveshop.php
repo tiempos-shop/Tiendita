@@ -164,7 +164,10 @@ require_once('menu.php');
                 {
                     echo '<img src='.$nombreURLAdmin.$row->rutaserver.' />';
                 }
-
+                if ($row->tipo == "sec")
+                {
+                    
+                }
                 echo '</div>';
             }
             ?>
