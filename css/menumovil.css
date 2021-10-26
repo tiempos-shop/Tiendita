@@ -1,6 +1,7 @@
 p {
     display: block;
     text-align: justify !important;
+    margin-bottom: 0 !important;
 }
 
 .embed-responsive-item {

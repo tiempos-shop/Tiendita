@@ -10,9 +10,9 @@ $db=new \Tiendita\EntidadBase();
 
 $auxmenu = 0;
 $menuPrincipal = "";
-$menu = $db->getAll("menus");
-$submenu = $db->getAll("submenus");
+$menu = $db->getAll("menus ORDER BY orden asc");
 
+$submenu = $db->getAll("submenus");
 
 $db->close();
 
@@ -112,25 +112,14 @@ require_once('menu.php');
         <div style='position: fixed;top:8.5vh;margin-left: -12vw' class="d-none d-md-block">
             <a @click='ObtenerProductos(0)'  class='d-block text-dark p-1' style="cursor: pointer;">SHOP ALL'</a>
             <?php
+            
             foreach ($menu as $valor) {
                 $menuSecundario = "";
-                foreach ($submenu as $subvalor) {
-                    if( $subvalor->idMenu == $valor->idMenu )
-                        $menuSecundario .= "<a href='#' class='d-block text-dark pl-2'>$subvalor->SubMenu</a>";
-                    $menuSecundario = "";
-                }
-                if ( $menuSecundario != "" ){
-                    $menuPrincipal .= "<div class='p-1'><a href='#' class='d-block text-dark' style='text-transform: uppercase;' data-menu='$auxmenu' onclick='openSubmenu(this);' @click='ObtenerProductos(".$valor->idMenu.")'>$valor->menu</a>";
-                    $menuPrincipal .= "<div class='submenu d-none'>";
-                    $menuPrincipal .= $menuSecundario;
-                    $menuPrincipal .= "</div>";
-                    $menuPrincipal .= "</div>";
-                    $auxmenu++;
-                }else{
-                    $menuPrincipal .= "<a @click='ObtenerProductos(".$valor->idMenu.")' class='d-block text-dark p-1'><span style='text-transform: uppercase;'>$valor->menu</span></a>";
-                }
+                
+                echo "<a @click='ObtenerProductos(".$valor->idMenu.")' class='d-block text-dark p-1'><span style='text-transform: uppercase;'>$valor->menu $valor->orden</span></a>";
+                
             }
-            echo $menuPrincipal;
+            
             ?>
         </div>
 
