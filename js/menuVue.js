@@ -629,7 +629,7 @@ var menuApp = new Vue({
             this.status.enPricavy = true;
         }
 
-        if (nombrePaginaHtml.indexOf('archive.php')>=0)
+        if (nombrePaginaHtml.indexOf('archive')>=0)
         {
             this.status.enArchivo = true;
             this.estilo.menuEscritorio = 'margin: 2vh 2vw 0px;margin-top: 1.1vh; margin-left: 2.1vw;border: 1px solid black; border-bottom:0;margin-right: 0.6vw;min-height: 4vh; width: 96.1vw; '

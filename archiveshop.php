@@ -92,12 +92,7 @@ $h= $html->Html5Shop(
                       
                       var catalogos = [];
                       var catalogoslabel = [];
-                      window.addEventListener(\"scroll\", reordenarcatalogo);
-                      window.addEventListener(\"load\", function () {
-                        catalogos = document.querySelectorAll(\"hr.catalogo\");
-                        catalogoslabel = document.querySelectorAll(\"span.catalogolabel\");
-                        reordenarcatalogo();
-                      });
+                     
                       
                       function reordenarcatalogo(){
                           let scrollwindows = document.documentElement.scrollTop;
@@ -115,10 +110,7 @@ $h= $html->Html5Shop(
                           catalogoslabel[variable].classList.remove(\"hidden\");
                       }
                       
-                      function  ircatalogo(e){
-                          let altocatalogo = catalogos[e].offsetTop;
-                          window.scroll({ top: altocatalogo, behavior: 'smooth' });
-                      }
+                      
                     </script>"
 
     ),"style='background-color:transparent;z-index:100;overflow-x:hidden'");
@@ -130,9 +122,26 @@ require_once('menu.php');
 
 <img onclick="go('index.php')" alt="SP" id="logo" class="fixed-top" src="img/ts_iso_negro.png"
 >
- <div id="t" style="font-size:1.1em;font-family: NHaasGroteskDSPro-55Rg;z-index: 900" class="d-none d-md-block"><span onclick="ircatalogo(0)"
-    class="hidden catalogolabel">T0200"00</span><span onclick="ircatalogo(1)"
-    class="hidden catalogolabel">T0100"00</span></div>
+<div id="t" style="font-size:1.1em;font-family: NHaasGroteskDSPro-55Rg;z-index: 900" class="d-none d-md-block">
+<?php
+    $pocision = 0;
+    foreach ($archivos as $row) {
+        if ($row->tipo == "sec")
+        {
+            if ($pocision == 0)
+            {
+                echo '<span onclick="ircatalogo('.$row->id.')" class=" catalogolabel" >'.$row->html.'</span>';
+            }
+            else
+            {
+                echo '<span onclick="ircatalogo('.$row->id.')" class="hidden catalogolabel">'.$row->html.'</span>';
+            }
+            $pocision = $pocision +1;    
+        } 
+        
+    }
+?>
+</div>
 <div class="fixed-top" id="bordepagina"
      style="z-index:100;display:block;width:96.1vw;height:95.7vh;background-color: transparent;border: 1px solid black;top:1vh;left: 2.1vw; z-index: -10;">
 
@@ -152,8 +161,18 @@ require_once('menu.php');
     <div class="row ">
             <?php
             foreach ($archivos as $row) {
-                echo '<div class="  col-md-1  " ></div>';
-                echo '<div class="  col-md-11  " >';
+                
+                if ($row->tipo != "sec")
+                {
+                    echo '<div class="  col-md-1  " ></div>';
+                    echo '<div class="  col-md-11  " >';
+                }
+                else
+                {
+                    //para el borde
+                    echo '<div class="  col-md-12  " >';
+                }
+                
                 if ($row->tipo =="p")
                 {
                     
@@ -166,18 +185,14 @@ require_once('menu.php');
                 }
                 if ($row->tipo == "sec")
                 {
-                    
+                    echo '<hr class="catalogo" id="cat'.$row->id.'" />';
                 }
                 echo '</div>';
             }
             ?>
       
     </div>
-    <div class="row ">
-        <div class="  col-md-12  " >
-            <hr class="catalogo" />
-        </div>
-    </div>
+
     <div class="row ">
         <div class="  col-md-1  " >
 
@@ -186,14 +201,7 @@ require_once('menu.php');
 
         </div>
     </div>
-    <div class="row ">
-        <div class="  col-md-1  " >
-
-        </div>
-        <div class="  col-md-11  " >
-            <br /><label style="padding-right: 10%">COLLECTION</label><br /><br />
-        </div>
-    </div><br /><br />
+    <br /><br />
 </div>
 <div id="politicadesktop"></div>
 <script>
@@ -202,6 +210,13 @@ require_once('menu.php');
     document.getElementById('contenedorIndex').style.marginTop = '10px';
     document.getElementById('menu-movil-dorado').style.backgroundColor = 'white';
     document.getElementById('menu-movil-dorado').style.paddingBottom = '0px';
+
+    function  ircatalogo(id){
+        let scrollwindows = document.documentElement.scrollTop;
+        let bordeCatalogo = document.getElementById('cat' + id);
+        let altocatalogo = bordeCatalogo.offsetTop;
+        window.scroll({ top: altocatalogo, behavior: 'smooth' });
+    }
 </script>
 </body>
 </html>
