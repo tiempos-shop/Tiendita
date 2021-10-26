@@ -130,13 +130,13 @@ require_once('menu.php');
         {
             if ($pocision == 0)
             {
-                echo '<span onclick="ircatalogo('.$row->id.')" class=" catalogolabel" >'.$row->html.'</span>';
+                echo '<span onclick="ircatalogo('.$pocision.')" class=" catalogolabel" >'.$row->html.'</span>';
             }
             else
             {
-                echo '<span onclick="ircatalogo('.$row->id.')" class="hidden catalogolabel">'.$row->html.'</span>';
+                echo '<span onclick="ircatalogo('.$pocision.')" class="hidden catalogolabel">'.$row->html.'</span>';
             }
-            $pocision = $pocision +1;    
+            $pocision++;    
         } 
         
     }
@@ -160,8 +160,9 @@ require_once('menu.php');
     </div>
     <div class="row ">
             <?php
+            $pocisionSeccion = 0;
             foreach ($archivos as $row) {
-                
+                echo '<div id="seccion'.$pocisionSeccion.'"></div>';
                 if ($row->tipo != "sec")
                 {
                     echo '<div class="  col-md-1  " ></div>';
@@ -186,6 +187,7 @@ require_once('menu.php');
                 if ($row->tipo == "sec")
                 {
                     echo '<hr class="catalogo" id="cat'.$row->id.'" />';
+                    $pocisionSeccion++;
                 }
                 echo '</div>';
             }
@@ -213,8 +215,10 @@ require_once('menu.php');
 
     function  ircatalogo(id){
         let scrollwindows = document.documentElement.scrollTop;
-        let bordeCatalogo = document.getElementById('cat' + id);
+        let bordeCatalogo = document.getElementById('seccion' + id);
         let altocatalogo = bordeCatalogo.offsetTop;
+        altocatalogo = altocatalogo - 50;
+        console.log("alto", altocatalogo);
         window.scroll({ top: altocatalogo, behavior: 'smooth' });
     }
 </script>
