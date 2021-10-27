@@ -112,7 +112,8 @@ require_once('menu.php');
         <div style='position: fixed;top:8.5vh;margin-left: -12vw' class="d-none d-md-block">
             <a @click='ObtenerProductos(0)'  class='d-block text-dark p-1' style="cursor: pointer;">SHOP ALL'</a>
             <?php
-            
+            $orden=array_column($menu,'orden');
+            array_multisort($orden,SORT_ASC,$menu);
             foreach ($menu as $valor) {
                 $menuSecundario = "";
                 
