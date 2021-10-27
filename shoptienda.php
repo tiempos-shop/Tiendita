@@ -117,7 +117,7 @@ require_once('menu.php');
             foreach ($menu as $valor) {
                 $menuSecundario = "";
                 
-                echo "<a @click='ObtenerProductos(".$valor->idMenu.")' class='d-block text-dark p-1'><span style='text-transform: uppercase;'>$valor->menu $valor->orden</span></a>";
+                echo "<a @click='ObtenerProductos(".$valor->idMenu.")' class='d-block text-dark p-1'><span style='text-transform: uppercase;'>$valor->menu</span></a>";
                 
             }
             
