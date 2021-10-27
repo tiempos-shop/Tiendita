@@ -182,7 +182,7 @@ require_once('menu.php');
                 }
                 if ($row->tipo =="img" || $row->tipo =="imgprod")
                 {
-                    echo '<img src='.$nombreURLAdmin.$row->rutaserver.' />';
+                    echo '<img src='.$nombreURLAdmin.$row->rutaserver.' style="width:100vw" />';
                 }
                 if ($row->tipo == "sec")
                 {
