@@ -55,7 +55,7 @@ function validarDimenciones() {
         document.getElementById('lista-orden').style.left = separacionBotonMenu +'px';
         document.getElementById('logo').style.left = (separacionCart + 10) +'px';
 
-        if (location.pathname.indexOf('archive.php')>=0)
+        if (location.pathname.indexOf('archive')>=0)
         {
             /*para archivo*/
             document.getElementById('margen-der').style.display = 'none';
@@ -131,7 +131,7 @@ function validarDimenciones() {
             app.estilo.productos = '';
         }
 
-        if (location.pathname.indexOf('archive.php')>=0)
+        if (location.pathname.indexOf('archive')>=0)
         {
             /*para archivo*/
             document.getElementById('margen-der').style.display = 'block';
