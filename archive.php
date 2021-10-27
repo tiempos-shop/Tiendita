@@ -166,7 +166,14 @@ require_once('menu.php');
                 if ($row->tipo != "sec")
                 {
                     echo '<div class="  col-md-1  " ></div>';
-                    echo '<div class="  col-md-11  " >';
+                    if ($row->tipo == "p")
+                    {
+                        echo '<div class="  col-md-11  text-archive-movil" >';
+                    }
+                    else{
+                        echo '<div class="  col-md-11  " >';
+                    }
+                    
                 }
                 else
                 {

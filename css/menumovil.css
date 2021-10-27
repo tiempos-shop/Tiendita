@@ -375,6 +375,9 @@ a.elemento-menu-movil.carrito{
     .shop-color{
         text-align: center !important;
     }
+    .text-archive-movil {
+        padding-left: 10vw !important;
+    }
     .shop-precio{
         text-align: center !important;
     }
